@@ -159,3 +159,5 @@ C:\Users\Tom\Documents\GitHub\LandConquest\bin\Debug\System.Data.SqlClient.dll
 C:\Users\Tom\Documents\GitHub\LandConquest\bin\Debug\TableDependency.SqlClient.dll
 C:\Users\Tom\Documents\GitHub\LandConquest\obj\Debug\Forms\ChatWindow.g.cs
 C:\Users\Tom\Documents\GitHub\LandConquest\obj\Debug\Forms\ChatWindow.baml
+C:\Users\Tom\Documents\GitHub\LandConquest\bin\Debug\music2.wav
+C:\Users\Tom\Documents\GitHub\LandConquest\bin\Debug\music3.wav

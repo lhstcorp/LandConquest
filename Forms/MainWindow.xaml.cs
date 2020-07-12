@@ -438,6 +438,13 @@ namespace LandConquest.Forms
             SoundPlayer sound = new SoundPlayer();
             sound.SoundLocation = @"music.wav";
             sound.PlayLooping();
+            
+            //sound.SoundLocation = @"music2.wav";
+            //sound.PlayLooping();
+            
+            //sound.SoundLocation = @"music3.wav";
+            //sound.PlayLooping();
+            
 
         }
 
