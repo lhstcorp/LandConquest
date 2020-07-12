@@ -47,13 +47,18 @@ namespace LandConquest.Models
 
         public void UpdateStorage(SqlConnection connection, Player player, PlayerStorage _storage)
         {
-            String storageQuery = "UPDATE dbo.StorageData SET wood = @wood, stone  = @stone, food = @food WHERE player_id = @player_id ";
+            String storageQuery = "UPDATE dbo.StorageData SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather   WHERE player_id = @player_id ";
 
             var storageCommand = new SqlCommand(storageQuery, connection);
             // int datetimeResult;
             storageCommand.Parameters.AddWithValue("@wood", _storage.PlayerWood);
             storageCommand.Parameters.AddWithValue("@stone", _storage.PlayerStone);
             storageCommand.Parameters.AddWithValue("@food", _storage.PlayerFood);
+            storageCommand.Parameters.AddWithValue("@copper", _storage.PlayerCopper);
+            storageCommand.Parameters.AddWithValue("@iron", _storage.PlayerIron);
+            storageCommand.Parameters.AddWithValue("@gems", _storage.PlayerGems);
+            storageCommand.Parameters.AddWithValue("@gold_ore", _storage.PlayerGoldOre);
+            storageCommand.Parameters.AddWithValue("@leather", _storage.PlayerLeather);
             storageCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
 
             for (int i = 0; i < 3; i++)

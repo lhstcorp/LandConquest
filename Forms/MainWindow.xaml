@@ -73,17 +73,9 @@
         <Button x:Name="SaveTaxes" Content="Save" HorizontalAlignment="Left" Height="35" Margin="27,222,0,0" VerticalAlignment="Top" Width="112" Click="SaveTaxes_Click"/>
         <Label Content="productivity ratio: " FontSize="9" FontWeight="Bold" Foreground="DarkSlateGray" HorizontalAlignment="Left" Margin="26,266,0,0" VerticalAlignment="Top"/>
         <Label x:Name="prodRatioValue" Content="0" FontSize="9" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="DarkSlateGray" HorizontalAlignment="Left" Margin="113,266,0,0" VerticalAlignment="Top"  />
-        <Image x:Name="recruitImage"  HorizontalAlignment="Left" Height="58" Margin="430,5,0,0" VerticalAlignment="Top" Source="/Pictures/shield.png" Width="56" MouseDown="recruitImage_MouseDown" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.995"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
+        <Image x:Name="recruitImage"  HorizontalAlignment="Left" Height="58" Margin="430,5,0,0" VerticalAlignment="Top" Source="/Pictures/shield.png" Width="56" MouseDown="recruitImage_MouseDown" RenderTransformOrigin="0.5,0.5" Cursor="Hand"/>
 
-        </Image>
+        
         <Button Content="for ManufactureLVLDATA" HorizontalAlignment="Left" Height="97" Margin="158,173,0,0" VerticalAlignment="Top" Width="28" Click="Button_Click"/>
         <Button x:Name="btnHideLandGrid"  Content="Hide" HorizontalAlignment="Left" Height="38" Margin="27,750,0,0" VerticalAlignment="Top" Width="71" Panel.ZIndex="2" Click="btnHideLandGrid_Click"/>
         <Button x:Name="btnShowLandGrid"  Content="Show" HorizontalAlignment="Left" Height="38" Margin="236,750,0,0" VerticalAlignment="Top" Width="71" Panel.ZIndex="2" Click="btnShowLandGrid_Click" />

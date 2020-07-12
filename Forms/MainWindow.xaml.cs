@@ -70,7 +70,7 @@ namespace LandConquest.Forms
             manufactureModel = new ManufactureModel();
             playerModel = new PlayerModel();
             storageModel = new StorageModel();
-           
+                    
             player = playerModel.GetPlayerInfo(_user, connection, player);
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
             PbExp.Value = player.PlayerExp;
@@ -161,6 +161,7 @@ namespace LandConquest.Forms
 
         private void ImageStorage_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            storage = storageModel.GetPlayerStorage(player, connection, storage);
             List<Manufacture> manufactures = manufactureModel.GetManufactureInfo(player, connection);
             storage.PlayerWood += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
             player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
@@ -178,6 +179,7 @@ namespace LandConquest.Forms
             PbExp.Value = player.PlayerExp;
 
             storageModel.UpdateStorage(connection, player, storage);
+            
             manufactureModel.UpdateDateTimeForManufacture(manufactures, player, connection);
 
             StorageWindow storageWindow = new StorageWindow(this, connection, player, user);
@@ -547,5 +549,7 @@ namespace LandConquest.Forms
             chatWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             chatWindow.Show();
         }
+
+       
     }
 }
