@@ -371,6 +371,18 @@
     <Content Include="music.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="music2.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="music3.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Pictures\gear.png" />
+    <Resource Include="Pictures\bow.png" />
+    <Resource Include="Pictures\spear.png" />
+    <Resource Include="Pictures\harness.png" />
+    <Resource Include="Pictures\sword.png" />
+    <Resource Include="Pictures\armor.png" />
     <Resource Include="Pictures\craft.png" />
     <Resource Include="Pictures\coppermine.png" />
     <Resource Include="Pictures\leatherfarm.png" />
