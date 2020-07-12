@@ -1,0 +1,142 @@
+﻿<Window x:Class="LandConquest.Forms.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.Forms"
+        xmlns:ctrls="clr-namespace:LandConquest.Resources"
+        mc:Ignorable="d"
+        WindowStyle="None" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Title="MainWindow"  MinHeight="900" MinWidth="1600" Height="861.6" Width="1548.8">
+
+    <Window.Resources>
+        <ctrls:GlobalMap x:Key="GlobalMap"></ctrls:GlobalMap>
+
+
+        <Style TargetType="{x:Type Path}">
+            <EventSetter Event="MouseEnter" Handler="PathEnterHandler"/>
+            <EventSetter Event="MouseLeave" Handler="PathLeaveHandler"/>
+            <EventSetter Event="MouseDown" Handler="PathDownHandler"/>
+            <EventSetter Event="Loaded" Handler="PathLoadedHandler"/>
+
+        </Style>
+
+        <ctrls:ResourceMap x:Key="ResourceMap"></ctrls:ResourceMap>
+
+
+
+    </Window.Resources>
+
+
+    <Grid x:Name="mainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseDown="Grid_MouseDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="273*"/>
+            <ColumnDefinition Width="124*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Image x:Name="flag" Source="/Pictures/flag.png" HorizontalAlignment="Left" Height="38" Margin="367,332,0,0" VerticalAlignment="Top" Width="33" Panel.ZIndex="100"/>
+
+        <Viewbox x:Name="GlobalMap" Stretch="Uniform" Width="300" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" Margin="351,83,441,517" Panel.ZIndex="90">
+            <ctrls:GlobalMap Height="300" Width="300"/>
+        </Viewbox>
+
+        <Viewbox x:Name="ResourceMap" Style="{StaticResource ResourceStyleViewBox}" Visibility="Hidden" Stretch="Uniform" Cursor="Hand"  Margin="351,83,441,517" Width="300" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ctrls:ResourceMap Height="300" Width="300"/>
+        </Viewbox>
+
+        <Image x:Name="image" Margin="6,0,0,0" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83"/>
+        <Label x:Name="labelMoney" Content="0" Foreground="White" HorizontalAlignment="Left" Margin="158,56,0,0" VerticalAlignment="Top" Height="32" Width="87" FontSize="16"/>
+        <Label x:Name="labelDonation" Content="0" Foreground="Goldenrod" FontSize="16" HorizontalAlignment="Left" Margin="158,88,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.15,0.5" Width="87" Height="31"/>
+        <Label x:Name="labelName" Content="Name" Foreground="#FFD7464B" FontSize="28" FontWeight="Bold" FontFamily="Harrington" HorizontalAlignment="Left" Margin="106,0,0,0" VerticalAlignment="Top" Width="145"/>
+        <Label Content="COINS" FontSize="16" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="100,56,0,0" VerticalAlignment="Top" Height="32" Width="58"/>
+        <Label Content="GOLD" FontSize="16" Foreground="Goldenrod" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="100,88,0,0" VerticalAlignment="Top" Height="31" Width="55"/>
+        <Image HorizontalAlignment="Left" Height="49" Margin="292,10,0,0" VerticalAlignment="Top" Width="54" Source="/Pictures/resource_chest.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="49" Margin="367,10,0,0" VerticalAlignment="Top" Width="49" Source="/Pictures/manufacturing.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
+        <Button x:Name="buttonCloseWindow" Content="Button" Margin="0,5,43,0" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCloseWindow_Click" Height="49" VerticalAlignment="Top" HorizontalAlignment="Right" Width="101" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_exit.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="reload_button" HorizontalAlignment="Right" Margin="0,10,33,0" VerticalAlignment="Top" Width="33" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="31" Click="reload_button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/reload_button.png"/>
+            </Button.Background>
+        </Button>
+        <Slider x:Name="sliderTaxes" HorizontalAlignment="Left" Height="21" Margin="26,201,0,0" VerticalAlignment="Top" Width="113" Minimum="0" Maximum="10" Value="5" PreviewMouseLeftButtonUp="sliderTaxes_PreviewMouseLeftButtonUp"/>
+        <Label Content="{Binding Value, ElementName=sliderTaxes, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" VerticalAlignment="Top" Margin="75,181,0,0"  Foreground="#FF897657" FontFamily="Open Sans" Height="20" Width="43" Background="{x:Null}" />
+        <Label Content="Taxes" Foreground="#FFDAA727" FontSize="18"  FontFamily="Verdana" HorizontalAlignment="Left" Margin="53,157,0,0" VerticalAlignment="Top" Background="{x:Null}"/>
+        <Button x:Name="SaveTaxes" Content="Save" HorizontalAlignment="Left" Height="35" Margin="27,222,0,0" VerticalAlignment="Top" Width="112" Click="SaveTaxes_Click"/>
+        <Label Content="productivity ratio: " FontSize="9" FontWeight="Bold" Foreground="DarkSlateGray" HorizontalAlignment="Left" Margin="26,266,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="prodRatioValue" Content="0" FontSize="9" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="DarkSlateGray" HorizontalAlignment="Left" Margin="113,266,0,0" VerticalAlignment="Top"  />
+        <Image x:Name="recruitImage"  HorizontalAlignment="Left" Height="58" Margin="430,5,0,0" VerticalAlignment="Top" Source="/Pictures/shield.png" Width="56" MouseDown="recruitImage_MouseDown" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.995"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+
+        </Image>
+        <Button Content="for ManufactureLVLDATA" HorizontalAlignment="Left" Height="97" Margin="158,173,0,0" VerticalAlignment="Top" Width="28" Click="Button_Click"/>
+        <Button x:Name="btnHideLandGrid"  Content="Hide" HorizontalAlignment="Left" Height="38" Margin="27,750,0,0" VerticalAlignment="Top" Width="71" Panel.ZIndex="2" Click="btnHideLandGrid_Click"/>
+        <Button x:Name="btnShowLandGrid"  Content="Show" HorizontalAlignment="Left" Height="38" Margin="236,750,0,0" VerticalAlignment="Top" Width="71" Panel.ZIndex="2" Click="btnShowLandGrid_Click" />
+        <Grid x:Name="Country_characters" HorizontalAlignment="Left" Height="507" Margin="19,293,0,0" VerticalAlignment="Top" Width="292">
+            <Grid.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/panel_transparent.png"/>
+            </Grid.Background>
+
+            <Label x:Name="lblLandNameOnGrid" Content="Land Name" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Height="30" Margin="85,68,0,0" VerticalAlignment="Top" Width="127" Background="{x:Null}"/>
+            <Button x:Name="btnGoToLand" Content="Go to" HorizontalAlignment="Left" Height="38" Margin="64,126,0,0" VerticalAlignment="Top" Width="164" Click="btnGoToLand_Click"/>
+            <Image x:Name="imgLandResource1ImgOnGrid"  HorizontalAlignment="Left" Height="55" Margin="64,262,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="-0.291,0.465"/>
+            <Label x:Name="lblLandResource1NameOnGrid"  Foreground="#FF8F7D5E" HorizontalAlignment="Left" Margin="64,332,0,0" VerticalAlignment="Top" Width="90" Background="{x:Null}"/>
+            <Image x:Name="imgLandResource2ImgOnGrid"  HorizontalAlignment="Left" Height="55" Margin="173,262,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="-0.291,0.465"/>
+            <Label x:Name="lblLandResource2NameOnGrid"  Foreground="#FF897657" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="152,332,0,0" VerticalAlignment="Top" Width="89"/>
+            <Button x:Name="buttonEstablishaState" IsEnabled="True" Content="Establish a state" HorizontalAlignment="Left" Margin="64,183,0,0" VerticalAlignment="Top" Width="164" Height="37" Click="buttonEstablishaState_Click"/>
+            <Label x:Name="lblCountryNameOnGrid" Content="Country Name" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Height="41" Margin="64,27,51,0" VerticalAlignment="Top" Width="177" Background="{x:Null}"/>
+        </Grid>
+        <Image x:Name="ResourceMapBtn" HorizontalAlignment="Left" Height="51" Margin="248,177,0,0" VerticalAlignment="Top" Width="59" Cursor="Hand" Source="/Pictures/resource_map.png" MouseDown="ResourceMapBtn_MouseDown"/>
+        <Image x:Name="GlobalMapBtn" HorizontalAlignment="Left" Height="48" Margin="247,129,0,0" VerticalAlignment="Top" Width="60" Cursor="Hand" Source="/Pictures/map_icon.png" MouseDown="GlobalMapBtn_MouseDown">
+        </Image>
+        <Button x:Name="buttonSettings"  HorizontalAlignment="Right" Margin="0,5,166,0" VerticalAlignment="Top" Width="101" Height="49" BorderBrush="{x:Null}" Foreground="{x:Null}" MouseEnter="buttonSettings_MouseEnter" Grid.Column="1"   >
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/menu_button.png"/>
+            </Button.Background>
+        </Button>
+
+        <Grid x:Name="settingsGrid" Visibility="Hidden" HorizontalAlignment="Right" Height="123" Margin="0,59,157,0" VerticalAlignment="Top" Width="119" MouseLeave="settingsGrid_MouseLeave" Grid.Column="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/settings_back.png"  />
+            </Grid.Background>
+            <TextBlock HorizontalAlignment="Left" Margin="23,12,0,0" FontSize="16" TextWrapping="Wrap" Text="Music:" VerticalAlignment="Top" Width="50"/>
+            <TextBlock x:Name="ExitButton" HorizontalAlignment="Left" FontSize="16" Margin="35,89,0,0" TextWrapping="Wrap" Text="Logout" VerticalAlignment="Top" TextDecorations="Underline" MouseLeftButtonDown="ExitButton_MouseLeftButtonDown"/>
+            <CheckBox x:Name="checkBox"  HorizontalAlignment="Left" Margin="78,16,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="0.88,0.455" Checked="checkBox_Checked"/>
+
+        </Grid>
+        <Button x:Name="buttonProfile" HorizontalAlignment="Right" Margin="0,5,287,0" VerticalAlignment="Top" Width="101" Height="49" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonProfile_Click" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_profile.png"/>
+            </Button.Background>
+        </Button>
+        <ProgressBar x:Name="PbExp" HorizontalAlignment="Left" Height="18" Margin="106,41,0,0" VerticalAlignment="Top" Width="80" Foreground="#FFD7464B" BorderBrush="#FFD7464B" Background="{x:Null}"/>
+        <Label x:Name="Level"  FontSize="12" HorizontalContentAlignment="Center" Content="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,108,0,0" VerticalAlignment="Top" Foreground="#FFE1C793" Width="89" Height="30" Background="#FFD7464B"/>
+        <Button x:Name="buttonTop" Margin="0,5,407,0" VerticalAlignment="Top" Height="49" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Width="101" Grid.ColumnSpan="2" Click="buttonTop_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_top.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="test2" IsEnabled="False" Content="Button" HorizontalAlignment="Left" Height="97" Margin="191,173,0,0" VerticalAlignment="Top" Width="28" Click="test2_Click"/>
+        <Button x:Name="buttonChat" Content="Show chat" Grid.Column="1" HorizontalAlignment="Left" Margin="229,293,0,0" VerticalAlignment="Top" Width="224" Click="buttonChat_Click"/>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+    </Grid>
+
+</Window>

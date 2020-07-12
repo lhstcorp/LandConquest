@@ -1,0 +1,38 @@
+﻿<Window x:Class="LandConquest.Forms.ChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.Forms"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStyle="None" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="ChatWindow" Height="450" Width="850" Background="{x:Null}">
+
+    <Grid>
+        <TextBox x:Name="textBoxNewMessage" FontSize="16" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap"  VerticalAlignment="Top" Width="752" 
+                 Background="White" CaretBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" materialDesign:HintAssist.Hint=" Your message"  materialDesign:HintAssist.IsFloating="False" Margin="10,404,0,0" BorderBrush="{x:Null}"/>
+        <ListView x:Name="listViewChat" HorizontalAlignment="Left" Height="351" VerticalAlignment="Top" Width="830" Foreground="#DD000000" BorderBrush="Black" Loaded="listViewChat_Loaded" Background="White" OpacityMask="White" FontSize="12" Margin="10,48,0,0">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Background" Value="White"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <Button x:Name="buttonSendMessage" Content="Send" HorizontalAlignment="Left" FontWeight="Bold" VerticalContentAlignment="Top"  VerticalAlignment="Top" Width="73" Height="36" Click="buttonSendMessage_Click" BorderBrush="{x:Null}" Margin="767,404,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_usual.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonClose" HorizontalAlignment="Left" Margin="767,10,0,0" VerticalAlignment="Top" Width="73" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="buttonClose_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close.png"/>
+            </Button.Background>
+        </Button>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+    </Grid>
+</Window>

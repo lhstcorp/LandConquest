@@ -1,0 +1,65 @@
+﻿<Window x:Class="LandConquest.Forms.ProfileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.Forms"
+        mc:Ignorable="d"
+        WindowStyle="None" ResizeMode="NoResize"
+        Title="ProfileWindow" Height="600" Width="600" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="profileImage" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" RenderTransformOrigin="0.38,0.495" Margin="0,14,0,0"/>
+
+        <Label Content="Name:" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="115,54,0,0" VerticalAlignment="Top" Height="40"/>
+        <Label Content="Title:" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="115,93,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label Content="Land:" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="115,133,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
+        <Label Content="Email:" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="115,173,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
+        <Label Content="Login:" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="115,213,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
+        <Label Content="Pass:" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="115,253,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
+
+
+
+        <Label x:Name="labelName" Content="null" FontSize="24" HorizontalAlignment="Left" Margin="212,54,0,0" VerticalAlignment="Top" Height="40"/>
+        <Label x:Name="labelTitle" Content="null" FontSize="24" HorizontalAlignment="Left" Margin="212,93,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelLand" Content="null" FontSize="24" HorizontalAlignment="Left" Margin="211,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="labelEmail" Content="null" FontSize="24" HorizontalAlignment="Left" Margin="211,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="labelLogin" Content="null" FontSize="24" HorizontalAlignment="Left" Margin="211,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="labelPass" Content="••••••" FontSize="24" HorizontalAlignment="Left" Margin="212,253,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+
+
+        <Button x:Name="buttonClose"  HorizontalAlignment="Left" Margin="514,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonClose_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonChangeName" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Top" HorizontalAlignment="Left" Margin="362,62,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="White" Height="32" Click="buttonChangeName_Click" MouseEnter="buttonChangeName_MouseEnter">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_usual.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonChangeEmail" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Top" HorizontalAlignment="Left" Margin="362,181,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="White" Height="32" Click="buttonChangeEmail_Click" MouseEnter="buttonChangeEmail_MouseEnter">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_usual.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonChangePass" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Top" HorizontalAlignment="Left" Margin="362,261,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="White" Height="32" Click="buttonChangePass_Click" MouseEnter="buttonChangePass_MouseEnter">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_usual.png"/>
+            </Button.Background>
+        </Button>
+
+        <TextBox x:Name="newEmailBox" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="470,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="White"/>
+        <TextBox x:Name="newPassBox" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="470,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="White"/>
+        <TextBox x:Name="newNameBox" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="470,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="White"/>
+
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+
+    </Grid>
+</Window>

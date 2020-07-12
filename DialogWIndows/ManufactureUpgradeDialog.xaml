@@ -1,0 +1,31 @@
+﻿<Window x:Class="LandConquest.DialogWIndows.ManufactureUpgradeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.DialogWIndows"
+        mc:Ignorable="d"
+        Title="ManufactureUpgradeDialog" Height="262" Width="268" Loaded="Window_Loaded">
+    <Grid Margin="0,0,-6.4,-0.2">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Image x:Name="manufacture_image" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="/Pictures/sawmill.png"/>
+        <Image HorizontalAlignment="Left" Height="74" Margin="93,10,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/UpgradeArrow.png"/>
+        <TextBox HorizontalAlignment="Left" Height="74" Margin="128,10,0,0" TextWrapping="Wrap" Text="To upgade this manufacture you need to spend your resources" VerticalAlignment="Top" Width="120"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="51,123,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/wood.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="51,153,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/stones.png"/>
+        <Label Content="You have" FontSize="10" FontWeight="Bold" HorizontalAlignment="Left" Margin="51,101,0,0" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="138,123,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/wood.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="138,153,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/stones.png"/>
+        <Label Content="You need" FontSize="10" FontWeight="Bold" HorizontalAlignment="Left" Margin="138,101,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="WoodHave" Content="0" HorizontalAlignment="Left" Margin="87,123,0,0" VerticalAlignment="Top" Width="46"/>
+        <Label x:Name="StoneHave" Content="0" HorizontalAlignment="Left" Margin="87,153,0,0" VerticalAlignment="Top" Width="46"/>
+        <Label x:Name="WoodNeed" Content="0" HorizontalAlignment="Left" Margin="174,123,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="StoneNeed" Content="0" HorizontalAlignment="Left" Margin="174,153,0,0" VerticalAlignment="Top" Width="50"/>
+        <Button x:Name="BtnUpgrade" Content="Upgrade" HorizontalAlignment="Left" Margin="68,183,0,0" VerticalAlignment="Top" Width="110" Click="BtnUpgrade_Click"/>
+        <Button Content="E" HorizontalAlignment="Left" Margin="218,183,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Button_Click"/>
+        <Label Content="lvl:" FontSize="10" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ManufactureLvl" Content="1" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" Margin="26,82,0,0" VerticalAlignment="Top" Width="29"/>
+    </Grid>
+</Window>
