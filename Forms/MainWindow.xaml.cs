@@ -35,12 +35,14 @@ namespace LandConquest.Forms
         LandModel landModel;
         CountryModel countryModel;
         PeasantModel peasantModel;
+        StorageModel storageModel;
+        EquipmentModel equipmentModel;
 
         PlayerStorage storage;
+        PlayerEquipment equipment = new PlayerEquipment();
         Taxes taxes;
         Peasants peasants;
         ManufactureModel manufactureModel;
-        StorageModel storageModel;
         List<Land> lands;
         List<Path> paths;
         List<Country> countries;
@@ -225,7 +227,10 @@ namespace LandConquest.Forms
 
         private void recruitImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            RecruitWindow window = new RecruitWindow(connection, player, storage);
+            storage = storageModel.GetPlayerStorage(player, connection, storage);
+            equipment = equipmentModel.GetPlayerEquipment(player, connection, equipment);
+            
+            RecruitWindow window = new RecruitWindow(connection, player, storage, equipment);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Show();
 
