@@ -49,6 +49,14 @@ namespace LandConquest.Models
 
             storageCommand.ExecuteNonQuery();
 
+            String equipmentQuery = "INSERT INTO dbo.PlayerEquipment (player_id) VALUES (@player_id)";
+            var equipmentCommand = new SqlCommand(equipmentQuery, connection);
+
+
+            equipmentCommand.Parameters.AddWithValue("@player_id", userId);
+
+            equipmentCommand.ExecuteNonQuery();
+
             // create default manufactures for new player
             String manufactureQuery = "INSERT INTO dbo.ManufactureData (player_id,manufacture_id,manufacture_name,manufacture_type) VALUES (@player_id, @manufacture_id, @manufacture_name, @manufacture_type)";
 

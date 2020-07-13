@@ -90,6 +90,7 @@
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\Land.cs" />
+    <Compile Include="Entities\PlayerEquipment.cs" />
     <Compile Include="Forms\ChatWindow.xaml.cs">
       <DependentUpon>ChatWindow.xaml</DependentUpon>
     </Compile>
@@ -101,6 +102,7 @@
     </Compile>
     <Compile Include="Models\ChatModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
+    <Compile Include="Models\EquipmentModel.cs" />
     <Compile Include="Models\LandModel.cs" />
     <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Models\TaxesModel.cs" />
@@ -369,6 +371,19 @@
     <Content Include="music.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="music2.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="music3.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Pictures\gear.png" />
+    <Resource Include="Pictures\bow.png" />
+    <Resource Include="Pictures\spear.png" />
+    <Resource Include="Pictures\harness.png" />
+    <Resource Include="Pictures\sword.png" />
+    <Resource Include="Pictures\armor.png" />
+    <Resource Include="Pictures\craft.png" />
     <Resource Include="Pictures\coppermine.png" />
     <Resource Include="Pictures\leatherfarm.png" />
     <Resource Include="Pictures\gemsmine.png" />
