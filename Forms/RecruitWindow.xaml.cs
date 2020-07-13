@@ -23,18 +23,21 @@ namespace LandConquest.Forms
         SqlConnection connection;
         Player player;
         PlayerStorage storage;
+        PlayerEquipment equipment;
         Peasants peasants = new Peasants();// Что это?
+        Army army = new Army();
 
         PeasantModel peasantModel;
 
         PlayerModel playerModel;
 
-        public RecruitWindow(SqlConnection _connection, Player _player, PlayerStorage _storage)
+        public RecruitWindow(SqlConnection _connection, Player _player, PlayerStorage _storage, PlayerEquipment _equipment)
         {
             InitializeComponent();
             connection = _connection;
             player = _player;
             storage = _storage;
+            equipment = _equipment;
             Loaded += Window_Loaded;
         }
 
@@ -44,6 +47,8 @@ namespace LandConquest.Forms
             peasantModel = new PeasantModel();
 
             peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
+            army = 
+
             TotalRecruitPeasants.Content = peasants.PeasantsCount.ToString();
             AvailableRecruitPeasants.Content = (peasants.PeasantsMax - peasants.PeasantsCount).ToString();
         }
@@ -72,6 +77,27 @@ namespace LandConquest.Forms
         private void button_close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void HireArchers_Click(object sender, RoutedEventArgs e)
+        {
+            if ((player.PlayerMoney > Convert.ToInt32(ArchersAmount.Text)*5) && (Convert.ToInt32(ArchersAmount.Text) < Convert.ToInt32(AvailableRecruitArchers.Content)))
+            {
+                peasants.PeasantsCount += Convert.ToInt32(PeasantsAmount.Text);
+
+                peasants = peasantModel.UpdatePeasantsInfo(peasants, connection);
+                TotalRecruitPeasants.Content = peasants.PeasantsCount.ToString();
+                AvailableRecruitPeasants.Content = (peasants.PeasantsMax - peasants.PeasantsCount).ToString();
+                player.PlayerMoney -= Convert.ToInt32(PeasantsAmount.Text);
+                player = playerModel.UpdatePlayerMoney(player, connection);
+                MessageBox.Show("OK");
+                PeasantsAmount.Text = "0";
+            }
+            else
+            {
+                MessageBox.Show("Error");
+                PeasantsAmount.Text = "0";
+            }
         }
     }
 }
