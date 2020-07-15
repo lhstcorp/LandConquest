@@ -330,7 +330,7 @@ namespace LandConquest.Models
 
         public void InsertOrUpdateLandManufactures(List<Manufacture> landManufactures, Player player, SqlConnection connection)
         {
-            String manufactureQuery = "IF EXISTS (SELECT * FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id) BEGIN UPDATE dbo.PlayerLandManufactureData SET manufacture_peasant_work = @manufacture_peasant_work, manufacture_products_hour = @manufacture_products_hour, manufacture_prod_start_time=@manufacture_prod_start_time WHERE manufacture_id=@manufacture_id AND player_id=@player_id END ELSE BEGIN INSERT INTO dbo.PlayerLandManufactureData (player_id,manufacture_id,manufacture_type,manufacture_peasant_work,manufacture_products_hour,manufacture_prod_start_time) VALUES (@player_id, @manufacture_id, @manufacture_type, @manufacture_peasant_work, @manufacture_products_hour, @manufacture_prod_start_time) END";
+            String manufactureQuery = "IF EXISTS (SELECT * FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id AND manufacture_id = @manufacture_id) BEGIN UPDATE dbo.PlayerLandManufactureData SET manufacture_peasant_work = @manufacture_peasant_work, manufacture_products_hour = @manufacture_products_hour, manufacture_prod_start_time=@manufacture_prod_start_time WHERE manufacture_id=@manufacture_id AND player_id=@player_id END ELSE BEGIN INSERT INTO dbo.PlayerLandManufactureData (player_id,manufacture_id,manufacture_type,manufacture_peasant_work,manufacture_products_hour,manufacture_prod_start_time) VALUES (@player_id, @manufacture_id, @manufacture_type, @manufacture_peasant_work, @manufacture_products_hour, @manufacture_prod_start_time) END";
 
             //b1
             var build1Command = new SqlCommand(manufactureQuery, connection);
