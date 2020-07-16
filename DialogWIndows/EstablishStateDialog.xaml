@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="LandConquest.DialogWIndows.EstablishStateDialog"
         mc:Ignorable="d"
-        Title="EstablishStateDialog" Height="450" Width="800">
+        Title="EstablishStateDialog" Height="450" Width="800"
+        ShowInTaskbar="False" Loaded="Window_Loaded">
     <Grid>
 
         <materialDesign:ColorPicker x:Name="StateColor" HorizontalAlignment="Left" Margin="160,71,0,0" VerticalAlignment="Top" Height="304" Width="453"/>

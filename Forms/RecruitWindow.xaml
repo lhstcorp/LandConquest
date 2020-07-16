@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
         mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize"
-        Title="RecruitWindow" Height="450" Width="950" Loaded="Window_Loaded">
+        Title="RecruitWindow" Height="450" Width="950" Loaded="Window_Loaded"
+        ShowInTaskbar="False">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>

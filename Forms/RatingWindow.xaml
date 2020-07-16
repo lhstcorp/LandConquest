@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:LandConquest.Forms"
         xmlns:ctrls="clr-namespace:LandConquest.Resources"
         mc:Ignorable="d"
-       
-WindowStyle="None" ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStyle="None" ResizeMode="NoResize"
         Title="ProfileWindow" Height="600" Width="600" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>

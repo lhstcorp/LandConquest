@@ -25,15 +25,15 @@ namespace LandConquest
                 LandModel landModel = new LandModel();
 
                 //greendend
-                connection = new SqlConnection(@"Data Source=DESKTOP-3S39QPO\SQLEXPRESS;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
+                //connection = new SqlConnection(@"Data Source=DESKTOP-3S39QPO\SQLEXPRESS;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
                 //user-pass 
-                //connection = new SqlConnection(@"Data Source=DESKTOP-EQUN2R7;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
+                connection = new SqlConnection(@"Data Source=DESKTOP-EQUN2R7;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
                 //glandeil
                 //connection = new SqlConnection(@"Data Source=LEXICH\SQLEXPRESS;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
                 //Kirill-Spesivtsev
                 //connection = new SqlConnection(@"Data Source=KIR\SQLEXPRESS;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
                 //online connection link
-                //connection = new SqlConnection(@"workstation id=LandConquest.mssql.somee.com;packet size=4096;user id=Steolod_SQLLogin_1;pwd=st9s2yqew9;data source=LandConquest.mssql.somee.com;persist security info=False;initial catalog=LandConquest");
+                //connection = new SqlConnection(@"workstation id=LandConquest1.mssql.somee.com;packet size=4096;user id=LandConquest_SQLLogin_1;pwd=3xlofdewbj;data source=LandConquest1.mssql.somee.com;persist security info=False;initial catalog=LandConquest1");
 
                 connection.Open();
 
