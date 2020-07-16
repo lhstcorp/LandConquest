@@ -39,7 +39,7 @@ namespace LandConquest.Forms
         EquipmentModel equipmentModel;
 
         PlayerStorage storage;
-        PlayerEquipment equipment;
+        PlayerEquipment equipment = new PlayerEquipment();
         Taxes taxes;
         Peasants peasants;
         ManufactureModel manufactureModel;
@@ -72,7 +72,7 @@ namespace LandConquest.Forms
             manufactureModel = new ManufactureModel();
             playerModel = new PlayerModel();
             storageModel = new StorageModel();
-            equipment = new PlayerEquipment();
+           // equipment = new PlayerEquipment();
 
             player = playerModel.GetPlayerInfo(_user, connection, player);
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
