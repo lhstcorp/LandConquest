@@ -28,8 +28,8 @@ namespace LandConquest.DialogWIndows
         PlayerStorage storage;
         Manufacture manufacture;
         PlayerStorage resourcesNeed;
-        ManufactureModel model = new ManufactureModel();
-        StorageModel storageModel = new StorageModel();
+        ManufactureModel model;
+        StorageModel storageModel;
         public ManufactureUpgradeDialog(SqlConnection _connection ,PlayerStorage _storage, Manufacture _manufacture, Player _player)
         {
             InitializeComponent();
@@ -42,6 +42,9 @@ namespace LandConquest.DialogWIndows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            model = new ManufactureModel();
+            storageModel = new StorageModel();
+
             switch (manufacture.ManufactureType)
             {
                 case 1:

@@ -24,7 +24,7 @@ namespace LandConquest.Forms
         Player player;
         PlayerStorage storage;
         PlayerEquipment equipment;
-        Peasants peasants = new Peasants();// Что это?
+        Peasants peasants;
         Army army = new Army();
 
         PeasantModel peasantModel;
@@ -45,9 +45,10 @@ namespace LandConquest.Forms
         {
             playerModel = new PlayerModel();
             peasantModel = new PeasantModel();
+            peasants = new Peasants();
 
             peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
-            army = 
+            //army = 
 
             TotalRecruitPeasants.Content = peasants.PeasantsCount.ToString();
             AvailableRecruitPeasants.Content = (peasants.PeasantsMax - peasants.PeasantsCount).ToString();
