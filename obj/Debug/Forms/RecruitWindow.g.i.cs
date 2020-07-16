@@ -41,7 +41,7 @@ namespace LandConquest.Forms {
     public partial class RecruitWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
-        #line 21 "..\..\..\Forms\RecruitWindow.xaml"
+        #line 17 "..\..\..\Forms\RecruitWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label TotalRecruitPeasants;
         
@@ -49,7 +49,7 @@ namespace LandConquest.Forms {
         #line hidden
         
         
-        #line 22 "..\..\..\Forms\RecruitWindow.xaml"
+        #line 18 "..\..\..\Forms\RecruitWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label AvailableRecruitPeasants;
         
@@ -57,7 +57,7 @@ namespace LandConquest.Forms {
         #line hidden
         
         
-        #line 23 "..\..\..\Forms\RecruitWindow.xaml"
+        #line 19 "..\..\..\Forms\RecruitWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox PeasantsAmount;
         
@@ -65,15 +65,7 @@ namespace LandConquest.Forms {
         #line hidden
         
         
-        #line 24 "..\..\..\Forms\RecruitWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox KnightsAmount;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 25 "..\..\..\Forms\RecruitWindow.xaml"
+        #line 20 "..\..\..\Forms\RecruitWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button HirePeasants;
         
@@ -81,7 +73,103 @@ namespace LandConquest.Forms {
         #line hidden
         
         
-        #line 26 "..\..\..\Forms\RecruitWindow.xaml"
+        #line 21 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button button_close;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 30 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label TotalRecruitArchers;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 31 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label AvailableRecruitArchers;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 32 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox ArchersAmount;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 33 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button HireArchers;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 38 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label TotalRecruitInfantry;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 39 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label AvailableRecruitInfantry;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 40 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox InfantryAmount;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 41 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button HireInfantry;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 46 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label TotalRecruitKnights;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 47 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label AvailableRecruitKnights;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 48 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox KnightsAmount;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 49 "..\..\..\Forms\RecruitWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button HireKnights;
         
@@ -89,9 +177,57 @@ namespace LandConquest.Forms {
         #line hidden
         
         
-        #line 27 "..\..\..\Forms\RecruitWindow.xaml"
+        #line 54 "..\..\..\Forms\RecruitWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button button_close;
+        internal System.Windows.Controls.Label TotalRecruitSiege;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 55 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label AvailableRecruitSiege;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 56 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox SiegeAmount;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 57 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button HireSiege;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 62 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label archerCraft1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 63 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label archerCraft2;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 64 "..\..\..\Forms\RecruitWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label archerCraft3;
         
         #line default
         #line hidden
@@ -144,28 +280,103 @@ namespace LandConquest.Forms {
             this.PeasantsAmount = ((System.Windows.Controls.TextBox)(target));
             return;
             case 5:
-            this.KnightsAmount = ((System.Windows.Controls.TextBox)(target));
-            return;
-            case 6:
             this.HirePeasants = ((System.Windows.Controls.Button)(target));
             
-            #line 25 "..\..\..\Forms\RecruitWindow.xaml"
+            #line 20 "..\..\..\Forms\RecruitWindow.xaml"
             this.HirePeasants.Click += new System.Windows.RoutedEventHandler(this.HirePeasants_Click);
             
             #line default
             #line hidden
             return;
-            case 7:
-            this.HireKnights = ((System.Windows.Controls.Button)(target));
-            return;
-            case 8:
+            case 6:
             this.button_close = ((System.Windows.Controls.Button)(target));
             
-            #line 27 "..\..\..\Forms\RecruitWindow.xaml"
+            #line 21 "..\..\..\Forms\RecruitWindow.xaml"
             this.button_close.Click += new System.Windows.RoutedEventHandler(this.button_close_Click);
             
             #line default
             #line hidden
+            return;
+            case 7:
+            this.TotalRecruitArchers = ((System.Windows.Controls.Label)(target));
+            return;
+            case 8:
+            this.AvailableRecruitArchers = ((System.Windows.Controls.Label)(target));
+            return;
+            case 9:
+            this.ArchersAmount = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 10:
+            this.HireArchers = ((System.Windows.Controls.Button)(target));
+            
+            #line 33 "..\..\..\Forms\RecruitWindow.xaml"
+            this.HireArchers.Click += new System.Windows.RoutedEventHandler(this.HireArchers_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 11:
+            this.TotalRecruitInfantry = ((System.Windows.Controls.Label)(target));
+            return;
+            case 12:
+            this.AvailableRecruitInfantry = ((System.Windows.Controls.Label)(target));
+            return;
+            case 13:
+            this.InfantryAmount = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 14:
+            this.HireInfantry = ((System.Windows.Controls.Button)(target));
+            
+            #line 41 "..\..\..\Forms\RecruitWindow.xaml"
+            this.HireInfantry.Click += new System.Windows.RoutedEventHandler(this.HirePeasants_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 15:
+            this.TotalRecruitKnights = ((System.Windows.Controls.Label)(target));
+            return;
+            case 16:
+            this.AvailableRecruitKnights = ((System.Windows.Controls.Label)(target));
+            return;
+            case 17:
+            this.KnightsAmount = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 18:
+            this.HireKnights = ((System.Windows.Controls.Button)(target));
+            
+            #line 49 "..\..\..\Forms\RecruitWindow.xaml"
+            this.HireKnights.Click += new System.Windows.RoutedEventHandler(this.HirePeasants_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 19:
+            this.TotalRecruitSiege = ((System.Windows.Controls.Label)(target));
+            return;
+            case 20:
+            this.AvailableRecruitSiege = ((System.Windows.Controls.Label)(target));
+            return;
+            case 21:
+            this.SiegeAmount = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 22:
+            this.HireSiege = ((System.Windows.Controls.Button)(target));
+            
+            #line 57 "..\..\..\Forms\RecruitWindow.xaml"
+            this.HireSiege.Click += new System.Windows.RoutedEventHandler(this.HirePeasants_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 23:
+            this.archerCraft1 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 24:
+            this.archerCraft2 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 25:
+            this.archerCraft3 = ((System.Windows.Controls.Label)(target));
             return;
             }
             this._contentLoaded = true;

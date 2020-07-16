@@ -35,12 +35,14 @@ namespace LandConquest.Forms
         LandModel landModel;
         CountryModel countryModel;
         PeasantModel peasantModel;
+        StorageModel storageModel;
+        EquipmentModel equipmentModel;
 
         PlayerStorage storage;
+        PlayerEquipment equipment = new PlayerEquipment();
         Taxes taxes;
         Peasants peasants;
         ManufactureModel manufactureModel;
-        StorageModel storageModel;
         List<Land> lands;
         List<Path> paths;
         List<Country> countries;
@@ -70,7 +72,7 @@ namespace LandConquest.Forms
             manufactureModel = new ManufactureModel();
             playerModel = new PlayerModel();
             storageModel = new StorageModel();
-           
+                    
             player = playerModel.GetPlayerInfo(_user, connection, player);
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
             PbExp.Value = player.PlayerExp;
@@ -161,6 +163,7 @@ namespace LandConquest.Forms
 
         private void ImageStorage_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            storage = storageModel.GetPlayerStorage(player, connection, storage);
             List<Manufacture> manufactures = manufactureModel.GetManufactureInfo(player, connection);
             storage.PlayerWood += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
             player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
@@ -178,6 +181,7 @@ namespace LandConquest.Forms
             PbExp.Value = player.PlayerExp;
 
             storageModel.UpdateStorage(connection, player, storage);
+            
             manufactureModel.UpdateDateTimeForManufacture(manufactures, player, connection);
 
             StorageWindow storageWindow = new StorageWindow(this, connection, player, user);
@@ -223,7 +227,10 @@ namespace LandConquest.Forms
 
         private void recruitImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            RecruitWindow window = new RecruitWindow(connection, player, storage);
+            storage = storageModel.GetPlayerStorage(player, connection, storage);
+            equipment = equipmentModel.GetPlayerEquipment(player, connection, equipment);
+            
+            RecruitWindow window = new RecruitWindow(connection, player, storage, equipment);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Show();
 
@@ -436,6 +443,13 @@ namespace LandConquest.Forms
             SoundPlayer sound = new SoundPlayer();
             sound.SoundLocation = @"music.wav";
             sound.PlayLooping();
+            
+            //sound.SoundLocation = @"music2.wav";
+            //sound.PlayLooping();
+            
+            //sound.SoundLocation = @"music3.wav";
+            //sound.PlayLooping();
+            
 
         }
 
@@ -547,5 +561,7 @@ namespace LandConquest.Forms
             chatWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             chatWindow.Show();
         }
+
+       
     }
 }
