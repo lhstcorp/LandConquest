@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:LandConquest.Forms"
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
-        Title="StorageWindow" Height="453.066" Width="475" Loaded="StorageWindow_Loaded">
+        Title="StorageWindow" Height="453.066" Width="475" Loaded="StorageWindow_Loaded"
+        ShowInTaskbar="False">
     <Grid Height="453" VerticalAlignment="Top" HorizontalAlignment="Left" Width="475" Margin="0,0,0,-0.2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

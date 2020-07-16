@@ -72,7 +72,8 @@ namespace LandConquest.Forms
             manufactureModel = new ManufactureModel();
             playerModel = new PlayerModel();
             storageModel = new StorageModel();
-                    
+           // equipment = new PlayerEquipment();
+
             player = playerModel.GetPlayerInfo(_user, connection, player);
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
             PbExp.Value = player.PlayerExp;
@@ -188,6 +189,7 @@ namespace LandConquest.Forms
 
             playerModel.UpdatePlayerExpAndLvl(player, connection);
             storageWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            storageWindow.Owner = this;
             storageWindow.Show();
         }
 
@@ -195,6 +197,7 @@ namespace LandConquest.Forms
         {
             ManufactureWindow window = new ManufactureWindow(this, connection, player, storage);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Owner = this;
             window.Show();
         }
 
@@ -232,6 +235,7 @@ namespace LandConquest.Forms
             
             RecruitWindow window = new RecruitWindow(connection, player, storage, equipment);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Owner = this;
             window.Show();
 
         }
@@ -481,6 +485,7 @@ namespace LandConquest.Forms
         private void buttonEstablishaState_Click(object sender, RoutedEventArgs e)
         {
             EstablishStateDialog win = new EstablishStateDialog(connection, player, land);
+            win.Owner = this;
             win.Show();
         }
 
@@ -498,6 +503,7 @@ namespace LandConquest.Forms
         {
             ProfileWindow profileWindow = new ProfileWindow(this, connection, player, user);
             profileWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            profileWindow.Owner = this;
             profileWindow.Show();
         }
 
@@ -546,6 +552,7 @@ namespace LandConquest.Forms
         {
             RatingWindow ratingWindow = new RatingWindow(this, connection, player, user);
             ratingWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ratingWindow.Owner = this;
             ratingWindow.Show();
         }
 
@@ -557,8 +564,9 @@ namespace LandConquest.Forms
 
         private void buttonChat_Click(object sender, RoutedEventArgs e)
         {
-            ChatWindow chatWindow = new ChatWindow(connection, player);
+            ChatWindow chatWindow = new ChatWindow(player);
             chatWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            chatWindow.Owner = this;
             chatWindow.Show();
         }
 
