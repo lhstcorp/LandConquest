@@ -10,9 +10,9 @@ namespace LandConquest.Models
 {
     public class ArmyModel
     {
-        public Army EstablishaState(SqlConnection connection, Player player, Army army)
+        public Army GetArmyInfo(SqlConnection connection, Player player, Army army)
         {
-            String armyQuery = "SELECT * FROM dbo.ArmyData (army_id,army_size_current,army_type,army_archers_count,army_infantry_count,army_horseman_count,army_siegegun_count,local_land_id) VALUES (@army_id,@army_size_current,@army_type,@army_archers_count,@army_infantry_count,@army_horseman_count,@army_siegegun_count,@local_land_id) WHERE player_id = @player_id";
+            String armyQuery = "SELECT * FROM dbo.ArmyData WHERE player_id = @player_id"; //(army_id,army_size_current,army_type,army_archers_count,army_infantry_count,army_horseman_count,army_siegegun_count,local_land_id) VALUES (@army_id, @army_size_current, @army_type, @army_archers_count, @army_infantry_count, @army_horseman_count, @army_siegegun_count, @local_land_id)
             var armyCommand = new SqlCommand(armyQuery, connection);
 
             armyCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
@@ -44,6 +44,42 @@ namespace LandConquest.Models
             armyCommand.Dispose();
 
             return army;
+        }
+
+        public Army UpdateArmy(SqlConnection connection, Army army)
+        {
+            String storageQuery = "UPDATE dbo.ArmyData SET army_size_current = @army_size_current, army_type  = @army_type, army_archers_count = @army_archers_count, army_infantry_count  = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count, local_land_id = @local_land_id WHERE army_id = @army_id ";
+
+            var storageCommand = new SqlCommand(storageQuery, connection);
+            // int datetimeResult;
+            storageCommand.Parameters.AddWithValue("@army_size_current", army.ArmySizeCurrent);
+            storageCommand.Parameters.AddWithValue("@army_type", army.ArmyType);
+            storageCommand.Parameters.AddWithValue("@army_archers_count", army.ArmyArchersCount);
+            storageCommand.Parameters.AddWithValue("@army_infantry_count", army.ArmyInfantryCount);
+            storageCommand.Parameters.AddWithValue("@army_horseman_count", army.ArmyHorsemanCount);
+            storageCommand.Parameters.AddWithValue("@army_siegegun_count", army.ArmySiegegunCount);
+            storageCommand.Parameters.AddWithValue("@local_land_id", army.LocalLandId);
+            storageCommand.Parameters.AddWithValue("@army_id", army.ArmyId);
+
+            storageCommand.ExecuteNonQuery();
+
+
+            storageCommand.Dispose();
+            return army;
+        }
+
+        public void InsertArmyFromReg(SqlConnection connection, Army army)
+        {
+            String armyQuery = "INSERT INTO dbo.ArmyData (player_id, army_id) VALUES (@player_id, @army_id)";
+            var armyCommand = new SqlCommand(armyQuery, connection);
+
+            armyCommand.Parameters.AddWithValue("@player_id", army.PlayerId);
+            armyCommand.Parameters.AddWithValue("@army_id", army.ArmyId);
+
+            armyCommand.ExecuteNonQuery();
+
+            armyCommand.Dispose();
+
         }
     }
 }

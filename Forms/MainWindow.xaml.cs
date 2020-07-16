@@ -72,7 +72,8 @@ namespace LandConquest.Forms
             manufactureModel = new ManufactureModel();
             playerModel = new PlayerModel();
             storageModel = new StorageModel();
-           // equipment = new PlayerEquipment();
+            equipmentModel = new EquipmentModel();
+            //equipment = new PlayerEquipment();
 
             player = playerModel.GetPlayerInfo(_user, connection, player);
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
