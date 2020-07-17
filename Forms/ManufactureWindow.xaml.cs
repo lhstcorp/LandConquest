@@ -262,6 +262,8 @@ namespace LandConquest.Forms
             playerLandManufactures[0].ManufactureProductsHour = Convert.ToInt32(building1ProdValueHour.Content);
             playerLandManufactures[1].ManufactureProductsHour = Convert.ToInt32(building2ProdValueHour.Content);
 
+            Console.WriteLine("b2_bv = " + Convert.ToInt32(building2ProdValueHour.Content));
+
             playerLandManufactures[0].ManufacturePeasantWork = Convert.ToInt32(sliderBuilding1.Value);
             playerLandManufactures[1].ManufacturePeasantWork = Convert.ToInt32(sliderBuilding2.Value);
 
@@ -272,7 +274,8 @@ namespace LandConquest.Forms
             playerLandManufactures[1].ManufactureType = landManufactures[1].ManufactureType;
 
             playerLandManufactures[0].ManufactureProductsHour = Convert.ToInt32(building1ProdValueHour.Content);
-            playerLandManufactures[1].ManufactureProductsHour = Convert.ToInt32(building2ProdValueHour.Content); ;
+            playerLandManufactures[1].ManufactureProductsHour = Convert.ToInt32(building2ProdValueHour.Content); 
+
             //не забудь убрать лох //убрал кста
             model.InsertOrUpdateLandManufactures(playerLandManufactures, player, connection); //это пользовательская сущность городской мануфактуры
             //возвращаю костыль

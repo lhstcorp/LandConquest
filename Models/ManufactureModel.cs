@@ -235,6 +235,28 @@ namespace LandConquest.Models
 
         }
 
+        public void UpdateDateTimeForPlayerLandManufacture(List<Manufacture> _manufactures, Player _player, SqlConnection connection)
+        {
+            String datetimeQuery = "UPDATE dbo.PlayerLandManufactureData SET manufacture_prod_start_time = @manufacture_prod_start_time WHERE manufacture_id = @manufacture_id ";
+
+            var datetimeCommand1 = new SqlCommand(datetimeQuery, connection);
+            datetimeCommand1.Parameters.AddWithValue("@manufacture_prod_start_time", DateTime.UtcNow);
+            datetimeCommand1.Parameters.AddWithValue("@manufacture_id", _manufactures[0].ManufactureId);
+
+            datetimeCommand1.ExecuteNonQuery();
+
+            var datetimeCommand2 = new SqlCommand(datetimeQuery, connection);
+
+            datetimeCommand2.Parameters.AddWithValue("@manufacture_prod_start_time", DateTime.UtcNow);
+            datetimeCommand2.Parameters.AddWithValue("@manufacture_id", _manufactures[1].ManufactureId);
+
+            datetimeCommand2.ExecuteNonQuery();
+
+            datetimeCommand1.Dispose();
+            datetimeCommand2.Dispose();
+
+        }
+
         public PlayerStorage GetInfoAboutResourcesForUpdate(SqlConnection connection, Manufacture manufacture)
         {
             PlayerStorage resourcesNeed = new PlayerStorage();
@@ -347,6 +369,8 @@ namespace LandConquest.Models
 
             //b2
             var build2Command = new SqlCommand(manufactureQuery, connection);
+
+            Console.WriteLine("manufacture_bv = " + landManufactures[1].ManufactureBaseProdValue);
 
             build2Command.Parameters.AddWithValue("@player_id", player.PlayerId);
             build2Command.Parameters.AddWithValue("@manufacture_id", landManufactures[1].ManufactureId);
