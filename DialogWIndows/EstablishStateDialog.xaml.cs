@@ -23,9 +23,8 @@ namespace LandConquest.DialogWIndows
         Player player;
         Land land;
 
-         //ДОБАВИТЬ On_Load метод и туда всё вынести
-        LandModel landModel = new LandModel();
-        CountryModel countryModel = new CountryModel();
+        LandModel landModel;
+        CountryModel countryModel;
 
         public EstablishStateDialog(SqlConnection _connection, Player _player, Land _land)
         {
@@ -33,6 +32,7 @@ namespace LandConquest.DialogWIndows
             connection = _connection;
             player = _player;
             land = _land;
+            Loaded += Window_Loaded;
         }
 
         private void EstablishState_Click(object sender, RoutedEventArgs e)
@@ -40,6 +40,12 @@ namespace LandConquest.DialogWIndows
             Country country = countryModel.EstablishaState(connection, player, land, StateColor.Color);
             country.CountryId = countryModel.SelectLastIdOfStates(connection);
             landModel.UpdateLandInfo(connection, player, land, country);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            landModel = new LandModel();
+            countryModel = new CountryModel();
         }
     }
 }

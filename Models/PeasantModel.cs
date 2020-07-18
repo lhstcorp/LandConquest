@@ -33,6 +33,8 @@ namespace LandConquest.Models
                 }
             }
 
+            command.Dispose();
+
             return peasants;
         }
 

@@ -72,7 +72,6 @@ C:\LandConquest\obj\Debug\LandConquest.csproj.CoreCompileInputs.cache
 C:\LandConquest\obj\Debug\LandConquest.csproj.CopyComplete
 C:\LandConquest\obj\Debug\LandConquest.exe
 C:\LandConquest\obj\Debug\LandConquest.pdb
-C:\LandConquest\obj\Debug\LandConquest.csprojAssemblyReference.cache
 C:\LandConquest\obj\Debug\DialogWIndows\EstablishStateDialog.g.cs
 C:\LandConquest\obj\Debug\DialogWIndows\EstablishStateDialog.baml
 C:\Users\Tom\Documents\GitHub\LandConquest\obj\Debug\Resources\GlobalMap.baml
@@ -163,3 +162,6 @@ C:\Users\Tom\Documents\GitHub\LandConquest\bin\Debug\music2.wav
 C:\Users\Tom\Documents\GitHub\LandConquest\bin\Debug\music3.wav
 C:\LandConquest\bin\Debug\music2.wav
 C:\LandConquest\bin\Debug\music3.wav
+C:\Users\itk\source\repos\LandConquest\bin\Debug\music2.wav
+C:\Users\itk\source\repos\LandConquest\bin\Debug\music3.wav
+C:\LandConquest\obj\Debug\LandConquest.csprojAssemblyReference.cache

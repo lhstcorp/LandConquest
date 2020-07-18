@@ -30,6 +30,7 @@ namespace LandConquest
         UserModel userModel;
         PlayerModel playerModel;
         TaxesModel taxesModel;
+        ArmyModel armyModel;
 
         public AuthorisationWindow()
         {
@@ -65,7 +66,7 @@ namespace LandConquest
             //glandeil
             //connection = new SqlConnection(@"Data Source=LEXICH\SQLEXPRESS;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
             //online connection link
-            //connection = new SqlConnection(@"workstation id=LandConquest.mssql.somee.com;packet size=4096;user id=Steolod_SQLLogin_1;pwd=st9s2yqew9;data source=LandConquest.mssql.somee.com;persist security info=False;initial catalog=LandConquest");
+            //connection = new SqlConnection(@"workstation id=LandConquest1.mssql.somee.com;packet size=4096;user id=LandConquest_SQLLogin_1;pwd=3xlofdewbj;data source=LandConquest1.mssql.somee.com;persist security info=False;initial catalog=LandConquest1");
 
             connection.Open();
         }
@@ -75,6 +76,7 @@ namespace LandConquest
             userModel = new UserModel();
             playerModel = new PlayerModel();
             taxesModel = new TaxesModel();
+            armyModel = new ArmyModel();
 
 
             String userId = generateUserId();
@@ -97,12 +99,18 @@ namespace LandConquest
                 {
                     playerModel.CreatePlayerResources(this, connection, userId, registeredUser);
                     taxesModel.CreateTaxesData(connection, userId);
+                    
                     MainWindow mainWindow = new MainWindow(connection, registeredUser);
                     mainWindow.Show();
                     this.Close();
                 }
 
             }
+
+            Army army = new Army();
+            army.PlayerId = userId;
+            army.ArmyId = generateUserId();
+            armyModel.InsertArmyFromReg(connection, army);
         }
 
 

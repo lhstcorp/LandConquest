@@ -370,6 +370,9 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\coin.png" />
+    <Resource Include="Pictures\archer.png" />
+    <Resource Include="Pictures\hourseman.png" />
     <Content Include="music.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -379,6 +382,7 @@
     <Content Include="music3.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Pictures\catapult.png" />
     <Resource Include="Pictures\gear.png" />
     <Resource Include="Pictures\bow.png" />
     <Resource Include="Pictures\spear.png" />

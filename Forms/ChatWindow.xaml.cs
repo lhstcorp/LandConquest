@@ -24,6 +24,7 @@ namespace LandConquest.Forms
 {
     public partial class ChatWindow : Window
     {
+        private string connectionString;
         SqlConnection connection;
         Player player;
         ChatModel chatModel;
@@ -31,12 +32,11 @@ namespace LandConquest.Forms
         SqlTableDependency<ChatMessages> sqlTableDependency;
 
 
-        public ChatWindow(SqlConnection _connection, Player _player)
+        public ChatWindow(Player _player)
         {
             InitializeComponent();
             player = _player;
-            connection = _connection;
-            chatModel = new ChatModel();
+            
 
             var gridView = new GridView();
             this.listViewChat.View = gridView;
@@ -56,7 +56,7 @@ namespace LandConquest.Forms
                 Width = 150,
                 DisplayMemberBinding = new Binding("MessageTime")
             });
-
+            Loaded += listViewChat_Loaded;
         }
 
         private void buttonSendMessage_Click(object sender, RoutedEventArgs e)
@@ -66,6 +66,10 @@ namespace LandConquest.Forms
 
         private void listViewChat_Loaded(object sender, RoutedEventArgs e)
         {
+            connectionString = @"workstation id=LandConquest1.mssql.somee.com;packet size=4096;user id=LandConquest_SQLLogin_1;pwd=3xlofdewbj;data source=LandConquest1.mssql.somee.com;persist security info=False;initial catalog=LandConquest1";
+            connection = new SqlConnection(connectionString);
+            connection.Open();
+            chatModel = new ChatModel();
             updateChat();
 
             var mapper = new ModelToTableMapper<ChatMessages>();
@@ -86,8 +90,10 @@ namespace LandConquest.Forms
             //  ON QUEUE ContactChangeMessages
             //([http://schemas.microsoft.com/SQL/Notifications/PostQueryNotification]);  
 
+            //ALTER AUTHORIZATION ON DATABASE:: LandCoqnuestDB TO имя_компа
 
-            sqlTableDependency = new SqlTableDependency<ChatMessages>(connection.ConnectionString, "ChatMessages", "dbo", mapper);
+
+            sqlTableDependency = new SqlTableDependency<ChatMessages>((connectionString), "ChatMessages", "dbo", mapper);
             sqlTableDependency.OnChanged += Changed;
             sqlTableDependency.Start();
 
@@ -117,6 +123,7 @@ namespace LandConquest.Forms
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
             sqlTableDependency.Stop();
+            connection.Close();
             this.Close();
         }
     }

@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="ChatWindow" Height="450" Width="850" Background="{x:Null}">
+        Title="ChatWindow" Height="450" Width="850" Background="{x:Null}"
+        ShowInTaskbar="False">
 
     <Grid>
         <TextBox x:Name="textBoxNewMessage" FontSize="16" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap"  VerticalAlignment="Top" Width="752" 
