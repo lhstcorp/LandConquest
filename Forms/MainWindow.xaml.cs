@@ -37,7 +37,9 @@ namespace LandConquest.Forms
         PeasantModel peasantModel;
         StorageModel storageModel;
         EquipmentModel equipmentModel;
+        MarketModel marketModel;
 
+        Market market;
         PlayerStorage storage;
         PlayerEquipment equipment = new PlayerEquipment();
         Taxes taxes;
@@ -63,7 +65,9 @@ namespace LandConquest.Forms
             storage = new PlayerStorage();
             peasants = new Peasants();
             country = new Country();
+            market = new Market();
 
+            marketModel = new MarketModel();
             userModel = new UserModel();
             taxesModel = new TaxesModel();
             landModel = new LandModel();
@@ -656,6 +660,15 @@ namespace LandConquest.Forms
             chatWindow.Show();
         }
 
-       
+        private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            storage = storageModel.GetPlayerStorage(player, connection, storage);
+            market = marketModel.GetMarketInfo(player, connection, market);
+
+            MarketWindow window = new MarketWindow(this, connection, storage, market, player);
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Owner = this;
+            window.Show();
+        }
     }
 }
