@@ -361,6 +361,14 @@ namespace LandConquest.Forms {
         #line default
         #line hidden
         
+        
+        #line 131 "..\..\..\Forms\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button DeclareWar;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -676,6 +684,15 @@ namespace LandConquest.Forms {
             
             #line 130 "..\..\..\Forms\MainWindow.xaml"
             this.LandImage.MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.LandImage_MouseDown);
+            
+            #line default
+            #line hidden
+            return;
+            case 45:
+            this.DeclareWar = ((System.Windows.Controls.Button)(target));
+            
+            #line 131 "..\..\..\Forms\MainWindow.xaml"
+            this.DeclareWar.Click += new System.Windows.RoutedEventHandler(this.DeclareWar_Click);
             
             #line default
             #line hidden
