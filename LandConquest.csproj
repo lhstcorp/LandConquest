@@ -96,6 +96,9 @@
     <Compile Include="Forms\ChatWindow.xaml.cs">
       <DependentUpon>ChatWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CountryWindow.xaml.cs">
+      <DependentUpon>CountryWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MarketWindow.xaml.cs">
       <DependentUpon>MarketWindow.xaml</DependentUpon>
     </Compile>
@@ -160,6 +163,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Forms\ChatWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\CountryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -379,6 +386,9 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\сountryDefault.png" />
+    <Resource Include="Pictures\landMainBuilding.png" />
+    <Resource Include="Pictures\parlament.png" />
     <Resource Include="Pictures\coin.png" />
     <Resource Include="Pictures\archer.png" />
     <Resource Include="Pictures\hourseman.png" />
