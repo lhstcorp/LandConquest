@@ -270,6 +270,8 @@ namespace LandConquest.Forms
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
             PbExp.Value = player.PlayerExp;
 
+            Console.WriteLine(Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5))) + " tut");
+
             storageModel.UpdateStorage(connection, player, storage);
 
             manufactureModel.UpdateDateTimeForManufacture(manufactures, player, connection);
@@ -669,6 +671,16 @@ namespace LandConquest.Forms
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Owner = this;
             window.Show();
+        }
+
+        private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

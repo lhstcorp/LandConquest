@@ -167,3 +167,5 @@ C:\Users\itk\source\repos\LandConquest\bin\Debug\music3.wav
 C:\LandConquest\obj\Debug\LandConquest.csprojAssemblyReference.cache
 C:\Users\Tom\Documents\GitHub\LandConquest\obj\Debug\Forms\MarketWindow.g.cs
 C:\Users\Tom\Documents\GitHub\LandConquest\obj\Debug\Forms\MarketWindow.baml
+C:\LandConquest\obj\Debug\Forms\MarketWindow.g.cs
+C:\LandConquest\obj\Debug\Forms\MarketWindow.baml

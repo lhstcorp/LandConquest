@@ -379,6 +379,8 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\landMainBuilding.png" />
+    <Resource Include="Pictures\parlament.png" />
     <Resource Include="Pictures\coin.png" />
     <Resource Include="Pictures\archer.png" />
     <Resource Include="Pictures\hourseman.png" />
