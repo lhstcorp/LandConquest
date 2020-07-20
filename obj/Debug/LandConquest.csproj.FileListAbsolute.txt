@@ -169,3 +169,5 @@ C:\Users\Tom\Documents\GitHub\LandConquest\obj\Debug\Forms\MarketWindow.g.cs
 C:\Users\Tom\Documents\GitHub\LandConquest\obj\Debug\Forms\MarketWindow.baml
 C:\LandConquest\obj\Debug\Forms\MarketWindow.g.cs
 C:\LandConquest\obj\Debug\Forms\MarketWindow.baml
+C:\LandConquest\obj\Debug\Forms\CountryWindow.g.cs
+C:\LandConquest\obj\Debug\Forms\CountryWindow.baml

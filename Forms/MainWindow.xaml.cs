@@ -676,6 +676,9 @@ namespace LandConquest.Forms
         private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
+
+            CountryWindow win = new CountryWindow(connection, player);
+            win.Show();
         }
 
         private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)

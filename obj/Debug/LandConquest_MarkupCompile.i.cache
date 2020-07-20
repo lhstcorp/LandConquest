@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\LandConquest\App.xaml
-15-1370333267
+16358349859
 3-2041200384
-44920737168
+45-1515157686
 22-1194079582
-DialogWIndows\EstablishStateDialog.xaml;DialogWIndows\ManufactureBuyingDialog.xaml;DialogWIndows\ManufactureUpgradeDialog.xaml;Forms\AuthorisationWindow.xaml;Forms\ChatWindow.xaml;Forms\MainWindow.xaml;Forms\ManufactureWindow.xaml;Forms\MarketWindow.xaml;Forms\ProfileWindow.xaml;Forms\RatingWindow.xaml;Forms\RecruitWindow.xaml;Forms\StorageWindow.xaml;Resources\GlobalMap.xaml;Resources\ResourceMap.xaml;StylesDictionary.xaml;
+DialogWIndows\EstablishStateDialog.xaml;DialogWIndows\ManufactureBuyingDialog.xaml;DialogWIndows\ManufactureUpgradeDialog.xaml;Forms\AuthorisationWindow.xaml;Forms\ChatWindow.xaml;Forms\CountryWindow.xaml;Forms\MainWindow.xaml;Forms\ManufactureWindow.xaml;Forms\MarketWindow.xaml;Forms\ProfileWindow.xaml;Forms\RatingWindow.xaml;Forms\RecruitWindow.xaml;Forms\StorageWindow.xaml;Resources\GlobalMap.xaml;Resources\ResourceMap.xaml;StylesDictionary.xaml;
 
 True
 
