@@ -125,6 +125,10 @@
         </Button>
         <Button x:Name="test2" IsEnabled="False" Content="Button" HorizontalAlignment="Left" Height="97" Margin="191,173,0,0" VerticalAlignment="Top" Width="28" Click="test2_Click"/>
         <Button x:Name="buttonChat" Content="Show chat" Grid.Column="1" HorizontalAlignment="Left" Margin="229,293,0,0" VerticalAlignment="Top" Width="224" Click="buttonChat_Click"/>
+        <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="58" Margin="491,5,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/food.png" Width="56" Cursor="Hand" MouseDown="marketImage_MouseDown"/>
+        <Image x:Name="CountryImage"  HorizontalAlignment="Left" Height="58" Margin="552,5,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/parlament.png" Width="56" Cursor="Hand" MouseDown="CountryImage_MouseDown"/>
+        <Image x:Name="LandImage"  HorizontalAlignment="Left" Height="58" Margin="608,10,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/landMainBuilding.png" Width="56" Cursor="Hand" MouseDown="LandImage_MouseDown"/>
+        <Button x:Name="DeclareWar" Content="Button" HorizontalAlignment="Left" Height="97" Margin="224,173,0,0" VerticalAlignment="Top" Width="27" Click="DeclareWar_Click"/>
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>

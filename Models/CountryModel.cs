@@ -96,5 +96,71 @@ namespace LandConquest.Models
 
             return countries;
         }
+
+        public int GetCountryId(SqlConnection connection, Player player)
+        {
+            int id = 0;
+
+            String query = "SELECT country_id FROM dbo.LandData WHERE land_id = @land_id ";
+
+            var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@land_id", player.PlayerCurrentRegion);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var countryId = reader.GetOrdinal("country_id");
+
+                while (reader.Read())
+                {
+                    id = reader.GetInt32(countryId);
+                }
+            }
+
+            command.Dispose();
+
+            return id;
+        }
+
+        public Country GetCountryById(SqlConnection connection, int id)
+        {
+            Country country = new Country();
+
+            String query = "SELECT * FROM dbo.CountryData WHERE country_id = @id";
+
+            var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@id", id);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var countryId = reader.GetOrdinal("country_id");
+                var countryName = reader.GetOrdinal("country_name");
+                var countryRuler = reader.GetOrdinal("country_ruler");
+                var countryColor = reader.GetOrdinal("country_color");
+
+                while (reader.Read())
+                {
+                    country.CountryId = reader.GetInt32(countryId);
+                    country.CountryName = reader.GetString(countryName);
+                    country.CountryRuler = reader.GetString(countryRuler);
+                    country.CountryColor = reader.GetString(countryColor);
+                }
+            }
+
+            command.Dispose();
+
+            return country;
+        }
+
+        public void DisbandCountry(SqlConnection connection, Country country)
+        {
+            String query = "DELETE FROM dbo.CountryData WHERE country_id = @id";
+
+            var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@id", country.CountryId);
+
+            command.ExecuteNonQuery();
+
+            command.Dispose();
+        }
     }
 }

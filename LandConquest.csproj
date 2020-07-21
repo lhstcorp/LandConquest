@@ -91,9 +91,17 @@
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\Land.cs" />
+    <Compile Include="Entities\Law.cs" />
+    <Compile Include="Entities\Market.cs" />
     <Compile Include="Entities\PlayerEquipment.cs" />
     <Compile Include="Forms\ChatWindow.xaml.cs">
       <DependentUpon>ChatWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CountryWindow.xaml.cs">
+      <DependentUpon>CountryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MarketWindow.xaml.cs">
+      <DependentUpon>MarketWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
@@ -101,14 +109,19 @@
     <Compile Include="Forms\RatingWindow.xaml.cs">
       <DependentUpon>RatingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\WarWindow.xaml.cs">
+      <DependentUpon>WarWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\ArmyModel.cs" />
     <Compile Include="Models\ChatModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />
     <Compile Include="Models\LandModel.cs" />
+    <Compile Include="Models\MarketModel.cs" />
     <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Models\TaxesModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\WarModel.cs" />
     <Compile Include="Resources\GlobalMap.xaml.cs">
       <DependentUpon>GlobalMap.xaml</DependentUpon>
     </Compile>
@@ -158,11 +171,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Forms\CountryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\ManufactureWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\MarketWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\StorageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\WarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -370,6 +395,12 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\сountryDefault.png" />
+    <Resource Include="Pictures\landMainBuilding.png" />
+    <Resource Include="Pictures\parlament.png" />
+    <Resource Include="Pictures\coin.png" />
+    <Resource Include="Pictures\archer.png" />
+    <Resource Include="Pictures\hourseman.png" />
     <Content Include="music.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -379,6 +410,7 @@
     <Content Include="music3.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Pictures\catapult.png" />
     <Resource Include="Pictures\gear.png" />
     <Resource Include="Pictures\bow.png" />
     <Resource Include="Pictures\spear.png" />

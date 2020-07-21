@@ -37,7 +37,9 @@ namespace LandConquest.Forms
         PeasantModel peasantModel;
         StorageModel storageModel;
         EquipmentModel equipmentModel;
+        MarketModel marketModel;
 
+        Market market;
         PlayerStorage storage;
         PlayerEquipment equipment = new PlayerEquipment();
         Taxes taxes;
@@ -63,7 +65,9 @@ namespace LandConquest.Forms
             storage = new PlayerStorage();
             peasants = new Peasants();
             country = new Country();
+            market = new Market();
 
+            marketModel = new MarketModel();
             userModel = new UserModel();
             taxesModel = new TaxesModel();
             landModel = new LandModel();
@@ -72,7 +76,8 @@ namespace LandConquest.Forms
             manufactureModel = new ManufactureModel();
             playerModel = new PlayerModel();
             storageModel = new StorageModel();
-           // equipment = new PlayerEquipment();
+            equipmentModel = new EquipmentModel();
+            //equipment = new PlayerEquipment();
 
             player = playerModel.GetPlayerInfo(_user, connection, player);
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
@@ -96,8 +101,6 @@ namespace LandConquest.Forms
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            
-
             storage = storageModel.GetPlayerStorage(player, connection, storage);
 
             peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
@@ -166,6 +169,8 @@ namespace LandConquest.Forms
         {
             storage = storageModel.GetPlayerStorage(player, connection, storage);
             List<Manufacture> manufactures = manufactureModel.GetManufactureInfo(player, connection);
+            List<Manufacture> playerLandManufactures = manufactureModel.GetPlayerLandManufactureInfo(player, connection);
+            //base manufactures 
             storage.PlayerWood += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
             player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
             player = CheckLvlChange(player);
@@ -177,13 +182,113 @@ namespace LandConquest.Forms
             storage.PlayerFood += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[2].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[2].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
             player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[2].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[2].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
             player = CheckLvlChange(player);
+            //land manufactures
 
+            //first land manufacture
+            bool f = true;
+
+            if (playerLandManufactures.Count == 0)
+            {
+                f = false;
+                playerLandManufactures.Add(new Manufacture());
+                playerLandManufactures.Add(new Manufacture());
+                playerLandManufactures[0].ManufactureProdStartTime = DateTime.UtcNow;
+                playerLandManufactures[0].ManufactureProductsHour = 0;
+
+                playerLandManufactures[1].ManufactureProdStartTime = DateTime.UtcNow;
+                playerLandManufactures[1].ManufactureProductsHour = 0;
+            }
+
+            switch (playerLandManufactures[0].ManufactureType)
+            {
+                case 4:
+                    {
+                        storage.PlayerIron += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player = CheckLvlChange(player);
+                        break;
+                    }
+                case 5:
+                    {
+                        storage.PlayerGoldOre += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player = CheckLvlChange(player);
+                        break;
+                    }
+                case 6:
+                    {
+                        storage.PlayerCopper += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player = CheckLvlChange(player);
+                        break;
+                    }
+                case 7:
+                    {
+                        storage.PlayerGems += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player = CheckLvlChange(player);
+                        break;
+                    }
+                case 8:
+                    {
+                        storage.PlayerLeather += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player = CheckLvlChange(player);
+                        break;
+                    }
+            }
+            //second land manufacture
+            switch (playerLandManufactures[1].ManufactureType)
+            {
+                case 4:
+                    {
+                        storage.PlayerIron += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player = CheckLvlChange(player);
+                        break;
+                    }
+                case 5:
+                    {
+                        storage.PlayerGoldOre += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player = CheckLvlChange(player);
+                        break;
+                    }
+                case 6:
+                    {
+                        storage.PlayerCopper += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player = CheckLvlChange(player);
+                        break;
+                    }
+                case 7:
+                    {
+                        Console.WriteLine("suda!!!!");
+                        storage.PlayerGems += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player = CheckLvlChange(player);
+                        break;
+                    }
+                case 8:
+                    {
+                        storage.PlayerLeather += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
+                        player = CheckLvlChange(player);
+                        break;
+                    }
+            }
+
+            //EXP and PB + Update Storage
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
             PbExp.Value = player.PlayerExp;
 
+            Console.WriteLine(Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5))) + " tut");
+
             storageModel.UpdateStorage(connection, player, storage);
-            
+
             manufactureModel.UpdateDateTimeForManufacture(manufactures, player, connection);
+            if (f) manufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player, connection);
+
 
             StorageWindow storageWindow = new StorageWindow(this, connection, player, user);
 
@@ -570,6 +675,33 @@ namespace LandConquest.Forms
             chatWindow.Show();
         }
 
-       
+        private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            storage = storageModel.GetPlayerStorage(player, connection, storage);
+            market = marketModel.GetMarketInfo(player, connection, market);
+
+            MarketWindow window = new MarketWindow(this, connection, storage, market, player);
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Owner = this;
+            window.Show();
+        }
+
+        private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+
+            CountryWindow win = new CountryWindow(connection, player);
+            win.Show();
+        }
+
+        private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DeclareWar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
