@@ -91,6 +91,7 @@
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\Land.cs" />
+    <Compile Include="Entities\Law.cs" />
     <Compile Include="Entities\Market.cs" />
     <Compile Include="Entities\PlayerEquipment.cs" />
     <Compile Include="Forms\ChatWindow.xaml.cs">
@@ -120,6 +121,7 @@
     <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Models\TaxesModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\WarModel.cs" />
     <Compile Include="Resources\GlobalMap.xaml.cs">
       <DependentUpon>GlobalMap.xaml</DependentUpon>
     </Compile>

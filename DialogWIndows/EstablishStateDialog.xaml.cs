@@ -39,7 +39,7 @@ namespace LandConquest.DialogWIndows
         {
             Country country = countryModel.EstablishaState(connection, player, land, StateColor.Color);
             country.CountryId = countryModel.SelectLastIdOfStates(connection);
-            landModel.UpdateLandInfo(connection, player, land, country);
+            landModel.UpdateLandInfo(connection, land, country);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
