@@ -114,7 +114,7 @@ namespace LandConquest.Models
                 {
                     id = reader.GetInt32(countryId);
                 }
-            }           
+            }
 
             command.Dispose();
 
@@ -149,6 +149,18 @@ namespace LandConquest.Models
             command.Dispose();
 
             return country;
+        }
+
+        public void DisbandCountry(SqlConnection connection, Country country)
+        {
+            String query = "DELETE FROM dbo.CountryData WHERE country_id = @id";
+
+            var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@id", country.CountryId);
+
+            command.ExecuteNonQuery();
+
+            command.Dispose();
         }
     }
 }

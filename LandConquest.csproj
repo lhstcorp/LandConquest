@@ -91,6 +91,7 @@
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\Land.cs" />
+    <Compile Include="Entities\Law.cs" />
     <Compile Include="Entities\Market.cs" />
     <Compile Include="Entities\PlayerEquipment.cs" />
     <Compile Include="Forms\ChatWindow.xaml.cs">
@@ -108,6 +109,9 @@
     <Compile Include="Forms\RatingWindow.xaml.cs">
       <DependentUpon>RatingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\WarWindow.xaml.cs">
+      <DependentUpon>WarWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\ArmyModel.cs" />
     <Compile Include="Models\ChatModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
@@ -117,6 +121,7 @@
     <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Models\TaxesModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\WarModel.cs" />
     <Compile Include="Resources\GlobalMap.xaml.cs">
       <DependentUpon>GlobalMap.xaml</DependentUpon>
     </Compile>
@@ -195,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\StorageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\WarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

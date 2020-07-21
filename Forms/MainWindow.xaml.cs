@@ -101,8 +101,6 @@ namespace LandConquest.Forms
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            
-
             storage = storageModel.GetPlayerStorage(player, connection, storage);
 
             peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
@@ -187,6 +185,20 @@ namespace LandConquest.Forms
             //land manufactures
 
             //first land manufacture
+            bool f = true;
+
+            if (playerLandManufactures.Count == 0)
+            {
+                f = false;
+                playerLandManufactures.Add(new Manufacture());
+                playerLandManufactures.Add(new Manufacture());
+                playerLandManufactures[0].ManufactureProdStartTime = DateTime.UtcNow;
+                playerLandManufactures[0].ManufactureProductsHour = 0;
+
+                playerLandManufactures[1].ManufactureProdStartTime = DateTime.UtcNow;
+                playerLandManufactures[1].ManufactureProductsHour = 0;
+            }
+
             switch (playerLandManufactures[0].ManufactureType)
             {
                 case 4:
@@ -275,7 +287,8 @@ namespace LandConquest.Forms
             storageModel.UpdateStorage(connection, player, storage);
 
             manufactureModel.UpdateDateTimeForManufacture(manufactures, player, connection);
-            manufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player, connection);
+            if (f) manufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player, connection);
+
 
             StorageWindow storageWindow = new StorageWindow(this, connection, player, user);
 
@@ -682,6 +695,11 @@ namespace LandConquest.Forms
         }
 
         private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DeclareWar_Click(object sender, RoutedEventArgs e)
         {
 
         }
