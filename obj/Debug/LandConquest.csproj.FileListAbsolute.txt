@@ -183,3 +183,7 @@ C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.exe
 C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.pdb
 C:\LandConquest\obj\Debug\Forms\WarResultWindow.g.cs
 C:\LandConquest\obj\Debug\Forms\WarResultWindow.baml
+C:\Users\itk\source\repos\LandConquest\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\itk\source\repos\LandConquest\bin\Debug\NTiled.dll
+C:\Users\itk\source\repos\LandConquest\bin\Debug\NTiled.xml
+C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.csprojAssemblyReference.cache

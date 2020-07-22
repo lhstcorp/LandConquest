@@ -38,5 +38,6 @@ namespace LandConquest.Forms
             army = armyModel.GetArmyInfo(connection, player, army);
             playerForces.Content = army.ArmyArchersCount + army.ArmyHorsemanCount + army.ArmyInfantryCount + army.ArmySiegegunCount;
         }
+
     }
 }
