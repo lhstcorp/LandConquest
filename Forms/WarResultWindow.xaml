@@ -1,0 +1,30 @@
+﻿<Window x:Class="LandConquest.Forms.WarResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.Forms"
+        mc:Ignorable="d"
+        Title="WarResultWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    
+    
+    <Grid>
+        <Label Content="Your forces:" FontSize="20" HorizontalAlignment="Left" Margin="252,100,0,0" VerticalAlignment="Top" Height="37" Width="173"/>
+        <Label x:Name="playerForces" Content="0" FontSize="20" HorizontalAlignment="Left" Margin="430,100,0,0" VerticalAlignment="Top" Height="37" Width="131"/>
+        <Label Content="Enemy forces:" FontSize="20" HorizontalAlignment="Left" Margin="252,137,0,0" VerticalAlignment="Top" Height="37" Width="173"/>
+        <Label x:Name="enemyForces" Content="0" FontSize="20" HorizontalAlignment="Left" Margin="430,137,0,0" VerticalAlignment="Top" Height="37" Width="131"/>
+        <Label Content="Battle result:" FontSize="40" HorizontalAlignment="Left" Margin="178,188,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="battleResult" Content="waiting..." FontSize="40" HorizontalAlignment="Left" Margin="430,188,0,0" VerticalAlignment="Top" Width="213"/>
+        <Label Content="Battle start time:" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="37" Width="173"/>
+        <Label x:Name="battleStartTime" Content="0" FontSize="20" HorizontalAlignment="Left" Margin="184,10,0,0" VerticalAlignment="Top" Height="37" Width="229"/>
+
+        <Label Content="Your forces left:" FontSize="20" HorizontalAlignment="Left" Margin="252,289,0,0" VerticalAlignment="Top" Height="37" Width="173"/>
+        <Label x:Name="PlayerForcesLeft" Content="0" FontSize="20" HorizontalAlignment="Left" Margin="430,289,0,0" VerticalAlignment="Top" Height="37" Width="131"/>
+        <Label Content="Enemy forces left:" FontSize="20" HorizontalAlignment="Left" Margin="252,326,0,0" VerticalAlignment="Top" Height="37" Width="173"/>
+        <Label x:Name="EnemyForcesLeft" Content="0" FontSize="20" HorizontalAlignment="Left" Margin="430,326,0,0" VerticalAlignment="Top" Height="37" Width="131"/>
+        
+        <Grid.Background>
+            <ImageBrush ImageSource="../Pictures/map.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+    </Grid>
+</Window>
