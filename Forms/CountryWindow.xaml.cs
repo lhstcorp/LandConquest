@@ -89,6 +89,28 @@ namespace LandConquest.Forms
                     CbCountryToTransfer.Items.Add(countries[i].CountryName);
                 }
             }
+            if (selectedItem.Content.ToString() == "Declare a war")
+            {
+                operation = 2;
+                for (int i = 0; i < countryLands.Count; i++)
+                {
+                    CbLandToTransfer.Items.Add(countryLands[i].LandName);
+                }
+
+                for (int i = 0; i < countries.Count; i++)
+                {
+                    CbCountryToTransfer.Items.Add(countries[i].CountryName);
+                }
+
+                CbCountryWarLand.Visibility = Visibility.Visible;
+
+
+                //for (int i = 0; i < countryLands.Count; i++)
+                //{
+                //    CbCountryWarLand.Items.Add(countryLands[i].LandName);
+                //}
+            }
+
         }
 
         private void IssueALaw_Click(object sender, RoutedEventArgs e)
@@ -109,6 +131,14 @@ namespace LandConquest.Forms
                             countryModel.DisbandCountry(connection, ThisCountry);
                         }
                         //тут нужно написать функцию на чек пустых государств. Если гос-во пустое - король теряет свой титул.
+                        break;
+                    }
+                case 2:
+                    {
+                        //Player player = new Player();
+                        //player.PlayerCurrentRegion = selectedLand.LandId;
+                        //Country ThisCountry = countryModel.GetCountryById(connection, countryModel.GetCountryId(connection, player));
+
                         break;
                     }
             }
