@@ -703,5 +703,13 @@ namespace LandConquest.Forms
         {
 
         }
+
+        private void buttonStartBattle_Click(object sender, RoutedEventArgs e)
+        {
+            WarResultWindow warResultWindow = new WarResultWindow(connection, player);
+            warResultWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            warResultWindow.Owner = this;
+            warResultWindow.Show();
+        }
     }
 }
