@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
         mc:Ignorable="d"
-        Title="WarWindow" Height="450" Width="800">
-    <Grid>
+        WindowStyle="None" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Title="WarWindow" Height="1000" Width="1400">
+    <Grid x:Name="mainWarWinGrid">
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <DataGrid x:Name="warDataGrid" HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="794" Margin="0,0,-0.4,0"/>
+        <Grid x:Name="Gr" HorizontalAlignment="Left" Height="253" Margin="10,30,0,0" VerticalAlignment="Top" Width="327" Panel.ZIndex="2"/>
     </Grid>
 </Window>

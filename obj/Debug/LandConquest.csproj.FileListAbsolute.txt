@@ -187,3 +187,17 @@ C:\Users\itk\source\repos\LandConquest\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Users\itk\source\repos\LandConquest\bin\Debug\NTiled.dll
 C:\Users\itk\source\repos\LandConquest\bin\Debug\NTiled.xml
 C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.csprojAssemblyReference.cache
+C:\LandConquest\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.xml
+C:\LandConquest\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\LandConquest\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.Managed.dll
+C:\LandConquest\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.winmd
+C:\LandConquest\bin\Debug\Microsoft.Toolkit.Wpf.UI.Controls.dll
+C:\LandConquest\bin\Debug\Microsoft.Toolkit.Wpf.UI.XamlHost.dll
+C:\LandConquest\bin\Debug\NTiled.dll
+C:\LandConquest\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.Managed.pdb
+C:\LandConquest\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.Managed.xml
+C:\LandConquest\bin\Debug\Microsoft.Toolkit.Wpf.UI.Controls.pdb
+C:\LandConquest\bin\Debug\Microsoft.Toolkit.Wpf.UI.Controls.xml
+C:\LandConquest\bin\Debug\Microsoft.Toolkit.Wpf.UI.XamlHost.pdb
+C:\LandConquest\bin\Debug\Microsoft.Toolkit.Wpf.UI.XamlHost.xml
+C:\LandConquest\bin\Debug\NTiled.xml
