@@ -701,7 +701,8 @@ namespace LandConquest.Forms
 
         private void DeclareWar_Click(object sender, RoutedEventArgs e)
         {
-
+            WarWindow window = new WarWindow();
+            window.Show();
         }
 
         private void buttonStartBattle_Click(object sender, RoutedEventArgs e)

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NTiled;
 
 namespace LandConquest.Forms
 {
@@ -21,7 +24,9 @@ namespace LandConquest.Forms
     {
         public WarWindow()
         {
-            InitializeComponent();
+            TiledReader tiledReader = new TiledReader();
+                var map = tiledReader.Read(@"map.tmx");
+            warDataGrid.ItemsSource = map.Tilesets;
         }
     }
 }
