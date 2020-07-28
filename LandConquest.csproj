@@ -424,6 +424,7 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\tile-test-red.jpg" />
     <Resource Include="Pictures\test-tile.jpg" />
     <Resource Include="Pictures\сountryDefault.png" />
     <Resource Include="Pictures\landMainBuilding.png" />

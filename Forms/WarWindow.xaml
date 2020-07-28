@@ -12,6 +12,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Grid x:Name="Gr" HorizontalAlignment="Left" Height="253" Margin="10,30,0,0" VerticalAlignment="Top" Width="327" Panel.ZIndex="2"/>
+        <UniformGrid x:Name="gridForArmies" Panel.ZIndex="2" ></UniformGrid>
     </Grid>
 </Window>
