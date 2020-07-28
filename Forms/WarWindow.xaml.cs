@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -27,28 +28,46 @@ namespace LandConquest.Forms
             InitializeComponent();
             int columnWidth = 20;
             int rowHeight = 20;
-            localWarMap.Columns = 50;
-            localWarMap.Rows = 40;
+            localWarMap.Columns = 5; //50
+            localWarMap.Rows = 5;    //40
+
             localWarMap.Width = columnWidth * localWarMap.Columns;
+            gridForArmies.Width = columnWidth * localWarMap.Columns;
             localWarMap.Height = rowHeight * localWarMap.Rows;
-            localWarMap.HorizontalAlignment = HorizontalAlignment.Left;
-            localWarMap.VerticalAlignment = VerticalAlignment.Center;
+            gridForArmies.Height = rowHeight * localWarMap.Rows;
+
+            //localWarMap.HorizontalAlignment = HorizontalAlignment.Left;
+            //localWarMap.VerticalAlignment = VerticalAlignment.Center;
+            //gridForArmies.HorizontalAlignment = HorizontalAlignment.Left;
+            //gridForArmies.VerticalAlignment = VerticalAlignment.Center;
             Loaded += WarWin_Loaded;
         }
 
         private void WarWin_Loaded(object sender, RoutedEventArgs e)
         {
-            //Rectangle myRectangle1 = new Rectangle();
-            //Grid localWarArmyLayer = new Grid();
-            //mainWarWinGrid.SetZIndex(myRectangle1, 3);
-            System.Windows.Controls.Image imgArmy = new System.Windows.Controls.Image();
-            //imgArmy.SetZIndex();
-            imgArmy.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
-            imgArmy.Height = 20;
-            imgArmy.Width = 20;
-            imgArmy.Margin = new Thickness(400, 400, 0, 0);
+            Image imgArmy = new Image();
+            //imgArmy.Width = 20;
+            //imgArmy.Height = 20;
+            //imgArmy.Source = new BitmapImage(new Uri("/Pictures/food.png", UriKind.Relative));
+            //imgArmy.HorizontalAlignment = HorizontalAlignment.Center;
+            //imgArmy.VerticalAlignment = VerticalAlignment.Center;
+            //imgArmy.SetValue(Grid.ColumnProperty, 0);
+            //imgArmy.SetValue(Grid.RowProperty, 0);
+            //gridForArmies.Children.Add(imgArmy);
 
-            mainWarWinGrid.Children.Add(imgArmy);
+            //imgArmy = new Image();
+            //imgArmy.Width = 20;
+            //imgArmy.Height = 20;
+            //imgArmy.Source = new BitmapImage(new Uri("/Pictures/food.png", UriKind.Relative));
+            //imgArmy.SetValue(Grid.ColumnProperty, 2);
+            //imgArmy.SetValue(Grid.RowProperty, 2);
+            //gridForArmies.Children.Add(imgArmy);
+
+            //imgArmy = new Image();
+            string empty = "";
+            imgArmy.Width = 20;
+            imgArmy.Height = 20;
+            imgArmy.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
 
             for (int x = 0; x < localWarMap.Columns; x++)
             {
@@ -57,19 +76,16 @@ namespace LandConquest.Forms
                     System.Windows.Controls.Image img = new System.Windows.Controls.Image();
                     img.Source = new BitmapImage(new Uri("/Pictures/test-tile.jpg", UriKind.Relative));
                     localWarMap.Children.Add(img);
+
+                    gridForArmies.Children.Add(new TextBox { Text = empty });
                 }
             }
             mainWarWinGrid.Children.Add(localWarMap);
             //test 
-            
+
+            int index = (2 - 1) * localWarMap.Columns + 2 - 1;
+            gridForArmies.Children.RemoveAt(index);
+            gridForArmies.Children.Insert(index, imgArmy);
         }
-
-        //private void mainWarWinGrid_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    Grid mainWarWinGrid = (Grid)sender;
-
-        //    mainWarWinGrid.Children.Add(localWarMap);
-        //    Console.WriteLine("govna pojui!");
-        //}
     }
 }
