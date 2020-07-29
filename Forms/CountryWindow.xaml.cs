@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,10 +29,13 @@ namespace LandConquest.Forms
         PlayerModel playerModel;
         LandModel landModel;
         List<Land> countryLands;
+        List<Land> countryLandsToFight;
         List<Country> countries;
         Land selectedLand;
         Country transferCountry;
+        Land countryLandDefender;
         int operation = 0;
+        bool f = true;
         public CountryWindow(SqlConnection _connection, Player _player)
         {
             connection = _connection;
@@ -62,12 +66,6 @@ namespace LandConquest.Forms
                 countries.Add(new Country());
             }
             countries = countryModel.GetCountriesInfo(countries, connection);
-
-            //Label lab1 = new Label();
-            //lab1.Margin = new Thickness(100, 100, 15, 15);
-            //lab1.Content = "govno";
-            //lab1.FontSize = 50;
-            //MainGrid.Children.Add(lab1);
         }
 
         private void CbAct_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -103,12 +101,6 @@ namespace LandConquest.Forms
                 }
 
                 CbCountryWarLand.Visibility = Visibility.Visible;
-
-
-                //for (int i = 0; i < countryLands.Count; i++)
-                //{
-                //    CbCountryWarLand.Items.Add(countryLands[i].LandName);
-                //}
             }
 
         }
@@ -135,21 +127,19 @@ namespace LandConquest.Forms
                     }
                 case 2:
                     {
-                        //Player player = new Player();
-                        //player.PlayerCurrentRegion = selectedLand.LandId;
-                        //Country ThisCountry = countryModel.GetCountryById(connection, countryModel.GetCountryId(connection, player));
+                        //DeclareAWar(GenerateId, selectedLand, countryLandDefender);
 
                         break;
                     }
             }
-                
+
 
         }
 
         private void CbLandToTransfer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedLand = new Land();
-            selectedLand = countryLands[CbLandToTransfer.SelectedIndex];      
+            selectedLand = countryLands[CbLandToTransfer.SelectedIndex];
         }
 
         private void CbCountryToTransfer_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -158,6 +148,36 @@ namespace LandConquest.Forms
 
             transferCountry = countries[CbCountryToTransfer.SelectedIndex];
             Console.WriteLine(transferCountry.CountryName);
+
+            if (operation == 2)
+            {
+                CbCountryWarLand.Items.Clear();
+
+                countryLandsToFight = landModel.GetCountryLands(connection, transferCountry);
+
+                for (int i = 0; i < countryLandsToFight.Count; i++)
+                {
+                    CbCountryWarLand.Items.Add(countryLandsToFight[i].LandName);
+                    Console.WriteLine(i);
+                }
+            }
+        }
+
+        private void CbCountryWarLand_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //countryLandsToFight = new List<Land>();
+            if (CbCountryWarLand.SelectedIndex != -1)
+            countryLandDefender = countryLandsToFight[CbCountryWarLand.SelectedIndex]; // STAR!
+        }
+
+        private static Random random;
+        public static string GenerateId()
+        {
+            Thread.Sleep(15);
+            random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvmxyz0123456789";
+            return new string(Enumerable.Repeat(chars, 16)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }

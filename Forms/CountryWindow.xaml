@@ -24,7 +24,7 @@
         <ComboBox x:Name="CbCountryToTransfer" HorizontalAlignment="Left" Height="50" Margin="494,220,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCountryToTransfer_SelectionChanged"/>
 
         <Button x:Name="IssueALaw" Content="Ok" HorizontalAlignment="Left" Height="63" Margin="667,347,0,0" VerticalAlignment="Top" Width="117" Click="IssueALaw_Click"/>
-        <ComboBox x:Name="CbCountryWarLand" Visibility="Hidden" HorizontalAlignment="Left" Height="50" Margin="494,275,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCountryToTransfer_SelectionChanged"/>
+        <ComboBox x:Name="CbCountryWarLand" Visibility="Hidden" HorizontalAlignment="Left" Height="50" Margin="494,275,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCountryWarLand_SelectionChanged"/>
 
     </Grid>
 </Window>
