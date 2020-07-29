@@ -45,26 +45,8 @@ namespace LandConquest.Forms
 
         private void WarWin_Loaded(object sender, RoutedEventArgs e)
         {
-            Image imgArmy = new Image();
-            //imgArmy.Width = 20;
-            //imgArmy.Height = 20;
-            //imgArmy.Source = new BitmapImage(new Uri("/Pictures/food.png", UriKind.Relative));
-            //imgArmy.HorizontalAlignment = HorizontalAlignment.Center;
-            //imgArmy.VerticalAlignment = VerticalAlignment.Center;
-            //imgArmy.SetValue(Grid.ColumnProperty, 0);
-            //imgArmy.SetValue(Grid.RowProperty, 0);
-            //gridForArmies.Children.Add(imgArmy);
-
-            //imgArmy = new Image();
-            //imgArmy.Width = 20;
-            //imgArmy.Height = 20;
-            //imgArmy.Source = new BitmapImage(new Uri("/Pictures/food.png", UriKind.Relative));
-            //imgArmy.SetValue(Grid.ColumnProperty, 2);
-            //imgArmy.SetValue(Grid.RowProperty, 2);
-            //gridForArmies.Children.Add(imgArmy);
-
-            //imgArmy = new Image();
             string empty = "";
+            Image imgArmy = new Image();
             imgArmy.Width = 20;
             imgArmy.Height = 20;
             imgArmy.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
@@ -83,9 +65,15 @@ namespace LandConquest.Forms
             mainWarWinGrid.Children.Add(localWarMap);
             //test 
 
-            int index = (2 - 1) * localWarMap.Columns + 2 - 1;
+            int index = ReturnNumberOfCell(2, 4);
             gridForArmies.Children.RemoveAt(index);
             gridForArmies.Children.Insert(index, imgArmy);
+        }
+
+        public int ReturnNumberOfCell(int row, int column)
+        {
+            int index = (row - 1) * localWarMap.Columns + column - 1;
+            return index;
         }
     }
 }
