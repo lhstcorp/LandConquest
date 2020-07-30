@@ -10,26 +10,20 @@ namespace LandConquest.Models
 {
     class WarModel
     {
-        //public Army UpdateArmy(SqlConnection connection, Army army)
-        //{
-        //    String storageQuery = "UPDATE dbo.ArmyData SET army_size_current = @army_size_current, army_type  = @army_type, army_archers_count = @army_archers_count, army_infantry_count  = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count, local_land_id = @local_land_id WHERE army_id = @army_id ";
+        public void DeclareAWar(SqlConnection connection, String war_id, Land landAttacker, Land landDefender)
+        {
+            String Query = "INSERT INTO dbo.WarData (war_id, land_attacker_id, land_defender_id, datetime_start) VALUES (@war_id, @land_attacker_id, @land_defender_id, @datetime_start)";
 
-        //    var storageCommand = new SqlCommand(storageQuery, connection);
-        //    // int datetimeResult;
-        //    storageCommand.Parameters.AddWithValue("@army_size_current", army.ArmySizeCurrent);
-        //    storageCommand.Parameters.AddWithValue("@army_type", army.ArmyType);
-        //    storageCommand.Parameters.AddWithValue("@army_archers_count", army.ArmyArchersCount);
-        //    storageCommand.Parameters.AddWithValue("@army_infantry_count", army.ArmyInfantryCount);
-        //    storageCommand.Parameters.AddWithValue("@army_horseman_count", army.ArmyHorsemanCount);
-        //    storageCommand.Parameters.AddWithValue("@army_siegegun_count", army.ArmySiegegunCount);
-        //    storageCommand.Parameters.AddWithValue("@local_land_id", army.LocalLandId);
-        //    storageCommand.Parameters.AddWithValue("@army_id", army.ArmyId);
+            var Command = new SqlCommand(Query, connection);
+            // int datetimeResult;
+            Command.Parameters.AddWithValue("@war_id", war_id);
+            Command.Parameters.AddWithValue("@land_attacker_id", landAttacker.LandId);
+            Command.Parameters.AddWithValue("@land_defender_id", landDefender.LandId);
+            Command.Parameters.AddWithValue("@datetime_start", DateTime.UtcNow);
 
-        //    storageCommand.ExecuteNonQuery();
+            Command.ExecuteNonQuery();
 
-
-        //    storageCommand.Dispose();
-        //    return army;
-        //}
+            Command.Dispose();
+        }
     }
 }

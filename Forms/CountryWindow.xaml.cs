@@ -28,6 +28,7 @@ namespace LandConquest.Forms
         CountryModel countryModel;
         PlayerModel playerModel;
         LandModel landModel;
+        WarModel warModel;
         List<Land> countryLands;
         List<Land> countryLandsToFight;
         List<Country> countries;
@@ -127,7 +128,8 @@ namespace LandConquest.Forms
                     }
                 case 2:
                     {
-                        //DeclareAWar(GenerateId, selectedLand, countryLandDefender);
+                        WarModel warModel = new WarModel();
+                        warModel.DeclareAWar(connection, GenerateId(), selectedLand, countryLandDefender);
 
                         break;
                     }
