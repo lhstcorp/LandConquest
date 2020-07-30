@@ -578,8 +578,10 @@ namespace LandConquest.Forms
             Console.WriteLine("list: " + list[0] + "  " + list[1]);
             manufactureModel.UpdateLandManufacturesWhenMove(connection, list, landManufactures);
             player = playerModel.UpdatePlayerLand(player, connection, land);
-            
+
             flag.Margin = new Thickness(flagXY[0], flagXY[1], flagXY[2], flagXY[3]);
+
+            //flag.Stretch
 
             Console.WriteLine("flag coo: " + flagXY[0] + " " + flagXY[1]);
             Console.WriteLine("map coo: " + Convert.ToInt32(GlobalMap.Margin.Left) + " " + Convert.ToInt32(GlobalMap.Margin.Top));
