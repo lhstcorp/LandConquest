@@ -24,7 +24,7 @@ namespace LandConquest.Forms
 {
     public partial class MainWindow : Window
     {
-        
+
         public SqlConnection connection;
         User user;
         Player player;
@@ -38,6 +38,8 @@ namespace LandConquest.Forms
         StorageModel storageModel;
         EquipmentModel equipmentModel;
         MarketModel marketModel;
+        MapModel mapModel;
+        WarModel warModel;
 
         Market market;
         PlayerStorage storage;
@@ -48,6 +50,7 @@ namespace LandConquest.Forms
         List<Land> lands;
         List<Path> paths;
         List<Country> countries;
+        List<War> wars;
         Land land;
         Country country;
         int[] flagXY = new int[4];
@@ -77,6 +80,8 @@ namespace LandConquest.Forms
             playerModel = new PlayerModel();
             storageModel = new StorageModel();
             equipmentModel = new EquipmentModel();
+            mapModel = new MapModel();
+            warModel = new WarModel();
             //equipment = new PlayerEquipment();
 
             player = playerModel.GetPlayerInfo(_user, connection, player);
@@ -137,14 +142,25 @@ namespace LandConquest.Forms
 
             countries = new List<Country>();
 
-            for (int i=0; i< countryModel.SelectLastIdOfStates(connection); i++)
+            for (int i = 0; i < countryModel.SelectLastIdOfStates(connection); i++)
             {
                 countries.Add(new Country());
             }
 
             lands = landModel.GetLandsInfo(lands, connection);
             countries = countryModel.GetCountriesInfo(countries, connection);
-            //lblLandNameOnGrid.Content = lands[5].LandName;
+
+
+            wars = new List<War>();
+
+            for (int i = 0; i < warModel.SelectLastIdOfWars(connection); i++)
+            {
+                wars.Add(new War());
+            }
+
+            wars = warModel.GetWarsInfo(wars, connection);
+
+            LoadWarsOnMap();
         }
 
         private void UpdateInfo()
@@ -337,7 +353,7 @@ namespace LandConquest.Forms
         {
             storage = storageModel.GetPlayerStorage(player, connection, storage);
             equipment = equipmentModel.GetPlayerEquipment(player, connection, equipment);
-            
+
             RecruitWindow window = new RecruitWindow(connection, player, storage, equipment);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Owner = this;
@@ -405,12 +421,12 @@ namespace LandConquest.Forms
             {
                 Path senderPath = (Path)sender;
                 land = new Land();
-                
+
                 land = lands.ElementAt(Convert.ToInt32(senderPath.Name.Replace("Land", "")) - 1);
                 lblLandNameOnGrid.Content = land.LandName;
 
-                
-                for (int i=0; i<countries.Count; i++)
+
+                for (int i = 0; i < countries.Count; i++)
                 {
                     if (land.CountryId == countries[i].CountryId)
                     {
@@ -418,11 +434,12 @@ namespace LandConquest.Forms
                         break;
                     }
                 }
-                
-                flagXY[0] = Convert.ToInt32(senderPath.Data.Bounds.Left + senderPath.Data.Bounds.Width / 2 + Convert.ToInt32(GlobalMap.Margin.Left));
-                flagXY[1] = Convert.ToInt32(senderPath.Data.Bounds.Top + senderPath.Data.Bounds.Height / 2 + Convert.ToInt32(GlobalMap.Margin.Top));
-                flagXY[2] = Convert.ToInt32(senderPath.Data.Bounds.Right + senderPath.Data.Bounds.Width / 2 + Convert.ToInt32(GlobalMap.Margin.Right));
-                flagXY[3] = Convert.ToInt32(senderPath.Data.Bounds.Bottom + senderPath.Data.Bounds.Height / 2 + Convert.ToInt32(GlobalMap.Margin.Bottom));
+
+                //flagXY[0] = Convert.ToInt32(senderPath.Data.Bounds.Left + senderPath.Data.Bounds.Width / 2 + Convert.ToInt32(GlobalMap.Margin.Left));
+                //flagXY[1] = Convert.ToInt32(senderPath.Data.Bounds.Top + senderPath.Data.Bounds.Height / 2 + Convert.ToInt32(GlobalMap.Margin.Top));
+                //flagXY[2] = Convert.ToInt32(senderPath.Data.Bounds.Right + senderPath.Data.Bounds.Width / 2 + Convert.ToInt32(GlobalMap.Margin.Right));
+                //flagXY[3] = Convert.ToInt32(senderPath.Data.Bounds.Bottom + senderPath.Data.Bounds.Height / 2 + Convert.ToInt32(GlobalMap.Margin.Bottom));
+
 
                 switch (land.ResourceType1)
                 {
@@ -498,7 +515,7 @@ namespace LandConquest.Forms
             }
         }
 
-        
+
 
         private void PathLoadedHandler(object sender, RoutedEventArgs e)
         {
@@ -534,7 +551,7 @@ namespace LandConquest.Forms
             GlobalMap.Visibility = Visibility.Visible;
         }
 
-        
+
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             settingsGrid.Visibility = Visibility.Hidden;
@@ -552,14 +569,12 @@ namespace LandConquest.Forms
             SoundPlayer sound = new SoundPlayer();
             sound.SoundLocation = @"music.wav";
             sound.PlayLooping();
-            
+
             //sound.SoundLocation = @"music2.wav";
             //sound.PlayLooping();
-            
+
             //sound.SoundLocation = @"music3.wav";
             //sound.PlayLooping();
-            
-
         }
 
         private void checkBox_Checked(object sender, RoutedEventArgs e)
@@ -569,7 +584,7 @@ namespace LandConquest.Forms
 
         private void btnGoToLand_Click(object sender, RoutedEventArgs e)
         {
-            
+
             peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
             List<int> list = playerModel.DeletePlayerManufactureLandData(peasants, player, connection);
             List<Manufacture> landManufactures = manufactureModel.GetLandManufactureInfo(player, connection);
@@ -579,9 +594,12 @@ namespace LandConquest.Forms
             manufactureModel.UpdateLandManufacturesWhenMove(connection, list, landManufactures);
             player = playerModel.UpdatePlayerLand(player, connection, land);
 
-            flag.Margin = new Thickness(flagXY[0], flagXY[1], flagXY[2], flagXY[3]);
+            //flag.Margin = new Thickness(flagXY[0] - 69, flagXY[1] - 36, 0, 0);
+            //flag.Margin = new Thickness(Convert.ToDouble(GlobalMap.Margin.Left), Convert.ToDouble(GlobalMap.Margin.Top), 0, 0);
 
             //flag.Stretch
+            flagXY = mapModel.CenterOfLand(land.LandId);
+            flag.Margin = new Thickness(flagXY[0], flagXY[1], 0, 0);
 
             Console.WriteLine("flag coo: " + flagXY[0] + " " + flagXY[1]);
             Console.WriteLine("map coo: " + Convert.ToInt32(GlobalMap.Margin.Left) + " " + Convert.ToInt32(GlobalMap.Margin.Top));
@@ -598,7 +616,7 @@ namespace LandConquest.Forms
 
         public void RedrawGlobalMap()
         {
-            for (int i=0; i<paths.Count;i++)
+            for (int i = 0; i < paths.Count; i++)
             {
                 Color color = (Color)ColorConverter.ConvertFromString(lands[i].LandColor);
 
@@ -616,8 +634,8 @@ namespace LandConquest.Forms
 
         public Player CheckLvlChange(Player player)
         {
-            
-            while (Math.Pow(player.PlayerLvl,2)*500 - player.PlayerExp  <= 0)
+
+            while (Math.Pow(player.PlayerLvl, 2) * 500 - player.PlayerExp <= 0)
             {
                 player.PlayerLvl += 1;
 
@@ -629,8 +647,8 @@ namespace LandConquest.Forms
 
             PbExp.Maximum = player.PlayerLvl * 2 * 500;
             PbExp.Value = player.PlayerExp;
-            
-            
+
+
 
             return player;
         }
@@ -713,6 +731,25 @@ namespace LandConquest.Forms
             warResultWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             warResultWindow.Owner = this;
             warResultWindow.Show();
+        }
+
+        public void LoadWarsOnMap()
+        {
+            int[] landCenter = new int[1];
+            for (int i = 0; i < wars.Count; i++)
+            {
+                Line warLine = new Line();
+                SymbalLayer.Children.Add(warLine);
+                Console.WriteLine(wars[i].WarId + ' ' + wars[i].LandAttackerId + ' ' + wars[i].LandDefenderId);
+                landCenter = mapModel.CenterOfLand(wars[i].LandAttackerId);
+                warLine.X1 = landCenter[0];
+                warLine.Y1 = landCenter[1] - 100;
+                landCenter = mapModel.CenterOfLand(wars[i].LandDefenderId);
+                warLine.X2 = landCenter[0];
+                warLine.Y1 = landCenter[1] - 100;
+                warLine.Stroke = System.Windows.Media.Brushes.Chocolate;
+                warLine.StrokeThickness = 2;
+            }
         }
     }
 }

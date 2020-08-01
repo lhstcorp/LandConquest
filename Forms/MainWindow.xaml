@@ -39,10 +39,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Viewbox x:Name="SymbalLayer" Width="300" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="351,73,441,527" Panel.ZIndex="4">
-            <Image x:Name="flag" Source="/Pictures/flag.png" HorizontalAlignment="Left" Height="38" Margin="367,332,0,0" VerticalAlignment="Top" Width="33" Panel.ZIndex="4"/>
-        </Viewbox>
-        
+        <Canvas x:Name="SymbalLayer" Width="300" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="351,83,441,517" Panel.ZIndex="4">
+            <Image x:Name="flag" Source="/Pictures/flag.png" Height="38" Width="33" Panel.ZIndex="4"/>
+        </Canvas>
+
         <Viewbox x:Name="GlobalMap" Stretch="Uniform" Width="300" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" Margin="351,83,441,517" Panel.ZIndex="2">
             <ctrls:GlobalMap Height="300" Width="300"/>
         </Viewbox>
@@ -77,7 +77,7 @@
         <Label x:Name="prodRatioValue" Content="0" FontSize="9" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="DarkSlateGray" HorizontalAlignment="Left" Margin="113,266,0,0" VerticalAlignment="Top"  />
         <Image x:Name="recruitImage"  HorizontalAlignment="Left" Height="58" Margin="430,5,0,0" VerticalAlignment="Top" Source="/Pictures/shield.png" Width="56" MouseDown="recruitImage_MouseDown" RenderTransformOrigin="0.5,0.5" Cursor="Hand"/>
 
-        
+
         <Button Content="for ManufactureLVLDATA" HorizontalAlignment="Left" Height="97" Margin="158,173,0,0" VerticalAlignment="Top" Width="28" Click="Button_Click"/>
         <Button x:Name="btnHideLandGrid"  Content="Hide" HorizontalAlignment="Left" Height="38" Margin="27,750,0,0" VerticalAlignment="Top" Width="71" Panel.ZIndex="2" Click="btnHideLandGrid_Click" Background="#FFE1A35E" BorderBrush="#FF5A240F"/>
         <Button x:Name="btnShowLandGrid"  Content="Show" HorizontalAlignment="Left" Height="38" Margin="236,750,0,0" VerticalAlignment="Top" Width="71" Panel.ZIndex="2" Click="btnShowLandGrid_Click" BorderBrush="#FF5A250E" Background="#FFE1A35E" />
