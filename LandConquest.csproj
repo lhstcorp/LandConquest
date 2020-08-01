@@ -115,6 +115,7 @@
     <Compile Include="Entities\Law.cs" />
     <Compile Include="Entities\Market.cs" />
     <Compile Include="Entities\PlayerEquipment.cs" />
+    <Compile Include="Entities\War.cs" />
     <Compile Include="Enums\ForcesEnum.cs" />
     <Compile Include="Forms\ChatWindow.xaml.cs">
       <DependentUpon>ChatWindow.xaml</DependentUpon>
@@ -142,6 +143,7 @@
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />
     <Compile Include="Models\LandModel.cs" />
+    <Compile Include="Models\MapModel.cs" />
     <Compile Include="Models\MarketModel.cs" />
     <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Models\TaxesModel.cs" />
