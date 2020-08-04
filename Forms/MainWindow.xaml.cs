@@ -738,17 +738,21 @@ namespace LandConquest.Forms
             int[] landCenter = new int[1];
             for (int i = 0; i < wars.Count; i++)
             {
-                Line warLine = new Line();
-                SymbalLayer.Children.Add(warLine);
-                Console.WriteLine(wars[i].WarId + ' ' + wars[i].LandAttackerId + ' ' + wars[i].LandDefenderId);
-                landCenter = mapModel.CenterOfLand(wars[i].LandAttackerId);
-                warLine.X1 = landCenter[0];
-                warLine.Y1 = landCenter[1] - 100;
-                landCenter = mapModel.CenterOfLand(wars[i].LandDefenderId);
-                warLine.X2 = landCenter[0];
-                warLine.Y1 = landCenter[1] - 100;
-                warLine.Stroke = System.Windows.Media.Brushes.Chocolate;
-                warLine.StrokeThickness = 2;
+                //Line warLine = new Line();
+                //SymbalLayer.Children.Add(warLine);
+                //Console.WriteLine(wars[i].WarId + ' ' + wars[i].LandAttackerId + ' ' + wars[i].LandDefenderId);
+                //Console.WriteLine(SymbalLayer.Children.Count);
+                //landCenter = mapModel.CenterOfLand(wars[i].LandAttackerId);
+                //warLine.X1 = landCenter[0];
+                //warLine.Y1 = landCenter[1];
+                //landCenter = mapModel.CenterOfLand(wars[i].LandDefenderId);
+                //warLine.X2 = landCenter[0];
+                //warLine.Y1 = landCenter[1];
+                //warLine.Stroke = System.Windows.Media.Brushes.Black;
+                //warLine.StrokeThickness = 2;
+
+                //Line warLine = new Line();
+                //SymbalLayer.Children.Add(p1);
             }
         }
     }
