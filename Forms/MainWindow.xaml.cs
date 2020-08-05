@@ -535,8 +535,6 @@ namespace LandConquest.Forms
             {
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK);
             }
-
-
         }
 
         private void ResourceMapBtn_MouseDown(object sender, MouseButtonEventArgs e)
@@ -738,21 +736,18 @@ namespace LandConquest.Forms
             int[] landCenter = new int[1];
             for (int i = 0; i < wars.Count; i++)
             {
-                //Line warLine = new Line();
-                //SymbalLayer.Children.Add(warLine);
-                //Console.WriteLine(wars[i].WarId + ' ' + wars[i].LandAttackerId + ' ' + wars[i].LandDefenderId);
-                //Console.WriteLine(SymbalLayer.Children.Count);
-                //landCenter = mapModel.CenterOfLand(wars[i].LandAttackerId);
-                //warLine.X1 = landCenter[0];
-                //warLine.Y1 = landCenter[1];
-                //landCenter = mapModel.CenterOfLand(wars[i].LandDefenderId);
-                //warLine.X2 = landCenter[0];
-                //warLine.Y1 = landCenter[1];
-                //warLine.Stroke = System.Windows.Media.Brushes.Black;
-                //warLine.StrokeThickness = 2;
-
-                //Line warLine = new Line();
-                //SymbalLayer.Children.Add(p1);
+                Line warLine = new Line();
+                SymbalLayer.Children.Add(warLine);
+                Console.WriteLine(wars[i].WarId + ' ' + wars[i].LandAttackerId + ' ' + wars[i].LandDefenderId);
+                Console.WriteLine(SymbalLayer.Children.Count);
+                landCenter = mapModel.CenterOfLand(wars[i].LandAttackerId);
+                warLine.X1 = landCenter[0] + 15;
+                warLine.Y1 = landCenter[1] + 30;
+                landCenter = mapModel.CenterOfLand(wars[i].LandDefenderId);
+                warLine.X2 = landCenter[0] + 15;
+                warLine.Y2 = landCenter[1] + 30;
+                warLine.Stroke = System.Windows.Media.Brushes.Black;
+                warLine.StrokeThickness = 1;
             }
         }
     }
