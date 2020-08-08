@@ -23,6 +23,8 @@ namespace LandConquest.Forms
     {
         System.Windows.Controls.Primitives.UniformGrid localWarMap = new System.Windows.Controls.Primitives.UniformGrid();
         Image imgArmy;
+        Boolean f_armySelected = false;
+        int INDEX;
 
         //Canvas localWarArmyLayer = new Canvas();
         public WarWindow()
@@ -50,7 +52,7 @@ namespace LandConquest.Forms
         private void WarWin_Loaded(object sender, RoutedEventArgs e)
         {
             imgArmy = new Image();
-            imgArmy.MouseDown += ImgArmy_MouseDown;
+            imgArmy.MouseDown += ImgArmy_MouseLeftButtonDown;
             imgArmy.MouseEnter += ImgArmy_MouseEnter;
             imgArmy.MouseLeave += ImgArmy_MouseLeave;
             imgArmy.Width = 40;
@@ -61,11 +63,10 @@ namespace LandConquest.Forms
             {
                 for (int y = 0; y < localWarMap.Rows; y++)
                 {
-                    System.Windows.Controls.Image img = new System.Windows.Controls.Image();
-                    img.Source = new BitmapImage(new Uri("/Pictures/test-tile.jpg", UriKind.Relative));
-                    localWarMap.Children.Add(img);
+                    Image tile = new Image();
+                    tile.Source = new BitmapImage(new Uri("/Pictures/test-tile.jpg", UriKind.Relative));
+                    localWarMap.Children.Add(tile);
                     gridForArmies.Children.Add(new Image());
-                    //gridForArmies.Children.Add(new TextBox { Text = empty, IsReadOnly = true});
                 }
             }
             mainWarWinGrid.Children.Add(localWarMap);
@@ -83,13 +84,28 @@ namespace LandConquest.Forms
             return index;
         }
 
-        private void ImgArmy_MouseDown(object sender, MouseButtonEventArgs e)
+        private void ImgArmy_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             int index = gridForArmies.Children.IndexOf(imgArmy);
             localWarMap.Children.RemoveAt(index);
             localWarMap.Children.Insert(index, new Image { Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative)) });
 
+            f_armySelected = true;
+            INDEX = index;
             ShowAvailableTilesToMove(index);
+        }
+
+        private void tile_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (f_armySelected)
+            {
+                f_armySelected = false;
+                int index = localWarMap.Children.IndexOf((Image)sender);
+                gridForArmies.Children.RemoveAt(INDEX);
+                gridForArmies.Children.Insert(index, imgArmy);
+                HideAvailableTilesToMove(INDEX);
+                ShowAvailableTilesToMove(index);
+            }
         }
 
         private void ImgArmy_MouseEnter(object sender, MouseEventArgs e)
@@ -117,14 +133,44 @@ namespace LandConquest.Forms
 
             int movement = (int)ForcesEnum.Archers.Movement;
             //????????????????????????????????????????????????????????
-            for (int i = row - movement; i <= row + movement; i ++)
+            for (int i = row - movement; i <= row + movement; i++)
             {
                 for (int j = col - movement; j <= col + movement; j++)
                 {
                     if ((i < 1) || (j < 1) || (j > localWarMap.Columns) || (i > localWarMap.Rows)) continue;  //
                     int ind = ReturnNumberOfCell(i, j);
                     localWarMap.Children.RemoveAt(ind);
-                    localWarMap.Children.Insert(ind, new Image { Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative)) });
+                    Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative)) };
+                    availableTileForMoving.MouseRightButtonDown += tile_MouseRightButtonDown;
+                    localWarMap.Children.Insert(ind, availableTileForMoving);
+                }
+            }
+        }
+
+        public void HideAvailableTilesToMove(int index) //+ int forces movement speed;
+        {
+            // АНАЛОГ ФУНКЦИИ ВЫШЕ, (не супер оптимизирован, но лучше чем перекрашивать вообще все клетки)
+            Console.WriteLine("INDEX = " + index);
+
+            int row = index / localWarMap.Columns + 1;
+            int col = index - localWarMap.Columns * (row - 1) + 1;
+
+            Console.WriteLine("ROW = " + row + " COL = " + col);
+
+
+
+            int movement = (int)ForcesEnum.Archers.Movement;
+            //????????????????????????????????????????????????????????
+            for (int i = row - movement; i <= row + movement; i++)
+            {
+                for (int j = col - movement; j <= col + movement; j++)
+                {
+                    if ((i < 1) || (j < 1) || (j > localWarMap.Columns) || (i > localWarMap.Rows)) continue;  //
+                    int ind = ReturnNumberOfCell(i, j);
+                    localWarMap.Children.RemoveAt(ind);
+                    Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/test-tile.jpg", UriKind.Relative)) };
+                    //availableTileForMoving.MouseRightButtonDown += tile_MouseRightButtonDown;
+                    localWarMap.Children.Insert(ind, availableTileForMoving);
                 }
             }
         }
