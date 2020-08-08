@@ -9,9 +9,34 @@
         WindowStartupLocation="CenterScreen" WindowState="Maximized"
         Title="WarWindow" Height="1000" Width="1400">
     <Grid x:Name="mainWarWinGrid">
+        <Grid Height="300" Width="300" HorizontalAlignment="Right" Margin="0,30,20,0" VerticalAlignment="Top">
+            <Label Content="Army of" Margin="21,10,43,258"></Label>
+            <Label x:Name="playerNameLbl" Content="PLAYERNAME" Margin="77,10,19,258"></Label>
+            <Image Margin="21,77,239,181" Source="/Pictures/peasant.png"></Image>
+            <Label x:Name="warriorsAll" Content="0"  Margin="66,86,156,190"></Label>
+            <Image Margin="21,124,239,134" Source="/Pictures/warrior.png"></Image>
+            <Label x:Name="warriorsInfantry" Content="0"  Margin="66,133,156,143"></Label>
+            <Image Margin="21,166,239,92" Source="/Pictures/archer.png"></Image>
+            <Label x:Name="warriorsArchers" Content="0"  Margin="66,174,156,102"></Label>
+            <Image Margin="21,208,239,50" Source="/Pictures/hourseman.png"></Image>
+            <Label x:Name="warriorsKnights" Content="0"  Margin="66,216,156,60"></Label>
+            <Image Margin="21,250,239,8" Source="/Pictures/catapult.png"></Image>
+            <Label x:Name="warriorsSiege" Content="0"  Margin="66,266,156,10"></Label>
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/Pictures/panel.png" Stretch="UniformToFill"/>
+            </Grid.Background>
+        </Grid>
+        <UniformGrid x:Name="gridForArmies" Panel.ZIndex="2" >
+        </UniformGrid>
+
+
+
+
+
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <UniformGrid x:Name="gridForArmies" Panel.ZIndex="2" ></UniformGrid>
+
     </Grid>
 </Window>
