@@ -40,6 +40,8 @@ namespace LandConquest.Forms
         MarketModel marketModel;
         MapModel mapModel;
         WarModel warModel;
+        ArmyModel armyModel;
+        BattleModel battleModel;
 
         Market market;
         PlayerStorage storage;
@@ -719,8 +721,55 @@ namespace LandConquest.Forms
 
         private void DeclareWar_Click(object sender, RoutedEventArgs e)
         {
-            WarWindow window = new WarWindow();
+            ArmyModel armyModel = new ArmyModel();
+            Army army = new Army();
+            army = armyModel.GetArmyInfo(connection, player, army);
+
+            BattleModel battleModel = new BattleModel();
+            ArmyInBattle armyInBattle = new ArmyInBattle();
+
+            armyInBattle.PlayerId = army.PlayerId;
+            armyInBattle.ArmyId = army.ArmyId;
+            armyInBattle.ArmySizeCurrent = army.ArmySizeCurrent;
+            armyInBattle.ArmyType = army.ArmyType;
+            armyInBattle.ArmyArchersCount = army.ArmyArchersCount;
+            armyInBattle.ArmyInfantryCount = army.ArmyInfantryCount;
+            armyInBattle.ArmySiegegunCount = army.ArmySiegegunCount;
+            armyInBattle.ArmyHorsemanCount = army.ArmyHorsemanCount;
+
+            //ПРОВЕРКА СТОРОНЫ ЗА КОТОРУЮ ВОЮЕТ ИГРОК. ДЕЛАТЬ ЧЕК ЧЕРЕЗ МЕСТОПОЛОЖЕНИЕ ИГРОКА
+            // //
+            //  Net
+            // //
+
+            // -------------------------------------------------------------------------------------------
+            //Это говнокод. Мы просто предположили что чел атакующий.
+
+            Random random = new Random();
+            armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
+            armyInBattle.ArmySide = 1; // hueta
+
+            battleModel.InsertArmyIntoBattleTable(connection, armyInBattle);
+
+            List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
+            for (int i = 0; i <  battleModel.SelectLastIdOfArmies(connection); i++)
+            {
+                armiesInBattle.Add(new ArmyInBattle());
+            }
+
+            armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle);
+
+            //armyModel.UpdateArmy(connection, army);
+            // до сюда говно ------------------------------------------------------------------------------
+
+            WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle);
             window.Show();
+        }
+
+        public int ReturnNumberOfCell(int row, int column)
+        {
+            int index = (row - 1) * 30 + column - 1;
+            return index;
         }
 
         private void buttonStartBattle_Click(object sender, RoutedEventArgs e)

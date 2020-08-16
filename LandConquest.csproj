@@ -109,6 +109,7 @@
       <DependentUpon>EstablishStateDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Entities\Army.cs" />
+    <Compile Include="Entities\ArmyInBattle.cs" />
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\Land.cs" />
@@ -139,6 +140,7 @@
       <DependentUpon>WarWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ArmyModel.cs" />
+    <Compile Include="Models\BattleModel.cs" />
     <Compile Include="Models\ChatModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />
@@ -426,6 +428,7 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\splitArmies.png" />
     <Resource Include="Pictures\tile-test-red.jpg" />
     <Resource Include="Pictures\test-tile.jpg" />
     <Resource Include="Pictures\сountryDefault.png" />

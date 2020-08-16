@@ -26,7 +26,6 @@ namespace LandConquest.Models
                 var armyInfantryCount = reader.GetOrdinal("army_infantry_count");
                 var armyHorsemanCount = reader.GetOrdinal("army_horseman_count");
                 var armySiegegunCount = reader.GetOrdinal("army_siegegun_count");
-                var localLandId = reader.GetOrdinal("local_land_id");
 
                 while (reader.Read())
                 {
@@ -37,7 +36,6 @@ namespace LandConquest.Models
                     army.ArmyInfantryCount = reader.GetInt32(armyInfantryCount);
                     army.ArmyHorsemanCount = reader.GetInt32(armyHorsemanCount);
                     army.ArmySiegegunCount = reader.GetInt32(armySiegegunCount);
-                    army.LocalLandId = reader.GetInt32(localLandId);
                 }
             }
             army.PlayerId = player.PlayerId;
@@ -48,7 +46,7 @@ namespace LandConquest.Models
 
         public Army UpdateArmy(SqlConnection connection, Army army)
         {
-            String storageQuery = "UPDATE dbo.ArmyData SET army_size_current = @army_size_current, army_type  = @army_type, army_archers_count = @army_archers_count, army_infantry_count  = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count, local_land_id = @local_land_id WHERE army_id = @army_id ";
+            String storageQuery = "UPDATE dbo.ArmyData SET army_size_current = @army_size_current, army_type  = @army_type, army_archers_count = @army_archers_count, army_infantry_count  = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count, WHERE army_id = @army_id ";
 
             var storageCommand = new SqlCommand(storageQuery, connection);
             // int datetimeResult;
@@ -58,7 +56,6 @@ namespace LandConquest.Models
             storageCommand.Parameters.AddWithValue("@army_infantry_count", army.ArmyInfantryCount);
             storageCommand.Parameters.AddWithValue("@army_horseman_count", army.ArmyHorsemanCount);
             storageCommand.Parameters.AddWithValue("@army_siegegun_count", army.ArmySiegegunCount);
-            storageCommand.Parameters.AddWithValue("@local_land_id", army.LocalLandId);
             storageCommand.Parameters.AddWithValue("@army_id", army.ArmyId);
 
             storageCommand.ExecuteNonQuery();

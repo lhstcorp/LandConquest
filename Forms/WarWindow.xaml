@@ -22,6 +22,7 @@
             <Label x:Name="warriorsKnights" Content="0"  Margin="66,216,156,60"></Label>
             <Image Margin="21,250,239,8" Source="/Pictures/catapult.png"></Image>
             <Label x:Name="warriorsSiege" Content="0"  Margin="66,266,156,10"></Label>
+            <Image x:Name="splitArmiesButton" HorizontalAlignment="Left" Height="34" Margin="256,8,0,0" VerticalAlignment="Top" Width="34" Source="/Pictures/splitArmies.png" MouseDown="splitArmiesButton_MouseDown"/>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/panel.png" Stretch="UniformToFill"/>
