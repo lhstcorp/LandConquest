@@ -1,6 +1,9 @@
-﻿using LandConquest.Forces;
+﻿using LandConquest.Entities;
+using LandConquest.Forces;
+using LandConquest.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,13 +25,25 @@ namespace LandConquest.Forms
     public partial class WarWindow : Window
     {
         System.Windows.Controls.Primitives.UniformGrid localWarMap = new System.Windows.Controls.Primitives.UniformGrid();
-        Image imgArmy;
+        Image imgArmySelected;
         Boolean f_armySelected = false;
         int INDEX;
 
+        ArmyModel armyModel = new ArmyModel();
+
+        SqlConnection connection;
+        Player player;
+        List<ArmyInBattle> armies;
+        List<Image> armyImages;
+        ArmyInBattle army;
         //Canvas localWarArmyLayer = new Canvas();
-        public WarWindow()
+        public WarWindow(SqlConnection _connection, Player _player, ArmyInBattle _army, List<ArmyInBattle> _armies)
         {
+            connection = _connection;
+            player = _player;
+            army = _army;
+            armies = _armies;
+
             InitializeComponent();
             int columnWidth = 40;
             int rowHeight = 40;
@@ -51,13 +66,13 @@ namespace LandConquest.Forms
 
         private void WarWin_Loaded(object sender, RoutedEventArgs e)
         {
-            imgArmy = new Image();
-            imgArmy.MouseDown += ImgArmy_MouseLeftButtonDown;
-            imgArmy.MouseEnter += ImgArmy_MouseEnter;
-            imgArmy.MouseLeave += ImgArmy_MouseLeave;
-            imgArmy.Width = 40;
-            imgArmy.Height = 40;
-            imgArmy.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
+            //imgArmy = new Image();
+            //imgArmy.MouseDown += ImgArmy_MouseLeftButtonDown;
+            //imgArmy.MouseEnter += ImgArmy_MouseEnter;
+            //imgArmy.MouseLeave += ImgArmy_MouseLeave;
+            //imgArmy.Width = 40;
+            //imgArmy.Height = 40;
+            //imgArmy.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
 
             for (int x = 0; x < localWarMap.Columns; x++)
             {
@@ -70,12 +85,35 @@ namespace LandConquest.Forms
                 }
             }
             mainWarWinGrid.Children.Add(localWarMap);
+            ShowArmiesOnMap();
             //test 
             //tileSelected.Source = "/Pictures/tile-test-red.jpg";
 
-            int index = ReturnNumberOfCell(20, 30);
-            gridForArmies.Children.RemoveAt(index);
-            gridForArmies.Children.Insert(index, imgArmy);
+            ////ReturnNumberOfCell(20, army.LocalLandId);
+
+            //int index = army.LocalLandId;  
+            //gridForArmies.Children.RemoveAt(index);
+            //gridForArmies.Children.Insert(index, imgArmy);
+        }
+
+        public void ShowArmiesOnMap()
+        {
+            armyImages = new List<Image>();
+            for (int i = 0; i < armies.Count(); i++)
+            {
+                Image imgArmy = new Image();
+                imgArmy.MouseDown += ImgArmy_MouseLeftButtonDown;
+                imgArmy.MouseEnter += ImgArmy_MouseEnter;
+                imgArmy.MouseLeave += ImgArmy_MouseLeave;
+                imgArmy.Width = 40;
+                imgArmy.Height = 40;
+                imgArmy.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
+                armyImages.Add(imgArmy);
+
+                gridForArmies.Children.RemoveAt(armies[i].LocalLandId);
+                gridForArmies.Children.Insert(armies[i].LocalLandId, imgArmy);
+            }
+
         }
 
         public int ReturnNumberOfCell(int row, int column)
@@ -86,9 +124,12 @@ namespace LandConquest.Forms
 
         private void ImgArmy_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            int index = gridForArmies.Children.IndexOf(imgArmy);
+            imgArmySelected = (Image)sender;
+            int index = gridForArmies.Children.IndexOf(imgArmySelected);
             localWarMap.Children.RemoveAt(index);
             localWarMap.Children.Insert(index, new Image { Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative)) });
+
+            List<Army> armies = new List<Army>();
 
             f_armySelected = true;
             INDEX = index;
@@ -102,7 +143,7 @@ namespace LandConquest.Forms
                 f_armySelected = false;
                 int index = localWarMap.Children.IndexOf((Image)sender);
                 gridForArmies.Children.RemoveAt(INDEX);
-                gridForArmies.Children.Insert(index, imgArmy);
+                gridForArmies.Children.Insert(index, imgArmySelected);
                 HideAvailableTilesToMove(INDEX);
                 ShowAvailableTilesToMove(index);
             }
@@ -173,6 +214,11 @@ namespace LandConquest.Forms
                     localWarMap.Children.Insert(ind, availableTileForMoving);
                 }
             }
+        }
+
+        private void splitArmiesButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
