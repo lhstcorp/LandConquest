@@ -102,7 +102,7 @@ namespace LandConquest.Forms
             for (int i = 0; i < armies.Count(); i++)
             {
                 Image imgArmy = new Image();
-                imgArmy.MouseDown += ImgArmy_MouseLeftButtonDown;
+                imgArmy.MouseLeftButtonDown += ImgArmy_MouseLeftButtonDown;
                 imgArmy.MouseEnter += ImgArmy_MouseEnter;
                 imgArmy.MouseLeave += ImgArmy_MouseLeave;
                 imgArmy.Width = 40;
@@ -143,9 +143,11 @@ namespace LandConquest.Forms
                 f_armySelected = false;
                 int index = localWarMap.Children.IndexOf((Image)sender);
                 gridForArmies.Children.RemoveAt(INDEX);
+                gridForArmies.Children.Insert(INDEX, new Image());
+                gridForArmies.Children.RemoveAt(index);
                 gridForArmies.Children.Insert(index, imgArmySelected);
                 HideAvailableTilesToMove(INDEX);
-                ShowAvailableTilesToMove(index);
+                //ShowAvailableTilesToMove(index);
             }
         }
 
