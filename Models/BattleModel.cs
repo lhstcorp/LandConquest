@@ -233,7 +233,7 @@ namespace LandConquest.Models
 
         public void UpdateLocalLandOfArmy(SqlConnection connection, ArmyInBattle selectedArmy, int index)
         {
-            String ArmyQuery = "UPDATE dbo.ArmyDataInBattle SET local_land_id = @local_land_id WHERE army_id = @army_id ";
+            String ArmyQuery = "UPDATE dbo.ArmyDataInBattle SET local_land_id = @local_land_id WHERE army_id = @army_id";
 
             var ArmyCommand = new SqlCommand(ArmyQuery, connection);
             ArmyCommand.Parameters.AddWithValue("@local_land_id", index);
@@ -244,5 +244,56 @@ namespace LandConquest.Models
             ArmyCommand.Dispose();
         }
 
+        public int CheckPlayerParticipation(SqlConnection connection, Player player)
+        {
+            String query = "SELECT * FROM dbo.ArmyDataInBattle WHERE player_id = @player_id";
+
+            var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@player_id", player.PlayerId);
+
+            int counter = 0;
+
+            using (var reader = command.ExecuteReader())
+            {
+                var playerId = reader.GetOrdinal("player_id");
+                while (reader.Read())
+                {
+                    player.PlayerId = reader.GetString(playerId);
+                    counter++;
+                }
+            }
+            return counter;
+        }
+
+        public void UpdateArmyType(SqlConnection connection, Army army)
+        {
+            String storageQuery = "UPDATE dbo.ArmyDataInBattle SET army_type = @army_type WHERE army_id = @army_id";
+
+            var storageCommand = new SqlCommand(storageQuery, connection);
+            // int datetimeResult;
+            storageCommand.Parameters.AddWithValue("@army_type", army.ArmyType);
+            storageCommand.Parameters.AddWithValue("@army_id", army.ArmyId);
+
+            storageCommand.ExecuteNonQuery();
+
+
+            storageCommand.Dispose();
+        }
+
+        public int ReturnTypeOfArmy(ArmyInBattle army)
+        {
+            if ((army.ArmyInfantryCount > 0) && (army.ArmyInfantryCount == army.ArmySizeCurrent))
+                return 1;
+            else
+            if ((army.ArmyArchersCount > 0) && (army.ArmyArchersCount == army.ArmySizeCurrent))
+                return 2;
+            else
+            if ((army.ArmyHorsemanCount > 0) && (army.ArmyHorsemanCount == army.ArmySizeCurrent))
+                return 3;
+            else
+            if ((army.ArmySiegegunCount > 0) && (army.ArmySiegegunCount == army.ArmySizeCurrent))
+                return 4;
+            return 5;
+        }
     }
 }

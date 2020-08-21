@@ -46,7 +46,7 @@ namespace LandConquest.Models
 
         public Army UpdateArmy(SqlConnection connection, Army army)
         {
-            String storageQuery = "UPDATE dbo.ArmyData SET army_size_current = @army_size_current, army_type  = @army_type, army_archers_count = @army_archers_count, army_infantry_count  = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count, WHERE army_id = @army_id ";
+            String storageQuery = "UPDATE dbo.ArmyData SET army_size_current = @army_size_current, army_type  = @army_type, army_archers_count = @army_archers_count, army_infantry_count  = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count WHERE army_id = @army_id";
 
             var storageCommand = new SqlCommand(storageQuery, connection);
             // int datetimeResult;
@@ -77,6 +77,22 @@ namespace LandConquest.Models
 
             armyCommand.Dispose();
 
+        }
+
+        public int ReturnTypeOfArmy(Army army)
+        {
+            if ((army.ArmyInfantryCount > 0) && (army.ArmyInfantryCount == army.ArmySizeCurrent))
+                return 1;
+            else
+            if ((army.ArmyArchersCount > 0) && (army.ArmyArchersCount == army.ArmySizeCurrent))
+                return 2;
+            else
+            if ((army.ArmyHorsemanCount > 0) && (army.ArmyHorsemanCount == army.ArmySizeCurrent))
+                return 3;
+            else
+            if ((army.ArmySiegegunCount > 0) && (army.ArmySiegegunCount == army.ArmySizeCurrent))
+                return 4;
+            return 5;
         }
     }
 }

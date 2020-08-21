@@ -42,6 +42,8 @@ namespace LandConquest.Models
                     storage.PlayerLeather = reader.GetInt32(playerLeather);
                 }
             }
+
+            command.Dispose();
             return storage;
         }
 

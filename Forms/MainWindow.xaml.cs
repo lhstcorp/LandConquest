@@ -641,14 +641,10 @@ namespace LandConquest.Forms
 
                 Level.Content = player.PlayerLvl.ToString();
                 //запрос на ддобавление уровня
-
-
             }
 
             PbExp.Maximum = player.PlayerLvl * 2 * 500;
             PbExp.Value = player.PlayerExp;
-
-
 
             return player;
         }
@@ -708,8 +704,6 @@ namespace LandConquest.Forms
 
         private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
-
             CountryWindow win = new CountryWindow(connection, player);
             win.Show();
         }
@@ -728,34 +722,41 @@ namespace LandConquest.Forms
             BattleModel battleModel = new BattleModel();
             ArmyInBattle armyInBattle = new ArmyInBattle();
 
-            armyInBattle.PlayerId = army.PlayerId;
-            armyInBattle.ArmyId = army.ArmyId;
-            armyInBattle.ArmySizeCurrent = army.ArmySizeCurrent;
-            armyInBattle.ArmyType = army.ArmyType;
-            armyInBattle.ArmyArchersCount = army.ArmyArchersCount;
-            armyInBattle.ArmyInfantryCount = army.ArmyInfantryCount;
-            armyInBattle.ArmySiegegunCount = army.ArmySiegegunCount;
-            armyInBattle.ArmyHorsemanCount = army.ArmyHorsemanCount;
-
-            //ПРОВЕРКА СТОРОНЫ ЗА КОТОРУЮ ВОЮЕТ ИГРОК. ДЕЛАТЬ ЧЕК ЧЕРЕЗ МЕСТОПОЛОЖЕНИЕ ИГРОКА
-            // //
-            //  Net
-            // //
-
-            // -------------------------------------------------------------------------------------------
-            //Это говнокод. Мы просто предположили что чел атакующий.
-
-            Random random = new Random();
-            armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
-            armyInBattle.ArmySide = 1; // hueta
+            int count = battleModel.CheckPlayerParticipation(connection, player);
 
             War war = new War();
             war.WarId = "lbOxckUUoYmKaEC1";
 
-            battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
+            if (count == 0)
+            {
+
+                armyInBattle.PlayerId = army.PlayerId;
+                armyInBattle.ArmyId = army.ArmyId;
+                armyInBattle.ArmySizeCurrent = army.ArmySizeCurrent;
+                armyInBattle.ArmyType = army.ArmyType;
+                armyInBattle.ArmyArchersCount = army.ArmyArchersCount;
+                armyInBattle.ArmyInfantryCount = army.ArmyInfantryCount;
+                armyInBattle.ArmySiegegunCount = army.ArmySiegegunCount;
+                armyInBattle.ArmyHorsemanCount = army.ArmyHorsemanCount;
+
+                //ПРОВЕРКА СТОРОНЫ ЗА КОТОРУЮ ВОЮЕТ ИГРОК. ДЕЛАТЬ ЧЕК ЧЕРЕЗ МЕСТОПОЛОЖЕНИЕ ИГРОКА
+                // //
+                //  Net
+                // //
+
+                // -------------------------------------------------------------------------------------------
+                //Это говнокод. Мы просто предположили что чел атакующий.
+
+                Random random = new Random();
+                armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
+                armyInBattle.ArmySide = 1; // hueta
+
+                battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
+
+            }
 
             List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-            for (int i = 0; i <  battleModel.SelectLastIdOfArmies(connection, war); i++)
+            for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
             {
                 armiesInBattle.Add(new ArmyInBattle());
             }
