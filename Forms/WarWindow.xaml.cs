@@ -27,6 +27,7 @@ namespace LandConquest.Forms
         System.Windows.Controls.Primitives.UniformGrid localWarMap = new System.Windows.Controls.Primitives.UniformGrid();
         Image imgArmySelected;
         Boolean f_armySelected = false;
+        Boolean f_canMoveArmy = false;
         int INDEX;
 
         ArmyModel armyModel = new ArmyModel();
@@ -40,6 +41,7 @@ namespace LandConquest.Forms
         ArmyInBattle selectedArmy;
         List<ArmyInBattle> armyInBattlesInCurrentTile;
         War war;
+        int saveMovementSpeed;
         //Canvas localWarArmyLayer = new Canvas();
         public WarWindow(SqlConnection _connection, Player _player, ArmyInBattle _army, List<ArmyInBattle> _armies, War _war)
         {
@@ -112,13 +114,40 @@ namespace LandConquest.Forms
                 imgArmy.MouseLeave += ImgArmy_MouseLeave;
                 imgArmy.Width = 40;
                 imgArmy.Height = 40;
-                imgArmy.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
+
+                switch (armies[i].ArmyType)
+                {
+                    case 1:
+                        {
+                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
+                            break;
+                        }
+                    case 2:
+                        {
+                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
+                            break;
+                        }
+                    case 3:
+                        {
+                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
+                            break;
+                        }
+                    case 4:
+                        {
+                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
+                            break;
+                        }
+                    case 5:
+                        {
+                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/peasants.png", UriKind.Relative));
+                            break;
+                        }
+                }
                 armyImages.Add(imgArmy);
 
                 gridForArmies.Children.RemoveAt(armies[i].LocalLandId);
                 gridForArmies.Children.Insert(armies[i].LocalLandId, imgArmy);
             }
-
         }
 
         public int ReturnNumberOfCell(int row, int column)
@@ -129,6 +158,8 @@ namespace LandConquest.Forms
 
         private void ImgArmy_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            f_canMoveArmy = false;
+            HideAvailableTilesToMove(INDEX);
             imgArmySelected = (Image)sender;
             int index = gridForArmies.Children.IndexOf(imgArmySelected);
             localWarMap.Children.RemoveAt(index);
@@ -136,9 +167,11 @@ namespace LandConquest.Forms
 
             f_armySelected = true;
             INDEX = index;
-            ShowAvailableTilesToMove(index);
 
             ShowInfoAboutArmies(index);
+
+            if (f_canMoveArmy)
+            ShowAvailableTilesToMove(index);
         }
 
         private void tile_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -179,9 +212,38 @@ namespace LandConquest.Forms
 
             Console.WriteLine("ROW = " + row + " COL = " + col);
 
+            int movement = 0;
+            switch (selectedArmy.ArmyType)
+            {
+                case 1:
+                    {
+                        movement = (int)ForcesEnum.Infantry.Movement;
+                        break;
+                    }
+                case 2:
+                    {
+                        movement = (int)ForcesEnum.Archers.Movement;
+                        break;
+                    }
+                case 3:
+                    {
+                        movement = (int)ForcesEnum.Knights.Movement;
+                        break;
+                    }
+                case 4:
+                    {
+                        movement = (int)ForcesEnum.Siege.Movement;
+                        break;
+                    }
+                case 5:
+                    {
+                        movement = (int)ForcesEnum.Infantry.Movement;
+                        break;
+                    }
 
+            }
 
-            int movement = (int)ForcesEnum.Archers.Movement;
+            saveMovementSpeed = movement;
             //????????????????????????????????????????????????????????
             for (int i = row - movement; i <= row + movement; i++)
             {
@@ -207,13 +269,11 @@ namespace LandConquest.Forms
 
             Console.WriteLine("ROW = " + row + " COL = " + col);
 
-
-
             int movement = (int)ForcesEnum.Archers.Movement;
             //????????????????????????????????????????????????????????
-            for (int i = row - movement; i <= row + movement; i++)
+            for (int i = row - saveMovementSpeed; i <= row + saveMovementSpeed; i++)
             {
-                for (int j = col - movement; j <= col + movement; j++)
+                for (int j = col - saveMovementSpeed; j <= col + saveMovementSpeed; j++)
                 {
                     if ((i < 1) || (j < 1) || (j > localWarMap.Columns) || (i > localWarMap.Rows)) continue;  //
                     int ind = ReturnNumberOfCell(i, j);
@@ -247,10 +307,10 @@ namespace LandConquest.Forms
                 if (player.PlayerId == armyInBattlesInCurrentTile[i].PlayerId)
                 {
                     selectedArmy = armyInBattlesInCurrentTile[i];
+                    f_canMoveArmy = true;
                 }
             }
         }
-
 
         private void splitArmiesButton_MouseDown(object sender, MouseButtonEventArgs e)
         {

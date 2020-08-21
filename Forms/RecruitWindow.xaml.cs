@@ -102,6 +102,7 @@ namespace LandConquest.Forms
                 equipmentModel.UpdateEquipment(connection, player, equipment);
                 TotalRecruitArchers.Content = army.ArmyArchersCount.ToString();
 
+                army.ArmyType = armyModel.ReturnTypeOfArmy(army);
                 army = armyModel.UpdateArmy(connection, army);
 
                 MessageBox.Show("OK");
@@ -127,6 +128,7 @@ namespace LandConquest.Forms
                 equipmentModel.UpdateEquipment(connection, player, equipment);
                 TotalRecruitInfantry.Content = army.ArmyInfantryCount.ToString();
 
+                army.ArmyType = armyModel.ReturnTypeOfArmy(army);
                 army = armyModel.UpdateArmy(connection, army);
 
                 MessageBox.Show("OK");
@@ -153,6 +155,7 @@ namespace LandConquest.Forms
                 equipmentModel.UpdateEquipment(connection, player, equipment);
                 TotalRecruitKnights.Content = army.ArmyHorsemanCount.ToString();
 
+                army.ArmyType = armyModel.ReturnTypeOfArmy(army);
                 army = armyModel.UpdateArmy(connection, army);
 
                 MessageBox.Show("OK");
@@ -177,6 +180,7 @@ namespace LandConquest.Forms
                 equipmentModel.UpdateEquipment(connection, player, equipment);
                 TotalRecruitSiege.Content = army.ArmySiegegunCount.ToString();
 
+                army.ArmyType = armyModel.ReturnTypeOfArmy(army);
                 army = armyModel.UpdateArmy(connection, army);
 
                 MessageBox.Show("OK");
