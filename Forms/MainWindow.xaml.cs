@@ -749,20 +749,23 @@ namespace LandConquest.Forms
             armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
             armyInBattle.ArmySide = 1; // hueta
 
-            battleModel.InsertArmyIntoBattleTable(connection, armyInBattle);
+            War war = new War();
+            war.WarId = "lbOxckUUoYmKaEC1";
+
+            battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
 
             List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-            for (int i = 0; i <  battleModel.SelectLastIdOfArmies(connection); i++)
+            for (int i = 0; i <  battleModel.SelectLastIdOfArmies(connection, war); i++)
             {
                 armiesInBattle.Add(new ArmyInBattle());
             }
 
-            armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle);
+            armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
 
             //armyModel.UpdateArmy(connection, army);
             // до сюда говно ------------------------------------------------------------------------------
 
-            WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle);
+            WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
             window.Show();
         }
 

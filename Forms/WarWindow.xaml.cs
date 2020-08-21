@@ -30,19 +30,24 @@ namespace LandConquest.Forms
         int INDEX;
 
         ArmyModel armyModel = new ArmyModel();
+        BattleModel battleModel = new BattleModel();
 
         SqlConnection connection;
         Player player;
         List<ArmyInBattle> armies;
         List<Image> armyImages;
         ArmyInBattle army;
+        ArmyInBattle selectedArmy;
+        List<ArmyInBattle> armyInBattlesInCurrentTile;
+        War war;
         //Canvas localWarArmyLayer = new Canvas();
-        public WarWindow(SqlConnection _connection, Player _player, ArmyInBattle _army, List<ArmyInBattle> _armies)
+        public WarWindow(SqlConnection _connection, Player _player, ArmyInBattle _army, List<ArmyInBattle> _armies, War _war)
         {
             connection = _connection;
             player = _player;
             army = _army;
             armies = _armies;
+            war = _war;
 
             InitializeComponent();
             int columnWidth = 40;
@@ -129,11 +134,11 @@ namespace LandConquest.Forms
             localWarMap.Children.RemoveAt(index);
             localWarMap.Children.Insert(index, new Image { Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative)) });
 
-            List<Army> armies = new List<Army>();
-
             f_armySelected = true;
             INDEX = index;
             ShowAvailableTilesToMove(index);
+
+            ShowInfoAboutArmies(index);
         }
 
         private void tile_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -147,6 +152,8 @@ namespace LandConquest.Forms
                 gridForArmies.Children.RemoveAt(index);
                 gridForArmies.Children.Insert(index, imgArmySelected);
                 HideAvailableTilesToMove(INDEX);
+
+                battleModel.UpdateLocalLandOfArmy(connection, selectedArmy, index);
                 //ShowAvailableTilesToMove(index);
             }
         }
@@ -217,6 +224,33 @@ namespace LandConquest.Forms
                 }
             }
         }
+
+        public void ShowInfoAboutArmies(int index)
+        {
+            armyInBattlesInCurrentTile = new List<ArmyInBattle>();
+
+            for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, index, war); i++)
+            {
+                armyInBattlesInCurrentTile.Add(new ArmyInBattle());
+            }
+
+            armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, index);
+
+            warriorsInfantry.Content = armyInBattlesInCurrentTile[0].ArmyInfantryCount;
+            warriorsArchers.Content = armyInBattlesInCurrentTile[0].ArmyArchersCount;
+            warriorsKnights.Content = armyInBattlesInCurrentTile[0].ArmyHorsemanCount;
+            warriorsSiege.Content = armyInBattlesInCurrentTile[0].ArmySiegegunCount;
+            warriorsAll.Content = armyInBattlesInCurrentTile[0].ArmySizeCurrent;
+
+            for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++) 
+            {
+                if (player.PlayerId == armyInBattlesInCurrentTile[i].PlayerId)
+                {
+                    selectedArmy = armyInBattlesInCurrentTile[i];
+                }
+            }
+        }
+
 
         private void splitArmiesButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
