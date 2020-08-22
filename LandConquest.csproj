@@ -428,6 +428,7 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\warSymbal.png" />
     <Resource Include="Pictures\splitArmies.png" />
     <Resource Include="Pictures\tile-test-red.jpg" />
     <Resource Include="Pictures\test-tile.jpg" />

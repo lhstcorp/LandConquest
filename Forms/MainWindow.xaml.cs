@@ -55,6 +55,8 @@ namespace LandConquest.Forms
         List<War> wars;
         Land land;
         Country country;
+
+        Thickness[] marginsOfWarButtons;
         int[] flagXY = new int[4];
 
         const int landsCount = 11;
@@ -787,6 +789,8 @@ namespace LandConquest.Forms
         public void LoadWarsOnMap()
         {
             int[] landCenter = new int[1];
+            marginsOfWarButtons = new Thickness[wars.Count];
+
             for (int i = 0; i < wars.Count; i++)
             {
                 Line warLine = new Line();
@@ -801,7 +805,98 @@ namespace LandConquest.Forms
                 warLine.Y2 = landCenter[1] + 30;
                 warLine.Stroke = System.Windows.Media.Brushes.Black;
                 warLine.StrokeThickness = 1;
+
+                Image btnWar = new Image();
+                btnWar.Height = 25;
+                btnWar.Width = 25;
+                btnWar.Source = new BitmapImage(new Uri("/Pictures/warSymbal.png", UriKind.Relative));
+                btnWar.Margin = new Thickness(warLine.X1 + (warLine.X2 - warLine.X1) / 2 - 12, warLine.Y1 + (warLine.Y2 - warLine.Y1) / 2 - 15, 0, 0);
+                btnWar.MouseLeftButtonDown += btnWar_MouseLeftButtonDown;
+                btnWar.MouseEnter += btnWar_MouseEnter;
+                btnWar.MouseLeave += btnWar_MouseLeave;
+
+                marginsOfWarButtons[i] = btnWar.Margin;
+
+                SymbalLayer.Children.Add(btnWar);
             }
+        }
+
+        private void btnWar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // переход в войну
+            for (int j = 0; j < wars.Count; j++)
+            {
+                if (((Image)sender).Margin == marginsOfWarButtons[j])
+                {
+                    Console.WriteLine("Ключ войны = " + wars[j].WarId);
+
+                    ArmyModel armyModel = new ArmyModel();
+                    Army army = new Army();
+                    army = armyModel.GetArmyInfo(connection, player, army);
+
+                    BattleModel battleModel = new BattleModel();
+                    ArmyInBattle armyInBattle = new ArmyInBattle();
+
+                    int count = battleModel.CheckPlayerParticipation(connection, player);
+
+                    War war = new War();
+                    war.WarId = wars[j].WarId;
+
+                    if (count == 0)
+                    {
+
+                        armyInBattle.PlayerId = army.PlayerId;
+                        armyInBattle.ArmyId = army.ArmyId;
+                        armyInBattle.ArmySizeCurrent = army.ArmySizeCurrent;
+                        armyInBattle.ArmyType = army.ArmyType;
+                        armyInBattle.ArmyArchersCount = army.ArmyArchersCount;
+                        armyInBattle.ArmyInfantryCount = army.ArmyInfantryCount;
+                        armyInBattle.ArmySiegegunCount = army.ArmySiegegunCount;
+                        armyInBattle.ArmyHorsemanCount = army.ArmyHorsemanCount;
+
+                        //ПРОВЕРКА СТОРОНЫ ЗА КОТОРУЮ ВОЮЕТ ИГРОК. ДЕЛАТЬ ЧЕК ЧЕРЕЗ МЕСТОПОЛОЖЕНИЕ ИГРОКА
+                        // //
+                        //  Net
+                        // //
+
+                        // -------------------------------------------------------------------------------------------
+                        //Это говнокод. Мы просто предположили что чел атакующий.
+
+                        Random random = new Random();
+                        armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
+                        armyInBattle.ArmySide = 1; // hueta
+
+                        battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
+
+                    }
+
+                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
+                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
+                    {
+                        armiesInBattle.Add(new ArmyInBattle());
+                    }
+
+                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
+
+                    //armyModel.UpdateArmy(connection, army);
+                    // до сюда говно ------------------------------------------------------------------------------
+
+                    WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
+                    window.Show();
+
+
+                }
+            }
+        }
+
+        private void btnWar_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void btnWar_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Arrow;
         }
     }
 }
