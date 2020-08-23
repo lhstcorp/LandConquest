@@ -19,6 +19,7 @@ namespace LandConquest.Models
             taxCommand.Parameters.AddWithValue("@tax_save_datetime", DateTime.UtcNow);
 
             taxCommand.ExecuteNonQuery();
+            taxCommand.Dispose();
         }
 
         public void SaveTaxes(SqlConnection connection, Taxes taxes)
