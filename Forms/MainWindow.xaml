@@ -39,9 +39,12 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Image x:Name="flag" Source="/Pictures/flag.png" HorizontalAlignment="Left" Height="38" Margin="367,332,0,0" VerticalAlignment="Top" Width="33" Panel.ZIndex="100"/>
+        <Canvas x:Name="SymbalLayer" Width="300" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="351,83,441,517"  Panel.ZIndex="4">
+            <Image x:Name="flag" Source="/Pictures/flag.png" Height="38" Width="33" Panel.ZIndex="4"/>
+            <!--<Line X1="157" Y1="45" X2="35" Y2="67" Stroke="Black"></Line>-->
+        </Canvas>
 
-        <Viewbox x:Name="GlobalMap" Stretch="Uniform" Width="300" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" Margin="351,83,441,517" Panel.ZIndex="90">
+        <Viewbox x:Name="GlobalMap" Stretch="Uniform" Width="300" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" Margin="351,83,441,517" Panel.ZIndex="2">
             <ctrls:GlobalMap Height="300" Width="300"/>
         </Viewbox>
 
@@ -67,31 +70,32 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/reload_button.png"/>
             </Button.Background>
         </Button>
-        <Slider x:Name="sliderTaxes" HorizontalAlignment="Left" Height="21" Margin="26,201,0,0" VerticalAlignment="Top" Width="113" Minimum="0" Maximum="10" Value="5" PreviewMouseLeftButtonUp="sliderTaxes_PreviewMouseLeftButtonUp"/>
-        <Label Content="{Binding Value, ElementName=sliderTaxes, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" VerticalAlignment="Top" Margin="75,181,0,0"  Foreground="#FF897657" FontFamily="Open Sans" Height="20" Width="43" Background="{x:Null}" />
-        <Label Content="Taxes" Foreground="#FFDAA727" FontSize="18"  FontFamily="Verdana" HorizontalAlignment="Left" Margin="53,157,0,0" VerticalAlignment="Top" Background="{x:Null}"/>
-        <Button x:Name="SaveTaxes" Content="Save" HorizontalAlignment="Left" Height="35" Margin="27,222,0,0" VerticalAlignment="Top" Width="112" Click="SaveTaxes_Click"/>
+        <Slider x:Name="sliderTaxes" HorizontalAlignment="Left" Height="21" Margin="26,201,0,0" VerticalAlignment="Top" Width="113" Minimum="0" Maximum="10" Value="5" PreviewMouseLeftButtonUp="sliderTaxes_PreviewMouseLeftButtonUp" Foreground="#FF541E0B"/>
+        <Label Content="{Binding Value, ElementName=sliderTaxes, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" VerticalAlignment="Top" Margin="75,181,0,0"  Foreground="#FF531E08" FontFamily="Open Sans" Height="20" Width="43" Background="{x:Null}" />
+        <Label Content="Taxes" Foreground="#FF5B230F" FontSize="18"  FontFamily="Verdana" HorizontalAlignment="Left" Margin="53,157,0,0" VerticalAlignment="Top" Background="{x:Null}"/>
+        <Button x:Name="SaveTaxes" Content="Save" HorizontalAlignment="Left" Height="35" Margin="27,222,0,0" VerticalAlignment="Top" Width="112" Click="SaveTaxes_Click" Background="#FFE1A35E" BorderBrush="#FF501F09"/>
         <Label Content="productivity ratio: " FontSize="9" FontWeight="Bold" Foreground="DarkSlateGray" HorizontalAlignment="Left" Margin="26,266,0,0" VerticalAlignment="Top"/>
         <Label x:Name="prodRatioValue" Content="0" FontSize="9" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="DarkSlateGray" HorizontalAlignment="Left" Margin="113,266,0,0" VerticalAlignment="Top"  />
         <Image x:Name="recruitImage"  HorizontalAlignment="Left" Height="58" Margin="430,5,0,0" VerticalAlignment="Top" Source="/Pictures/shield.png" Width="56" MouseDown="recruitImage_MouseDown" RenderTransformOrigin="0.5,0.5" Cursor="Hand"/>
 
-        
+
         <Button Content="for ManufactureLVLDATA" HorizontalAlignment="Left" Height="97" Margin="158,173,0,0" VerticalAlignment="Top" Width="28" Click="Button_Click"/>
-        <Button x:Name="btnHideLandGrid"  Content="Hide" HorizontalAlignment="Left" Height="38" Margin="27,750,0,0" VerticalAlignment="Top" Width="71" Panel.ZIndex="2" Click="btnHideLandGrid_Click"/>
-        <Button x:Name="btnShowLandGrid"  Content="Show" HorizontalAlignment="Left" Height="38" Margin="236,750,0,0" VerticalAlignment="Top" Width="71" Panel.ZIndex="2" Click="btnShowLandGrid_Click" />
+        <Button x:Name="btnHideLandGrid"  Content="Hide" HorizontalAlignment="Left" Height="38" Margin="27,750,0,0" VerticalAlignment="Top" Width="71" Panel.ZIndex="2" Click="btnHideLandGrid_Click" Background="#FFE1A35E" BorderBrush="#FF5A240F"/>
+        <Button x:Name="btnShowLandGrid"  Content="Show" HorizontalAlignment="Left" Height="38" Margin="236,750,0,0" VerticalAlignment="Top" Width="71" Panel.ZIndex="2" Click="btnShowLandGrid_Click" BorderBrush="#FF5A250E" Background="#FFE1A35E" />
         <Grid x:Name="Country_characters" HorizontalAlignment="Left" Height="507" Margin="19,293,0,0" VerticalAlignment="Top" Width="292">
             <Grid.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/panel_transparent.png"/>
             </Grid.Background>
 
-            <Label x:Name="lblLandNameOnGrid" Content="Land Name" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Height="30" Margin="85,68,0,0" VerticalAlignment="Top" Width="127" Background="{x:Null}"/>
-            <Button x:Name="btnGoToLand" Content="Go to" HorizontalAlignment="Left" Height="38" Margin="64,126,0,0" VerticalAlignment="Top" Width="164" Click="btnGoToLand_Click"/>
+            <Label x:Name="lblLandNameOnGrid" Content="Land Name" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Height="30" Margin="83,68,0,0" VerticalAlignment="Top" Width="127" Background="{x:Null}"/>
+            <Button x:Name="btnGoToLand" Content="Go to" HorizontalAlignment="Left" Height="38" Margin="64,126,0,0" VerticalAlignment="Top" Width="164" Click="btnGoToLand_Click" BorderBrush="#FF501F07" Background="#FFE1A35E"/>
             <Image x:Name="imgLandResource1ImgOnGrid"  HorizontalAlignment="Left" Height="55" Margin="64,262,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="-0.291,0.465"/>
             <Label x:Name="lblLandResource1NameOnGrid"  Foreground="#FF8F7D5E" HorizontalAlignment="Left" Margin="64,332,0,0" VerticalAlignment="Top" Width="90" Background="{x:Null}"/>
             <Image x:Name="imgLandResource2ImgOnGrid"  HorizontalAlignment="Left" Height="55" Margin="173,262,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="-0.291,0.465"/>
             <Label x:Name="lblLandResource2NameOnGrid"  Foreground="#FF897657" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="152,332,0,0" VerticalAlignment="Top" Width="89"/>
-            <Button x:Name="buttonEstablishaState" IsEnabled="True" Content="Establish a state" HorizontalAlignment="Left" Margin="64,183,0,0" VerticalAlignment="Top" Width="164" Height="37" Click="buttonEstablishaState_Click"/>
-            <Label x:Name="lblCountryNameOnGrid" Content="Country Name" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Height="41" Margin="64,27,51,0" VerticalAlignment="Top" Width="177" Background="{x:Null}"/>
+            <Button x:Name="buttonEstablishaState" IsEnabled="True" Content="Establish a state" HorizontalAlignment="Left" Margin="64,183,0,0" VerticalAlignment="Top" Width="164" Height="37" Click="buttonEstablishaState_Click" Background="#FFE1A35E" BorderBrush="#FF582513"/>
+            <Label x:Name="lblCountryNameOnGrid" Content="Country Name" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Height="41" Margin="51,27,64,0" VerticalAlignment="Top" Width="177" Background="{x:Null}"/>
+            <Button x:Name="buttonStartBattle" Content="Start test battle" HorizontalAlignment="Left" Margin="64,237,0,0" VerticalAlignment="Top" Width="164" Height="37" Click="buttonStartBattle_Click" Background="#FFE1A35E" BorderBrush="#FF5B240F"/>
         </Grid>
         <Image x:Name="ResourceMapBtn" HorizontalAlignment="Left" Height="51" Margin="248,177,0,0" VerticalAlignment="Top" Width="59" Cursor="Hand" Source="/Pictures/resource_map.png" MouseDown="ResourceMapBtn_MouseDown"/>
         <Image x:Name="GlobalMapBtn" HorizontalAlignment="Left" Height="48" Margin="247,129,0,0" VerticalAlignment="Top" Width="60" Cursor="Hand" Source="/Pictures/map_icon.png" MouseDown="GlobalMapBtn_MouseDown">
@@ -124,8 +128,11 @@
             </Button.Background>
         </Button>
         <Button x:Name="test2" IsEnabled="False" Content="Button" HorizontalAlignment="Left" Height="97" Margin="191,173,0,0" VerticalAlignment="Top" Width="28" Click="test2_Click"/>
-        <Button x:Name="buttonChat" Content="Show chat" Grid.Column="1" HorizontalAlignment="Left" Margin="229,293,0,0" VerticalAlignment="Top" Width="224" Click="buttonChat_Click"/>
+        <Button x:Name="buttonChat" Content="Show chat" Grid.Column="1" HorizontalAlignment="Left" Margin="229,293,0,0" VerticalAlignment="Top" Width="224" Click="buttonChat_Click" Background="#FFE1A35E" BorderBrush="#FF501F07"/>
         <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="58" Margin="491,5,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/food.png" Width="56" Cursor="Hand" MouseDown="marketImage_MouseDown"/>
+        <Image x:Name="CountryImage"  HorizontalAlignment="Left" Height="58" Margin="552,5,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/parlament.png" Width="56" Cursor="Hand" MouseDown="CountryImage_MouseDown"/>
+        <Image x:Name="LandImage"  HorizontalAlignment="Left" Height="58" Margin="608,10,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/landMainBuilding.png" Width="56" Cursor="Hand" MouseDown="LandImage_MouseDown"/>
+        <Button x:Name="DeclareWar" Content="Button" HorizontalAlignment="Left" Height="97" Margin="224,173,0,0" VerticalAlignment="Top" Width="27" Click="DeclareWar_Click"/>
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>

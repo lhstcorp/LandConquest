@@ -24,7 +24,7 @@ namespace LandConquest.Forms
 {
     public partial class MainWindow : Window
     {
-        
+
         public SqlConnection connection;
         User user;
         Player player;
@@ -38,6 +38,10 @@ namespace LandConquest.Forms
         StorageModel storageModel;
         EquipmentModel equipmentModel;
         MarketModel marketModel;
+        MapModel mapModel;
+        WarModel warModel;
+        ArmyModel armyModel;
+        BattleModel battleModel;
 
         Market market;
         PlayerStorage storage;
@@ -48,8 +52,11 @@ namespace LandConquest.Forms
         List<Land> lands;
         List<Path> paths;
         List<Country> countries;
+        List<War> wars;
         Land land;
         Country country;
+
+        Thickness[] marginsOfWarButtons;
         int[] flagXY = new int[4];
 
         const int landsCount = 11;
@@ -77,6 +84,8 @@ namespace LandConquest.Forms
             playerModel = new PlayerModel();
             storageModel = new StorageModel();
             equipmentModel = new EquipmentModel();
+            mapModel = new MapModel();
+            warModel = new WarModel();
             //equipment = new PlayerEquipment();
 
             player = playerModel.GetPlayerInfo(_user, connection, player);
@@ -101,8 +110,6 @@ namespace LandConquest.Forms
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            
-
             storage = storageModel.GetPlayerStorage(player, connection, storage);
 
             peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
@@ -139,14 +146,25 @@ namespace LandConquest.Forms
 
             countries = new List<Country>();
 
-            for (int i=0; i< countryModel.SelectLastIdOfStates(connection); i++)
+            for (int i = 0; i < countryModel.SelectLastIdOfStates(connection); i++)
             {
                 countries.Add(new Country());
             }
 
             lands = landModel.GetLandsInfo(lands, connection);
             countries = countryModel.GetCountriesInfo(countries, connection);
-            //lblLandNameOnGrid.Content = lands[5].LandName;
+
+
+            wars = new List<War>();
+
+            for (int i = 0; i < warModel.SelectLastIdOfWars(connection); i++)
+            {
+                wars.Add(new War());
+            }
+
+            wars = warModel.GetWarsInfo(wars, connection);
+
+            LoadWarsOnMap();
         }
 
         private void UpdateInfo()
@@ -187,6 +205,20 @@ namespace LandConquest.Forms
             //land manufactures
 
             //first land manufacture
+            bool f = true;
+
+            if (playerLandManufactures.Count == 0)
+            {
+                f = false;
+                playerLandManufactures.Add(new Manufacture());
+                playerLandManufactures.Add(new Manufacture());
+                playerLandManufactures[0].ManufactureProdStartTime = DateTime.UtcNow;
+                playerLandManufactures[0].ManufactureProductsHour = 0;
+
+                playerLandManufactures[1].ManufactureProdStartTime = DateTime.UtcNow;
+                playerLandManufactures[1].ManufactureProductsHour = 0;
+            }
+
             switch (playerLandManufactures[0].ManufactureType)
             {
                 case 4:
@@ -270,10 +302,13 @@ namespace LandConquest.Forms
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
             PbExp.Value = player.PlayerExp;
 
+            Console.WriteLine(Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5))) + " tut");
+
             storageModel.UpdateStorage(connection, player, storage);
 
             manufactureModel.UpdateDateTimeForManufacture(manufactures, player, connection);
-            manufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player, connection);
+            if (f) manufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player, connection);
+
 
             StorageWindow storageWindow = new StorageWindow(this, connection, player, user);
 
@@ -322,7 +357,7 @@ namespace LandConquest.Forms
         {
             storage = storageModel.GetPlayerStorage(player, connection, storage);
             equipment = equipmentModel.GetPlayerEquipment(player, connection, equipment);
-            
+
             RecruitWindow window = new RecruitWindow(connection, player, storage, equipment);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Owner = this;
@@ -390,12 +425,12 @@ namespace LandConquest.Forms
             {
                 Path senderPath = (Path)sender;
                 land = new Land();
-                
+
                 land = lands.ElementAt(Convert.ToInt32(senderPath.Name.Replace("Land", "")) - 1);
                 lblLandNameOnGrid.Content = land.LandName;
 
-                
-                for (int i=0; i<countries.Count; i++)
+
+                for (int i = 0; i < countries.Count; i++)
                 {
                     if (land.CountryId == countries[i].CountryId)
                     {
@@ -403,11 +438,12 @@ namespace LandConquest.Forms
                         break;
                     }
                 }
-                
-                flagXY[0] = Convert.ToInt32(senderPath.Data.Bounds.Left + senderPath.Data.Bounds.Width / 2 + Convert.ToInt32(GlobalMap.Margin.Left));
-                flagXY[1] = Convert.ToInt32(senderPath.Data.Bounds.Top + senderPath.Data.Bounds.Height / 2 + Convert.ToInt32(GlobalMap.Margin.Top));
-                flagXY[2] = Convert.ToInt32(senderPath.Data.Bounds.Right + senderPath.Data.Bounds.Width / 2 + Convert.ToInt32(GlobalMap.Margin.Right));
-                flagXY[3] = Convert.ToInt32(senderPath.Data.Bounds.Bottom + senderPath.Data.Bounds.Height / 2 + Convert.ToInt32(GlobalMap.Margin.Bottom));
+
+                //flagXY[0] = Convert.ToInt32(senderPath.Data.Bounds.Left + senderPath.Data.Bounds.Width / 2 + Convert.ToInt32(GlobalMap.Margin.Left));
+                //flagXY[1] = Convert.ToInt32(senderPath.Data.Bounds.Top + senderPath.Data.Bounds.Height / 2 + Convert.ToInt32(GlobalMap.Margin.Top));
+                //flagXY[2] = Convert.ToInt32(senderPath.Data.Bounds.Right + senderPath.Data.Bounds.Width / 2 + Convert.ToInt32(GlobalMap.Margin.Right));
+                //flagXY[3] = Convert.ToInt32(senderPath.Data.Bounds.Bottom + senderPath.Data.Bounds.Height / 2 + Convert.ToInt32(GlobalMap.Margin.Bottom));
+
 
                 switch (land.ResourceType1)
                 {
@@ -483,7 +519,7 @@ namespace LandConquest.Forms
             }
         }
 
-        
+
 
         private void PathLoadedHandler(object sender, RoutedEventArgs e)
         {
@@ -503,8 +539,6 @@ namespace LandConquest.Forms
             {
                 MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK);
             }
-
-
         }
 
         private void ResourceMapBtn_MouseDown(object sender, MouseButtonEventArgs e)
@@ -519,7 +553,7 @@ namespace LandConquest.Forms
             GlobalMap.Visibility = Visibility.Visible;
         }
 
-        
+
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             settingsGrid.Visibility = Visibility.Hidden;
@@ -537,14 +571,12 @@ namespace LandConquest.Forms
             SoundPlayer sound = new SoundPlayer();
             sound.SoundLocation = @"music.wav";
             sound.PlayLooping();
-            
+
             //sound.SoundLocation = @"music2.wav";
             //sound.PlayLooping();
-            
+
             //sound.SoundLocation = @"music3.wav";
             //sound.PlayLooping();
-            
-
         }
 
         private void checkBox_Checked(object sender, RoutedEventArgs e)
@@ -554,7 +586,7 @@ namespace LandConquest.Forms
 
         private void btnGoToLand_Click(object sender, RoutedEventArgs e)
         {
-            
+
             peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
             List<int> list = playerModel.DeletePlayerManufactureLandData(peasants, player, connection);
             List<Manufacture> landManufactures = manufactureModel.GetLandManufactureInfo(player, connection);
@@ -563,8 +595,13 @@ namespace LandConquest.Forms
             Console.WriteLine("list: " + list[0] + "  " + list[1]);
             manufactureModel.UpdateLandManufacturesWhenMove(connection, list, landManufactures);
             player = playerModel.UpdatePlayerLand(player, connection, land);
-            
-            flag.Margin = new Thickness(flagXY[0], flagXY[1], flagXY[2], flagXY[3]);
+
+            //flag.Margin = new Thickness(flagXY[0] - 69, flagXY[1] - 36, 0, 0);
+            //flag.Margin = new Thickness(Convert.ToDouble(GlobalMap.Margin.Left), Convert.ToDouble(GlobalMap.Margin.Top), 0, 0);
+
+            //flag.Stretch
+            flagXY = mapModel.CenterOfLand(land.LandId);
+            flag.Margin = new Thickness(flagXY[0], flagXY[1], 0, 0);
 
             Console.WriteLine("flag coo: " + flagXY[0] + " " + flagXY[1]);
             Console.WriteLine("map coo: " + Convert.ToInt32(GlobalMap.Margin.Left) + " " + Convert.ToInt32(GlobalMap.Margin.Top));
@@ -581,7 +618,7 @@ namespace LandConquest.Forms
 
         public void RedrawGlobalMap()
         {
-            for (int i=0; i<paths.Count;i++)
+            for (int i = 0; i < paths.Count; i++)
             {
                 Color color = (Color)ColorConverter.ConvertFromString(lands[i].LandColor);
 
@@ -599,21 +636,17 @@ namespace LandConquest.Forms
 
         public Player CheckLvlChange(Player player)
         {
-            
-            while (Math.Pow(player.PlayerLvl,2)*500 - player.PlayerExp  <= 0)
+
+            while (Math.Pow(player.PlayerLvl, 2) * 500 - player.PlayerExp <= 0)
             {
                 player.PlayerLvl += 1;
 
                 Level.Content = player.PlayerLvl.ToString();
                 //запрос на ддобавление уровня
-
-
             }
 
             PbExp.Maximum = player.PlayerLvl * 2 * 500;
             PbExp.Value = player.PlayerExp;
-            
-            
 
             return player;
         }
@@ -669,6 +702,201 @@ namespace LandConquest.Forms
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Owner = this;
             window.Show();
+        }
+
+        private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CountryWindow win = new CountryWindow(connection, player);
+            win.Show();
+        }
+
+        private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DeclareWar_Click(object sender, RoutedEventArgs e)
+        {
+            ArmyModel armyModel = new ArmyModel();
+            Army army = new Army();
+            army = armyModel.GetArmyInfo(connection, player, army);
+
+            BattleModel battleModel = new BattleModel();
+            ArmyInBattle armyInBattle = new ArmyInBattle();
+
+            int count = battleModel.CheckPlayerParticipation(connection, player);
+
+            War war = new War();
+            war.WarId = "lbOxckUUoYmKaEC1";
+
+            if (count == 0)
+            {
+
+                armyInBattle.PlayerId = army.PlayerId;
+                armyInBattle.ArmyId = army.ArmyId;
+                armyInBattle.ArmySizeCurrent = army.ArmySizeCurrent;
+                armyInBattle.ArmyType = army.ArmyType;
+                armyInBattle.ArmyArchersCount = army.ArmyArchersCount;
+                armyInBattle.ArmyInfantryCount = army.ArmyInfantryCount;
+                armyInBattle.ArmySiegegunCount = army.ArmySiegegunCount;
+                armyInBattle.ArmyHorsemanCount = army.ArmyHorsemanCount;
+
+                //ПРОВЕРКА СТОРОНЫ ЗА КОТОРУЮ ВОЮЕТ ИГРОК. ДЕЛАТЬ ЧЕК ЧЕРЕЗ МЕСТОПОЛОЖЕНИЕ ИГРОКА
+                // //
+                //  Net
+                // //
+
+                // -------------------------------------------------------------------------------------------
+                //Это говнокод. Мы просто предположили что чел атакующий.
+
+                Random random = new Random();
+                armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
+                armyInBattle.ArmySide = 1; // hueta
+
+                battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
+
+            }
+
+            List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
+            for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
+            {
+                armiesInBattle.Add(new ArmyInBattle());
+            }
+
+            armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
+
+            //armyModel.UpdateArmy(connection, army);
+            // до сюда говно ------------------------------------------------------------------------------
+
+            WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
+            window.Show();
+        }
+
+        public int ReturnNumberOfCell(int row, int column)
+        {
+            int index = (row - 1) * 30 + column - 1;
+            return index;
+        }
+
+        private void buttonStartBattle_Click(object sender, RoutedEventArgs e)
+        {
+            WarResultWindow warResultWindow = new WarResultWindow(connection, player);
+            warResultWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            warResultWindow.Owner = this;
+            warResultWindow.Show();
+        }
+
+        public void LoadWarsOnMap()
+        {
+            int[] landCenter = new int[1];
+            marginsOfWarButtons = new Thickness[wars.Count];
+
+            for (int i = 0; i < wars.Count; i++)
+            {
+                Line warLine = new Line();
+                SymbalLayer.Children.Add(warLine);
+                Console.WriteLine(wars[i].WarId + ' ' + wars[i].LandAttackerId + ' ' + wars[i].LandDefenderId);
+                Console.WriteLine(SymbalLayer.Children.Count);
+                landCenter = mapModel.CenterOfLand(wars[i].LandAttackerId);
+                warLine.X1 = landCenter[0] + 15;
+                warLine.Y1 = landCenter[1] + 30;
+                landCenter = mapModel.CenterOfLand(wars[i].LandDefenderId);
+                warLine.X2 = landCenter[0] + 15;
+                warLine.Y2 = landCenter[1] + 30;
+                warLine.Stroke = System.Windows.Media.Brushes.Black;
+                warLine.StrokeThickness = 1;
+
+                Image btnWar = new Image();
+                btnWar.Height = 25;
+                btnWar.Width = 25;
+                btnWar.Source = new BitmapImage(new Uri("/Pictures/warSymbal.png", UriKind.Relative));
+                btnWar.Margin = new Thickness(warLine.X1 + (warLine.X2 - warLine.X1) / 2 - 12, warLine.Y1 + (warLine.Y2 - warLine.Y1) / 2 - 15, 0, 0);
+                btnWar.MouseLeftButtonDown += btnWar_MouseLeftButtonDown;
+                btnWar.MouseEnter += btnWar_MouseEnter;
+                btnWar.MouseLeave += btnWar_MouseLeave;
+
+                marginsOfWarButtons[i] = btnWar.Margin;
+
+                SymbalLayer.Children.Add(btnWar);
+            }
+        }
+
+        private void btnWar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // переход в войну
+            for (int j = 0; j < wars.Count; j++)
+            {
+                if (((Image)sender).Margin == marginsOfWarButtons[j])
+                {
+                    Console.WriteLine("Ключ войны = " + wars[j].WarId);
+
+                    ArmyModel armyModel = new ArmyModel();
+                    Army army = new Army();
+                    army = armyModel.GetArmyInfo(connection, player, army);
+
+                    BattleModel battleModel = new BattleModel();
+                    ArmyInBattle armyInBattle = new ArmyInBattle();
+
+                    int count = battleModel.CheckPlayerParticipation(connection, player);
+
+                    War war = new War();
+                    war.WarId = wars[j].WarId;
+
+                    if (count == 0)
+                    {
+
+                        armyInBattle.PlayerId = army.PlayerId;
+                        armyInBattle.ArmyId = army.ArmyId;
+                        armyInBattle.ArmySizeCurrent = army.ArmySizeCurrent;
+                        armyInBattle.ArmyType = army.ArmyType;
+                        armyInBattle.ArmyArchersCount = army.ArmyArchersCount;
+                        armyInBattle.ArmyInfantryCount = army.ArmyInfantryCount;
+                        armyInBattle.ArmySiegegunCount = army.ArmySiegegunCount;
+                        armyInBattle.ArmyHorsemanCount = army.ArmyHorsemanCount;
+
+                        //ПРОВЕРКА СТОРОНЫ ЗА КОТОРУЮ ВОЮЕТ ИГРОК. ДЕЛАТЬ ЧЕК ЧЕРЕЗ МЕСТОПОЛОЖЕНИЕ ИГРОКА
+                        // //
+                        //  Net
+                        // //
+
+                        // -------------------------------------------------------------------------------------------
+                        //Это говнокод. Мы просто предположили что чел атакующий.
+
+                        Random random = new Random();
+                        armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
+                        armyInBattle.ArmySide = 1; // hueta
+
+                        battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
+
+                    }
+
+                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
+                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
+                    {
+                        armiesInBattle.Add(new ArmyInBattle());
+                    }
+
+                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
+
+                    //armyModel.UpdateArmy(connection, army);
+                    // до сюда говно ------------------------------------------------------------------------------
+
+                    WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
+                    window.Show();
+
+
+                }
+            }
+        }
+
+        private void btnWar_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void btnWar_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Arrow;
         }
     }
 }

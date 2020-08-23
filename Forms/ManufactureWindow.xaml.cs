@@ -337,14 +337,14 @@ namespace LandConquest.Forms
         {
             sliderBuilding1.IsSnapToTickEnabled = true;
             PbBuilding1.Value = sliderBuilding1.Value;
-            building1ProdValueHour.Content = Convert.ToInt32(sliderBuilding1.Value - peasantsWorkingOnB1) * landManufactures[0].ManufactureBaseProdValue;
+            building1ProdValueHour.Content = Convert.ToInt32(sliderBuilding1.Value) * landManufactures[0].ManufactureBaseProdValue;
         }
 
         private void sliderBuilding2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             sliderBuilding2.IsSnapToTickEnabled = true;
             PbBuilding2.Value = sliderBuilding2.Value;
-            building2ProdValueHour.Content = Convert.ToInt32(sliderBuilding2.Value - peasantsWorkingOnB2) * landManufactures[1].ManufactureBaseProdValue;
+            building2ProdValueHour.Content = Convert.ToInt32(sliderBuilding2.Value) * landManufactures[1].ManufactureBaseProdValue;
         }
 
         private void sliderBuilding2_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)

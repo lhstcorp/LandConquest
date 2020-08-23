@@ -38,8 +38,5 @@ namespace LandConquest.Entities
 
         [Column("army_siegegun_count")]
         public int ArmySiegegunCount { get; set; }
-
-        [Column("local_land_id")]
-        public int LocalLandId { get; set; }
     }
 }
