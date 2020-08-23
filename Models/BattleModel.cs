@@ -280,20 +280,15 @@ namespace LandConquest.Models
             storageCommand.Dispose();
         }
 
-        public int ReturnTypeOfArmy(ArmyInBattle army)
+        public int ReturnTypeOfArmy(List<ArmyInBattle> armies)
         {
-            if ((army.ArmyInfantryCount > 0) && (army.ArmyInfantryCount == army.ArmySizeCurrent))
-                return 1;
-            else
-            if ((army.ArmyArchersCount > 0) && (army.ArmyArchersCount == army.ArmySizeCurrent))
-                return 2;
-            else
-            if ((army.ArmyHorsemanCount > 0) && (army.ArmyHorsemanCount == army.ArmySizeCurrent))
-                return 3;
-            else
-            if ((army.ArmySiegegunCount > 0) && (army.ArmySiegegunCount == army.ArmySizeCurrent))
-                return 4;
-            return 5;
+            for (int i = 0; i < armies.Count - 1; i++)
+            {
+                if (armies[i].ArmyType == armies[i + 1].ArmyType) continue;
+                else return 5;
+            }
+
+            return armies[0].ArmyType;
         }
     }
 }
