@@ -201,3 +201,5 @@ C:\LandConquest\bin\Debug\Microsoft.Toolkit.Wpf.UI.Controls.xml
 C:\LandConquest\bin\Debug\Microsoft.Toolkit.Wpf.UI.XamlHost.pdb
 C:\LandConquest\bin\Debug\Microsoft.Toolkit.Wpf.UI.XamlHost.xml
 C:\LandConquest\bin\Debug\NTiled.xml
+C:\LandConquest\obj\Debug\DialogWIndows\SplitArmyDialog.g.cs
+C:\LandConquest\obj\Debug\DialogWIndows\SplitArmyDialog.baml

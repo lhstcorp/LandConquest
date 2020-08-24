@@ -1,4 +1,5 @@
-﻿using LandConquest.Entities;
+﻿using LandConquest.DialogWIndows;
+using LandConquest.Entities;
 using LandConquest.Forces;
 using LandConquest.Models;
 using System;
@@ -500,7 +501,8 @@ namespace LandConquest.Forms
 
         private void splitArmiesButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            SplitArmyDialog dialogWindow = new SplitArmyDialog(connection, armyInBattlesInCurrentTile[0]);
+            dialogWindow.Show();
         }
     }
 }
