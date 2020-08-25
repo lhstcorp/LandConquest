@@ -5,42 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
         mc:Ignorable="d"
-        Title="SplitArmyDialog" Height="250" Width="400"
+        Title="SplitArmyDialog" Height="250" Width="360"
         WindowStyle="None" ResizeMode="NoResize"
         ShowInTaskbar="False">
     <Grid>
-        <Line X1="200" Y1="20" X2="200" Y2="230" Stroke="Black" StrokeThickness="1"></Line>
-        <Image HorizontalAlignment="Left" Height="35" Margin="13,81,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/warrior.png"/>
-        <Slider x:Name="sliderInfantryWas" HorizontalAlignment="Left" Margin="48,98,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderInfantryWas_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
-        <Label x:Name="infantryCountWas" Content="{Binding Value, ElementName=sliderInfantryWas, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="82,84,0,0" VerticalAlignment="Top" Width="63" />
-        <Image HorizontalAlignment="Left" Height="35" Margin="226,81,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/warrior.png"/>
-        <Slider x:Name="sliderInfantryNow" HorizontalAlignment="Left" Margin="261,98,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderInfantryNow_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
-        <Label x:Name="infantryCountNow" Content="{Binding Value, ElementName=sliderInfantryNow, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="295,84,0,0" VerticalAlignment="Top" Width="63" />
-        <Button Content="Button" HorizontalAlignment="Left" Height="18" Margin="372,10,0,0" VerticalAlignment="Top" Width="18" Click="Button_Click"/>
-        <Image HorizontalAlignment="Left" Height="35" Margin="13,118,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/archer.png"/>
-        <Slider x:Name="sliderArchersWas" HorizontalAlignment="Left" Margin="48,135,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderArchersWas_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
-        <Label x:Name="archersCountWas" Content="{Binding Value, ElementName=sliderArchersWas, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="82,121,0,0" VerticalAlignment="Top" Width="63" />
-        <Image HorizontalAlignment="Left" Height="35" Margin="226,118,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/archer.png"/>
-        <Slider x:Name="sliderArchersNow" HorizontalAlignment="Left" Margin="261,135,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderArchersNow_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
-        <Label x:Name="archersCountNow" Content="{Binding Value, ElementName=sliderArchersNow, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="295,121,0,0" VerticalAlignment="Top" Width="63" />
-        <Image HorizontalAlignment="Left" Height="35" Margin="13,155,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/hourseman.png"/>
-        <Slider x:Name="sliderKnightsWas" HorizontalAlignment="Left" Margin="48,172,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderKnightsWas_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
-        <Label x:Name="knightsCountWas" Content="{Binding Value, ElementName=sliderKnightsWas, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="82,158,0,0" VerticalAlignment="Top" Width="63" />
-        <Image HorizontalAlignment="Left" Height="35" Margin="226,155,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/hourseman.png"/>
-        <Slider x:Name="sliderKnightsNow" HorizontalAlignment="Left" Margin="261,172,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderKnightsNow_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
-        <Label x:Name="knightsCountNow" Content="{Binding Value, ElementName=sliderKnightsNow, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="295,158,0,0" VerticalAlignment="Top" Width="63" />
-        <Image HorizontalAlignment="Left" Height="35" Margin="13,192,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/catapult.png"/>
-        <Slider x:Name="sliderSiegeWas" HorizontalAlignment="Left" Margin="48,209,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderSiegeWas_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
-        <Label x:Name="siegeCountWas" Content="{Binding Value, ElementName=sliderSiegeWas, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="82,195,0,0" VerticalAlignment="Top" Width="63" />
-        <Image HorizontalAlignment="Left" Height="35" Margin="226,192,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/catapult.png"/>
-        <Slider x:Name="sliderSiegeNow" HorizontalAlignment="Left" Margin="261,209,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderSiegeNow_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
-        <Label x:Name="siegeCountNow" Content="{Binding Value, ElementName=sliderSiegeNow, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="295,195,0,0" VerticalAlignment="Top" Width="63" />
+        <Line X1="180" Y1="20" X2="180" Y2="230" Stroke="Black" StrokeThickness="1"></Line>
+        <Image HorizontalAlignment="Left" Height="35" Margin="13,61,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/warrior.png"/>
+        <Slider x:Name="sliderInfantryWas" HorizontalAlignment="Left" Margin="48,78,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderInfantryWas_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
+        <Label x:Name="infantryCountWas" Content="{Binding Value, ElementName=sliderInfantryWas, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="82,64,0,0" VerticalAlignment="Top" Width="63" />
+        <Image HorizontalAlignment="Left" Height="35" Margin="190,61,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/warrior.png"/>
+        <Slider x:Name="sliderInfantryNow" HorizontalAlignment="Left" Margin="225,78,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderInfantryNow_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
+        <Label x:Name="infantryCountNow" Content="{Binding Value, ElementName=sliderInfantryNow, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="259,64,0,0" VerticalAlignment="Top" Width="63" />
+        <Button Content="Button" HorizontalAlignment="Left" Height="18" Margin="335,10,0,0" VerticalAlignment="Top" Width="18" Click="Button_Click"/>
+        <Image HorizontalAlignment="Left" Height="35" Margin="13,98,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/archer.png"/>
+        <Slider x:Name="sliderArchersWas" HorizontalAlignment="Left" Margin="48,115,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderArchersWas_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
+        <Label x:Name="archersCountWas" Content="{Binding Value, ElementName=sliderArchersWas, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="82,101,0,0" VerticalAlignment="Top" Width="63" />
+        <Image HorizontalAlignment="Left" Height="35" Margin="190,98,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/archer.png"/>
+        <Slider x:Name="sliderArchersNow" HorizontalAlignment="Left" Margin="225,115,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderArchersNow_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
+        <Label x:Name="archersCountNow" Content="{Binding Value, ElementName=sliderArchersNow, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="259,101,0,0" VerticalAlignment="Top" Width="63" />
+        <Image HorizontalAlignment="Left" Height="35" Margin="13,135,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/hourseman.png"/>
+        <Slider x:Name="sliderKnightsWas" HorizontalAlignment="Left" Margin="48,152,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderKnightsWas_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
+        <Label x:Name="knightsCountWas" Content="{Binding Value, ElementName=sliderKnightsWas, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="82,138,0,0" VerticalAlignment="Top" Width="63" />
+        <Image HorizontalAlignment="Left" Height="35" Margin="190,135,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/hourseman.png"/>
+        <Slider x:Name="sliderKnightsNow" HorizontalAlignment="Left" Margin="225,152,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderKnightsNow_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
+        <Label x:Name="knightsCountNow" Content="{Binding Value, ElementName=sliderKnightsNow, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="259,138,0,0" VerticalAlignment="Top" Width="63" />
+        <Image HorizontalAlignment="Left" Height="35" Margin="13,172,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/catapult.png"/>
+        <Slider x:Name="sliderSiegeWas" HorizontalAlignment="Left" Margin="48,189,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderSiegeWas_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
+        <Label x:Name="siegeCountWas" Content="{Binding Value, ElementName=sliderSiegeWas, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="82,175,0,0" VerticalAlignment="Top" Width="63" />
+        <Image HorizontalAlignment="Left" Height="35" Margin="190,172,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/catapult.png"/>
+        <Slider x:Name="sliderSiegeNow" HorizontalAlignment="Left" Margin="225,189,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderSiegeNow_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
+        <Label x:Name="siegeCountNow" Content="{Binding Value, ElementName=sliderSiegeNow, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="259,175,0,0" VerticalAlignment="Top" Width="63" />
         <Label Content="Army Size: " HorizontalAlignment="Left" Height="27" Margin="10,10,0,0" VerticalAlignment="Top" Width="68"/>
         <Label x:Name="armySizeWas" FontSize="28" Content="0" HorizontalAlignment="Left" Margin="13,23,0,0" VerticalAlignment="Top" Width="62" Height="44"/>
-        <Label Content="Army Size: " HorizontalAlignment="Left" Height="27" Margin="212,10,0,0" VerticalAlignment="Top" Width="68"/>
-        <Label x:Name="armySizeNow" FontSize="28" Content="0" HorizontalAlignment="Left" Margin="215,23,0,0" VerticalAlignment="Top" Width="62" Height="44"/>
-        <Image x:Name="armyTypeWasImg" HorizontalAlignment="Left" Height="70" Margin="106,10,0,0" VerticalAlignment="Top" Width="70" Source="/Pictures/question.jpg" />
-        <Image x:Name="armyTypeNowImg" HorizontalAlignment="Left" Height="70" Margin="295,10,0,0" VerticalAlignment="Top" Width="70" Source="/LandConquest;component/Pictures/question.jpg" />
+        <Label Content="Army Size: " HorizontalAlignment="Left" Height="27" Margin="189,10,0,0" VerticalAlignment="Top" Width="68"/>
+        <Label x:Name="armySizeNow" FontSize="28" Content="0" HorizontalAlignment="Left" Margin="192,23,0,0" VerticalAlignment="Top" Width="62" Height="44"/>
+        <Image x:Name="armyTypeWasImg" HorizontalAlignment="Left" Height="50" Margin="106,10,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/question.jpg" />
+        <Image x:Name="armyTypeNowImg" HorizontalAlignment="Left" Height="50" Margin="272,10,0,0" VerticalAlignment="Top" Width="50" Source="/LandConquest;component/Pictures/question.jpg" />
+        <Button x:Name="btnSplitArmy" Content="detach" HorizontalAlignment="Left" Height="26" Margin="242,212,0,0" VerticalAlignment="Top" Width="80" Click="btnSplitArmy_Click"/>
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>

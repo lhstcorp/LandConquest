@@ -1,9 +1,11 @@
 ﻿using LandConquest.Entities;
+using LandConquest.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,10 +25,15 @@ namespace LandConquest.DialogWIndows
     {
         ArmyInBattle armyInBattle;
         SqlConnection connection;
-        public SplitArmyDialog(SqlConnection _connection, ArmyInBattle _armyInBattle)
+        BattleModel battleModel;
+        War war;
+        int typeOfNewArmy;
+        int typeOfOldArmy;
+        public SplitArmyDialog(SqlConnection _connection, ArmyInBattle _armyInBattle, War _war)
         {
             connection = _connection;
             armyInBattle = _armyInBattle;
+            war = _war;
             InitializeComponent();
 
             sliderInfantryWas.IsSnapToTickEnabled = true;
@@ -139,57 +146,117 @@ namespace LandConquest.DialogWIndows
         {
             armySizeWas.Content = Convert.ToInt32(infantryCountWas.Content) + Convert.ToInt32(archersCountWas.Content) + Convert.ToInt32(knightsCountWas.Content) + Convert.ToInt32(siegeCountWas.Content);
 
-            if (infantryCountWas.Content == armySizeWas.Content)
+            if (Convert.ToInt32(armySizeWas.Content) == 0) armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/question.jpg", UriKind.Relative));
+            if (Convert.ToInt32(armySizeNow.Content) == 0) armyTypeNowImg.Source = new BitmapImage(new Uri("/Pictures/question.jpg", UriKind.Relative));
+
+            if (Convert.ToInt32(infantryCountWas.Content) == Convert.ToInt32(armySizeWas.Content))
             {
                 armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
+                typeOfNewArmy = 1;
             }
             else
-            if (archersCountWas.Content == armySizeWas.Content)
+            if (Convert.ToInt32(archersCountWas.Content) == Convert.ToInt32(armySizeWas.Content))
             {
                 armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
+                typeOfNewArmy = 2;
             }
             else
-            if (knightsCountWas.Content == armySizeWas.Content)
+            if (Convert.ToInt32(knightsCountWas.Content) == Convert.ToInt32(armySizeWas.Content))
             {
                 armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
+                typeOfNewArmy = 3;
             }
             else
-            if (siegeCountWas.Content == armySizeWas.Content)
+            if (Convert.ToInt32(siegeCountWas.Content) == Convert.ToInt32(armySizeWas.Content))
             {
                 armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
+                typeOfNewArmy = 4;
             }
-            else armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/question.jpg", UriKind.Relative));
+            else { armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/question.jpg", UriKind.Relative)); typeOfNewArmy = 5; }
 
             armySizeNow.Content = Convert.ToInt32(infantryCountNow.Content) + Convert.ToInt32(archersCountNow.Content) + Convert.ToInt32(knightsCountNow.Content) + Convert.ToInt32(siegeCountNow.Content);
 
-            if (infantryCountNow.Content == armySizeNow.Content)
+            if (Convert.ToInt32(infantryCountNow.Content) == Convert.ToInt32(armySizeNow.Content))
             {
                 armyTypeNowImg.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
+                typeOfNewArmy = 1;
             }
             else
             {
-                if (archersCountNow.Content == armySizeNow.Content)
+                if (Convert.ToInt32(archersCountNow.Content) == Convert.ToInt32(armySizeNow.Content))
                 {
                     armyTypeNowImg.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
+                    typeOfNewArmy = 2;
                 }
-                
-                else {
-                    if (knightsCountNow.Content == armySizeNow.Content)
+
+                else
+                {
+                    if (Convert.ToInt32(knightsCountNow.Content) == Convert.ToInt32(armySizeNow.Content))
                     {
                         armyTypeNowImg.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
+                        typeOfNewArmy = 3;
                     }
                     else
                     {
-                        if (siegeCountNow.Content == armySizeNow.Content)
+                        if (Convert.ToInt32(siegeCountNow.Content) == Convert.ToInt32(armySizeNow.Content))
                         {
                             armyTypeNowImg.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
+                            typeOfNewArmy = 4;
                         }
-                        else {
+                        else
+                        {
                             armyTypeNowImg.Source = new BitmapImage(new Uri("/Pictures/question.jpg", UriKind.Relative));
+                            typeOfNewArmy = 5;
                         }
                     }
                 }
             }
+        }
+
+        private void btnSplitArmy_Click(object sender, RoutedEventArgs e)
+        {
+            battleModel = new BattleModel();
+
+            if ((Convert.ToInt32(armySizeNow.Content) != 0) && (Convert.ToInt32(armySizeWas.Content) != 0))
+            {
+                ArmyInBattle newArmyInBattle = new ArmyInBattle();
+                newArmyInBattle.ArmyId = generateId();
+                newArmyInBattle.ArmySizeCurrent = Convert.ToInt32(armySizeNow.Content);
+                newArmyInBattle.ArmyInfantryCount = Convert.ToInt32(infantryCountNow.Content);
+                newArmyInBattle.ArmyArchersCount = Convert.ToInt32(archersCountNow.Content);
+                newArmyInBattle.ArmyHorsemanCount = Convert.ToInt32(knightsCountNow.Content);
+                newArmyInBattle.ArmySiegegunCount = Convert.ToInt32(siegeCountNow.Content);
+                newArmyInBattle.LocalLandId = armyInBattle.LocalLandId;
+                newArmyInBattle.PlayerId = armyInBattle.PlayerId;
+                newArmyInBattle.ArmySide = armyInBattle.ArmySide;
+                newArmyInBattle.ArmyType = typeOfNewArmy;
+
+                battleModel.InsertArmyIntoBattleTable(connection, newArmyInBattle, war);
+            }
+
+            if (Convert.ToInt32(armySizeWas.Content) != 0 && (Convert.ToInt32(armySizeNow.Content) != 0))
+            {
+                armyInBattle.ArmySizeCurrent = Convert.ToInt32(armySizeWas.Content);
+
+                armyInBattle.ArmyInfantryCount = Convert.ToInt32(infantryCountWas.Content);
+                armyInBattle.ArmyArchersCount = Convert.ToInt32(archersCountWas.Content);
+                armyInBattle.ArmyHorsemanCount = Convert.ToInt32(knightsCountWas.Content);
+                armyInBattle.ArmySiegegunCount = Convert.ToInt32(siegeCountWas.Content);
+                armyInBattle.ArmyType = typeOfOldArmy;
+
+                battleModel.UpdateArmyInBattle(connection, armyInBattle);
+            }
+
+            this.Close();
+        }
+
+        public string generateId()
+        {
+            Thread.Sleep(15);
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvmxyz0123456789";
+            return new string(Enumerable.Repeat(chars, 16)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }
