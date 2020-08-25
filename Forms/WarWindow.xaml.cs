@@ -77,13 +77,6 @@ namespace LandConquest.Forms
 
         private void WarWin_Loaded(object sender, RoutedEventArgs e)
         {
-            //imgArmy = new Image();
-            //imgArmy.MouseDown += ImgArmy_MouseLeftButtonDown;
-            //imgArmy.MouseEnter += ImgArmy_MouseEnter;
-            //imgArmy.MouseLeave += ImgArmy_MouseLeave;
-            //imgArmy.Width = 40;
-            //imgArmy.Height = 40;
-            //imgArmy.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
 
             for (int x = 0; x < localWarMap.Columns; x++)
             {
@@ -97,14 +90,6 @@ namespace LandConquest.Forms
             }
             mainWarWinGrid.Children.Add(localWarMap);
             ShowArmiesOnMap();
-            //test 
-            //tileSelected.Source = "/Pictures/tile-test-red.jpg";
-
-            ////ReturnNumberOfCell(20, army.LocalLandId);
-
-            //int index = army.LocalLandId;  
-            //gridForArmies.Children.RemoveAt(index);
-            //gridForArmies.Children.Insert(index, imgArmy);
         }
 
         public void ShowArmiesOnMap()
@@ -161,7 +146,7 @@ namespace LandConquest.Forms
                     {
                         gridForArmies.Children.RemoveAt(armies[i].LocalLandId);
                         imgArmy.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                    }
+                    } 
                 }
                 gridForArmies.Children.Insert(armies[i].LocalLandId, imgArmy);
             }
@@ -501,7 +486,7 @@ namespace LandConquest.Forms
 
         private void splitArmiesButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            SplitArmyDialog dialogWindow = new SplitArmyDialog(connection, armyInBattlesInCurrentTile[0]);
+            SplitArmyDialog dialogWindow = new SplitArmyDialog(connection, armyInBattlesInCurrentTile[0], war);
             dialogWindow.Show();
         }
     }
