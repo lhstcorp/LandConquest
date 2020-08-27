@@ -309,5 +309,33 @@ namespace LandConquest.Models
 
             return armies[0].ArmyType;
         }
+
+        public void DeleteArmyById(SqlConnection connection, ArmyInBattle army)
+        {
+            String query = "DELETE FROM dbo.ArmyDataInBattle WHERE army_id = @army_id";
+
+            var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@army_id", army.ArmyId);
+
+            command.ExecuteNonQuery();
+
+            command.Dispose();
+        }
+
+        public int ReturnTypeOfUnionArmy(ArmyInBattle army)
+        {
+            if ((army.ArmyInfantryCount > 0) && (army.ArmyInfantryCount == army.ArmySizeCurrent))
+                return 1;
+            else
+            if ((army.ArmyArchersCount > 0) && (army.ArmyArchersCount == army.ArmySizeCurrent))
+                return 2;
+            else
+            if ((army.ArmyHorsemanCount > 0) && (army.ArmyHorsemanCount == army.ArmySizeCurrent))
+                return 3;
+            else
+            if ((army.ArmySiegegunCount > 0) && (army.ArmySiegegunCount == army.ArmySizeCurrent))
+                return 4;
+            return 5;
+        }
     }
 }

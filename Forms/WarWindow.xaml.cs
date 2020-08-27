@@ -46,6 +46,9 @@ namespace LandConquest.Forms
         Image emptyImage = new Image();
         int armyPage;
         int index;
+        List<bool> selectedArmiesForUnion;
+        List<ArmyInBattle> yourArmiesInCurrentTile = new List<ArmyInBattle>();
+        int SelectionCounter;
 
         //Canvas localWarArmyLayer = new Canvas();
         public WarWindow(SqlConnection _connection, Player _player, ArmyInBattle _army, List<ArmyInBattle> _armies, War _war)
@@ -146,7 +149,7 @@ namespace LandConquest.Forms
                     {
                         gridForArmies.Children.RemoveAt(armies[i].LocalLandId);
                         imgArmy.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                    } 
+                    }
                 }
                 gridForArmies.Children.Insert(armies[i].LocalLandId, imgArmy);
             }
@@ -174,7 +177,7 @@ namespace LandConquest.Forms
             ShowInfoAboutArmies(index);
 
             if (f_canMoveArmy)
-            ShowAvailableTilesToMove(index);
+                ShowAvailableTilesToMove(index);
         }
 
         private void tile_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -284,7 +287,7 @@ namespace LandConquest.Forms
 
                     HideAvailableTilesToMove(INDEX);
                     battleModel.UpdateLocalLandOfArmy(connection, selectedArmy, index);
-                    
+
                 }
                 else
                 {
@@ -460,27 +463,27 @@ namespace LandConquest.Forms
 
         public void ShowInfoAboutArmies(int index)
         {
+            SelectionCounter = 0;
+            selectedArmiesForUnion = new List<bool>();
             armyInBattlesInCurrentTile = new List<ArmyInBattle>();
 
             for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, index, war); i++)
             {
                 armyInBattlesInCurrentTile.Add(new ArmyInBattle());
+                selectedArmiesForUnion.Add(false);
             }
 
             armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, index);
 
             ShowInfoAboutArmy();
 
-            //for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++) 
-            //{
-            //    if (player.PlayerId == armyInBattlesInCurrentTile[i].PlayerId)
-            //    {
-            //        selectedArmy = armyInBattlesInCurrentTile[i];
-            //        f_canMoveArmy = true;
-            //    }
-            //}
-
-
+            for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++)
+            {
+                if (armyInBattlesInCurrentTile[i].PlayerId == player.PlayerId)
+                {
+                    yourArmiesInCurrentTile.Add(armyInBattlesInCurrentTile[i]);
+                }
+            }
         }
 
         private void splitArmiesButton_MouseDown(object sender, MouseButtonEventArgs e)
@@ -506,6 +509,8 @@ namespace LandConquest.Forms
 
         public void ShowInfoAboutArmy()
         {
+            playerNameLbl.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+
             playerNameLbl.Content = armyInBattlesInCurrentTile[armyPage].PlayerId;
             warriorsInfantry.Content = armyInBattlesInCurrentTile[armyPage].ArmyInfantryCount;
             warriorsArchers.Content = armyInBattlesInCurrentTile[armyPage].ArmyArchersCount;
@@ -518,14 +523,92 @@ namespace LandConquest.Forms
                 selectedArmy = armyInBattlesInCurrentTile[armyPage];
                 f_canMoveArmy = true;
 
+                btnSelectToUnite.Visibility = Visibility.Visible;
+                btnUnite.Visibility = Visibility.Visible;
+                splitArmiesButton.Visibility = Visibility.Visible;
+
                 ShowAvailableTilesToMove(index);
-            } else
+
+                if (selectedArmiesForUnion[armyPage])
+                {
+                    playerNameLbl.Foreground = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                }
+            }
+            else
             {
                 localWarMap.Children.RemoveAt(index);
                 Image img = new Image();
                 img.Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative));
                 localWarMap.Children.Insert(index, img);
+
+                btnSelectToUnite.Visibility = Visibility.Hidden;
+                btnUnite.Visibility = Visibility.Hidden;
+                splitArmiesButton.Visibility = Visibility.Hidden;
             }
         }
+
+        private void btnSelectToUnite_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++)
+            {
+                if (armyInBattlesInCurrentTile[i].ArmyId == selectedArmy.ArmyId)
+                {
+                    selectedArmiesForUnion[i] = !selectedArmiesForUnion[i];
+                    if (selectedArmiesForUnion[i])
+                    {
+                        playerNameLbl.Foreground = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                        SelectionCounter++;
+                    }
+                    else
+                    {
+                        playerNameLbl.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                        SelectionCounter--;
+                    }
+                    break;
+                }
+            }
+        }
+
+        private void btnUnite_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectionCounter > 1)
+            {
+                bool f = true;
+                ArmyInBattle unionArmy = new ArmyInBattle();
+                for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++)
+                {
+                    if (selectedArmiesForUnion[i])
+                    {
+                        unionArmy.ArmySizeCurrent += armyInBattlesInCurrentTile[i].ArmySizeCurrent;
+                        unionArmy.ArmyArchersCount += armyInBattlesInCurrentTile[i].ArmyArchersCount;
+                        unionArmy.ArmyInfantryCount += armyInBattlesInCurrentTile[i].ArmyInfantryCount;
+                        unionArmy.ArmyHorsemanCount += armyInBattlesInCurrentTile[i].ArmyHorsemanCount;
+                        unionArmy.ArmySiegegunCount += armyInBattlesInCurrentTile[i].ArmySiegegunCount;
+
+                        if (f)
+                        {
+                            f = !f;
+                            unionArmy.ArmyId = armyInBattlesInCurrentTile[i].ArmyId;
+                            unionArmy.PlayerId = player.PlayerId;
+                            continue;
+                        } 
+                        else
+                        {
+                            battleModel.DeleteArmyById(connection, armyInBattlesInCurrentTile[i]);
+                        }
+                    }
+                }
+
+                unionArmy.ArmyType = battleModel.ReturnTypeOfUnionArmy(unionArmy);
+                battleModel.UpdateArmyInBattle(connection, unionArmy);
+                HideAvailableTilesToMove(index);
+                armyPage = 0;
+                ShowInfoAboutArmies(index);
+            }
+        }
+
+
+
+
     }
 }
