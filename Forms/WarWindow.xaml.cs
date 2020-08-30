@@ -287,7 +287,6 @@ namespace LandConquest.Forms
 
                     HideAvailableTilesToMove(INDEX);
                     battleModel.UpdateLocalLandOfArmy(connection, selectedArmy, index);
-
                 }
                 else
                 {
@@ -364,6 +363,66 @@ namespace LandConquest.Forms
                 HideAvailableTilesToMove(INDEX);
 
                 battleModel.UpdateLocalLandOfArmy(connection, selectedArmy, index);
+
+
+
+                //Console.WriteLine("COUNT = " + armyInBattlesInCurrentTile.Count);
+
+                //перезаписываем в этот лист армии что остались
+                armyInBattlesInCurrentTile.Clear();
+
+                for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, INDEX, war); i++)
+                {
+                    armyInBattlesInCurrentTile.Add(new ArmyInBattle());
+                }
+
+                armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, INDEX);
+
+                if (armyInBattlesInCurrentTile.Count >= 1)
+                {
+                    Image imgArmyThatStay = new Image();
+                    imgArmyThatStay.MouseLeftButtonDown += ImgArmy_MouseLeftButtonDown;
+                    imgArmyThatStay.MouseEnter += ImgArmy_MouseEnter;
+                    imgArmyThatStay.MouseLeave += ImgArmy_MouseLeave;
+                    imgArmyThatStay.MouseRightButtonDown += ImgArmy_MouseRightButtonDown;
+                    imgArmyThatStay.Width = 40;
+                    imgArmyThatStay.Height = 40;
+
+                    int typeOfUniteArmy2 = battleModel.ReturnTypeOfArmy(armyInBattlesInCurrentTile);
+
+                    switch (typeOfUniteArmy2)
+                    {
+                        case 1:
+                            {
+                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
+                                break;
+                            }
+                        case 2:
+                            {
+                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
+                                break;
+                            }
+                        case 3:
+                            {
+                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
+                                break;
+                            }
+                        case 4:
+                            {
+                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
+                                break;
+                            }
+                        case 5:
+                            {
+                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
+                                break;
+                            }
+                    }
+
+
+                    gridForArmies.Children.RemoveAt(INDEX);
+                    gridForArmies.Children.Insert(INDEX, imgArmyThatStay);
+                }
                 //ShowAvailableTilesToMove(index);
             }
         }
