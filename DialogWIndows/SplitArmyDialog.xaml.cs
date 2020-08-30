@@ -152,27 +152,27 @@ namespace LandConquest.DialogWIndows
             if (Convert.ToInt32(infantryCountWas.Content) == Convert.ToInt32(armySizeWas.Content))
             {
                 armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
-                typeOfNewArmy = 1;
+                typeOfOldArmy = 1;
             }
             else
             if (Convert.ToInt32(archersCountWas.Content) == Convert.ToInt32(armySizeWas.Content))
             {
                 armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
-                typeOfNewArmy = 2;
+                typeOfOldArmy = 2;
             }
             else
             if (Convert.ToInt32(knightsCountWas.Content) == Convert.ToInt32(armySizeWas.Content))
             {
                 armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
-                typeOfNewArmy = 3;
+                typeOfOldArmy = 3;
             }
             else
             if (Convert.ToInt32(siegeCountWas.Content) == Convert.ToInt32(armySizeWas.Content))
             {
                 armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                typeOfNewArmy = 4;
+                typeOfOldArmy = 4;
             }
-            else { armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/question.jpg", UriKind.Relative)); typeOfNewArmy = 5; }
+            else { armyTypeWasImg.Source = new BitmapImage(new Uri("/Pictures/question.jpg", UriKind.Relative)); typeOfOldArmy = 5; }
 
             armySizeNow.Content = Convert.ToInt32(infantryCountNow.Content) + Convert.ToInt32(archersCountNow.Content) + Convert.ToInt32(knightsCountNow.Content) + Convert.ToInt32(siegeCountNow.Content);
 
@@ -230,6 +230,7 @@ namespace LandConquest.DialogWIndows
                 newArmyInBattle.PlayerId = armyInBattle.PlayerId;
                 newArmyInBattle.ArmySide = armyInBattle.ArmySide;
                 newArmyInBattle.ArmyType = typeOfNewArmy;
+                //Console.WriteLine("typeOfNewArmy = " + typeOfNewArmy);
 
                 battleModel.InsertArmyIntoBattleTable(connection, newArmyInBattle, war);
             }
