@@ -24,6 +24,20 @@
             <Label x:Name="warriorsSiege" Content="0"  Margin="66,266,156,10"></Label>
             <Image x:Name="splitArmiesButton" HorizontalAlignment="Left" Height="34" Margin="256,8,0,0" VerticalAlignment="Top" Width="34" Source="/Pictures/splitArmies.png" MouseDown="splitArmiesButton_MouseDown"/>
 
+            <Button x:Name="armyPageArrowLeft" HorizontalAlignment="Left" Height="32" Margin="224,258,0,0" VerticalAlignment="Top" Width="32" BorderBrush="Transparent" Click="armyPageArrowLeft_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pictures/armyPageArrowLeft.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="armyPageArrowRight" HorizontalAlignment="Left" Height="32" Margin="256,258,0,0" VerticalAlignment="Top" Width="32" BorderBrush="Transparent" Click="armyPageArrowRight_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pictures/armyPageArrowRight.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnSelectToUnite" Content="Select" HorizontalAlignment="Left" Margin="219,47,0,0" VerticalAlignment="Top" Width="71" Click="btnSelectToUnite_Click"/>
+            <Button x:Name="btnUnite" Content="+" Foreground="Black" HorizontalAlignment="Left" Margin="219,10,0,0" VerticalAlignment="Top" Width="32" BorderBrush="Transparent" Click="btnUnite_Click"/>
+
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/panel.png" Stretch="UniformToFill"/>
             </Grid.Background>

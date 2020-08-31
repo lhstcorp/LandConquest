@@ -108,6 +108,9 @@
     <Compile Include="DialogWIndows\EstablishStateDialog.xaml.cs">
       <DependentUpon>EstablishStateDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\SplitArmyDialog.xaml.cs">
+      <DependentUpon>SplitArmyDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Army.cs" />
     <Compile Include="Entities\ArmyInBattle.cs" />
     <Compile Include="Entities\ChatMessages.cs" />
@@ -169,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\ManufactureUpgradeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\SplitArmyDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -428,6 +435,9 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\armyPageArrowLeft.png" />
+    <Resource Include="Pictures\armyPageArrowRight.png" />
+    <Resource Include="Pictures\question.jpg" />
     <Resource Include="Pictures\warSymbal.png" />
     <Resource Include="Pictures\splitArmies.png" />
     <Resource Include="Pictures\tile-test-red.jpg" />
