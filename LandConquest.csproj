@@ -435,6 +435,8 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\s0.png" />
+    <Resource Include="Pictures\s1.png" />
     <Resource Include="Pictures\armyPageArrowLeft.png" />
     <Resource Include="Pictures\armyPageArrowRight.png" />
     <Resource Include="Pictures\question.jpg" />

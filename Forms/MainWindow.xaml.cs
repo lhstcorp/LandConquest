@@ -55,6 +55,7 @@ namespace LandConquest.Forms
         List<War> wars;
         Land land;
         Country country;
+        War WAR; //GLOBAL
 
         Thickness[] marginsOfWarButtons;
         int[] flagXY = new int[4];
@@ -727,7 +728,9 @@ namespace LandConquest.Forms
             int count = battleModel.CheckPlayerParticipation(connection, player);
 
             War war = new War();
-            war.WarId = "lbOxckUUoYmKaEC1";
+            war.WarId = WAR.WarId;
+
+            war = warModel.GetWarById(connection, war);
 
             if (count == 0)
             {
@@ -741,35 +744,79 @@ namespace LandConquest.Forms
                 armyInBattle.ArmySiegegunCount = army.ArmySiegegunCount;
                 armyInBattle.ArmyHorsemanCount = army.ArmyHorsemanCount;
 
-                //ПРОВЕРКА СТОРОНЫ ЗА КОТОРУЮ ВОЮЕТ ИГРОК. ДЕЛАТЬ ЧЕК ЧЕРЕЗ МЕСТОПОЛОЖЕНИЕ ИГРОКА
-                // //
-                //  Net
-                // //
-
-                // -------------------------------------------------------------------------------------------
-                //Это говнокод. Мы просто предположили что чел атакующий.
 
                 Random random = new Random();
-                armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
-                armyInBattle.ArmySide = 1; // hueta
+                WarWindow window;
 
-                battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
+                if (player.PlayerCurrentRegion == war.LandAttackerId)
+                {
+                    armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
+                    armyInBattle.ArmySide = 1; // hueta
 
-            }
+                    battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
 
-            List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-            for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
+                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
+                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
+                    {
+                        armiesInBattle.Add(new ArmyInBattle());
+                    }
+
+                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
+
+                    window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
+                    window.Show();
+                }
+                else if (player.PlayerCurrentRegion == war.LandDefenderId)
+                {
+                    armyInBattle.LocalLandId = ReturnNumberOfCell(1, random.Next(1, 30));
+                    armyInBattle.ArmySide = 0; // hueta
+
+                    battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
+
+                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
+                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
+                    {
+                        armiesInBattle.Add(new ArmyInBattle());
+                    }
+
+                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
+
+
+                    window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
+                    window.Show();
+                }
+                else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
+
+            } else
             {
-                armiesInBattle.Add(new ArmyInBattle());
+                if ((player.PlayerCurrentRegion == war.LandDefenderId) || (player.PlayerCurrentRegion == war.LandAttackerId))
+                {
+                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
+                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
+                    {
+                        armiesInBattle.Add(new ArmyInBattle());
+                    }
+
+                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
+
+                    WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
+                    window.Show();
+                } else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
             }
 
-            armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
+            //List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
+            //for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
+            //{
+            //    armiesInBattle.Add(new ArmyInBattle());
+            //}
 
-            //armyModel.UpdateArmy(connection, army);
-            // до сюда говно ------------------------------------------------------------------------------
+            //armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
 
-            WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-            window.Show();
+            ////armyModel.UpdateArmy(connection, army);
+            //// до сюда говно ------------------------------------------------------------------------------
+
+            //WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
+            //window.Show();
         }
 
         public int ReturnNumberOfCell(int row, int column)
@@ -829,62 +876,10 @@ namespace LandConquest.Forms
                 if (((Image)sender).Margin == marginsOfWarButtons[j])
                 {
                     Console.WriteLine("Ключ войны = " + wars[j].WarId);
-
-                    ArmyModel armyModel = new ArmyModel();
-                    Army army = new Army();
-                    army = armyModel.GetArmyInfo(connection, player, army);
-
-                    BattleModel battleModel = new BattleModel();
-                    ArmyInBattle armyInBattle = new ArmyInBattle();
-
-                    int count = battleModel.CheckPlayerParticipation(connection, player);
-
-                    War war = new War();
-                    war.WarId = wars[j].WarId;
-
-                    if (count == 0)
-                    {
-
-                        armyInBattle.PlayerId = army.PlayerId;
-                        armyInBattle.ArmyId = army.ArmyId;
-                        armyInBattle.ArmySizeCurrent = army.ArmySizeCurrent;
-                        armyInBattle.ArmyType = army.ArmyType;
-                        armyInBattle.ArmyArchersCount = army.ArmyArchersCount;
-                        armyInBattle.ArmyInfantryCount = army.ArmyInfantryCount;
-                        armyInBattle.ArmySiegegunCount = army.ArmySiegegunCount;
-                        armyInBattle.ArmyHorsemanCount = army.ArmyHorsemanCount;
-
-                        //ПРОВЕРКА СТОРОНЫ ЗА КОТОРУЮ ВОЮЕТ ИГРОК. ДЕЛАТЬ ЧЕК ЧЕРЕЗ МЕСТОПОЛОЖЕНИЕ ИГРОКА
-                        // //
-                        //  Net
-                        // //
-
-                        // -------------------------------------------------------------------------------------------
-                        //Это говнокод. Мы просто предположили что чел атакующий.
-
-                        Random random = new Random();
-                        armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
-                        armyInBattle.ArmySide = 1; // hueta
-
-                        battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
-
-                    }
-
-                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-                    {
-                        armiesInBattle.Add(new ArmyInBattle());
-                    }
-
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-                    //armyModel.UpdateArmy(connection, army);
-                    // до сюда говно ------------------------------------------------------------------------------
-
-                    WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-                    window.Show();
-
-
+                    
+                    WAR = new War();
+                    WAR.WarId = wars[j].WarId;
+                    DeclareWar_Click(null, e);
                 }
             }
         }

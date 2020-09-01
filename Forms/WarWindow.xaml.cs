@@ -128,7 +128,7 @@ namespace LandConquest.Forms
                         }
                     case 4:
                         {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
+                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/s1.png", UriKind.Relative));
                             break;
                         }
                     case 5:
