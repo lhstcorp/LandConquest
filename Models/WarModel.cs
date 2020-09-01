@@ -26,6 +26,32 @@ namespace LandConquest.Models
             Command.Dispose();
         }
 
+        public War GetWarById(SqlConnection connection, War war)
+        {
+            String query = "SELECT * FROM dbo.WarData WHERE war_id = @war_id";
+            var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@war_id", war.WarId);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var warId = reader.GetOrdinal("war_id");
+                var landAttackerId = reader.GetOrdinal("land_attacker_id");
+                var landDefenderId = reader.GetOrdinal("land_defender_id");
+                var warDateTimeStart = reader.GetOrdinal("datetime_start");
+
+                while (reader.Read())
+                {
+                    war.WarId = (reader.GetString(warId));
+                    war.LandAttackerId = (reader.GetInt32(landAttackerId));
+                    war.LandDefenderId = (reader.GetInt32(landDefenderId));
+                    war.WarDateTimeStart = (reader.GetDateTime(warDateTimeStart));
+                }
+            }
+
+            command.Dispose();
+            return war;
+        }
+
         public int SelectLastIdOfWars(SqlConnection connection)
         {
             String stateQuery = "SELECT * FROM dbo.WarData ORDER BY war_id DESC";
