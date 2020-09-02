@@ -9,20 +9,24 @@
         WindowStartupLocation="CenterScreen" WindowState="Maximized"
         Title="WarWindow" Height="1000" Width="1400">
     <Grid x:Name="mainWarWinGrid">
-        <Grid Height="300" Width="300" HorizontalAlignment="Right" Margin="0,30,20,0" VerticalAlignment="Top">
-            <Label Content="Army of" Margin="21,10,43,258"></Label>
-            <Label x:Name="playerNameLbl" Content="PLAYERNAME" Margin="77,10,19,258"></Label>
-            <Image Margin="21,77,239,181" Source="/Pictures/peasant.png"></Image>
-            <Label x:Name="warriorsAll" Content="0"  Margin="66,86,156,190"></Label>
-            <Image Margin="21,124,239,134" Source="/Pictures/warrior.png"></Image>
-            <Label x:Name="warriorsInfantry" Content="0"  Margin="66,133,156,143"></Label>
-            <Image Margin="21,166,239,92" Source="/Pictures/archer.png"></Image>
-            <Label x:Name="warriorsArchers" Content="0"  Margin="66,174,156,102"></Label>
-            <Image Margin="21,208,239,50" Source="/Pictures/hourseman.png"></Image>
-            <Label x:Name="warriorsKnights" Content="0"  Margin="66,216,156,60"></Label>
-            <Image Margin="21,250,239,8" Source="/Pictures/catapult.png"></Image>
-            <Label x:Name="warriorsSiege" Content="0"  Margin="66,266,156,10"></Label>
-            <Image x:Name="splitArmiesButton" HorizontalAlignment="Left" Height="34" Margin="256,8,0,0" VerticalAlignment="Top" Width="34" Source="/Pictures/splitArmies.png" MouseDown="splitArmiesButton_MouseDown"/>
+        <Grid Height="300" Width="300" HorizontalAlignment="Right" Margin="0,79,31,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="137*"/>
+                <ColumnDefinition Width="13*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Army of" Margin="21,10,16.8,258"></Label>
+            <Label x:Name="playerNameLbl" Content="PLAYERNAME" Margin="77,10,19,258" Grid.ColumnSpan="2"></Label>
+            <Image Margin="21,77,212.8,181" Source="/Pictures/peasant.png"></Image>
+            <Label x:Name="warriorsAll" Content="0"  Margin="66,86,129.8,190"></Label>
+            <Image Margin="21,124,212.8,134" Source="/Pictures/warrior.png"></Image>
+            <Label x:Name="warriorsInfantry" Content="0"  Margin="66,133,129.8,143"></Label>
+            <Image Margin="21,166,212.8,92" Source="/Pictures/archer.png"></Image>
+            <Label x:Name="warriorsArchers" Content="0"  Margin="66,174,129.8,102"></Label>
+            <Image Margin="21,208,212.8,50" Source="/Pictures/hourseman.png"></Image>
+            <Label x:Name="warriorsKnights" Content="0"  Margin="66,216,129.8,60"></Label>
+            <Image Margin="21,250,212.8,8" Source="/Pictures/catapult.png"></Image>
+            <Label x:Name="warriorsSiege" Content="0"  Margin="66,266,129.8,10"></Label>
+            <Image x:Name="splitArmiesButton" HorizontalAlignment="Left" Height="34" Margin="256,8,0,0" VerticalAlignment="Top" Width="34" Source="/Pictures/splitArmies.png" MouseDown="splitArmiesButton_MouseDown" Grid.ColumnSpan="2"/>
 
             <Button x:Name="armyPageArrowLeft" HorizontalAlignment="Left" Height="32" Margin="224,258,0,0" VerticalAlignment="Top" Width="32" BorderBrush="Transparent" Click="armyPageArrowLeft_Click">
                 <Button.Background>
@@ -30,13 +34,18 @@
                 </Button.Background>
             </Button>
 
-            <Button x:Name="armyPageArrowRight" HorizontalAlignment="Left" Height="32" Margin="256,258,0,0" VerticalAlignment="Top" Width="32" BorderBrush="Transparent" Click="armyPageArrowRight_Click">
+            <Button x:Name="armyPageArrowRight" HorizontalAlignment="Left" Height="32" Margin="256,258,0,0" VerticalAlignment="Top" Width="32" BorderBrush="Transparent" Click="armyPageArrowRight_Click" Grid.ColumnSpan="2">
                 <Button.Background>
                     <ImageBrush ImageSource="/Pictures/armyPageArrowRight.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnSelectToUnite" Content="Select" HorizontalAlignment="Left" Margin="219,47,0,0" VerticalAlignment="Top" Width="71" Click="btnSelectToUnite_Click"/>
+            <Button x:Name="btnSelectToUnite" Content="Select" HorizontalAlignment="Left" Margin="219,47,0,0" VerticalAlignment="Top" Width="71" Click="btnSelectToUnite_Click" Grid.ColumnSpan="2"/>
             <Button x:Name="btnUnite" Content="+" Foreground="Black" HorizontalAlignment="Left" Margin="219,10,0,0" VerticalAlignment="Top" Width="32" BorderBrush="Transparent" Click="btnUnite_Click"/>
+            <Button x:Name="btnWarWindowClose" Foreground="Black" HorizontalAlignment="Left" Margin="224,-64,0,0" VerticalAlignment="Top" Width="66" Grid.ColumnSpan="2" Click="btnWarWindowClose_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pictures/button_close.png"/>
+                </Button.Background>
+            </Button>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/panel.png" Stretch="UniformToFill"/>

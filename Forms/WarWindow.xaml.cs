@@ -666,8 +666,9 @@ namespace LandConquest.Forms
             }
         }
 
-
-
-
+        private void btnWarWindowClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
