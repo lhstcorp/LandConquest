@@ -435,6 +435,16 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\Tiles\f2-02.png" />
+    <Resource Include="Pictures\Tiles\f2-03.png" />
+    <Resource Include="Pictures\Tiles\f2-04.png" />
+    <Resource Include="Pictures\Tiles\f2-05.png" />
+    <Resource Include="Pictures\Tiles\f2-06.png" />
+    <Resource Include="Pictures\Tiles\f2_Montazhnaya_oblast_1.png" />
+    <Resource Include="Pictures\Tiles\g1.jpg" />
+    <Resource Include="Pictures\Tiles\g2.jpg" />
+    <Resource Include="Pictures\Tiles\r1.jpg" />
+    <Resource Include="Pictures\Tiles\r2.jpg" />
     <Resource Include="Pictures\s0.png" />
     <Resource Include="Pictures\s1.png" />
     <Resource Include="Pictures\armyPageArrowLeft.png" />
