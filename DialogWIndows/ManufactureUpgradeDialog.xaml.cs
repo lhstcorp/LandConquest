@@ -83,6 +83,8 @@ namespace LandConquest.DialogWIndows
 
                 storageModel.UpdateStorage(connection, player, storage);
                 storage = storageModel.GetPlayerStorage(player, connection, storage);
+                //this.Hide();
+                //this.Show();
                 // output
                 WoodHave.Content = storage.PlayerWood;
                 StoneHave.Content = storage.PlayerStone;
