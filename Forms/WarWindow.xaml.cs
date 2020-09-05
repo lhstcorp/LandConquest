@@ -82,17 +82,12 @@ namespace LandConquest.Forms
 
         private void WarWin_Loaded(object sender, RoutedEventArgs e)
         {
-            for (int x = 0; x < localWarMap.Columns; x++)
+            for (int x = 0; x < localWarMap.Rows; x++)
             {
-                for (int y = 0; y < localWarMap.Rows; y++)
+                for (int y = 0; y < localWarMap.Columns; y++)
                 {
                     Image tile = new Image();
-                    //if ((x == 0) && (y == 0))
-                    //{
-                    //    tile.Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative));
-                    //} else
-                    //tile.Source = new BitmapImage(new Uri("/Pictures/test-tile.jpg", UriKind.Relative));
-                    //tile = AddSourceForTile(tile, 0, x, y);
+                    tile = AddSourceForTile(tile, 0, x, y);
                     localWarMap.Children.Add(tile);
                     gridForArmies.Children.Add(new Image());
 
@@ -102,32 +97,6 @@ namespace LandConquest.Forms
             }
             mainWarWinGrid.Children.Add(localWarMap);
 
-            for (int x = 0; x < localWarMap.Columns; x++)
-            {
-                for (int y = 0; y < localWarMap.Rows; y++)
-                {
-                    if ((x % 2 == 0) && (y % 2 == 0) || (x % 2 == 1) && (y % 2 == 1))
-                    {
-                        int index = ReturnNumberOfCell(y + 1, x + 1);
-                        Image tilet = new Image();
-                        tilet.Source = new BitmapImage(new Uri("/Pictures/Tiles/g1.jpg", UriKind.Relative));
-                        localWarMap.Children.Remove(localWarMap.Children[index]);
-                        localWarMap.Children.Insert(index, tilet);
-                    }
-                    else
-                    {
-                        //int index = ReturnNumberOfCell(y + 1, x + 1);
-                        //Image tilet = new Image();
-                        //tilet.Source = new BitmapImage(new Uri("/Pictures/Tiles/g2.jpg", UriKind.Relative));
-                        //localWarMap.Children.Remove(localWarMap.Children[index]);
-                        //localWarMap.Children.Insert(index, tilet);
-                    }
-                }
-            }
-
-
-            //localWarMap.Children.Remove(localWarMap.Children[1]);
-            //localWarMap.Children.Insert(1, new Image());
             ShowArmiesOnMap();
         }
 
@@ -524,7 +493,9 @@ namespace LandConquest.Forms
                     if ((i < 1) || (j < 1) || (j > localWarMap.Columns) || (i > localWarMap.Rows)) continue;  //
                     int ind = ReturnNumberOfCell(i, j);
                     localWarMap.Children.RemoveAt(ind);
-                    Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative)) };
+                    //Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative)) };
+                    Image availableTileForMoving = new Image();
+                    availableTileForMoving = AddSourceForTile(availableTileForMoving, 1, i, j);
                     availableTileForMoving.MouseRightButtonDown += tile_MouseRightButtonDown;
                     localWarMap.Children.Insert(ind, availableTileForMoving);
                 }
@@ -549,7 +520,9 @@ namespace LandConquest.Forms
                     if ((i < 1) || (j < 1) || (j > localWarMap.Columns) || (i > localWarMap.Rows)) continue;  //
                     int ind = ReturnNumberOfCell(i, j);
                     localWarMap.Children.RemoveAt(ind);
-                    Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/test-tile.jpg", UriKind.Relative)) };
+                    //Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/test-tile.jpg", UriKind.Relative)) };
+                    Image availableTileForMoving = new Image();
+                    availableTileForMoving = AddSourceForTile(availableTileForMoving, 0, i, j);
                     //availableTileForMoving.MouseRightButtonDown += tile_MouseRightButtonDown;
                     localWarMap.Children.Insert(ind, availableTileForMoving);
                 }
@@ -702,18 +675,22 @@ namespace LandConquest.Forms
             }
         }
 
-        public Image AddSourceForTile(Image tile, int tileColor, int Column, int Row)
+        public Image AddSourceForTile(Image tile, int tileColor, int Row, int Column)
         {
             //tileColor = 0 ? green
             //tileColor = 1 ? red
 
             if (tileColor == 0)
             {
-                if (((Column % 2 == 0) && (Row % 2 == 0)) || ((Column % 2 == 1) && (Row % 2 == 1)))
+                if ((Column % 2 == 0) && (Row % 2 == 0) || (Column % 2 == 1) && (Row % 2 == 1))
                 {
                     tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/g1.jpg", UriKind.Relative));
+                    Colorrr = "w";
                 }
-                else tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/g2.jpg", UriKind.Relative));
+                else {
+                    Colorrr = "d";
+                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/g2.jpg", UriKind.Relative)); 
+                }
             }
             else
             {
@@ -723,16 +700,12 @@ namespace LandConquest.Forms
                 }
                 else tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/r2.jpg", UriKind.Relative));
             }
-
-            //int index = ReturnNumberOfCell(Row, Column);
-            //if (index % 2 == 0)
-            //{
-            //    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/g1.jpg", UriKind.Relative));
-            //}
-            //else tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/g2.jpg", UriKind.Relative));
-
             return tile;
         }
 
+        private void btnWarWindowClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
