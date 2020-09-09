@@ -53,8 +53,8 @@
         </Viewbox>
 
         <Image x:Name="image" Margin="6,0,0,0" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83"/>
-        <Label x:Name="labelMoney" Content="0" Foreground="White" HorizontalAlignment="Left" Margin="158,56,0,0" VerticalAlignment="Top" Height="32" Width="87" FontSize="16"/>
-        <Label x:Name="labelDonation" Content="0" Foreground="Goldenrod" FontSize="16" HorizontalAlignment="Left" Margin="158,88,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.15,0.5" Width="87" Height="31"/>
+        <Label x:Name="labelMoney" Content="0" Foreground="White" HorizontalAlignment="Left" Margin="158,56,0,0" VerticalAlignment="Top" Height="32" Width="61" FontSize="16"/>
+        <Label x:Name="labelDonation" Content="0" Foreground="Goldenrod" FontSize="16" HorizontalAlignment="Left" Margin="158,88,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.15,0.5" Width="61" Height="31"/>
         <Label x:Name="labelName" Content="Name" Foreground="#FFD7464B" FontSize="28" FontWeight="Bold" FontFamily="Harrington" HorizontalAlignment="Left" Margin="106,0,0,0" VerticalAlignment="Top" Width="145"/>
         <Label Content="COINS" FontSize="16" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="100,56,0,0" VerticalAlignment="Top" Height="32" Width="58"/>
         <Label Content="GOLD" FontSize="16" Foreground="Goldenrod" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="100,88,0,0" VerticalAlignment="Top" Height="31" Width="55"/>
@@ -133,6 +133,8 @@
         <Image x:Name="CountryImage"  HorizontalAlignment="Left" Height="58" Margin="552,5,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/parlament.png" Width="56" Cursor="Hand" MouseDown="CountryImage_MouseDown"/>
         <Image x:Name="LandImage"  HorizontalAlignment="Left" Height="58" Margin="608,10,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/landMainBuilding.png" Width="56" Cursor="Hand" MouseDown="LandImage_MouseDown"/>
         <Button x:Name="DeclareWar" Content="Button" HorizontalAlignment="Left" Height="97" Margin="224,173,0,0" VerticalAlignment="Top" Width="27" Click="DeclareWar_Click"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="832,262,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="buyCoins" Content="Buy" FontSize="12" HorizontalAlignment="Left" Margin="224,59,0,0" VerticalAlignment="Top" Width="55" Height="29" Background="#FFDD9F5A" BorderBrush="#FF541E0B"/>
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>

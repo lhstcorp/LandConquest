@@ -1,20 +1,6 @@
-﻿C:\LandConquest\obj\Debug\GeneratedInternalTypeHelper.g.i.cs
-FC:\LandConquest\App.xaml;;
-FC:\LandConquest\DialogWIndows\EstablishStateDialog.xaml;;
-FC:\LandConquest\DialogWIndows\ManufactureBuyingDialog.xaml;;
-FC:\LandConquest\DialogWIndows\ManufactureUpgradeDialog.xaml;;
-FC:\LandConquest\DialogWIndows\SplitArmyDialog.xaml;;
-FC:\LandConquest\Forms\AuthorisationWindow.xaml;;
-FC:\LandConquest\Forms\ChatWindow.xaml;;
-FC:\LandConquest\Forms\CountryWindow.xaml;;
-FC:\LandConquest\Forms\MainWindow.xaml;;
-FC:\LandConquest\Forms\ManufactureWindow.xaml;;
-FC:\LandConquest\Forms\MarketWindow.xaml;;
-FC:\LandConquest\Forms\ProfileWindow.xaml;;
-FC:\LandConquest\Forms\RatingWindow.xaml;;
-FC:\LandConquest\Forms\RecruitWindow.xaml;;
-FC:\LandConquest\Forms\StorageWindow.xaml;;
-FC:\LandConquest\Forms\WarResultWindow.xaml;;
-FC:\LandConquest\Forms\WarWindow.xaml;;
-FC:\LandConquest\StylesDictionary.xaml;;
+﻿
+
+FC:\Users\itk\source\repos\LandConquest\Forms\MainWindow.xaml;;
+FC:\Users\itk\source\repos\LandConquest\Forms\PaymentWindow.xaml;;
+FC:\Users\itk\source\repos\LandConquest\Forms\WarWindow.xaml;;
 
