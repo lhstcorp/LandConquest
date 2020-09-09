@@ -385,6 +385,22 @@ namespace LandConquest.Forms {
         #line default
         #line hidden
         
+        
+        #line 136 "..\..\..\Forms\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button button;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 137 "..\..\..\Forms\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button buyCoins;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -724,6 +740,12 @@ namespace LandConquest.Forms {
             
             #line default
             #line hidden
+            return;
+            case 48:
+            this.button = ((System.Windows.Controls.Button)(target));
+            return;
+            case 49:
+            this.buyCoins = ((System.Windows.Controls.Button)(target));
             return;
             }
             this._contentLoaded = true;

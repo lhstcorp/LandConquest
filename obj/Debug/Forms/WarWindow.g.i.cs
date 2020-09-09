@@ -137,7 +137,7 @@ namespace LandConquest.Forms {
         #line hidden
         
         
-        #line 44 "..\..\..\Forms\WarWindow.xaml"
+        #line 48 "..\..\..\Forms\WarWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnWarWindowClose;
         
@@ -145,7 +145,7 @@ namespace LandConquest.Forms {
         #line hidden
         
         
-        #line 54 "..\..\..\Forms\WarWindow.xaml"
+        #line 58 "..\..\..\Forms\WarWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Primitives.UniformGrid gridForArmies;
         
@@ -251,7 +251,7 @@ namespace LandConquest.Forms {
             case 13:
             this.btnWarWindowClose = ((System.Windows.Controls.Button)(target));
             
-            #line 44 "..\..\..\Forms\WarWindow.xaml"
+            #line 48 "..\..\..\Forms\WarWindow.xaml"
             this.btnWarWindowClose.Click += new System.Windows.RoutedEventHandler(this.btnWarWindowClose_Click);
             
             #line default
