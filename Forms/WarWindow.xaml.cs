@@ -685,10 +685,8 @@ namespace LandConquest.Forms
                 if ((Column % 2 == 0) && (Row % 2 == 0) || (Column % 2 == 1) && (Row % 2 == 1))
                 {
                     tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/g1.jpg", UriKind.Relative));
-                    Colorrr = "w";
                 }
                 else {
-                    Colorrr = "d";
                     tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/g2.jpg", UriKind.Relative)); 
                 }
             }
