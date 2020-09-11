@@ -114,34 +114,66 @@ namespace LandConquest.Forms
                 imgArmy.Width = 40;
                 imgArmy.Height = 40;
 
-                switch (armies[i].ArmyType)
+                if (armies[i].ArmySide == 0)
                 {
-                    case 1:
-                        {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
-                            break;
-                        }
-                    case 2:
-                        {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
-                            break;
-                        }
-                    case 3:
-                        {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
-                            break;
-                        }
-                    case 4:
-                        {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                            break;
-                        }
-                    case 5:
-                        {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                            break;
-                        }
-                }
+                    switch (armies[i].ArmyType)
+                    {
+                        case 1:
+                            {
+                                imgArmy.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-1.png", UriKind.Relative));
+                                break;
+                            }
+                        case 2:
+                            {
+                                imgArmy.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
+                                break;
+                            }
+                        case 3:
+                            {
+                                imgArmy.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
+                                break;
+                            }
+                        case 4:
+                            {
+                                imgArmy.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
+                                break;
+                            }
+                        case 5:
+                            {
+                                imgArmy.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
+                                break;
+                            }
+                    }
+                } else
+                    switch (armies[i].ArmyType)
+                    {
+                        case 1:
+                            {
+                                imgArmy.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-2.png", UriKind.Relative));
+                                break;
+                            }
+                        case 2:
+                            {
+                                imgArmy.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
+                                break;
+                            }
+                        case 3:
+                            {
+                                imgArmy.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
+                                break;
+                            }
+                        case 4:
+                            {
+                                imgArmy.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
+                                break;
+                            }
+                        case 5:
+                            {
+                                imgArmy.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
+                                break;
+                            }
+                    }
+
                 armyImages.Add(imgArmy);
 
                 if (((Image)gridForArmies.Children[armies[i].LocalLandId]).Source == emptyImage.Source)
@@ -684,19 +716,19 @@ namespace LandConquest.Forms
             {
                 if ((Column % 2 == 0) && (Row % 2 == 0) || (Column % 2 == 1) && (Row % 2 == 1))
                 {
-                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/g1.jpg", UriKind.Relative));
+                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/bj1.jpg", UriKind.Relative));
                 }
                 else {
-                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/g2.jpg", UriKind.Relative)); 
+                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/br2.jpg", UriKind.Relative)); 
                 }
             }
             else
             {
                 if (((Column % 2 == 0) && (Row % 2 == 0)) || ((Column % 2 == 1) && (Row % 2 == 1)))
                 {
-                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/r1.jpg", UriKind.Relative));
+                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/bj2.jpg", UriKind.Relative));
                 }
-                else tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/r2.jpg", UriKind.Relative));
+                else tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/br1.jpg", UriKind.Relative));
             }
             return tile;
         }

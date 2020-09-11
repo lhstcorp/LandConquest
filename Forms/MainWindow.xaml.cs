@@ -172,16 +172,20 @@ namespace LandConquest.Forms
         {
             while (true)
             {
-                Thread.Sleep(10000);
-                taxes = taxesModel.GetTaxesInfo(taxes, connection);
-                //await MainWindow_Loaded(this.sender, RoutedEventArgs e); 
-                player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
+                try
+                {
+                    Thread.Sleep(10000);
+                    taxes = taxesModel.GetTaxesInfo(taxes, connection);
+                    //await MainWindow_Loaded(this.sender, RoutedEventArgs e); 
+                    player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
 
-                player = playerModel.UpdatePlayerMoney(player, connection);
-                taxesModel.SaveTaxes(connection, taxes);
-                Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; }));
-                lands = landModel.GetLandsInfo(lands, connection);
-                Dispatcher.BeginInvoke(new ThreadStart(delegate { RedrawGlobalMap(); }));
+                    player = playerModel.UpdatePlayerMoney(player, connection);
+                    taxesModel.SaveTaxes(connection, taxes);
+                    Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; }));
+                    lands = landModel.GetLandsInfo(lands, connection);
+                    Dispatcher.BeginInvoke(new ThreadStart(delegate { RedrawGlobalMap(); }));
+                }
+                catch { }
                 //labelMoney.Content = player.PlayerMoney; 
             }
         }
