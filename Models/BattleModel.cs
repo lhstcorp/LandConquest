@@ -337,5 +337,14 @@ namespace LandConquest.Models
                 return 4;
             return 5;
         }
+
+        public bool IfTheBattleShouldStart(List<ArmyInBattle> armies)
+        {
+            for (int i = 0; i < armies.Count; i++)
+            {
+                if (armies[0].ArmySide != armies[i].ArmySide) return false;
+            }
+            return true;
+        }
     }
 }
