@@ -442,6 +442,19 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\war-test.png" />
+    <Resource Include="Pictures\Armies\AR-0.png" />
+    <Resource Include="Pictures\Armies\AR-1.png" />
+    <Resource Include="Pictures\Armies\INF-1.png" />
+    <Resource Include="Pictures\Armies\INF-0.png" />
+    <Resource Include="Pictures\Armies\KNT-0.png" />
+    <Resource Include="Pictures\Armies\KNT-1.png" />
+    <Resource Include="Pictures\Tiles\br2.jpg" />
+    <Resource Include="Pictures\Tiles\br3.jpg" />
+    <Resource Include="Pictures\Tiles\bj1.jpg" />
+    <Resource Include="Pictures\Tiles\bj2.jpg" />
+    <Resource Include="Pictures\Tiles\br1.jpg" />
+    <Resource Include="Pictures\Tiles\gra1.jpg" />
     <Resource Include="Pictures\button_square.png" />
     <Resource Include="Pictures\Tiles\f2-02.png" />
     <Resource Include="Pictures\Tiles\f2-03.png" />

@@ -283,3 +283,5 @@ C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\LandConquest.csproj.Cor
 C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\LandConquest.csproj.CopyComplete
 C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\LandConquest.exe
 C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\LandConquest.pdb
+C:\LandConquest\obj\Debug\Forms\PaymentWindow.g.cs
+C:\LandConquest\obj\Debug\Forms\PaymentWindow.baml
