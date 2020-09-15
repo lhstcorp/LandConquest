@@ -107,66 +107,10 @@ namespace LandConquest.Forms
                 if (armies[i].ArmySide == 0)
                 {
                     SwitchArmyTypeNoSide(armies[i].ArmyType, imgArmy);
-                    //switch (armies[i].ArmyType)
-                    //{
-                    //    case 1:
-                    //        {
-                    //            imgArmy.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-0.png", UriKind.Relative));
-                    //            break;
-                    //        }
-                    //    case 2:
-                    //        {
-                    //            imgArmy.Source = new BitmapImage(new Uri("/Pictures/Armies/AR-0.png", UriKind.Relative));
-                    //            break;
-                    //        }
-                    //    case 3:
-                    //        {
-                    //            imgArmy.Source = new BitmapImage(new Uri("/Pictures/Armies/KNT-0.png", UriKind.Relative));
-                    //            break;
-                    //        }
-                    //    case 4:
-                    //        {
-                    //            imgArmy.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                    //            break;
-                    //        }
-                    //    case 5:
-                    //        {
-                    //            imgArmy.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                    //            break;
-                    //        }
-                    //}
                 }
                 else
                 {
                     SwitchArmyTypeWithSide(armies[i].ArmyType, imgArmy);
-                    //switch (armies[i].ArmyType)
-                    //{
-                    //    case 1:
-                    //        {
-                    //            imgArmy.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-1.png", UriKind.Relative));
-                    //            break;
-                    //        }
-                    //    case 2:
-                    //        {
-                    //            imgArmy.Source = new BitmapImage(new Uri("/Pictures/Armies/AR-1.png", UriKind.Relative));
-                    //            break;
-                    //        }
-                    //    case 3:
-                    //        {
-                    //            imgArmy.Source = new BitmapImage(new Uri("/Pictures/Armies/KNT-1.png", UriKind.Relative));
-                    //            break;
-                    //        }
-                    //    case 4:
-                    //        {
-                    //            imgArmy.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                    //            break;
-                    //        }
-                    //    case 5:
-                    //        {
-                    //            imgArmy.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                    //            break;
-                    //        }
-                    //}
                 }
 
                 armyImages.Add(imgArmy);
@@ -250,66 +194,10 @@ namespace LandConquest.Forms
                             if (selectedArmy.ArmySide == 0)
                             {
                                 SwitchArmyTypeNoSide(selectedArmy.ArmyType, imgArmySelected);
-                                //switch (selectedArmy.ArmyType)
-                                //{
-                                //    case 1:
-                                //        {
-                                //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-0.png", UriKind.Relative));
-                                //            break;
-                                //        }
-                                //    case 2:
-                                //        {
-                                //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/Armies/AR-0.png", UriKind.Relative));
-                                //            break;
-                                //        }
-                                //    case 3:
-                                //        {
-                                //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/Armies/KNT-0.png", UriKind.Relative));
-                                //            break;
-                                //        }
-                                //    case 4:
-                                //        {
-                                //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                                //            break;
-                                //        }
-                                //    case 5:
-                                //        {
-                                //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                                //            break;
-                                //        }
-                                //}
                             }
                             else
                             {
                                 SwitchArmyTypeWithSide(selectedArmy.ArmyType, imgArmySelected);
-                                //switch (selectedArmy.ArmyType)
-                                //{
-                                //    case 1:
-                                //        {
-                                //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-1.png", UriKind.Relative));
-                                //            break;
-                                //        }
-                                //    case 2:
-                                //        {
-                                //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/Armies/AR-1.png", UriKind.Relative));
-                                //            break;
-                                //        }
-                                //    case 3:
-                                //        {
-                                //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/Armies/KNT-1.png", UriKind.Relative));
-                                //            break;
-                                //        }
-                                //    case 4:
-                                //        {
-                                //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                                //            break;
-                                //        }
-                                //    case 5:
-                                //        {
-                                //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                                //            break;
-                                //        }
-                                //}
                             }
                         }
                     }
@@ -319,66 +207,9 @@ namespace LandConquest.Forms
                     if (armyInBattlesInCurrentTile[0].ArmySide == 0)
                     {
                         SwitchArmyTypeNoSide(typeOfUniteArmy, imgArmyThatStay);
-                        //switch (typeOfUniteArmy)
-                        //{
-                        //    case 1:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-0.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 2:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/Armies/AR-0.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 3:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/Armies/KNT-0.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 4:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 5:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //}
                     } else
                     {
                         SwitchArmyTypeWithSide(typeOfUniteArmy, imgArmyThatStay);
-
-                        //switch (typeOfUniteArmy)
-                        //{
-                        //    case 1:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-1.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 2:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/Armies/AR-1.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 3:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/Armies/KNT-1.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 4:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 5:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //}
                     }
 
 
@@ -443,67 +274,10 @@ namespace LandConquest.Forms
                     if (selectedArmy.ArmySide == 0)
                     {
                         SwitchArmyTypeNoSide(typeOfUniteArmy, imgArmySelected);
-                        //switch (typeOfUniteArmy)
-                        //{
-                        //    case 1:
-                        //        {
-                        //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-0.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 2:
-                        //        {
-                        //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/Armies/AR-0.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 3:
-                        //        {
-                        //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/Armies/KNT-0.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 4:
-                        //        {
-                        //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 5:
-                        //        {
-                        //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //}
                     }
                     else
                     {
                         SwitchArmyTypeWithSide(typeOfUniteArmy, imgArmySelected);
-
-                        //switch (typeOfUniteArmy)
-                        //{
-                        //    case 1:
-                        //        {
-                        //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-1.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 2:
-                        //        {
-                        //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/Armies/AR-1.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 3:
-                        //        {
-                        //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/Armies/KNT-1.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 4:
-                        //        {
-                        //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 5:
-                        //        {
-                        //            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //}
                     }
                 }
                 //armyImages.Add(imgArmySelected);
@@ -542,67 +316,9 @@ namespace LandConquest.Forms
                     if (armyInBattlesInCurrentTile[0].ArmySide == 0)
                     {
                         SwitchArmyTypeNoSide(typeOfUniteArmy2, imgArmyThatStay);
-
-                        //switch (typeOfUniteArmy2)
-                        //{
-                        //    case 1:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-0.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 2:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/Armies/AR-0.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 3:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/Armies/KNT-0.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 4:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 5:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //}
                     } else
                     {
                         SwitchArmyTypeWithSide(typeOfUniteArmy2, imgArmyThatStay);
-
-                        //switch (typeOfUniteArmy2)
-                        //{
-                        //    case 1:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-1.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 2:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/Armies/AR-1.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 3:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/Armies/KNT-1.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 4:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //    case 5:
-                        //        {
-                        //            imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                        //            break;
-                        //        }
-                        //}
                     }
 
 

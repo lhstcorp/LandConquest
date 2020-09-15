@@ -48,9 +48,9 @@ namespace LandConquest
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
             //greendend
-            //connection = new SqlConnection(@"Data Source=DESKTOP-3S39QPO\SQLEXPRESS;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
+            connection = new SqlConnection(@"Data Source=DESKTOP-3S39QPO\SQLEXPRESS;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
             //user-pass 
-            connection = new SqlConnection(@"Data Source=DESKTOP-EQUN2R7;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
+            //connection = new SqlConnection(@"Data Source=DESKTOP-EQUN2R7;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
             //glandeil
             //connection = new SqlConnection(@"Data Source=DESKTOP-P19BATV\SQLEXPRESS;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
             //online connection link
