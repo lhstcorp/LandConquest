@@ -6,23 +6,14 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LandConquest.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для WarWindow.xaml
-    /// </summary>
     public partial class WarWindow : Window
     {
         System.Windows.Controls.Primitives.UniformGrid localWarMap = new System.Windows.Controls.Primitives.UniformGrid();
@@ -81,17 +72,21 @@ namespace LandConquest.Forms
 
         private void WarWin_Loaded(object sender, RoutedEventArgs e)
         {
-            for (int x = 0; x < localWarMap.Columns; x++)
+            for (int x = 0; x < localWarMap.Rows; x++)
             {
-                for (int y = 0; y < localWarMap.Rows; y++)
+                for (int y = 0; y < localWarMap.Columns; y++)
                 {
                     Image tile = new Image();
-                    tile.Source = new BitmapImage(new Uri("/Pictures/test-tile.jpg", UriKind.Relative));
+                    tile = AddSourceForTile(tile, 0, x, y);
                     localWarMap.Children.Add(tile);
                     gridForArmies.Children.Add(new Image());
+
+
+
                 }
             }
             mainWarWinGrid.Children.Add(localWarMap);
+
             ShowArmiesOnMap();
         }
 
@@ -109,34 +104,15 @@ namespace LandConquest.Forms
                 imgArmy.Width = 40;
                 imgArmy.Height = 40;
 
-                switch (armies[i].ArmyType)
+                if (armies[i].ArmySide == 0)
                 {
-                    case 1:
-                        {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
-                            break;
-                        }
-                    case 2:
-                        {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
-                            break;
-                        }
-                    case 3:
-                        {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
-                            break;
-                        }
-                    case 4:
-                        {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/s1.png", UriKind.Relative));
-                            break;
-                        }
-                    case 5:
-                        {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                            break;
-                        }
+                    SwitchArmyTypeNoSide(armies[i].ArmyType, imgArmy);
                 }
+                else
+                {
+                    SwitchArmyTypeWithSide(armies[i].ArmyType, imgArmy);
+                }
+
                 armyImages.Add(imgArmy);
 
                 if (((Image)gridForArmies.Children[armies[i].LocalLandId]).Source == emptyImage.Source)
@@ -214,66 +190,27 @@ namespace LandConquest.Forms
                             //selectedArmy = armyInBattlesInCurrentTile[i];
                             //Console.WriteLine()
                             armyInBattlesInCurrentTile.Remove(armyInBattlesInCurrentTile[i]);
-                            switch (selectedArmy.ArmyType)
+
+                            if (selectedArmy.ArmySide == 0)
                             {
-                                case 1:
-                                    {
-                                        imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
-                                        break;
-                                    }
-                                case 2:
-                                    {
-                                        imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                                        break;
-                                    }
+                                SwitchArmyTypeNoSide(selectedArmy.ArmyType, imgArmySelected);
+                            }
+                            else
+                            {
+                                SwitchArmyTypeWithSide(selectedArmy.ArmyType, imgArmySelected);
                             }
                         }
                     }
 
                     int typeOfUniteArmy = battleModel.ReturnTypeOfArmy(armyInBattlesInCurrentTile);
 
-                    switch (typeOfUniteArmy)
+                    if (armyInBattlesInCurrentTile[0].ArmySide == 0)
                     {
-                        case 1:
-                            {
-                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
-                                break;
-                            }
-                        case 2:
-                            {
-                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
-                                break;
-                            }
-                        case 3:
-                            {
-                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
-                                break;
-                            }
-                        case 4:
-                            {
-                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                                break;
-                            }
-                        case 5:
-                            {
-                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                                break;
-                            }
+                        SwitchArmyTypeNoSide(typeOfUniteArmy, imgArmyThatStay);
+                    }
+                    else
+                    {
+                        SwitchArmyTypeWithSide(typeOfUniteArmy, imgArmyThatStay);
                     }
 
 
@@ -308,122 +245,91 @@ namespace LandConquest.Forms
         {
             if (f_armySelected)
             {
-                f_armySelected = false;
                 int index = gridForArmies.Children.IndexOf((Image)sender);
-
-                gridForArmies.Children.RemoveAt(INDEX);
-                gridForArmies.Children.Insert(INDEX, new Image());
-
-                gridForArmies.Children.RemoveAt(index);
-                // call method retype;
-
-                armyInBattlesInCurrentTile = new List<ArmyInBattle>();
-
-                for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, index, war); i++)
+                if (CheckDistanceBetweenTwoArmies(index, INDEX))
                 {
-                    armyInBattlesInCurrentTile.Add(new ArmyInBattle());
-                }
+                    f_armySelected = false;
+                    gridForArmies.Children.RemoveAt(INDEX);
+                    gridForArmies.Children.Insert(INDEX, new Image());
 
-                armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, index);
-                armyInBattlesInCurrentTile.Add(selectedArmy);
+                    gridForArmies.Children.RemoveAt(index);
+                    // call method retype;
 
-                int typeOfUniteArmy = battleModel.ReturnTypeOfArmy(armyInBattlesInCurrentTile);
+                    armyInBattlesInCurrentTile = new List<ArmyInBattle>();
 
-                switch (typeOfUniteArmy)
-                {
-                    case 1:
-                        {
-                            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
-                            break;
-                        }
-                    case 2:
-                        {
-                            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
-                            break;
-                        }
-                    case 3:
-                        {
-                            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
-                            break;
-                        }
-                    case 4:
-                        {
-                            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                            break;
-                        }
-                    case 5:
-                        {
-                            imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                            break;
-                        }
-                }
-                //armyImages.Add(imgArmySelected);
-
-                gridForArmies.Children.Insert(index, imgArmySelected);
-                HideAvailableTilesToMove(INDEX);
-
-                battleModel.UpdateLocalLandOfArmy(connection, selectedArmy, index);
-
-
-
-                //Console.WriteLine("COUNT = " + armyInBattlesInCurrentTile.Count);
-
-                //перезаписываем в этот лист армии что остались
-                armyInBattlesInCurrentTile.Clear();
-
-                for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, INDEX, war); i++)
-                {
-                    armyInBattlesInCurrentTile.Add(new ArmyInBattle());
-                }
-
-                armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, INDEX);
-
-                if (armyInBattlesInCurrentTile.Count >= 1)
-                {
-                    Image imgArmyThatStay = new Image();
-                    imgArmyThatStay.MouseLeftButtonDown += ImgArmy_MouseLeftButtonDown;
-                    imgArmyThatStay.MouseEnter += ImgArmy_MouseEnter;
-                    imgArmyThatStay.MouseLeave += ImgArmy_MouseLeave;
-                    imgArmyThatStay.MouseRightButtonDown += ImgArmy_MouseRightButtonDown;
-                    imgArmyThatStay.Width = 40;
-                    imgArmyThatStay.Height = 40;
-
-                    int typeOfUniteArmy2 = battleModel.ReturnTypeOfArmy(armyInBattlesInCurrentTile);
-
-                    switch (typeOfUniteArmy2)
+                    for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, index, war); i++)
                     {
-                        case 1:
-                            {
-                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/warrior.png", UriKind.Relative));
-                                break;
-                            }
-                        case 2:
-                            {
-                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/archer.png", UriKind.Relative));
-                                break;
-                            }
-                        case 3:
-                            {
-                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/hourseman.png", UriKind.Relative));
-                                break;
-                            }
-                        case 4:
-                            {
-                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
-                                break;
-                            }
-                        case 5:
-                            {
-                                imgArmyThatStay.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
-                                break;
-                            }
+                        armyInBattlesInCurrentTile.Add(new ArmyInBattle());
                     }
 
+                    armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, index);
+                    armyInBattlesInCurrentTile.Add(selectedArmy);
 
-                    gridForArmies.Children.RemoveAt(INDEX);
-                    gridForArmies.Children.Insert(INDEX, imgArmyThatStay);
+                    if (!battleModel.IfTheBattleShouldStart(armyInBattlesInCurrentTile))
+                    {
+                        imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
+                    }
+                    else
+                    {
+                        int typeOfUniteArmy = battleModel.ReturnTypeOfArmy(armyInBattlesInCurrentTile);
+
+                        if (selectedArmy.ArmySide == 0)
+                        {
+                            SwitchArmyTypeNoSide(typeOfUniteArmy, imgArmySelected);
+                        }
+                        else
+                        {
+                            SwitchArmyTypeWithSide(typeOfUniteArmy, imgArmySelected);
+                        }
+                    }
+                    //armyImages.Add(imgArmySelected);
+
+                    gridForArmies.Children.Insert(index, imgArmySelected);
+                    HideAvailableTilesToMove(INDEX);
+
+                    battleModel.UpdateLocalLandOfArmy(connection, selectedArmy, index);
+
+
+
+                    //Console.WriteLine("COUNT = " + armyInBattlesInCurrentTile.Count);
+
+                    //перезаписываем в этот лист армии что остались
+                    armyInBattlesInCurrentTile.Clear();
+
+                    for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, INDEX, war); i++)
+                    {
+                        armyInBattlesInCurrentTile.Add(new ArmyInBattle());
+                    }
+
+                    armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, INDEX);
+
+                    if (armyInBattlesInCurrentTile.Count >= 1)
+                    {
+                        Image imgArmyThatStay = new Image();
+                        imgArmyThatStay.MouseLeftButtonDown += ImgArmy_MouseLeftButtonDown;
+                        imgArmyThatStay.MouseEnter += ImgArmy_MouseEnter;
+                        imgArmyThatStay.MouseLeave += ImgArmy_MouseLeave;
+                        imgArmyThatStay.MouseRightButtonDown += ImgArmy_MouseRightButtonDown;
+                        imgArmyThatStay.Width = 40;
+                        imgArmyThatStay.Height = 40;
+
+                        int typeOfUniteArmy2 = battleModel.ReturnTypeOfArmy(armyInBattlesInCurrentTile);
+
+                        if (armyInBattlesInCurrentTile[0].ArmySide == 0)
+                        {
+                            SwitchArmyTypeNoSide(typeOfUniteArmy2, imgArmyThatStay);
+                        }
+                        else
+                        {
+                            SwitchArmyTypeWithSide(typeOfUniteArmy2, imgArmyThatStay);
+                        }
+
+
+                        gridForArmies.Children.RemoveAt(INDEX);
+                        gridForArmies.Children.Insert(INDEX, imgArmyThatStay);
+                    }
+                    //ShowAvailableTilesToMove(index);
                 }
-                //ShowAvailableTilesToMove(index);
             }
         }
 
@@ -488,7 +394,9 @@ namespace LandConquest.Forms
                     if ((i < 1) || (j < 1) || (j > localWarMap.Columns) || (i > localWarMap.Rows)) continue;  //
                     int ind = ReturnNumberOfCell(i, j);
                     localWarMap.Children.RemoveAt(ind);
-                    Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative)) };
+                    //Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative)) };
+                    Image availableTileForMoving = new Image();
+                    availableTileForMoving = AddSourceForTile(availableTileForMoving, 1, i, j);
                     availableTileForMoving.MouseRightButtonDown += tile_MouseRightButtonDown;
                     localWarMap.Children.Insert(ind, availableTileForMoving);
                 }
@@ -513,7 +421,9 @@ namespace LandConquest.Forms
                     if ((i < 1) || (j < 1) || (j > localWarMap.Columns) || (i > localWarMap.Rows)) continue;  //
                     int ind = ReturnNumberOfCell(i, j);
                     localWarMap.Children.RemoveAt(ind);
-                    Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/test-tile.jpg", UriKind.Relative)) };
+                    //Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/test-tile.jpg", UriKind.Relative)) };
+                    Image availableTileForMoving = new Image();
+                    availableTileForMoving = AddSourceForTile(availableTileForMoving, 0, i, j);
                     //availableTileForMoving.MouseRightButtonDown += tile_MouseRightButtonDown;
                     localWarMap.Children.Insert(ind, availableTileForMoving);
                 }
@@ -650,7 +560,7 @@ namespace LandConquest.Forms
                             unionArmy.ArmyId = armyInBattlesInCurrentTile[i].ArmyId;
                             unionArmy.PlayerId = player.PlayerId;
                             continue;
-                        } 
+                        }
                         else
                         {
                             battleModel.DeleteArmyById(connection, armyInBattlesInCurrentTile[i]);
@@ -666,9 +576,130 @@ namespace LandConquest.Forms
             }
         }
 
+        public Image AddSourceForTile(Image tile, int tileColor, int Row, int Column)
+        {
+            //tileColor = 0 ? green
+            //tileColor = 1 ? red
+
+            if (tileColor == 0)
+            {
+                if ((Column % 2 == 0) && (Row % 2 == 0) || (Column % 2 == 1) && (Row % 2 == 1))
+                {
+                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/bj1.jpg", UriKind.Relative));
+                }
+                else
+                {
+                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/br2.jpg", UriKind.Relative));
+                }
+            }
+            else
+            {
+                if (((Column % 2 == 0) && (Row % 2 == 0)) || ((Column % 2 == 1) && (Row % 2 == 1)))
+                {
+                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/bj2.jpg", UriKind.Relative));
+                }
+                else tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/br1.jpg", UriKind.Relative));
+            }
+            return tile;
+        }
+
+
+
+        private void SwitchArmyTypeNoSide(int armyType, Image armyImage)
+        {
+            switch (armyType)
+            {
+                case 1:
+                    {
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-0.png", UriKind.Relative));
+                        break;
+                    }
+                case 2:
+                    {
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/Armies/AR-0.png", UriKind.Relative));
+                        break;
+                    }
+                case 3:
+                    {
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/Armies/KNT-0.png", UriKind.Relative));
+                        break;
+                    }
+                case 4:
+                    {
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
+                        break;
+                    }
+                case 5:
+                    {
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
+                        break;
+                    }
+            }
+        }
+
+        private void SwitchArmyTypeWithSide(int armyType, Image armyImage)
+        {
+            switch (armyType)
+            {
+                case 1:
+                    {
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/Armies/INF-1.png", UriKind.Relative));
+                        break;
+                    }
+                case 2:
+                    {
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/Armies/AR-1.png", UriKind.Relative));
+                        break;
+                    }
+                case 3:
+                    {
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/Armies/KNT-1.png", UriKind.Relative));
+                        break;
+                    }
+                case 4:
+                    {
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
+                        break;
+                    }
+                case 5:
+                    {
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
+                        break;
+                    }
+            }
+        }
         private void btnWarWindowClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        public bool CheckDistanceBetweenTwoArmies(int index, int INDEX)
+        {
+            int rowI1 = ReturnRowByIndex(index);
+            int rowI2 = ReturnRowByIndex(INDEX);
+            int colI1 = ReturnColumnByIndex(index);
+            int colI2 = ReturnColumnByIndex(INDEX);
+
+            if ((Math.Abs(rowI1 - rowI2) <= saveMovementSpeed) && ((Math.Abs(colI1 - colI2) <= saveMovementSpeed)))
+                return true;
+            return false;
+
+        }
+
+
+        public int ReturnRowByIndex(int index)
+        {
+            int row = index / localWarMap.Columns + 1;
+
+            return row;
+        }
+
+        public int ReturnColumnByIndex(int index)
+        {
+            int row = index / localWarMap.Columns + 1;
+            int col = index - localWarMap.Columns * (row - 1) + 1;
+
+            return col;
         }
     }
 }

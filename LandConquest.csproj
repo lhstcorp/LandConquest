@@ -130,6 +130,9 @@
     <Compile Include="Forms\MarketWindow.xaml.cs">
       <DependentUpon>MarketWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PaymentWindow.xaml.cs">
+      <DependentUpon>PaymentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
     </Compile>
@@ -220,6 +223,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\MarketWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\PaymentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -435,6 +442,30 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\war-test.png" />
+    <Resource Include="Pictures\Armies\AR-0.png" />
+    <Resource Include="Pictures\Armies\AR-1.png" />
+    <Resource Include="Pictures\Armies\INF-1.png" />
+    <Resource Include="Pictures\Armies\INF-0.png" />
+    <Resource Include="Pictures\Armies\KNT-0.png" />
+    <Resource Include="Pictures\Armies\KNT-1.png" />
+    <Resource Include="Pictures\Tiles\br2.jpg" />
+    <Resource Include="Pictures\Tiles\br3.jpg" />
+    <Resource Include="Pictures\Tiles\bj1.jpg" />
+    <Resource Include="Pictures\Tiles\bj2.jpg" />
+    <Resource Include="Pictures\Tiles\br1.jpg" />
+    <Resource Include="Pictures\Tiles\gra1.jpg" />
+    <Resource Include="Pictures\button_square.png" />
+    <Resource Include="Pictures\Tiles\f2-02.png" />
+    <Resource Include="Pictures\Tiles\f2-03.png" />
+    <Resource Include="Pictures\Tiles\f2-04.png" />
+    <Resource Include="Pictures\Tiles\f2-05.png" />
+    <Resource Include="Pictures\Tiles\f2-06.png" />
+    <Resource Include="Pictures\Tiles\f2_Montazhnaya_oblast_1.png" />
+    <Resource Include="Pictures\Tiles\g1.jpg" />
+    <Resource Include="Pictures\Tiles\g2.jpg" />
+    <Resource Include="Pictures\Tiles\r1.jpg" />
+    <Resource Include="Pictures\Tiles\r2.jpg" />
     <Resource Include="Pictures\s0.png" />
     <Resource Include="Pictures\s1.png" />
     <Resource Include="Pictures\armyPageArrowLeft.png" />
