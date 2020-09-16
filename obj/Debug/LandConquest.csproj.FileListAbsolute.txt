@@ -299,3 +299,5 @@ C:\Users\itk\source\repos\LandConquest\obj\Debug\DialogWIndows\SplitArmyDialog.g
 C:\Users\itk\source\repos\LandConquest\obj\Debug\Forms\PaymentWindow.g.cs
 C:\Users\itk\source\repos\LandConquest\obj\Debug\DialogWIndows\SplitArmyDialog.baml
 C:\Users\itk\source\repos\LandConquest\obj\Debug\Forms\PaymentWindow.baml
+C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\Forms\PaymentWindow.g.cs
+C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\Forms\PaymentWindow.baml
