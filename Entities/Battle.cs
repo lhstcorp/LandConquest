@@ -15,6 +15,11 @@ namespace LandConquest.Entities
         [StringLength(16)]
         public string BattleId { get; set; }
 
+        [Required]
+        [Column("battle_id")]
+        [StringLength(16)]
+        public string WarId { get; set; }
+
         [Column("local_land_id")]
         public int LocalLandId { get; set; }
     }
