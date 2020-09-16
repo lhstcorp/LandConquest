@@ -349,10 +349,11 @@ namespace LandConquest.Models
 
         public void InsertBattle(SqlConnection connection, Battle battle)
         {
-            String battleQuery = "INSERT INTO dbo.BattleData (battle_id, local_land_id) VALUES (@battle_id, @local_land_id)";
+            String battleQuery = "INSERT INTO dbo.BattleData (battle_id, war_id, local_land_id) VALUES (@battle_id, @war_id, @local_land_id)";
             var battleCommand = new SqlCommand(battleQuery, connection);
 
             battleCommand.Parameters.AddWithValue("@battle_id", battle.BattleId);
+            battleCommand.Parameters.AddWithValue("@war_id", battle.WarId);
             battleCommand.Parameters.AddWithValue("@local_land_id", battle.LocalLandId);
 
             battleCommand.ExecuteNonQuery();

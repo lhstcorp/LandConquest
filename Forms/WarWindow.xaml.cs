@@ -271,6 +271,7 @@ namespace LandConquest.Forms
                         imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
                         Battle battle = new Battle();
                         battle.BattleId = generateId();
+                        battle.WarId = war.WarId;
                         battle.LocalLandId = armyInBattlesInCurrentTile[0].LocalLandId;
 
                         battleModel.InsertBattle(connection, battle);
