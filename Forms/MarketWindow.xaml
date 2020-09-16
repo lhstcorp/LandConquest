@@ -15,13 +15,14 @@
         <Label Content="Price" FontWeight="Bold" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelFoodPrice" Content="2" FontWeight="Bold" HorizontalAlignment="Left" Margin="116,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="FoodToBuyTextBox" Background="White" Foreground="Black" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
-        <Label x:Name="labelFoodAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="34"/>
+        <Label x:Name="labelFoodAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="46"/>
         <Button HorizontalAlignment="Left" Margin="715,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click">
             <Button.Background>
             <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="buyFoodMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top" Width="58" Click="buyFoodMarket_Click" />
+        <Label x:Name="labelFoodMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="143,39,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
 
     </Grid>
 </Window>
