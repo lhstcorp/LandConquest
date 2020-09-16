@@ -44,19 +44,26 @@ namespace LandConquest.Forms
 
         private void MarketWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            market = new Market();
-            marketModel = new MarketModel();
+ 
             model = new StorageModel();
             storage = new PlayerStorage();
             
             storage = model.GetPlayerStorage(player, connection, storage);
-            market = marketModel.GetMarketInfo(player, connection, market);
+          
             
 
             //labelWoodAmount.Content = storage.PlayerWood.ToString();
             //labelStoneAmount.Content = storage.PlayerStone.ToString();
             labelFoodAmount.Content = storage.PlayerFood.ToString();
-            
+
+            if (Convert.ToInt32(labelFoodMarket.Content) > 50000)
+            {
+                labelFoodPrice.Content = Convert.ToInt32(labelFoodPrice.Content) * (50000 / Convert.ToInt32(labelFoodMarket));
+            }
+            else
+            {
+                labelFoodPrice.Content = Convert.ToInt32(labelFoodPrice.Content) * (Convert.ToInt32(labelFoodMarket) / 50000);
+            }
             //labelGemsAmount.Content = storage.PlayerGems.ToString();
             //labelCopperAmount.Content = storage.PlayerCopper.ToString();
             //labelGoldAmount.Content = storage.PlayerGoldOre.ToString();
@@ -80,19 +87,20 @@ namespace LandConquest.Forms
 
         private void buyFoodMarket_Click(object sender, RoutedEventArgs e)
         {
-            if (player.PlayerMoney>=Convert.ToInt32(FoodToBuyTextBox.Text)*Convert.ToInt32(labelFoodPrice.Content))
+            
+            if (player.PlayerMoney>=Convert.ToInt32(FoodToBuyTextBox.Text)*Convert.ToInt32(labelFoodPrice.Content)&&Convert.ToInt32(labelFoodMarket.Content)>= Convert.ToInt32(FoodToBuyTextBox.Text))
             {
-                storage.PlayerFood += Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
+                storage.PlayerFood += Convert.ToInt32(FoodToBuyTextBox.Text);
                 player.PlayerMoney -= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
                 model.UpdateStorage(connection, player, storage);
-                marketModel.UpdateMarket(connection, player, market);
+                labelFoodMarket.Content = Convert.ToInt32(labelFoodMarket.Content) - Convert.ToInt32(FoodToBuyTextBox.Text);
                 labelFoodAmount.Content = Convert.ToInt32(labelFoodAmount.Content) + Convert.ToInt32(FoodToBuyTextBox.Text);
             }
             else
             {
                 MessageBox.Show("Error!");
             }
-
+            
         }
     }
 }
