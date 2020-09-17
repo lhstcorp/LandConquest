@@ -122,6 +122,9 @@
     <Compile Include="Entities\PlayerEquipment.cs" />
     <Compile Include="Entities\War.cs" />
     <Compile Include="Enums\ForcesEnum.cs" />
+    <Compile Include="Forms\AuctionWindow.xaml.cs">
+      <DependentUpon>AuctionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ChatWindow.xaml.cs">
       <DependentUpon>ChatWindow.xaml</DependentUpon>
     </Compile>
@@ -180,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\SplitArmyDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\AuctionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
