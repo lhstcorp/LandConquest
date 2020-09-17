@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Threading;
 
 namespace LandConquest.Forms
 {
@@ -265,9 +266,15 @@ namespace LandConquest.Forms
                     armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, index);
                     armyInBattlesInCurrentTile.Add(selectedArmy);
 
-                    if (!battleModel.IfTheBattleShouldStart(armyInBattlesInCurrentTile))
+                    if (battleModel.IfTheBattleShouldStart(armyInBattlesInCurrentTile))
                     {
                         imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
+                        Battle battle = new Battle();
+                        battle.BattleId = generateId();
+                        battle.WarId = war.WarId;
+                        battle.LocalLandId = armyInBattlesInCurrentTile[0].LocalLandId;
+
+                        battleModel.InsertBattle(connection, battle);
                     }
                     else
                     {
@@ -700,6 +707,15 @@ namespace LandConquest.Forms
             int col = index - localWarMap.Columns * (row - 1) + 1;
 
             return col;
+        }
+
+        public string generateId()
+        {
+            Thread.Sleep(15);
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvmxyz0123456789";
+            return new string(Enumerable.Repeat(chars, 16)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }
