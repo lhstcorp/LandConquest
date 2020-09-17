@@ -113,6 +113,7 @@
     </Compile>
     <Compile Include="Entities\Army.cs" />
     <Compile Include="Entities\ArmyInBattle.cs" />
+    <Compile Include="Entities\Battle.cs" />
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\Land.cs" />
