@@ -26,7 +26,9 @@ namespace LandConquest.Forms
         MainWindow window;
         Player player;
         User user;
+        
         StorageModel model;
+        PlayerModel money;
         PlayerStorage storage;
         Market market;
         PlayerEquipment equipment;
@@ -46,6 +48,7 @@ namespace LandConquest.Forms
         {
  
             model = new StorageModel();
+            money = new PlayerModel();
             storage = new PlayerStorage();
             
             storage = model.GetPlayerStorage(player, connection, storage);
@@ -58,11 +61,11 @@ namespace LandConquest.Forms
 
             if (Convert.ToInt32(labelFoodMarket.Content) > 50000)
             {
-                labelFoodPrice.Content = Convert.ToInt32(labelFoodPrice.Content) * (50000 / Convert.ToInt32(labelFoodMarket));
+                labelFoodPrice.Content = Convert.ToInt32(labelFoodPrice.Content) * (50000 / Convert.ToInt32(labelFoodMarket.Content));
             }
             else
             {
-                labelFoodPrice.Content = Convert.ToInt32(labelFoodPrice.Content) * (Convert.ToInt32(labelFoodMarket) / 50000);
+                labelFoodPrice.Content = Convert.ToInt32(labelFoodPrice.Content) * (50000 / Convert.ToInt32(labelFoodMarket.Content));
             }
             //labelGemsAmount.Content = storage.PlayerGems.ToString();
             //labelCopperAmount.Content = storage.PlayerCopper.ToString();
@@ -93,7 +96,9 @@ namespace LandConquest.Forms
                 storage.PlayerFood += Convert.ToInt32(FoodToBuyTextBox.Text);
                 player.PlayerMoney -= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
                 model.UpdateStorage(connection, player, storage);
+                money.UpdatePlayerMoney(player, connection);
                 labelFoodMarket.Content = Convert.ToInt32(labelFoodMarket.Content) - Convert.ToInt32(FoodToBuyTextBox.Text);
+                
                 labelFoodAmount.Content = Convert.ToInt32(labelFoodAmount.Content) + Convert.ToInt32(FoodToBuyTextBox.Text);
             }
             else
@@ -101,6 +106,25 @@ namespace LandConquest.Forms
                 MessageBox.Show("Error!");
             }
             
+        }
+
+        private void sellFoodMarketButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (storage.PlayerFood >= Convert.ToInt32(FoodToBuyTextBox.Text))
+            {
+                storage.PlayerFood -= Convert.ToInt32(FoodToBuyTextBox.Text);
+                player.PlayerMoney += Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
+                model.UpdateStorage(connection, player, storage);
+                money.UpdatePlayerMoney(player, connection);
+                labelFoodMarket.Content = Convert.ToInt32(labelFoodMarket.Content) + Convert.ToInt32(FoodToBuyTextBox.Text);
+
+                labelFoodAmount.Content = Convert.ToInt32(labelFoodAmount.Content) - Convert.ToInt32(FoodToBuyTextBox.Text);
+            }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
         }
     }
 }

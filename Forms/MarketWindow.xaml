@@ -22,7 +22,8 @@
             </Button.Background>
         </Button>
         <Button x:Name="buyFoodMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top" Width="58" Click="buyFoodMarket_Click" />
-        <Label x:Name="labelFoodMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="143,39,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
+        <Label x:Name="labelFoodMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
+        <Button x:Name="sellFoodMarketButton" Content="Sell" HorizontalAlignment="Left" Margin="150,70,0,0" VerticalAlignment="Top" Width="58" Click="sellFoodMarketButton_Click"  />
 
     </Grid>
 </Window>
