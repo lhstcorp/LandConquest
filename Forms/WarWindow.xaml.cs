@@ -59,6 +59,14 @@ namespace LandConquest.Forms
             gridForArmies.Columns = 30;
             gridForArmies.Rows = 20;
 
+            Thickness mapMargin = localWarMap.Margin;
+            mapMargin.Left = 50;                           
+            localWarMap.Margin = mapMargin;
+
+            Thickness armyMargin = gridForArmies.Margin;
+            armyMargin.Left = 50;
+            gridForArmies.Margin = armyMargin;
+
             localWarMap.Width = columnWidth * localWarMap.Columns;
             gridForArmies.Width = columnWidth * localWarMap.Columns;
             localWarMap.Height = rowHeight * localWarMap.Rows;
