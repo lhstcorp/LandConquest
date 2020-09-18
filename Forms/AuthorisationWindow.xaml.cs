@@ -41,6 +41,20 @@ namespace LandConquest
             {
                 MainWindow mainWindow = new MainWindow(connection, user);
                 mainWindow.Show();
+
+                if(CheckboxRemember.IsChecked == true)
+                {
+                    Properties.Settings.Default.UserLogin = textBoxLogin.Text;
+                    Properties.Settings.Default.UserPassword = textBoxPass.Password;
+                    Properties.Settings.Default.Save();
+                } 
+                else
+                {
+                    Properties.Settings.Default.UserLogin = null;
+                    Properties.Settings.Default.UserPassword = null;
+                    Properties.Settings.Default.Save();
+                }
+
                 this.Close();
             }
         }
@@ -57,6 +71,9 @@ namespace LandConquest
             //connection = new SqlConnection(@"workstation id=LandConquest1.mssql.somee.com;packet size=4096;user id=LandConquest_SQLLogin_1;pwd=3xlofdewbj;data source=LandConquest1.mssql.somee.com;persist security info=False;initial catalog=LandConquest1");
 
             connection.Open();
+
+            textBoxLogin.Text = Properties.Settings.Default.UserLogin;
+            textBoxPass.Password = Properties.Settings.Default.UserPassword;
         }
 
         private void buttonRegistrate_Click(object sender, RoutedEventArgs e)

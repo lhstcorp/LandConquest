@@ -370,19 +370,6 @@ namespace LandConquest.Forms
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            String taxQuery = "INSERT INTO dbo.ManufactureLvlData (lvl, wood, stone) VALUES (@lvl, @wood, @stone)";
-            var taxCommand = new SqlCommand(taxQuery, connection);
-            for (int i = 5; i <= 150; i++)
-            {
-                taxCommand.Parameters.AddWithValue("@lvl", i);
-                taxCommand.Parameters.AddWithValue("@wood", i * 200 * 2.5);
-                taxCommand.Parameters.AddWithValue("@stone", i * 100 * 2.5);
-                taxCommand.ExecuteNonQuery();
-            }
-        }
-
         private void PathEnterHandler(object sender, RoutedEventArgs e)
         {
             try
@@ -720,7 +707,7 @@ namespace LandConquest.Forms
 
         }
 
-        private void DeclareWar_Click(object sender, RoutedEventArgs e)
+        private void DeclareWar(object sender, RoutedEventArgs e)
         {
             ArmyModel armyModel = new ArmyModel();
             Army army = new Army();
@@ -883,7 +870,7 @@ namespace LandConquest.Forms
                     
                     WAR = new War();
                     WAR.WarId = wars[j].WarId;
-                    DeclareWar_Click(null, e);
+                    DeclareWar(null, e);
                 }
             }
         }
@@ -896,6 +883,14 @@ namespace LandConquest.Forms
         private void btnWar_MouseLeave(object sender, MouseEventArgs e)
         {
             Cursor = Cursors.Arrow;
+        }
+
+        private void OpenAuction_Click(object sender, RoutedEventArgs e)
+        {
+            AuctionWindow auctionWindow = new AuctionWindow(connection, player);
+            auctionWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            auctionWindow.Owner = this;
+            auctionWindow.Show();
         }
     }
 }
