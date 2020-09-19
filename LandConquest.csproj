@@ -105,6 +105,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DialogWIndows\CreateListingDialog.xaml.cs">
+      <DependentUpon>CreateListingDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\EstablishStateDialog.xaml.cs">
       <DependentUpon>EstablishStateDialog.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,9 @@
     <Compile Include="Entities\PlayerEquipment.cs" />
     <Compile Include="Entities\War.cs" />
     <Compile Include="Enums\ForcesEnum.cs" />
+    <Compile Include="Forms\AuctionWindow.xaml.cs">
+      <DependentUpon>AuctionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ChatWindow.xaml.cs">
       <DependentUpon>ChatWindow.xaml</DependentUpon>
     </Compile>
@@ -167,6 +173,10 @@
     <Compile Include="StylesDictionary.xaml.cs">
       <DependentUpon>StylesDictionary.xaml</DependentUpon>
     </Compile>
+    <Page Include="DialogWIndows\CreateListingDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DialogWIndows\EstablishStateDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\SplitArmyDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\AuctionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

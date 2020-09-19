@@ -43,7 +43,7 @@
         <Button x:Name="buttonCancelRegistrate" Content="" HorizontalAlignment="Left" Margin="148,386,0,0" VerticalAlignment="Top" Width="72" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCancelRegistrate_Click"/>
 
 
-        <CheckBox x:Name="checkBoxRememberLogin"  HorizontalAlignment="Left" Margin="684,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="16" BorderBrush="Black" IsChecked="True" BorderThickness="0" Background="#FFB4A500" Height="19" Cursor="Hand"/>
+        <CheckBox x:Name="CheckboxRemember"  HorizontalAlignment="Left" Margin="684,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="16" BorderBrush="Black" IsChecked="True" BorderThickness="0" Background="#FFB4A500" Height="19" Cursor="Hand"/>
 
         <Button x:Name="buttonShowRegistration" Content="Button" HorizontalAlignment="Left" Margin="45,25,0,0" VerticalAlignment="Top" Width="170" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="46" Click="buttonShowRegistration_Click" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
