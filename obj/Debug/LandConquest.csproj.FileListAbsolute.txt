@@ -305,3 +305,7 @@ C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.csproj.CoreCompile
 C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.csproj.CopyComplete
 C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.exe
 C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.pdb
+C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\DialogWIndows\CreateListingDialog.g.cs
+C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\Forms\AuctionWindow.g.cs
+C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\DialogWIndows\CreateListingDialog.baml
+C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\Forms\AuctionWindow.baml
