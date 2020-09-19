@@ -18,12 +18,20 @@
         <Label x:Name="labelFoodAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="46"/>
         <Button HorizontalAlignment="Left" Margin="715,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click">
             <Button.Background>
-            <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="buyFoodMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top" Width="58" Click="buyFoodMarket_Click" />
         <Label x:Name="labelFoodMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
         <Button x:Name="sellFoodMarketButton" Content="Sell" HorizontalAlignment="Left" Margin="150,70,0,0" VerticalAlignment="Top" Width="58" Click="sellFoodMarketButton_Click"  />
+        <Image HorizontalAlignment="Left" Height="68" Margin="254,10,0,0" VerticalAlignment="Top" Width="65" Source="/LandConquest;component/Pictures/wood.png"/>
+        <Label Content="Price" FontWeight="Bold" HorizontalAlignment="Left" Margin="324,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelWoodPrice" Content="2" FontWeight="Bold" HorizontalAlignment="Left" Margin="360,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="WoodToBuyTextBox" Background="White" Foreground="Black" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="324,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
+        <Label x:Name="labelWoodAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="254,78,0,0" VerticalAlignment="Top" Width="46"/>
+        <Button x:Name="buyWoodMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="324,70,0,0" VerticalAlignment="Top" Width="58" Click="buyWoodMarketButton_Click"  />
+        <Label x:Name="labelWoodMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="254,102,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
+        <Button x:Name="sellWoodMarketButton" Content="Sell" HorizontalAlignment="Left" Margin="394,70,0,0" VerticalAlignment="Top" Width="58" Click="sellWoodMarketButton_Click"   />
 
     </Grid>
 </Window>

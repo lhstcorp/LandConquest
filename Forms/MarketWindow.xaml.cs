@@ -50,23 +50,34 @@ namespace LandConquest.Forms
             model = new StorageModel();
             money = new PlayerModel();
             storage = new PlayerStorage();
+            market = new Market();
+            marketModel = new MarketModel();
             
             storage = model.GetPlayerStorage(player, connection, storage);
-          
-            
+            market = marketModel.GetMarketInfo(player, connection, market);
 
-            //labelWoodAmount.Content = storage.PlayerWood.ToString();
-            //labelStoneAmount.Content = storage.PlayerStone.ToString();
-            labelFoodAmount.Content = storage.PlayerFood.ToString();
-
-            if (Convert.ToInt32(labelFoodMarket.Content) > 50000)
+            labelWoodMarket.Content = market.MarketWood.ToString();
+            labelWoodAmount.Content = storage.PlayerWood.ToString();
+            if (Convert.ToInt32(labelWoodMarket.Content) > 50000)
             {
-                labelFoodPrice.Content = Convert.ToInt32(labelFoodPrice.Content) * (50000 / Convert.ToInt32(labelFoodMarket.Content));
+                labelWoodPrice.Content = 2 * (50000 / Convert.ToInt32(labelWoodMarket.Content));
             }
             else
             {
-                labelFoodPrice.Content = Convert.ToInt32(labelFoodPrice.Content) * (50000 / Convert.ToInt32(labelFoodMarket.Content));
+                labelWoodPrice.Content = 2 * (50000 / Convert.ToInt32(labelWoodMarket.Content));
             }
+            //labelStoneAmount.Content = storage.PlayerStone.ToString();
+            labelFoodAmount.Content = storage.PlayerFood.ToString();
+            labelFoodMarket.Content = market.MarketFood.ToString();
+            if (Convert.ToInt32(labelFoodMarket.Content) > 50000)
+            {
+                labelFoodPrice.Content = 2 * (50000 / Convert.ToInt32(labelFoodMarket.Content));
+            }
+            else
+            {
+                labelFoodPrice.Content = 2 * (50000 / Convert.ToInt32(labelFoodMarket.Content));
+            }
+
             //labelGemsAmount.Content = storage.PlayerGems.ToString();
             //labelCopperAmount.Content = storage.PlayerCopper.ToString();
             //labelGoldAmount.Content = storage.PlayerGoldOre.ToString();
@@ -95,11 +106,13 @@ namespace LandConquest.Forms
             {
                 storage.PlayerFood += Convert.ToInt32(FoodToBuyTextBox.Text);
                 player.PlayerMoney -= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
+                market.MarketFood -= Convert.ToInt32(FoodToBuyTextBox.Text);
                 model.UpdateStorage(connection, player, storage);
                 money.UpdatePlayerMoney(player, connection);
+                marketModel.UpdateMarket(connection, player, market);
                 labelFoodMarket.Content = Convert.ToInt32(labelFoodMarket.Content) - Convert.ToInt32(FoodToBuyTextBox.Text);
-                
                 labelFoodAmount.Content = Convert.ToInt32(labelFoodAmount.Content) + Convert.ToInt32(FoodToBuyTextBox.Text);
+                
             }
             else
             {
@@ -115,11 +128,53 @@ namespace LandConquest.Forms
             {
                 storage.PlayerFood -= Convert.ToInt32(FoodToBuyTextBox.Text);
                 player.PlayerMoney += Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
+                market.MarketFood += Convert.ToInt32(FoodToBuyTextBox.Text);
                 model.UpdateStorage(connection, player, storage);
                 money.UpdatePlayerMoney(player, connection);
+                marketModel.UpdateMarket(connection, player, market);
                 labelFoodMarket.Content = Convert.ToInt32(labelFoodMarket.Content) + Convert.ToInt32(FoodToBuyTextBox.Text);
 
                 labelFoodAmount.Content = Convert.ToInt32(labelFoodAmount.Content) - Convert.ToInt32(FoodToBuyTextBox.Text);
+            }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
+        }
+
+        private void buyWoodMarketButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (player.PlayerMoney >= Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelWoodPrice.Content) && Convert.ToInt32(labelWoodMarket.Content) >= Convert.ToInt32(WoodToBuyTextBox.Text))
+            {
+                storage.PlayerWood += Convert.ToInt32(WoodToBuyTextBox.Text);
+                player.PlayerMoney -= Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
+                market.MarketWood -= Convert.ToInt32(WoodToBuyTextBox.Text);
+                model.UpdateStorage(connection, player, storage);
+                money.UpdatePlayerMoney(player, connection);
+                marketModel.UpdateMarket(connection, player, market);
+                labelWoodMarket.Content = Convert.ToInt32(labelWoodMarket.Content) - Convert.ToInt32(WoodToBuyTextBox.Text);
+
+                labelWoodAmount.Content = Convert.ToInt32(labelWoodAmount.Content) + Convert.ToInt32(WoodToBuyTextBox.Text);
+            }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
+        }
+
+        private void sellWoodMarketButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (storage.PlayerWood >= Convert.ToInt32(WoodToBuyTextBox.Text))
+            {
+                storage.PlayerWood -= Convert.ToInt32(WoodToBuyTextBox.Text);
+                player.PlayerMoney += Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
+                market.MarketWood += Convert.ToInt32(WoodToBuyTextBox.Text);
+                model.UpdateStorage(connection, player, storage);
+                money.UpdatePlayerMoney(player, connection);
+                marketModel.UpdateMarket(connection, player, market);
+                labelWoodMarket.Content = Convert.ToInt32(labelWoodMarket.Content) + Convert.ToInt32(WoodToBuyTextBox.Text);
+
+                labelWoodAmount.Content = Convert.ToInt32(labelWoodAmount.Content) - Convert.ToInt32(WoodToBuyTextBox.Text);
             }
             else
             {
