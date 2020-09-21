@@ -13,7 +13,7 @@ namespace LandConquest.Models
     {
         public Market GetMarketInfo(Player player, SqlConnection connection, Market market)
         {
-            String marketQuery = "SELECT * FROM dbo.MarketData WHERE player_id = @player_id";
+            String marketQuery = "SELECT * FROM dbo.MarketData";
 
             var command = new SqlCommand(marketQuery, connection);
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
@@ -41,14 +41,14 @@ namespace LandConquest.Models
                     market.MarketCopper = reader.GetInt32(marketCopper);
                     market.MarketGems = reader.GetInt32(marketGems);
                     market.MarketLeather = reader.GetInt32(marketLeather);
-                    market.MarketMoney = reader.GetInt32(money);
+                    //market.MarketMoney = reader.GetInt32(money);
                 }
             }
             return market;
         }
         public void UpdateMarket(SqlConnection connection, Player player, Market _market)
         {
-            String marketQuery = "UPDATE dbo.MarketData SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather, money = @money WHERE player_id = @player_id ";
+            String marketQuery = "UPDATE dbo.MarketData SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather, money = @money";
 
             var marketCommand = new SqlCommand(marketQuery, connection);
             // int datetimeResult;
