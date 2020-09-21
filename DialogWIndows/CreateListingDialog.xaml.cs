@@ -87,6 +87,115 @@ namespace LandConquest.DialogWIndows
             labelArmorAmount.Content = equipment.PlayerArmor.ToString();
             labelSwordAmount.Content = equipment.PlayerSword.ToString();
 
+            labelSetPrice.Visibility = Visibility.Hidden;
+            labelSetAmount.Visibility = Visibility.Hidden;
+            textBoxAmount.Visibility = Visibility.Hidden;
+            textBoxPrice.Visibility = Visibility.Hidden;
+            buttonPlace.Visibility = Visibility.Hidden;
+        }
+
+        private void woodButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void stoneButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void foodButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void goldButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void copperButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void gemsButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void metalButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void leatherButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void armorButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void swordButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void harnesspButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void bowButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void gearButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void spearButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void peasantsButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void archersButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void warriorsButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void horsemanButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void catapultButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            showListingDetails();
+        }
+
+        private void showListingDetails()
+        {
+            labelSetPrice.Visibility = Visibility.Visible;
+            labelSetAmount.Visibility = Visibility.Visible;
+            textBoxAmount.Visibility = Visibility.Visible;
+            textBoxPrice.Visibility = Visibility.Visible;
+            buttonPlace.Visibility = Visibility.Visible;
         }
     }
 }
