@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\LandConquest\obj\Debug\
+C:\Users\itk\source\repos\LandConquest\obj\Debug\
 LandConquest
 none
 false
 DEBUG;TRACE
-C:\LandConquest\App.xaml
-20-712586063
+C:\Users\itk\source\repos\LandConquest\App.xaml
+221295337984
 3-2041200384
-56251123021
-133659086457
-DialogWIndows\EstablishStateDialog.xaml;DialogWIndows\ManufactureBuyingDialog.xaml;DialogWIndows\ManufactureUpgradeDialog.xaml;DialogWIndows\SplitArmyDialog.xaml;Forms\AuthorisationWindow.xaml;Forms\ChatWindow.xaml;Forms\CountryWindow.xaml;Forms\MainWindow.xaml;Forms\ManufactureWindow.xaml;Forms\MarketWindow.xaml;Forms\PaymentWindow.xaml;Forms\ProfileWindow.xaml;Forms\RatingWindow.xaml;Forms\RecruitWindow.xaml;Forms\StorageWindow.xaml;Forms\WarResultWindow.xaml;Forms\WarWindow.xaml;Resources\GlobalMap.xaml;Resources\ResourceMap.xaml;StylesDictionary.xaml;
+581846253100
+133-985995534
+DialogWIndows\CreateListingDialog.xaml;DialogWIndows\EstablishStateDialog.xaml;DialogWIndows\ManufactureBuyingDialog.xaml;DialogWIndows\ManufactureUpgradeDialog.xaml;DialogWIndows\SplitArmyDialog.xaml;Forms\AuctionWindow.xaml;Forms\AuthorisationWindow.xaml;Forms\ChatWindow.xaml;Forms\CountryWindow.xaml;Forms\MainWindow.xaml;Forms\ManufactureWindow.xaml;Forms\MarketWindow.xaml;Forms\PaymentWindow.xaml;Forms\ProfileWindow.xaml;Forms\RatingWindow.xaml;Forms\RecruitWindow.xaml;Forms\StorageWindow.xaml;Forms\WarResultWindow.xaml;Forms\WarWindow.xaml;Resources\GlobalMap.xaml;Resources\ResourceMap.xaml;StylesDictionary.xaml;
 
 False
 
