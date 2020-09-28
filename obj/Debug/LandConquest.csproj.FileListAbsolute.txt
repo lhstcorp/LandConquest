@@ -395,3 +395,4 @@ E:\LandConquest\LandConquest\obj\Debug\LandConquest.csproj.CoreCompileInputs.cac
 E:\LandConquest\LandConquest\obj\Debug\LandConquest.csproj.CopyComplete
 E:\LandConquest\LandConquest\obj\Debug\LandConquest.exe
 E:\LandConquest\LandConquest\obj\Debug\LandConquest.pdb
+C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.csprojAssemblyReference.cache

@@ -31,6 +31,10 @@ namespace LandConquest.DialogWIndows
         ArmyModel armyModel;
         PeasantModel peasantModel;
         Army army;
+        AuctionModel auctionModel;
+        string itemName;
+        string itemGroup;
+        string itemSubgroup;
 
         public CreateListingDialog(SqlConnection _connection, Player _player)
         {
@@ -56,7 +60,13 @@ namespace LandConquest.DialogWIndows
             armyModel = new ArmyModel();
             peasantModel = new PeasantModel();
 
+            auctionModel = new AuctionModel();
+
             army = new Army();
+
+            itemName = null;
+            itemGroup = null;
+            itemSubgroup = null;
 
             peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
 
@@ -97,6 +107,9 @@ namespace LandConquest.DialogWIndows
         private void woodButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             showListingDetails();
+            itemName = "Wood";
+            itemGroup = "Resources";
+            itemSubgroup = "";
         }
 
         private void stoneButton_MouseDown(object sender, MouseButtonEventArgs e)
@@ -196,6 +209,11 @@ namespace LandConquest.DialogWIndows
             textBoxAmount.Visibility = Visibility.Visible;
             textBoxPrice.Visibility = Visibility.Visible;
             buttonPlace.Visibility = Visibility.Visible;
+        }
+
+        private void buttonPlace_Click(object sender, RoutedEventArgs e)
+        {
+            auctionModel.AddListing(Convert.ToInt32(textBoxAmount.Text), itemName, itemGroup, itemSubgroup, Convert.ToInt32(textBoxPrice.Text), player, connection);
         }
     }
 }
