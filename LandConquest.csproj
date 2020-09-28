@@ -457,6 +457,10 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\Armies\SIE-0.png" />
+    <Resource Include="Pictures\Armies\SIE-1.png" />
+    <Resource Include="Pictures\Armies\TRO-0.png" />
+    <Resource Include="Pictures\Armies\TRO-1.png" />
     <Resource Include="Pictures\war-test.png" />
     <Resource Include="Pictures\Armies\AR-0.png" />
     <Resource Include="Pictures\Armies\AR-1.png" />

@@ -59,14 +59,6 @@ namespace LandConquest.Forms
             gridForArmies.Columns = 30;
             gridForArmies.Rows = 20;
 
-            Thickness mapMargin = localWarMap.Margin;
-            mapMargin.Left = 50;                           
-            localWarMap.Margin = mapMargin;
-
-            Thickness armyMargin = gridForArmies.Margin;
-            armyMargin.Left = 50;
-            gridForArmies.Margin = armyMargin;
-
             localWarMap.Width = columnWidth * localWarMap.Columns;
             gridForArmies.Width = columnWidth * localWarMap.Columns;
             localWarMap.Height = rowHeight * localWarMap.Rows;
@@ -113,19 +105,21 @@ namespace LandConquest.Forms
                 imgArmy.Width = 40;
                 imgArmy.Height = 40;
 
-                if (armies[i].ArmySide == 0)
-                {
-                    SwitchArmyTypeNoSide(armies[i].ArmyType, imgArmy);
-                }
-                else
-                {
-                    SwitchArmyTypeWithSide(armies[i].ArmyType, imgArmy);
-                }
 
-                armyImages.Add(imgArmy);
 
                 if (((Image)gridForArmies.Children[armies[i].LocalLandId]).Source == emptyImage.Source)
                 {
+                    if (armies[i].ArmySide == 0)
+                    {
+                        SwitchArmyTypeNoSide(armies[i].ArmyType, imgArmy);
+                    }
+                    else
+                    {
+                        SwitchArmyTypeWithSide(armies[i].ArmyType, imgArmy);
+                    }
+
+                    armyImages.Add(imgArmy);
+
                     gridForArmies.Children.RemoveAt(armies[i].LocalLandId);
                 }
                 else
@@ -133,7 +127,32 @@ namespace LandConquest.Forms
                     if (((Image)gridForArmies.Children[armies[i].LocalLandId]).Source != imgArmy.Source)
                     {
                         gridForArmies.Children.RemoveAt(armies[i].LocalLandId);
-                        imgArmy.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
+                        List<ArmyInBattle> armyInOneTileTest = new List<ArmyInBattle>();
+                        for (int j = 0; j < armies.Count(); j++)
+                        {
+                            if (armies[j].LocalLandId == armies[i].LocalLandId)
+                            {
+                                armyInOneTileTest.Add(armies[j]);
+                            }
+                        }
+
+                        if (battleModel.IfTheBattleShouldStart(armyInOneTileTest))
+                        {
+                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
+                        }
+                        else
+                        {
+                            if (armies[i].ArmySide == 0)
+                            {
+                                SwitchArmyTypeNoSide(battleModel.ReturnTypeOfArmy(armyInOneTileTest), imgArmy);
+                            }
+                            else
+                            {
+                                SwitchArmyTypeWithSide(battleModel.ReturnTypeOfArmy(armyInOneTileTest), imgArmy);
+                            }
+                        }
+
+                        //imgArmy.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
                     }
                 }
                 gridForArmies.Children.Insert(armies[i].LocalLandId, imgArmy);
@@ -641,12 +660,12 @@ namespace LandConquest.Forms
                     }
                 case 4:
                     {
-                        armyImage.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/Armies/SIE-0.png", UriKind.Relative));
                         break;
                     }
                 case 5:
                     {
-                        armyImage.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/Armies/TRO-0.png", UriKind.Relative));
                         break;
                     }
             }
@@ -673,12 +692,12 @@ namespace LandConquest.Forms
                     }
                 case 4:
                     {
-                        armyImage.Source = new BitmapImage(new Uri("/Pictures/catapult.png", UriKind.Relative));
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/Armies/SIE-1.png", UriKind.Relative));
                         break;
                     }
                 case 5:
                     {
-                        armyImage.Source = new BitmapImage(new Uri("/Pictures/peasants_total.png", UriKind.Relative));
+                        armyImage.Source = new BitmapImage(new Uri("/Pictures/Armies/TRO-1.png", UriKind.Relative));
                         break;
                     }
             }
