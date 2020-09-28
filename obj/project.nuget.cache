@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zft/to9NjkmR/5XQEAg9is07w4LCAkqTYEHv/bTcijUvo1i5gpGjXbfmlRSF0ndP2CCJ0s5lo9OC21wO97FqVg==",
+  "dgSpecHash": "/ptO9OOUwFgF7ooTOR7OFBR+ByJuU7aDxf7UXk/07iU3WsVIAOjFr2mEeptni2X8zC6D7EWuXMacSuiE1R5uCw==",
   "success": true,
-  "projectFilePath": "E:\\LandConquest\\LandConquest\\LandConquest.csproj",
+  "projectFilePath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest-1\\LandConquest.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\User\\.nuget\\packages\\microsoft.vcrtforwarders.140\\1.0.6\\microsoft.vcrtforwarders.140.1.0.6.nupkg.sha512"
+    "C:\\Users\\green\\.nuget\\packages\\microsoft.vcrtforwarders.140\\1.0.6\\microsoft.vcrtforwarders.140.1.0.6.nupkg.sha512"
   ],
   "logs": []
 }
