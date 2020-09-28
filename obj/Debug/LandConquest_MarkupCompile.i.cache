@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\itk\source\repos\LandConquest\obj\Debug\
+C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\
 LandConquest
 none
 false
 DEBUG;TRACE
-C:\Users\itk\source\repos\LandConquest\App.xaml
+C:\Users\green\Documents\GitHub\LandConquest-1\App.xaml
 221295337984
 3-2041200384
-59-913828447
-133-985995534
+591003893733
+133-400705097
 DialogWIndows\CreateListingDialog.xaml;DialogWIndows\EstablishStateDialog.xaml;DialogWIndows\ManufactureBuyingDialog.xaml;DialogWIndows\ManufactureUpgradeDialog.xaml;DialogWIndows\SplitArmyDialog.xaml;Forms\AuctionWindow.xaml;Forms\AuthorisationWindow.xaml;Forms\ChatWindow.xaml;Forms\CountryWindow.xaml;Forms\MainWindow.xaml;Forms\ManufactureWindow.xaml;Forms\MarketWindow.xaml;Forms\PaymentWindow.xaml;Forms\ProfileWindow.xaml;Forms\RatingWindow.xaml;Forms\RecruitWindow.xaml;Forms\StorageWindow.xaml;Forms\WarResultWindow.xaml;Forms\WarWindow.xaml;Resources\GlobalMap.xaml;Resources\ResourceMap.xaml;StylesDictionary.xaml;
 
 True
