@@ -139,6 +139,7 @@ namespace LandConquest.Forms
                         if (battleModel.IfTheBattleShouldStart(armyInOneTileTest))
                         {
                             imgArmy.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
+                            imgArmy.MouseDown += ImgWar_MouseButtonDown;
                         }
                         else
                         {
@@ -296,6 +297,7 @@ namespace LandConquest.Forms
                     if (battleModel.IfTheBattleShouldStart(armyInBattlesInCurrentTile))
                     {
                         imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
+                        imgArmySelected.MouseDown += ImgWar_MouseButtonDown;
                         Battle battle = new Battle();
                         battle.BattleId = generateId();
                         battle.WarId = war.WarId;
@@ -493,6 +495,12 @@ namespace LandConquest.Forms
         {
             SplitArmyDialog dialogWindow = new SplitArmyDialog(connection, armyInBattlesInCurrentTile[0], war);
             dialogWindow.Show();
+        }
+
+        private void ImgWar_MouseButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            warGrid.Visibility = Visibility.Visible;
+
         }
 
         private void armyPageArrowLeft_Click(object sender, RoutedEventArgs e)

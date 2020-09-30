@@ -892,5 +892,10 @@ namespace LandConquest.Forms
             auctionWindow.Owner = this;
             auctionWindow.Show();
         }
+
+        private void buyCoins_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
