@@ -138,8 +138,12 @@ namespace LandConquest.Forms
 
                         if (battleModel.IfTheBattleShouldStart(armyInOneTileTest))
                         {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
-                            imgArmy.MouseDown += ImgWar_MouseButtonDown;
+                            Image imgBattle = new Image();
+                            imgBattle.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
+                            //imgArmy.MouseDown += ImgWar_MouseButtonDown;
+                            imgBattle.MouseLeftButtonDown += ImgWar_MouseButtonDown;
+                            imgBattle.Cursor = Cursors.Hand;
+                            imgArmy = imgBattle;
                         }
                         else
                         {
@@ -499,8 +503,10 @@ namespace LandConquest.Forms
 
         private void ImgWar_MouseButtonDown(object sender, MouseButtonEventArgs e)
         {
-            warGrid.Visibility = Visibility.Visible;
+            //arm
 
+
+            warGrid.Visibility = Visibility.Visible;
         }
 
         private void armyPageArrowLeft_Click(object sender, RoutedEventArgs e)
