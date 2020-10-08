@@ -67,25 +67,25 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/panel.png" Stretch="UniformToFill"/>
             </Grid.Background>
             <Image Margin="15,10,228.6,260" Height="30" Width="30"  Source="/Pictures/Armies/TRO-0.png"/>
-            <Label x:Name="warriorsAll_Copy" Content="0"  Margin="91,16,104.6,259"/>
+            <Label x:Name="warriorsAllLeft" Content="0"  Margin="91,16,104.6,259"/>
             <Image Margin="15,40,228.6,230" Height="30" Width="30" Source="/Pictures/Armies/INF-0.png"/>
-            <Label x:Name="warriorsInfantry_Copy" Content="0"  Margin="91,46,104.6,229"/>
+            <Label x:Name="warriorsInfantryLeft" Content="0"  Margin="91,46,104.6,229"/>
             <Image Margin="15,70,228.6,200" Height="30" Width="30" Source="/Pictures/Armies/AR-0.png"/>
-            <Label x:Name="warriorsArchers_Copy" Content="0"  Margin="91,76,104.6,200"/>
+            <Label x:Name="warriorsArchersLeft" Content="0"  Margin="91,76,104.6,200"/>
             <Image Margin="15,100,228.6,170" Height="30" Width="30" Source="/Pictures/Armies/KNT-0.png"/>
-            <Label x:Name="warriorsKnights_Copy" Content="0"  Margin="91,106,104.6,170"/>
+            <Label x:Name="warriorsKnightsLeft" Content="0"  Margin="91,106,104.6,170"/>
             <Image Margin="15,129,228.6,141" Height="30" Width="30" Source="/Pictures/Armies/SIE-0.png"/>
-            <Label x:Name="warriorsSiege_Copy" Content="0"  Margin="91,135,104.6,141"/>
+            <Label x:Name="warriorsSiegeLeft" Content="0"  Margin="91,135,104.6,141"/>
             <Image Margin="260,10,10,260" Height="30" Width="30"  Source="/LandConquest;component/Pictures/Armies/TRO-1.png" Grid.ColumnSpan="2"/>
             <Image Margin="260,40,10,230" Height="30" Width="30" Source="/LandConquest;component/Pictures/Armies/INF-1.png" Grid.ColumnSpan="2"/>
             <Image Margin="260,70,10,200" Height="30" Width="30" Source="/LandConquest;component/Pictures/Armies/AR-1.png" Grid.ColumnSpan="2"/>
             <Image Margin="260,100,10,170" Height="30" Width="30" Source="/LandConquest;component/Pictures/Armies/KNT-1.png" Grid.ColumnSpan="2"/>
             <Image Margin="260,129,10,141" Height="30" Width="30" Source="/LandConquest;component/Pictures/Armies/SIE-1.png" Grid.ColumnSpan="2"/>
-            <Label x:Name="warriorsAll_Copy1" Content="0"  Margin="186,16,9.6,259"/>
-            <Label x:Name="warriorsInfantry_Copy1" Content="0"  Margin="186,46,9.6,229"/>
-            <Label x:Name="warriorsArchers_Copy1" Content="0"  Margin="186,76,9.6,200"/>
-            <Label x:Name="warriorsKnights_Copy1" Content="0"  Margin="186,106,9.6,170"/>
-            <Label x:Name="warriorsSiege_Copy1" Content="0"  Margin="186,135,9.6,141"/>
+            <Label x:Name="warriorsAllRight" Content="0"  Margin="186,16,9.6,259"/>
+            <Label x:Name="warriorsInfantryRight" Content="0"  Margin="186,46,9.6,229"/>
+            <Label x:Name="warriorsArchersRight" Content="0"  Margin="186,76,9.6,200"/>
+            <Label x:Name="warriorsKnightsRight" Content="0"  Margin="186,106,9.6,170"/>
+            <Label x:Name="warriorsSiegeRight" Content="0"  Margin="186,135,9.6,141"/>
 
         </Grid>
 
