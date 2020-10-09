@@ -141,7 +141,8 @@ namespace LandConquest.Forms
                             Image imgBattle = new Image();
                             imgBattle.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
                             //imgArmy.MouseDown += ImgWar_MouseButtonDown;
-                            imgBattle.MouseLeftButtonDown += ImgWar_MouseButtonDown;
+                            imgBattle.MouseLeftButtonDown += ImgWar_MouseLeftButtonDown;
+                            imgBattle.MouseRightButtonDown += ImgArmy_MouseRightButtonDown;
                             imgBattle.Cursor = Cursors.Hand;
                             imgArmy = imgBattle;
                         }
@@ -301,13 +302,21 @@ namespace LandConquest.Forms
                     if (battleModel.IfTheBattleShouldStart(armyInBattlesInCurrentTile))
                     {
                         imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
-                        imgArmySelected.MouseDown += ImgWar_MouseButtonDown;
+                        imgArmySelected.MouseLeftButtonDown += ImgWar_MouseLeftButtonDown;
+                        imgArmySelected.MouseRightButtonDown += ImgArmy_MouseRightButtonDown;
                         Battle battle = new Battle();
                         battle.BattleId = generateId();
                         battle.WarId = war.WarId;
                         battle.LocalLandId = armyInBattlesInCurrentTile[0].LocalLandId;
 
-                        battleModel.InsertBattle(connection, battle);
+                        if (!theWarStarted(index))
+                        {
+                            
+                            battleModel.InsertBattle(connection, battle);
+                        } else
+                        {
+                            imgArmySelected = null;
+                        }
                     }
                     else
                     {
@@ -501,7 +510,7 @@ namespace LandConquest.Forms
             dialogWindow.Show();
         }
 
-        private void ImgWar_MouseButtonDown(object sender, MouseButtonEventArgs e)
+        private void ImgWar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             ArmyInBattle leftSide = new ArmyInBattle();
             ArmyInBattle rightSide = new ArmyInBattle();
@@ -799,6 +808,14 @@ namespace LandConquest.Forms
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvmxyz0123456789";
             return new string(Enumerable.Repeat(chars, 16)
               .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+
+        public bool theWarStarted(int index)
+        {
+            bool theWarStarted = battleModel.DidTheWarStarted(connection, index, war);
+            Console.WriteLine(theWarStarted);
+            return theWarStarted;
         }
     }
 }
