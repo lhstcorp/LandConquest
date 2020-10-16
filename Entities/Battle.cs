@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LandConquest.Entities
 {
-    class Battle
+    public class Battle
     {
         [Required]
         [Column("battle_id")]

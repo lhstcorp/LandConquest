@@ -360,5 +360,32 @@ namespace LandConquest.Models
 
             battleCommand.Dispose();
         }
+
+
+        public bool DidTheWarStarted(SqlConnection connection, int index, War war)
+        {
+            String Query = "SELECT * FROM dbo.BattleData WHERE war_id = @war_id AND local_land_id = @local_land_id";
+            var Command = new SqlCommand(Query, connection);
+
+            Command.Parameters.AddWithValue("@war_id", war.WarId);
+            Command.Parameters.AddWithValue("@local_land_id", index);
+
+            //string armyId = "";
+            int count = 0;
+            using (var reader = Command.ExecuteReader())
+            {
+                //var stateId = reader.GetOrdinal("war_id");
+                while (reader.Read())
+                {
+                    //armyId = reader.GetString(war);
+                    count++;
+                }
+            }
+
+            if (count == 0)
+                return false;
+
+            return true;
+        }
     }
 }

@@ -138,7 +138,13 @@ namespace LandConquest.Forms
 
                         if (battleModel.IfTheBattleShouldStart(armyInOneTileTest))
                         {
-                            imgArmy.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
+                            Image imgBattle = new Image();
+                            imgBattle.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
+                            //imgArmy.MouseDown += ImgWar_MouseButtonDown;
+                            imgBattle.MouseLeftButtonDown += ImgWar_MouseLeftButtonDown;
+                            imgBattle.MouseRightButtonDown += ImgArmy_MouseRightButtonDown;
+                            imgBattle.Cursor = Cursors.Hand;
+                            imgArmy = imgBattle;
                         }
                         else
                         {
@@ -296,12 +302,21 @@ namespace LandConquest.Forms
                     if (battleModel.IfTheBattleShouldStart(armyInBattlesInCurrentTile))
                     {
                         imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
+                        imgArmySelected.MouseLeftButtonDown += ImgWar_MouseLeftButtonDown;
+                        imgArmySelected.MouseRightButtonDown += ImgArmy_MouseRightButtonDown;
                         Battle battle = new Battle();
                         battle.BattleId = generateId();
                         battle.WarId = war.WarId;
                         battle.LocalLandId = armyInBattlesInCurrentTile[0].LocalLandId;
 
-                        battleModel.InsertBattle(connection, battle);
+                        if (!theWarStarted(index))
+                        {
+                            
+                            battleModel.InsertBattle(connection, battle);
+                        } else
+                        {
+                            imgArmySelected = null;
+                        }
                     }
                     else
                     {
@@ -493,6 +508,56 @@ namespace LandConquest.Forms
         {
             SplitArmyDialog dialogWindow = new SplitArmyDialog(connection, armyInBattlesInCurrentTile[0], war);
             dialogWindow.Show();
+        }
+
+        private void ImgWar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ArmyInBattle leftSide = new ArmyInBattle();
+            ArmyInBattle rightSide = new ArmyInBattle();
+            int index = gridForArmies.Children.IndexOf((Image)sender);
+
+            List<ArmyInBattle> armyInBattlesInCurrentTile = new List<ArmyInBattle>();
+
+            for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, index, war); i++)
+            {
+                armyInBattlesInCurrentTile.Add(new ArmyInBattle());
+            }
+
+            armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, index);
+
+            for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++)
+                if (armyInBattlesInCurrentTile[i].ArmyType == 0)
+                {
+                    //leftSide.Add(armyInBattlesInCurrentTile[i]);
+                    leftSide.ArmySizeCurrent += armyInBattlesInCurrentTile[i].ArmySizeCurrent;
+                    leftSide.ArmyInfantryCount += armyInBattlesInCurrentTile[i].ArmyInfantryCount;
+                    leftSide.ArmyArchersCount += armyInBattlesInCurrentTile[i].ArmyArchersCount;
+                    leftSide.ArmyHorsemanCount += armyInBattlesInCurrentTile[i].ArmyHorsemanCount;
+                    leftSide.ArmySiegegunCount += armyInBattlesInCurrentTile[i].ArmySiegegunCount;
+                }
+                else
+                {
+                    rightSide.ArmySizeCurrent += armyInBattlesInCurrentTile[i].ArmySizeCurrent;
+                    rightSide.ArmyInfantryCount += armyInBattlesInCurrentTile[i].ArmyInfantryCount;
+                    rightSide.ArmyArchersCount += armyInBattlesInCurrentTile[i].ArmyArchersCount;
+                    rightSide.ArmyHorsemanCount += armyInBattlesInCurrentTile[i].ArmyHorsemanCount;
+                    rightSide.ArmySiegegunCount += armyInBattlesInCurrentTile[i].ArmySiegegunCount;
+                }
+
+
+            warriorsAllLeft.Content = leftSide.ArmySizeCurrent;
+            warriorsInfantryLeft.Content = leftSide.ArmyInfantryCount;
+            warriorsArchersLeft.Content = leftSide.ArmyArchersCount;
+            warriorsKnightsLeft.Content = leftSide.ArmyHorsemanCount;
+            warriorsSiegeLeft.Content = leftSide.ArmySiegegunCount;
+
+            warriorsAllRight.Content = rightSide.ArmySizeCurrent;
+            warriorsInfantryRight.Content = rightSide.ArmyInfantryCount;
+            warriorsArchersRight.Content = rightSide.ArmyArchersCount;
+            warriorsKnightsRight.Content = rightSide.ArmyHorsemanCount;
+            warriorsSiegeRight.Content = rightSide.ArmySiegegunCount;
+
+            warGrid.Visibility = Visibility.Visible;
         }
 
         private void armyPageArrowLeft_Click(object sender, RoutedEventArgs e)
@@ -743,6 +808,14 @@ namespace LandConquest.Forms
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvmxyz0123456789";
             return new string(Enumerable.Repeat(chars, 16)
               .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+
+        public bool theWarStarted(int index)
+        {
+            bool theWarStarted = battleModel.DidTheWarStarted(connection, index, war);
+            Console.WriteLine(theWarStarted);
+            return theWarStarted;
         }
     }
 }

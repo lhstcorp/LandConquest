@@ -127,7 +127,7 @@
         <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="58" Margin="491,5,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/food.png" Width="56" Cursor="Hand" MouseDown="marketImage_MouseDown"/>
         <Image x:Name="CountryImage"  HorizontalAlignment="Left" Height="58" Margin="552,5,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/parlament.png" Width="56" Cursor="Hand" MouseDown="CountryImage_MouseDown"/>
         <Image x:Name="LandImage"  HorizontalAlignment="Left" Height="58" Margin="608,10,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/landMainBuilding.png" Width="56" Cursor="Hand" MouseDown="LandImage_MouseDown"/>
-        <Button x:Name="buyCoins" Content="Buy" FontSize="12" HorizontalAlignment="Left" Margin="224,59,0,0" VerticalAlignment="Top" Width="55" Height="29" Background="#FFDD9F5A" BorderBrush="#FF541E0B"/>
+        <Button x:Name="buyCoins" Content="Buy" FontSize="12" HorizontalAlignment="Left" Margin="224,59,0,0" VerticalAlignment="Top" Width="55" Height="29" Background="#FFDD9F5A" BorderBrush="#FF541E0B" Click="buyCoins_Click"/>
         <Button x:Name="OpenAuction" Content="Auction" Height="35" Margin="0,10,549,0" VerticalAlignment="Top" Background="#FFE1A35E" BorderBrush="#FF501F09" Click="OpenAuction_Click" HorizontalAlignment="Right" Width="112"/>
 
         <Grid.Background>
