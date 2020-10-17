@@ -315,7 +315,7 @@ namespace LandConquest.Forms
                             battleModel.InsertBattle(connection, battle);
                         } else
                         {
-                            imgArmySelected = null;
+                            //imgArmySelected = null;
                         }
                     }
                     else
@@ -522,13 +522,14 @@ namespace LandConquest.Forms
             {
                 armyInBattlesInCurrentTile.Add(new ArmyInBattle());
             }
-
+           
             armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, index);
 
             for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++)
-                if (armyInBattlesInCurrentTile[i].ArmyType == 0)
+            {
+                Console.WriteLine(armyInBattlesInCurrentTile[i].ArmyId + " = " + armyInBattlesInCurrentTile[i].ArmySide);
+                if (armyInBattlesInCurrentTile[i].ArmySide == 0)
                 {
-                    //leftSide.Add(armyInBattlesInCurrentTile[i]);
                     leftSide.ArmySizeCurrent += armyInBattlesInCurrentTile[i].ArmySizeCurrent;
                     leftSide.ArmyInfantryCount += armyInBattlesInCurrentTile[i].ArmyInfantryCount;
                     leftSide.ArmyArchersCount += armyInBattlesInCurrentTile[i].ArmyArchersCount;
@@ -543,7 +544,7 @@ namespace LandConquest.Forms
                     rightSide.ArmyHorsemanCount += armyInBattlesInCurrentTile[i].ArmyHorsemanCount;
                     rightSide.ArmySiegegunCount += armyInBattlesInCurrentTile[i].ArmySiegegunCount;
                 }
-
+            }
 
             warriorsAllLeft.Content = leftSide.ArmySizeCurrent;
             warriorsInfantryLeft.Content = leftSide.ArmyInfantryCount;
