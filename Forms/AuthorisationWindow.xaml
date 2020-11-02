@@ -28,7 +28,7 @@
                 </TransformGroup>
             </PasswordBox.RenderTransform>
         </PasswordBox>
-        <Button x:Name="buttonLogin"  Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="610,256,110.6,178.4" VerticalAlignment="Center" Click="buttonLogin_Click" Height="36" BorderThickness="0" BorderBrush="White" Background="{x:Null}"/>
+        <Button x:Name="buttonLogin"  Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="610,256,110.6,178.4" VerticalAlignment="Center" Click="buttonLogin_Click" Height="36" BorderThickness="0" BorderBrush="White" Background="{x:Null}" RenderTransformOrigin="0.501,0.5"/>
 
         <TextBox x:Name="textBoxNewLogin" TextWrapping="Wrap" Text="" Margin="42,120,0,312" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"  
                      Background="{x:Null}" materialDesign:HintAssist.Hint=" New login" CaretBrush="Black" HorizontalAlignment="Left" Width="178" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" />
