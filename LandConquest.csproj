@@ -116,7 +116,7 @@
     </Compile>
     <Compile Include="Entities\Army.cs" />
     <Compile Include="Entities\ArmyInBattle.cs" />
-    <Compile Include="Entities\Auction.cs" />
+    <Compile Include="Entities\AuctionListings.cs" />
     <Compile Include="Entities\Battle.cs" />
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />

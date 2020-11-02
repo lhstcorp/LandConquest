@@ -123,7 +123,7 @@
             </Button.Background>
         </Button>
         <Button x:Name="test2" IsEnabled="False" HorizontalAlignment="Left" Height="97" Margin="191,173,0,0" VerticalAlignment="Top" Width="28" Click="test2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="#FFE1A35E"/>
-        <Button x:Name="buttonChat" Content="Show chat" HorizontalAlignment="Left" Margin="1321,293,0,0" VerticalAlignment="Top" Width="224" Click="buttonChat_Click" Background="#FFE1A35E" BorderBrush="#FF501F07"/>
+        <Button x:Name="buttonChat" Content="Show chat" Margin="26,805,0,0" Click="buttonChat_Click" Background="#FFE1A35E" BorderBrush="#FF501F07" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="281"/>
         <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="58" Margin="491,5,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/food.png" Width="56" Cursor="Hand" MouseDown="marketImage_MouseDown"/>
         <Image x:Name="CountryImage"  HorizontalAlignment="Left" Height="58" Margin="552,5,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/parlament.png" Width="56" Cursor="Hand" MouseDown="CountryImage_MouseDown"/>
         <Image x:Name="LandImage"  HorizontalAlignment="Left" Height="58" Margin="608,10,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/landMainBuilding.png" Width="56" Cursor="Hand" MouseDown="LandImage_MouseDown"/>
