@@ -8,8 +8,13 @@ using System.Threading.Tasks;
 
 namespace LandConquest.Entities
 {
-    public class Auction
+    public class AuctionListings
     {
+        [Key]
+        [Required]
+        [Column("listing_id")]
+        public string ListingId { get; set; }
+
         [Required]
         [Column("qty")]
         public int Qty { get; set; }
