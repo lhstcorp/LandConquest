@@ -895,7 +895,10 @@ namespace LandConquest.Forms
 
         private void buyCoins_Click(object sender, RoutedEventArgs e)
         {
-
+            BalanceReplenishmentDialog dialog = new BalanceReplenishmentDialog(player, connection);
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            dialog.Owner = this;
+            dialog.Show();
         }
     }
 }
