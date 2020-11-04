@@ -293,5 +293,20 @@ namespace LandConquest.Models
 
             return list;
         }
+
+        public Player UpdatePlayerDonationMoney(Player player, SqlConnection connection)
+        {
+            String taxesQuery = "UPDATE dbo.PlayerData SET player_donation = @player_donation WHERE player_id = @player_id ";
+
+            var taxesCommand = new SqlCommand(taxesQuery, connection);
+            taxesCommand.Parameters.AddWithValue("@player_donation", player.PlayerDonation);
+            taxesCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
+
+            taxesCommand.ExecuteNonQuery();
+
+            taxesCommand.Dispose();
+
+            return player;
+        }
     }
 }

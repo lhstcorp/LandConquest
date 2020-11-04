@@ -105,18 +105,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DialogWIndows\BalanceReplenishmentDialog.xaml.cs">
+      <DependentUpon>BalanceReplenishmentDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\CreateListingDialog.xaml.cs">
       <DependentUpon>CreateListingDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="DialogWIndows\EstablishStateDialog.xaml.cs">
       <DependentUpon>EstablishStateDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\PaymentDialog.xaml.cs">
+      <DependentUpon>PaymentDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\SplitArmyDialog.xaml.cs">
       <DependentUpon>SplitArmyDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Entities\Army.cs" />
     <Compile Include="Entities\ArmyInBattle.cs" />
-    <Compile Include="Entities\Auction.cs" />
+    <Compile Include="Entities\AuctionListings.cs" />
     <Compile Include="Entities\Battle.cs" />
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />
@@ -175,6 +181,10 @@
     <Compile Include="StylesDictionary.xaml.cs">
       <DependentUpon>StylesDictionary.xaml</DependentUpon>
     </Compile>
+    <Page Include="DialogWIndows\BalanceReplenishmentDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DialogWIndows\CreateListingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\ManufactureUpgradeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\PaymentDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -459,6 +473,8 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\visa-mastercard.png" />
+    <Resource Include="Pictures\paypal_secure_payments.png" />
     <Resource Include="Pictures\Armies\SIE-0.png" />
     <Resource Include="Pictures\Armies\SIE-1.png" />
     <Resource Include="Pictures\Armies\TRO-0.png" />
