@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Threading;
+using System.Windows.Threading;
 
 namespace LandConquest.Forms
 {
@@ -69,6 +70,7 @@ namespace LandConquest.Forms
             gridForArmies.HorizontalAlignment = HorizontalAlignment.Left;
             gridForArmies.VerticalAlignment = VerticalAlignment.Center;
             Loaded += WarWin_Loaded;
+
         }
 
         private void WarWin_Loaded(object sender, RoutedEventArgs e)
@@ -89,6 +91,7 @@ namespace LandConquest.Forms
             mainWarWinGrid.Children.Add(localWarMap);
 
             ShowArmiesOnMap();
+            SyncWithServer();
         }
 
         public void ShowArmiesOnMap()
@@ -311,9 +314,10 @@ namespace LandConquest.Forms
 
                         if (!theWarStarted(index))
                         {
-                            
+
                             battleModel.InsertBattle(connection, battle);
-                        } else
+                        }
+                        else
                         {
                             //imgArmySelected = null;
                         }
@@ -522,7 +526,7 @@ namespace LandConquest.Forms
             {
                 armyInBattlesInCurrentTile.Add(new ArmyInBattle());
             }
-           
+
             armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, index);
 
             for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++)
@@ -818,5 +822,29 @@ namespace LandConquest.Forms
             Console.WriteLine(theWarStarted);
             return theWarStarted;
         }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine(DateTime.Now.ToLongTimeString());
+        }
+        public void SyncWithServer()
+        {
+            DispatcherTimer syncTimer = new DispatcherTimer();
+            //syncTimer.Interval = TimeSpan.FromSeconds(60 - DateTime.UtcNow.Second);
+            //Thread.Sleep(60000 - DateTime.UtcNow.Second * 1000); // на миллисекунды забьём. Пока на тысячу умножит - миллисекунды пройдут) Ещё таймер создавать.
+            //timer.Tick += timer_Tick;
+            //TimerCallback tm = new TimerCallback(tickTimerT);
+            //Timer timer = new Timer(tickTimerT, null, 60000 - DateTime.UtcNow.Second * 1000, 2000);
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(10);
+            timer.Tick += timer_Tick;
+
+            timer.Start();
+        }
+
+
     }
+
 }
+
+
