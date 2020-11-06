@@ -42,6 +42,7 @@ namespace LandConquest.Forms
         List<bool> selectedArmiesForUnion;
         List<ArmyInBattle> yourArmiesInCurrentTile = new List<ArmyInBattle>();
         int SelectionCounter;
+        DispatcherTimer syncTimer;
 
         //Canvas localWarArmyLayer = new Canvas();
         public WarWindow(SqlConnection _connection, Player _player, ArmyInBattle _army, List<ArmyInBattle> _armies, War _war)
@@ -823,18 +824,31 @@ namespace LandConquest.Forms
             return theWarStarted;
         }
 
-        void timer_Tick(object sender, EventArgs e)
-        {
-            Console.WriteLine(DateTime.Now.ToLongTimeString());
-        }
+
         public void SyncWithServer()
         {
-            DispatcherTimer syncTimer = new DispatcherTimer();
+            //DispatcherTimer syncTimer = new DispatcherTimer();
             //syncTimer.Interval = TimeSpan.FromSeconds(60 - DateTime.UtcNow.Second);
             //Thread.Sleep(60000 - DateTime.UtcNow.Second * 1000); // на миллисекунды забьём. Пока на тысячу умножит - миллисекунды пройдут) Ещё таймер создавать.
             //timer.Tick += timer_Tick;
             //TimerCallback tm = new TimerCallback(tickTimerT);
             //Timer timer = new Timer(tickTimerT, null, 60000 - DateTime.UtcNow.Second * 1000, 2000);
+            syncTimer = new DispatcherTimer();
+            if (60 - DateTime.UtcNow.Second >= 10)
+            {
+                syncTimer.Interval = TimeSpan.FromSeconds(60 - DateTime.UtcNow.Second);
+                syncTimer.Tick += LetsTick;
+
+                syncTimer.Start();
+            } else
+            {
+                Thread.Sleep();
+            }
+        }
+
+        public void LetsTick(object sender, EventArgs e)
+        {
+            syncTimer.Stop();
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(10);
             timer.Tick += timer_Tick;
@@ -842,7 +856,10 @@ namespace LandConquest.Forms
             timer.Start();
         }
 
-
+        public void timer_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine(DateTime.Now.ToLongTimeString());
+        }
     }
 
 }
