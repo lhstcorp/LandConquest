@@ -23,6 +23,7 @@ namespace LandConquest.Forms
         Boolean f_armySelected = false;
         Boolean f_canMoveArmy = false;
         int INDEX;
+        const int syncTick = 30; //sec
 
         ArmyModel armyModel = new ArmyModel();
         BattleModel battleModel = new BattleModel();
@@ -42,7 +43,10 @@ namespace LandConquest.Forms
         List<bool> selectedArmiesForUnion;
         List<ArmyInBattle> yourArmiesInCurrentTile = new List<ArmyInBattle>();
         int SelectionCounter;
+
         DispatcherTimer syncTimer;
+        List<Image> playerArmiesImages = new List<Image>();
+        List<ArmyInBattle> playerArmies = new List<ArmyInBattle>();
 
         //Canvas localWarArmyLayer = new Canvas();
         public WarWindow(SqlConnection _connection, Player _player, ArmyInBattle _army, List<ArmyInBattle> _armies, War _war)
@@ -84,9 +88,6 @@ namespace LandConquest.Forms
                     tile = AddSourceForTile(tile, 0, x, y);
                     localWarMap.Children.Add(tile);
                     gridForArmies.Children.Add(new Image());
-
-
-
                 }
             }
             mainWarWinGrid.Children.Add(localWarMap);
@@ -97,7 +98,9 @@ namespace LandConquest.Forms
 
         public void ShowArmiesOnMap()
         {
-            //emptyImage.Source = new BitmapImage(new Uri("", UriKind.Relative));
+            armies.Clear();
+            armies = battleModel.GetArmiesInfo(connection, armies, war);
+
             armyImages = new List<Image>();
             for (int i = 0; i < armies.Count(); i++)
             {
@@ -208,7 +211,6 @@ namespace LandConquest.Forms
                 }
 
                 armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, INDEX);
-                //armyInBattlesInCurrentTile.Add(selectedArmy);
 
                 Image imgArmyThatStay = new Image();
                 imgArmyThatStay.MouseLeftButtonDown += ImgArmy_MouseLeftButtonDown;
@@ -220,13 +222,10 @@ namespace LandConquest.Forms
 
                 if (armyInBattlesInCurrentTile.Count > 1)
                 {
-                    Console.WriteLine("armyInBattlesInCurrentTile.Count " + armyInBattlesInCurrentTile.Count);
                     for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++)
                     {
                         if (armyInBattlesInCurrentTile[i].PlayerId == player.PlayerId)
                         {
-                            //selectedArmy = armyInBattlesInCurrentTile[i];
-                            //Console.WriteLine()
                             armyInBattlesInCurrentTile.Remove(armyInBattlesInCurrentTile[i]);
 
                             if (selectedArmy.ArmySide == 0)
@@ -254,10 +253,8 @@ namespace LandConquest.Forms
 
                     int index = localWarMap.Children.IndexOf((Image)sender);
                     gridForArmies.Children.RemoveAt(INDEX);
-                    //((Image)gridForArmies.Children[INDEX]).Source = imgArmyThatStay.Source;
                     gridForArmies.Children.Insert(INDEX, imgArmyThatStay);
-                    //gridForArmies.Children.Insert(INDEX, new Image());
-                    gridForArmies.Children.RemoveAt(index); //?
+                    gridForArmies.Children.RemoveAt(index);
                     gridForArmies.Children.Insert(index, imgArmySelected);
 
                     HideAvailableTilesToMove(INDEX);
@@ -265,8 +262,6 @@ namespace LandConquest.Forms
                 }
                 else
                 {
-                    Console.WriteLine("InDeX::::" + INDEX);
-                    //Console.WriteLine("armyInBattlesInCurrentTile.Count " + armyInBattlesInCurrentTile.Count);
                     int index = localWarMap.Children.IndexOf((Image)sender);
                     gridForArmies.Children.RemoveAt(INDEX);
                     gridForArmies.Children.Insert(INDEX, new Image());
@@ -276,6 +271,8 @@ namespace LandConquest.Forms
                     HideAvailableTilesToMove(INDEX);
                     battleModel.UpdateLocalLandOfArmy(connection, selectedArmy, index);
                 }
+
+                imgArmySelected.IsEnabled = false;
             }
         }
 
@@ -344,9 +341,6 @@ namespace LandConquest.Forms
                     battleModel.UpdateLocalLandOfArmy(connection, selectedArmy, index);
 
 
-
-                    //Console.WriteLine("COUNT = " + armyInBattlesInCurrentTile.Count);
-
                     //перезаписываем в этот лист армии что остались
                     armyInBattlesInCurrentTile.Clear();
 
@@ -382,7 +376,8 @@ namespace LandConquest.Forms
                         gridForArmies.Children.RemoveAt(INDEX);
                         gridForArmies.Children.Insert(INDEX, imgArmyThatStay);
                     }
-                    //ShowAvailableTilesToMove(index);
+
+                    imgArmySelected.IsEnabled = false;
                 }
             }
         }
@@ -827,38 +822,84 @@ namespace LandConquest.Forms
 
         public void SyncWithServer()
         {
-            //DispatcherTimer syncTimer = new DispatcherTimer();
-            //syncTimer.Interval = TimeSpan.FromSeconds(60 - DateTime.UtcNow.Second);
-            //Thread.Sleep(60000 - DateTime.UtcNow.Second * 1000); // на миллисекунды забьём. Пока на тысячу умножит - миллисекунды пройдут) Ещё таймер создавать.
-            //timer.Tick += timer_Tick;
-            //TimerCallback tm = new TimerCallback(tickTimerT);
-            //Timer timer = new Timer(tickTimerT, null, 60000 - DateTime.UtcNow.Second * 1000, 2000);
             syncTimer = new DispatcherTimer();
-            if (60 - DateTime.UtcNow.Second >= 10)
+            if (DateTime.UtcNow.Second >= syncTick)
             {
                 syncTimer.Interval = TimeSpan.FromSeconds(60 - DateTime.UtcNow.Second);
-                syncTimer.Tick += LetsTick;
-
-                syncTimer.Start();
-            } else
-            {
-                Thread.Sleep();
             }
+            else
+            {
+                syncTimer.Interval = TimeSpan.FromSeconds(syncTick - DateTime.UtcNow.Second);
+            }
+            syncTimer.Tick += LetsTick;
+            syncTimer.Start();
+
+            searchPlayerArmies();
+            lockAllPlayerArmies();
         }
 
         public void LetsTick(object sender, EventArgs e)
         {
             syncTimer.Stop();
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(10);
+            timer.Interval = TimeSpan.FromSeconds(syncTick);
             timer.Tick += timer_Tick;
 
             timer.Start();
+            
+            firstTick();
+        }
+
+        public void firstTick()
+        {
+            Console.WriteLine(DateTime.Now.ToLongTimeString());
+            searchPlayerArmies();
+            ShowArmiesOnMap();
+            unlockAllPlayerArmies();
+
         }
 
         public void timer_Tick(object sender, EventArgs e)
         {
             Console.WriteLine(DateTime.Now.ToLongTimeString());
+            searchPlayerArmies();
+            ShowArmiesOnMap();
+            unlockAllPlayerArmies();
+        }
+
+
+        public void searchPlayerArmies()
+        {
+            playerArmies.Clear();
+            playerArmiesImages.Clear();
+            playerArmies = battleModel.GetPlayerArmiesInfo(connection, playerArmies, war, player);
+            addPlayerArmiesImagesToList();
+
+        }
+
+        public void addPlayerArmiesImagesToList()
+        {
+            for (int i = 0; i < playerArmies.Count; i++)
+            {
+                playerArmiesImages.Add((Image)gridForArmies.Children[playerArmies[i].LocalLandId]);
+            }
+
+        }
+
+        public void lockAllPlayerArmies()
+        {
+            foreach (Image image in playerArmiesImages)
+            {
+                image.IsEnabled = false;
+            }
+        }
+
+        public void unlockAllPlayerArmies()
+        {
+            foreach (Image image in playerArmiesImages)
+            {
+                image.IsEnabled = true;
+            }
         }
     }
 
