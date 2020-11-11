@@ -1,9 +1,11 @@
 ﻿E:\LandConquest\LandConquest\obj\Debug\GeneratedInternalTypeHelper.g.i.cs
 FE:\LandConquest\LandConquest\App.xaml;;
+FE:\LandConquest\LandConquest\DialogWIndows\BalanceReplenishmentDialog.xaml;;
 FE:\LandConquest\LandConquest\DialogWIndows\CreateListingDialog.xaml;;
 FE:\LandConquest\LandConquest\DialogWIndows\EstablishStateDialog.xaml;;
 FE:\LandConquest\LandConquest\DialogWIndows\ManufactureBuyingDialog.xaml;;
 FE:\LandConquest\LandConquest\DialogWIndows\ManufactureUpgradeDialog.xaml;;
+FE:\LandConquest\LandConquest\DialogWIndows\PaymentDialog.xaml;;
 FE:\LandConquest\LandConquest\DialogWIndows\SplitArmyDialog.xaml;;
 FE:\LandConquest\LandConquest\Forms\AuctionWindow.xaml;;
 FE:\LandConquest\LandConquest\Forms\AuthorisationWindow.xaml;;
