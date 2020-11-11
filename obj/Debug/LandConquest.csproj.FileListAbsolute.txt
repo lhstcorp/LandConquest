@@ -403,3 +403,7 @@ E:\LandConquest\LandConquest\obj\Debug\DialogWIndows\BalanceReplenishmentDialog.
 E:\LandConquest\LandConquest\obj\Debug\DialogWIndows\PaymentDialog.g.cs
 E:\LandConquest\LandConquest\obj\Debug\DialogWIndows\BalanceReplenishmentDialog.baml
 E:\LandConquest\LandConquest\obj\Debug\DialogWIndows\PaymentDialog.baml
+C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\DialogWIndows\BalanceReplenishmentDialog.g.cs
+C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\DialogWIndows\PaymentDialog.g.cs
+C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\DialogWIndows\BalanceReplenishmentDialog.baml
+C:\Users\green\Documents\GitHub\LandConquest-1\obj\Debug\DialogWIndows\PaymentDialog.baml

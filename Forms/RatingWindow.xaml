@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         xmlns:ctrls="clr-namespace:LandConquest.Resources"
         mc:Ignorable="d"
         ShowInTaskbar="False"
@@ -15,7 +16,7 @@
         </Grid.ColumnDefinitions>
         <Image x:Name="profileImage" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" RenderTransformOrigin="0.38,0.495" Margin="0,14,0,0"/>
 
-        <Button x:Name="buttonXP"  HorizontalAlignment="Left" Margin="186,14,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <Button x:Name="buttonXP"  HorizontalAlignment="Left" Margin="186,14,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonXP_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/button_xp.png"/>
             </Button.Background>
@@ -45,10 +46,40 @@
             </Button.Background>
         </Button>
 
-        <Label x:Name="Top1" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="173,132,0,0" VerticalAlignment="Top" Width="107" Height="24"/>
-        <Label x:Name="Top2" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="173,161,0,0" VerticalAlignment="Top" Width="107" Height="27"/>
-        <Label x:Name="Top3" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="173,193,0,0" VerticalAlignment="Top" Width="107" Height="27"/>
-        <Label x:Name="Top4" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="173,220,0,0" VerticalAlignment="Top" Width="107" Height="27"/>
+        <Label x:Name="Top1" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="172,78,0,0" VerticalAlignment="Top" Width="39" Height="27"/>
+        <Label x:Name="Top2" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="172,110,0,0" VerticalAlignment="Top" Width="39" Height="27"/>
+        <Label x:Name="Top3" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="172,142,0,0" VerticalAlignment="Top" Width="39" Height="27"/>
+        <Label x:Name="Top4" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="172,174,0,0" VerticalAlignment="Top" Width="39" Height="27"/>
+        <Label x:Name="Top5" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="172,206,0,0" VerticalAlignment="Top" Width="39" Height="27"/>
+        <Label x:Name="Top6" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="172,238,0,0" VerticalAlignment="Top" Width="39" Height="27"/>
+        <Label x:Name="Top7" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="172,270,0,0" VerticalAlignment="Top" Width="39" Height="27"/>
+        <Label x:Name="Top8" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="172,302,0,0" VerticalAlignment="Top" Width="39" Height="27"/>
+        <Label x:Name="rang1" Content="1." Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="87,78,0,0" VerticalAlignment="Top" Width="20" Height="27"/>
+        <Label x:Name="rang2" Content="2." Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="87,110,0,0" VerticalAlignment="Top" Width="20" Height="27"/>
+        <Label x:Name="rang3" Content="3." Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="87,142,0,0" VerticalAlignment="Top" Width="20" Height="27"/>
+        <Label x:Name="rang4" Content="4." Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="87,174,0,0" VerticalAlignment="Top" Width="20" Height="27"/>
+        <Label x:Name="rang5" Content="5." Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="87,206,0,0" VerticalAlignment="Top" Width="20" Height="27"/>
+        <Label x:Name="rang6" Content="6." Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="87,238,0,0" VerticalAlignment="Top" Width="20" Height="27"/>
+        <Label x:Name="rang7" Content="7." Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="87,270,0,0" VerticalAlignment="Top" Width="20" Height="27"/>
+        <Label x:Name="rang8" Content="8." Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="87,302,0,0" VerticalAlignment="Top" Width="20" Height="27"/>
+        <Label x:Name="name1" Content="1" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="112,78,0,0" VerticalAlignment="Top" Width="59" Height="27"/>
+        <Label x:Name="name2" Content="" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="112,110,0,0" VerticalAlignment="Top" Width="59" Height="27"/>
+        <Label x:Name="name3" Content="" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="112,142,0,0" VerticalAlignment="Top" Width="59" Height="27"/>
+        <Label x:Name="name4" Content="" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="112,174,0,0" VerticalAlignment="Top" Width="59" Height="27"/>
+        <Label x:Name="name5" Content="" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="112,206,0,0" VerticalAlignment="Top" Width="59" Height="27"/>
+        <Label x:Name="name6" Content="" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="112,238,0,0" VerticalAlignment="Top" Width="59" Height="27"/>
+        <Label x:Name="name7" Content="" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="112,270,0,0" VerticalAlignment="Top" Width="59" Height="27"/>
+        <Label x:Name="name8" Content="" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="112,302,0,0" VerticalAlignment="Top" Width="59" Height="27"/>
+        <ListView HorizontalAlignment="Left" Height="239" Margin="280,90,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{Binding playersXp}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Игрок" DisplayMemberBinding="{Binding PlayerName}" Width="100"></GridViewColumn>
+                    <GridViewColumn Header="Рейтинг" DisplayMemberBinding="{Binding PlayerExp}" Width="100"></GridViewColumn>
+          
+                </GridView>
+            </ListView.View>
+            
+        </ListView>
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
