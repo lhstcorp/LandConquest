@@ -11,11 +11,11 @@
 
         <DataGrid AutoGenerateColumns="False" EnableRowVirtualization="True" Height="393" Width="460" HorizontalAlignment="Left" ItemsSource="{Binding listings}" Margin="10,47,0,0" x:Name="auctionDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" Foreground="#CC000000">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="resourceQty" Binding="{Binding Path=qty}" Header="Qty" Width="100" CanUserSort="True"/>
-                <DataGridTextColumn x:Name="itemName" Binding="{Binding Path=subject}" Header="Subject" Width="100" CanUserSort="True"/>
-                <DataGridTextColumn x:Name="timeLeft" Binding="{Binding Path=setTime}" Header="Time" Width="100" CanUserSort="True"/>
-                <DataGridTextColumn x:Name="sellersName" Binding="{Binding Path=sellerName}" Header="Seller" Width="100" CanUserSort="True"/>
-                <DataGridTextColumn x:Name="totalPrice" Binding="{Binding Path=price}" Header="Price" CanUserSort="True"/>
+                <DataGridTextColumn x:Name="resourceQty" Binding="{Binding Qty}" Header="Qty" Width="100" CanUserSort="True"/>
+                <DataGridTextColumn x:Name="itemName" Binding="{Binding Subject}" Header="Subject" Width="100" CanUserSort="True"/>
+                <DataGridTextColumn x:Name="timeLeft" Binding="{Binding ListingSetTime}" Header="Time" Width="100" CanUserSort="True"/>
+                <DataGridTextColumn x:Name="sellersName" Binding="{Binding SellerName}" Header="Seller" Width="100" CanUserSort="True"/>
+                <DataGridTextColumn x:Name="totalPrice" Binding="{Binding Price}" Header="Price" CanUserSort="True"/>
             </DataGrid.Columns>
             <DataGrid.Background>
                 <SolidColorBrush Color="#CC82503C"></SolidColorBrush>
