@@ -59,9 +59,11 @@ namespace LandConquest.Forms
             listings = new List<AuctionListings>();
             listings = auctionModel.GetListings(listings, connection);
             auctionDataGrid.ItemsSource = listings;
-           
+
             //for (int i = 0; i < listings.Count; i++)
             //{
+            //    listings.Items.Add(playersXp[i]);
+            //    listings.
             //    qty[i] = listings[i].Qty;
             //    subject[i] = listings[i].Subject;
             //    setTime[i] = listings[i].ListingSetTime;

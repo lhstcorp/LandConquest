@@ -77,12 +77,13 @@ namespace LandConquest.Forms
         private void buttonXP_Click(object sender, RoutedEventArgs e)
         {
             playersXp = new List<Player>();
-            Player player = new Player();
-            player = playerModel.GetXpInfo(player, connection, user);
-
-            player.PlayerName = player.PlayerName.ToString();
-            player.PlayerExp = player.PlayerExp;
-
+            
+           
+            playersXp = playerModel.GetXpInfo(playersXp, connection, user);
+            for (int i = 0; i < playersXp.Count; i++)
+            {
+                rankingsList.Items.Add(playersXp[i]);
+            }
 
             //Player player1 = new Player();
             //player1.PlayerName = player1.PlayerName.ToString();
@@ -92,9 +93,8 @@ namespace LandConquest.Forms
             //Top1.Content = player.PlayerExp.ToString();
             //name1.Content = player.PlayerName.ToString();
 
-            playersXp.Add(player);
-            //playersXp.Add(player1);
-            DataContext = this;
+             //playersXp.Add(player1);
+            
         }
     }
 }

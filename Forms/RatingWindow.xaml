@@ -70,7 +70,7 @@
         <Label x:Name="name6" Content="" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="112,238,0,0" VerticalAlignment="Top" Width="59" Height="27"/>
         <Label x:Name="name7" Content="" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="112,270,0,0" VerticalAlignment="Top" Width="59" Height="27"/>
         <Label x:Name="name8" Content="" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="112,302,0,0" VerticalAlignment="Top" Width="59" Height="27"/>
-        <ListView HorizontalAlignment="Left" Height="239" Margin="280,90,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{Binding playersXp}">
+        <ListView x:Name="rankingsList" HorizontalAlignment="Left" Height="239" Margin="280,90,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{Binding playersXp}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Игрок" DisplayMemberBinding="{Binding PlayerName}" Width="100"></GridViewColumn>

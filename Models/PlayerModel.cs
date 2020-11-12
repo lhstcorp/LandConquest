@@ -208,13 +208,12 @@ namespace LandConquest.Models
             return player;
         }
 
-        public Player GetXpInfo(Player player, SqlConnection connection, User user)
+        public List<Player> GetXpInfo(List<Player> players, SqlConnection connection, User user)
         {
             String query = "SELECT * FROM dbo.PlayerData ORDER BY player_exp desc";
 
             var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@player_id", user.UserId);
-
+           
             using (var reader = command.ExecuteReader())
             {
 
@@ -224,14 +223,15 @@ namespace LandConquest.Models
 
                 while (reader.Read())
                 {
+                    Player player = new Player();
                     player.PlayerId = reader.GetString(playerId);
                     player.PlayerExp = reader.GetInt64(playerExp);
                     player.PlayerName = reader.GetString(playerName);
-
+                    players.Add(player);
                 }
             }
 
-            return player;
+            return players;
         }
 
         public void UpdatePlayerExpAndLvl(Player player, SqlConnection connection)
