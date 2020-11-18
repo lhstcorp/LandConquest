@@ -30,6 +30,8 @@ namespace LandConquest.Forms
         PlayerModel playerModel;
         UserModel userModel;
 
+        public List<Player> playersXp { get; set; }
+
         public RatingWindow(MainWindow _window, SqlConnection _connection, Player _player, User _user)
         {
             InitializeComponent();
@@ -39,6 +41,8 @@ namespace LandConquest.Forms
             user = _user;
             Loaded += Window_Loaded;
         }
+        
+    
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -68,6 +72,29 @@ namespace LandConquest.Forms
             this.Close();
         }
 
-        
+      
+
+        private void buttonXP_Click(object sender, RoutedEventArgs e)
+        {
+            playersXp = new List<Player>();
+            
+           
+            playersXp = playerModel.GetXpInfo(playersXp, connection, user);
+            for (int i = 0; i < playersXp.Count; i++)
+            {
+                rankingsList.Items.Add(playersXp[i]);
+            }
+
+            //Player player1 = new Player();
+            //player1.PlayerName = player1.PlayerName.ToString();
+            //player1.PlayerExp = 123;
+            
+           
+            //Top1.Content = player.PlayerExp.ToString();
+            //name1.Content = player.PlayerName.ToString();
+
+             //playersXp.Add(player1);
+            
+        }
     }
 }

@@ -139,6 +139,7 @@ namespace LandConquest.Models
             return player;
         }
 
+
         public Player UpdatePlayerMoney(Player player, SqlConnection connection)
         {
             String taxesQuery = "UPDATE dbo.PlayerData SET player_money = @player_money WHERE player_id = @player_id ";
@@ -205,6 +206,32 @@ namespace LandConquest.Models
             }
 
             return player;
+        }
+
+        public List<Player> GetXpInfo(List<Player> players, SqlConnection connection, User user)
+        {
+            String query = "SELECT * FROM dbo.PlayerData ORDER BY player_exp desc";
+
+            var command = new SqlCommand(query, connection);
+           
+            using (var reader = command.ExecuteReader())
+            {
+
+                var playerId = reader.GetOrdinal("player_id");
+                var playerExp = reader.GetOrdinal("player_exp");
+                var playerName = reader.GetOrdinal("player_name");
+
+                while (reader.Read())
+                {
+                    Player player = new Player();
+                    player.PlayerId = reader.GetString(playerId);
+                    player.PlayerExp = reader.GetInt64(playerExp);
+                    player.PlayerName = reader.GetString(playerName);
+                    players.Add(player);
+                }
+            }
+
+            return players;
         }
 
         public void UpdatePlayerExpAndLvl(Player player, SqlConnection connection)

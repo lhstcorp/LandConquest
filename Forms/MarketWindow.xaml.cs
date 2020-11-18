@@ -60,7 +60,7 @@ namespace LandConquest.Forms
             labelWoodAmount.Content = storage.PlayerWood.ToString();
             if (Convert.ToInt32(labelWoodMarket.Content) > 50000)
             {
-                labelWoodPrice.Content = 2 * Math.Ceiling(50000 / Convert.ToDouble(labelWoodMarket.Content));
+                labelWoodPrice.Content = 2 * Math.Round(50000 / Convert.ToDouble(labelWoodMarket.Content));
             }
             else
             {
@@ -72,7 +72,7 @@ namespace LandConquest.Forms
             labelFoodMarket.Content = market.MarketFood.ToString();
             if (Convert.ToInt32(labelFoodMarket.Content) > 50000)
             {
-                labelFoodPrice.Content = 3 * Math.Ceiling(50000 / Convert.ToDouble(labelFoodMarket.Content));
+                labelFoodPrice.Content = 3 * Math.Round(50000 / Convert.ToDouble(labelFoodMarket.Content));
             }
             else
             {
