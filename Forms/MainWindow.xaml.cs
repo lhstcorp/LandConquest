@@ -54,6 +54,7 @@ namespace LandConquest.Forms
         List<Country> countries;
         List<War> wars;
         Land land;
+        Army army;
         Country country;
         War WAR; //GLOBAL
 
@@ -74,7 +75,9 @@ namespace LandConquest.Forms
             peasants = new Peasants();
             country = new Country();
             market = new Market();
+            army = new Army();
 
+            armyModel = new ArmyModel();
             marketModel = new MarketModel();
             userModel = new UserModel();
             taxesModel = new TaxesModel();
@@ -668,7 +671,7 @@ namespace LandConquest.Forms
 
         private void buttonTop_Click(object sender, RoutedEventArgs e)
         {
-            RatingWindow ratingWindow = new RatingWindow(this, connection, player, user);
+            RatingWindow ratingWindow = new RatingWindow(this, connection, player, user, army);
             ratingWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ratingWindow.Owner = this;
             ratingWindow.Show();
