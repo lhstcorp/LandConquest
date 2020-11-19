@@ -99,7 +99,9 @@ namespace LandConquest.Forms
             {
                 labelName.Content = player.PlayerName;
                 labelMoney.Content = player.PlayerMoney;
+                convertMoneyToMoneyCode(labelMoney);
                 labelDonation.Content = player.PlayerDonation;
+                convertMoneyToMoneyCode(labelDonation);
             }
 
             taxes = new Taxes();
@@ -131,6 +133,7 @@ namespace LandConquest.Forms
             player = playerModel.UpdatePlayerMoney(player, connection);
             taxesModel.SaveTaxes(connection, taxes);
             labelMoney.Content = player.PlayerMoney;
+            convertMoneyToMoneyCode(labelMoney);
 
 
             Thread myThread = new Thread(new ThreadStart(UpdateInfo));
@@ -181,7 +184,7 @@ namespace LandConquest.Forms
 
                     player = playerModel.UpdatePlayerMoney(player, connection);
                     taxesModel.SaveTaxes(connection, taxes);
-                    Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; }));
+                    Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); }));
                     lands = landModel.GetLandsInfo(lands, connection);
                     Dispatcher.BeginInvoke(new ThreadStart(delegate { RedrawGlobalMap(); }));
                 }
@@ -899,6 +902,21 @@ namespace LandConquest.Forms
             dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             dialog.Owner = this;
             dialog.Show();
+        }
+
+        public void convertMoneyToMoneyCode(Label label)
+        {
+            int k = 0;
+            while (Convert.ToInt32(label.Content) > 1000)
+            {
+                label.Content = (float)Convert.ToInt32(label.Content) / (float)1000;
+                k++;
+            }
+
+            for (int i = 0; i < k; i++)
+            {
+                label.Content += "k";
+            }
         }
     }
 }

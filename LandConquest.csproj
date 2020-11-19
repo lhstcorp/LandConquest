@@ -473,6 +473,9 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\wood_desk_with_circle.png" />
+    <Resource Include="Pictures\coins.png" />
+    <Resource Include="Pictures\coin_donate.png" />
     <Resource Include="Pictures\visa-mastercard.png" />
     <Resource Include="Pictures\paypal_secure_payments.png" />
     <Resource Include="Pictures\Armies\SIE-0.png" />
