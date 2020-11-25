@@ -79,7 +79,7 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/panel_transparent.png"/>
             </Grid.Background>
 
-            <Label x:Name="lblLandNameOnGrid" Content="Land Name" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Height="30" Margin="83,68,0,0" VerticalAlignment="Top" Width="127" Background="{x:Null}"/>
+            <Label x:Name="lblLandNameOnGrid" Content="Land Name" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Height="30" Margin="83,68,0,0" VerticalAlignment="Top" Width="127" Background="{x:Null}"/>
             <Button x:Name="btnGoToLand" Content="Go to" HorizontalAlignment="Left" Height="38" Margin="64,126,0,0" VerticalAlignment="Top" Width="164" Click="btnGoToLand_Click" BorderBrush="#FF501F07" Background="#FFE1A35E"/>
             <Image x:Name="imgLandResource1ImgOnGrid"  HorizontalAlignment="Left" Height="55" Margin="64,262,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="-0.291,0.465"/>
             <Label x:Name="lblLandResource1NameOnGrid"  Foreground="#FF8F7D5E" HorizontalAlignment="Left" Margin="64,332,0,0" VerticalAlignment="Top" Width="90" Background="{x:Null}"/>
