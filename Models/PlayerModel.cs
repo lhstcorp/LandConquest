@@ -184,30 +184,7 @@ namespace LandConquest.Models
             userCommand.ExecuteNonQuery();
         }
 
-        public Player PlayerRatingCoins(Player player, SqlConnection connection, User user)
-        {
-            String query = "SELECT * FROM dbo.PlayerData WHERE player_id = @player_id";
-
-            var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@player_id", user.UserId);
-
-            using (var reader = command.ExecuteReader())
-            {
-
-                var playerId = reader.GetOrdinal("player_id");
-                var playerMoney = reader.GetOrdinal("player_money");
-
-                while (reader.Read())
-                {
-                    player.PlayerId = reader.GetString(playerId);
-                    player.PlayerMoney = reader.GetInt64(playerMoney);
-
-                }
-            }
-
-            return player;
-        }
-
+        
         public List<Player> GetXpInfo(List<Player> players, SqlConnection connection, User user)
         {
             String query = "SELECT * FROM dbo.PlayerData ORDER BY player_exp desc";
@@ -226,6 +203,32 @@ namespace LandConquest.Models
                     Player player = new Player();
                     player.PlayerId = reader.GetString(playerId);
                     player.PlayerExp = reader.GetInt64(playerExp);
+                    player.PlayerName = reader.GetString(playerName);
+                    players.Add(player);
+                }
+            }
+
+            return players;
+        }
+
+        public List<Player> GetCoinsInfo(List<Player> players, SqlConnection connection, User user)
+        {
+            String query = "SELECT * FROM dbo.PlayerData ORDER BY player_money desc";
+
+            var command = new SqlCommand(query, connection);
+
+            using (var reader = command.ExecuteReader())
+            {
+
+                var playerId = reader.GetOrdinal("player_id");
+                var playerMoney = reader.GetOrdinal("player_money");
+                var playerName = reader.GetOrdinal("player_name");
+
+                while (reader.Read())
+                {
+                    Player player = new Player();
+                    player.PlayerId = reader.GetString(playerId);
+                    player.PlayerMoney = reader.GetInt64(playerMoney);
                     player.PlayerName = reader.GetString(playerName);
                     players.Add(player);
                 }
