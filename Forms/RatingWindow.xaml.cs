@@ -25,19 +25,23 @@ namespace LandConquest.Forms
         SqlConnection connection;
         MainWindow window;
         Player player;
+        Army army;
         User user;
-
+        ArmyModel armyModel;
         PlayerModel playerModel;
         UserModel userModel;
 
         public List<Player> playersXp { get; set; }
+        public List<Player> playersCoins { get; set; }
+        public List<Army> playersArmy { get; set; }
 
-        public RatingWindow(MainWindow _window, SqlConnection _connection, Player _player, User _user)
+        public RatingWindow(MainWindow _window, SqlConnection _connection, Player _player, User _user, Army _army)
         {
             InitializeComponent();
             window = _window;
             connection = _connection;
             player = _player;
+            army = _army;
             user = _user;
             Loaded += Window_Loaded;
         }
@@ -48,6 +52,7 @@ namespace LandConquest.Forms
         {
             playerModel = new PlayerModel();
             userModel = new UserModel();
+            armyModel = new ArmyModel();
 
             user = new User();
             user = userModel.GetUserInfo(player.PlayerId, connection);
@@ -55,16 +60,24 @@ namespace LandConquest.Forms
             player = new Player();
             player = playerModel.GetPlayerInfo(user, connection, player);
 
+            army = new Army();
+            army = armyModel.GetArmyInfo(connection, player, army);
+
         }
 
        private void buttonCoins_Click(object sender, RoutedEventArgs e)
         {
-            Player player = new Player();
-            
-            player = playerModel.PlayerRatingCoins(player, connection, user);
+            xpRankingsList.Items.Clear();
+            armyRankingsList.Items.Clear();
 
-            Top1.Content = player.PlayerMoney.ToString();
-            
+            playersCoins = new List<Player>();
+
+
+            playersCoins = playerModel.GetCoinsInfo(playersCoins, connection, user);
+            for (int i = 0; i < playersCoins.Count; i++)
+            {
+                coinsRankingsList.Items.Add(playersCoins[i]);
+            }
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
@@ -76,25 +89,33 @@ namespace LandConquest.Forms
 
         private void buttonXP_Click(object sender, RoutedEventArgs e)
         {
+            coinsRankingsList.Items.Clear();
+            armyRankingsList.Items.Clear();
+
             playersXp = new List<Player>();
             
            
             playersXp = playerModel.GetXpInfo(playersXp, connection, user);
             for (int i = 0; i < playersXp.Count; i++)
             {
-                rankingsList.Items.Add(playersXp[i]);
+                xpRankingsList.Items.Add(playersXp[i]);
             }
 
-            //Player player1 = new Player();
-            //player1.PlayerName = player1.PlayerName.ToString();
-            //player1.PlayerExp = 123;
-            
-           
-            //Top1.Content = player.PlayerExp.ToString();
-            //name1.Content = player.PlayerName.ToString();
+        }
 
-             //playersXp.Add(player1);
-            
+        private void buttonArmy_Click(object sender, RoutedEventArgs e)
+        {
+            coinsRankingsList.Items.Clear();
+            xpRankingsList.Items.Clear();
+
+            playersArmy = new List<Army>();
+
+
+            playersArmy = armyModel.GetArmyInfoList(playersArmy, connection, user);
+            for (int i = 0; i < playersArmy.Count; i++)
+            {
+                armyRankingsList.Items.Add(playersArmy[i]);
+            }
         }
     }
 }

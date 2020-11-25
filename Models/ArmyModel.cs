@@ -44,6 +44,35 @@ namespace LandConquest.Models
             return army;
         }
 
+        public List<Army> GetArmyInfoList(List<Army> armies, SqlConnection connection, User user)
+        {
+            String query = "SELECT * FROM dbo.ArmyData, dbo.PlayerData where ArmyData.player_id = PlayerData.player_id ORDER BY army_size_current desc";
+
+            var command = new SqlCommand(query, connection);
+
+            using (var reader = command.ExecuteReader())
+            {
+
+                var playerId = reader.GetOrdinal("player_id");
+                var playerName = reader.GetOrdinal("player_name");
+                var armyId = reader.GetOrdinal("army_id");
+                var armySizeCurrent = reader.GetOrdinal("army_size_current");
+
+                while (reader.Read())
+                {
+                    Army army = new Army();
+                    Player player = new Player();
+                    army.PlayerId = reader.GetString(playerId);
+                    army.ArmyId = reader.GetString(armyId);
+                    army.ArmySizeCurrent = reader.GetInt32(armySizeCurrent);
+                    player.PlayerName = reader.GetString(playerName);
+                    armies.Add(army);
+                }
+            }
+
+            return armies;
+        }
+
         public Army UpdateArmy(SqlConnection connection, Army army)
         {
             String storageQuery = "UPDATE dbo.ArmyData SET army_size_current = @army_size_current, army_type  = @army_type, army_archers_count = @army_archers_count, army_infantry_count  = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count WHERE army_id = @army_id";
