@@ -114,6 +114,9 @@ namespace LandConquest.DialogWIndows
 
         private void stoneButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            itemName = "Stone";
+            itemGroup = "Resources";
+            itemSubgroup = "";
             showListingDetails();
         }
 

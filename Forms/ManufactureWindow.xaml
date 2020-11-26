@@ -8,9 +8,9 @@
         WindowStyle="None" ResizeMode="NoResize"
         Title="ManufactureWindow" Height="450" Width="950"
         ShowInTaskbar="False">
-    <Grid Height="460" VerticalAlignment="Top" HorizontalAlignment="Left" Width="960" >
+    <Grid Height="460" VerticalAlignment="Top" HorizontalAlignment="Left" Width="960">
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"  />
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="141" Margin="-3,15,0,0" VerticalAlignment="Top" Width="135" Source="/Pictures/sawmill.png"/>
         <Image HorizontalAlignment="Left" Height="140" Margin="292,5,0,0" VerticalAlignment="Top" Width="129" Source="/Pictures/quarry.png"/>
@@ -52,9 +52,9 @@
         <Button x:Name="buttonQuarryUpgrade" Content="Upgrade" FontSize="12" HorizontalAlignment="Left" Margin="426,125,0,0" VerticalAlignment="Top" Width="115" Background="#696969" Height="31" Click="buttonQuarryUpgrade_Click"/>
         <Button x:Name="buttonSawmillUpgrade" Content="Upgrade" FontSize="12" HorizontalAlignment="Left" Margin="138,125,0,0" VerticalAlignment="Top" Width="115" Background="SaddleBrown" Height="31" Click="buttonSawmillUpgrade_Click"/>
         <Button x:Name="buttonWindmillUpgrade" Content="Upgrade" FontSize="12" HorizontalAlignment="Left" Margin="682,125,0,0" VerticalAlignment="Top" Width="115" Background="Brown" Height="31" Click="buttonWindmillUpgrade_Click"/>
-        <Button x:Name="button_close" HorizontalAlignment="Left" Margin="856,3,0,0" VerticalAlignment="Top" Width="84" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
+        <Button x:Name="button_close" HorizontalAlignment="Left" Margin="903,3,0,0" VerticalAlignment="Top" Width="37" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Image HorizontalAlignment="Left" Height="141" Margin="-3,186,0,0" VerticalAlignment="Top" Width="135" Source="/LandConquest;component/Pictures/sawmill.png"/>

@@ -130,6 +130,7 @@
     <Compile Include="Entities\Law.cs" />
     <Compile Include="Entities\Market.cs" />
     <Compile Include="Entities\PlayerEquipment.cs" />
+    <Compile Include="Entities\PlayersRating.cs" />
     <Compile Include="Entities\War.cs" />
     <Compile Include="Enums\ForcesEnum.cs" />
     <Compile Include="Forms\AuctionWindow.xaml.cs">
@@ -473,6 +474,8 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\button_close_cross_wood.png" />
+    <Resource Include="Pictures\paper_panel_360_x_240.png" />
     <Resource Include="Pictures\wood_desk_with_circle.png" />
     <Resource Include="Pictures\coins.png" />
     <Resource Include="Pictures\coin_donate.png" />
