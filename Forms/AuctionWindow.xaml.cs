@@ -71,5 +71,12 @@ namespace LandConquest.Forms
             //    price[i] = listings[i].Price;
             //}
         }
+
+        private void buttonFindListing_Click(object sender, RoutedEventArgs e)
+        {
+           
+            listings = auctionModel.FindListings(listings, connection);
+           
+        }
     }
 }

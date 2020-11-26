@@ -70,7 +70,7 @@
         <ListView x:Name="armyRankingsList" HorizontalAlignment="Left" Height="355" Margin="88,61,0,0" VerticalAlignment="Top" Width="362" ItemsSource="{Binding playersArmy}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Игрок" DisplayMemberBinding="{Binding PlayerName}" Width="181"></GridViewColumn>
+                    <GridViewColumn Header="Игрок" DisplayMemberBinding="{Binding PlayerNameForArmy}" Width="181"></GridViewColumn>
                     <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding ArmySizeCurrent}" Width="181"></GridViewColumn>
 
                 </GridView>
