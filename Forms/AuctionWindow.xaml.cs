@@ -74,9 +74,11 @@ namespace LandConquest.Forms
 
         private void buttonFindListing_Click(object sender, RoutedEventArgs e)
         {
-           
-            listings = auctionModel.FindListings(listings, connection);
-           
+            Window_Loaded(sender, e);
+            listings = listings.FindAll(x => x.Subject.Contains(textBoxItemSearchName.Text));
+            auctionDataGrid.ItemsSource = listings;
+            //listings = auctionModel.FindListings(listings, connection);
+
         }
     }
 }

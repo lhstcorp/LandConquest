@@ -33,7 +33,8 @@ namespace LandConquest.Forms
 
         public List<Player> playersXp { get; set; }
         public List<Player> playersCoins { get; set; }
-        public List<Army> playersArmy { get; set; }
+        public List<Army> playersArmy { get; set; }    
+        public List<PlayersRating> ratings { get; set; }
 
         public RatingWindow(MainWindow _window, SqlConnection _connection, Player _player, User _user, Army _army)
         {
@@ -67,17 +68,18 @@ namespace LandConquest.Forms
 
        private void buttonCoins_Click(object sender, RoutedEventArgs e)
         {
-            xpRankingsList.Items.Clear();
-            armyRankingsList.Items.Clear();
-
             playersCoins = new List<Player>();
-
-
+            ratings = new List<PlayersRating>();
             playersCoins = playerModel.GetCoinsInfo(playersCoins, connection, user);
+
+
             for (int i = 0; i < playersCoins.Count; i++)
             {
-                coinsRankingsList.Items.Add(playersCoins[i]);
+                PlayersRating rating = new PlayersRating(playersCoins[i].PlayerId, playersCoins[i].PlayerName, Convert.ToInt32(playersCoins[i].PlayerMoney));
+                ratings.Add(rating);
             }
+
+            rankingsList.ItemsSource = ratings;
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
@@ -89,33 +91,33 @@ namespace LandConquest.Forms
 
         private void buttonXP_Click(object sender, RoutedEventArgs e)
         {
-            coinsRankingsList.Items.Clear();
-            armyRankingsList.Items.Clear();
-
-            playersXp = new List<Player>();
-            
-           
+            playersXp = new List<Player>();     
             playersXp = playerModel.GetXpInfo(playersXp, connection, user);
+            ratings = new List<PlayersRating>();
+
             for (int i = 0; i < playersXp.Count; i++)
             {
-                xpRankingsList.Items.Add(playersXp[i]);
+                PlayersRating rating = new PlayersRating(playersXp[i].PlayerId, playersXp[i].PlayerName, Convert.ToInt32(playersXp[i].PlayerExp));
+                ratings.Add(rating);
             }
 
+            rankingsList.ItemsSource = ratings;
         }
 
         private void buttonArmy_Click(object sender, RoutedEventArgs e)
         {
-            coinsRankingsList.Items.Clear();
-            xpRankingsList.Items.Clear();
 
             playersArmy = new List<Army>();
-
-
             playersArmy = armyModel.GetArmyInfoList(playersArmy, connection, user);
+            ratings = new List<PlayersRating>();
+
             for (int i = 0; i < playersArmy.Count; i++)
             {
-                armyRankingsList.Items.Add(playersArmy[i]);
+                PlayersRating rating = new PlayersRating(playersArmy[i].PlayerId, playersArmy[i].PlayerNameForArmy, Convert.ToInt32(playersArmy[i].ArmySizeCurrent));
+                ratings.Add(rating);
             }
+
+            rankingsList.ItemsSource = ratings;
         }
     }
 }

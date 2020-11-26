@@ -26,9 +26,9 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/button_usual.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="buttonClose" HorizontalAlignment="Left" Margin="767,10,0,0" VerticalAlignment="Top" Width="73" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="buttonClose_Click">
+        <Button x:Name="buttonClose" HorizontalAlignment="Left" Margin="800,10,0,0" VerticalAlignment="Top" Width="40" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="buttonClose_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
 

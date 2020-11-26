@@ -16,7 +16,11 @@
         <Image HorizontalAlignment="Left" Height="35" Margin="190,61,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/warrior.png"/>
         <Slider x:Name="sliderInfantryNow" HorizontalAlignment="Left" Margin="225,78,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderInfantryNow_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
         <Label x:Name="infantryCountNow" Content="{Binding Value, ElementName=sliderInfantryNow, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="259,64,0,0" VerticalAlignment="Top" Width="63" />
-        <Button Content="Button" HorizontalAlignment="Left" Height="18" Margin="335,10,0,0" VerticalAlignment="Top" Width="18" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="18" Margin="335,10,0,0" VerticalAlignment="Top" Width="18" Click="Button_Click" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
         <Image HorizontalAlignment="Left" Height="35" Margin="13,98,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/archer.png"/>
         <Slider x:Name="sliderArchersWas" HorizontalAlignment="Left" Margin="48,115,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderArchersWas_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
         <Label x:Name="archersCountWas" Content="{Binding Value, ElementName=sliderArchersWas, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="82,101,0,0" VerticalAlignment="Top" Width="63" />

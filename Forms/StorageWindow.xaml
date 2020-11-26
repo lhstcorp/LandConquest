@@ -24,9 +24,9 @@
         <Label Content="FOOD" Foreground="Brown" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,78,148,0" VerticalAlignment="Top" Height="27" Width="57"/>
         <Image HorizontalAlignment="Left" Height="31" Margin="238,78,0,0" VerticalAlignment="Top" Width="32" Source="/Pictures/food.png" RenderTransformOrigin="-1.55,0.548"/>
         <Label x:Name="labelFoodAmount" Content="0" Foreground="Brown" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="238,109,0,0" VerticalAlignment="Top" Width="112" Height="27"/>
-        <Button x:Name="button_close" Content="Button" HorizontalAlignment="Left" Margin="395,4,0,0" VerticalAlignment="Top" Width="75" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
+        <Button x:Name="button_close" Content="Button" HorizontalAlignment="Left" Margin="432,4,0,0" VerticalAlignment="Top" Width="38" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Label Content="GOLD" Foreground="DarkGoldenrod" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="57,131,0,0" VerticalAlignment="Top" Height="27" Width="59"/>

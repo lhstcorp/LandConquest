@@ -9,73 +9,51 @@
         mc:Ignorable="d"
         ShowInTaskbar="False"
         WindowStyle="None" ResizeMode="NoResize"
-        Title="ProfileWindow" Height="600" Width="600" Loaded="Window_Loaded">
+        Title="ProfileWindow" Height="400" Width="600" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="profileImage" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" RenderTransformOrigin="0.38,0.495" Margin="0,14,0,0"/>
+        <Image x:Name="profileImage" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" RenderTransformOrigin="0.38,0.495" Margin="0,10,0,0"/>
 
-        <Button x:Name="buttonXP"  HorizontalAlignment="Left" Margin="186,14,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonXP_Click">
+        <Button x:Name="buttonXP"  HorizontalAlignment="Left" Margin="204,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonXP_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/button_xp.png"/>
             </Button.Background>
         </Button>
 
-        <Button x:Name="buttonCoins"  HorizontalAlignment="Left" Margin="87,14,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCoins_Click">
+        <Button x:Name="buttonCoins"  HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCoins_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/button_coins.png"/>
             </Button.Background>
         </Button>
 
-        <Button x:Name="buttonArmy"  HorizontalAlignment="Left" Margin="280,14,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonArmy_Click" >
+        <Button x:Name="buttonArmy"  HorizontalAlignment="Left" Margin="301,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonArmy_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/button_army.png"/>
             </Button.Background>
         </Button>
 
-        <Button x:Name="buttonTitles"  HorizontalAlignment="Left" Margin="374,14,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <Button x:Name="buttonTitles"  HorizontalAlignment="Left" Margin="400,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/button_titles.png"/>
             </Button.Background>
         </Button>
 
-        <Button x:Name="buttonClose"  HorizontalAlignment="Left" Margin="490,14,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonClose_Click">
+        <Button x:Name="buttonClose"  HorizontalAlignment="Left" Margin="551,10,0,0" VerticalAlignment="Top" Width="39" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonClose_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <ListView x:Name="xpRankingsList" HorizontalAlignment="Left" Height="355" Margin="88,61,0,0" VerticalAlignment="Top" Width="362" ItemsSource="{Binding playersXp}">
+
+
+        <ListView x:Name="rankingsList" HorizontalAlignment="Left" Height="302" Margin="83,74,0,0" VerticalAlignment="Top" Width="413" ItemsSource="{Binding ratings}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Игрок" DisplayMemberBinding="{Binding PlayerName}" Width="181"></GridViewColumn>
-                    <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding PlayerExp}" Width="181"></GridViewColumn>
-                    
+                    <GridViewColumn Header="Игрок"  DisplayMemberBinding="{Binding Name}" Width="200"></GridViewColumn>
+                    <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding Qty}" Width="200"></GridViewColumn>
                 </GridView>
             </ListView.View>
-
-        </ListView>
-
-        <ListView x:Name="coinsRankingsList" HorizontalAlignment="Left" Height="355" Margin="88,61,0,0" VerticalAlignment="Top" Width="362" ItemsSource="{Binding playersCoins}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Игрок" DisplayMemberBinding="{Binding PlayerName}" Width="181"></GridViewColumn>
-                    <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding PlayerMoney}" Width="181"></GridViewColumn>
-
-                </GridView>
-            </ListView.View>
-
-        </ListView>
-
-        <ListView x:Name="armyRankingsList" HorizontalAlignment="Left" Height="355" Margin="88,61,0,0" VerticalAlignment="Top" Width="362" ItemsSource="{Binding playersArmy}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Игрок" DisplayMemberBinding="{Binding PlayerNameForArmy}" Width="181"></GridViewColumn>
-                    <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding ArmySizeCurrent}" Width="181"></GridViewColumn>
-
-                </GridView>
-            </ListView.View>
-
         </ListView>
 
         <Grid.Background>

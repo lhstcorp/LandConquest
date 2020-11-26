@@ -19,9 +19,9 @@
         <Label x:Name="AvailableRecruitPeasants" Content="0" FontSize="10" HorizontalAlignment="Left" Margin="85,164,0,0" VerticalAlignment="Top" Width="47" Height="20"/>
         <TextBox x:Name="PeasantsAmount" HorizontalAlignment="Left" Height="25" Margin="33,189,0,0" Text="0" VerticalAlignment="Top" Width="100" BorderThickness="1" Background="White" BorderBrush="Goldenrod"/>
         <Button x:Name="HirePeasants" Content="Hire" HorizontalAlignment="Left" Margin="33,226,0,0" VerticalAlignment="Top" Width="100" Click="HirePeasants_Click"/>
-        <Button x:Name="button_close" Content="Button" HorizontalAlignment="Left" Margin="865,10,0,0" VerticalAlignment="Top" Width="75" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
+        <Button x:Name="button_close" Content="Button" HorizontalAlignment="Left" Margin="907,10,0,0" VerticalAlignment="Top" Width="33" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Image HorizontalAlignment="Left" Height="134" Margin="188,10,0,0" VerticalAlignment="Top" Width="129" Source="/LandConquest;component/Pictures/archer.png" />
