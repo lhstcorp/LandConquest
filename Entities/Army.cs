@@ -10,6 +10,13 @@
         [StringLength(16)]
         public string PlayerId { get; set; }
 
+
+        [Required]
+        [Column("player_name")]
+        [StringLength(20)]
+        public string PlayerNameForArmy { get; set; }
+
+
         [Required]
         [Column("army_id")]
         [StringLength(16)]
