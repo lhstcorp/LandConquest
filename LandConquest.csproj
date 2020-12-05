@@ -474,6 +474,9 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\storeImage.png" />
+    <Resource Include="Pictures\Design elements v1.0\circleMainMenu.png" />
+    <Resource Include="Pictures\Design elements v1.0\first template FULL.png" />
     <Resource Include="Pictures\panel_horizontal1.png" />
     <Resource Include="Pictures\epic_brown_square.png" />
     <Resource Include="Pictures\epic_long_brown_button.png" />

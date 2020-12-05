@@ -53,8 +53,16 @@
         <Image x:Name="image" Margin="6,0,0,0" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83"/>
         <Label x:Name="labelName" Content="Name" Foreground="#FFD7464B" FontSize="28" FontWeight="Bold" FontFamily="Harrington" HorizontalAlignment="Left" Margin="106,0,0,0" VerticalAlignment="Top" Width="145"/>
 
-        <Image HorizontalAlignment="Left" Height="49" Margin="292,10,0,0" VerticalAlignment="Top" Width="54" Source="/Pictures/resource_chest.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="49" Margin="367,10,0,0" VerticalAlignment="Top" Width="49" Source="/Pictures/manufacturing.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
+        <!--menu header design-->
+        <Image HorizontalAlignment="Left" Height="50" Margin="290,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="340,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="390,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="440,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="490,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="540,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
+
+        <Image HorizontalAlignment="Left" Height="30" Margin="299,19,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/resource_chest.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="351,17,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/manufacturing.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
         <Button x:Name="buttonCloseWindow" Content="Exit" Margin="0,10,35,0" BorderBrush="{x:Null}" Foreground="White" Click="buttonCloseWindow_Click" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
@@ -75,7 +83,7 @@
         </Button>
         <Label Content="productivity ratio: " FontSize="9" FontWeight="Bold" Foreground="DarkSlateGray" HorizontalAlignment="Left" Margin="26,266,0,0" VerticalAlignment="Top"/>
         <Label x:Name="prodRatioValue" Content="0" FontSize="9" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="DarkSlateGray" HorizontalAlignment="Left" Margin="113,266,0,0" VerticalAlignment="Top"  />
-        <Image x:Name="recruitImage"  HorizontalAlignment="Left" Height="58" Margin="430,5,0,0" VerticalAlignment="Top" Source="/Pictures/shield.png" Width="56" MouseDown="recruitImage_MouseDown" RenderTransformOrigin="0.5,0.5" Cursor="Hand"/>
+        <Image x:Name="recruitImage"  HorizontalAlignment="Left" Height="40" Margin="396,12,0,0" VerticalAlignment="Top" Source="/Pictures/shield.png" Width="40" MouseDown="recruitImage_MouseDown" RenderTransformOrigin="0.5,0.5" Cursor="Hand"/>
         <Button x:Name="btnHideLandGrid"  Content="Hide" HorizontalAlignment="Left" Height="38" Margin="40,701,0,0" VerticalAlignment="Top" Width="71" Panel.ZIndex="2" Click="btnHideLandGrid_Click" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
@@ -153,9 +161,9 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
-        <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="58" Margin="491,5,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/food.png" Width="56" Cursor="Hand" MouseDown="marketImage_MouseDown"/>
-        <Image x:Name="CountryImage"  HorizontalAlignment="Left" Height="58" Margin="552,5,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/parlament.png" Width="56" Cursor="Hand" MouseDown="CountryImage_MouseDown"/>
-        <Image x:Name="LandImage"  HorizontalAlignment="Left" Height="58" Margin="608,10,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/landMainBuilding.png" Width="56" Cursor="Hand" MouseDown="LandImage_MouseDown"/>
+        <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="40" Margin="444,17,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/storeImage.png" Width="41" Cursor="Hand" MouseDown="marketImage_MouseDown"/>
+        <Image x:Name="CountryImage"  HorizontalAlignment="Left" Height="37" Margin="497,13,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/parlament.png" Width="37" Cursor="Hand" MouseDown="CountryImage_MouseDown"/>
+        <Image x:Name="LandImage"  HorizontalAlignment="Left" Height="40" Margin="541,18,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/landMainBuilding.png" Width="40" Cursor="Hand" MouseDown="LandImage_MouseDown"/>
         <Button x:Name="buyCoins" Content="Buy" FontSize="12" HorizontalAlignment="Left" Margin="217,61,0,0" VerticalAlignment="Top" Width="55" Height="29" Click="buyCoins_Click" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
