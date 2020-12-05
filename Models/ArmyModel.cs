@@ -46,7 +46,7 @@ namespace LandConquest.Models
 
         public List<Army> GetArmyInfoList(List<Army> armies, SqlConnection connection, User user)
         {
-            String query = "SELECT * FROM dbo.ArmyData, dbo.PlayerData where ArmyData.player_id = PlayerData.player_id ORDER BY army_size_current desc";
+            String query = "SELECT TOP (1000) [dbo].[ArmyData].[player_id],[army_id],[army_size_current],[dbo].[PlayerData].[player_name] FROM[LandConquestDB].[dbo].[ArmyData] JOIN[LandConquestDB].[dbo].[PlayerData] on[dbo].[PlayerData].[player_id] = [dbo].[ArmyData].[player_id] order by[army_size_current] desc";
 
             var command = new SqlCommand(query, connection);
 
@@ -61,17 +61,19 @@ namespace LandConquest.Models
                 while (reader.Read())
                 {
                     Army army = new Army();
-                    Player player = new Player();
                     army.PlayerId = reader.GetString(playerId);
                     army.ArmyId = reader.GetString(armyId);
                     army.ArmySizeCurrent = reader.GetInt32(armySizeCurrent);
-                    player.PlayerName = reader.GetString(playerName);
+                    army.PlayerNameForArmy = reader.GetString(playerName);
                     armies.Add(army);
+                    
                 }
             }
 
             return armies;
         }
+
+       
 
         public Army UpdateArmy(SqlConnection connection, Army army)
         {

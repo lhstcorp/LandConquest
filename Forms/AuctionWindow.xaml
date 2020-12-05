@@ -29,7 +29,7 @@
         <Button x:Name="buttonBuy" Content="Buy" HorizontalAlignment="Left" Margin="509,121,0,0" VerticalAlignment="Top" Width="151" Foreground="Black" BorderBrush="{x:Null}"  Background="#FF976B51"/>
 
 
-        <Button x:Name="buttonFindListing" Content="Find" HorizontalAlignment="Left" Margin="386,10,0,0" VerticalAlignment="Top" Width="84" Background="#FF95684E" BorderBrush="{x:Null}" Foreground="#DD000000" Height="32"/>
+        <Button x:Name="buttonFindListing" Content="Find" HorizontalAlignment="Left" Margin="386,10,0,0" VerticalAlignment="Top" Width="84" Background="#FF95684E" BorderBrush="{x:Null}" Foreground="#DD000000" Height="32" Click="buttonFindListing_Click" />
         <TextBox x:Name="textBoxItemSearchName" HorizontalAlignment="Left" Height="32" Margin="264,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#7F966B52" RenderTransformOrigin="0.5,0.5"/>
         <Button x:Name="buttonShowType" Content="All" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="118" Background="#FF95684E" BorderBrush="{x:Null}" Foreground="#DD000000" Height="32"/>
         <Button x:Name="buttonShowSubtypes" Content="" HorizontalAlignment="Left" Margin="133,10,0,0" VerticalAlignment="Top" Width="126" Background="#FF95684E" BorderBrush="{x:Null}" Foreground="#DD000000" Height="32"/>
