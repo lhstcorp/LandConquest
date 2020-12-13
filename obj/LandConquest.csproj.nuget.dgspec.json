@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "E:\\LandConquest\\LandConquest\\LandConquest.csproj": {}
+    "D:\\LandConquest\\LandConquest\\LandConquest.csproj": {}
   },
   "projects": {
-    "E:\\LandConquest\\LandConquest\\LandConquest.csproj": {
+    "D:\\LandConquest\\LandConquest\\LandConquest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\LandConquest\\LandConquest\\LandConquest.csproj",
+        "projectUniqueName": "D:\\LandConquest\\LandConquest\\LandConquest.csproj",
         "projectName": "LandConquest",
-        "projectPath": "E:\\LandConquest\\LandConquest\\LandConquest.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "E:\\LandConquest\\LandConquest\\obj\\",
+        "projectPath": "D:\\LandConquest\\LandConquest\\LandConquest.csproj",
+        "packagesPath": "C:\\Users\\sma\\.nuget\\packages\\",
+        "outputPath": "D:\\LandConquest\\LandConquest\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sma\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

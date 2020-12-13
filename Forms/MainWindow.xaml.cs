@@ -54,6 +54,7 @@ namespace LandConquest.Forms
         List<Country> countries;
         List<War> wars;
         Land land;
+        Army army;
         Country country;
         War WAR; //GLOBAL
 
@@ -74,7 +75,9 @@ namespace LandConquest.Forms
             peasants = new Peasants();
             country = new Country();
             market = new Market();
+            army = new Army();
 
+            armyModel = new ArmyModel();
             marketModel = new MarketModel();
             userModel = new UserModel();
             taxesModel = new TaxesModel();
@@ -99,7 +102,9 @@ namespace LandConquest.Forms
             {
                 labelName.Content = player.PlayerName;
                 labelMoney.Content = player.PlayerMoney;
+                convertMoneyToMoneyCode(labelMoney);
                 labelDonation.Content = player.PlayerDonation;
+                convertMoneyToMoneyCode(labelDonation);
             }
 
             taxes = new Taxes();
@@ -131,6 +136,7 @@ namespace LandConquest.Forms
             player = playerModel.UpdatePlayerMoney(player, connection);
             taxesModel.SaveTaxes(connection, taxes);
             labelMoney.Content = player.PlayerMoney;
+            convertMoneyToMoneyCode(labelMoney);
 
 
             Thread myThread = new Thread(new ThreadStart(UpdateInfo));
@@ -181,7 +187,7 @@ namespace LandConquest.Forms
 
                     player = playerModel.UpdatePlayerMoney(player, connection);
                     taxesModel.SaveTaxes(connection, taxes);
-                    Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; }));
+                    Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); }));
                     lands = landModel.GetLandsInfo(lands, connection);
                     Dispatcher.BeginInvoke(new ThreadStart(delegate { RedrawGlobalMap(); }));
                 }
@@ -665,7 +671,7 @@ namespace LandConquest.Forms
 
         private void buttonTop_Click(object sender, RoutedEventArgs e)
         {
-            RatingWindow ratingWindow = new RatingWindow(this, connection, player, user);
+            RatingWindow ratingWindow = new RatingWindow(this, connection, player, user, army);
             ratingWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ratingWindow.Owner = this;
             ratingWindow.Show();
@@ -899,6 +905,21 @@ namespace LandConquest.Forms
             dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             dialog.Owner = this;
             dialog.Show();
+        }
+
+        public void convertMoneyToMoneyCode(Label label)
+        {
+            int k = 0;
+            while (Convert.ToInt32(label.Content) > 1000)
+            {
+                label.Content = (float)Convert.ToInt32(label.Content) / (float)1000;
+                k++;
+            }
+
+            for (int i = 0; i < k; i++)
+            {
+                label.Content += "k";
+            }
         }
     }
 }

@@ -44,6 +44,37 @@ namespace LandConquest.Models
             return army;
         }
 
+        public List<Army> GetArmyInfoList(List<Army> armies, SqlConnection connection, User user)
+        {
+            String query = "SELECT TOP (1000) [dbo].[ArmyData].[player_id],[army_id],[army_size_current],[dbo].[PlayerData].[player_name] FROM[LandConquestDB].[dbo].[ArmyData] JOIN[LandConquestDB].[dbo].[PlayerData] on[dbo].[PlayerData].[player_id] = [dbo].[ArmyData].[player_id] order by[army_size_current] desc";
+
+            var command = new SqlCommand(query, connection);
+
+            using (var reader = command.ExecuteReader())
+            {
+
+                var playerId = reader.GetOrdinal("player_id");
+                var playerName = reader.GetOrdinal("player_name");
+                var armyId = reader.GetOrdinal("army_id");
+                var armySizeCurrent = reader.GetOrdinal("army_size_current");
+
+                while (reader.Read())
+                {
+                    Army army = new Army();
+                    army.PlayerId = reader.GetString(playerId);
+                    army.ArmyId = reader.GetString(armyId);
+                    army.ArmySizeCurrent = reader.GetInt32(armySizeCurrent);
+                    army.PlayerNameForArmy = reader.GetString(playerName);
+                    armies.Add(army);
+                    
+                }
+            }
+
+            return armies;
+        }
+
+       
+
         public Army UpdateArmy(SqlConnection connection, Army army)
         {
             String storageQuery = "UPDATE dbo.ArmyData SET army_size_current = @army_size_current, army_type  = @army_type, army_archers_count = @army_archers_count, army_infantry_count  = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count WHERE army_id = @army_id";

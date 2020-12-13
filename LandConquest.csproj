@@ -130,6 +130,7 @@
     <Compile Include="Entities\Law.cs" />
     <Compile Include="Entities\Market.cs" />
     <Compile Include="Entities\PlayerEquipment.cs" />
+    <Compile Include="Entities\PlayersRating.cs" />
     <Compile Include="Entities\War.cs" />
     <Compile Include="Enums\ForcesEnum.cs" />
     <Compile Include="Forms\AuctionWindow.xaml.cs">
@@ -473,6 +474,19 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pictures\storeImage.png" />
+    <Resource Include="Pictures\Design elements v1.0\circleMainMenu.png" />
+    <Resource Include="Pictures\Design elements v1.0\first template FULL.png" />
+    <Resource Include="Pictures\panel_horizontal1.png" />
+    <Resource Include="Pictures\epic_brown_square.png" />
+    <Resource Include="Pictures\epic_long_brown_button.png" />
+    <Resource Include="Pictures\epic_button_brown.png" />
+    <Resource Include="Pictures\panel_land.png" />
+    <Resource Include="Pictures\button_close_cross_wood.png" />
+    <Resource Include="Pictures\paper_panel_360_x_240.png" />
+    <Resource Include="Pictures\wood_desk_with_circle.png" />
+    <Resource Include="Pictures\coins.png" />
+    <Resource Include="Pictures\coin_donate.png" />
     <Resource Include="Pictures\visa-mastercard.png" />
     <Resource Include="Pictures\paypal_secure_payments.png" />
     <Resource Include="Pictures\Armies\SIE-0.png" />

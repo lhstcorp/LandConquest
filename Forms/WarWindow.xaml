@@ -45,9 +45,9 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/button_square.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnWarWindowClose" Foreground="Black" HorizontalAlignment="Left" Margin="224,-64,0,0" VerticalAlignment="Top" Width="66" Grid.ColumnSpan="2" Click="btnWarWindowClose_Click">
+            <Button x:Name="btnWarWindowClose" Foreground="Black" HorizontalAlignment="Left" Margin="256,-64,0,0" VerticalAlignment="Top" Width="34" Grid.ColumnSpan="2" Click="btnWarWindowClose_Click" BorderBrush="{x:Null}">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Pictures/button_close.png"/>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
 
