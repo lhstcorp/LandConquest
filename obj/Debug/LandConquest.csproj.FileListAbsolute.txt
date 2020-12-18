@@ -497,4 +497,5 @@ C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.csproj.CoreCompile
 C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.csproj.CopyComplete
 C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.exe
 C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.pdb
-C:\Users\itk\source\repos\LandConquest\obj\Debug\LandConquest.csprojAssemblyReference.cache
+C:\Users\itk\source\repos\LandConquest\obj\Debug\DialogWIndows\WarningDialogWindow.g.cs
+C:\Users\itk\source\repos\LandConquest\obj\Debug\DialogWIndows\WarningDialogWindow.baml

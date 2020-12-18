@@ -23,7 +23,7 @@
             </DataGrid.Background>
         </DataGrid>
 
-        <Button x:Name="buttonShowMyListings" Content="Show My Listings" HorizontalAlignment="Left" Margin="509,84,0,0" VerticalAlignment="Top" Width="151" BorderBrush="{x:Null}" Foreground="#FFE4CC95">
+        <Button x:Name="buttonShowMyListings" Content="Show My Listings" HorizontalAlignment="Left" Margin="509,84,0,0" VerticalAlignment="Top" Width="151" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Click="buttonShowMyListings_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
@@ -38,7 +38,7 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="buttonBuy" Content="Buy" HorizontalAlignment="Left" Margin="509,121,0,0" VerticalAlignment="Top" Width="151" Foreground="#FFE4CC95" BorderBrush="{x:Null}">
+        <Button x:Name="buttonBuy" IsEnabled="False" Content="Buy" HorizontalAlignment="Left" Margin="509,121,0,0" VerticalAlignment="Top" Width="151" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonBuy_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
@@ -51,12 +51,12 @@
             </Button.Background>
         </Button>
         <TextBox x:Name="textBoxItemSearchName" HorizontalAlignment="Left" Height="32" Margin="264,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#7F966B52" RenderTransformOrigin="0.5,0.5"/>
-        <Button x:Name="buttonShowType" Content="All" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="118" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32">
+        <Button x:Name="buttonShowType" IsEnabled="False" Content="All" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="118" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="buttonShowSubtypes" Content="" HorizontalAlignment="Left" Margin="133,10,0,0" VerticalAlignment="Top" Width="126" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32">
+        <Button x:Name="buttonShowSubtypes" IsEnabled="False" Content="" HorizontalAlignment="Left" Margin="133,10,0,0" VerticalAlignment="Top" Width="126" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
