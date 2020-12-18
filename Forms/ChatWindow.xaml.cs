@@ -66,7 +66,7 @@ namespace LandConquest.Forms
 
         private void listViewChat_Loaded(object sender, RoutedEventArgs e)
         {
-            connectionString = @"workstation id=LandConquest1.mssql.somee.com;packet size=4096;user id=LandConquest_SQLLogin_1;pwd=3xlofdewbj;data source=LandConquest1.mssql.somee.com;persist security info=False;initial catalog=LandConquest1";
+            connectionString = @"Data Source=DESKTOP-EQUN2R7;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False";
             connection = new SqlConnection(connectionString);
             connection.Open();
             chatModel = new ChatModel();

@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
-        mc:Ignorable="d"
-        Title="ManufactureUpgradeDialog" Height="262" Width="268" Loaded="Window_Loaded"
+        mc:Ignorable="d" WindowStyle="ToolWindow"
+        Title="Upgrade Manufacture" Height="262" Width="268" Loaded="Window_Loaded"
         ShowInTaskbar="False">
     <Grid Margin="0,0,-6.4,-0.2">
         <Grid.Background>
@@ -24,8 +24,11 @@
         <Label x:Name="StoneHave" Content="0" HorizontalAlignment="Left" Margin="87,153,0,0" VerticalAlignment="Top" Width="46"/>
         <Label x:Name="WoodNeed" Content="0" HorizontalAlignment="Left" Margin="174,123,0,0" VerticalAlignment="Top" Width="50"/>
         <Label x:Name="StoneNeed" Content="0" HorizontalAlignment="Left" Margin="174,153,0,0" VerticalAlignment="Top" Width="50"/>
-        <Button x:Name="BtnUpgrade" Content="Upgrade" HorizontalAlignment="Left" Margin="68,183,0,0" VerticalAlignment="Top" Width="110" Click="BtnUpgrade_Click"/>
-        <Button Content="E" HorizontalAlignment="Left" Margin="218,183,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="Button_Click"/>
+        <Button x:Name="BtnUpgrade" Content="Upgrade" HorizontalAlignment="Left" Margin="82,183,0,0" VerticalAlignment="Top" Width="110" Click="BtnUpgrade_Click" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+            </Button.Background>
+        </Button>
         <Label Content="lvl:" FontSize="10" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top"/>
         <Label x:Name="ManufactureLvl" Content="1" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" Margin="26,82,0,0" VerticalAlignment="Top" Width="29"/>
     </Grid>

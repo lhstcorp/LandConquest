@@ -12,7 +12,14 @@
 
         <materialDesign:ColorPicker x:Name="StateColor" HorizontalAlignment="Left" Margin="160,71,0,0" VerticalAlignment="Top" Height="304" Width="453"/>
         <Label Content="Choose color for the state" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="252,36,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="EstablishState" Content="OK" HorizontalAlignment="Left" Height="82" Margin="641,243,0,0" VerticalAlignment="Top" Width="72" Click="EstablishState_Click"/>
+        <Button x:Name="EstablishState" Content="OK" HorizontalAlignment="Left" Height="69" Margin="641,71,0,0" VerticalAlignment="Top" Width="72" Click="EstablishState_Click" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
+            </Button.Background>
+        </Button>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+        </Grid.Background>
 
     </Grid>
 </Window>

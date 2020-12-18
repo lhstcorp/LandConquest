@@ -120,6 +120,9 @@
     <Compile Include="DialogWIndows\SplitArmyDialog.xaml.cs">
       <DependentUpon>SplitArmyDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\WarningDialogWindow.xaml.cs">
+      <DependentUpon>WarningDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Army.cs" />
     <Compile Include="Entities\ArmyInBattle.cs" />
     <Compile Include="Entities\AuctionListings.cs" />
@@ -133,6 +136,8 @@
     <Compile Include="Entities\PlayersRating.cs" />
     <Compile Include="Entities\War.cs" />
     <Compile Include="Enums\ForcesEnum.cs" />
+    <Compile Include="Enums\ManufacturesLvlEnum.cs" />
+    <Compile Include="Enums\ResourcesEnum.cs" />
     <Compile Include="Forms\AuctionWindow.xaml.cs">
       <DependentUpon>AuctionWindow.xaml</DependentUpon>
     </Compile>
@@ -207,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\SplitArmyDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\WarningDialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -21,9 +21,9 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <Button x:Name="buttonSendMessage" Content="Send" HorizontalAlignment="Left" FontWeight="Bold" VerticalContentAlignment="Top"  VerticalAlignment="Top" Width="73" Height="36" Click="buttonSendMessage_Click" BorderBrush="{x:Null}" Margin="767,404,0,0">
+        <Button x:Name="buttonSendMessage" Content="Send" HorizontalAlignment="Left" VerticalContentAlignment="Top"  VerticalAlignment="Top" Width="73" Height="36" Click="buttonSendMessage_Click" BorderBrush="{x:Null}" Margin="767,404,0,0">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_usual.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="buttonClose" HorizontalAlignment="Left" Margin="800,10,0,0" VerticalAlignment="Top" Width="40" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="buttonClose_Click">
