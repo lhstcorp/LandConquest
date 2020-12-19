@@ -8,6 +8,7 @@ using LandConquest.Models;
 using LandConquest.Entities;
 using LandConquest.Forms;
 using LandConquest.DialogWIndows;
+using System.Configuration;
 
 namespace LandConquest
 {
@@ -65,18 +66,9 @@ namespace LandConquest
 
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //greendend
-            //connection = new SqlConnection(@"Data Source=DESKTOP-3S39QPO\SQLEXPRESS;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
-            //connection = new SqlConnection(@"Data Source=SMA-NB\SQLEXPRESS;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
-            //user-pass 
-            connection = new SqlConnection(@"Data Source=DESKTOP-EQUN2R7;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
-            //glandeil
-            //connection = new SqlConnection(@"Data Source=DESKTOP-P19BATV\SQLEXPRESS;Initial Catalog=LandConquestDB;Integrated Security=True;Pooling=False");
-            //online connection link
-            //connection = new SqlConnection(@"workstation id=LandConquest1.mssql.somee.com;packet size=4096;user id=LandConquest_SQLLogin_1;pwd=3xlofdewbj;data source=LandConquest1.mssql.somee.com;persist security info=False;initial catalog=LandConquest1");
-
+            string cdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;   // ПОДКЛЮЧЕНИЕ К БД ТУТ
+            connection = new SqlConnection(cdb);
             connection.Open();
-
             textBoxLogin.Text = Properties.Settings.Default.UserLogin;
             textBoxPass.Password = Properties.Settings.Default.UserPassword;
         }
@@ -134,6 +126,10 @@ namespace LandConquest
             }
             else
             {
+                textBoxNewLogin.Text = "";
+                textBoxNewEmail.Text = "";
+                textBoxNewPass.Text = "";
+                textBoxConfirmNewPass.Text = "";
                 warningWindow = new WarningDialogWindow("Your login and email should be unique. Password, login and email length should be more then 3.");
                 warningWindow.Show();
             }
