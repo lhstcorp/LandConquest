@@ -54,11 +54,6 @@ namespace LandConquest.DialogWIndows
             ManufactureLvl.Content = manufacture.ManufactureLevel;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void BtnUpgrade_Click(object sender, RoutedEventArgs e)
         {
             if (storage.PlayerWood >= resourcesNeed.PlayerWood && storage.PlayerStone >= resourcesNeed.PlayerStone)

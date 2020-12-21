@@ -31,24 +31,24 @@
         <Label x:Name="labelPass" Content="••••••" FontSize="24" HorizontalAlignment="Left" Margin="212,253,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
 
 
-        <Button x:Name="buttonClose"  HorizontalAlignment="Left" Margin="514,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonClose_Click">
+        <Button x:Name="buttonClose"  HorizontalAlignment="Left" Margin="554,10,0,0" VerticalAlignment="Top" Width="36" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonClose_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Button x:Name="buttonChangeName" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Top" HorizontalAlignment="Left" Margin="362,62,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="White" Height="32" Click="buttonChangeName_Click" MouseEnter="buttonChangeName_MouseEnter">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_usual.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="buttonChangeEmail" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Top" HorizontalAlignment="Left" Margin="362,181,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="White" Height="32" Click="buttonChangeEmail_Click" MouseEnter="buttonChangeEmail_MouseEnter">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_usual.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="buttonChangePass" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Top" HorizontalAlignment="Left" Margin="362,261,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="White" Height="32" Click="buttonChangePass_Click" MouseEnter="buttonChangePass_MouseEnter">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_usual.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
         </Button>
 

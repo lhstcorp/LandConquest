@@ -24,6 +24,7 @@ namespace LandConquest.Forms
         Boolean f_canMoveArmy = false;
         int INDEX;
         const int syncTick = 30; //sec
+        private int timerValue = 30;
 
         ArmyModel armyModel = new ArmyModel();
         BattleModel battleModel = new BattleModel();
@@ -71,9 +72,13 @@ namespace LandConquest.Forms
             gridForArmies.Height = rowHeight * localWarMap.Rows;
 
             localWarMap.HorizontalAlignment = HorizontalAlignment.Left;
+            localWarMap.Margin = new Thickness(50, 0, 0, 0);
             localWarMap.VerticalAlignment = VerticalAlignment.Center;
             gridForArmies.HorizontalAlignment = HorizontalAlignment.Left;
+            gridForArmies.Margin = new Thickness(50, 0, 0, 0);
             gridForArmies.VerticalAlignment = VerticalAlignment.Center;
+
+            timerLabel.Content = "syncing...";
             Loaded += WarWin_Loaded;
 
         }
@@ -834,6 +839,12 @@ namespace LandConquest.Forms
             syncTimer.Tick += LetsTick;
             syncTimer.Start();
 
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromSeconds(1);
+            dt.Tick += LocalTimer_Tick;
+            timerLabel.Visibility = Visibility.Visible;
+            dt.Start();
+
             searchPlayerArmies();
             lockAllPlayerArmies();
         }
@@ -844,10 +855,16 @@ namespace LandConquest.Forms
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(syncTick);
             timer.Tick += timer_Tick;
-
             timer.Start();
             
             firstTick();
+        }
+
+
+        private void LocalTimer_Tick(object sender, EventArgs e)
+        {
+            timerValue--;
+            timerLabel.Content = timerValue.ToString();
         }
 
         public void firstTick()
@@ -865,6 +882,7 @@ namespace LandConquest.Forms
             searchPlayerArmies();
             ShowArmiesOnMap();
             unlockAllPlayerArmies();
+            timerValue = 30;
         }
 
 

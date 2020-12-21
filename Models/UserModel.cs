@@ -1,17 +1,16 @@
 ﻿using LandConquest.Entities;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace LandConquest.Models
 {
     public class UserModel
     {
-        public User UserLogin(AuthorisationWindow window, User user, SqlConnection connection)
+        public User UserAuthorisation(AuthorisationWindow window, SqlConnection connection)
         {
+            User user = new User();
+
             String query = "SELECT * FROM dbo.UserData WHERE user_login = @user_login AND user_pass = @user_pass";
 
             var command = new SqlCommand(query, connection);
@@ -20,17 +19,20 @@ namespace LandConquest.Models
 
             using (var reader = command.ExecuteReader())
             {
-                var userId = reader.GetOrdinal("user_id");
-                var userLogin = reader.GetOrdinal("user_login");
-                var userEmail = reader.GetOrdinal("user_email");
-                var userPass = reader.GetOrdinal("user_pass");
-                while (reader.Read())
+                if (reader.HasRows)
                 {
-                    user.UserId = reader.GetString(userId);
-                    user.UserLogin = reader.GetString(userLogin);
-                    user.UserEmail = reader.GetString(userEmail);
-                    user.UserPass = reader.GetString(userPass);
+                    var userId = reader.GetOrdinal("user_id");
+                    var userLogin = reader.GetOrdinal("user_login");
+                    var userEmail = reader.GetOrdinal("user_email");
+                    var userPass = reader.GetOrdinal("user_pass");
+                    while (reader.Read())
+                    {
+                        user.UserId = reader.GetString(userId);
+                        user.UserLogin = reader.GetString(userLogin);
+                        user.UserEmail = reader.GetString(userEmail);
+                        user.UserPass = reader.GetString(userPass);
 
+                    }
                 }
             }
             return user;
@@ -99,6 +101,46 @@ namespace LandConquest.Models
             userCommand.Parameters.AddWithValue("@user_pass", newUserPass);
 
             userCommand.ExecuteNonQuery();
+        }
+
+        public bool ValidateUserByLogin(string user_login, SqlConnection connection)
+        {
+            String query = "SELECT * FROM dbo.UserData WHERE user_login = @user_login";
+
+            var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@user_login", user_login);
+
+            using (var reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+        public bool ValidateUserByEmail(string user_email, SqlConnection connection)
+        {
+            String query = "SELECT * FROM dbo.UserData WHERE user_email = @user_email";
+
+            var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@user_email", user_email);
+
+            using (var reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
         }
     }
 }

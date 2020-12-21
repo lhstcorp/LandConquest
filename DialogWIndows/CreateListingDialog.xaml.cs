@@ -114,36 +114,57 @@ namespace LandConquest.DialogWIndows
 
         private void stoneButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            itemName = "Stone";
+            itemGroup = "Resources";
+            itemSubgroup = "";
             showListingDetails();
         }
 
         private void foodButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            itemName = "Food";
+            itemGroup = "Resources";
+            itemSubgroup = "";
             showListingDetails();
         }
 
         private void goldButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            itemName = "Gold";
+            itemGroup = "Resources";
+            itemSubgroup = "";
             showListingDetails();
         }
 
         private void copperButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            itemName = "Copper";
+            itemGroup = "Resources";
+            itemSubgroup = "";
             showListingDetails();
         }
 
         private void gemsButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            itemName = "Gems";
+            itemGroup = "Resources";
+            itemSubgroup = "";
             showListingDetails();
         }
 
         private void metalButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            itemName = "Metal";
+            itemGroup = "Resources";
+            itemSubgroup = "";
             showListingDetails();
         }
 
         private void leatherButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            itemName = "Leather";
+            itemGroup = "Resources";
+            itemSubgroup = "";
             showListingDetails();
         }
 
