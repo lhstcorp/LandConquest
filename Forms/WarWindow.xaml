@@ -39,10 +39,14 @@
                     <ImageBrush ImageSource="/Pictures/armyPageArrowRight.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnSelectToUnite" Content="Select" HorizontalAlignment="Left" Margin="210,47,0,0" VerticalAlignment="Top" Width="80" Click="btnSelectToUnite_Click" Grid.ColumnSpan="2" Background="#FFDD9F5A" BorderBrush="#FF51200B"/>
-            <Button x:Name="btnUnite" Content="U" FontSize="10" FontWeight="Bold"  Foreground="White" HorizontalAlignment="Left" Margin="210,8,0,0" VerticalAlignment="Top" Width="41" BorderBrush="#FF7B4623" Click="btnUnite_Click" Height="34">
+            <Button x:Name="btnSelectToUnite" Content="Select" HorizontalAlignment="Left" Margin="210,47,0,0" VerticalAlignment="Top" Width="80" Click="btnSelectToUnite_Click" Grid.ColumnSpan="2" BorderBrush="{x:Null}">
                 <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/button_square.png"/>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnUnite" Content="U" FontSize="10" FontWeight="Bold"  Foreground="White" HorizontalAlignment="Left" Margin="210,8,0,0" VerticalAlignment="Top" Width="41" BorderBrush="{x:Null}" Click="btnUnite_Click" Height="34">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
                 </Button.Background>
             </Button>
             <Button x:Name="btnWarWindowClose" Foreground="Black" HorizontalAlignment="Left" Margin="256,-64,0,0" VerticalAlignment="Top" Width="34" Grid.ColumnSpan="2" Click="btnWarWindowClose_Click" BorderBrush="{x:Null}">
@@ -88,6 +92,8 @@
             <Label x:Name="warriorsSiegeRight" Content="0"  Margin="186,135,9.6,141"/>
 
         </Grid>
+        <Label x:Name="timerLabel" Content="0" FontSize="24" HorizontalAlignment="Left" Margin="1214,25,0,0" VerticalAlignment="Top" Width="103" Height="39"/>
+        <Label Content="Next step in:" FontSize="24" HorizontalAlignment="Left" Margin="1069,25,0,0" VerticalAlignment="Top"/>
 
 
 

@@ -4,21 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
-        mc:Ignorable="d"
-        Title="Purchase currency" Height="450" Width="900">
+        mc:Ignorable="d" WindowStyle="ToolWindow"
+        Title="Purchase currency" Height="450" Width="540.323">
     <Grid>
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <TextBox x:Name="currencyAmount" HorizontalAlignment="Left" Height="23" Margin="367,75,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="64" TextChanged="currencyAmount_TextChanged"/>
-        <Label Content="Exchange rates: 100 coins/ 1 $" HorizontalAlignment="Left" Margin="349,22,0,0" VerticalAlignment="Top" Width="169"/>
-        <Label Content="Coins:" HorizontalAlignment="Left" Margin="322,75,0,0" VerticalAlignment="Top"/>
-        <Label Content="To pay:" HorizontalAlignment="Left" Margin="482,75,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="totalMoneyAmountLabel" Content="0" HorizontalAlignment="Left" Margin="530,75,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="buttonPurchase" Content="Purchase" BorderBrush="#FF541E0B" HorizontalAlignment="Left" Background="#FFDD9F5A" Margin="356,344,0,0" VerticalAlignment="Top" Width="151" Click="buttonPurchase_Click"/>
-        <Label Content="Choose payment type:" FontSize="24" HorizontalAlignment="Left" Margin="311,158,0,0" VerticalAlignment="Top"/>
-        <Image x:Name="paypalPayment" Source="/Pictures/paypal_secure_payments.png" HorizontalAlignment="Left" Height="87" Margin="356,219,0,0" VerticalAlignment="Top" Width="151"/>
+        <TextBox x:Name="currencyAmount" HorizontalAlignment="Left" Height="23" Margin="180,83,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="64" TextChanged="currencyAmount_TextChanged"/>
+        <Label Content="Exchange rates: 100 coins/ 1 $" FontSize="16" HorizontalAlignment="Left" Margin="151,23,0,0" VerticalAlignment="Top" Width="222"/>
+        <Label Content="Coins:" HorizontalAlignment="Left" Margin="135,83,0,0" VerticalAlignment="Top"/>
+        <Label Content="To pay:" HorizontalAlignment="Left" Margin="295,83,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="totalMoneyAmountLabel" Content="0" HorizontalAlignment="Left" Margin="343,83,0,0" VerticalAlignment="Top" Width="38"/>
+        <Button x:Name="buttonPurchase" Content="Purchase" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="190,347,0,0" VerticalAlignment="Top" Width="151" Click="buttonPurchase_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Choose payment type:" FontSize="24" HorizontalAlignment="Left" Margin="140,161,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="paypalPayment" Source="/Pictures/paypal_secure_payments.png" HorizontalAlignment="Left" Height="87" Margin="190,222,0,0" VerticalAlignment="Top" Width="151"/>
+        <Label Content="$" FontSize="16" HorizontalAlignment="Left" Margin="381,80,0,0" VerticalAlignment="Top" Width="31"/>
 
 
 

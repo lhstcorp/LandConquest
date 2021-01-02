@@ -31,9 +31,21 @@
         <Image HorizontalAlignment="Left" Height="37" Margin="494,333,0,0" VerticalAlignment="Top" Width="41" Source="/LandConquest;component/Pictures/stones.png"/>
         <Label x:Name="playerWoodLabel"  Content="0" HorizontalAlignment="Left" Margin="396,333,0,0" VerticalAlignment="Top" Foreground="SaddleBrown"/>
         <Label x:Name="playerStoneLabel" Content="0" HorizontalAlignment="Left" Margin="475,333,0,0" VerticalAlignment="Top" Foreground="SlateGray"/>
-        <Button x:Name="buttonBuyQuarry" Content="Buy" HorizontalAlignment="Left" Margin="53,213,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="buttonBuySawmill" Content="Buy" HorizontalAlignment="Left" Margin="341,213,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="buttonBuyWindmill" Content="Buy" HorizontalAlignment="Left" Margin="633,213,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="buttonBuyQuarry" Content="Buy" HorizontalAlignment="Left" Margin="53,213,0,0" VerticalAlignment="Top" Width="75" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonBuySawmill" Content="Buy" HorizontalAlignment="Left" Margin="341,213,0,0" VerticalAlignment="Top" Width="75" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonBuyWindmill" Content="Buy" HorizontalAlignment="Left" Margin="633,213,0,0" VerticalAlignment="Top" Width="75" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+            </Button.Background>
+        </Button>
         <Label Content="//Кнопки будут серого цвета если ресурсов не хватает " HorizontalAlignment="Left" Margin="145,250,0,0" VerticalAlignment="Top"/>
 
 

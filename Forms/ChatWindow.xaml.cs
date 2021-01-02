@@ -2,6 +2,7 @@
 using LandConquest.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -24,7 +25,6 @@ namespace LandConquest.Forms
 {
     public partial class ChatWindow : Window
     {
-        private string connectionString;
         SqlConnection connection;
         Player player;
         ChatModel chatModel;
@@ -66,8 +66,8 @@ namespace LandConquest.Forms
 
         private void listViewChat_Loaded(object sender, RoutedEventArgs e)
         {
-            connectionString = @"workstation id=LandConquest1.mssql.somee.com;packet size=4096;user id=LandConquest_SQLLogin_1;pwd=3xlofdewbj;data source=LandConquest1.mssql.somee.com;persist security info=False;initial catalog=LandConquest1";
-            connection = new SqlConnection(connectionString);
+            string cdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
+            connection = new SqlConnection(cdb);
             connection.Open();
             chatModel = new ChatModel();
             updateChat();
@@ -79,21 +79,15 @@ namespace LandConquest.Forms
 
 
             // Не удалять! Если перестанет работать чат, обязательно сделать этот запрос к бд: 
-
             // ALTER DATABASE LandConquestDB SET ENABLE_BROKER with rollback immediate
-
             // Если не помогло то те что ниже
-
             //CREATE QUEUE ContactChangeMessages;
-
             //CREATE SERVICE ContactChangeNotifications
             //  ON QUEUE ContactChangeMessages
             //([http://schemas.microsoft.com/SQL/Notifications/PostQueryNotification]);  
-
             //ALTER AUTHORIZATION ON DATABASE:: LandCoqnuestDB TO имя_компа
 
-
-            sqlTableDependency = new SqlTableDependency<ChatMessages>((connectionString), "ChatMessages", "dbo", mapper);
+            sqlTableDependency = new SqlTableDependency<ChatMessages>(connection.ConnectionString, "ChatMessages", "dbo", mapper);
             sqlTableDependency.OnChanged += Changed;
             sqlTableDependency.Start();
 

@@ -20,6 +20,7 @@ namespace LandConquest.DialogWIndows
     public partial class BalanceReplenishmentDialog : Window
     {
         PaymentDialog paymentDialog;
+        WarningDialogWindow window;
         public double moneyAmount;
         Player player;
         SqlConnection connection;
@@ -32,9 +33,17 @@ namespace LandConquest.DialogWIndows
 
         private void buttonPurchase_Click(object sender, RoutedEventArgs e)
         {
-            paymentDialog = new PaymentDialog(connection, moneyAmount, Convert.ToInt32(currencyAmount.Text), player, this);
-            paymentDialog.Show();
-            this.Hide();
+            if (Convert.ToInt32(currencyAmount.Text) >= 100)
+            {
+                paymentDialog = new PaymentDialog(connection, moneyAmount, Convert.ToInt32(currencyAmount.Text), player, this);
+                paymentDialog.Show();
+                this.Hide();
+            }
+            else
+            {
+                window = new WarningDialogWindow("Coins amount can not be less then 100");
+                window.Show();
+            }
         }
 
         private void currencyAmount_TextChanged(object sender, TextChangedEventArgs e)
