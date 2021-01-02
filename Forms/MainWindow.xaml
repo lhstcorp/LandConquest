@@ -56,10 +56,10 @@
 
         <!--menu header design-->
         <Image HorizontalAlignment="Left" Height="50" Margin="290,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="340,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="390,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="440,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="490,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="340,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="390,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="recruitImage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="440,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="marketImage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="490,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="CountryImage_MouseDown" Cursor="Hand"/>
         <Image HorizontalAlignment="Left" Height="50" Margin="540,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand" Opacity="0.25"/>
 
         <Image HorizontalAlignment="Left" Height="30" Margin="299,19,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/resource_chest.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>

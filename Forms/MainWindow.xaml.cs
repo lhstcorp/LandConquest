@@ -172,6 +172,8 @@ namespace LandConquest.Forms
             wars = warModel.GetWarsInfo(wars, connection);
 
             LoadWarsOnMap();
+
+            setFlag();
         }
 
         private void UpdateInfo()
@@ -586,12 +588,13 @@ namespace LandConquest.Forms
         {
 
             peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
-            List<int> list = playerModel.DeletePlayerManufactureLandData(peasants, player, connection);
+            List<int> peasantsFree = playerModel.DeletePlayerManufactureLandData(peasants, player, connection);
             List<Manufacture> landManufactures = manufactureModel.GetLandManufactureInfo(player, connection);
-            Console.WriteLine("playerRegion: " + player.PlayerCurrentRegion);
-            Console.WriteLine("manufacture: " + landManufactures[0].ManufactureId + "  " + landManufactures[0].ManufacturePeasantWork);
-            Console.WriteLine("list: " + list[0] + "  " + list[1]);
-            manufactureModel.UpdateLandManufacturesWhenMove(connection, list, landManufactures);
+
+            manufactureModel.UpdateLandManufacturesWhenMove(connection, peasantsFree, landManufactures);
+            //peasants.PeasantsCount = peasants.PeasantsCount + peasantsFree[0] + peasantsFree[1];
+            peasantModel.UpdatePeasantsInfo(peasants, connection);
+
             player = playerModel.UpdatePlayerLand(player, connection, land);
 
             //flag.Margin = new Thickness(flagXY[0] - 69, flagXY[1] - 36, 0, 0);
@@ -920,6 +923,12 @@ namespace LandConquest.Forms
             {
                 label.Content += "k";
             }
+        }
+
+        public void setFlag()
+        {
+            flagXY = mapModel.CenterOfLand(player.PlayerCurrentRegion);
+            flag.Margin = new Thickness(flagXY[0], flagXY[1], 0, 0);
         }
     }
 }
