@@ -81,8 +81,6 @@ namespace LandConquest.Forms
                         playerLandManufactures.Add(new Manufacture());
                         playerLandManufactures[i].ManufacturePeasantWork = 0;
                     }
-                    //playerLandManufactures[0].ManufacturePeasantWork = 0;
-                    //playerLandManufactures[1].ManufacturePeasantWork = 0;
                 }
             }
             catch
@@ -274,7 +272,7 @@ namespace LandConquest.Forms
             playerLandManufactures[1].ManufactureType = landManufactures[1].ManufactureType;
 
             playerLandManufactures[0].ManufactureProductsHour = Convert.ToInt32(building1ProdValueHour.Content);
-            playerLandManufactures[1].ManufactureProductsHour = Convert.ToInt32(building2ProdValueHour.Content); 
+            playerLandManufactures[1].ManufactureProductsHour = Convert.ToInt32(building2ProdValueHour.Content);
 
             //не забудь убрать лох //убрал кста
             model.InsertOrUpdateLandManufactures(playerLandManufactures, player, connection); //это пользовательская сущность городской мануфактуры
@@ -283,6 +281,8 @@ namespace LandConquest.Forms
             //---------------------
             model.UpdateDateTimeForManufacture(manufactures, player, connection);
             model.UpdateLandManufactures(landManufactures, connection); //это общая сущность - тут хранятся общие данные игроков.
+
+            ManufactureWindow_Loaded(sender, e);
         }
 
         private void buttonQuarryUpgrade_Click(object sender, RoutedEventArgs e)

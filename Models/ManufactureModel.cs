@@ -499,7 +499,7 @@ namespace LandConquest.Models
             return manufactures;
         }
 
-        public void UpdateLandManufacturesWhenMove(SqlConnection connection, List<int> list, List<Manufacture> landManufactures)
+        public void UpdateLandManufacturesWhenMove(SqlConnection connection, List<int> peasantsFree, List<Manufacture> landManufactures)
         {
             String manufactureQuery = "UPDATE dbo.LandManufactureData SET manufacture_peasant_work  = @manufacture_peasant_work WHERE manufacture_id = @manufacture_id ";
 
@@ -507,7 +507,7 @@ namespace LandConquest.Models
             var build1Command = new SqlCommand(manufactureQuery, connection);
 
             build1Command.Parameters.AddWithValue("@manufacture_id", landManufactures[0].ManufactureId);
-            build1Command.Parameters.AddWithValue("@manufacture_peasant_work", landManufactures[0].ManufacturePeasantWork - list[0]);
+            build1Command.Parameters.AddWithValue("@manufacture_peasant_work", landManufactures[0].ManufacturePeasantWork - peasantsFree[0]);
 
             build1Command.ExecuteNonQuery();
 
@@ -515,7 +515,7 @@ namespace LandConquest.Models
             var build2Command = new SqlCommand(manufactureQuery, connection);
 
             build2Command.Parameters.AddWithValue("@manufacture_id", landManufactures[1].ManufactureId);
-            build2Command.Parameters.AddWithValue("@manufacture_peasant_work", landManufactures[1].ManufacturePeasantWork - list[1]);
+            build2Command.Parameters.AddWithValue("@manufacture_peasant_work", landManufactures[1].ManufacturePeasantWork - peasantsFree[1]);
 
             build2Command.ExecuteNonQuery();
 
