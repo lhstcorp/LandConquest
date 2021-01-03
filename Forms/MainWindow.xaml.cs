@@ -317,7 +317,7 @@ namespace LandConquest.Forms
 
             Console.WriteLine(Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5))) + " tut");
 
-            storageModel.UpdateStorage(connection, player, storage);
+            StorageModel.UpdateStorage(connection, player, storage);
 
             manufactureModel.UpdateDateTimeForManufacture(manufactures, player, connection);
             if (f) manufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player, connection);

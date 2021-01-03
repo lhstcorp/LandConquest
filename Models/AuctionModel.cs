@@ -29,9 +29,11 @@ namespace LandConquest.Models
             auctionCommand.ExecuteNonQuery();
             auctionCommand.Dispose();
 
-            String storageQuery = "UPDATE dbo.StorageData SET @item_name = CAST(@item_name AS INT) - @item_amount WHERE player_id = @player_id ";
-            //String storageQuery = "UPDATE dbo.StorageData SET @item_name = @item_name - @item_amount WHERE player_id = @player_id ";
-            var storageCommand = new SqlCommand(storageQuery, connection);          
+            //String storageQuery = "UPDATE dbo.StorageData SET @item_name = @item_amount WHERE player_id = @player_id";
+            //String storageQuery = "UPDATE dbo.StorageData SET @item_name = CAST(@item_name AS INT) - @item_amount WHERE player_id = @player_id";
+            //String storageQuery = "UPDATE dbo.StorageData SET @item_name = 144 - @item_amount WHERE player_id = @player_id ";
+            String storageQuery = "UPDATE dbo.StorageData SET " + itemName + " = " + itemName + " - @item_amount WHERE player_id = @player_id ";  //нужна доп валидация
+            var storageCommand = new SqlCommand(storageQuery, connection);
             storageCommand.Parameters.AddWithValue("@item_name", itemName);
             storageCommand.Parameters.AddWithValue("@item_amount", qty);
             storageCommand.Parameters.AddWithValue("@player_id", player.PlayerId);

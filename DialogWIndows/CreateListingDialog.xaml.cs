@@ -233,6 +233,7 @@ namespace LandConquest.DialogWIndows
         private void buttonPlace_Click(object sender, RoutedEventArgs e)
         {
             auctionModel.AddListing(Convert.ToInt32(textBoxAmount.Text), itemName, itemGroup, itemSubgroup, Convert.ToInt32(textBoxPrice.Text), player, connection);
+            
         }
     }
 }
