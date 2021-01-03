@@ -45,7 +45,7 @@ namespace LandConquest.Forms
             equipment = new PlayerEquipment();
             equipmentModel = new EquipmentModel();
 
-            storage = model.GetPlayerStorage(player, connection, storage);
+            storage = StorageModel.GetPlayerStorage(player, connection, storage);
             equipment = equipmentModel.GetPlayerEquipment(player, connection, equipment);
 
             labelWoodAmount.Content = storage.PlayerWood.ToString();

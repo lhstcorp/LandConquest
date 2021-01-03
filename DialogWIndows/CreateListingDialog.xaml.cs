@@ -23,7 +23,6 @@ namespace LandConquest.DialogWIndows
     {
         SqlConnection connection;
         Player player;
-        StorageModel model;
         PlayerStorage storage;
         PlayerEquipment equipment;
         EquipmentModel equipmentModel;
@@ -52,7 +51,6 @@ namespace LandConquest.DialogWIndows
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             storage = new PlayerStorage();
-            model = new StorageModel();
             equipment = new PlayerEquipment();
             equipmentModel = new EquipmentModel();
 
@@ -78,7 +76,7 @@ namespace LandConquest.DialogWIndows
             labelKnightAmount.Content = army.ArmyHorsemanCount.ToString();
             labelSiegeMachinesAmount.Content = army.ArmySiegegunCount.ToString();
 
-            storage = model.GetPlayerStorage(player, connection, storage);
+            storage = StorageModel.GetPlayerStorage(player, connection, storage);
             equipment = equipmentModel.GetPlayerEquipment(player, connection, equipment);
 
             labelWoodAmount.Content = storage.PlayerWood.ToString();
@@ -154,7 +152,7 @@ namespace LandConquest.DialogWIndows
 
         private void metalButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "Metal";
+            itemName = "Iron";
             itemGroup = "Resources";
             itemSubgroup = "";
             showListingDetails();

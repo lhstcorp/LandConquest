@@ -63,7 +63,7 @@ namespace LandConquest.DialogWIndows
                 storage.PlayerStone -= resourcesNeed.PlayerStone;
 
                 storageModel.UpdateStorage(connection, player, storage);
-                storage = storageModel.GetPlayerStorage(player, connection, storage);
+                storage = StorageModel.GetPlayerStorage(player, connection, storage);
                 //this.Hide();
                 //this.Show();
                 // output
