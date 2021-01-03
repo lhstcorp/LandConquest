@@ -185,7 +185,7 @@
     <Compile Include="Resources\ResourceMap.xaml.cs">
       <DependentUpon>ResourceMap.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StylesDictionary.xaml.cs">
+    <Compile Include="Resources\StylesDictionary.xaml.cs">
       <DependentUpon>StylesDictionary.xaml</DependentUpon>
     </Compile>
     <Page Include="DialogWIndows\BalanceReplenishmentDialog.xaml">
@@ -304,7 +304,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StylesDictionary.xaml">
+    <Page Include="Resources\StylesDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -519,13 +519,13 @@
     <Resource Include="Pictures\coin.png" />
     <Resource Include="Pictures\archer.png" />
     <Resource Include="Pictures\hourseman.png" />
-    <Content Include="music.wav">
+    <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="music2.wav">
+    <Content Include="Sounds\MainTheme2.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="music3.wav">
+    <Content Include="Sounds\MainTheme3.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Pictures\catapult.png" />

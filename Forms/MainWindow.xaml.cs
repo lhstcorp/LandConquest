@@ -116,7 +116,7 @@ namespace LandConquest.Forms
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            storage = storageModel.GetPlayerStorage(player, connection, storage);
+            storage = StorageModel.GetPlayerStorage(player, connection, storage);
 
             peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
             sliderTaxes.IsSnapToTickEnabled = true;
@@ -200,7 +200,7 @@ namespace LandConquest.Forms
 
         private void ImageStorage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = storageModel.GetPlayerStorage(player, connection, storage);
+            storage = StorageModel.GetPlayerStorage(player, connection, storage);
             List<Manufacture> manufactures = manufactureModel.GetManufactureInfo(player, connection);
             List<Manufacture> playerLandManufactures = manufactureModel.GetPlayerLandManufactureInfo(player, connection);
             //base manufactures 
@@ -317,7 +317,7 @@ namespace LandConquest.Forms
 
             Console.WriteLine(Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5))) + " tut");
 
-            storageModel.UpdateStorage(connection, player, storage);
+            StorageModel.UpdateStorage(connection, player, storage);
 
             manufactureModel.UpdateDateTimeForManufacture(manufactures, player, connection);
             if (f) manufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player, connection);
@@ -368,7 +368,7 @@ namespace LandConquest.Forms
 
         private void recruitImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = storageModel.GetPlayerStorage(player, connection, storage);
+            storage = StorageModel.GetPlayerStorage(player, connection, storage);
             equipment = equipmentModel.GetPlayerEquipment(player, connection, equipment);
 
             RecruitWindow window = new RecruitWindow(connection, player, storage, equipment);
@@ -568,8 +568,7 @@ namespace LandConquest.Forms
         }
         private void playMusic()
         {
-            SoundPlayer sound = new SoundPlayer();
-            sound.SoundLocation = @"music.wav";
+            SoundPlayer sound = new SoundPlayer(Properties.Resources.MainTheme);
             sound.PlayLooping();
 
             //sound.SoundLocation = @"music2.wav";
@@ -696,7 +695,7 @@ namespace LandConquest.Forms
 
         private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = storageModel.GetPlayerStorage(player, connection, storage);
+            storage = StorageModel.GetPlayerStorage(player, connection, storage);
             market = marketModel.GetMarketInfo(player, connection, market);
 
             MarketWindow window = new MarketWindow(this, connection, storage, market, player);

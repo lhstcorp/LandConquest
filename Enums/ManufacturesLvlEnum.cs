@@ -19,5 +19,7 @@ namespace LandConquest.Enums
             Gold = 0,
             Money = 100
         }
+
+
     }
 }

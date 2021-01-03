@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
-        mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize"
+        mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize" HorizontalAlignment="Center" VerticalAlignment="Center"
         Height="150" Width="250">
     <Grid>
         <Label Content="Warning" HorizontalAlignment="Center" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold"  Height="38" Margin="70,10,70.6,0" VerticalAlignment="Top" Width="109" Background="{x:Null}" RenderTransformOrigin="0.705,0.279"/>

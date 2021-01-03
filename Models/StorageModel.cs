@@ -11,7 +11,7 @@ namespace LandConquest.Models
 {
     public class StorageModel
     {
-        public PlayerStorage GetPlayerStorage(Player player, SqlConnection connection, PlayerStorage storage)
+        public static PlayerStorage GetPlayerStorage(Player player, SqlConnection connection, PlayerStorage storage)
         {
             String storageQuery = "SELECT * FROM dbo.StorageData WHERE player_id = @player_id";
 
@@ -47,7 +47,7 @@ namespace LandConquest.Models
             return storage;
         }
 
-        public void UpdateStorage(SqlConnection connection, Player player, PlayerStorage _storage)
+        public static void UpdateStorage(SqlConnection connection, Player player, PlayerStorage _storage)
         {
             String storageQuery = "UPDATE dbo.StorageData SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather WHERE player_id = @player_id ";
 
