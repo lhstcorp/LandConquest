@@ -519,6 +519,9 @@
     <Resource Include="Pictures\coin.png" />
     <Resource Include="Pictures\archer.png" />
     <Resource Include="Pictures\hourseman.png" />
+    <Resource Include="Pictures\Design elements v1.0\square-control-black.png" />
+    <Resource Include="Pictures\sandClocks.png" />
+    <Resource Include="Pictures\sandClocksWithCircle.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
