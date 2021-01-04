@@ -25,7 +25,7 @@ namespace LandConquest.Resources
             {
                 LandModel landModel = new LandModel();
 
-                string cdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
+                string cdb = ConfigurationManager.ConnectionStrings["greendend2"].ConnectionString;
                 connection = new SqlConnection(cdb);
                 connection.Open();
 
