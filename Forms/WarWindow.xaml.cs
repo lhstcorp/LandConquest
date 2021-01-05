@@ -847,6 +847,7 @@ namespace LandConquest.Forms
 
             searchPlayerArmies();
             lockAllPlayerArmies();
+            calculateMoveCounter();
         }
 
         public void LetsTick(object sender, EventArgs e)
@@ -901,7 +902,6 @@ namespace LandConquest.Forms
             {
                 playerArmiesImages.Add((Image)gridForArmies.Children[playerArmies[i].LocalLandId]);
             }
-
         }
 
         public void lockAllPlayerArmies()
@@ -918,6 +918,25 @@ namespace LandConquest.Forms
             {
                 image.IsEnabled = true;
             }
+        }
+
+        public void calculateMoveCounter()
+        {
+            int moveCounter = 0;
+            //DateTime warLength = war.WarDateTimeStart;
+
+            TimeSpan warLength = DateTime.UtcNow.Subtract(war.WarDateTimeStart);
+
+            double currentwarLengthInSeconds = warLength.Hours * 3600 + warLength.Minutes * 60 + warLength.Seconds;
+
+            moveCounter = Convert.ToInt32(Math.Floor(currentwarLengthInSeconds / 30));
+
+            if (moveCounter > 720)
+            {
+                //delete war;
+            }
+
+            moveCounterLbl.Content = Convert.ToString(moveCounter);
         }
     }
 

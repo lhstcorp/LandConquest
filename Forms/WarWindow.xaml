@@ -91,9 +91,9 @@
         <Label Content="Next step in:" FontSize="20" Margin="0,40,48,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" Grid.Column="1" Height="34"/>
 
         <Image Margin="0,80,88,0"  Source="/LandConquest;component/Pictures/epic_button_brown.png" HorizontalAlignment="Right" Width="132" Height="42" VerticalAlignment="Top"/>
-        <Image Margin="0,74,157,0"  Source="/Pictures/Design elements v1.0/square-control-black.png" HorizontalAlignment="Right" Width="55" Height="60" VerticalAlignment="Top"/>
-        <Image Margin="0,80,165,0"  Source="/Pictures/sandClocks.png" HorizontalAlignment="Right" Width="38" Height="66" VerticalAlignment="Top"/>
-        <Label Content="000" FontSize="20" Margin="0,82,108,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55" Height="34" Foreground="Ivory"/>
+        <Image Margin="0,74,155,0"  Source="/Pictures/Design elements v1.0/square-control-black.png" HorizontalAlignment="Right" Width="55" Height="60" VerticalAlignment="Top"/>
+        <Image Margin="0,81,164,0"  Source="/Pictures/sandClocks.png" HorizontalAlignment="Right" Width="38" Height="66" VerticalAlignment="Top"/>
+        <Label x:Name="moveCounterLbl" Content="000" FontSize="20" Margin="0,82,102,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55" Height="34" Foreground="Ivory"/>
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
