@@ -66,7 +66,7 @@ namespace LandConquest
 
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            string cdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;   // ПОДКЛЮЧЕНИЕ К БД ТУТ
+            string cdb = ConfigurationManager.ConnectionStrings["greendend2"].ConnectionString;   // ПОДКЛЮЧЕНИЕ К БД ТУТ
             connection = new SqlConnection(cdb);
             connection.Open();
             textBoxLogin.Text = Properties.Settings.Default.UserLogin;
