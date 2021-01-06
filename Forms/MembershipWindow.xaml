@@ -1,0 +1,26 @@
+﻿<Window x:Class="LandConquest.Forms.MembershipWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.Forms"
+        mc:Ignorable="d"
+        WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True" BorderThickness="0" Background="{x:Null}" Foreground="{x:Null}"
+        Height="450" Width="700" ShowInTaskbar="False" Loaded="Window_Loaded" >
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/panel_horizontal1.png"/>
+        </Grid.Background>
+        <Button x:Name="buttonBecomeMember" Content="Learn more" FontSize="24" HorizontalAlignment="Left" Margin="244,369,0,0" VerticalAlignment="Top" Width="194" Height="54" BorderBrush="{x:Null}" Foreground="#FFCEA642" Click="buttonBecomeMember_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonClose" Content="Close" FontSize="22" HorizontalAlignment="Left" Margin="614,2,-1,0" VerticalAlignment="Top" Width="87" BorderBrush="{x:Null}" Height="43" Foreground="#FFCEA642" Click="buttonClose_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>
