@@ -929,5 +929,13 @@ namespace LandConquest.Forms
             flagXY = mapModel.CenterOfLand(player.PlayerCurrentRegion);
             flag.Margin = new Thickness(flagXY[0], flagXY[1], 0, 0);
         }
+
+        private void buyMembership_Click(object sender, RoutedEventArgs e)
+        {
+            MembershipWindow window = new MembershipWindow();
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Owner = this;
+            window.Show();
+        }
     }
 }
