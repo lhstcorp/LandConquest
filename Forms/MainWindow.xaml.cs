@@ -714,116 +714,6 @@ namespace LandConquest.Forms
         {
 
         }
-
-        private void DeclareWar(object sender, RoutedEventArgs e)
-        {
-            ArmyModel armyModel = new ArmyModel();
-            Army army = new Army();
-            army = armyModel.GetArmyInfo(connection, player, army);
-
-            BattleModel battleModel = new BattleModel();
-            ArmyInBattle armyInBattle = new ArmyInBattle();
-
-            int count = battleModel.CheckPlayerParticipation(connection, player);
-
-            War war = new War();
-            war.WarId = WAR.WarId;
-
-            war = warModel.GetWarById(connection, war);
-
-            if (count == 0)
-            {
-
-                armyInBattle.PlayerId = army.PlayerId;
-                armyInBattle.ArmyId = army.ArmyId;
-                armyInBattle.ArmySizeCurrent = army.ArmySizeCurrent;
-                armyInBattle.ArmyType = army.ArmyType;
-                armyInBattle.ArmyArchersCount = army.ArmyArchersCount;
-                armyInBattle.ArmyInfantryCount = army.ArmyInfantryCount;
-                armyInBattle.ArmySiegegunCount = army.ArmySiegegunCount;
-                armyInBattle.ArmyHorsemanCount = army.ArmyHorsemanCount;
-
-
-                Random random = new Random();
-                WarWindow window;
-
-                if (player.PlayerCurrentRegion == war.LandAttackerId)
-                {
-                    armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
-                    armyInBattle.ArmySide = 1; // hueta
-
-                    battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
-
-                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-                    //for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-                    //{
-                    //    armiesInBattle.Add(new ArmyInBattle());
-                    //}
-
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-                    window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-                    window.Show();
-                }
-                else if (player.PlayerCurrentRegion == war.LandDefenderId)
-                {
-                    armyInBattle.LocalLandId = ReturnNumberOfCell(1, random.Next(1, 30));
-                    armyInBattle.ArmySide = 0; // hueta
-
-                    battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
-
-                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-                    {
-                        armiesInBattle.Add(new ArmyInBattle());
-                    }
-
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-
-                    window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-                    window.Show();
-                }
-                else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
-
-            } else
-            {
-                if ((player.PlayerCurrentRegion == war.LandDefenderId) || (player.PlayerCurrentRegion == war.LandAttackerId))
-                {
-                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-                    {
-                        armiesInBattle.Add(new ArmyInBattle());
-                    }
-
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-                    WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-                    window.Show();
-                } else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
-            }
-
-            //List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-            //for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-            //{
-            //    armiesInBattle.Add(new ArmyInBattle());
-            //}
-
-            //armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-            ////armyModel.UpdateArmy(connection, army);
-            //// до сюда говно ------------------------------------------------------------------------------
-
-            //WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-            //window.Show();
-        }
-
-        public int ReturnNumberOfCell(int row, int column)
-        {
-            int index = (row - 1) * 30 + column - 1;
-            return index;
-        }
-
         private void buttonStartBattle_Click(object sender, RoutedEventArgs e)
         {
             WarResultWindow warResultWindow = new WarResultWindow(connection, player);
@@ -878,7 +768,8 @@ namespace LandConquest.Forms
                     
                     WAR = new War();
                     WAR.WarId = wars[j].WarId;
-                    DeclareWar(null, e);
+                    //DeclareWar(null, e);
+                    WarModel.EnterInWar(WAR, player, connection);
                 }
             }
         }
