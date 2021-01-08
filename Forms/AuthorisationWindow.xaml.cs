@@ -9,6 +9,8 @@ using LandConquest.Entities;
 using LandConquest.Forms;
 using LandConquest.DialogWIndows;
 using System.Configuration;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace LandConquest
 {
@@ -66,8 +68,11 @@ namespace LandConquest
 
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            string cdb = ConfigurationManager.ConnectionStrings["greendend2"].ConnectionString;   // ПОДКЛЮЧЕНИЕ К БД ТУТ
-            connection = new SqlConnection(cdb);
+            string encodedCdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
+            byte[] dataCdb = Convert.FromBase64String(encodedCdb);
+            string decodedCdb = Encoding.UTF7.GetString(dataCdb);
+
+            connection = new SqlConnection(decodedCdb);
             connection.Open();
             textBoxLogin.Text = Properties.Settings.Default.UserLogin;
             textBoxPass.Password = Properties.Settings.Default.UserPassword;

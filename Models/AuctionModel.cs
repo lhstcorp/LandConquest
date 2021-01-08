@@ -25,42 +25,43 @@ namespace LandConquest.Models
             auctionCommand.Parameters.AddWithValue("@price", price);
             auctionCommand.Parameters.AddWithValue("@seller_name", player.PlayerName);
             auctionCommand.Parameters.AddWithValue("@seller_id", player.PlayerId);
-
             auctionCommand.ExecuteNonQuery();
             auctionCommand.Dispose();
 
-            //String storageQuery = "UPDATE dbo.StorageData SET @item_name = @item_amount WHERE player_id = @player_id";
-            //String storageQuery = "UPDATE dbo.StorageData SET @item_name = CAST(@item_name AS INT) - @item_amount WHERE player_id = @player_id";
-            //String storageQuery = "UPDATE dbo.StorageData SET @item_name = 144 - @item_amount WHERE player_id = @player_id ";
             String storageQuery = "UPDATE dbo.StorageData SET " + itemName + " = " + itemName + " - @item_amount WHERE player_id = @player_id ";  //нужна доп валидация
             var storageCommand = new SqlCommand(storageQuery, connection);
             storageCommand.Parameters.AddWithValue("@item_name", itemName);
             storageCommand.Parameters.AddWithValue("@item_amount", qty);
             storageCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
-
             storageCommand.ExecuteNonQuery();
             storageCommand.Dispose();
 
         }
 
-        //public void BuyListing(int qty, string itemName, string itemGroup, string itemSubgroup, int price, Player player, SqlConnection connection)
-        //{
-        //    String addListingQuery = "INSERT INTO dbo.AuctionListings (listing_id,qty,item_name,item_group,item_subgroup,item_set_time,price,seller_name,seller_id) VALUES (@listing_id,@qty,@item_name,@item_group,@item_subgroup,@item_set_time,@price,@seller_name,@seller_id)";
-        //    var auctionCommand = new SqlCommand(addListingQuery, connection);
+        public void BuyListing(int itemQty, int moneyAmount, string itemName, string itemGroup, string itemSubgroup, int price, Player playerCustomer, Player playerSeller, AuctionListings listing, SqlConnection connection)
+        {
+            String listingQuery = "UPDATE dbo.AuctionData SET qty = qty - @qty WHERE listing_id = @listing_id ";  //нужна доп валидация
+            var listingCommand = new SqlCommand(listingQuery, connection);
+            listingCommand.Parameters.AddWithValue("@qty", itemQty);
+            listingCommand.Parameters.AddWithValue("@listing_id", listing.ListingId);
+            listingCommand.ExecuteNonQuery();
+            listingCommand.Dispose();
 
-        //    auctionCommand.Parameters.AddWithValue("@listing_id", generateListingId());
-        //    auctionCommand.Parameters.AddWithValue("@qty", qty);
-        //    auctionCommand.Parameters.AddWithValue("@item_name", itemName);
-        //    auctionCommand.Parameters.AddWithValue("@item_group", itemGroup);
-        //    auctionCommand.Parameters.AddWithValue("@item_subgroup", itemSubgroup);
-        //    auctionCommand.Parameters.AddWithValue("@item_set_time", DateTime.UtcNow);
-        //    auctionCommand.Parameters.AddWithValue("@price", price);
-        //    auctionCommand.Parameters.AddWithValue("@seller_name", player.PlayerName);
-        //    auctionCommand.Parameters.AddWithValue("@seller_id", player.PlayerId);
+            String storageQuery = "UPDATE dbo.StorageData SET " + itemName + " = " + itemName + " + @item_amount WHERE player_id = @player_id ";  //нужна доп валидация
+            var storageCommand = new SqlCommand(storageQuery, connection);
+            storageCommand.Parameters.AddWithValue("@item_name", itemName);
+            storageCommand.Parameters.AddWithValue("@item_amount", itemQty);
+            storageCommand.Parameters.AddWithValue("@player_id", playerCustomer.PlayerId);
+            storageCommand.ExecuteNonQuery();
+            storageCommand.Dispose();
 
-        //    auctionCommand.ExecuteNonQuery();
-        //    auctionCommand.Dispose();
-        //}
+            playerCustomer.PlayerMoney = playerCustomer.PlayerMoney - moneyAmount;
+            playerSeller.PlayerMoney = playerSeller.PlayerMoney + moneyAmount;
+
+            PlayerModel model = new PlayerModel();
+            model.UpdatePlayerMoney(playerCustomer, connection);
+            model.UpdatePlayerMoney(playerSeller, connection);
+        }
 
         public List<AuctionListings> GetListings(List<AuctionListings> listings, SqlConnection connection)
         {

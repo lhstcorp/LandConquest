@@ -21,9 +21,7 @@ namespace LandConquest.Models
             List<string> Message = new List<string>();
             List<DateTime> MessageTime = new List<DateTime>();
 
-
             var command = new SqlCommand(query, connection);
-
             using (var reader = command.ExecuteReader())
             {
                 var playerName = reader.GetOrdinal("player_name");
@@ -65,6 +63,13 @@ namespace LandConquest.Models
             userCommand.Parameters.AddWithValue("@message_sent_time", DateTime.UtcNow);
 
             userCommand.ExecuteNonQuery();
+        }
+
+        public static void EnableBroker(SqlConnection connection)
+        {
+            string query = "ALTER DATABASE LandConquestDB SET ENABLE_BROKER with rollback immediate";
+            var peasantCommand = new SqlCommand(query, connection);
+            peasantCommand.ExecuteNonQuery();
         }
     }
 }
