@@ -1,20 +1,16 @@
 ﻿using LandConquest.Entities;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LandConquest.Models
 {
     public class PeasantModel
     {
-        public Peasants GetPeasantsInfo(Player player, SqlConnection connection, Peasants peasants)
+        public static Peasants GetPeasantsInfo(Player player, Peasants peasants)
         {
             String query = "SELECT * FROM dbo.PeasantsData WHERE player_id = @player_id";
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
 
             using (var reader = command.ExecuteReader())
@@ -38,11 +34,11 @@ namespace LandConquest.Models
             return peasants;
         }
 
-        public Peasants UpdatePeasantsInfo(Peasants peasants, SqlConnection connection)
+        public static Peasants UpdatePeasantsInfo(Peasants peasants)
         {
             String peasantQuery = "UPDATE dbo.PeasantsData SET peasants_count = @peasants_count, peasants_work  = @peasants_work, peasants_max = @peasants_max WHERE player_id = @player_id ";
 
-            var peasantCommand = new SqlCommand(peasantQuery, connection);
+            var peasantCommand = new SqlCommand(peasantQuery, DbContext.GetConnection());
 
             peasantCommand.Parameters.AddWithValue("@peasants_count", peasants.PeasantsCount);
             peasantCommand.Parameters.AddWithValue("@peasants_work", peasants.PeasantsWork);

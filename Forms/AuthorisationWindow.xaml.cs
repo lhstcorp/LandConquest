@@ -1,28 +1,19 @@
-﻿using System;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Windows;
-using System.Threading;
-using LandConquest.Models;
+﻿using LandConquest.DialogWIndows;
 using LandConquest.Entities;
 using LandConquest.Forms;
-using LandConquest.DialogWIndows;
-using System.Configuration;
-using System.Security.Cryptography;
-using System.Text;
+using LandConquest.Models;
+using System;
+using System.Data;
+using System.Linq;
+using System.Threading;
+using System.Windows;
 
 namespace LandConquest
 {
 
     public partial class AuthorisationWindow : Window
     {
-        SqlConnection connection;
         User user;
-        UserModel userModel;
-        PlayerModel playerModel;
-        TaxesModel taxesModel;
-        ArmyModel armyModel;
         WarningDialogWindow warningWindow;
 
         public AuthorisationWindow()
@@ -32,17 +23,29 @@ namespace LandConquest
             ShowRegistrationFields(Visibility.Hidden);
         }
 
+        private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            //string encodedCdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
+            //byte[] dataCdb = Convert.FromBase64String(encodedCdb);
+            //string decodedCdb = Encoding.UTF7.GetString(dataCdb);
+
+            //connection = new SqlConnection(decodedCdb);
+            //connection.Open();
+            DbContext.OpenConnectionPool();
+            textBoxLogin.Text = Properties.Settings.Default.UserLogin;
+            textBoxPass.Password = Properties.Settings.Default.UserPassword;
+        }
+
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
             user = new User();
-            userModel = new UserModel();
 
-            user = userModel.UserAuthorisation(this, connection);
+            user = UserModel.UserAuthorisation(this);
 
             if (user.UserLogin == textBoxLogin.Text && user.UserPass == textBoxPass.Password)
             {
-                MainWindow mainWindow = new MainWindow(connection, user);
+                MainWindow mainWindow = new MainWindow(user);
                 mainWindow.Show();
 
                 if (CheckboxRemember.IsChecked == true)
@@ -66,27 +69,10 @@ namespace LandConquest
             }
         }
 
-        private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            string encodedCdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
-            byte[] dataCdb = Convert.FromBase64String(encodedCdb);
-            string decodedCdb = Encoding.UTF7.GetString(dataCdb);
-
-            connection = new SqlConnection(decodedCdb);
-            connection.Open();
-            textBoxLogin.Text = Properties.Settings.Default.UserLogin;
-            textBoxPass.Password = Properties.Settings.Default.UserPassword;
-        }
-
         private void buttonRegistrate_Click(object sender, RoutedEventArgs e)
         {
-            userModel = new UserModel();
-            playerModel = new PlayerModel();
-            taxesModel = new TaxesModel();
-            armyModel = new ArmyModel();
-
-            bool validNewUserLogin = userModel.ValidateUserByLogin(textBoxNewLogin.Text, connection);
-            bool validNewUserEmail = userModel.ValidateUserByEmail(textBoxNewEmail.Text, connection);
+            bool validNewUserLogin = UserModel.ValidateUserByLogin(textBoxNewLogin.Text);
+            bool validNewUserEmail = UserModel.ValidateUserByEmail(textBoxNewEmail.Text);
 
             if (textBoxNewLogin.Text.Length > 3 &&
                 textBoxNewEmail.Text.Length > 3 &&
@@ -96,7 +82,7 @@ namespace LandConquest
                 textBoxNewPass.Text == textBoxConfirmNewPass.Text)
             {
                 String userId = generateUserId();
-                int userCreationResult = userModel.CreateUser(this, connection, userId);
+                int userCreationResult = UserModel.CreateUser(this, userId);
                 if (userCreationResult < 0)
                 {
                     Console.WriteLine("Error creating new user!");
@@ -106,7 +92,7 @@ namespace LandConquest
                 else
                 {
                     User registeredUser = new User();
-                    int playerResult = playerModel.CreatePlayer(this, connection, userId, registeredUser);
+                    int playerResult = PlayerModel.CreatePlayer(this, userId, registeredUser);
 
                     if (playerResult < 0)
                     {
@@ -116,17 +102,17 @@ namespace LandConquest
                     }
                     else
                     {
-                        playerModel.CreatePlayerResources(this, connection, userId, registeredUser);
-                        taxesModel.CreateTaxesData(connection, userId);
+                        PlayerModel.CreatePlayerResources(this, userId, registeredUser);
+                        TaxesModel.CreateTaxesData(userId);
 
-                        MainWindow mainWindow = new MainWindow(connection, registeredUser);
+                        MainWindow mainWindow = new MainWindow(registeredUser);
                         mainWindow.Show();
                         this.Close();
                     }
                     Army army = new Army();
                     army.PlayerId = userId;
                     army.ArmyId = generateUserId();
-                    armyModel.InsertArmyFromReg(connection, army);
+                    ArmyModel.InsertArmyFromReg(army);
                 }
             }
             else

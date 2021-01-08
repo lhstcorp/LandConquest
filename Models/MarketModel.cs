@@ -1,21 +1,16 @@
 ﻿using LandConquest.Entities;
-using LandConquest.Forms;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LandConquest.Models
 {
     public class MarketModel
     {
-        public Market GetMarketInfo(Player player, SqlConnection connection, Market market)
+        public static Market GetMarketInfo(Player player, Market market)
         {
             String marketQuery = "SELECT * FROM dbo.MarketData";
 
-            var command = new SqlCommand(marketQuery, connection);
+            var command = new SqlCommand(marketQuery, DbContext.GetConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
 
             using (var reader = command.ExecuteReader())
@@ -46,11 +41,11 @@ namespace LandConquest.Models
             }
             return market;
         }
-        public void UpdateMarket(SqlConnection connection, Player player, Market _market)
+        public static void UpdateMarket(Player player, Market _market)
         {
             String marketQuery = "UPDATE dbo.MarketData SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather, money = @money";
 
-            var marketCommand = new SqlCommand(marketQuery, connection);
+            var marketCommand = new SqlCommand(marketQuery, DbContext.GetConnection());
             // int datetimeResult;
             marketCommand.Parameters.AddWithValue("@wood", _market.MarketWood);
             marketCommand.Parameters.AddWithValue("@stone", _market.MarketStone);

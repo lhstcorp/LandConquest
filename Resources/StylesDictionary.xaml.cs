@@ -1,12 +1,8 @@
 ﻿using LandConquest.Entities;
-using LandConquest.Forms;
 using LandConquest.Models;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
@@ -15,7 +11,6 @@ namespace LandConquest.Resources
 {
     public sealed partial class StylesDictionary : ResourceDictionary
     {
-        SqlConnection connection;
         List<Land> lands;
 
         Color colorOfResource1 = Color.FromRgb(255, 255, 255);
@@ -26,12 +21,12 @@ namespace LandConquest.Resources
             {
                 LandModel landModel = new LandModel();
 
-                string encodedCdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
-                byte[] dataCdb = Convert.FromBase64String(encodedCdb);
-                string decodedCdb = Encoding.UTF7.GetString(dataCdb);
+                //string encodedCdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
+                //byte[] dataCdb = Convert.FromBase64String(encodedCdb);
+                //string decodedCdb = Encoding.UTF7.GetString(dataCdb);
 
-                connection = new SqlConnection(decodedCdb);
-                connection.Open();
+                //connection = new SqlConnection(decodedCdb);
+                //connection.Open();
 
                 const int landsCount = 11;
 
@@ -41,8 +36,8 @@ namespace LandConquest.Resources
                     lands.Add(new Land());
                 }
 
-                lands = landModel.GetLandsInfo(lands, connection);
-                connection.Close();
+                lands = LandModel.GetLandsInfo(lands);
+                //connection.Close();
 
             }
             catch (Exception ex)
