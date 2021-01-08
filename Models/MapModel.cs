@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LandConquest.Models
+﻿namespace LandConquest.Models
 {
     public sealed class MapModel
     {
-        public int[] CenterOfLand(int land_id)
+        public static int[] CenterOfLand(int land_id)
         {
             switch (land_id)
             {

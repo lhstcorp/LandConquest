@@ -1,7 +1,6 @@
 ﻿using LandConquest.Entities;
 using LandConquest.Models;
 using System;
-using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
@@ -9,19 +8,17 @@ namespace LandConquest.DialogWIndows
 {
     public partial class ManufactureUpgradeDialog : Window
     {
-        SqlConnection connection;
         Player player;
         PlayerStorage storage;
         Manufacture manufacture;
         PlayerStorage resourcesNeed;
         ManufactureModel model;
         StorageModel storageModel;
-        public ManufactureUpgradeDialog(SqlConnection _connection ,PlayerStorage _storage, Manufacture _manufacture, Player _player)
+        public ManufactureUpgradeDialog(PlayerStorage _storage, Manufacture _manufacture, Player _player)
         {
             InitializeComponent();
             storage = _storage;
             player = _player;
-            connection = _connection;
             manufacture = _manufacture;
             Loaded += Window_Loaded;
         }
@@ -46,7 +43,7 @@ namespace LandConquest.DialogWIndows
 
             WoodHave.Content = storage.PlayerWood;
             StoneHave.Content = storage.PlayerStone;
-            resourcesNeed = model.GetInfoAboutResourcesForUpdate(connection, manufacture);
+            resourcesNeed = model.GetInfoAboutResourcesForUpdate(manufacture);
 
             WoodNeed.Content = resourcesNeed.PlayerWood;
             StoneNeed.Content = resourcesNeed.PlayerStone;
@@ -58,23 +55,23 @@ namespace LandConquest.DialogWIndows
         {
             if (storage.PlayerWood >= resourcesNeed.PlayerWood && storage.PlayerStone >= resourcesNeed.PlayerStone)
             {
-                model.UpgradeManufacture(connection, manufacture);
+                model.UpgradeManufacture(manufacture);
                 storage.PlayerWood -= resourcesNeed.PlayerWood;
                 storage.PlayerStone -= resourcesNeed.PlayerStone;
 
-                StorageModel.UpdateStorage(connection, player, storage);
-                storage = StorageModel.GetPlayerStorage(player, connection, storage);
+                StorageModel.UpdateStorage(player, storage);
+                storage = StorageModel.GetPlayerStorage(player, storage);
                 //this.Hide();
                 //this.Show();
                 // output
                 WoodHave.Content = storage.PlayerWood;
                 StoneHave.Content = storage.PlayerStone;
-                resourcesNeed = model.GetInfoAboutResourcesForUpdate(connection, manufacture);
+                resourcesNeed = model.GetInfoAboutResourcesForUpdate(manufacture);
 
                 WoodNeed.Content = resourcesNeed.PlayerWood;
                 StoneNeed.Content = resourcesNeed.PlayerStone;
 
-                manufacture = model.GetManufactureById(manufacture, connection);
+                manufacture = model.GetManufactureById(manufacture);
 
                 ManufactureLvl.Content = manufacture.ManufactureLevel;
             }

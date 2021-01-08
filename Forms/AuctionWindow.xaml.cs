@@ -3,27 +3,14 @@ using LandConquest.Entities;
 using LandConquest.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LandConquest.Forms
 {
 
     public partial class AuctionWindow : Window
     {
-        SqlConnection connection;
         Player player;
-        AuctionModel auctionModel;
         List<AuctionListings> listings;
         public int[] qty { get; set; }
         public string[] subject { get; set; }
@@ -33,10 +20,9 @@ namespace LandConquest.Forms
 
 
 
-        public AuctionWindow(SqlConnection _connection, Player _player)
+        public AuctionWindow(Player _player)
         {
             InitializeComponent();
-            connection = _connection;
             player = _player;
         }
 
@@ -47,7 +33,7 @@ namespace LandConquest.Forms
 
         private void buttonCreateListing_Click(object sender, RoutedEventArgs e)
         {
-            CreateListingDialog createListingDialog = new CreateListingDialog(connection, player);
+            CreateListingDialog createListingDialog = new CreateListingDialog(player);
             createListingDialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             createListingDialog.Owner = this;
             createListingDialog.Show();
@@ -55,9 +41,8 @@ namespace LandConquest.Forms
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            auctionModel = new AuctionModel();
             listings = new List<AuctionListings>();
-            listings = auctionModel.GetListings(listings, connection);
+            listings = AuctionModel.GetListings(listings);
             auctionDataGrid.ItemsSource = listings;
 
             //for (int i = 0; i < listings.Count; i++)

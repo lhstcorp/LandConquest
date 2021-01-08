@@ -7,13 +7,13 @@ namespace LandConquest.Models
 {
     public class UserModel
     {
-        public User UserAuthorisation(AuthorisationWindow window, SqlConnection connection)
+        public static User UserAuthorisation(AuthorisationWindow window)
         {
             User user = new User();
 
             String query = "SELECT * FROM dbo.UserData WHERE user_login = @user_login AND user_pass = @user_pass";
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
             command.Parameters.AddWithValue("@user_login", window.textBoxLogin.Text);
             command.Parameters.AddWithValue("@user_pass", window.textBoxPass.Password);
 
@@ -38,10 +38,10 @@ namespace LandConquest.Models
             return user;
         }
 
-        public int CreateUser(AuthorisationWindow window, SqlConnection connection, string userId)
+        public static int CreateUser(AuthorisationWindow window, string userId)
         {
             String userQuery = "INSERT INTO dbo.UserData (user_id,user_login,user_email,user_pass) VALUES (@user_id, @user_login, @user_email, @user_pass)";
-            var userCommand = new SqlCommand(userQuery, connection);
+            var userCommand = new SqlCommand(userQuery, DbContext.GetConnection());
 
 
             userCommand.Parameters.AddWithValue("@user_id", userId);
@@ -53,13 +53,13 @@ namespace LandConquest.Models
             return userResult;
         }
 
-        public User GetUserInfo(string user_id, SqlConnection connection)
+        public static User GetUserInfo(string user_id)
         {
             User user = new User();
 
             String query = "SELECT * FROM dbo.UserData WHERE user_id = @user_id";
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
             command.Parameters.AddWithValue("@user_id", user_id);
 
             using (var reader = command.ExecuteReader())
@@ -79,10 +79,10 @@ namespace LandConquest.Models
             return user;
         }
 
-        public void UpdateUserEmail(SqlConnection connection, string userId, string newUserEmail)
+        public static void UpdateUserEmail(string userId, string newUserEmail)
         {
             String userQuery = "UPDATE dbo.UserData SET user_email = @user_email WHERE user_id = @user_id";
-            var userCommand = new SqlCommand(userQuery, connection);
+            var userCommand = new SqlCommand(userQuery, DbContext.GetConnection());
 
 
             userCommand.Parameters.AddWithValue("@user_id", userId);
@@ -91,10 +91,10 @@ namespace LandConquest.Models
             userCommand.ExecuteNonQuery();
         }
 
-        public void UpdateUserPass(SqlConnection connection, string userId, string newUserPass)
+        public static void UpdateUserPass(string userId, string newUserPass)
         {
             String userQuery = "UPDATE dbo.UserData SET user_pass = @user_pass WHERE user_id = @user_id";
-            var userCommand = new SqlCommand(userQuery, connection);
+            var userCommand = new SqlCommand(userQuery, DbContext.GetConnection());
 
 
             userCommand.Parameters.AddWithValue("@user_id", userId);
@@ -103,11 +103,11 @@ namespace LandConquest.Models
             userCommand.ExecuteNonQuery();
         }
 
-        public bool ValidateUserByLogin(string user_login, SqlConnection connection)
+        public static bool ValidateUserByLogin(string user_login)
         {
             String query = "SELECT * FROM dbo.UserData WHERE user_login = @user_login";
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
             command.Parameters.AddWithValue("@user_login", user_login);
 
             using (var reader = command.ExecuteReader())
@@ -123,11 +123,11 @@ namespace LandConquest.Models
             }
         }
 
-        public bool ValidateUserByEmail(string user_email, SqlConnection connection)
+        public static bool ValidateUserByEmail(string user_email)
         {
             String query = "SELECT * FROM dbo.UserData WHERE user_email = @user_email";
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
             command.Parameters.AddWithValue("@user_email", user_email);
 
             using (var reader = command.ExecuteReader())

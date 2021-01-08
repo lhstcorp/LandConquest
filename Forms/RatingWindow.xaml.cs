@@ -2,18 +2,7 @@
 using LandConquest.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LandConquest.Forms
 {
@@ -22,55 +11,47 @@ namespace LandConquest.Forms
     /// </summary>
     public partial class RatingWindow : Window
     {
-        SqlConnection connection;
         MainWindow window;
         Player player;
         Army army;
         User user;
-        ArmyModel armyModel;
-        PlayerModel playerModel;
-        UserModel userModel;
 
         public List<Player> playersXp { get; set; }
         public List<Player> playersCoins { get; set; }
-        public List<Army> playersArmy { get; set; }    
+        public List<Army> playersArmy { get; set; }
         public List<PlayersRating> ratings { get; set; }
 
-        public RatingWindow(MainWindow _window, SqlConnection _connection, Player _player, User _user, Army _army)
+        public RatingWindow(MainWindow _window, Player _player, User _user, Army _army)
         {
             InitializeComponent();
             window = _window;
-            connection = _connection;
             player = _player;
             army = _army;
             user = _user;
             Loaded += Window_Loaded;
         }
-        
-    
+
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            playerModel = new PlayerModel();
-            userModel = new UserModel();
-            armyModel = new ArmyModel();
 
             user = new User();
-            user = userModel.GetUserInfo(player.PlayerId, connection);
+            user = UserModel.GetUserInfo(player.PlayerId);
 
             player = new Player();
-            player = playerModel.GetPlayerInfo(user, connection, player);
+            player = PlayerModel.GetPlayerInfo(user, player);
 
             army = new Army();
-            army = armyModel.GetArmyInfo(connection, player, army);
+            army = ArmyModel.GetArmyInfo(player, army);
 
         }
 
-       private void buttonCoins_Click(object sender, RoutedEventArgs e)
+        private void buttonCoins_Click(object sender, RoutedEventArgs e)
         {
             playersCoins = new List<Player>();
             ratings = new List<PlayersRating>();
-            playersCoins = playerModel.GetCoinsInfo(playersCoins, connection, user);
+            playersCoins = PlayerModel.GetCoinsInfo(playersCoins, user);
 
 
             for (int i = 0; i < playersCoins.Count; i++)
@@ -87,12 +68,12 @@ namespace LandConquest.Forms
             this.Close();
         }
 
-      
+
 
         private void buttonXP_Click(object sender, RoutedEventArgs e)
         {
-            playersXp = new List<Player>();     
-            playersXp = playerModel.GetXpInfo(playersXp, connection, user);
+            playersXp = new List<Player>();
+            playersXp = PlayerModel.GetXpInfo(playersXp, user);
             ratings = new List<PlayersRating>();
 
             for (int i = 0; i < playersXp.Count; i++)
@@ -108,7 +89,7 @@ namespace LandConquest.Forms
         {
 
             playersArmy = new List<Army>();
-            playersArmy = armyModel.GetArmyInfoList(playersArmy, connection, user);
+            playersArmy = ArmyModel.GetArmyInfoList(playersArmy, user);
             ratings = new List<PlayersRating>();
 
             for (int i = 0; i < playersArmy.Count; i++)

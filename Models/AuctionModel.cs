@@ -3,18 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace LandConquest.Models
 {
     public class AuctionModel
     {
-        public void AddListing(int qty, string itemName, string itemGroup, string itemSubgroup, int price, Player player, SqlConnection connection)
+        public static void AddListing(int qty, string itemName, string itemGroup, string itemSubgroup, int price, Player player)
         {
             String addListingQuery = "INSERT INTO dbo.AuctionListings (listing_id,qty,item_name,item_group,item_subgroup,item_set_time,price,seller_name,seller_id) VALUES (@listing_id,@qty,@item_name,@item_group,@item_subgroup,@item_set_time,@price,@seller_name,@seller_id)";
-            var auctionCommand = new SqlCommand(addListingQuery, connection);
+            var auctionCommand = new SqlCommand(addListingQuery, DbContext.GetConnection());
 
             auctionCommand.Parameters.AddWithValue("@listing_id", generateListingId());
             auctionCommand.Parameters.AddWithValue("@qty", qty);
@@ -29,7 +27,7 @@ namespace LandConquest.Models
             auctionCommand.Dispose();
 
             String storageQuery = "UPDATE dbo.StorageData SET " + itemName + " = " + itemName + " - @item_amount WHERE player_id = @player_id ";  //нужна доп валидация
-            var storageCommand = new SqlCommand(storageQuery, connection);
+            var storageCommand = new SqlCommand(storageQuery, DbContext.GetConnection());
             storageCommand.Parameters.AddWithValue("@item_name", itemName);
             storageCommand.Parameters.AddWithValue("@item_amount", qty);
             storageCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
@@ -38,17 +36,17 @@ namespace LandConquest.Models
 
         }
 
-        public void BuyListing(int itemQty, int moneyAmount, string itemName, string itemGroup, string itemSubgroup, int price, Player playerCustomer, Player playerSeller, AuctionListings listing, SqlConnection connection)
+        public static void BuyListing(int itemQty, int moneyAmount, string itemName, string itemGroup, string itemSubgroup, int price, Player playerCustomer, Player playerSeller, AuctionListings listing)
         {
             String listingQuery = "UPDATE dbo.AuctionData SET qty = qty - @qty WHERE listing_id = @listing_id ";  //нужна доп валидация
-            var listingCommand = new SqlCommand(listingQuery, connection);
+            var listingCommand = new SqlCommand(listingQuery, DbContext.GetConnection());
             listingCommand.Parameters.AddWithValue("@qty", itemQty);
             listingCommand.Parameters.AddWithValue("@listing_id", listing.ListingId);
             listingCommand.ExecuteNonQuery();
             listingCommand.Dispose();
 
             String storageQuery = "UPDATE dbo.StorageData SET " + itemName + " = " + itemName + " + @item_amount WHERE player_id = @player_id ";  //нужна доп валидация
-            var storageCommand = new SqlCommand(storageQuery, connection);
+            var storageCommand = new SqlCommand(storageQuery, DbContext.GetConnection());
             storageCommand.Parameters.AddWithValue("@item_name", itemName);
             storageCommand.Parameters.AddWithValue("@item_amount", itemQty);
             storageCommand.Parameters.AddWithValue("@player_id", playerCustomer.PlayerId);
@@ -58,12 +56,11 @@ namespace LandConquest.Models
             playerCustomer.PlayerMoney = playerCustomer.PlayerMoney - moneyAmount;
             playerSeller.PlayerMoney = playerSeller.PlayerMoney + moneyAmount;
 
-            PlayerModel model = new PlayerModel();
-            model.UpdatePlayerMoney(playerCustomer, connection);
-            model.UpdatePlayerMoney(playerSeller, connection);
+            PlayerModel.UpdatePlayerMoney(playerCustomer);
+            PlayerModel.UpdatePlayerMoney(playerSeller);
         }
 
-        public List<AuctionListings> GetListings(List<AuctionListings> listings, SqlConnection connection)
+        public static List<AuctionListings> GetListings(List<AuctionListings> listings)
         {
             String query = "SELECT * FROM dbo.AuctionListings";
             List<string> ListingId = new List<string>();
@@ -77,7 +74,7 @@ namespace LandConquest.Models
             List<string> SellerId = new List<string>();
 
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
 
             using (var reader = command.ExecuteReader())
             {
@@ -128,7 +125,7 @@ namespace LandConquest.Models
             return listings;
         }
 
-        public List<AuctionListings> FindListings(List<AuctionListings> listings, SqlConnection connection)
+        public static List<AuctionListings> FindListings(List<AuctionListings> listings)
         {
             String query = "SELECT * FROM dbo.AuctionListings where item_name = item_name";
             List<string> ListingId = new List<string>();
@@ -142,7 +139,7 @@ namespace LandConquest.Models
             List<string> SellerId = new List<string>();
 
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
 
             using (var reader = command.ExecuteReader())
             {

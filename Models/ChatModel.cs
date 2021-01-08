@@ -2,26 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LandConquest.Models
 {
     public class ChatModel
     {
-        //CREATE TRIGGER [dbo].[MessageTrigger] ON [dbo].[ChatMessages] AFTER INSERT AS BEGIN DELETE TOP(1) FROM ChatMessages END
-
-        List<ChatMessages> messages;
-        public List<ChatMessages> GetMessages(SqlConnection connection)
+        //CREATE TRIGGER [dbo].[MessageTrigger] ON [dbo].[ChatMessages] AFTER INSERT AS BEGIN DELETE TOP(1) FROM ChatMessages END     
+        public static List<ChatMessages> GetMessages()
         {
-
+            List<ChatMessages> messages;
             String query = "SELECT * FROM dbo.ChatMessages";
             List<string> PlayerName = new List<string>();
             List<string> Message = new List<string>();
             List<DateTime> MessageTime = new List<DateTime>();
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
             using (var reader = command.ExecuteReader())
             {
                 var playerName = reader.GetOrdinal("player_name");
@@ -53,10 +48,10 @@ namespace LandConquest.Models
             return messages;
         }
 
-        public void SendMessage(string message, SqlConnection connection, string playerName)
+        public static void SendMessage(string message, string playerName)
         {
             String query = "INSERT INTO dbo.ChatMessages (player_name, player_message, message_sent_time) VALUES (@player_name, @player_message, @message_sent_time)";
-            var userCommand = new SqlCommand(query, connection);
+            var userCommand = new SqlCommand(query, DbContext.GetConnection());
 
             userCommand.Parameters.AddWithValue("@player_name", playerName);
             userCommand.Parameters.AddWithValue("@player_message", message);
@@ -65,10 +60,10 @@ namespace LandConquest.Models
             userCommand.ExecuteNonQuery();
         }
 
-        public static void EnableBroker(SqlConnection connection)
+        public static void EnableBroker()
         {
             string query = "ALTER DATABASE LandConquestDB SET ENABLE_BROKER with rollback immediate";
-            var peasantCommand = new SqlCommand(query, connection);
+            var peasantCommand = new SqlCommand(query, DbContext.GetConnection());
             peasantCommand.ExecuteNonQuery();
         }
     }

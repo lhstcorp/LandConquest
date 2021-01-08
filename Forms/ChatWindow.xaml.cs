@@ -1,9 +1,7 @@
 ﻿using LandConquest.Entities;
 using LandConquest.Models;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Security.Cryptography;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,17 +14,15 @@ namespace LandConquest.Forms
 {
     public partial class ChatWindow : Window
     {
-        SqlConnection connection;
         Player player;
-        ChatModel chatModel;
         List<ChatMessages> messages;
         SqlTableDependency<ChatMessages> sqlTableDependency;
 
-        public ChatWindow(Player _player, SqlConnection _connection)
+        public ChatWindow(Player _player)
         {
             InitializeComponent();
             player = _player;
-            connection = _connection;
+            //connection = _connection;
 
             var gridView = new GridView();
             this.listViewChat.View = gridView;
@@ -51,12 +47,11 @@ namespace LandConquest.Forms
 
         private void buttonSendMessage_Click(object sender, RoutedEventArgs e)
         {
-            chatModel.SendMessage(textBoxNewMessage.Text, connection, player.PlayerName);
+            ChatModel.SendMessage(textBoxNewMessage.Text, player.PlayerName);
         }
 
         private void listViewChat_Loaded(object sender, RoutedEventArgs e)
         {
-            chatModel = new ChatModel();
             updateChat();
 
             var mapper = new ModelToTableMapper<ChatMessages>();
@@ -75,13 +70,13 @@ namespace LandConquest.Forms
             //ALTER AUTHORIZATION ON DATABASE:: LandCoqnuestDB TO имя_компа
             try
             {
-                sqlTableDependency = new SqlTableDependency<ChatMessages>(connection.ConnectionString, "ChatMessages", "dbo", mapper);
+                sqlTableDependency = new SqlTableDependency<ChatMessages>(DbContext.GetConnection().ConnectionString, "ChatMessages", "dbo", mapper);
                 sqlTableDependency.OnChanged += Changed;
                 sqlTableDependency.Start();
             }
             catch (TableDependency.SqlClient.Exceptions.ServiceBrokerNotEnabledException)
             {
-                ChatModel.EnableBroker(connection);         //УБРАТЬ ЭТО ПЕРЕД АЛЬФА ТЕСТОМ, ВЫНЕСТИ В ОТДЕЛЬНОЕ АДМИН-ПРИЛОЖЕНИЕ
+                ChatModel.EnableBroker();         //УБРАТЬ ЭТО ПЕРЕД АЛЬФА ТЕСТОМ, ВЫНЕСТИ В ОТДЕЛЬНОЕ АДМИН-ПРИЛОЖЕНИЕ
             }
 
 
@@ -102,7 +97,7 @@ namespace LandConquest.Forms
 
         private void updateChat()
         {
-            messages = chatModel.GetMessages(connection);
+            messages = ChatModel.GetMessages();
             listViewChat.ItemsSource = messages;
             listViewChat.Items.Refresh();
         }
