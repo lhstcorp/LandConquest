@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
@@ -25,8 +26,11 @@ namespace LandConquest.Resources
             {
                 LandModel landModel = new LandModel();
 
-                string cdb = ConfigurationManager.ConnectionStrings["greendend2"].ConnectionString;
-                connection = new SqlConnection(cdb);
+                string encodedCdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
+                byte[] dataCdb = Convert.FromBase64String(encodedCdb);
+                string decodedCdb = Encoding.UTF7.GetString(dataCdb);
+
+                connection = new SqlConnection(decodedCdb);
                 connection.Open();
 
                 const int landsCount = 11;

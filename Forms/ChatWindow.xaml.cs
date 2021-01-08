@@ -1,22 +1,13 @@
 ﻿using LandConquest.Entities;
 using LandConquest.Models;
-using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
+using System.Security.Cryptography;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using TableDependency.SqlClient;
 using TableDependency.SqlClient.Base;
 using TableDependency.SqlClient.Base.EventArgs;
@@ -31,12 +22,11 @@ namespace LandConquest.Forms
         List<ChatMessages> messages;
         SqlTableDependency<ChatMessages> sqlTableDependency;
 
-
-        public ChatWindow(Player _player)
+        public ChatWindow(Player _player, SqlConnection _connection)
         {
             InitializeComponent();
             player = _player;
-            
+            connection = _connection;
 
             var gridView = new GridView();
             this.listViewChat.View = gridView;
@@ -66,9 +56,6 @@ namespace LandConquest.Forms
 
         private void listViewChat_Loaded(object sender, RoutedEventArgs e)
         {
-            string cdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
-            connection = new SqlConnection(cdb);
-            connection.Open();
             chatModel = new ChatModel();
             updateChat();
 
@@ -86,10 +73,16 @@ namespace LandConquest.Forms
             //  ON QUEUE ContactChangeMessages
             //([http://schemas.microsoft.com/SQL/Notifications/PostQueryNotification]);  
             //ALTER AUTHORIZATION ON DATABASE:: LandCoqnuestDB TO имя_компа
-
-            sqlTableDependency = new SqlTableDependency<ChatMessages>(connection.ConnectionString, "ChatMessages", "dbo", mapper);
-            sqlTableDependency.OnChanged += Changed;
-            sqlTableDependency.Start();
+            try
+            {
+                sqlTableDependency = new SqlTableDependency<ChatMessages>(connection.ConnectionString, "ChatMessages", "dbo", mapper);
+                sqlTableDependency.OnChanged += Changed;
+                sqlTableDependency.Start();
+            }
+            catch (TableDependency.SqlClient.Exceptions.ServiceBrokerNotEnabledException)
+            {
+                ChatModel.EnableBroker(connection);         //УБРАТЬ ЭТО ПЕРЕД АЛЬФА ТЕСТОМ, ВЫНЕСТИ В ОТДЕЛЬНОЕ АДМИН-ПРИЛОЖЕНИЕ
+            }
 
 
         }
@@ -117,7 +110,6 @@ namespace LandConquest.Forms
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
             sqlTableDependency.Stop();
-            connection.Close();
             this.Close();
         }
     }
