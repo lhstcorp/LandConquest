@@ -136,6 +136,42 @@ namespace LandConquest.Models
             return player;
         }
 
+        public static Player GetPlayerById(string _playerId)
+        {
+            Player player = new Player();
+            String query = "SELECT * FROM dbo.PlayerData WHERE player_id = @player_id";
+
+            var command = new SqlCommand(query, DbContext.GetConnection());
+            command.Parameters.AddWithValue("@player_id", _playerId);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var playerId = reader.GetOrdinal("player_id");
+                var playerName = reader.GetOrdinal("player_name");
+                var playerExp = reader.GetOrdinal("player_exp");
+                var playerLvl = reader.GetOrdinal("player_lvl");
+                var playerMoney = reader.GetOrdinal("player_money");
+                var playerDonation = reader.GetOrdinal("player_donation");
+                var playerImage = reader.GetOrdinal("player_image");
+                var playerTitle = reader.GetOrdinal("player_title");
+                var playerCurrentRegion = reader.GetOrdinal("player_current_region");
+
+                while (reader.Read())
+                {
+                    player.PlayerId = reader.GetString(playerId);
+                    player.PlayerName = reader.GetString(playerName);
+                    player.PlayerExp = reader.GetInt64(playerExp);
+                    player.PlayerLvl = reader.GetInt32(playerLvl);
+                    player.PlayerMoney = reader.GetInt64(playerMoney);
+                    player.PlayerDonation = reader.GetInt64(playerDonation);
+                    player.PlayerImage = null;
+                    player.PlayerTitle = reader.GetInt32(playerTitle);
+                    player.PlayerCurrentRegion = reader.GetInt32(playerCurrentRegion);
+                }
+            }
+            return player;
+        }
+
 
         public static Player UpdatePlayerMoney(Player player)
         {

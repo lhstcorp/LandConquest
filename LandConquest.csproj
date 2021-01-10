@@ -131,6 +131,9 @@
     <Compile Include="DialogWIndows\BalanceReplenishmentDialog.xaml.cs">
       <DependentUpon>BalanceReplenishmentDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\BuyListingDialog.xaml.cs">
+      <DependentUpon>BuyListingDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\CreateListingDialog.xaml.cs">
       <DependentUpon>CreateListingDialog.xaml</DependentUpon>
     </Compile>
@@ -215,6 +218,10 @@
       <DependentUpon>StylesDictionary.xaml</DependentUpon>
     </Compile>
     <Page Include="DialogWIndows\BalanceReplenishmentDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\BuyListingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
