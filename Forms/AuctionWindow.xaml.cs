@@ -7,7 +7,6 @@ using System.Windows;
 
 namespace LandConquest.Forms
 {
-
     public partial class AuctionWindow : Window
     {
         Player player;
@@ -18,12 +17,10 @@ namespace LandConquest.Forms
         public string[] sellerName { get; set; }
         public int[] price { get; set; }
 
-
-
         public AuctionWindow(Player _player)
         {
             InitializeComponent();
-            player = _player;
+            player = _player;          
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
@@ -44,17 +41,9 @@ namespace LandConquest.Forms
             listings = new List<AuctionListings>();
             listings = AuctionModel.GetListings(listings);
             auctionDataGrid.ItemsSource = listings;
+            buttonBuy.IsEnabled = false;
+            buttonDelete.IsEnabled = false;
 
-            //for (int i = 0; i < listings.Count; i++)
-            //{
-            //    listings.Items.Add(playersXp[i]);
-            //    listings.
-            //    qty[i] = listings[i].Qty;
-            //    subject[i] = listings[i].Subject;
-            //    setTime[i] = listings[i].ListingSetTime;
-            //    sellerName[i] = listings[i].SellerName;
-            //    price[i] = listings[i].Price;
-            //}
         }
 
         private void buttonFindListing_Click(object sender, RoutedEventArgs e)
@@ -62,8 +51,6 @@ namespace LandConquest.Forms
             Window_Loaded(sender, e);
             listings = listings.FindAll(x => x.Subject.Contains(textBoxItemSearchName.Text));
             auctionDataGrid.ItemsSource = listings;
-            //listings = auctionModel.FindListings(listings, connection);
-
         }
 
         private void buttonShowMyListings_Click(object sender, RoutedEventArgs e)
@@ -75,7 +62,45 @@ namespace LandConquest.Forms
 
         private void buttonBuy_Click(object sender, RoutedEventArgs e)
         {
-            //auctionDataGrid.SelectedItem;
+            AuctionListings listing = (AuctionListings)auctionDataGrid.SelectedItem;
+            BuyListingDialog inputDialog = new BuyListingDialog();
+            int itemAmount; 
+            if (inputDialog.ShowDialog() == true)
+            {
+                itemAmount = inputDialog.Amount;
+                Player seller = PlayerModel.GetPlayerById(listing.SellerId);
+                AuctionModel.BuyListing(itemAmount, player, seller, listing);
+            }
+            Window_Loaded(sender, e);
+
+        }
+
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            AuctionListings listing = (AuctionListings)auctionDataGrid.SelectedItem;
+            if (player.PlayerId == listing.SellerId)
+            {
+                AuctionModel.DeleteListing(listing.ListingId);
+            }
+            Window_Loaded(sender, e);
+        }
+
+        private void auctionDataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            AuctionListings listing = (AuctionListings)auctionDataGrid.SelectedItem;
+            if (listing != null)
+            {
+                if (player.PlayerId == listing.SellerId)
+                {
+                    buttonBuy.IsEnabled = false;
+                    buttonDelete.IsEnabled = true;
+                }
+                else
+                {
+                    buttonBuy.IsEnabled = true;
+                    buttonDelete.IsEnabled = false;
+                }
+            }
         }
     }
 }
