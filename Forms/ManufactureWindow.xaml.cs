@@ -3,25 +3,13 @@ using LandConquest.Entities;
 using LandConquest.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LandConquest.Forms
 {
     public partial class ManufactureWindow : Window
     {
-        SqlConnection connection;
         Player player;
         MainWindow window;
         Peasants peasants;
@@ -29,14 +17,13 @@ namespace LandConquest.Forms
         List<Manufacture> landManufactures;
         List<Manufacture> playerLandManufactures;
         ManufactureModel model;
-        PeasantModel peasantModel;
         PlayerStorage storage;
         int unemployedPeasantsCount;
         int employedPeasantsCount;
         int peasantsWorkingOnB1 = 0;
         int peasantsWorkingOnB2 = 0;
 
-        public ManufactureWindow(MainWindow _window, SqlConnection _connection, Player _player, PlayerStorage _storage)
+        public ManufactureWindow(MainWindow _window, Player _player, PlayerStorage _storage)
         {
             InitializeComponent();
             Loaded += ManufactureWindow_Loaded;
@@ -44,16 +31,14 @@ namespace LandConquest.Forms
             player = _player;
             storage = _storage;
             //user = _user;
-            connection = _connection;
         }
 
         private void ManufactureWindow_Loaded(object sender, RoutedEventArgs e)
         {
             model = new ManufactureModel();
-            peasantModel = new PeasantModel();
             peasants = new Peasants();
-            
-            peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
+
+            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
 
             Console.WriteLine("workers=" + peasants.PeasantsWork.ToString());
 
@@ -65,14 +50,14 @@ namespace LandConquest.Forms
             employedPeasantsCount = peasants.PeasantsWork;
 
             manufactures = new List<Manufacture>();
-            manufactures = model.GetManufactureInfo(player, connection);
+            manufactures = model.GetManufactureInfo(player);
 
             landManufactures = new List<Manufacture>();
-            landManufactures = model.GetLandManufactureInfo(player, connection);
+            landManufactures = model.GetLandManufactureInfo(player);
 
             try
             {
-                playerLandManufactures = model.GetPlayerLandManufactureInfo(player, connection);
+                playerLandManufactures = model.GetPlayerLandManufactureInfo(player);
                 if (playerLandManufactures.Count == 0)
                 {
                     playerLandManufactures = new List<Manufacture>();
@@ -242,16 +227,15 @@ namespace LandConquest.Forms
 
             peasants.PeasantsWork = Convert.ToInt32(employedPeasants.Content);
             Console.WriteLine("workers=" + peasants.PeasantsWork);
-            peasantModel = new PeasantModel();
-            peasants = peasantModel.UpdatePeasantsInfo(peasants, connection);
+            peasants = PeasantModel.UpdatePeasantsInfo(peasants);
 
             manufactures[0].ManufactureProductsHour = Convert.ToInt32(SawmillProdValueHour.Content);
-            
+
             manufactures[1].ManufactureProductsHour = Convert.ToInt32(QuarryProdValueHour.Content);
 
             manufactures[2].ManufactureProductsHour = Convert.ToInt32(WindmillProdValueHour.Content);
 
-            landManufactures = model.GetLandManufactureInfo(player, connection);            
+            landManufactures = model.GetLandManufactureInfo(player);
 
             //хуета полнейшая - сделай новую сущность для городских мануфактур игрока
             landManufactures[0].ManufacturePeasantWork = Convert.ToInt32(sliderBuilding1.Value + Convert.ToInt32(WorkingNowB1.Content) - playerLandManufactures[0].ManufacturePeasantWork);
@@ -275,31 +259,31 @@ namespace LandConquest.Forms
             playerLandManufactures[1].ManufactureProductsHour = Convert.ToInt32(building2ProdValueHour.Content);
 
             //не забудь убрать лох //убрал кста
-            model.InsertOrUpdateLandManufactures(playerLandManufactures, player, connection); //это пользовательская сущность городской мануфактуры
+            model.InsertOrUpdateLandManufactures(playerLandManufactures, player); //это пользовательская сущность городской мануфактуры
             //возвращаю костыль
             //model.UpdateLandManufactures(landManufactures, player, connection);
             //---------------------
-            model.UpdateDateTimeForManufacture(manufactures, player, connection);
-            model.UpdateLandManufactures(landManufactures, connection); //это общая сущность - тут хранятся общие данные игроков.
+            model.UpdateDateTimeForManufacture(manufactures, player);
+            model.UpdateLandManufactures(landManufactures); //это общая сущность - тут хранятся общие данные игроков.
 
             ManufactureWindow_Loaded(sender, e);
         }
 
         private void buttonQuarryUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(connection, storage, manufactures[1], player);
+            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(storage, manufactures[1], player);
             dialogwindow.Show();
         }
 
         private void buttonSawmillUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(connection, storage, manufactures[0], player);
+            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(storage, manufactures[0], player);
             dialogwindow.Show();
         }
 
         private void buttonWindmillUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(connection, storage, manufactures[2], player);
+            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(storage, manufactures[2], player);
             dialogwindow.Show();
         }
 

@@ -4,14 +4,13 @@ using LandConquest.Forces;
 using LandConquest.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Threading;
 using System.Windows.Threading;
 
 namespace LandConquest.Forms
@@ -26,10 +25,6 @@ namespace LandConquest.Forms
         const int syncTick = 30; //sec
         private int timerValue = 30;
 
-        ArmyModel armyModel = new ArmyModel();
-        BattleModel battleModel = new BattleModel();
-
-        SqlConnection connection;
         Player player;
         List<ArmyInBattle> armies;
         List<Image> armyImages;
@@ -50,9 +45,8 @@ namespace LandConquest.Forms
         List<ArmyInBattle> playerArmies = new List<ArmyInBattle>();
 
         //Canvas localWarArmyLayer = new Canvas();
-        public WarWindow(SqlConnection _connection, Player _player, ArmyInBattle _army, List<ArmyInBattle> _armies, War _war)
+        public WarWindow(Player _player, ArmyInBattle _army, List<ArmyInBattle> _armies, War _war)
         {
-            connection = _connection;
             player = _player;
             army = _army;
             armies = _armies;
@@ -104,7 +98,7 @@ namespace LandConquest.Forms
         public void ShowArmiesOnMap()
         {
             armies.Clear();
-            armies = battleModel.GetArmiesInfo(connection, armies, war);
+            armies = BattleModel.GetArmiesInfo(armies, war);
 
             armyImages = new List<Image>();
             for (int i = 0; i < armies.Count(); i++)
@@ -148,7 +142,7 @@ namespace LandConquest.Forms
                             }
                         }
 
-                        if (battleModel.IfTheBattleShouldStart(armyInOneTileTest))
+                        if (BattleModel.IfTheBattleShouldStart(armyInOneTileTest))
                         {
                             Image imgBattle = new Image();
                             imgBattle.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
@@ -162,11 +156,11 @@ namespace LandConquest.Forms
                         {
                             if (armies[i].ArmySide == 0)
                             {
-                                SwitchArmyTypeNoSide(battleModel.ReturnTypeOfArmy(armyInOneTileTest), imgArmy);
+                                SwitchArmyTypeNoSide(BattleModel.ReturnTypeOfArmy(armyInOneTileTest), imgArmy);
                             }
                             else
                             {
-                                SwitchArmyTypeWithSide(battleModel.ReturnTypeOfArmy(armyInOneTileTest), imgArmy);
+                                SwitchArmyTypeWithSide(BattleModel.ReturnTypeOfArmy(armyInOneTileTest), imgArmy);
                             }
                         }
 
@@ -210,12 +204,12 @@ namespace LandConquest.Forms
 
                 armyInBattlesInCurrentTile = new List<ArmyInBattle>();
 
-                for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, INDEX, war); i++)
+                for (int i = 0; i < BattleModel.SelectLastIdOfArmiesInCurrentTile(INDEX, war); i++)
                 {
                     armyInBattlesInCurrentTile.Add(new ArmyInBattle());
                 }
 
-                armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, INDEX);
+                armyInBattlesInCurrentTile = BattleModel.GetArmiesInfoInCurrentTile(armyInBattlesInCurrentTile, war, INDEX);
 
                 Image imgArmyThatStay = new Image();
                 imgArmyThatStay.MouseLeftButtonDown += ImgArmy_MouseLeftButtonDown;
@@ -244,7 +238,7 @@ namespace LandConquest.Forms
                         }
                     }
 
-                    int typeOfUniteArmy = battleModel.ReturnTypeOfArmy(armyInBattlesInCurrentTile);
+                    int typeOfUniteArmy = BattleModel.ReturnTypeOfArmy(armyInBattlesInCurrentTile);
 
                     if (armyInBattlesInCurrentTile[0].ArmySide == 0)
                     {
@@ -263,7 +257,7 @@ namespace LandConquest.Forms
                     gridForArmies.Children.Insert(index, imgArmySelected);
 
                     HideAvailableTilesToMove(INDEX);
-                    battleModel.UpdateLocalLandOfArmy(connection, selectedArmy, index);
+                    BattleModel.UpdateLocalLandOfArmy(selectedArmy, index);
                 }
                 else
                 {
@@ -274,7 +268,7 @@ namespace LandConquest.Forms
                     gridForArmies.Children.Insert(index, imgArmySelected);
 
                     HideAvailableTilesToMove(INDEX);
-                    battleModel.UpdateLocalLandOfArmy(connection, selectedArmy, index);
+                    BattleModel.UpdateLocalLandOfArmy(selectedArmy, index);
                 }
 
                 imgArmySelected.IsEnabled = false;
@@ -297,15 +291,15 @@ namespace LandConquest.Forms
 
                     armyInBattlesInCurrentTile = new List<ArmyInBattle>();
 
-                    for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, index, war); i++)
+                    for (int i = 0; i < BattleModel.SelectLastIdOfArmiesInCurrentTile(index, war); i++)
                     {
                         armyInBattlesInCurrentTile.Add(new ArmyInBattle());
                     }
 
-                    armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, index);
+                    armyInBattlesInCurrentTile = BattleModel.GetArmiesInfoInCurrentTile(armyInBattlesInCurrentTile, war, index);
                     armyInBattlesInCurrentTile.Add(selectedArmy);
 
-                    if (battleModel.IfTheBattleShouldStart(armyInBattlesInCurrentTile))
+                    if (BattleModel.IfTheBattleShouldStart(armyInBattlesInCurrentTile))
                     {
                         imgArmySelected.Source = new BitmapImage(new Uri("/Pictures/war-test.png", UriKind.Relative));
                         imgArmySelected.MouseLeftButtonDown += ImgWar_MouseLeftButtonDown;
@@ -318,7 +312,7 @@ namespace LandConquest.Forms
                         if (!theWarStarted(index))
                         {
 
-                            battleModel.InsertBattle(connection, battle);
+                            BattleModel.InsertBattle(battle);
                         }
                         else
                         {
@@ -327,7 +321,7 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        int typeOfUniteArmy = battleModel.ReturnTypeOfArmy(armyInBattlesInCurrentTile);
+                        int typeOfUniteArmy = BattleModel.ReturnTypeOfArmy(armyInBattlesInCurrentTile);
 
                         if (selectedArmy.ArmySide == 0)
                         {
@@ -343,18 +337,18 @@ namespace LandConquest.Forms
                     gridForArmies.Children.Insert(index, imgArmySelected);
                     HideAvailableTilesToMove(INDEX);
 
-                    battleModel.UpdateLocalLandOfArmy(connection, selectedArmy, index);
+                    BattleModel.UpdateLocalLandOfArmy(selectedArmy, index);
 
 
                     //перезаписываем в этот лист армии что остались
                     armyInBattlesInCurrentTile.Clear();
 
-                    for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, INDEX, war); i++)
+                    for (int i = 0; i < BattleModel.SelectLastIdOfArmiesInCurrentTile(INDEX, war); i++)
                     {
                         armyInBattlesInCurrentTile.Add(new ArmyInBattle());
                     }
 
-                    armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, INDEX);
+                    armyInBattlesInCurrentTile = BattleModel.GetArmiesInfoInCurrentTile(armyInBattlesInCurrentTile, war, INDEX);
 
                     if (armyInBattlesInCurrentTile.Count >= 1)
                     {
@@ -366,7 +360,7 @@ namespace LandConquest.Forms
                         imgArmyThatStay.Width = 40;
                         imgArmyThatStay.Height = 40;
 
-                        int typeOfUniteArmy2 = battleModel.ReturnTypeOfArmy(armyInBattlesInCurrentTile);
+                        int typeOfUniteArmy2 = BattleModel.ReturnTypeOfArmy(armyInBattlesInCurrentTile);
 
                         if (armyInBattlesInCurrentTile[0].ArmySide == 0)
                         {
@@ -490,13 +484,13 @@ namespace LandConquest.Forms
             selectedArmiesForUnion = new List<bool>();
             armyInBattlesInCurrentTile = new List<ArmyInBattle>();
 
-            for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, index, war); i++)
+            for (int i = 0; i < BattleModel.SelectLastIdOfArmiesInCurrentTile(index, war); i++)
             {
                 armyInBattlesInCurrentTile.Add(new ArmyInBattle());
                 selectedArmiesForUnion.Add(false);
             }
 
-            armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, index);
+            armyInBattlesInCurrentTile = BattleModel.GetArmiesInfoInCurrentTile(armyInBattlesInCurrentTile, war, index);
 
             ShowInfoAboutArmy();
 
@@ -511,7 +505,7 @@ namespace LandConquest.Forms
 
         private void splitArmiesButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            SplitArmyDialog dialogWindow = new SplitArmyDialog(connection, armyInBattlesInCurrentTile[0], war);
+            SplitArmyDialog dialogWindow = new SplitArmyDialog(armyInBattlesInCurrentTile[0], war);
             dialogWindow.Show();
         }
 
@@ -523,12 +517,12 @@ namespace LandConquest.Forms
 
             List<ArmyInBattle> armyInBattlesInCurrentTile = new List<ArmyInBattle>();
 
-            for (int i = 0; i < battleModel.SelectLastIdOfArmiesInCurrentTile(connection, index, war); i++)
+            for (int i = 0; i < BattleModel.SelectLastIdOfArmiesInCurrentTile(index, war); i++)
             {
                 armyInBattlesInCurrentTile.Add(new ArmyInBattle());
             }
 
-            armyInBattlesInCurrentTile = battleModel.GetArmiesInfoInCurrentTile(connection, armyInBattlesInCurrentTile, war, index);
+            armyInBattlesInCurrentTile = BattleModel.GetArmiesInfoInCurrentTile(armyInBattlesInCurrentTile, war, index);
 
             for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++)
             {
@@ -668,13 +662,13 @@ namespace LandConquest.Forms
                         }
                         else
                         {
-                            battleModel.DeleteArmyById(connection, armyInBattlesInCurrentTile[i]);
+                            BattleModel.DeleteArmyById(armyInBattlesInCurrentTile[i]);
                         }
                     }
                 }
 
-                unionArmy.ArmyType = battleModel.ReturnTypeOfUnionArmy(unionArmy);
-                battleModel.UpdateArmyInBattle(connection, unionArmy);
+                unionArmy.ArmyType = BattleModel.ReturnTypeOfUnionArmy(unionArmy);
+                BattleModel.UpdateArmyInBattle(unionArmy);
                 HideAvailableTilesToMove(index);
                 armyPage = 0;
                 ShowInfoAboutArmies(index);
@@ -819,7 +813,7 @@ namespace LandConquest.Forms
 
         public bool theWarStarted(int index)
         {
-            bool theWarStarted = battleModel.DidTheWarStarted(connection, index, war);
+            bool theWarStarted = BattleModel.DidTheWarStarted(index, war);
             Console.WriteLine(theWarStarted);
             return theWarStarted;
         }
@@ -857,7 +851,7 @@ namespace LandConquest.Forms
             timer.Interval = TimeSpan.FromSeconds(syncTick);
             timer.Tick += timer_Tick;
             timer.Start();
-            
+
             firstTick();
         }
 
@@ -891,7 +885,7 @@ namespace LandConquest.Forms
         {
             playerArmies.Clear();
             playerArmiesImages.Clear();
-            playerArmies = battleModel.GetPlayerArmiesInfo(connection, playerArmies, war, player);
+            playerArmies = BattleModel.GetPlayerArmiesInfo(playerArmies, war, player);
             addPlayerArmiesImagesToList();
 
         }

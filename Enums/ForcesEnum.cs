@@ -2,7 +2,7 @@
 {
     public class ForcesEnum
     {
-        public enum Infantry: int
+        public enum Infantry : int
         {
             Health = 10,
             Damage = 5,

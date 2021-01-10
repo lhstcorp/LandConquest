@@ -3,20 +3,17 @@ using LandConquest.Forms;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace LandConquest.Models
 {
-    class WarModel
+    public class WarModel
     {
-        public void DeclareAWar(SqlConnection connection, String war_id, Land landAttacker, Land landDefender)
+        public static void DeclareAWar(String war_id, Land landAttacker, Land landDefender)
         {
             String Query = "INSERT INTO dbo.WarData (war_id, land_attacker_id, land_defender_id, datetime_start) VALUES (@war_id, @land_attacker_id, @land_defender_id, @datetime_start)";
 
-            var Command = new SqlCommand(Query, connection);
+            var Command = new SqlCommand(Query, DbContext.GetConnection());
             // int datetimeResult;
             Command.Parameters.AddWithValue("@war_id", war_id);
             Command.Parameters.AddWithValue("@land_attacker_id", landAttacker.LandId);
@@ -28,10 +25,10 @@ namespace LandConquest.Models
             Command.Dispose();
         }
 
-        public static War GetWarById(SqlConnection connection, War war)
+        public static War GetWarById(War war)
         {
             String query = "SELECT * FROM dbo.WarData WHERE war_id = @war_id";
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
             command.Parameters.AddWithValue("@war_id", war.WarId);
 
             using (var reader = command.ExecuteReader())
@@ -54,10 +51,10 @@ namespace LandConquest.Models
             return war;
         }
 
-        public int SelectLastIdOfWars(SqlConnection connection)
+        public static int SelectLastIdOfWars()
         {
             String stateQuery = "SELECT * FROM dbo.WarData ORDER BY war_id DESC";
-            var stateCommand = new SqlCommand(stateQuery, connection);
+            var stateCommand = new SqlCommand(stateQuery, DbContext.GetConnection());
             string state_max_id = "";
             int count = 0;
             using (var reader = stateCommand.ExecuteReader())
@@ -74,7 +71,7 @@ namespace LandConquest.Models
             return count;
         }
 
-        public List<War> GetWarsInfo(List<War> wars, SqlConnection connection)
+        public static List<War> GetWarsInfo(List<War> wars)
         {
             String query = "SELECT * FROM dbo.WarData";
             List<String> warssWarId = new List<String>();
@@ -82,7 +79,7 @@ namespace LandConquest.Models
             List<Int32> warsLandDefenderId = new List<Int32>();
             List<DateTime> warsWarDateTimeStart = new List<DateTime>();
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
 
             using (var reader = command.ExecuteReader())
             {
@@ -125,7 +122,7 @@ namespace LandConquest.Models
         }
 
         // WAR ENTER BLOCK                              -- January/07/2021 -- greendend
-        public static void EnterInWar(War _war, Player player, SqlConnection connection)
+        public static void EnterInWar(War _war, Player player)
         {
             ArmyModel armyModel = new ArmyModel();
             Army army = new Army();
@@ -133,14 +130,14 @@ namespace LandConquest.Models
             ArmyInBattle armyInBattle = new ArmyInBattle();
             War war = new War();
 
-            
-            army = armyModel.GetArmyInfo(connection, player, army);
 
-            war = WarModel.GetWarById(connection, _war);
+            army = ArmyModel.GetArmyInfo(player, army);
 
-            int count = battleModel.CheckPlayerParticipation(connection, player, war);
+            war = WarModel.GetWarById(_war);
 
-            armyInBattle = CheckFreeArmies(army, connection, player);
+            int count = BattleModel.CheckPlayerParticipation(player, war);
+
+            armyInBattle = CheckFreeArmies(army, player);
 
             if ((count == 0) && (armyInBattle.ArmySizeCurrent > 0)) // если игрок не участвует в войне
             {                                                       // и у него есть чем воивать (см. CheckFreeArmies())
@@ -152,13 +149,13 @@ namespace LandConquest.Models
                     armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
                     armyInBattle.ArmySide = 1;
 
-                    battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
+                    BattleModel.InsertArmyIntoBattleTable(armyInBattle, war);
 
                     List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
 
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
+                    armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
 
-                    window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
+                    window = new WarWindow(player, armyInBattle, armiesInBattle, war);
                     window.Show();
                 }
                 else if (player.PlayerCurrentRegion == war.LandDefenderId)
@@ -166,18 +163,18 @@ namespace LandConquest.Models
                     armyInBattle.LocalLandId = ReturnNumberOfCell(1, random.Next(1, 30));
                     armyInBattle.ArmySide = 0; // hueta
 
-                    battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
+                    BattleModel.InsertArmyIntoBattleTable(armyInBattle, war);
 
                     List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
+                    for (int i = 0; i < BattleModel.SelectLastIdOfArmies(war); i++)
                     {
                         armiesInBattle.Add(new ArmyInBattle());
                     }
 
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
+                    armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
 
 
-                    window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
+                    window = new WarWindow(player, armyInBattle, armiesInBattle, war);
                     window.Show();
                 }
                 else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
@@ -188,26 +185,26 @@ namespace LandConquest.Models
                 if ((player.PlayerCurrentRegion == war.LandDefenderId) || (player.PlayerCurrentRegion == war.LandAttackerId))
                 {
                     List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
+                    for (int i = 0; i < BattleModel.SelectLastIdOfArmies(war); i++)
                     {
                         armiesInBattle.Add(new ArmyInBattle());
                     }
 
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
+                    armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
 
-                    WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
+                    WarWindow window = new WarWindow(player, armyInBattle, armiesInBattle, war);
                     window.Show();
                 }
                 else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
             }
         }
 
-        public static ArmyInBattle CheckFreeArmies(Army army, SqlConnection connection, Player player)
+        public static ArmyInBattle CheckFreeArmies(Army army, Player player)
         {
             ArmyInBattle freePlayerArmy = new ArmyInBattle();
 
             List<ArmyInBattle> armies = new List<ArmyInBattle>();
-            armies = BattleModel.GetAllPlayerArmiesInfo(connection, armies, player);
+            armies = BattleModel.GetAllPlayerArmiesInfo(armies, player);
 
             freePlayerArmy.PlayerId = army.PlayerId;
             freePlayerArmy.ArmyId = army.ArmyId;
