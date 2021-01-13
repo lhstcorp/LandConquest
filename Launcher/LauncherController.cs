@@ -70,6 +70,7 @@ namespace LandConquest.Launcher
                     }
                 }
                 catch (Win32Exception) { }
+                catch (Exception e) { }
             }
         }
     }
