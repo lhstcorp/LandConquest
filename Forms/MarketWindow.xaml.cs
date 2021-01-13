@@ -5,9 +5,6 @@ using System.Windows;
 
 namespace LandConquest.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для MarketWindow.xaml
-    /// </summary>
     public partial class MarketWindow : Window
     {
         MainWindow window;
@@ -21,7 +18,6 @@ namespace LandConquest.Forms
             InitializeComponent();
             window = _window;
             player = _player;
-            //user = _user;
             Loaded += MarketWindow_Loaded;
         }
 

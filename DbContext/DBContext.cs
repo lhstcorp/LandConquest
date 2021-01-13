@@ -5,12 +5,12 @@ using System.Text;
 
 namespace LandConquest
 {
-    public class DbContext
+    public static class DbContext
     {
         public static SqlConnection connection;
         public static void OpenConnectionPool()
         {
-            string encodedCdb = ConfigurationManager.ConnectionStrings["greendend2"].ConnectionString;
+            string encodedCdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
             byte[] dataCdb = Convert.FromBase64String(encodedCdb);
             string decodedCdb = Encoding.UTF7.GetString(dataCdb);
 
