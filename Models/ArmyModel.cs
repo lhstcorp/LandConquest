@@ -2,18 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LandConquest.Models
 {
     public class ArmyModel
     {
-        public Army GetArmyInfo(SqlConnection connection, Player player, Army army)
+        public static Army GetArmyInfo(Player player, Army army)
         {
             String armyQuery = "SELECT * FROM dbo.ArmyData WHERE player_id = @player_id"; //(army_id,army_size_current,army_type,army_archers_count,army_infantry_count,army_horseman_count,army_siegegun_count,local_land_id) VALUES (@army_id, @army_size_current, @army_type, @army_archers_count, @army_infantry_count, @army_horseman_count, @army_siegegun_count, @local_land_id)
-            var armyCommand = new SqlCommand(armyQuery, connection);
+            var armyCommand = new SqlCommand(armyQuery, DbContext.GetConnection());
 
             armyCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
 
@@ -44,11 +41,11 @@ namespace LandConquest.Models
             return army;
         }
 
-        public List<Army> GetArmyInfoList(List<Army> armies, SqlConnection connection, User user)
+        public static List<Army> GetArmyInfoList(List<Army> armies, User user)
         {
             String query = "SELECT TOP (1000) [dbo].[ArmyData].[player_id],[army_id],[army_size_current],[dbo].[PlayerData].[player_name] FROM[LandConquestDB].[dbo].[ArmyData] JOIN[LandConquestDB].[dbo].[PlayerData] on[dbo].[PlayerData].[player_id] = [dbo].[ArmyData].[player_id] order by[army_size_current] desc";
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
 
             using (var reader = command.ExecuteReader())
             {
@@ -66,20 +63,20 @@ namespace LandConquest.Models
                     army.ArmySizeCurrent = reader.GetInt32(armySizeCurrent);
                     army.PlayerNameForArmy = reader.GetString(playerName);
                     armies.Add(army);
-                    
+
                 }
             }
 
             return armies;
         }
 
-       
 
-        public Army UpdateArmy(SqlConnection connection, Army army)
+
+        public static Army UpdateArmy(Army army)
         {
             String storageQuery = "UPDATE dbo.ArmyData SET army_size_current = @army_size_current, army_type  = @army_type, army_archers_count = @army_archers_count, army_infantry_count  = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count WHERE army_id = @army_id";
 
-            var storageCommand = new SqlCommand(storageQuery, connection);
+            var storageCommand = new SqlCommand(storageQuery, DbContext.GetConnection());
             // int datetimeResult;
             storageCommand.Parameters.AddWithValue("@army_size_current", army.ArmySizeCurrent);
             storageCommand.Parameters.AddWithValue("@army_type", army.ArmyType);
@@ -96,10 +93,10 @@ namespace LandConquest.Models
             return army;
         }
 
-        public void InsertArmyFromReg(SqlConnection connection, Army army)
+        public static void InsertArmyFromReg(Army army)
         {
             String armyQuery = "INSERT INTO dbo.ArmyData (player_id, army_id) VALUES (@player_id, @army_id)";
-            var armyCommand = new SqlCommand(armyQuery, connection);
+            var armyCommand = new SqlCommand(armyQuery, DbContext.GetConnection());
 
             armyCommand.Parameters.AddWithValue("@player_id", army.PlayerId);
             armyCommand.Parameters.AddWithValue("@army_id", army.ArmyId);
@@ -110,7 +107,7 @@ namespace LandConquest.Models
 
         }
 
-        public int ReturnTypeOfArmy(Army army)
+        public static int ReturnTypeOfArmy(Army army)
         {
             if ((army.ArmyInfantryCount > 0) && (army.ArmyInfantryCount == army.ArmySizeCurrent))
                 return 1;

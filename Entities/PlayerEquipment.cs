@@ -27,6 +27,6 @@
         [Column("gear")]
         public int PlayerGear { get; set; }
 
-        
+
     }
 }

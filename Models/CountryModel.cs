@@ -3,20 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LandConquest.Models
 {
     public class CountryModel
     {
-        public Country EstablishaState(SqlConnection connection, Player player, Land land, System.Windows.Media.Color color)
+        public static Country EstablishaState(Player player, Land land, System.Windows.Media.Color color)
         {
-            System.Drawing.Color newColor = System.Drawing.Color.FromArgb(color.A, color.R, color.G, color.B);
+            Color newColor = Color.FromArgb(color.A, color.R, color.G, color.B);
             string colorHex = ColorTranslator.ToHtml(newColor);
             String countryQuery = "INSERT INTO dbo.CountryData (country_name,country_ruler,country_color) VALUES (@country_name,@country_ruler,@country_color)";
-            var countryCommand = new SqlCommand(countryQuery, connection);
+            var countryCommand = new SqlCommand(countryQuery, DbContext.GetConnection());
 
             countryCommand.Parameters.AddWithValue("@country_name", land.LandName + " state");
             countryCommand.Parameters.AddWithValue("@country_ruler", player.PlayerId);
@@ -32,10 +29,10 @@ namespace LandConquest.Models
             return country;
         }
 
-        public int SelectLastIdOfStates(SqlConnection connection)
+        public static int SelectLastIdOfStates()
         {
             String stateQuery = "SELECT TOP 1 * FROM dbo.CountryData ORDER BY country_id DESC";
-            var stateCommand = new SqlCommand(stateQuery, connection);
+            var stateCommand = new SqlCommand(stateQuery, DbContext.GetConnection());
             int state_max_id = 1;
 
             using (var reader = stateCommand.ExecuteReader())
@@ -53,7 +50,7 @@ namespace LandConquest.Models
             return state_max_id;
         }
 
-        public List<Country> GetCountriesInfo(List<Country> countries, SqlConnection connection)
+        public static List<Country> GetCountriesInfo(List<Country> countries)
         {
             String query = "SELECT * FROM dbo.CountryData";
             List<Int32> countriesCountryId = new List<Int32>();
@@ -61,7 +58,7 @@ namespace LandConquest.Models
             List<string> countriesCountryRuler = new List<string>();
             List<string> countriesCountryColor = new List<string>();
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
 
             using (var reader = command.ExecuteReader())
             {
@@ -97,13 +94,13 @@ namespace LandConquest.Models
             return countries;
         }
 
-        public int GetCountryId(SqlConnection connection, Player player)
+        public static int GetCountryId(Player player)
         {
             int id = 0;
 
             String query = "SELECT country_id FROM dbo.LandData WHERE land_id = @land_id ";
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
             command.Parameters.AddWithValue("@land_id", player.PlayerCurrentRegion);
 
             using (var reader = command.ExecuteReader())
@@ -121,13 +118,13 @@ namespace LandConquest.Models
             return id;
         }
 
-        public Country GetCountryById(SqlConnection connection, int id)
+        public static Country GetCountryById(int id)
         {
             Country country = new Country();
 
             String query = "SELECT * FROM dbo.CountryData WHERE country_id = @id";
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
             command.Parameters.AddWithValue("@id", id);
 
             using (var reader = command.ExecuteReader())
@@ -151,11 +148,11 @@ namespace LandConquest.Models
             return country;
         }
 
-        public void DisbandCountry(SqlConnection connection, Country country)
+        public static void DisbandCountry(Country country)
         {
             String query = "DELETE FROM dbo.CountryData WHERE country_id = @id";
 
-            var command = new SqlCommand(query, connection);
+            var command = new SqlCommand(query, DbContext.GetConnection());
             command.Parameters.AddWithValue("@id", country.CountryId);
 
             command.ExecuteNonQuery();

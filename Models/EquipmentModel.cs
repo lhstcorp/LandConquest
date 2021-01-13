@@ -1,20 +1,16 @@
 ﻿using LandConquest.Entities;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LandConquest.Models
 {
     public class EquipmentModel
     {
-        public PlayerEquipment GetPlayerEquipment(Player player, SqlConnection connection, PlayerEquipment equipment)
+        public static PlayerEquipment GetPlayerEquipment(Player player, PlayerEquipment equipment)
         {
             String storageQuery = "SELECT * FROM dbo.PlayerEquipment WHERE player_id = @player_id";
 
-            var command = new SqlCommand(storageQuery, connection);
+            var command = new SqlCommand(storageQuery, DbContext.GetConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
 
             using (var reader = command.ExecuteReader())
@@ -26,7 +22,7 @@ namespace LandConquest.Models
                 var playerIron = reader.GetOrdinal("spear");
                 var playerGoldOre = reader.GetOrdinal("bow");
                 var playerCopper = reader.GetOrdinal("gear");
-              
+
                 while (reader.Read())
                 {
                     equipment.PlayerId = reader.GetString(playerId);
@@ -36,17 +32,17 @@ namespace LandConquest.Models
                     equipment.PlayerSpear = reader.GetInt32(playerIron);
                     equipment.PlayerBow = reader.GetInt32(playerGoldOre);
                     equipment.PlayerGear = reader.GetInt32(playerCopper);
-                    
+
                 }
             }
             return equipment;
         }
 
-        public void UpdateEquipment(SqlConnection connection, Player player, PlayerEquipment _equipment)
+        public static void UpdateEquipment(Player player, PlayerEquipment _equipment)
         {
             String storageQuery = "UPDATE dbo.PlayerEquipment SET armor = @armor, sword  = @sword, harness = @harness, spear  = @spear, bow = @bow, gear = @gear WHERE player_id = @player_id ";
 
-            var storageCommand = new SqlCommand(storageQuery, connection);
+            var storageCommand = new SqlCommand(storageQuery, DbContext.GetConnection());
             // int datetimeResult;
             storageCommand.Parameters.AddWithValue("@armor", _equipment.PlayerArmor);
             storageCommand.Parameters.AddWithValue("@sword", _equipment.PlayerSword);
@@ -56,17 +52,17 @@ namespace LandConquest.Models
             storageCommand.Parameters.AddWithValue("@gear", _equipment.PlayerGear);
             storageCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
 
-           
 
-                //storageCommand.Parameters["@armor"].Value = _equipment.PlayerArmor;
-                //storageCommand.Parameters["@sword"].Value = _equipment.PlayerSword;
-                //storageCommand.Parameters["@harness"].Value = _equipment.PlayerHarness;
-                //storageCommand.Parameters["@spear"].Value = _equipment.PlayerSpear;
-                //storageCommand.Parameters["@bow"].Value = _equipment.PlayerBow;
-                //storageCommand.Parameters["@gear"].Value = _equipment.PlayerGear;
-                //storageCommand.Parameters["@player_id"].Value = player.PlayerId;
-                storageCommand.ExecuteNonQuery();
-            
+
+            //storageCommand.Parameters["@armor"].Value = _equipment.PlayerArmor;
+            //storageCommand.Parameters["@sword"].Value = _equipment.PlayerSword;
+            //storageCommand.Parameters["@harness"].Value = _equipment.PlayerHarness;
+            //storageCommand.Parameters["@spear"].Value = _equipment.PlayerSpear;
+            //storageCommand.Parameters["@bow"].Value = _equipment.PlayerBow;
+            //storageCommand.Parameters["@gear"].Value = _equipment.PlayerGear;
+            //storageCommand.Parameters["@player_id"].Value = player.PlayerId;
+            storageCommand.ExecuteNonQuery();
+
 
             storageCommand.Dispose();
         }

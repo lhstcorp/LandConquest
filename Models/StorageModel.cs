@@ -1,21 +1,16 @@
 ﻿using LandConquest.Entities;
-using LandConquest.Forms;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LandConquest.Models
 {
     public class StorageModel
     {
-        public PlayerStorage GetPlayerStorage(Player player, SqlConnection connection, PlayerStorage storage)
+        public static PlayerStorage GetPlayerStorage(Player player, PlayerStorage storage)
         {
             String storageQuery = "SELECT * FROM dbo.StorageData WHERE player_id = @player_id";
 
-            var command = new SqlCommand(storageQuery, connection);
+            var command = new SqlCommand(storageQuery, DbContext.GetConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
 
             using (var reader = command.ExecuteReader())
@@ -26,7 +21,7 @@ namespace LandConquest.Models
                 var playerFood = reader.GetOrdinal("food");
                 var playerIron = reader.GetOrdinal("iron");
                 var playerGoldOre = reader.GetOrdinal("gold_ore");
-                var playerCopper= reader.GetOrdinal("copper");
+                var playerCopper = reader.GetOrdinal("copper");
                 var playerGems = reader.GetOrdinal("gems");
                 var playerLeather = reader.GetOrdinal("leather");
                 while (reader.Read())
@@ -47,11 +42,11 @@ namespace LandConquest.Models
             return storage;
         }
 
-        public void UpdateStorage(SqlConnection connection, Player player, PlayerStorage _storage)
+        public static void UpdateStorage(Player player, PlayerStorage _storage)
         {
             String storageQuery = "UPDATE dbo.StorageData SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather WHERE player_id = @player_id ";
 
-            var storageCommand = new SqlCommand(storageQuery, connection);
+            var storageCommand = new SqlCommand(storageQuery, DbContext.GetConnection());
             // int datetimeResult;
             storageCommand.Parameters.AddWithValue("@wood", _storage.PlayerWood);
             storageCommand.Parameters.AddWithValue("@stone", _storage.PlayerStone);

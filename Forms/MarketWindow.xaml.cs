@@ -1,19 +1,7 @@
 ﻿using LandConquest.Entities;
 using LandConquest.Models;
 using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LandConquest.Forms
 {
@@ -22,23 +10,16 @@ namespace LandConquest.Forms
     /// </summary>
     public partial class MarketWindow : Window
     {
-        SqlConnection connection;
         MainWindow window;
         Player player;
-        User user;
-        
-        StorageModel model;
-        PlayerModel money;
+
         PlayerStorage storage;
         Market market;
-        PlayerEquipment equipment;
-        EquipmentModel equipmentModel;
-        MarketModel marketModel;
-        public MarketWindow(MainWindow _window, SqlConnection _connection, PlayerStorage _storage, Market _market, Player _player)
+
+        public MarketWindow(MainWindow _window, PlayerStorage _storage, Market _market, Player _player)
         {
             InitializeComponent();
             window = _window;
-            connection = _connection;
             player = _player;
             //user = _user;
             Loaded += MarketWindow_Loaded;
@@ -46,15 +27,11 @@ namespace LandConquest.Forms
 
         private void MarketWindow_Loaded(object sender, RoutedEventArgs e)
         {
- 
-            model = new StorageModel();
-            money = new PlayerModel();
             storage = new PlayerStorage();
             market = new Market();
-            marketModel = new MarketModel();
-            
-            storage = model.GetPlayerStorage(player, connection, storage);
-            market = marketModel.GetMarketInfo(player, connection, market);
+
+            storage = StorageModel.GetPlayerStorage(player, storage);
+            market = MarketModel.GetMarketInfo(player, market);
 
             labelWoodMarket.Content = market.MarketWood.ToString();
             labelWoodAmount.Content = storage.PlayerWood.ToString();
@@ -66,7 +43,7 @@ namespace LandConquest.Forms
             {
                 labelWoodPrice.Content = 2 * (50000 / Convert.ToDouble(labelWoodMarket.Content));
             }
-            
+
 
             labelFoodAmount.Content = storage.PlayerFood.ToString();
             labelFoodMarket.Content = market.MarketFood.ToString();
@@ -125,7 +102,7 @@ namespace LandConquest.Forms
 
             labelGemsMarket.Content = market.MarketGems.ToString();
             labelGemsAmount.Content = storage.PlayerGems.ToString();
-            if(Convert.ToInt32(labelGemsMarket.Content) > 50000)
+            if (Convert.ToInt32(labelGemsMarket.Content) > 50000)
             {
                 labelGemsPrice.Content = 10 * Math.Ceiling(50000 / Convert.ToDouble(labelGemsMarket.Content));
             }
@@ -164,24 +141,24 @@ namespace LandConquest.Forms
 
         private void buyFoodMarket_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (player.PlayerMoney>=Convert.ToInt32(FoodToBuyTextBox.Text)*Convert.ToInt32(labelFoodPrice.Content)&&Convert.ToInt32(labelFoodMarket.Content)>= Convert.ToInt32(FoodToBuyTextBox.Text))
+
+            if (player.PlayerMoney >= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content) && Convert.ToInt32(labelFoodMarket.Content) >= Convert.ToInt32(FoodToBuyTextBox.Text))
             {
                 storage.PlayerFood += Convert.ToInt32(FoodToBuyTextBox.Text);
                 player.PlayerMoney -= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
                 market.MarketFood -= Convert.ToInt32(FoodToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelFoodMarket.Content = Convert.ToInt32(labelFoodMarket.Content) - Convert.ToInt32(FoodToBuyTextBox.Text);
                 labelFoodAmount.Content = Convert.ToInt32(labelFoodAmount.Content) + Convert.ToInt32(FoodToBuyTextBox.Text);
-                
+
             }
             else
             {
                 MessageBox.Show("Error!");
             }
-            
+
         }
 
         private void sellFoodMarketButton_Click(object sender, RoutedEventArgs e)
@@ -192,9 +169,9 @@ namespace LandConquest.Forms
                 storage.PlayerFood -= Convert.ToInt32(FoodToBuyTextBox.Text);
                 player.PlayerMoney += Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
                 market.MarketFood += Convert.ToInt32(FoodToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelFoodMarket.Content = Convert.ToInt32(labelFoodMarket.Content) + Convert.ToInt32(FoodToBuyTextBox.Text);
 
                 labelFoodAmount.Content = Convert.ToInt32(labelFoodAmount.Content) - Convert.ToInt32(FoodToBuyTextBox.Text);
@@ -212,9 +189,9 @@ namespace LandConquest.Forms
                 storage.PlayerWood += Convert.ToInt32(WoodToBuyTextBox.Text);
                 player.PlayerMoney -= Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
                 market.MarketWood -= Convert.ToInt32(WoodToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelWoodMarket.Content = Convert.ToInt32(labelWoodMarket.Content) - Convert.ToInt32(WoodToBuyTextBox.Text);
 
                 labelWoodAmount.Content = Convert.ToInt32(labelWoodAmount.Content) + Convert.ToInt32(WoodToBuyTextBox.Text);
@@ -232,9 +209,9 @@ namespace LandConquest.Forms
                 storage.PlayerWood -= Convert.ToInt32(WoodToBuyTextBox.Text);
                 player.PlayerMoney += Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
                 market.MarketWood += Convert.ToInt32(WoodToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelWoodMarket.Content = Convert.ToInt32(labelWoodMarket.Content) + Convert.ToInt32(WoodToBuyTextBox.Text);
 
                 labelWoodAmount.Content = Convert.ToInt32(labelWoodAmount.Content) - Convert.ToInt32(WoodToBuyTextBox.Text);
@@ -252,9 +229,9 @@ namespace LandConquest.Forms
                 storage.PlayerStone += Convert.ToInt32(StoneToBuyTextBox.Text);
                 player.PlayerMoney -= Convert.ToInt32(StoneToBuyTextBox.Text) * Convert.ToInt32(labelStonePrice.Content);
                 market.MarketStone -= Convert.ToInt32(StoneToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelStoneMarket.Content = Convert.ToInt32(labelStoneMarket.Content) - Convert.ToInt32(StoneToBuyTextBox.Text);
 
                 labelStoneAmount.Content = Convert.ToInt32(labelStoneAmount.Content) + Convert.ToInt32(StoneToBuyTextBox.Text);
@@ -272,9 +249,9 @@ namespace LandConquest.Forms
                 storage.PlayerStone -= Convert.ToInt32(StoneToBuyTextBox.Text);
                 player.PlayerMoney += Convert.ToInt32(StoneToBuyTextBox.Text) * Convert.ToInt32(labelStonePrice.Content);
                 market.MarketStone += Convert.ToInt32(StoneToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelStoneMarket.Content = Convert.ToInt32(labelStoneMarket.Content) + Convert.ToInt32(StoneToBuyTextBox.Text);
 
                 labelStoneAmount.Content = Convert.ToInt32(labelStoneAmount.Content) - Convert.ToInt32(StoneToBuyTextBox.Text);
@@ -292,9 +269,9 @@ namespace LandConquest.Forms
                 storage.PlayerIron += Convert.ToInt32(IronToBuyTextBox.Text);
                 player.PlayerMoney -= Convert.ToInt32(IronToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content);
                 market.MarketIron -= Convert.ToInt32(IronToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelIronMarket.Content = Convert.ToInt32(labelIronMarket.Content) - Convert.ToInt32(IronToBuyTextBox.Text);
 
                 labelIronAmount.Content = Convert.ToInt32(labelIronAmount.Content) + Convert.ToInt32(IronToBuyTextBox.Text);
@@ -312,9 +289,9 @@ namespace LandConquest.Forms
                 storage.PlayerIron -= Convert.ToInt32(IronToBuyTextBox.Text);
                 player.PlayerMoney += Convert.ToInt32(IronToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content);
                 market.MarketIron += Convert.ToInt32(IronToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelIronMarket.Content = Convert.ToInt32(labelIronMarket.Content) + Convert.ToInt32(IronToBuyTextBox.Text);
 
                 labelIronAmount.Content = Convert.ToInt32(labelIronAmount.Content) - Convert.ToInt32(IronToBuyTextBox.Text);
@@ -332,9 +309,9 @@ namespace LandConquest.Forms
                 storage.PlayerGoldOre += Convert.ToInt32(GoldToBuyTextBox.Text);
                 player.PlayerMoney -= Convert.ToInt32(GoldToBuyTextBox.Text) * Convert.ToInt32(labelGoldPrice.Content);
                 market.MarketGoldOre -= Convert.ToInt32(GoldToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelGoldMarket.Content = Convert.ToInt32(labelGoldMarket.Content) - Convert.ToInt32(GoldToBuyTextBox.Text);
 
                 labelGoldAmount.Content = Convert.ToInt32(labelGoldAmount.Content) + Convert.ToInt32(GoldToBuyTextBox.Text);
@@ -352,9 +329,9 @@ namespace LandConquest.Forms
                 storage.PlayerGoldOre -= Convert.ToInt32(GoldToBuyTextBox.Text);
                 player.PlayerMoney += Convert.ToInt32(GoldToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content);
                 market.MarketGoldOre += Convert.ToInt32(GoldToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelGoldMarket.Content = Convert.ToInt32(labelGoldMarket.Content) + Convert.ToInt32(GoldToBuyTextBox.Text);
 
                 labelGoldAmount.Content = Convert.ToInt32(labelGoldAmount.Content) - Convert.ToInt32(GoldToBuyTextBox.Text);
@@ -372,9 +349,9 @@ namespace LandConquest.Forms
                 storage.PlayerCopper += Convert.ToInt32(CopperToBuyTextBox.Text);
                 player.PlayerMoney -= Convert.ToInt32(CopperToBuyTextBox.Text) * Convert.ToInt32(labelCopperPrice.Content);
                 market.MarketCopper -= Convert.ToInt32(CopperToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelCopperMarket.Content = Convert.ToInt32(labelCopperMarket.Content) - Convert.ToInt32(CopperToBuyTextBox.Text);
 
                 labelCopperAmount.Content = Convert.ToInt32(labelCopperAmount.Content) + Convert.ToInt32(CopperToBuyTextBox.Text);
@@ -392,9 +369,9 @@ namespace LandConquest.Forms
                 storage.PlayerCopper -= Convert.ToInt32(CopperToBuyTextBox.Text);
                 player.PlayerMoney += Convert.ToInt32(CopperToBuyTextBox.Text) * Convert.ToInt32(labelCopperPrice.Content);
                 market.MarketCopper += Convert.ToInt32(CopperToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelCopperMarket.Content = Convert.ToInt32(labelCopperMarket.Content) + Convert.ToInt32(CopperToBuyTextBox.Text);
 
                 labelCopperAmount.Content = Convert.ToInt32(labelCopperAmount.Content) - Convert.ToInt32(CopperToBuyTextBox.Text);
@@ -412,9 +389,9 @@ namespace LandConquest.Forms
                 storage.PlayerGems += Convert.ToInt32(GemsToBuyTextBox.Text);
                 player.PlayerMoney -= Convert.ToInt32(GemsToBuyTextBox.Text) * Convert.ToInt32(labelGemsPrice.Content);
                 market.MarketGems -= Convert.ToInt32(GemsToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelGemsMarket.Content = Convert.ToInt32(labelGemsMarket.Content) - Convert.ToInt32(GemsToBuyTextBox.Text);
 
                 labelGemsAmount.Content = Convert.ToInt32(labelGemsAmount.Content) + Convert.ToInt32(GemsToBuyTextBox.Text);
@@ -432,9 +409,9 @@ namespace LandConquest.Forms
                 storage.PlayerGems -= Convert.ToInt32(GemsToBuyTextBox.Text);
                 player.PlayerMoney += Convert.ToInt32(GemsToBuyTextBox.Text) * Convert.ToInt32(labelGemsPrice.Content);
                 market.MarketGems += Convert.ToInt32(GemsToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelGemsMarket.Content = Convert.ToInt32(labelGemsMarket.Content) + Convert.ToInt32(GemsToBuyTextBox.Text);
 
                 labelGemsAmount.Content = Convert.ToInt32(labelGemsAmount.Content) - Convert.ToInt32(GemsToBuyTextBox.Text);
@@ -452,9 +429,9 @@ namespace LandConquest.Forms
                 storage.PlayerLeather += Convert.ToInt32(LeatherToBuyTextBox.Text);
                 player.PlayerMoney -= Convert.ToInt32(LeatherToBuyTextBox.Text) * Convert.ToInt32(labelLeatherPrice.Content);
                 market.MarketLeather -= Convert.ToInt32(LeatherToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelLeatherMarket.Content = Convert.ToInt32(labelLeatherMarket.Content) - Convert.ToInt32(LeatherToBuyTextBox.Text);
 
                 labelLeatherAmount.Content = Convert.ToInt32(labelLeatherAmount.Content) + Convert.ToInt32(LeatherToBuyTextBox.Text);
@@ -472,9 +449,9 @@ namespace LandConquest.Forms
                 storage.PlayerGems -= Convert.ToInt32(LeatherToBuyTextBox.Text);
                 player.PlayerMoney += Convert.ToInt32(LeatherToBuyTextBox.Text) * Convert.ToInt32(labelLeatherPrice.Content);
                 market.MarketLeather += Convert.ToInt32(LeatherToBuyTextBox.Text);
-                model.UpdateStorage(connection, player, storage);
-                money.UpdatePlayerMoney(player, connection);
-                marketModel.UpdateMarket(connection, player, market);
+                StorageModel.UpdateStorage(player, storage);
+                PlayerModel.UpdatePlayerMoney(player);
+                MarketModel.UpdateMarket(player, market);
                 labelLeatherMarket.Content = Convert.ToInt32(labelLeatherMarket.Content) + Convert.ToInt32(LeatherToBuyTextBox.Text);
 
                 labelLeatherMarket.Content = Convert.ToInt32(labelLeatherMarket.Content) - Convert.ToInt32(LeatherToBuyTextBox.Text);

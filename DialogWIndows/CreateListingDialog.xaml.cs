@@ -1,29 +1,15 @@
 ﻿using LandConquest.Entities;
-using LandConquest.Forms;
 using LandConquest.Models;
 using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LandConquest.DialogWIndows
 {
-    
+
     public partial class CreateListingDialog : Window
     {
-        SqlConnection connection;
         Player player;
-        StorageModel model;
         PlayerStorage storage;
         PlayerEquipment equipment;
         EquipmentModel equipmentModel;
@@ -36,10 +22,9 @@ namespace LandConquest.DialogWIndows
         string itemGroup;
         string itemSubgroup;
 
-        public CreateListingDialog(SqlConnection _connection, Player _player)
+        public CreateListingDialog(Player _player)
         {
             InitializeComponent();
-            connection = _connection;
             player = _player;
             Loaded += Window_Loaded;
         }
@@ -52,7 +37,6 @@ namespace LandConquest.DialogWIndows
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             storage = new PlayerStorage();
-            model = new StorageModel();
             equipment = new PlayerEquipment();
             equipmentModel = new EquipmentModel();
 
@@ -68,9 +52,9 @@ namespace LandConquest.DialogWIndows
             itemGroup = null;
             itemSubgroup = null;
 
-            peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
+            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
 
-            army = armyModel.GetArmyInfo(connection, player, army);
+            army = ArmyModel.GetArmyInfo(player, army);
 
             labelPeasantAmount.Content = peasants.PeasantsCount.ToString();
             labelBowmanAmount.Content = army.ArmyArchersCount.ToString();
@@ -78,8 +62,8 @@ namespace LandConquest.DialogWIndows
             labelKnightAmount.Content = army.ArmyHorsemanCount.ToString();
             labelSiegeMachinesAmount.Content = army.ArmySiegegunCount.ToString();
 
-            storage = model.GetPlayerStorage(player, connection, storage);
-            equipment = equipmentModel.GetPlayerEquipment(player, connection, equipment);
+            storage = StorageModel.GetPlayerStorage(player, storage);
+            equipment = EquipmentModel.GetPlayerEquipment(player, equipment);
 
             labelWoodAmount.Content = storage.PlayerWood.ToString();
             labelStoneAmount.Content = storage.PlayerStone.ToString();
@@ -154,7 +138,7 @@ namespace LandConquest.DialogWIndows
 
         private void metalButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "Metal";
+            itemName = "Iron";
             itemGroup = "Resources";
             itemSubgroup = "";
             showListingDetails();
@@ -234,7 +218,8 @@ namespace LandConquest.DialogWIndows
 
         private void buttonPlace_Click(object sender, RoutedEventArgs e)
         {
-            auctionModel.AddListing(Convert.ToInt32(textBoxAmount.Text), itemName, itemGroup, itemSubgroup, Convert.ToInt32(textBoxPrice.Text), player, connection);
+            AuctionModel.AddListing(Convert.ToInt32(textBoxAmount.Text), itemName, itemGroup, itemSubgroup, Convert.ToInt32(textBoxPrice.Text), player);
+
         }
     }
 }

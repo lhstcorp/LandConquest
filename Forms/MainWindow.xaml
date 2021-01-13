@@ -56,15 +56,15 @@
 
         <!--menu header design-->
         <Image HorizontalAlignment="Left" Height="50" Margin="290,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="340,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="390,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="440,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="490,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="340,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="390,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="recruitImage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="440,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="marketImage_MouseDown" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="490,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="CountryImage_MouseDown" Cursor="Hand"/>
         <Image HorizontalAlignment="Left" Height="50" Margin="540,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand" Opacity="0.25"/>
 
         <Image HorizontalAlignment="Left" Height="30" Margin="299,19,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/resource_chest.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
         <Image HorizontalAlignment="Left" Height="30" Margin="351,17,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/manufacturing.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
-        <Button x:Name="buttonCloseWindow" Content="Exit" Margin="0,10,35,0" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonCloseWindow_Click" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112">
+        <Button x:Name="buttonCloseWindow" Content="Exit" Margin="0,10,35,0" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonCloseWindow_Click" Height="31" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
@@ -129,7 +129,7 @@
         <Image x:Name="ResourceMapBtn" HorizontalAlignment="Left" Height="51" Margin="248,177,0,0" VerticalAlignment="Top" Width="59" Cursor="Hand" Source="/Pictures/resource_map.png" MouseDown="ResourceMapBtn_MouseDown"/>
         <Image x:Name="GlobalMapBtn" HorizontalAlignment="Left" Height="48" Margin="247,129,0,0" VerticalAlignment="Top" Width="60" Cursor="Hand" Source="/Pictures/map_icon.png" MouseDown="GlobalMapBtn_MouseDown">
         </Image>
-        <Button x:Name="buttonSettings" Content="Menu" HorizontalAlignment="Right" Margin="0,10,165,0" VerticalAlignment="Top" Width="112" Height="35" BorderBrush="{x:Null}" Foreground="#FFE5D09D" MouseEnter="buttonSettings_MouseEnter"   >
+        <Button x:Name="buttonSettings" Content="Menu" HorizontalAlignment="Right" Margin="0,10,165,0" VerticalAlignment="Top" Width="112" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" MouseEnter="buttonSettings_MouseEnter"   >
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
@@ -144,14 +144,14 @@
             <CheckBox x:Name="checkBox"  HorizontalAlignment="Left" Margin="78,16,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="0.88,0.455" Checked="checkBox_Checked"/>
 
         </Grid>
-        <Button x:Name="buttonProfile" Content="Profile" HorizontalAlignment="Right" Margin="0,10,292,0" VerticalAlignment="Top" Width="112" Height="35" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonProfile_Click">
+        <Button x:Name="buttonProfile" Content="Profile" HorizontalAlignment="Right" Margin="0,10,292,0" VerticalAlignment="Top" Width="112" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonProfile_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
         <ProgressBar x:Name="PbExp" HorizontalAlignment="Left" Height="18" Margin="106,41,0,0" VerticalAlignment="Top" Width="80" Foreground="#FFD7464B" BorderBrush="#FFD7464B" Background="{x:Null}"/>
         <Label x:Name="Level"  FontSize="12" HorizontalContentAlignment="Center" Content="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,108,0,0" VerticalAlignment="Top" Foreground="#FFE1C793" Width="89" Height="30" Background="#FFD7464B"/>
-        <Button x:Name="buttonTop" Content="Top" Margin="0,10,419,0" VerticalAlignment="Top" Height="35" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Right" Width="112" Click="buttonTop_Click">
+        <Button x:Name="buttonTop" Content="Top" Margin="0,10,419,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Right" Width="112" Click="buttonTop_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
@@ -165,12 +165,17 @@
         <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="40" Margin="444,17,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/storeImage.png" Width="41" Cursor="Hand" MouseDown="marketImage_MouseDown"/>
         <Image x:Name="CountryImage"  HorizontalAlignment="Left" Height="37" Margin="497,13,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/parlament.png" Width="37" Cursor="Hand" MouseDown="CountryImage_MouseDown"/>
         <Image x:Name="LandImage" HorizontalAlignment="Left" Height="40" Margin="542,15,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/landMainBuilding.png" Width="40"  MouseDown="LandImage_MouseDown" Opacity="0.25"/>
-        <Button x:Name="buyCoins" Content="Buy" FontSize="12" HorizontalAlignment="Left" Margin="217,61,0,0" VerticalAlignment="Top" Width="55" Height="29" Click="buyCoins_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
+        <Button x:Name="buyCoins" Content="Buy" FontSize="12" HorizontalAlignment="Left" Margin="217,59,0,0" VerticalAlignment="Top" Width="55" Height="26" Click="buyCoins_Click" IsEnabled="False" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="OpenAuction" Content="Auction" Height="35" Margin="0,10,549,0" VerticalAlignment="Top" Click="OpenAuction_Click" HorizontalAlignment="Right" Width="112" BorderBrush="{x:Null}" Foreground="#FFE4CE9A">
+        <Button x:Name="buyMembership" Content="Membership" FontSize="12" HorizontalAlignment="Left" Margin="217,88,0,0" VerticalAlignment="Top" Width="100" Height="27" IsEnabled="True" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buyMembership_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="OpenAuction" Content="Auction" Height="31" Margin="0,10,549,0" VerticalAlignment="Top" Click="OpenAuction_Click" HorizontalAlignment="Right" Width="112" BorderBrush="{x:Null}" Foreground="#FFE4CE9A">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>

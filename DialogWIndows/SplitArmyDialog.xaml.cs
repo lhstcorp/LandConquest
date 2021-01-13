@@ -13,14 +13,11 @@ namespace LandConquest.DialogWIndows
     public partial class SplitArmyDialog : Window
     {
         ArmyInBattle armyInBattle;
-        SqlConnection connection;
-        BattleModel battleModel;
         War war;
         int typeOfNewArmy;
         int typeOfOldArmy;
-        public SplitArmyDialog(SqlConnection _connection, ArmyInBattle _armyInBattle, War _war)
+        public SplitArmyDialog(ArmyInBattle _armyInBattle, War _war)
         {
-            connection = _connection;
             armyInBattle = _armyInBattle;
             war = _war;
             InitializeComponent();
@@ -204,8 +201,6 @@ namespace LandConquest.DialogWIndows
 
         private void btnSplitArmy_Click(object sender, RoutedEventArgs e)
         {
-            battleModel = new BattleModel();
-
             if ((Convert.ToInt32(armySizeNow.Content) != 0) && (Convert.ToInt32(armySizeWas.Content) != 0))
             {
                 ArmyInBattle newArmyInBattle = new ArmyInBattle();
@@ -221,7 +216,7 @@ namespace LandConquest.DialogWIndows
                 newArmyInBattle.ArmyType = typeOfNewArmy;
                 //Console.WriteLine("typeOfNewArmy = " + typeOfNewArmy);
 
-                battleModel.InsertArmyIntoBattleTable(connection, newArmyInBattle, war);
+                BattleModel.InsertArmyIntoBattleTable(newArmyInBattle, war);
             }
 
             if (Convert.ToInt32(armySizeWas.Content) != 0 && (Convert.ToInt32(armySizeNow.Content) != 0))
@@ -234,7 +229,7 @@ namespace LandConquest.DialogWIndows
                 armyInBattle.ArmySiegegunCount = Convert.ToInt32(siegeCountWas.Content);
                 armyInBattle.ArmyType = typeOfOldArmy;
 
-                battleModel.UpdateArmyInBattle(connection, armyInBattle);
+                BattleModel.UpdateArmyInBattle(armyInBattle);
             }
 
             this.Close();

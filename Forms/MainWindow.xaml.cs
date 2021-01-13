@@ -2,18 +2,12 @@
 using LandConquest.Entities;
 using LandConquest.Models;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Media;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -25,24 +19,8 @@ namespace LandConquest.Forms
     public partial class MainWindow : Window
     {
 
-        public SqlConnection connection;
         User user;
         Player player;
-
-        PlayerModel playerModel;
-        UserModel userModel;
-        TaxesModel taxesModel;
-        LandModel landModel;
-        CountryModel countryModel;
-        PeasantModel peasantModel;
-        StorageModel storageModel;
-        EquipmentModel equipmentModel;
-        MarketModel marketModel;
-        MapModel mapModel;
-        WarModel warModel;
-        ArmyModel armyModel;
-        BattleModel battleModel;
-
         Market market;
         PlayerStorage storage;
         PlayerEquipment equipment = new PlayerEquipment();
@@ -63,12 +41,11 @@ namespace LandConquest.Forms
 
         const int landsCount = 11;
 
-        public MainWindow(SqlConnection _connection, User _user)
+        public MainWindow(User _user)
         {
             InitializeComponent();
             //this.Resources.Add("buttonGradientBrush", gradientBrush);
             user = _user;
-            connection = _connection;
 
             player = new Player();
             storage = new PlayerStorage();
@@ -76,23 +53,9 @@ namespace LandConquest.Forms
             country = new Country();
             market = new Market();
             army = new Army();
-
-            armyModel = new ArmyModel();
-            marketModel = new MarketModel();
-            userModel = new UserModel();
-            taxesModel = new TaxesModel();
-            landModel = new LandModel();
-            countryModel = new CountryModel();
-            peasantModel = new PeasantModel();
             manufactureModel = new ManufactureModel();
-            playerModel = new PlayerModel();
-            storageModel = new StorageModel();
-            equipmentModel = new EquipmentModel();
-            mapModel = new MapModel();
-            warModel = new WarModel();
-            //equipment = new PlayerEquipment();
 
-            player = playerModel.GetPlayerInfo(_user, connection, player);
+            player = PlayerModel.GetPlayerInfo(_user, player);
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
             PbExp.Value = player.PlayerExp;
             Level.Content = player.PlayerLvl;
@@ -111,20 +74,19 @@ namespace LandConquest.Forms
             taxes.PlayerId = player.PlayerId;
 
             Loaded += MainWindow_Loaded;
-            connection = _connection;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            storage = storageModel.GetPlayerStorage(player, connection, storage);
+            storage = StorageModel.GetPlayerStorage(player, storage);
 
-            peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
+            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
             sliderTaxes.IsSnapToTickEnabled = true;
 
-            taxes = taxesModel.GetTaxesInfo(taxes, connection);
+            taxes = TaxesModel.GetTaxesInfo(taxes);
             sliderTaxes.Value = taxes.TaxValue;
 
-            List<Manufacture> manufactures = manufactureModel.GetManufactureInfo(player, connection);
+            List<Manufacture> manufactures = manufactureModel.GetManufactureInfo(player);
 
             prodRatioValue.Content = (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)).ToString();
 
@@ -133,8 +95,8 @@ namespace LandConquest.Forms
             //storage.PlayerFood += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[2].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[2].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
             player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
 
-            player = playerModel.UpdatePlayerMoney(player, connection);
-            taxesModel.SaveTaxes(connection, taxes);
+            player = PlayerModel.UpdatePlayerMoney(player);
+            TaxesModel.SaveTaxes(taxes);
             labelMoney.Content = player.PlayerMoney;
             convertMoneyToMoneyCode(labelMoney);
 
@@ -153,25 +115,27 @@ namespace LandConquest.Forms
 
             countries = new List<Country>();
 
-            for (int i = 0; i < countryModel.SelectLastIdOfStates(connection); i++)
+            for (int i = 0; i < CountryModel.SelectLastIdOfStates(); i++)
             {
                 countries.Add(new Country());
             }
 
-            lands = landModel.GetLandsInfo(lands, connection);
-            countries = countryModel.GetCountriesInfo(countries, connection);
+            lands = LandModel.GetLandsInfo(lands);
+            countries = CountryModel.GetCountriesInfo(countries);
 
 
             wars = new List<War>();
 
-            for (int i = 0; i < warModel.SelectLastIdOfWars(connection); i++)
+            for (int i = 0; i < WarModel.SelectLastIdOfWars(); i++)
             {
                 wars.Add(new War());
             }
 
-            wars = warModel.GetWarsInfo(wars, connection);
+            wars = WarModel.GetWarsInfo(wars);
 
             LoadWarsOnMap();
+
+            setFlag();
         }
 
         private void UpdateInfo()
@@ -181,14 +145,14 @@ namespace LandConquest.Forms
                 try
                 {
                     Thread.Sleep(10000);
-                    taxes = taxesModel.GetTaxesInfo(taxes, connection);
+                    taxes = TaxesModel.GetTaxesInfo(taxes);
                     //await MainWindow_Loaded(this.sender, RoutedEventArgs e); 
                     player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
 
-                    player = playerModel.UpdatePlayerMoney(player, connection);
-                    taxesModel.SaveTaxes(connection, taxes);
+                    player = PlayerModel.UpdatePlayerMoney(player);
+                    TaxesModel.SaveTaxes(taxes);
                     Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); }));
-                    lands = landModel.GetLandsInfo(lands, connection);
+                    lands = LandModel.GetLandsInfo(lands);
                     Dispatcher.BeginInvoke(new ThreadStart(delegate { RedrawGlobalMap(); }));
                 }
                 catch { }
@@ -198,9 +162,9 @@ namespace LandConquest.Forms
 
         private void ImageStorage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = storageModel.GetPlayerStorage(player, connection, storage);
-            List<Manufacture> manufactures = manufactureModel.GetManufactureInfo(player, connection);
-            List<Manufacture> playerLandManufactures = manufactureModel.GetPlayerLandManufactureInfo(player, connection);
+            storage = StorageModel.GetPlayerStorage(player, storage);
+            List<Manufacture> manufactures = manufactureModel.GetManufactureInfo(player);
+            List<Manufacture> playerLandManufactures = manufactureModel.GetPlayerLandManufactureInfo(player);
             //base manufactures 
             storage.PlayerWood += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
             player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
@@ -315,15 +279,15 @@ namespace LandConquest.Forms
 
             Console.WriteLine(Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5))) + " tut");
 
-            storageModel.UpdateStorage(connection, player, storage);
+            StorageModel.UpdateStorage(player, storage);
 
-            manufactureModel.UpdateDateTimeForManufacture(manufactures, player, connection);
-            if (f) manufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player, connection);
+            manufactureModel.UpdateDateTimeForManufacture(manufactures, player);
+            if (f) manufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player);
 
 
-            StorageWindow storageWindow = new StorageWindow(this, connection, player, user);
+            StorageWindow storageWindow = new StorageWindow(this, player, user);
 
-            playerModel.UpdatePlayerExpAndLvl(player, connection);
+            PlayerModel.UpdatePlayerExpAndLvl(player);
             storageWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             storageWindow.Owner = this;
             storageWindow.Show();
@@ -331,7 +295,7 @@ namespace LandConquest.Forms
 
         private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ManufactureWindow window = new ManufactureWindow(this, connection, player, storage);
+            ManufactureWindow window = new ManufactureWindow(this, player, storage);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Owner = this;
             window.Show();
@@ -346,7 +310,7 @@ namespace LandConquest.Forms
 
         private void reload_button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow window = new MainWindow(connection, user);
+            MainWindow window = new MainWindow(user);
             window.Show();
             this.Close();
         }
@@ -356,7 +320,7 @@ namespace LandConquest.Forms
         {
             taxes.TaxValue = Convert.ToInt32(sliderTaxes.Value);
             taxes.TaxMoneyHour = taxes.TaxValue * peasants.PeasantsCount;
-            taxesModel.SaveTaxes(connection, taxes);
+            TaxesModel.SaveTaxes(taxes);
         }
 
         private void sliderTaxes_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -366,10 +330,10 @@ namespace LandConquest.Forms
 
         private void recruitImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = storageModel.GetPlayerStorage(player, connection, storage);
-            equipment = equipmentModel.GetPlayerEquipment(player, connection, equipment);
+            storage = StorageModel.GetPlayerStorage(player, storage);
+            equipment = EquipmentModel.GetPlayerEquipment(player, equipment);
 
-            RecruitWindow window = new RecruitWindow(connection, player, storage, equipment);
+            RecruitWindow window = new RecruitWindow(player, storage, equipment);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Owner = this;
             window.Show();
@@ -566,8 +530,7 @@ namespace LandConquest.Forms
         }
         private void playMusic()
         {
-            SoundPlayer sound = new SoundPlayer();
-            sound.SoundLocation = @"music.wav";
+            SoundPlayer sound = new SoundPlayer(Properties.Resources.MainTheme);
             sound.PlayLooping();
 
             //sound.SoundLocation = @"music2.wav";
@@ -585,20 +548,21 @@ namespace LandConquest.Forms
         private void btnGoToLand_Click(object sender, RoutedEventArgs e)
         {
 
-            peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
-            List<int> list = playerModel.DeletePlayerManufactureLandData(peasants, player, connection);
-            List<Manufacture> landManufactures = manufactureModel.GetLandManufactureInfo(player, connection);
-            Console.WriteLine("playerRegion: " + player.PlayerCurrentRegion);
-            Console.WriteLine("manufacture: " + landManufactures[0].ManufactureId + "  " + landManufactures[0].ManufacturePeasantWork);
-            Console.WriteLine("list: " + list[0] + "  " + list[1]);
-            manufactureModel.UpdateLandManufacturesWhenMove(connection, list, landManufactures);
-            player = playerModel.UpdatePlayerLand(player, connection, land);
+            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
+            List<int> peasantsFree = PlayerModel.DeletePlayerManufactureLandData(peasants, player);
+            List<Manufacture> landManufactures = manufactureModel.GetLandManufactureInfo(player);
+
+            manufactureModel.UpdateLandManufacturesWhenMove(peasantsFree, landManufactures);
+            //peasants.PeasantsCount = peasants.PeasantsCount + peasantsFree[0] + peasantsFree[1];
+            PeasantModel.UpdatePeasantsInfo(peasants);
+
+            player = PlayerModel.UpdatePlayerLand(player, land);
 
             //flag.Margin = new Thickness(flagXY[0] - 69, flagXY[1] - 36, 0, 0);
             //flag.Margin = new Thickness(Convert.ToDouble(GlobalMap.Margin.Left), Convert.ToDouble(GlobalMap.Margin.Top), 0, 0);
 
             //flag.Stretch
-            flagXY = mapModel.CenterOfLand(land.LandId);
+            flagXY = MapModel.CenterOfLand(land.LandId);
             flag.Margin = new Thickness(flagXY[0], flagXY[1], 0, 0);
 
             Console.WriteLine("flag coo: " + flagXY[0] + " " + flagXY[1]);
@@ -609,7 +573,7 @@ namespace LandConquest.Forms
 
         private void buttonEstablishaState_Click(object sender, RoutedEventArgs e)
         {
-            EstablishStateDialog win = new EstablishStateDialog(connection, player, land);
+            EstablishStateDialog win = new EstablishStateDialog(player, land);
             win.Owner = this;
             win.Show();
         }
@@ -626,7 +590,7 @@ namespace LandConquest.Forms
 
         private void buttonProfile_Click(object sender, RoutedEventArgs e)
         {
-            ProfileWindow profileWindow = new ProfileWindow(this, connection, player, user);
+            ProfileWindow profileWindow = new ProfileWindow(this, player, user);
             profileWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             profileWindow.Owner = this;
             profileWindow.Show();
@@ -671,7 +635,7 @@ namespace LandConquest.Forms
 
         private void buttonTop_Click(object sender, RoutedEventArgs e)
         {
-            RatingWindow ratingWindow = new RatingWindow(this, connection, player, user, army);
+            RatingWindow ratingWindow = new RatingWindow(this, player, user, army);
             ratingWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ratingWindow.Owner = this;
             ratingWindow.Show();
@@ -680,7 +644,7 @@ namespace LandConquest.Forms
         private void test2_Click(object sender, RoutedEventArgs e)
         {
             //Console.WriteLine(land.LandName);
-            landModel.AddLandManufactures(land, connection);
+            LandModel.AddLandManufactures(land);
         }
 
         private void buttonChat_Click(object sender, RoutedEventArgs e)
@@ -693,10 +657,10 @@ namespace LandConquest.Forms
 
         private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = storageModel.GetPlayerStorage(player, connection, storage);
-            market = marketModel.GetMarketInfo(player, connection, market);
+            storage = StorageModel.GetPlayerStorage(player, storage);
+            market = MarketModel.GetMarketInfo(player, market);
 
-            MarketWindow window = new MarketWindow(this, connection, storage, market, player);
+            MarketWindow window = new MarketWindow(this, storage, market, player);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Owner = this;
             window.Show();
@@ -704,7 +668,7 @@ namespace LandConquest.Forms
 
         private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            CountryWindow win = new CountryWindow(connection, player);
+            CountryWindow win = new CountryWindow(player);
             win.Show();
         }
 
@@ -712,119 +676,9 @@ namespace LandConquest.Forms
         {
 
         }
-
-        private void DeclareWar(object sender, RoutedEventArgs e)
-        {
-            ArmyModel armyModel = new ArmyModel();
-            Army army = new Army();
-            army = armyModel.GetArmyInfo(connection, player, army);
-
-            BattleModel battleModel = new BattleModel();
-            ArmyInBattle armyInBattle = new ArmyInBattle();
-
-            int count = battleModel.CheckPlayerParticipation(connection, player);
-
-            War war = new War();
-            war.WarId = WAR.WarId;
-
-            war = warModel.GetWarById(connection, war);
-
-            if (count == 0)
-            {
-
-                armyInBattle.PlayerId = army.PlayerId;
-                armyInBattle.ArmyId = army.ArmyId;
-                armyInBattle.ArmySizeCurrent = army.ArmySizeCurrent;
-                armyInBattle.ArmyType = army.ArmyType;
-                armyInBattle.ArmyArchersCount = army.ArmyArchersCount;
-                armyInBattle.ArmyInfantryCount = army.ArmyInfantryCount;
-                armyInBattle.ArmySiegegunCount = army.ArmySiegegunCount;
-                armyInBattle.ArmyHorsemanCount = army.ArmyHorsemanCount;
-
-
-                Random random = new Random();
-                WarWindow window;
-
-                if (player.PlayerCurrentRegion == war.LandAttackerId)
-                {
-                    armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
-                    armyInBattle.ArmySide = 1; // hueta
-
-                    battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
-
-                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-                    //for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-                    //{
-                    //    armiesInBattle.Add(new ArmyInBattle());
-                    //}
-
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-                    window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-                    window.Show();
-                }
-                else if (player.PlayerCurrentRegion == war.LandDefenderId)
-                {
-                    armyInBattle.LocalLandId = ReturnNumberOfCell(1, random.Next(1, 30));
-                    armyInBattle.ArmySide = 0; // hueta
-
-                    battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
-
-                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-                    {
-                        armiesInBattle.Add(new ArmyInBattle());
-                    }
-
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-
-                    window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-                    window.Show();
-                }
-                else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
-
-            } else
-            {
-                if ((player.PlayerCurrentRegion == war.LandDefenderId) || (player.PlayerCurrentRegion == war.LandAttackerId))
-                {
-                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-                    {
-                        armiesInBattle.Add(new ArmyInBattle());
-                    }
-
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-                    WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-                    window.Show();
-                } else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
-            }
-
-            //List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-            //for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-            //{
-            //    armiesInBattle.Add(new ArmyInBattle());
-            //}
-
-            //armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-            ////armyModel.UpdateArmy(connection, army);
-            //// до сюда говно ------------------------------------------------------------------------------
-
-            //WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-            //window.Show();
-        }
-
-        public int ReturnNumberOfCell(int row, int column)
-        {
-            int index = (row - 1) * 30 + column - 1;
-            return index;
-        }
-
         private void buttonStartBattle_Click(object sender, RoutedEventArgs e)
         {
-            WarResultWindow warResultWindow = new WarResultWindow(connection, player);
+            WarResultWindow warResultWindow = new WarResultWindow(player);
             warResultWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             warResultWindow.Owner = this;
             warResultWindow.Show();
@@ -841,10 +695,10 @@ namespace LandConquest.Forms
                 SymbalLayer.Children.Add(warLine);
                 Console.WriteLine(wars[i].WarId + ' ' + wars[i].LandAttackerId + ' ' + wars[i].LandDefenderId);
                 Console.WriteLine(SymbalLayer.Children.Count);
-                landCenter = mapModel.CenterOfLand(wars[i].LandAttackerId);
+                landCenter = MapModel.CenterOfLand(wars[i].LandAttackerId);
                 warLine.X1 = landCenter[0] + 15;
                 warLine.Y1 = landCenter[1] + 30;
-                landCenter = mapModel.CenterOfLand(wars[i].LandDefenderId);
+                landCenter = MapModel.CenterOfLand(wars[i].LandDefenderId);
                 warLine.X2 = landCenter[0] + 15;
                 warLine.Y2 = landCenter[1] + 30;
                 warLine.Stroke = System.Windows.Media.Brushes.Black;
@@ -873,10 +727,11 @@ namespace LandConquest.Forms
                 if (((Image)sender).Margin == marginsOfWarButtons[j])
                 {
                     Console.WriteLine("Ключ войны = " + wars[j].WarId);
-                    
+
                     WAR = new War();
                     WAR.WarId = wars[j].WarId;
-                    DeclareWar(null, e);
+                    //DeclareWar(null, e);
+                    WarModel.EnterInWar(WAR, player);
                 }
             }
         }
@@ -893,7 +748,7 @@ namespace LandConquest.Forms
 
         private void OpenAuction_Click(object sender, RoutedEventArgs e)
         {
-            AuctionWindow auctionWindow = new AuctionWindow(connection, player);
+            AuctionWindow auctionWindow = new AuctionWindow(player);
             auctionWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             auctionWindow.Owner = this;
             auctionWindow.Show();
@@ -901,7 +756,7 @@ namespace LandConquest.Forms
 
         private void buyCoins_Click(object sender, RoutedEventArgs e)
         {
-            BalanceReplenishmentDialog dialog = new BalanceReplenishmentDialog(player, connection);
+            BalanceReplenishmentDialog dialog = new BalanceReplenishmentDialog(player);
             dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             dialog.Owner = this;
             dialog.Show();
@@ -920,6 +775,20 @@ namespace LandConquest.Forms
             {
                 label.Content += "k";
             }
+        }
+
+        public void setFlag()
+        {
+            flagXY = MapModel.CenterOfLand(player.PlayerCurrentRegion);
+            flag.Margin = new Thickness(flagXY[0], flagXY[1], 0, 0);
+        }
+
+        private void buyMembership_Click(object sender, RoutedEventArgs e)
+        {
+            MembershipWindow window = new MembershipWindow();
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Owner = this;
+            window.Show();
         }
     }
 }

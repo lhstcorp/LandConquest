@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LandConquest.Enums
+﻿namespace LandConquest.Enums
 {
     public class ManufacturesLvlEnum
     {
@@ -19,5 +13,7 @@ namespace LandConquest.Enums
             Gold = 0,
             Money = 100
         }
+
+
     }
 }
