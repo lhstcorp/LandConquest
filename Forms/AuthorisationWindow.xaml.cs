@@ -1,6 +1,7 @@
 ﻿using LandConquest.DialogWIndows;
 using LandConquest.Entities;
 using LandConquest.Forms;
+using LandConquest.Launcher;
 using LandConquest.Models;
 using System;
 using System.Data;
@@ -25,13 +26,9 @@ namespace LandConquest
 
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //string encodedCdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
-            //byte[] dataCdb = Convert.FromBase64String(encodedCdb);
-            //string decodedCdb = Encoding.UTF7.GetString(dataCdb);
-
-            //connection = new SqlConnection(decodedCdb);
-            //connection.Open();
             DbContext.OpenConnectionPool();
+            LauncherController.CheckLocalDateTime();
+            LauncherController.DisableActiveCheats();
             textBoxLogin.Text = Properties.Settings.Default.UserLogin;
             textBoxPass.Password = Properties.Settings.Default.UserPassword;
         }
@@ -74,9 +71,10 @@ namespace LandConquest
             bool validNewUserLogin = UserModel.ValidateUserByLogin(textBoxNewLogin.Text);
             bool validNewUserEmail = UserModel.ValidateUserByEmail(textBoxNewEmail.Text);
 
-            if (textBoxNewLogin.Text.Length > 3 &&
-                textBoxNewEmail.Text.Length > 3 &&
-                textBoxNewPass.Text.Length > 3 &&
+            if (textBoxNewLogin.Text.Length > 6 &&
+                textBoxNewEmail.Text.Length > 6 &&
+                textBoxNewEmail.Text.Contains("@")&&
+                textBoxNewPass.Text.Length > 6 &&
                 validNewUserLogin == true &&
                 validNewUserEmail == true &&
                 textBoxNewPass.Text == textBoxConfirmNewPass.Text)
@@ -121,11 +119,10 @@ namespace LandConquest
                 textBoxNewEmail.Text = "";
                 textBoxNewPass.Text = "";
                 textBoxConfirmNewPass.Text = "";
-                warningWindow = new WarningDialogWindow("Your login and email should be unique. Password, login and email length should be more then 3.");
+                warningWindow = new WarningDialogWindow("Your login and email should be unique. Password, login and email length should be more then 6.");
                 warningWindow.Show();
             }
         }
-
 
         private static Random random;
         public static string generateUserId()

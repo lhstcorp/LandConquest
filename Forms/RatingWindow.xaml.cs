@@ -6,9 +6,6 @@ using System.Windows;
 
 namespace LandConquest.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для RatingWindow.xaml
-    /// </summary>
     public partial class RatingWindow : Window
     {
         MainWindow window;

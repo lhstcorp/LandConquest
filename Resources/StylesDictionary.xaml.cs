@@ -21,13 +21,6 @@ namespace LandConquest.Resources
             {
                 LandModel landModel = new LandModel();
 
-                //string encodedCdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
-                //byte[] dataCdb = Convert.FromBase64String(encodedCdb);
-                //string decodedCdb = Encoding.UTF7.GetString(dataCdb);
-
-                //connection = new SqlConnection(decodedCdb);
-                //connection.Open();
-
                 const int landsCount = 11;
 
                 lands = new List<Land>();
@@ -37,8 +30,6 @@ namespace LandConquest.Resources
                 }
 
                 lands = LandModel.GetLandsInfo(lands);
-                //connection.Close();
-
             }
             catch (Exception ex)
             {
