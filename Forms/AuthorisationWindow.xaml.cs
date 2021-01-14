@@ -31,7 +31,7 @@ namespace LandConquest
             DbContext.OpenConnectionPool();
             LauncherController.CheckLocalUtcDateTime();
             LauncherController.DisableActiveCheats();
-            CheckVersion();
+            //CheckVersion();
             textBoxLogin.Text = Properties.Settings.Default.UserLogin;
             textBoxPass.Password = Properties.Settings.Default.UserPassword;
         }
