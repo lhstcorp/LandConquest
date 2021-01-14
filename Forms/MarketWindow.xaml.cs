@@ -383,5 +383,17 @@ namespace LandConquest.Forms
             MarketModel.UpdateMarket(player, market);
             MarketWindow_Loaded(sender, e);
         }
+
+        
+        private void FoodToBuyTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
+        }
+
+        public static bool IsValid(string str)
+        {
+            int i;
+            return int.TryParse(str, out i) && i >= 1 && i <= 99999;
+        }
     }
 }
