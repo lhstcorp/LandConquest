@@ -1,22 +1,22 @@
-﻿using LandConquest.DialogWIndows;
+﻿using FontAwesome.WPF;
+using LandConquest.DialogWIndows;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using YandexDiskNET;
 
 namespace LandConquest.Launcher
 {
     public static class LauncherController
     {
-        public static void CheckLocalDateTime()
+        public static void CheckLocalUtcDateTime()
         {
             try
             {
@@ -25,8 +25,8 @@ namespace LandConquest.Launcher
                 {
                     var response = streamReader.ReadToEnd();
                     var utcDateTimeString = response.Substring(7, 17);
-                    var utcOnlineTime = DateTime.ParseExact(utcDateTimeString, "yy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.AssumeUniversal);
-                    DateTime localDateTime = DateTime.Now;
+                    var utcOnlineTime = DateTimeOffset.ParseExact(utcDateTimeString, "yy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.AssumeUniversal);
+                    DateTimeOffset localDateTime = DateTime.UtcNow;
                     TimeSpan interval = localDateTime.Subtract(utcOnlineTime);
                     int minutesDiff = interval.Minutes;
                     if (minutesDiff != 0)
@@ -40,8 +40,7 @@ namespace LandConquest.Launcher
                     }
                 }
             }
-            catch (IOException) { }
-            catch (WebException) { }
+            catch (Exception) { }
         }
 
         public static void DisableActiveCheats()
@@ -66,12 +65,20 @@ namespace LandConquest.Launcher
                         {
                             process.Kill();
                         }
-                        catch (ArgumentException) { }
+                        catch (Exception) { }
                     }
                 }
-                catch (Win32Exception) { }
-                catch (Exception e) { }
+                catch (Exception) { }
             }
+        }
+
+        public static async Task CheckGameVersion()
+        {
+            string oauth = "AgAAAABOd7e_AAbQ97dOx-rewkPJpnXliw7lmJ8";
+            string sourceFileName = "LandConquest.exe";
+            string destFileName = @"C:\Users\Public\Downloads\LandConquest.exe";
+            YandexDiskRest disk = new YandexDiskRest(oauth);
+            await disk.DownloadResourceAcync(sourceFileName, destFileName);
         }
     }
 }

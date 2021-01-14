@@ -5,6 +5,8 @@ using LandConquest.Launcher;
 using LandConquest.Models;
 using System;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows;
@@ -27,8 +29,9 @@ namespace LandConquest
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
             DbContext.OpenConnectionPool();
-            LauncherController.CheckLocalDateTime();
+            LauncherController.CheckLocalUtcDateTime();
             LauncherController.DisableActiveCheats();
+            CheckVersion();
             textBoxLogin.Text = Properties.Settings.Default.UserLogin;
             textBoxPass.Password = Properties.Settings.Default.UserPassword;
         }
@@ -154,6 +157,29 @@ namespace LandConquest
             registerGui.Visibility = visibility;
             buttonRegistrate.Visibility = visibility;
             buttonCancelRegistrate.Visibility = visibility;
+        }
+
+        private void CheckVersion()
+        {
+            var result = LauncherController.CheckGameVersion();
+            if (result.IsCompleted)
+            {
+                if (File.ReadAllBytes(@"C:\Users\Public\Downloads\LandConquest.exe").SequenceEqual(File.ReadAllBytes("LandConquest.exe")))
+                {
+                    labelGameFiles.Content = "Game is up to date";
+                    labelGameFiles.Foreground = System.Windows.Media.Brushes.Green;
+                    iconSpinner.Spin = false;
+                    iconSpinner.Foreground = System.Windows.Media.Brushes.Green;
+                    File.Delete(@"C:\Users\Public\Downloads\LandConquest.exe");
+                }
+                else
+                {
+                    labelGameFiles.Content = "Update required";
+                    labelGameFiles.Foreground = System.Windows.Media.Brushes.Red;
+                    iconSpinner.Spin = false;
+                    iconSpinner.Foreground = System.Windows.Media.Brushes.Red;
+                }
+            }
         }
     }
 }
