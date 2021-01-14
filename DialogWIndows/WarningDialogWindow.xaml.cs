@@ -18,7 +18,7 @@ namespace LandConquest.DialogWIndows
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            this.DialogResult = false;
             this.Close();
         }
     }

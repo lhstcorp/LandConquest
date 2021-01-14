@@ -587,6 +587,12 @@
     <PackageReference Include="FontAwesome.WPF">
       <Version>4.7.0.9</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Office.Interop.Word">
+      <Version>15.0.4797.1003</Version>
+    </PackageReference>
+    <PackageReference Include="Syroot.Windows.IO.KnownFolders">
+      <Version>1.2.3</Version>
+    </PackageReference>
     <PackageReference Include="YandexDiskNET">
       <Version>1.0.7</Version>
     </PackageReference>

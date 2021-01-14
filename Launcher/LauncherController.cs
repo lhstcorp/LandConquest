@@ -1,12 +1,13 @@
 ﻿using FontAwesome.WPF;
 using LandConquest.DialogWIndows;
+using Syroot.Windows.IO;
 using System;
-
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -74,11 +75,22 @@ namespace LandConquest.Launcher
 
         public static async Task CheckGameVersion()
         {
+            string downloadsPath = new KnownFolder(KnownFolderType.Downloads).Path;
+            string oauth = "AgAAAABOd7e_AAbQ97dOx-rewkPJpnXliw7lmJ8";
+            string sourceFileName = "GameVersion.txt";
+            string destFileName = downloadsPath + @"\GameVersion.txt";
+            YandexDiskRest disk = new YandexDiskRest(oauth);
+            await Task.WhenAll(disk.DownloadResourceAcync(sourceFileName, destFileName));
+        }
+
+        public static ErrorResponse DownloadGame()
+        {
+            string downloadsPath = new KnownFolder(KnownFolderType.Downloads).Path;
             string oauth = "AgAAAABOd7e_AAbQ97dOx-rewkPJpnXliw7lmJ8";
             string sourceFileName = "LandConquest.exe";
-            string destFileName = @"C:\Users\Public\Downloads\LandConquest.exe";
+            string destFileName = downloadsPath + @"\LandConquest.exe";
             YandexDiskRest disk = new YandexDiskRest(oauth);
-            await disk.DownloadResourceAcync(sourceFileName, destFileName);
+            return disk.DownloadResource(sourceFileName, destFileName);
         }
     }
 }
