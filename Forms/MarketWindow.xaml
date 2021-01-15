@@ -12,7 +12,7 @@
             <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/food.png"/>
-        <Label Content="Price" FontWeight="Bold" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Price" FontWeight="Bold" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelFoodPrice" Content="3" FontWeight="Bold" HorizontalAlignment="Left" Margin="116,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="FoodToBuyTextBox" Background="White" Foreground="Black" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58" PreviewTextInput="FoodToBuyTextBox_PreviewTextInput"   />
         <Label x:Name="labelFoodAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="46"/>
