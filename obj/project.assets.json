@@ -26,15 +26,6 @@
           "lib/net45/System.Net.Http.Formatting.dll": {}
         }
       },
-      "Microsoft.Office.Interop.Word/15.0.4797.1003": {
-        "type": "package",
-        "compile": {
-          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
-        },
-        "runtime": {
-          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
-        }
-      },
       "Microsoft.VCRTForwarders.140/1.0.6": {
         "type": "package",
         "build": {
@@ -324,15 +315,6 @@
           "lib/net45/System.Net.Http.Formatting.dll": {}
         }
       },
-      "Microsoft.Office.Interop.Word/15.0.4797.1003": {
-        "type": "package",
-        "compile": {
-          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
-        },
-        "runtime": {
-          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
-        }
-      },
       "Microsoft.VCRTForwarders.140/1.0.6": {
         "type": "package",
         "build": {
@@ -414,15 +396,6 @@
           "lib/net45/System.Net.Http.Formatting.dll": {}
         }
       },
-      "Microsoft.Office.Interop.Word/15.0.4797.1003": {
-        "type": "package",
-        "compile": {
-          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
-        },
-        "runtime": {
-          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
-        }
-      },
       "Microsoft.VCRTForwarders.140/1.0.6": {
         "type": "package",
         "build": {
@@ -502,15 +475,6 @@
         },
         "runtime": {
           "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.Office.Interop.Word/15.0.4797.1003": {
-        "type": "package",
-        "compile": {
-          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
-        },
-        "runtime": {
-          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
         }
       },
       "Microsoft.VCRTForwarders.140/1.0.6": {
@@ -609,18 +573,6 @@
         "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml",
         "microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
         "microsoft.aspnet.webapi.client.nuspec"
-      ]
-    },
-    "Microsoft.Office.Interop.Word/15.0.4797.1003": {
-      "sha512": "p22pljmHaQjDxNLqO+uO5vi3y0TK5t1mAtSAg93K28/e12Hw3qzfflAo6XHvNXxnvz9HZGv59vLCwIaC9xbXNQ==",
-      "type": "package",
-      "path": "microsoft.office.interop.word/15.0.4797.1003",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net20/Microsoft.Office.Interop.Word.dll",
-        "microsoft.office.interop.word.15.0.4797.1003.nupkg.sha512",
-        "microsoft.office.interop.word.nuspec"
       ]
     },
     "Microsoft.VCRTForwarders.140/1.0.6": {
@@ -831,7 +783,6 @@
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
       "FontAwesome.WPF >= 4.7.0.9",
-      "Microsoft.Office.Interop.Word >= 15.0.4797.1003",
       "Microsoft.VCRTForwarders.140 >= 1.0.6",
       "Syroot.Windows.IO.KnownFolders >= 1.2.3",
       "YandexDiskNET >= 1.0.7"
@@ -873,10 +824,6 @@
           "FontAwesome.WPF": {
             "target": "Package",
             "version": "[4.7.0.9, )"
-          },
-          "Microsoft.Office.Interop.Word": {
-            "target": "Package",
-            "version": "[15.0.4797.1003, )"
           },
           "Microsoft.VCRTForwarders.140": {
             "target": "Package",
