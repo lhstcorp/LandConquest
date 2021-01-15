@@ -372,5 +372,20 @@ namespace LandConquest.Models
 
             return player;
         }
+
+        //public static Player UpdatePlayerImage(Player player)
+        //{
+        //    String taxesQuery = "UPDATE dbo.PlayerData SET player_image = @player_image WHERE player_id = @player_id ";
+
+        //    var taxesCommand = new SqlCommand(taxesQuery, DbContext.GetConnection());
+        //    taxesCommand.Parameters.AddWithValue("@player_image", player.PlayerImage);
+        //    taxesCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
+
+        //    taxesCommand.ExecuteNonQuery();
+
+        //    taxesCommand.Dispose();
+
+        //    return player;
+        //}
     }
 }
