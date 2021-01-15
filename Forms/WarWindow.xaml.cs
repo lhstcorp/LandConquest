@@ -1,7 +1,7 @@
 ﻿using LandConquest.DialogWIndows;
-using LandConquest.Entities;
-using LandConquest.Forces;
-using LandConquest.Models;
+using LandConquestDB.Entities;
+using LandConquestDB.Forces;
+using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

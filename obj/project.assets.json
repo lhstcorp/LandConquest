@@ -288,6 +288,15 @@
           "lib/net45/YandexDiskNET.dll": {},
           "lib/net45/Получить код подтверждения.exe": {}
         }
+      },
+      "LandConquestDB/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/LandConquestDB.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LandConquestDB.dll": {}
+        }
       }
     },
     ".NETFramework,Version=v4.7.2/win": {
@@ -368,6 +377,15 @@
         "runtime": {
           "lib/net45/YandexDiskNET.dll": {},
           "lib/net45/Получить код подтверждения.exe": {}
+        }
+      },
+      "LandConquestDB/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/LandConquestDB.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LandConquestDB.dll": {}
         }
       }
     },
@@ -450,6 +468,15 @@
           "lib/net45/YandexDiskNET.dll": {},
           "lib/net45/Получить код подтверждения.exe": {}
         }
+      },
+      "LandConquestDB/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/LandConquestDB.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LandConquestDB.dll": {}
+        }
       }
     },
     ".NETFramework,Version=v4.7.2/win-x86": {
@@ -530,6 +557,15 @@
         "runtime": {
           "lib/net45/YandexDiskNET.dll": {},
           "lib/net45/Получить код подтверждения.exe": {}
+        }
+      },
+      "LandConquestDB/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/LandConquestDB.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LandConquestDB.dll": {}
         }
       }
     }
@@ -778,31 +814,37 @@
         "yandexdisknet.1.0.7.nupkg.sha512",
         "yandexdisknet.nuspec"
       ]
+    },
+    "LandConquestDB/1.0.0": {
+      "type": "project",
+      "path": "LandConquestDB/LandConquestDB.csproj",
+      "msbuildProject": "LandConquestDB/LandConquestDB.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
       "FontAwesome.WPF >= 4.7.0.9",
+      "LandConquestDB >= 1.0.0",
       "Microsoft.VCRTForwarders.140 >= 1.0.6",
       "Syroot.Windows.IO.KnownFolders >= 1.2.3",
       "YandexDiskNET >= 1.0.7"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\green\\.nuget\\packages\\": {}
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\green\\Documents\\GitHub\\LandConquest-1\\LandConquest.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
       "projectName": "LandConquest",
-      "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest-1\\LandConquest.csproj",
-      "packagesPath": "C:\\Users\\green\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest-1\\obj\\",
+      "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\green\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -814,7 +856,11 @@
       },
       "frameworks": {
         "net472": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
+              "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
+            }
+          }
         }
       }
     },

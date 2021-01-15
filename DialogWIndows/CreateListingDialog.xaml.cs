@@ -1,5 +1,5 @@
-﻿using LandConquest.Entities;
-using LandConquest.Models;
+﻿using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
 using System.Windows;
 using System.Windows.Input;
@@ -12,12 +12,8 @@ namespace LandConquest.DialogWIndows
         Player player;
         PlayerStorage storage;
         PlayerEquipment equipment;
-        EquipmentModel equipmentModel;
         Peasants peasants;
-        ArmyModel armyModel;
-        PeasantModel peasantModel;
         Army army;
-        AuctionModel auctionModel;
         string itemName;
         string itemGroup;
         string itemSubgroup;
@@ -38,13 +34,10 @@ namespace LandConquest.DialogWIndows
         {
             storage = new PlayerStorage();
             equipment = new PlayerEquipment();
-            equipmentModel = new EquipmentModel();
+
 
             peasants = new Peasants();
-            armyModel = new ArmyModel();
-            peasantModel = new PeasantModel();
 
-            auctionModel = new AuctionModel();
 
             army = new Army();
 
