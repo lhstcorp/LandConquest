@@ -1,9 +1,11 @@
-﻿using LandConquest.Entities;
+﻿using LandConquestDB.Entities;
 using LandConquest.Forms;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows;
+using LandConquestDB;
+using LandConquestDB.Models;
 
 namespace LandConquest.Models
 {

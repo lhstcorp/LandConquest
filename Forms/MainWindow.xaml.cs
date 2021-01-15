@@ -1,5 +1,6 @@
 ﻿using LandConquest.DialogWIndows;
-using LandConquest.Entities;
+using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using LandConquest.Models;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,6 @@ namespace LandConquest.Forms
         PlayerEquipment equipment = new PlayerEquipment();
         Taxes taxes;
         Peasants peasants;
-        ManufactureModel manufactureModel;
         List<Land> lands;
         List<Path> paths;
         List<Country> countries;
@@ -35,6 +35,7 @@ namespace LandConquest.Forms
         Army army;
         Country country;
         War WAR; //GLOBAL
+        ManufactureModel manufactureModel;
 
         Thickness[] marginsOfWarButtons;
         int[] flagXY = new int[4];

@@ -1,8 +1,8 @@
 ﻿using LandConquest.DialogWIndows;
-using LandConquest.Entities;
+using LandConquestDB.Entities;
 using LandConquest.Forms;
 using LandConquest.Launcher;
-using LandConquest.Models;
+using LandConquestDB.Models;
 using Syroot.Windows.IO;
 using System;
 using System.Data;
@@ -12,6 +12,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
+using LandConquestDB;
 
 namespace LandConquest
 {
@@ -44,7 +45,7 @@ namespace LandConquest
         {
             user = new User();
 
-            user = UserModel.UserAuthorisation(this);
+            user = UserModel.UserAuthorisation(this.textBoxLogin.Text, this.textBoxPass.Password);
 
             if (user.UserLogin == textBoxLogin.Text && user.UserPass == textBoxPass.Password)
             {
@@ -86,7 +87,7 @@ namespace LandConquest
                 textBoxNewPass.Text == textBoxConfirmNewPass.Text)
             {
                 String userId = generateUserId();
-                int userCreationResult = UserModel.CreateUser(this, userId);
+                int userCreationResult = UserModel.CreateUser(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, this.textBoxNewPass.Text, userId);
                 if (userCreationResult < 0)
                 {
                     Console.WriteLine("Error creating new user!");
@@ -96,7 +97,7 @@ namespace LandConquest
                 else
                 {
                     User registeredUser = new User();
-                    int playerResult = PlayerModel.CreatePlayer(this, userId, registeredUser);
+                    int playerResult = PlayerModel.CreatePlayer(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, this.textBoxNewPass.Text, userId, registeredUser);
 
                     if (playerResult < 0)
                     {
@@ -106,7 +107,7 @@ namespace LandConquest
                     }
                     else
                     {
-                        PlayerModel.CreatePlayerResources(this, userId, registeredUser);
+                        PlayerModel.CreatePlayerResources(userId, registeredUser);
                         TaxesModel.CreateTaxesData(userId);
 
                         MainWindow mainWindow = new MainWindow(registeredUser);

@@ -1,4 +1,5 @@
-﻿using LandConquest.Entities;
+﻿using LandConquestDB;
+using LandConquestDB.Entities;
 using System;
 using System.Data.SqlClient;
 using System.Windows;
