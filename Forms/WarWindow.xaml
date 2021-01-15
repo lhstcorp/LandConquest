@@ -30,9 +30,9 @@
             <Label x:Name="warriorsKnights" Content="0"  Margin="0,0,0.4,120" HorizontalAlignment="Right" Width="78" Height="24" VerticalAlignment="Bottom"></Label>
             <Image Margin="0,0,131.4,14" Source="/Pictures/Armies/SIE-0.png" HorizontalAlignment="Right" Width="40" Height="42" VerticalAlignment="Bottom"></Image>
             <Label x:Name="warriorsSiege" Content="0"  Margin="0,0,0.4,96" HorizontalAlignment="Right" Width="78" Height="24" VerticalAlignment="Bottom"></Label>
-            <Image x:Name="splitArmiesButton" HorizontalAlignment="Right" Height="34" Margin="0,0,9.8,258" VerticalAlignment="Bottom" Width="34" Source="/Pictures/splitArmies.png" MouseDown="splitArmiesButton_MouseDown" Grid.ColumnSpan="3" Grid.Column="1"/>
+            <Image x:Name="splitArmiesButton" HorizontalAlignment="Right" Height="34" Margin="0,0,47,258" VerticalAlignment="Bottom" Width="34" Source="/Pictures/splitArmies.png" MouseDown="splitArmiesButton_MouseDown" RenderTransformOrigin="0.512,0.512"/>
 
-            <Button x:Name="armyPageArrowLeft" Height="32" Margin="0,0,18.6,3" VerticalAlignment="Bottom" BorderBrush="Transparent" Click="armyPageArrowLeft_Click" HorizontalAlignment="Right" Width="32" Grid.ColumnSpan="2">
+            <Button x:Name="armyPageArrowLeft" Height="32" Margin="0,0,41,3" VerticalAlignment="Bottom" BorderBrush="Transparent" Click="armyPageArrowLeft_Click" HorizontalAlignment="Right" Width="32">
                 <Button.Background>
                     <ImageBrush ImageSource="/Pictures/armyPageArrowLeft.png"/>
                 </Button.Background>
@@ -43,12 +43,12 @@
                     <ImageBrush ImageSource="/Pictures/armyPageArrowRight.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnSelectToUnite" Content="Select" HorizontalAlignment="Right" Margin="0,0,9.8,221" VerticalAlignment="Bottom" Width="80" Click="btnSelectToUnite_Click" Grid.ColumnSpan="4" BorderBrush="{x:Null}">
+            <Button x:Name="btnSelectToUnite" Content="Select" Foreground="Wheat" HorizontalAlignment="Right" Margin="0,0,10,221" VerticalAlignment="Bottom" Width="80" Click="btnSelectToUnite_Click" BorderBrush="{x:Null}" Height="32">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnUnite" Content="U" FontSize="10" FontWeight="Bold"  Foreground="White" HorizontalAlignment="Right" Margin="0,0,0.4,258" VerticalAlignment="Bottom" Width="41" BorderBrush="{x:Null}" Click="btnUnite_Click" Height="34">
+            <Button x:Name="btnUnite" Content="U" FontSize="10" FontWeight="Bold"  Foreground="Wheat" HorizontalAlignment="Right" Margin="0,0,0.4,258" VerticalAlignment="Bottom" Width="41" BorderBrush="{x:Null}" Click="btnUnite_Click" Height="34">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
                 </Button.Background>
