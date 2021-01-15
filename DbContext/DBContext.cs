@@ -11,7 +11,7 @@ namespace LandConquest
         public static SqlConnection connection;
         public static void OpenConnectionPool()
         {
-            string encodedCdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
+            string encodedCdb = ConfigurationManager.ConnectionStrings["glandeil"].ConnectionString;
             byte[] dataCdb = Convert.FromBase64String(encodedCdb);
             string decodedCdb = Encoding.UTF7.GetString(dataCdb);
 

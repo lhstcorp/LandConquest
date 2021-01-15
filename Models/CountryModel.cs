@@ -12,12 +12,14 @@ namespace LandConquest.Models
         {
             Color newColor = Color.FromArgb(color.A, color.R, color.G, color.B);
             string colorHex = ColorTranslator.ToHtml(newColor);
-            String countryQuery = "INSERT INTO dbo.CountryData (country_name,country_ruler,country_color) VALUES (@country_name,@country_ruler,@country_color)";
+            string coffers = "10000";
+            String countryQuery = "INSERT INTO dbo.CountryData (country_name,country_ruler,country_color,country_coffers) VALUES (@country_name,@country_ruler,@country_color,@country_coffers)";
             var countryCommand = new SqlCommand(countryQuery, DbContext.GetConnection());
 
             countryCommand.Parameters.AddWithValue("@country_name", land.LandName + " state");
             countryCommand.Parameters.AddWithValue("@country_ruler", player.PlayerId);
             countryCommand.Parameters.AddWithValue("@country_color", colorHex);
+            countryCommand.Parameters.AddWithValue("@country_coffers", coffers);
 
             countryCommand.ExecuteNonQuery();
 
@@ -25,6 +27,7 @@ namespace LandConquest.Models
             country.CountryName = land.LandName + " state";
             country.CountryRuler = player.PlayerId;
             country.CountryColor = colorHex;
+            country.CountryCoffers = coffers;
 
             return country;
         }
@@ -133,6 +136,7 @@ namespace LandConquest.Models
                 var countryName = reader.GetOrdinal("country_name");
                 var countryRuler = reader.GetOrdinal("country_ruler");
                 var countryColor = reader.GetOrdinal("country_color");
+                var countryCoffers = reader.GetOrdinal("country_coffers");
 
                 while (reader.Read())
                 {
@@ -140,6 +144,7 @@ namespace LandConquest.Models
                     country.CountryName = reader.GetString(countryName);
                     country.CountryRuler = reader.GetString(countryRuler);
                     country.CountryColor = reader.GetString(countryColor);
+                    country.CountryCoffers = reader.GetString(countryCoffers);
                 }
             }
 
@@ -148,6 +153,7 @@ namespace LandConquest.Models
             return country;
         }
 
+        
         public static void DisbandCountry(Country country)
         {
             String query = "DELETE FROM dbo.CountryData WHERE country_id = @id";

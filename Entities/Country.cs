@@ -23,6 +23,13 @@
         [StringLength(9)]
         public string CountryColor { get; set; }
 
+        [Required]
+        [Column("country_coffers")]
+        [StringLength(20)]
+        public string CountryCoffers { get; set; }
+
+
+
 
 
     }
