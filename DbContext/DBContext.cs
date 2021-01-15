@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Text;
+using YandexDiskNET;
 
 namespace LandConquest
 {

@@ -38,10 +38,6 @@
               "target": "Package",
               "version": "[4.7.0.9, )"
             },
-            "Microsoft.Office.Interop.Word": {
-              "target": "Package",
-              "version": "[15.0.4797.1003, )"
-            },
             "Microsoft.VCRTForwarders.140": {
               "target": "Package",
               "version": "[1.0.6, )"

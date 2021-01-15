@@ -166,9 +166,9 @@ namespace LandConquest
         {
             await LauncherController.CheckGameVersion();
             string downloadsPath = new KnownFolder(KnownFolderType.Downloads).Path;
-            if (File.ReadAllText(downloadsPath + @"\GameVersion.txt").SequenceEqual(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion))
+            if (File.ReadAllText(downloadsPath + @"\GameVersion").SequenceEqual(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion))
             {
-                File.Delete(downloadsPath + @"\GameVersion.txt");
+                File.Delete(downloadsPath + @"\GameVersion");
                 labelGameFiles.Content = "Game is up to date";
                 labelGameFiles.Foreground = System.Windows.Media.Brushes.GreenYellow;
                 labelGameFiles.Margin = new Thickness(520, 427, 0, 0);
@@ -177,7 +177,7 @@ namespace LandConquest
             }
             else
             {
-                File.Delete(downloadsPath + @"\GameVersion.txt");
+                File.Delete(downloadsPath + @"\GameVersion");
                 labelGameFiles.Content = "Update required";
                 labelGameFiles.Foreground = System.Windows.Media.Brushes.Red;
                 labelGameFiles.Margin = new Thickness(550, 427, 0, 0);
