@@ -117,11 +117,11 @@ namespace LandConquest.Forms
                 {
                     if (armies[i].ArmySide == 0)
                     {
-                        SwitchArmyTypeNoSide(armies[i].ArmyType, imgArmy);
+                        SwitchArmyTypeOfDefenders(armies[i].ArmyType, imgArmy);
                     }
                     else
                     {
-                        SwitchArmyTypeWithSide(armies[i].ArmyType, imgArmy);
+                        SwitchArmyTypeOfAttackers(armies[i].ArmyType, imgArmy);
                     }
 
                     armyImages.Add(imgArmy);
@@ -156,11 +156,11 @@ namespace LandConquest.Forms
                         {
                             if (armies[i].ArmySide == 0)
                             {
-                                SwitchArmyTypeNoSide(BattleModel.ReturnTypeOfArmy(armyInOneTileTest), imgArmy);
+                                SwitchArmyTypeOfDefenders(BattleModel.ReturnTypeOfArmy(armyInOneTileTest), imgArmy);
                             }
                             else
                             {
-                                SwitchArmyTypeWithSide(BattleModel.ReturnTypeOfArmy(armyInOneTileTest), imgArmy);
+                                SwitchArmyTypeOfAttackers(BattleModel.ReturnTypeOfArmy(armyInOneTileTest), imgArmy);
                             }
                         }
 
@@ -223,17 +223,17 @@ namespace LandConquest.Forms
                 {
                     for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++)
                     {
-                        if (armyInBattlesInCurrentTile[i].PlayerId == player.PlayerId)
+                        if (armyInBattlesInCurrentTile[i].PlayerId == player.PlayerId && armyInBattlesInCurrentTile[i].ArmyId == selectedArmy.ArmyId)
                         {
                             armyInBattlesInCurrentTile.Remove(armyInBattlesInCurrentTile[i]);
 
                             if (selectedArmy.ArmySide == 0)
                             {
-                                SwitchArmyTypeNoSide(selectedArmy.ArmyType, imgArmySelected);
+                                SwitchArmyTypeOfDefenders(selectedArmy.ArmyType, imgArmySelected);
                             }
                             else
                             {
-                                SwitchArmyTypeWithSide(selectedArmy.ArmyType, imgArmySelected);
+                                SwitchArmyTypeOfAttackers(selectedArmy.ArmyType, imgArmySelected);
                             }
                         }
                     }
@@ -242,11 +242,11 @@ namespace LandConquest.Forms
 
                     if (armyInBattlesInCurrentTile[0].ArmySide == 0)
                     {
-                        SwitchArmyTypeNoSide(typeOfUniteArmy, imgArmyThatStay);
+                        SwitchArmyTypeOfDefenders(typeOfUniteArmy, imgArmyThatStay);
                     }
                     else
                     {
-                        SwitchArmyTypeWithSide(typeOfUniteArmy, imgArmyThatStay);
+                        SwitchArmyTypeOfAttackers(typeOfUniteArmy, imgArmyThatStay);
                     }
 
 
@@ -325,11 +325,11 @@ namespace LandConquest.Forms
 
                         if (selectedArmy.ArmySide == 0)
                         {
-                            SwitchArmyTypeNoSide(typeOfUniteArmy, imgArmySelected);
+                            SwitchArmyTypeOfDefenders(typeOfUniteArmy, imgArmySelected);
                         }
                         else
                         {
-                            SwitchArmyTypeWithSide(typeOfUniteArmy, imgArmySelected);
+                            SwitchArmyTypeOfAttackers(typeOfUniteArmy, imgArmySelected);
                         }
                     }
                     //armyImages.Add(imgArmySelected);
@@ -364,11 +364,11 @@ namespace LandConquest.Forms
 
                         if (armyInBattlesInCurrentTile[0].ArmySide == 0)
                         {
-                            SwitchArmyTypeNoSide(typeOfUniteArmy2, imgArmyThatStay);
+                            SwitchArmyTypeOfDefenders(typeOfUniteArmy2, imgArmyThatStay);
                         }
                         else
                         {
-                            SwitchArmyTypeWithSide(typeOfUniteArmy2, imgArmyThatStay);
+                            SwitchArmyTypeOfAttackers(typeOfUniteArmy2, imgArmyThatStay);
                         }
 
 
@@ -505,6 +505,7 @@ namespace LandConquest.Forms
 
         private void splitArmiesButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            HideAvailableTilesToMove(index);
             SplitArmyDialog dialogWindow = new SplitArmyDialog(armyInBattlesInCurrentTile[0], war);
             dialogWindow.Show();
         }
@@ -704,7 +705,7 @@ namespace LandConquest.Forms
 
 
 
-        private void SwitchArmyTypeNoSide(int armyType, Image armyImage)
+        private void SwitchArmyTypeOfDefenders(int armyType, Image armyImage)
         {
             switch (armyType)
             {
@@ -736,7 +737,7 @@ namespace LandConquest.Forms
             }
         }
 
-        private void SwitchArmyTypeWithSide(int armyType, Image armyImage)
+        private void SwitchArmyTypeOfAttackers(int armyType, Image armyImage)
         {
             switch (armyType)
             {
