@@ -62,7 +62,8 @@
 
         <fa:ImageAwesome x:Name="iconSpinner" Icon="Refresh" Spin="True" SpinDuration="10" Foreground="#FFCA691E" Margin="726,426,36.6,9.4" />
         <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Tahoma" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="492,427,0,0" VerticalAlignment="Top" Width="228" Foreground="#FFCA691E"/>
-
+        <fa:ImageAwesome x:Name="iconDownload" Icon="Download" Foreground="GreenYellow" Margin="461,426,301.6,9.4" Cursor="Hand" MouseDown="iconDownload_MouseDown" />
+        
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/authorisation_background.png" Stretch="UniformToFill"/>
         </Grid.Background>

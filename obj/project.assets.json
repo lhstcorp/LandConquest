@@ -243,6 +243,37 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "Syroot.Windows.IO.KnownFolders/1.2.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Syroot.KnownFolders.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syroot.KnownFolders.dll": {}
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net461/System.Security.Principal.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net461/System.Security.Principal.Windows.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net461/System.Security.Principal.Windows.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "YandexDiskNET/1.0.7": {
         "type": "package",
         "dependencies": {
@@ -297,6 +328,31 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Syroot.Windows.IO.KnownFolders/1.2.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Syroot.KnownFolders.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syroot.KnownFolders.dll": {}
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net461/System.Security.Principal.Windows.dll": {}
+        },
+        "runtime": {
+          "runtimes/win/lib/net461/System.Security.Principal.Windows.dll": {}
         }
       },
       "YandexDiskNET/1.0.7": {
@@ -355,6 +411,31 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "Syroot.Windows.IO.KnownFolders/1.2.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Syroot.KnownFolders.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syroot.KnownFolders.dll": {}
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net461/System.Security.Principal.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net461/System.Security.Principal.Windows.dll": {}
+        }
+      },
       "YandexDiskNET/1.0.7": {
         "type": "package",
         "dependencies": {
@@ -409,6 +490,31 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Syroot.Windows.IO.KnownFolders/1.2.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Syroot.KnownFolders.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syroot.KnownFolders.dll": {}
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net461/System.Security.Principal.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/net461/System.Security.Principal.Windows.dll": {}
         }
       },
       "YandexDiskNET/1.0.7": {
@@ -585,6 +691,74 @@
         "newtonsoft.json.nuspec"
       ]
     },
+    "Syroot.Windows.IO.KnownFolders/1.2.3": {
+      "sha512": "6dk4nZ7OFEZCrGCPpcBeeE9PoQo3zEqIBpz6DHhG7SNC5TkJ3n9fdUEKMpZ2qkTbJoG+/dgkfRhoAE3qYdS/hg==",
+      "type": "package",
+      "path": "syroot.windows.io.knownfolders/1.2.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/Syroot.KnownFolders.dll",
+        "lib/netstandard2.0/Syroot.KnownFolders.xml",
+        "syroot.windows.io.knownfolders.1.2.3.nupkg.sha512",
+        "syroot.windows.io.knownfolders.nuspec"
+      ]
+    },
+    "System.Security.Principal.Windows/4.7.0": {
+      "sha512": "ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
+      "type": "package",
+      "path": "system.security.principal.windows/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/System.Security.Principal.Windows.dll",
+        "lib/net461/System.Security.Principal.Windows.dll",
+        "lib/net461/System.Security.Principal.Windows.xml",
+        "lib/netstandard1.3/System.Security.Principal.Windows.dll",
+        "lib/netstandard2.0/System.Security.Principal.Windows.dll",
+        "lib/netstandard2.0/System.Security.Principal.Windows.xml",
+        "lib/uap10.0.16299/_._",
+        "ref/net46/System.Security.Principal.Windows.dll",
+        "ref/net461/System.Security.Principal.Windows.dll",
+        "ref/net461/System.Security.Principal.Windows.xml",
+        "ref/netcoreapp3.0/System.Security.Principal.Windows.dll",
+        "ref/netcoreapp3.0/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/System.Security.Principal.Windows.dll",
+        "ref/netstandard1.3/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/de/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/es/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/fr/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/it/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ja/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ko/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ru/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/zh-hans/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/zh-hant/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/System.Security.Principal.Windows.dll",
+        "ref/netstandard2.0/System.Security.Principal.Windows.xml",
+        "ref/uap10.0.16299/_._",
+        "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
+        "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.xml",
+        "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll",
+        "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/net46/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/net461/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/net461/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/netstandard1.3/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/uap10.0.16299/_._",
+        "system.security.principal.windows.4.7.0.nupkg.sha512",
+        "system.security.principal.windows.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "YandexDiskNET/1.0.7": {
       "sha512": "5OMGtfajOsNTPzRdWERrrdLQF0Ux1TsmIRuPBQgSeyB/0pdbZ+iq5fdESo3SE7kIx0iDF7cWzf5OLYPsFbg3eg==",
       "type": "package",
@@ -610,24 +784,25 @@
     ".NETFramework,Version=v4.7.2": [
       "FontAwesome.WPF >= 4.7.0.9",
       "Microsoft.VCRTForwarders.140 >= 1.0.6",
+      "Syroot.Windows.IO.KnownFolders >= 1.2.3",
       "YandexDiskNET >= 1.0.7"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\green\\.nuget\\packages\\": {}
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\green\\Documents\\GitHub\\LandConquest-1\\LandConquest.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
       "projectName": "LandConquest",
-      "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest-1\\LandConquest.csproj",
-      "packagesPath": "C:\\Users\\green\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest-1\\obj\\",
+      "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\green\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -653,6 +828,10 @@
           "Microsoft.VCRTForwarders.140": {
             "target": "Package",
             "version": "[1.0.6, )"
+          },
+          "Syroot.Windows.IO.KnownFolders": {
+            "target": "Package",
+            "version": "[1.2.3, )"
           },
           "YandexDiskNET": {
             "target": "Package",

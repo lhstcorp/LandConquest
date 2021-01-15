@@ -3,18 +3,20 @@ using LandConquest.Entities;
 using LandConquest.Forms;
 using LandConquest.Launcher;
 using LandConquest.Models;
+using Syroot.Windows.IO;
 using System;
 using System.Data;
-using System.Drawing;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Windows;
 
 namespace LandConquest
 {
 
-    public partial class AuthorisationWindow : Window
+    public partial class AuthorisationWindow : System.Windows.Window
     {
         User user;
         WarningDialogWindow warningWindow;
@@ -31,9 +33,10 @@ namespace LandConquest
             DbContext.OpenConnectionPool();
             LauncherController.CheckLocalUtcDateTime();
             LauncherController.DisableActiveCheats();
-            //CheckVersion();
+            CheckVersion();
             textBoxLogin.Text = Properties.Settings.Default.UserLogin;
             textBoxPass.Password = Properties.Settings.Default.UserPassword;
+            iconDownload.Visibility = Visibility.Hidden;
         }
 
 
@@ -76,7 +79,7 @@ namespace LandConquest
 
             if (textBoxNewLogin.Text.Length > 6 &&
                 textBoxNewEmail.Text.Length > 6 &&
-                textBoxNewEmail.Text.Contains("@")&&
+                textBoxNewEmail.Text.Contains("@") &&
                 textBoxNewPass.Text.Length > 6 &&
                 validNewUserLogin == true &&
                 validNewUserEmail == true &&
@@ -159,28 +162,53 @@ namespace LandConquest
             buttonCancelRegistrate.Visibility = visibility;
         }
 
-        private void CheckVersion()
+        private async void CheckVersion()
         {
-            var result = LauncherController.CheckGameVersion();
-            if (result.IsCompleted)
+            await LauncherController.CheckGameVersion();
+            string downloadsPath = new KnownFolder(KnownFolderType.Downloads).Path;
+            if (File.ReadAllText(downloadsPath + @"\GameVersion").SequenceEqual(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion))
             {
-                if (File.ReadAllBytes(@"C:\Users\Public\Downloads\LandConquest.exe").SequenceEqual(File.ReadAllBytes("LandConquest.exe")))
-                {
-                    labelGameFiles.Content = "Game is up to date";
-                    labelGameFiles.Foreground = System.Windows.Media.Brushes.Green;
-                    iconSpinner.Spin = false;
-                    iconSpinner.Foreground = System.Windows.Media.Brushes.Green;
-                    File.Delete(@"C:\Users\Public\Downloads\LandConquest.exe");
-                }
-                else
-                {
-                    labelGameFiles.Content = "Update required";
-                    labelGameFiles.Foreground = System.Windows.Media.Brushes.Red;
-                    iconSpinner.Spin = false;
-                    iconSpinner.Foreground = System.Windows.Media.Brushes.Red;
-                }
+                File.Delete(downloadsPath + @"\GameVersion");
+                labelGameFiles.Content = "Game is up to date";
+                labelGameFiles.Foreground = System.Windows.Media.Brushes.GreenYellow;
+                labelGameFiles.Margin = new Thickness(520, 427, 0, 0);
+                iconSpinner.Spin = false;
+                iconSpinner.Foreground = System.Windows.Media.Brushes.GreenYellow;
+            }
+            else
+            {
+                File.Delete(downloadsPath + @"\GameVersion");
+                labelGameFiles.Content = "Update required";
+                labelGameFiles.Foreground = System.Windows.Media.Brushes.Red;
+                labelGameFiles.Margin = new Thickness(550, 427, 0, 0);
+                iconSpinner.Spin = false;
+                iconSpinner.Foreground = System.Windows.Media.Brushes.Red;
+                iconDownload.Visibility = Visibility.Visible;
+                iconDownload.Margin = new Thickness(300, 427, 40, 9);
             }
         }
+
+        private void iconDownload_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var err = LauncherController.DownloadGame();
+            WarningDialogWindow window;
+            if (err.Message != null)
+            {
+                window = new WarningDialogWindow(err.Message);
+            }
+            else
+            {
+                window = new WarningDialogWindow("New version is successfully downloaded!");
+            }
+            window.Owner = this;
+            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            window.ShowDialog();
+            if (window.DialogResult.HasValue)
+            {
+                Environment.Exit(0);
+            }
+        }
+
     }
 }
 

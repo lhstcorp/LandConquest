@@ -1,12 +1,15 @@
 ﻿using FontAwesome.WPF;
 using LandConquest.DialogWIndows;
+using Syroot.Windows.IO;
 using System;
-
+using System.Configuration;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Reflection;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -74,11 +77,26 @@ namespace LandConquest.Launcher
 
         public static async Task CheckGameVersion()
         {
-            string oauth = "AgAAAABOd7e_AAbQ97dOx-rewkPJpnXliw7lmJ8";
+            string downloadsPath = new KnownFolder(KnownFolderType.Downloads).Path;
+            string encodedOauth = ConfigurationManager.AppSettings["yd"];
+            byte[] dataOauth = Convert.FromBase64String(encodedOauth);
+            string decodedOauth = Encoding.UTF7.GetString(dataOauth);
+            string sourceFileName = "GameVersion";
+            string destFileName = downloadsPath + @"\GameVersion";
+            YandexDiskRest disk = new YandexDiskRest(decodedOauth);
+            await Task.WhenAll(disk.DownloadResourceAcync(sourceFileName, destFileName));
+        }
+
+        public static ErrorResponse DownloadGame()
+        {
+            string downloadsPath = new KnownFolder(KnownFolderType.Downloads).Path;
+            string encodedOauth = ConfigurationManager.AppSettings["yd"];
+            byte[] dataOauth = Convert.FromBase64String(encodedOauth);
+            string decodedOauth = Encoding.UTF7.GetString(dataOauth);
             string sourceFileName = "LandConquest.exe";
-            string destFileName = @"C:\Users\Public\Downloads\LandConquest.exe";
-            YandexDiskRest disk = new YandexDiskRest(oauth);
-            await disk.DownloadResourceAcync(sourceFileName, destFileName);
+            string destFileName = downloadsPath + @"\LandConquest.exe";
+            YandexDiskRest disk = new YandexDiskRest(decodedOauth);
+            return disk.DownloadResource(sourceFileName, destFileName);
         }
     }
 }
