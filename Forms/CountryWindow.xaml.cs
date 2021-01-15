@@ -1,5 +1,6 @@
-﻿using LandConquest.Entities;
-using LandConquest.Models;
+﻿using LandConquest.Models;
+using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace LandConquest.Forms
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            
             Country country = CountryModel.GetCountryById(CountryModel.GetCountryId(player));
             Player ruler = new Player();
             User rulerUser = new User();

@@ -12,11 +12,13 @@ namespace LandConquest.DialogWIndows
 
         private void warningButton_Click(object sender, RoutedEventArgs e)
         {
+            this.DialogResult = true;
             this.Close();
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
+            this.DialogResult = false;
             this.Close();
         }
     }

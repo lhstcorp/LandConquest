@@ -20,9 +20,24 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -30,6 +45,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,6 +77,28 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>LandConquest.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
@@ -107,6 +145,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -149,26 +188,14 @@
     <Compile Include="DialogWIndows\WarningDialogWindow.xaml.cs">
       <DependentUpon>WarningDialogWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Army.cs" />
-    <Compile Include="Entities\ArmyInBattle.cs" />
-    <Compile Include="Entities\AuctionListings.cs" />
-    <Compile Include="Entities\Battle.cs" />
-    <Compile Include="Entities\ChatMessages.cs" />
-    <Compile Include="Entities\Country.cs" />
-    <Compile Include="Entities\Land.cs" />
-    <Compile Include="Entities\Law.cs" />
-    <Compile Include="Entities\Market.cs" />
-    <Compile Include="Entities\PlayerEquipment.cs" />
-    <Compile Include="Entities\PlayersRating.cs" />
-    <Compile Include="Entities\War.cs" />
-    <Compile Include="Enums\ForcesEnum.cs" />
-    <Compile Include="Enums\ManufacturesLvlEnum.cs" />
-    <Compile Include="Enums\ResourcesEnum.cs" />
     <Compile Include="Forms\AuctionWindow.xaml.cs">
       <DependentUpon>AuctionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\ChatWindow.xaml.cs">
       <DependentUpon>ChatWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CoffersWindow.xaml.cs">
+      <DependentUpon>CoffersWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\CountryWindow.xaml.cs">
       <DependentUpon>CountryWindow.xaml</DependentUpon>
@@ -194,20 +221,8 @@
     <Compile Include="Forms\WarWindow.xaml.cs">
       <DependentUpon>WarWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\ArmyModel.cs" />
-    <Compile Include="Models\AuctionModel.cs" />
-    <Compile Include="Models\BattleModel.cs" />
-    <Compile Include="Models\ChatModel.cs" />
-    <Compile Include="Models\CountryModel.cs" />
-    <Compile Include="Models\EquipmentModel.cs" />
-    <Compile Include="Models\LandModel.cs" />
-    <Compile Include="Models\MapModel.cs" />
-    <Compile Include="Models\MarketModel.cs" />
-    <Compile Include="Models\PlayerModel.cs" />
-    <Compile Include="Models\TaxesModel.cs" />
-    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Launcher\LauncherController.cs" />
     <Compile Include="Models\WarModel.cs" />
-    <Compile Include="DbContext\DbContext.cs" />
     <Compile Include="Resources\GlobalMap.xaml.cs">
       <DependentUpon>GlobalMap.xaml</DependentUpon>
     </Compile>
@@ -271,17 +286,15 @@
     <Compile Include="DialogWIndows\ManufactureUpgradeDialog.xaml.cs">
       <DependentUpon>ManufactureUpgradeDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Manufacture.cs" />
-    <Compile Include="Entities\Peasants.cs" />
-    <Compile Include="Entities\Player.cs" />
-    <Compile Include="Entities\PlayerStorage.cs" />
-    <Compile Include="Entities\Taxes.cs" />
-    <Compile Include="Entities\User.cs" />
     <Compile Include="Forms\AuthorisationWindow.xaml.cs">
       <DependentUpon>AuthorisationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Forms\ChatWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\CoffersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -359,9 +372,6 @@
     <Compile Include="Forms\StorageWindow.xaml.cs">
       <DependentUpon>StorageWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\ManufactureModel.cs" />
-    <Compile Include="Models\PeasantModel.cs" />
-    <Compile Include="Models\StorageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -581,7 +591,35 @@
     <Resource Include="Pictures\gemsmine.png" />
     <Resource Include="Pictures\ironmine.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.WPF">
+      <Version>4.7.0.9</Version>
+    </PackageReference>
+    <PackageReference Include="Syroot.Windows.IO.KnownFolders">
+      <Version>1.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="YandexDiskNET">
+      <Version>1.0.7</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="LandConquestDB\LandConquestDB.csproj">
+      <Project>{30c9513c-500c-4cd3-b914-aadad401def8}</Project>
+      <Name>LandConquestDB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

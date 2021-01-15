@@ -1,5 +1,6 @@
 ﻿using LandConquest.DialogWIndows;
-using LandConquest.Entities;
+using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using LandConquest.Models;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,6 @@ namespace LandConquest.Forms
         PlayerEquipment equipment = new PlayerEquipment();
         Taxes taxes;
         Peasants peasants;
-        ManufactureModel manufactureModel;
         List<Land> lands;
         List<Path> paths;
         List<Country> countries;
@@ -35,6 +35,7 @@ namespace LandConquest.Forms
         Army army;
         Country country;
         War WAR; //GLOBAL
+        ManufactureModel manufactureModel;
 
         Thickness[] marginsOfWarButtons;
         int[] flagXY = new int[4];
@@ -789,6 +790,36 @@ namespace LandConquest.Forms
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Owner = this;
             window.Show();
+        }
+
+        private void image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            
+          Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.FileName = ""; // Default file name
+                               // dlg.DefaultExt = ".png"; // Default file extension
+            dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+         "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+         "Portable Network Graphic (*.png)|*.png";   // Filter files by extension
+
+            // Show open file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process open file dialog box results
+            if (result == true)
+            {
+                // Open document
+                image.Source = new BitmapImage(new Uri(dlg.FileName));
+            }
+
+            //PlayerModel.UpdatePlayerImage(player);
+        }
+
+        private void CoffersImage_MouseDown(object sender, RoutedEventArgs e)
+        {
+            CoffersWindow win = new CoffersWindow(player);
+            win.Show();
+
         }
     }
 }
