@@ -11,5 +11,7 @@
         [Required]
         [Column("army_side")]
         public int ArmySide { get; set; }
+
+        public bool CanMove { get; set; }
     }
 }
