@@ -41,7 +41,6 @@ namespace LandConquest.Forms
         int SelectionCounter;
 
         DispatcherTimer syncTimer;
-        List<Image> playerArmiesImages = new List<Image>();
         List<ArmyInBattle> playerArmies = new List<ArmyInBattle>();
 
         //Canvas localWarArmyLayer = new Canvas();
@@ -192,7 +191,7 @@ namespace LandConquest.Forms
 
             ShowInfoAboutArmies(index);
 
-            if (f_canMoveArmy)
+            if (f_canMoveArmy && findPlayerArmyCanMove())
                 ShowAvailableTilesToMove(index);
         }
 
@@ -271,13 +270,14 @@ namespace LandConquest.Forms
                     BattleModel.UpdateLocalLandOfArmy(selectedArmy, index);
                 }
 
-                imgArmySelected.IsEnabled = false;
+                //imgArmySelected.IsEnabled = false;
+                lockSelectedArmy();
             }
         }
 
         private void ImgArmy_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (f_armySelected)
+            if (f_armySelected && findPlayerArmyCanMove()) //<-- sma 16.01.2021
             {
                 int index = gridForArmies.Children.IndexOf((Image)sender);
                 if (CheckDistanceBetweenTwoArmies(index, INDEX))
@@ -376,7 +376,8 @@ namespace LandConquest.Forms
                         gridForArmies.Children.Insert(INDEX, imgArmyThatStay);
                     }
 
-                    imgArmySelected.IsEnabled = false;
+                    //imgArmySelected.IsEnabled = false;
+                    lockSelectedArmy();
                 }
             }
         }
@@ -596,7 +597,7 @@ namespace LandConquest.Forms
                 btnUnite.Visibility = Visibility.Visible;
                 splitArmiesButton.Visibility = Visibility.Visible;
 
-                ShowAvailableTilesToMove(index);
+                //ShowAvailableTilesToMove(index);
 
                 if (selectedArmiesForUnion[armyPage])
                 {
@@ -885,33 +886,22 @@ namespace LandConquest.Forms
         public void searchPlayerArmies()
         {
             playerArmies.Clear();
-            playerArmiesImages.Clear();
             playerArmies = BattleModel.GetPlayerArmiesInfo(playerArmies, war, player);
-            addPlayerArmiesImagesToList();
 
         }
-
-        public void addPlayerArmiesImagesToList()
+        public void lockAllPlayerArmies()
         {
             for (int i = 0; i < playerArmies.Count; i++)
             {
-                playerArmiesImages.Add((Image)gridForArmies.Children[playerArmies[i].LocalLandId]);
-            }
-        }
-
-        public void lockAllPlayerArmies()
-        {
-            foreach (Image image in playerArmiesImages)
-            {
-                image.IsEnabled = false;
+                playerArmies[i].CanMove = false;
             }
         }
 
         public void unlockAllPlayerArmies()
         {
-            foreach (Image image in playerArmiesImages)
+            for (int i = 0; i < playerArmies.Count; i++)
             {
-                image.IsEnabled = true;
+                playerArmies[i].CanMove = true;
             }
         }
 
@@ -932,6 +922,25 @@ namespace LandConquest.Forms
             }
 
             moveCounterLbl.Content = Convert.ToString(moveCounter);
+        }
+
+        public void lockSelectedArmy()
+        {
+            for (int i = 0; i < playerArmies.Count; i++)
+            {
+                if (playerArmies[i].ArmyId == selectedArmy.ArmyId)
+                    playerArmies[i].CanMove = false;
+            }
+        }
+
+        public bool findPlayerArmyCanMove()
+        {
+            for (int i = 0; i < playerArmies.Count; i++)
+            {
+                if (playerArmies[i].ArmyId == selectedArmy.ArmyId)
+                    return playerArmies[i].CanMove;
+            }
+            return false;
         }
     }
 
