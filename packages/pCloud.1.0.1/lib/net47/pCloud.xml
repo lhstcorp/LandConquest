@@ -1,0 +1,537 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>pCloud</name>
+    </assembly>
+    <members>
+        <member name="T:PCloud.Authentication">
+            <summary>RPCs related to authentication</summary>
+        </member>
+        <member name="F:PCloud.Authentication.deviceInfoString">
+            <summary>Apparently, their web interface shows that data for live sessions. Good idea to set into something more descriptive before using the library.</summary>
+        </member>
+        <member name="M:PCloud.Authentication.login(PCloud.Connection,System.String,System.String)">
+            <summary>Login with e-mail and password</summary>
+        </member>
+        <member name="M:PCloud.Authentication.logout(PCloud.Connection)">
+            <summary>Logout</summary>
+        </member>
+        <member name="M:PCloud.Authentication.changePassword(PCloud.Connection,System.String,System.String)">
+            <summary>Change current user's password; requires SSL encrypted server connection.</summary>
+        </member>
+        <member name="T:PCloud.FileOperations">
+            <summary>File operations RPCs</summary>
+        </member>
+        <member name="T:PCloud.FileOperations.eFileOpenFlags">
+            <summary>Flags for <see cref="M:PCloud.FileOperations.createFileImpl(PCloud.Connection,System.Object,PCloud.FileOperations.eFileOpenFlags)" /> RPC.</summary>
+        </member>
+        <member name="F:PCloud.FileOperations.eFileOpenFlags.O_TRUNC">
+            <summary>Truncate files when opening existing files.</summary>
+        </member>
+        <member name="F:PCloud.FileOperations.eFileOpenFlags.O_APPEND">
+            <summary>Always write to the end of file (unless you use pwrite). That is the only reliable method without race conditions for writing in the end of file when there are multiple writers.</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.openFlags(System.IO.FileMode,System.IO.FileAccess)">
+            <summary>Translate file open flags from System.IO into pCloud's Linux-friendly variant.</summary>
+        </member>
+        <member name="T:PCloud.FileOperations.FileDescriptor">
+            <summary>File descriptor and ID.</summary>
+        </member>
+        <member name="F:PCloud.FileOperations.FileDescriptor.fd">
+            <summary>File descriptor, they are small positive numbers, incremented by 1 as you open more files within the session</summary>
+        </member>
+        <member name="F:PCloud.FileOperations.FileDescriptor.fileId">
+            <summary>File ID, very large integer > 4G, persistent across connections and sessions.</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.FileDescriptor.op_Implicit(PCloud.FileOperations.FileDescriptor)~System.Int32">
+            <summary>Implicitly convert to int to pass this structure into readFile and friends</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.FileDescriptor.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.createFileImpl(PCloud.Connection,System.Object,PCloud.FileOperations.eFileOpenFlags)">
+            <summary>Open file, return the descriptor</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.createFile(PCloud.Connection,System.String,System.IO.FileMode,System.IO.FileAccess)">
+            <summary>Open a file specified by absolute path.</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.createFile(PCloud.Connection,System.Int64,System.IO.FileMode,System.IO.FileAccess)">
+            <summary>Open an existing file specified by file ID</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.createFile(PCloud.Connection,PCloud.Metadata.FileInfo,System.IO.FileMode,System.IO.FileAccess)">
+            <summary>Open an existing file</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.createFile(PCloud.Connection,PCloud.Metadata.FolderInfo,System.String,System.IO.FileMode,System.IO.FileAccess)">
+            <summary>Open a file in the specified folder</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.closeFile(PCloud.Connection,System.Int32)">
+            <summary>Close file descriptor</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.readFile(PCloud.Connection,System.Int32,System.IO.Stream,System.Int64)">
+            <summary>Read into a stream. If you need data in a byte array, wrap the array into a <see cref="T:System.IO.MemoryStream" />.</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.writeFile(PCloud.Connection,System.Int32,System.IO.Stream,System.Int64)">
+            <summary>Write file by copying specified count of bytes from the stream.</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.seekFile(PCloud.Connection,System.Int32,System.Int64,System.IO.SeekOrigin)">
+            <summary>Set the current offset of the file descriptor to offset bytes.</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.resizeFile(PCloud.Connection,System.Int32,System.Int64)">
+            <summary>Set file size in bytes.</summary>
+            <remarks>
+            <para>If length is less than the file size, then the extra data is cut from the file, else the the file contents are extended with zeros as needed.</para>
+            <para>The current offset is not modified.</para>
+            </remarks>
+        </member>
+        <member name="T:PCloud.FileOperations.SliceChecksums">
+            <summary>MD5 and SHA1 checksums of the piece of the file</summary>
+        </member>
+        <member name="F:PCloud.FileOperations.SliceChecksums.sha1">
+            <summary>SHA-1 checksum</summary>
+        </member>
+        <member name="F:PCloud.FileOperations.SliceChecksums.md5">
+            <summary>MD5 checksum</summary>
+        </member>
+        <member name="F:PCloud.FileOperations.SliceChecksums.length">
+            <summary>Count of bytes for which the checksums were computed</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.SliceChecksums.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.checksumFileSlice(PCloud.Connection,System.Int32,System.Int64,System.Int64)">
+            <summary>Compute MD5 and SHA1 checksums of a slice of the file</summary>
+        </member>
+        <member name="T:PCloud.FileOperations.FileSize">
+            <summary>File size and position</summary>
+        </member>
+        <member name="F:PCloud.FileOperations.FileSize.length">
+            <summary>File size in bytes</summary>
+        </member>
+        <member name="F:PCloud.FileOperations.FileSize.position">
+            <summary>Current file position</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.FileSize.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.getFileSize(PCloud.Connection,System.Int32)">
+            <summary>Return (size, position) of a file descriptor.</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.downloadFile(PCloud.Connection,PCloud.Metadata.FileInfo,System.IO.Stream,System.Int32)">
+            <summary>Download a complete file</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.downloadFile(PCloud.Connection,System.String,System.IO.Stream,System.Int32)">
+            <summary>Download a complete file specified by absolute name</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.metadata(PCloud.Response)">
+            <summary>"metadata" property of the response</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.uploadFile(PCloud.Connection,PCloud.Metadata.FolderInfo,System.String,System.IO.Stream,System.Boolean,System.Boolean)">
+            <summary>Upload a file.</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.deleteFile(PCloud.Connection,PCloud.Metadata.FileInfo)">
+            <summary>Delete a file</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.deleteFile(PCloud.Connection,System.Int64)">
+            <summary>Delete a file</summary>
+        </member>
+        <member name="M:PCloud.FileOperations.getFileInfo(PCloud.Connection,System.Int64)">
+            <summary>Refresh file metadata</summary>
+        </member>
+        <member name="T:PCloud.FolderOperations">
+            <summary>Folder operations RPCs</summary>
+        </member>
+        <member name="M:PCloud.FolderOperations.createFolder(PCloud.Connection,System.String,PCloud.Metadata.FolderInfo,System.Boolean)">
+            <summary>Create a folder</summary>
+            <param name="name">Name of the new folder</param>
+            <param name="parent">Parent folder, or null to create a top-level one</param>
+            <param name="getExisting">true to get an existing one if it exists, false to fail</param>
+        </member>
+        <member name="M:PCloud.FolderOperations.deleteFolder(PCloud.Connection,PCloud.Metadata.FolderInfo,System.Boolean)">
+            <summary>Delete a folder</summary>
+        </member>
+        <member name="M:PCloud.FolderOperations.renameFolder(PCloud.Connection,PCloud.Metadata.FolderInfo,System.String,PCloud.Metadata.FolderInfo)">
+            <summary>Rename and/or move a folder</summary>
+        </member>
+        <member name="M:PCloud.FolderOperations.renameFolder(PCloud.Connection,PCloud.Metadata.FolderInfo,System.String)">
+            <summary>Rename a folder</summary>
+        </member>
+        <member name="M:PCloud.FolderOperations.moveFolder(PCloud.Connection,PCloud.Metadata.FolderInfo,PCloud.Metadata.FolderInfo)">
+            <summary>Move a folder</summary>
+        </member>
+        <member name="T:PCloud.ListFolder">
+            <summary>Folder listing RPCs</summary>
+        </member>
+        <member name="M:PCloud.ListFolder.listFolder(PCloud.Connection,System.Int64,System.Boolean,System.Boolean)">
+            <summary>List directories, and optionally files. This is relatively low-level method, direct wrapper over the RPC.</summary>
+        </member>
+        <member name="M:PCloud.ListFolder.getFolder(PCloud.Connection,System.String,System.Int64)">
+            <summary>Get folder by name, the name is case sensitive. Returns null if not exist.</summary>
+        </member>
+        <member name="M:PCloud.ListFolder.getFiles(PCloud.Connection,System.Int64)">
+            <summary>List all files in the folder, the folder is specified with ID</summary>
+        </member>
+        <member name="M:PCloud.ListFolder.getFiles(PCloud.Connection,PCloud.Metadata.FolderInfo)">
+            <summary>List all files in the folder</summary>
+        </member>
+        <member name="T:PCloud.Misc">
+            <summary>Miscellaneous RPCs</summary>
+        </member>
+        <member name="T:PCloud.Misc.ClientIP">
+            <summary>IP address and country code.</summary>
+        </member>
+        <member name="F:PCloud.Misc.ClientIP.ip">
+            <summary>Remote address of the user that is connecting to the API.</summary>
+        </member>
+        <member name="F:PCloud.Misc.ClientIP.country">
+            <summary>Lowercase two-letter code of the country that is defined according to the remote address.</summary>
+            <remarks>If the country could not be defined, will be null.</remarks>
+        </member>
+        <member name="M:PCloud.Misc.getIp(PCloud.Connection)">
+            <summary>Get the IP address of the remote device from which the user connects to the API.</summary>
+            <remarks>Works without authentication.</remarks>
+        </member>
+        <member name="M:PCloud.Misc.getNearestServer(PCloud.Connection)">
+            <summary>Get closest API servers to the requesting client.</summary>
+        </member>
+        <member name="T:PCloud.UploadLink">
+            <summary>Public link RPCs</summary>
+        </member>
+        <member name="M:PCloud.UploadLink.uploadToLink(PCloud.Connection,System.String,System.IO.Stream,System.String,System.String,System.Boolean)">
+            <summary>Anonymously upload file to an upload link.</summary>
+            <remarks>
+            <para>Works without authentication, you need upload link code to use this API.</para>
+            <para>The API documentation is silent about that, but "names" request parameter appears to be mandatory for this RPC.</para>
+            </remarks>
+        </member>
+        <member name="T:PCloud.DesyncException">
+            <summary>Thrown when trying to use connection that failed at a wrong moment, and can't be reused for more requests.</summary>
+        </member>
+        <member name="T:PCloud.Connection">
+            <summary>Wraps TCP or SSL stream.</summary>
+            <remarks>
+            <para>User-facing functionality is implemented in separate static files in Api subfolder of the project. This class only implements low-level stuff, the most complex part is multiplexing.</para>
+            <para>Hopefully, all public methods are thread safe and reentrant.</para>
+            </remarks>
+        </member>
+        <member name="F:PCloud.Connection.fnReceiveSimple">
+            <summary>Cache the delegate for the most common response handling. It's used by all requests except download ones, no need to produce unneeded garbage.</summary>
+        </member>
+        <member name="F:PCloud.Connection.serverDnsName">
+            <summary>Host name of the server</summary>
+        </member>
+        <member name="F:PCloud.Connection.isEncrypted">
+            <summary>True if this connection is encrypted.</summary>
+        </member>
+        <member name="M:PCloud.Connection.Dispose">
+            <summary>Close connection and underlying network stream</summary>
+        </member>
+        <member name="M:PCloud.Connection.open(System.Boolean,System.String,System.String)">
+            <summary>Open a new connection to pCloud</summary>
+            <param name="encryptTraffic">True to use SSL for the connection.</param>
+            <param name="authenticationToken">If you have an auth. token, you can make new connection already authenticated.</param>
+        </member>
+        <member name="M:PCloud.Connection.openNearest(System.Boolean)">
+            <summary>Open a connection to the geographically closest pCloud server.</summary>
+            <remarks>
+            <para>Doesn't work in practice. I'm getting binapiams2.pcloud.com for the nearest binary API server, however TCP ports 8398 and 8399 are both closed.</para>
+            <para>The observed behavior it documented:
+            <i>If request to API server different from api.pcloud.com fails (network error) the client should fall back to using api.pcloud.com.</i></para>
+            </remarks>
+        </member>
+        <member name="P:PCloud.Connection.isDesynced">
+            <summary>True if this connections has failed and can't be reused.</summary>
+        </member>
+        <member name="M:PCloud.Connection.setDesynced(System.Exception)">
+            <summary>Mark this connection as invalid due to lost synchronization with the server. Desynced connections can't be reused, they need to be reopened.</summary>
+        </member>
+        <member name="F:PCloud.Connection.write">
+            <summary>Only 1 thread can write socket at the same time. This semaphore enforces that limit.</summary>
+        </member>
+        <member name="P:PCloud.Connection.hasNextRequest">
+            <summary>True if some other thread or task is waiting for the lock to write another request. This is a performance optimization, in this case we don't flush the stream, for deeper queue.</summary>
+        </member>
+        <member name="M:PCloud.Connection.send(PCloud.RequestBuilder)">
+            <summary>Simple request without payload in either direction</summary>
+        </member>
+        <member name="M:PCloud.Connection.upload(PCloud.RequestBuilder,System.IO.Stream,System.Int64)">
+            <summary>Upload request which copies the supplied stream, either completely, or specified count of bytes</summary>
+        </member>
+        <member name="M:PCloud.Connection.download(PCloud.RequestBuilder,System.IO.Stream,System.Int64)">
+            <summary>Download requests which writes specified count of payload bytes from socket to the provided stream</summary>
+        </member>
+        <member name="P:PCloud.Connection.authToken">
+            <summary>If this connection is authenticated, returns the token. You can use the token to open another connection which is already authenticated, without calling login.</summary>
+        </member>
+        <member name="P:PCloud.Connection.isAuthenticated">
+            <summary>True if this connection is authenticated</summary>
+        </member>
+        <member name="M:PCloud.Connection.newRequest(System.String,System.Nullable{System.Int64})">
+            <summary>Create a request builder; if authenticated, set `auth` property.</summary>
+        </member>
+        <member name="T:PCloud.Endpoint">
+            <summary>Connect to the server, optionally setting up SSL traffic encryption</summary>
+        </member>
+        <member name="M:PCloud.Endpoint.connect(System.Boolean,System.String)">
+            <summary>Establish connection to a pCloud server.</summary>
+        </member>
+        <member name="T:PCloud.Metadata.FileBase">
+            <summary>Abstract base class for both folders and files. All data is read only.</summary>
+        </member>
+        <member name="F:PCloud.Metadata.FileBase.parentFolderId">
+            <summary>folderid of the folder the object resides in</summary>
+        </member>
+        <member name="F:PCloud.Metadata.FileBase.id">
+            <summary>folderid or fileid</summary>
+        </member>
+        <member name="F:PCloud.Metadata.FileBase.name">
+            <summary>the name of file or folder</summary>
+        </member>
+        <member name="F:PCloud.Metadata.FileBase.created">
+            <summary>creation date of the object</summary>
+        </member>
+        <member name="F:PCloud.Metadata.FileBase.modified">
+            <summary>modification date of the object</summary>
+        </member>
+        <member name="F:PCloud.Metadata.FileBase.icon">
+            <summary>icon to display</summary>
+        </member>
+        <member name="F:PCloud.Metadata.FileBase.category">
+            <summary>category of the file</summary>
+        </member>
+        <member name="M:PCloud.Metadata.FileBase.#ctor(System.Boolean,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object})">
+            <summary>Set fields by converting values from that untyped binary JSON.</summary>
+        </member>
+        <member name="T:PCloud.Metadata.FolderInfo">
+            <summary>Folder metadata, can have children inside.</summary>
+        </member>
+        <member name="F:PCloud.Metadata.FolderInfo.children">
+            <summary>Contained subfolders and files. Can be null.</summary>
+        </member>
+        <member name="M:PCloud.Metadata.FolderInfo.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+        </member>
+        <member name="T:PCloud.Metadata.FileInfo">
+            <summary>File metadata</summary>
+        </member>
+        <member name="F:PCloud.Metadata.FileInfo.length">
+            <summary>Length in bytes</summary>
+        </member>
+        <member name="F:PCloud.Metadata.FileInfo.contentType">
+            <summary>MIME type, such as "image/jpeg"</summary>
+        </member>
+        <member name="F:PCloud.Metadata.FileInfo.hash">
+            <summary>64 bit integer representing hash of the contents of the file can be used to determine if two files are the same or to monitor file contents for changes</summary>
+        </member>
+        <member name="M:PCloud.Metadata.FileInfo.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+        </member>
+        <member name="T:PCloud.JSON">
+            <summary>Utility functions to extract data from untyped dictionaries made by <see cref="T:PCloud.ResponseParser" /> class.</summary>
+        </member>
+        <member name="M:PCloud.JSON.getInt(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.String)">
+            <summary>Get int32 from binary JSON</summary>
+        </member>
+        <member name="M:PCloud.JSON.getInt(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.String,System.Int32)">
+            <summary>Get int32 from binary JSON, use default value if not found</summary>
+        </member>
+        <member name="M:PCloud.JSON.getLong(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.String)">
+            <summary>Get int64 from binary JSON</summary>
+        </member>
+        <member name="M:PCloud.JSON.getLong(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.String,System.Int64)">
+            <summary>Get int64 from binary JSON, use default value if not found</summary>
+        </member>
+        <member name="M:PCloud.JSON.getTimestamp(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.String)">
+            <summary>Convert timestamp from binary JSON into DateTime in UTC. The JSON is assumed to contain Unix timestamp, in seconds.</summary>
+        </member>
+        <member name="T:PCloud.RequestBuilder">
+            <summary>Prepare binary requests in MemoryStream buffer.</summary>
+        </member>
+        <member name="M:PCloud.RequestBuilder.#ctor(System.String,System.Nullable{System.Int64})">
+            <summary>Construct the request, set name and payload length</summary>
+        </member>
+        <member name="M:PCloud.RequestBuilder.add(System.String,System.String)">
+            <summary>Append a string parameter</summary>
+        </member>
+        <member name="M:PCloud.RequestBuilder.addSecret(System.String,System.String)">
+            <summary>Append a string parameter, avoiding to use shared buffer for the value.</summary>
+        </member>
+        <member name="M:PCloud.RequestBuilder.add(System.String,System.Int64)">
+            <summary>Append an integer parameter</summary>
+        </member>
+        <member name="M:PCloud.RequestBuilder.add(System.String,System.Boolean)">
+            <summary>Append a boolean parameter</summary>
+        </member>
+        <member name="M:PCloud.RequestBuilder.close">
+            <summary>Close the request and return the stream you can copy to the network</summary>
+        </member>
+        <member name="M:PCloud.RequestExt.unixTimestamps(PCloud.RequestBuilder)">
+            <summary>Request UTC unix timestamps. This library only supports that format, much cheaper to parse than strings, the server doesn't send milliseconds anyway.</summary>
+        </member>
+        <member name="T:PCloud.Response">
+            <summary>Parsed response from pCloud's server.</summary>
+        </member>
+        <member name="T:PCloud.Response.Data">
+            <summary>Payload object of the response.</summary>
+        </member>
+        <member name="F:PCloud.Response.dict">
+            <summary>First JSON dictionary in the response.</summary>
+        </member>
+        <member name="F:PCloud.Response.payload">
+            <summary>Payload[s] in the response, if any. Otherwise null.</summary>
+        </member>
+        <member name="F:PCloud.Response.otherValues">
+            <summary>Other values in the response, if any. Otherwise null.</summary>
+        </member>
+        <member name="M:PCloud.Response.receive(System.IO.Stream)">
+            <summary>Read response from the network stream.</summary>
+            <remarks>If the response contains payload portion, i.e. files, they are <b>not</b> read from the stream.
+            It's caller's responsibility to iterate through <see cref="F:PCloud.Response.payload" /> values and read all the data before reusing the connection for other requests.</remarks>
+        </member>
+        <member name="M:PCloud.Response.exception">
+            <summary>if this response is empty, or contains failed status code, create an exception telling that. Return null if the response says it was completed successfully.</summary>
+        </member>
+        <member name="P:PCloud.Response.Item(System.String)">
+            <summary>Get property from the response</summary>
+        </member>
+        <member name="T:PCloud.ResponseBuffer">
+            <summary>Byte array to parse binary responses from.</summary>
+        </member>
+        <member name="F:PCloud.ResponseBuffer.buffer">
+            <summary>Buffer with the complete binary JSON.</summary>
+        </member>
+        <member name="F:PCloud.ResponseBuffer.length">
+            <summary>For performance reasons, the above buffer comes from ArrayPool&lt;byte&gt;, can be longer than response. This readonly field has the actual length.</summary>
+        </member>
+        <member name="F:PCloud.ResponseBuffer.offset">
+            <summary>Current read offset. The parser reads the data sequentially.</summary>
+        </member>
+        <member name="F:PCloud.ResponseBuffer.encStrings">
+            <summary>Encoding for strings.</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.Dispose">
+            <summary>Release buffer back to the pool</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.receive(System.IO.Stream)">
+            <summary>Receive response (without payload) into a new buffer</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.#ctor(System.Byte[],System.Int32)">
+            <summary>The constructor is private. To create the buffer, call await <see cref="M:PCloud.ResponseBuffer.receive(System.IO.Stream)" /> static method.</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.checkRemainingBytes(System.Int32)">
+            <summary>If the response doesn't have `n` bytes remaining to read, throw EndOfStreamException</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.peekByte">
+            <summary>Get next byte, don't move the read pointer</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.skipByte">
+            <summary>Increment read pointer by 1 byte</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.readInt1">
+            <summary>Read 1 byte integer</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.readInt2">
+            <summary>Read 2 bytes integer</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.readInt3">
+            <summary>Read 3 bytes integer</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.readInt4">
+            <summary>Read 4 bytes integer</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.makeUlong(System.UInt32,System.UInt32)">
+            <summary>Make ulong value by combining low and high 32-bit pieces.</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.readInt5">
+            <summary>Read 5 bytes integer</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.readInt6">
+            <summary>Read 6 bytes integer</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.readInt7">
+            <summary>Read 7 bytes integer</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.readInt8">
+            <summary>Read 8 bytes integer</summary>
+        </member>
+        <member name="M:PCloud.ResponseBuffer.readString(System.Int32)">
+            <summary>Read string of the specified length. The length is in encoded bytes, <b>not</b> characters.</summary>
+        </member>
+        <member name="T:PCloud.ResponseParser">
+            <summary>Parse pCloud's proprietary binary JSON into untyped .NET objects.</summary>
+            <remarks>All integers are unsigned, i.e. you'll get byte, ushort, uint, or ulong for integer values.</remarks>
+        </member>
+        <member name="P:PCloud.ResponseParser.payloads">
+            <summary>`Data` objects in the response, if any, are accumulated in this list, in the order they were encountered while parsing the response.</summary>
+        </member>
+        <member name="M:PCloud.ResponseParser.#ctor(PCloud.ResponseBuffer)">
+            <summary>Construct from a downloaded buffer.</summary>
+        </member>
+        <member name="M:PCloud.ResponseParser.parse">
+            <summary>Parse into the sequence of .NET objects.</summary>
+        </member>
+        <member name="M:PCloud.ResponseParser.unknownType(System.Byte)">
+            <summary>return an exception telling about unknown type byte in the response.</summary>
+        </member>
+        <member name="T:PCloud.ErrorCodes">
+            <summary>Utility class to resolve error codes into messages.</summary>
+        </member>
+        <member name="M:PCloud.ErrorCodes.lookup(System.Int32)">
+            <summary>Try to resolve error code into message, returns null if the code wasn't found in the local dictionary.</summary>
+        </member>
+        <member name="T:PCloud.TaskQueue">
+            <summary>Sequential runner of multiple tasks.</summary>
+            <remarks>Unlike synchronization contexts, this class doesn't interleave multiple tasks on the same thread. It runs them one by one. The use case is reading data from the same socket, with async methods.</remarks>
+        </member>
+        <member name="F:PCloud.TaskQueue.maxQueueDepth">
+            <summary>Max.count of pending tasks. When exceeded, post method will start to block.</summary>
+        </member>
+        <member name="F:PCloud.TaskQueue.throttle">
+            <summary>Semaphore to enforce concurrency limit</summary>
+        </member>
+        <member name="F:PCloud.TaskQueue.syncRoot">
+            <summary>Lock that guards both queues below, and <see cref="F:PCloud.TaskQueue.processorRunning"/> field.</summary>
+        </member>
+        <member name="F:PCloud.TaskQueue.queueRunning">
+            <summary>Queue for the tasks which are currently running. The max.length is enforces by the semaphore.</summary>
+        </member>
+        <member name="F:PCloud.TaskQueue.processorRunning">
+            <summary>True while runAsyncProcessor() method is dispatching these tasks.</summary>
+        </member>
+        <member name="F:PCloud.TaskQueue.queuePending">
+            <summary>Queue for the tasks which were created but not yet added to the queueRunning due to the concurrency limit. Created on demand because it's not needed in most cases.</summary>
+        </member>
+        <member name="M:PCloud.TaskQueue.post``1(System.Func{System.Threading.Tasks.Task{``0}},System.Boolean@)">
+            <summary>Post new task to the queue. Can be called from any thread.</summary>
+        </member>
+        <member name="M:PCloud.TaskQueue.post``1(System.Threading.Tasks.Task{``0},System.Func{System.Threading.Tasks.Task},System.Boolean@)">
+            <summary>Post new task to the queue. Can be called from any thread.</summary>
+        </member>
+        <member name="M:PCloud.Utils.bufferRent(System.Int32)">
+            <summary>Retrieves a buffer that is at least the requested length.</summary>
+        </member>
+        <member name="M:PCloud.Utils.bufferReturn(System.Byte[])">
+            <summary>Returns an array to the pool that was previously obtained from <see cref="M:PCloud.Utils.bufferRent(System.Int32)" />.</summary>
+        </member>
+        <member name="M:PCloud.Utils.write(System.IO.Stream,System.String,System.Int32,System.Text.Encoding)">
+            <summary>Write string to stream with specified encoding, using ArrayPool to save RAM allocations.</summary>
+        </member>
+        <member name="M:PCloud.Utils.sha1(System.String)">
+            <summary>Compute SHA1 of UTF8 bytes of the input string, convert result to lowercase hexadecimal string without delimiters between bytes</summary>
+        </member>
+        <member name="M:PCloud.Utils.copyData(System.IO.Stream,System.IO.Stream,System.Int64,System.Int32)">
+            <summary>Similar to Stream.CopyToAsync, but copies exactly specified count of bytes. Throws EndOfStreamException when the source doesn't have enough bytes.</summary>
+        </member>
+        <member name="M:PCloud.Utils.enumerate``1(``0[])">
+            <summary>Enumerate items of the array. Don't crash if it's null.</summary>
+        </member>
+        <member name="M:PCloud.Utils.fastForward(System.IO.Stream,System.Int64)">
+            <summary>Read and discard specified count of bytes from the stream.</summary>
+        </member>
+        <member name="M:PCloud.Utils.pluralString(System.Int32,System.String)">
+            <summary>A string like "1 byte" or "12 bytes"</summary>
+        </member>
+        <member name="T:PCloud.DesktopCompat">
+            <summary>Compatibility stuff to make it build for desktop version of .NET</summary>
+        </member>
+    </members>
+</doc>
