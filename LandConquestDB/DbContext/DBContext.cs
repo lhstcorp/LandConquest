@@ -29,7 +29,7 @@ namespace LandConquestDB
             //    return true;
             //}
 
-            string encodedCdb = ConfigurationManager.ConnectionStrings["user-pass"].ConnectionString;
+            string encodedCdb = ConfigurationManager.ConnectionStrings["greendend2"].ConnectionString;
             byte[] dataCdb = Convert.FromBase64String(encodedCdb);
             string decodedCdb = Encoding.UTF7.GetString(dataCdb);
 
