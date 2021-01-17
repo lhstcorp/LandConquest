@@ -10,7 +10,7 @@ namespace LandConquestDB.Models
         {
             String storageQuery = "SELECT * FROM dbo.StorageData WHERE player_id = @player_id";
 
-            var command = new SqlCommand(storageQuery, DbContext.GetConnection());
+            var command = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
 
             using (var reader = command.ExecuteReader())
@@ -46,7 +46,7 @@ namespace LandConquestDB.Models
         {
             String storageQuery = "UPDATE dbo.StorageData SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather WHERE player_id = @player_id ";
 
-            var storageCommand = new SqlCommand(storageQuery, DbContext.GetConnection());
+            var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             // int datetimeResult;
             storageCommand.Parameters.AddWithValue("@wood", _storage.PlayerWood);
             storageCommand.Parameters.AddWithValue("@stone", _storage.PlayerStone);

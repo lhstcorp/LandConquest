@@ -16,7 +16,7 @@ namespace LandConquestDB.Models
             List<string> Message = new List<string>();
             List<DateTime> MessageTime = new List<DateTime>();
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             using (var reader = command.ExecuteReader())
             {
                 var playerName = reader.GetOrdinal("player_name");
@@ -51,7 +51,7 @@ namespace LandConquestDB.Models
         public static void SendMessage(string message, string playerName)
         {
             String query = "INSERT INTO dbo.ChatMessages (player_name, player_message, message_sent_time) VALUES (@player_name, @player_message, @message_sent_time)";
-            var userCommand = new SqlCommand(query, DbContext.GetConnection());
+            var userCommand = new SqlCommand(query, DbContext.GetSqlConnection());
 
             userCommand.Parameters.AddWithValue("@player_name", playerName);
             userCommand.Parameters.AddWithValue("@player_message", message);
@@ -63,7 +63,7 @@ namespace LandConquestDB.Models
         public static void EnableBroker()
         {
             string query = "ALTER DATABASE LandConquestDBDB SET ENABLE_BROKER with rollback immediate";
-            var peasantCommand = new SqlCommand(query, DbContext.GetConnection());
+            var peasantCommand = new SqlCommand(query, DbContext.GetSqlConnection());
             peasantCommand.ExecuteNonQuery();
         }
     }

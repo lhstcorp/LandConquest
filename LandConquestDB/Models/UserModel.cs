@@ -13,7 +13,7 @@ namespace LandConquestDB.Models
 
             String query = "SELECT * FROM dbo.UserData WHERE user_login = @user_login AND user_pass = @user_pass";
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@user_login", login);
             command.Parameters.AddWithValue("@user_pass", pass);
 
@@ -41,7 +41,7 @@ namespace LandConquestDB.Models
         public static int CreateUser(string login, string email, string pass, string userId)
         {
             String userQuery = "INSERT INTO dbo.UserData (user_id,user_login,user_email,user_pass) VALUES (@user_id, @user_login, @user_email, @user_pass)";
-            var userCommand = new SqlCommand(userQuery, DbContext.GetConnection());
+            var userCommand = new SqlCommand(userQuery, DbContext.GetSqlConnection());
 
 
             userCommand.Parameters.AddWithValue("@user_id", userId);
@@ -59,7 +59,7 @@ namespace LandConquestDB.Models
 
             String query = "SELECT * FROM dbo.UserData WHERE user_id = @user_id";
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@user_id", user_id);
 
             using (var reader = command.ExecuteReader())
@@ -82,7 +82,7 @@ namespace LandConquestDB.Models
         public static void UpdateUserEmail(string userId, string newUserEmail)
         {
             String userQuery = "UPDATE dbo.UserData SET user_email = @user_email WHERE user_id = @user_id";
-            var userCommand = new SqlCommand(userQuery, DbContext.GetConnection());
+            var userCommand = new SqlCommand(userQuery, DbContext.GetSqlConnection());
 
 
             userCommand.Parameters.AddWithValue("@user_id", userId);
@@ -94,7 +94,7 @@ namespace LandConquestDB.Models
         public static void UpdateUserPass(string userId, string newUserPass)
         {
             String userQuery = "UPDATE dbo.UserData SET user_pass = @user_pass WHERE user_id = @user_id";
-            var userCommand = new SqlCommand(userQuery, DbContext.GetConnection());
+            var userCommand = new SqlCommand(userQuery, DbContext.GetSqlConnection());
 
 
             userCommand.Parameters.AddWithValue("@user_id", userId);
@@ -107,7 +107,7 @@ namespace LandConquestDB.Models
         {
             String query = "SELECT * FROM dbo.UserData WHERE user_login = @user_login";
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@user_login", user_login);
 
             using (var reader = command.ExecuteReader())
@@ -127,7 +127,7 @@ namespace LandConquestDB.Models
         {
             String query = "SELECT * FROM dbo.UserData WHERE user_email = @user_email";
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@user_email", user_email);
 
             using (var reader = command.ExecuteReader())

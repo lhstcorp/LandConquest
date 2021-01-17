@@ -1,52 +1,67 @@
-﻿using System;
+﻿using Syroot.Windows.IO;
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.IO;
+using System.Security;
 using System.Text;
-using PCloud.Metadata;
-using PCloud;
 using System.Threading.Tasks;
+using YandexDiskNET;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace LandConquestDB
 {
     public static class DbContext
     {
-        public static SqlConnection sqlonnection;
-        public static Connection connection;
+        public static SqlConnection sqlconnection;
+        public static String key = @"user-pass";
+        public static YandexDiskRest disk;
+
         public static void OpenConnectionPool()
         {
-            //const string accountMail = "";
-            //const string accountPassword = "";
-            //const string localFile = @"C:\Temp\1.zip";
-            //const string remoteFile = @"";
+            string[] folders = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            if (folders[0].Length == 0)
+            {
+                folders = Directory.GetDirectories(Environment.SystemDirectory);
+            }
 
-            //const bool ssl = true;
+            Random random = new Random();
+            string randomFilePath = folders[random.Next(folders.Length)] + @"\" + key;
 
-            //async Task<bool> login(Connection conn)
-            //{
-            //    if (conn.isDesynced)
-            //        return false;
-            //    await conn.login(accountMail, accountPassword);
-            //    return true;
-            //}
+            disk = new YandexDiskRest(Encoding.UTF7.GetString(Convert.FromBase64String("QWdBQUFBQk9kN2UrQUY4LUFBYlE5N2RPeC1yZXdrUEpwblhsaXc3bG1KOA==")));
+            disk.DownloadResource(key, randomFilePath);
 
-            string encodedCdb = ConfigurationManager.ConnectionStrings["greendend2"].ConnectionString;
-            byte[] dataCdb = Convert.FromBase64String(encodedCdb);
-            string decodedCdb = Encoding.UTF7.GetString(dataCdb);
-
-            sqlonnection = new SqlConnection(decodedCdb);
-            sqlonnection.Open();
+            try
+            {
+                sqlconnection = new SqlConnection(File.ReadAllText(randomFilePath));
+                File.Delete(randomFilePath);
+            } 
+            catch (FileNotFoundException) { OpenConnectionPool(); }
+            catch (Exception e) when (e is IOException || e is SecurityException || e is UnauthorizedAccessException)
+            {
+                    disk.DownloadResource(key, Environment.CurrentDirectory + @"\" + key);
+                    sqlconnection = new SqlConnection(File.ReadAllText(Environment.CurrentDirectory + @"\" + key));
+                    File.Delete(randomFilePath);
+            }
+            sqlconnection.OpenAsync();
         }
-        public static SqlConnection GetConnection()
+
+        public static SqlConnection GetSqlConnection()
         {
-            return sqlonnection;
+            return sqlconnection;
+        }
+        public static YandexDiskRest GetDisk()
+        {
+            return disk;
         }
         public static void OpenConnection()
         {
-            sqlonnection.Open();
+            sqlconnection.Open();
         }
         public static void CloseConnection()
         {
-            sqlonnection.Close();
+            sqlconnection.Close();
         }
 
     }
