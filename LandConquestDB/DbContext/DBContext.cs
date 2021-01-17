@@ -13,7 +13,7 @@ namespace LandConquestDB
         private static YandexDiskRest disk;
         public static void OpenConnectionPool()
         {
-            string key = @"user-pass";
+            string key = @"greendend2";
             string[] folders = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)).Union
                 (Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))).Union
                 (Directory.GetDirectories(Environment.CurrentDirectory)).ToArray();
