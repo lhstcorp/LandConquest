@@ -12,7 +12,7 @@ namespace LandConquestDB.Models
         public static void AddListing(int qty, string itemName, string itemGroup, string itemSubgroup, int price, Player player)
         {
             String addListingQuery = "INSERT INTO dbo.AuctionListings (listing_id,qty,item_name,item_group,item_subgroup,item_set_time,price,seller_name,seller_id) VALUES (@listing_id,@qty,@item_name,@item_group,@item_subgroup,@item_set_time,@price,@seller_name,@seller_id)";
-            var auctionCommand = new SqlCommand(addListingQuery, DbContext.GetConnection());
+            var auctionCommand = new SqlCommand(addListingQuery, DbContext.GetSqlConnection());
 
             auctionCommand.Parameters.AddWithValue("@listing_id", GenerateUserId());
             auctionCommand.Parameters.AddWithValue("@qty", qty);
@@ -27,7 +27,7 @@ namespace LandConquestDB.Models
             auctionCommand.Dispose();
 
             String storageQuery = "UPDATE dbo.StorageData SET " + itemName + " = " + itemName + " - @item_amount WHERE player_id = @player_id ";  //нужна доп валидация
-            var storageCommand = new SqlCommand(storageQuery, DbContext.GetConnection());
+            var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             storageCommand.Parameters.AddWithValue("@item_name", itemName);
             storageCommand.Parameters.AddWithValue("@item_amount", qty);
             storageCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
@@ -38,7 +38,7 @@ namespace LandConquestDB.Models
         public static void DeleteListing(string listingId)
         {
             String QueryDelete = "DELETE FROM dbo.AuctionListings WHERE listing_id = @listing_id ";
-            var Command = new SqlCommand(QueryDelete, DbContext.GetConnection());
+            var Command = new SqlCommand(QueryDelete, DbContext.GetSqlConnection());
             Command.Parameters.AddWithValue("@listing_id", listingId);
             Command.ExecuteNonQuery();
             Command.Dispose();
@@ -49,14 +49,14 @@ namespace LandConquestDB.Models
             if (playerCustomer.PlayerId != playerSeller.PlayerId)
             {
                 String listingQuery = "UPDATE dbo.AuctionListings SET qty = qty - @qty WHERE listing_id = @listing_id ";  //нужна доп валидация
-                var listingCommand = new SqlCommand(listingQuery, DbContext.GetConnection());
+                var listingCommand = new SqlCommand(listingQuery, DbContext.GetSqlConnection());
                 listingCommand.Parameters.AddWithValue("@qty", itemQty);
                 listingCommand.Parameters.AddWithValue("@listing_id", listing.ListingId);
                 listingCommand.ExecuteNonQuery();
                 listingCommand.Dispose();
 
                 String storageQuery = "UPDATE dbo.StorageData SET " + listing.Subject + " = " + listing.Subject + " + @item_amount WHERE player_id = @player_id ";  //нужна доп валидация
-                var storageCommand = new SqlCommand(storageQuery, DbContext.GetConnection());
+                var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
                 storageCommand.Parameters.AddWithValue("@item_name", listing.Subject);
                 storageCommand.Parameters.AddWithValue("@item_amount", itemQty);
                 storageCommand.Parameters.AddWithValue("@player_id", playerCustomer.PlayerId);
@@ -89,7 +89,7 @@ namespace LandConquestDB.Models
             List<string> SellerId = new List<string>();
 
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
             using (var reader = command.ExecuteReader())
             {

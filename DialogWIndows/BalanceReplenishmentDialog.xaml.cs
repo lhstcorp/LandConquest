@@ -18,7 +18,7 @@ namespace LandConquest.DialogWIndows
         public BalanceReplenishmentDialog(Player _player)
         {
             player = _player;
-            connection = DbContext.GetConnection();
+            connection = DbContext.GetSqlConnection();
             InitializeComponent();
         }
 

@@ -15,7 +15,7 @@ namespace LandConquestDB.Models
             string colorHex = ColorTranslator.ToHtml(newColor);
             string coffers = "10000";
             String countryQuery = "INSERT INTO dbo.CountryData (country_name,country_ruler,country_color,country_coffers) VALUES (@country_name,@country_ruler,@country_color,@country_coffers)";
-            var countryCommand = new SqlCommand(countryQuery, DbContext.GetConnection());
+            var countryCommand = new SqlCommand(countryQuery, DbContext.GetSqlConnection());
 
             countryCommand.Parameters.AddWithValue("@country_name", land.LandName + " state");
             countryCommand.Parameters.AddWithValue("@country_ruler", player.PlayerId);
@@ -36,7 +36,7 @@ namespace LandConquestDB.Models
         public static int SelectLastIdOfStates()
         {
             String stateQuery = "SELECT TOP 1 * FROM dbo.CountryData ORDER BY country_id DESC";
-            var stateCommand = new SqlCommand(stateQuery, DbContext.GetConnection());
+            var stateCommand = new SqlCommand(stateQuery, DbContext.GetSqlConnection());
             int state_max_id = 1;
 
             using (var reader = stateCommand.ExecuteReader())
@@ -62,7 +62,7 @@ namespace LandConquestDB.Models
             List<string> countriesCountryRuler = new List<string>();
             List<string> countriesCountryColor = new List<string>();
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
             using (var reader = command.ExecuteReader())
             {
@@ -104,7 +104,7 @@ namespace LandConquestDB.Models
 
             String query = "SELECT country_id FROM dbo.LandData WHERE land_id = @land_id ";
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@land_id", player.PlayerCurrentRegion);
 
             using (var reader = command.ExecuteReader())
@@ -128,7 +128,7 @@ namespace LandConquestDB.Models
 
             String query = "SELECT * FROM dbo.CountryData WHERE country_id = @id";
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@id", id);
 
             using (var reader = command.ExecuteReader())
@@ -159,7 +159,7 @@ namespace LandConquestDB.Models
         {
             String query = "DELETE FROM dbo.CountryData WHERE country_id = @id";
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@id", country.CountryId);
 
             command.ExecuteNonQuery();

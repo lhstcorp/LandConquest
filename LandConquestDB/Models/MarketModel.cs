@@ -10,7 +10,7 @@ namespace LandConquestDB.Models
         {
             String marketQuery = "SELECT * FROM dbo.MarketData";
 
-            var command = new SqlCommand(marketQuery, DbContext.GetConnection());
+            var command = new SqlCommand(marketQuery, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
 
             using (var reader = command.ExecuteReader())
@@ -45,7 +45,7 @@ namespace LandConquestDB.Models
         {
             String marketQuery = "UPDATE dbo.MarketData SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather, money = @money";
 
-            var marketCommand = new SqlCommand(marketQuery, DbContext.GetConnection());
+            var marketCommand = new SqlCommand(marketQuery, DbContext.GetSqlConnection());
             // int datetimeResult;
             marketCommand.Parameters.AddWithValue("@wood", _market.MarketWood);
             marketCommand.Parameters.AddWithValue("@stone", _market.MarketStone);

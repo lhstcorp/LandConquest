@@ -19,7 +19,7 @@ namespace LandConquestDB.Models
             List<Int32> landsResourceType1 = new List<Int32>();
             List<Int32> landsResourceType2 = new List<Int32>();
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
             using (var reader = command.ExecuteReader())
             {
@@ -69,7 +69,7 @@ namespace LandConquestDB.Models
         {
             String landQuery = "UPDATE dbo.LandData SET land_color = @country_color, country_id = @country_id WHERE land_id = @land_id ";
 
-            var landCommand = new SqlCommand(landQuery, DbContext.GetConnection());
+            var landCommand = new SqlCommand(landQuery, DbContext.GetSqlConnection());
             landCommand.Parameters.AddWithValue("@country_id", country.CountryId);
             landCommand.Parameters.AddWithValue("@land_id", land.LandId);
             landCommand.Parameters.AddWithValue("@country_color", country.CountryColor);
@@ -85,7 +85,7 @@ namespace LandConquestDB.Models
             String manufactureQuery = "INSERT INTO dbo.LandManufactureData (land_id,manufacture_id,manufacture_name,manufacture_type) VALUES (@player_id, @manufacture_id, @manufacture_name, @manufacture_type)";
 
             //wood
-            var woodCommand = new SqlCommand(manufactureQuery, DbContext.GetConnection());
+            var woodCommand = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
             string name = "";
             switch (land.ResourceType1)
             {
@@ -124,7 +124,7 @@ namespace LandConquestDB.Models
 
             woodCommand.ExecuteNonQuery();
 
-            var stoneCommand = new SqlCommand(manufactureQuery, DbContext.GetConnection());
+            var stoneCommand = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
 
             switch (land.ResourceType2)
             {
@@ -174,7 +174,7 @@ namespace LandConquestDB.Models
             List<Int32> landsResourceType1 = new List<Int32>();
             List<Int32> landsResourceType2 = new List<Int32>();
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@country_id", country.CountryId);
 
             using (var reader = command.ExecuteReader())

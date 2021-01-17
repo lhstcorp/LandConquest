@@ -18,7 +18,7 @@ namespace LandConquestDB.Models
 
             String playerQuery = "INSERT INTO dbo.PlayerData (player_id,player_name,player_exp,player_lvl, player_money, player_donation, player_title, player_current_region) " +
                 "VALUES (@player_id,@player_name,@player_exp,@player_lvl, @player_money, @player_donation, @player_title, @player_current_region)";
-            var playerCommand = new SqlCommand(playerQuery, DbContext.GetConnection());
+            var playerCommand = new SqlCommand(playerQuery, DbContext.GetSqlConnection());
 
             playerCommand.Parameters.AddWithValue("@player_id", registeredUser.UserId);
             playerCommand.Parameters.AddWithValue("@player_name", registeredUser.UserLogin);
@@ -41,7 +41,7 @@ namespace LandConquestDB.Models
         {
             // create storage for new player
             String storageQuery = "INSERT INTO dbo.StorageData (player_id) VALUES (@player_id)";
-            var storageCommand = new SqlCommand(storageQuery, DbContext.GetConnection());
+            var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
 
 
             storageCommand.Parameters.AddWithValue("@player_id", userId);
@@ -49,7 +49,7 @@ namespace LandConquestDB.Models
             storageCommand.ExecuteNonQuery();
 
             String equipmentQuery = "INSERT INTO dbo.PlayerEquipment (player_id) VALUES (@player_id)";
-            var equipmentCommand = new SqlCommand(equipmentQuery, DbContext.GetConnection());
+            var equipmentCommand = new SqlCommand(equipmentQuery, DbContext.GetSqlConnection());
 
 
             equipmentCommand.Parameters.AddWithValue("@player_id", userId);
@@ -60,7 +60,7 @@ namespace LandConquestDB.Models
             String manufactureQuery = "INSERT INTO dbo.ManufactureData (player_id,manufacture_id,manufacture_name,manufacture_type) VALUES (@player_id, @manufacture_id, @manufacture_name, @manufacture_type)";
 
             //wood
-            var woodCommand = new SqlCommand(manufactureQuery, DbContext.GetConnection());
+            var woodCommand = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
 
 
             woodCommand.Parameters.AddWithValue("@player_id", userId);
@@ -71,7 +71,7 @@ namespace LandConquestDB.Models
             woodCommand.ExecuteNonQuery();
 
             //stone
-            var stoneCommand = new SqlCommand(manufactureQuery, DbContext.GetConnection());
+            var stoneCommand = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
 
             stoneCommand.Parameters.AddWithValue("@player_id", userId);
             stoneCommand.Parameters.AddWithValue("@manufacture_id", GenerateUserId());
@@ -81,7 +81,7 @@ namespace LandConquestDB.Models
             stoneCommand.ExecuteNonQuery();
 
             //food
-            var foodCommand = new SqlCommand(manufactureQuery, DbContext.GetConnection());
+            var foodCommand = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
             foodCommand.Parameters.AddWithValue("@player_id", userId);
             foodCommand.Parameters.AddWithValue("@manufacture_id", GenerateUserId());
             foodCommand.Parameters.AddWithValue("@manufacture_name", "Windmill");
@@ -92,7 +92,7 @@ namespace LandConquestDB.Models
             // create peasants data for player
 
             String peasantsQuery = "INSERT INTO dbo.PeasantsData (player_id) VALUES (@player_id)";
-            var peasantsCommand = new SqlCommand(peasantsQuery, DbContext.GetConnection());
+            var peasantsCommand = new SqlCommand(peasantsQuery, DbContext.GetSqlConnection());
 
             peasantsCommand.Parameters.AddWithValue("@player_id", userId);
 
@@ -103,7 +103,7 @@ namespace LandConquestDB.Models
         {
             String query = "SELECT * FROM dbo.PlayerData WHERE player_id = @player_id";
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@player_id", user.UserId);
 
             using (var reader = command.ExecuteReader())
@@ -143,7 +143,7 @@ namespace LandConquestDB.Models
             Player player = new Player();
             String query = "SELECT * FROM dbo.PlayerData WHERE player_id = @player_id";
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@player_id", _playerId);
 
             using (var reader = command.ExecuteReader())
@@ -179,7 +179,7 @@ namespace LandConquestDB.Models
         {
             String taxesQuery = "UPDATE dbo.PlayerData SET player_money = @player_money WHERE player_id = @player_id ";
 
-            var taxesCommand = new SqlCommand(taxesQuery, DbContext.GetConnection());
+            var taxesCommand = new SqlCommand(taxesQuery, DbContext.GetSqlConnection());
             taxesCommand.Parameters.AddWithValue("@player_money", player.PlayerMoney);
             taxesCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
 
@@ -194,7 +194,7 @@ namespace LandConquestDB.Models
         {
             String taxesQuery = "UPDATE dbo.PlayerData SET player_current_region = @player_current_region WHERE player_id = @player_id ";
 
-            var taxesCommand = new SqlCommand(taxesQuery, DbContext.GetConnection());
+            var taxesCommand = new SqlCommand(taxesQuery, DbContext.GetSqlConnection());
             taxesCommand.Parameters.AddWithValue("@player_current_region", land.LandId);
             taxesCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
 
@@ -210,7 +210,7 @@ namespace LandConquestDB.Models
         public static void UpdatePlayerName(string playerId, string newPlayerName)
         {
             String userQuery = "UPDATE dbo.PlayerData SET player_name = @player_name WHERE player_id = @player_id";
-            var userCommand = new SqlCommand(userQuery, DbContext.GetConnection());
+            var userCommand = new SqlCommand(userQuery, DbContext.GetSqlConnection());
 
 
             userCommand.Parameters.AddWithValue("@player_id", playerId);
@@ -224,7 +224,7 @@ namespace LandConquestDB.Models
         {
             String query = "SELECT * FROM dbo.PlayerData ORDER BY player_exp desc";
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
             using (var reader = command.ExecuteReader())
             {
@@ -250,7 +250,7 @@ namespace LandConquestDB.Models
         {
             String query = "SELECT * FROM dbo.PlayerData ORDER BY player_money desc";
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
             using (var reader = command.ExecuteReader())
             {
@@ -276,7 +276,7 @@ namespace LandConquestDB.Models
         {
             String Query = "UPDATE dbo.PlayerData SET player_exp = @player_exp, player_lvl = @player_lvl WHERE player_id = @player_id ";
 
-            var Command = new SqlCommand(Query, DbContext.GetConnection());
+            var Command = new SqlCommand(Query, DbContext.GetSqlConnection());
             Command.Parameters.AddWithValue("@player_exp", player.PlayerExp);
             Command.Parameters.AddWithValue("@player_lvl", player.PlayerLvl);
             Command.Parameters.AddWithValue("@player_id", player.PlayerId);
@@ -292,7 +292,7 @@ namespace LandConquestDB.Models
 
             List<Int32> listPeasantsWork = new List<Int32>();
 
-            var command = new SqlCommand(Query, DbContext.GetConnection());
+            var command = new SqlCommand(Query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
 
             using (var reader = command.ExecuteReader())
@@ -335,7 +335,7 @@ namespace LandConquestDB.Models
 
             String QueryDelete = "DELETE FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id ";
 
-            var Command = new SqlCommand(QueryDelete, DbContext.GetConnection());
+            var Command = new SqlCommand(QueryDelete, DbContext.GetSqlConnection());
 
             Command.Parameters.AddWithValue("@player_id", player.PlayerId);
 
@@ -364,7 +364,7 @@ namespace LandConquestDB.Models
         {
             String taxesQuery = "UPDATE dbo.PlayerData SET player_donation = @player_donation WHERE player_id = @player_id ";
 
-            var taxesCommand = new SqlCommand(taxesQuery, DbContext.GetConnection());
+            var taxesCommand = new SqlCommand(taxesQuery, DbContext.GetSqlConnection());
             taxesCommand.Parameters.AddWithValue("@player_donation", player.PlayerDonation);
             taxesCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
 
