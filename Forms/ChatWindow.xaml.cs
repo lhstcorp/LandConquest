@@ -71,7 +71,7 @@ namespace LandConquest.Forms
             //ALTER AUTHORIZATION ON DATABASE:: LandCoqnuestDB TO имя_компа
             try
             {
-                sqlTableDependency = new SqlTableDependency<ChatMessages>(DbContext.GetConnection().ConnectionString, "ChatMessages", "dbo", mapper);
+                sqlTableDependency = new SqlTableDependency<ChatMessages>(DbContext.GetSqlConnection().ConnectionString, "ChatMessages", "dbo", mapper);
                 sqlTableDependency.OnChanged += Changed;
                 sqlTableDependency.Start();
             }

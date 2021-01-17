@@ -10,7 +10,7 @@ namespace LandConquestDB.Models
         {
             String query = "SELECT * FROM dbo.PeasantsData WHERE player_id = @player_id";
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
 
             using (var reader = command.ExecuteReader())
@@ -38,7 +38,7 @@ namespace LandConquestDB.Models
         {
             String peasantQuery = "UPDATE dbo.PeasantsData SET peasants_count = @peasants_count, peasants_work  = @peasants_work, peasants_max = @peasants_max WHERE player_id = @player_id ";
 
-            var peasantCommand = new SqlCommand(peasantQuery, DbContext.GetConnection());
+            var peasantCommand = new SqlCommand(peasantQuery, DbContext.GetSqlConnection());
 
             peasantCommand.Parameters.AddWithValue("@peasants_count", peasants.PeasantsCount);
             peasantCommand.Parameters.AddWithValue("@peasants_work", peasants.PeasantsWork);
