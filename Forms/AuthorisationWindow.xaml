@@ -12,13 +12,13 @@
 
     <Grid>
 
-        <Image x:Name="loginGui" HorizontalAlignment="Left" Height="280" Margin="555,6,0,0"  VerticalAlignment="Top" Width="211" Source="/LandConquest;component/Pictures/login_gui.png" />
+        <Image x:Name="loginGui" HorizontalAlignment="Left" Height="285" Margin="555,6,0,0"  VerticalAlignment="Top" Width="215" Source="/LandConquest;component/Pictures/login_gui.png" />
 
-        <Image x:Name="registerGui" HorizontalAlignment="Left" Height="417" Margin="19,3,0,0" VerticalAlignment="Top" Width="257" Source="/LandConquest;component/Pictures/register_gui.png" />
+        <Image x:Name="registerGui" HorizontalAlignment="Left" Height="414" Margin="19,3,0,0" VerticalAlignment="Top" Width="252" Source="/LandConquest;component/Pictures/register_gui.png" />
 
-        <TextBox x:Name="textBoxLogin" Margin="586,103,56.6,0" TextWrapping="Wrap" Text="" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+        <TextBox x:Name="textBoxLogin" Margin="587,105,53.6,0" TextWrapping="Wrap" Text="" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                  materialDesign:HintAssist.Hint=" Login"  materialDesign:HintAssist.IsFloating="False" CaretBrush="Black" Height="25" VerticalAlignment="Top" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
-        <PasswordBox x:Name="textBoxPass" Margin="586,152,56.6,0" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+        <PasswordBox x:Name="textBoxPass" Margin="587,155,53.6,0" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                      materialDesign:HintAssist.Hint=" Password"  materialDesign:HintAssist.IsFloating="False" Height="27" VerticalAlignment="Top" CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}">
             <PasswordBox.RenderTransform>
                 <TransformGroup>
@@ -29,28 +29,28 @@
                 </TransformGroup>
             </PasswordBox.RenderTransform>
         </PasswordBox>
-        <Button x:Name="buttonLogin"  Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="625,237,95.6,197.4" VerticalAlignment="Center" Click="buttonLogin_Click" Height="36" BorderThickness="0" BorderBrush="White" Background="{x:Null}" RenderTransformOrigin="0.501,0.5"/>
+        <Button x:Name="buttonLogin"  Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="626,241,92.6,192.4" VerticalAlignment="Center" Click="buttonLogin_Click" Height="37" BorderThickness="0" BorderBrush="White" Background="{x:Null}" RenderTransformOrigin="0.501,0.5"/>
 
-        <TextBox x:Name="textBoxNewLogin" TextWrapping="Wrap" Text="" Margin="51,113,0,319.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"  
-                     Background="{x:Null}" materialDesign:HintAssist.Hint=" New login" CaretBrush="Black" HorizontalAlignment="Left" Width="178" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" />
-        <TextBox x:Name="textBoxNewEmail" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="178" Margin="51,173,0,261.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+        <TextBox x:Name="textBoxNewLogin" TextWrapping="Wrap" Text="" Margin="50,112,0,320.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"  
+                     Background="{x:Null}" materialDesign:HintAssist.Hint=" New login" CaretBrush="Black" HorizontalAlignment="Left" Width="175" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" />
+        <TextBox x:Name="textBoxNewEmail" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="175" Margin="50,172,0,262.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                      Background="{x:Null}" materialDesign:HintAssist.Hint=" Email"   CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"  BorderThickness="0" SelectionOpacity="0" />
-        <TextBox x:Name="textBoxNewPass" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="178" Margin="51,239,0,196.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+        <TextBox x:Name="textBoxNewPass" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="175" Margin="50,237,0,198.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                      Background="{x:Null}" materialDesign:HintAssist.Hint=" New password"  CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" />
-        <TextBox x:Name="textBoxConfirmNewPass" HorizontalAlignment="Left" Height="33" Margin="51,306,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+        <TextBox x:Name="textBoxConfirmNewPass" HorizontalAlignment="Left" Height="33" Margin="50,304,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                      Background="{x:Null}" materialDesign:HintAssist.Hint=" Confirm password"  CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" />
 
-        <Button x:Name="buttonRegistrate" Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="64,379,655.6,49.4" Height="Auto" Click="buttonRegistrate_Click" BorderThickness="0" Background="{x:Null}"/>
-        <Button x:Name="buttonCancelRegistrate" Content="" HorizontalAlignment="Left" Margin="157,379,0,0" VerticalAlignment="Top" Width="72" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCancelRegistrate_Click"/>
+        <Button x:Name="buttonRegistrate" Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="63,376,657.6,52.4" Height="Auto" Click="buttonRegistrate_Click" BorderThickness="0" Background="{x:Null}"/>
+        <Button x:Name="buttonCancelRegistrate" Content="" HorizontalAlignment="Left" Margin="154,376,0,0" VerticalAlignment="Top" Width="71" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCancelRegistrate_Click"/>
 
 
-        <CheckBox x:Name="CheckboxRemember"  HorizontalAlignment="Left" Margin="699,194,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="16" BorderBrush="Black" IsChecked="True" BorderThickness="0" Background="#FFB4A500" Height="19" Cursor="Hand"/>
+        <CheckBox x:Name="CheckboxRemember"  HorizontalAlignment="Left" Margin="703,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="15" BorderBrush="Black" IsChecked="True" BorderThickness="1" Background="#FFB4A500" Height="15" Cursor="Hand"/>
 
-        <Button x:Name="buttonShowRegistration" Content="Button" HorizontalAlignment="Left" Margin="54,18,0,0" VerticalAlignment="Top" Width="170" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="46" Click="buttonShowRegistration_Click" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="buttonShowRegistration" Content="Button" HorizontalAlignment="Left" Margin="53,18,0,0" VerticalAlignment="Top" Width="167" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="46" Click="buttonShowRegistration_Click" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
-                    <SkewTransform AngleY="0.082"/>
+                    <SkewTransform AngleY="0.083"/>
                     <RotateTransform/>
                     <TranslateTransform Y="0.124"/>
                 </TransformGroup>
@@ -63,7 +63,17 @@
         <fa:ImageAwesome x:Name="iconSpinner" Icon="Refresh" Spin="True" SpinDuration="10" Foreground="#FFCA691E" Margin="726,426,36.6,9.4" />
         <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Tahoma" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="492,427,0,0" VerticalAlignment="Top" Width="228" Foreground="#FFCA691E"/>
         <fa:ImageAwesome x:Name="iconDownload" Icon="Download" Foreground="GreenYellow" Margin="461,426,301.6,9.4" Cursor="Hand" MouseDown="iconDownload_MouseDown" />
-        
+        <Label Content="Please send us any comment, suggestion or correction you may have!" Foreground="AntiqueWhite" FontFamily="Tahoma" HorizontalAlignment="Left" Margin="19,416,0,0" VerticalAlignment="Top" Width="390"/>
+        <TextBox Text="landconquestofficial@gmail.com" Foreground="AntiqueWhite" FontFamily="Tahoma" Margin="22,441,587.6,0.4" Background="{x:Null}">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="IsReadOnly" Value="True" />
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/authorisation_background.png" Stretch="UniformToFill"/>
         </Grid.Background>
