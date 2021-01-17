@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj": {}
+    "D:\\LandConquest\\LandConquest\\LandConquest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj": {
+    "D:\\LandConquest\\LandConquest\\LandConquest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
+        "projectUniqueName": "D:\\LandConquest\\LandConquest\\LandConquest.csproj",
         "projectName": "LandConquest",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\obj\\",
+        "projectPath": "D:\\LandConquest\\LandConquest\\LandConquest.csproj",
+        "packagesPath": "C:\\Users\\sma\\.nuget\\packages\\",
+        "outputPath": "D:\\LandConquest\\LandConquest\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sma\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
+              "D:\\LandConquest\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
+                "projectPath": "D:\\LandConquest\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
               }
             }
           }
@@ -74,11 +74,11 @@
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
+    "D:\\LandConquest\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj",
+        "projectUniqueName": "D:\\LandConquest\\LandConquest\\LandConquestDB\\LandConquestDB.csproj",
         "projectName": "LandConquestDB",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
+        "projectPath": "D:\\LandConquest\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
       },
       "frameworks": {
         "net472": {}

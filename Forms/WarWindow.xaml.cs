@@ -41,7 +41,7 @@ namespace LandConquest.Forms
         int SelectionCounter;
 
         DispatcherTimer syncTimer;
-        List<ArmyInBattle> playerArmies = new List<ArmyInBattle>();
+        public static List<ArmyInBattle> playerArmies = new List<ArmyInBattle>();
 
         //Canvas localWarArmyLayer = new Canvas();
         public WarWindow(Player _player, ArmyInBattle _army, List<ArmyInBattle> _armies, War _war)
@@ -74,6 +74,16 @@ namespace LandConquest.Forms
             timerLabel.Content = "syncing...";
             Loaded += WarWin_Loaded;
 
+        }
+
+        public static List<ArmyInBattle> GetPlayerArmies()
+        {
+            return playerArmies;
+        }
+
+        public static void SetPlayerArmies(List<ArmyInBattle> _playerArmies)
+        {
+            playerArmies = _playerArmies;
         }
 
         private void WarWin_Loaded(object sender, RoutedEventArgs e)
@@ -597,7 +607,10 @@ namespace LandConquest.Forms
                 btnUnite.Visibility = Visibility.Visible;
                 splitArmiesButton.Visibility = Visibility.Visible;
 
-                //ShowAvailableTilesToMove(index);
+                if (findPlayerArmyCanMove())
+                {
+                    ShowAvailableTilesToMove(index);
+                }
 
                 if (selectedArmiesForUnion[armyPage])
                 {
