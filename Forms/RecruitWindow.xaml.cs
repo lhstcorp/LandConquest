@@ -1,5 +1,5 @@
-﻿using LandConquest.Entities;
-using LandConquest.Models;
+﻿using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
 using System.Windows;
 

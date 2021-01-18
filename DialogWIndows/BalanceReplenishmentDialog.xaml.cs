@@ -1,4 +1,5 @@
-﻿using LandConquest.Entities;
+﻿using LandConquestDB;
+using LandConquestDB.Entities;
 using System;
 using System.Data.SqlClient;
 using System.Windows;
@@ -17,7 +18,7 @@ namespace LandConquest.DialogWIndows
         public BalanceReplenishmentDialog(Player _player)
         {
             player = _player;
-            connection = DbContext.GetConnection();
+            connection = DbContext.GetSqlConnection();
             InitializeComponent();
         }
 

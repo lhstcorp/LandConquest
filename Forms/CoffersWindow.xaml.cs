@@ -1,5 +1,5 @@
-﻿using LandConquest.Entities;
-using LandConquest.Models;
+﻿using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,13 +22,13 @@ namespace LandConquest.Forms
     public partial class CoffersWindow : Window
     {
         Player player;
-        List<Land> countryLands;
-        List<Land> countryLandsToFight;
-        List<Country> countries;
-        Land selectedLand;
-        Country transferCountry;
-        Land countryLandDefender;
-        int operation = 0;
+        //List<Land> countryLands;
+        //List<Land> countryLandsToFight;
+        //List<Country> countries;
+        //Land selectedLand;
+        //Country transferCountry;
+        //Land countryLandDefender;
+        //int operation = 0;
         bool f = true;
         public CoffersWindow(Player _player)
         {

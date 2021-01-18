@@ -1,5 +1,5 @@
-﻿using LandConquest.Entities;
-using LandConquest.Models;
+﻿using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,6 +7,8 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using LandConquest.Forms;
+using System.Collections.Generic;
 
 namespace LandConquest.DialogWIndows
 {
@@ -214,9 +216,14 @@ namespace LandConquest.DialogWIndows
                 newArmyInBattle.PlayerId = armyInBattle.PlayerId;
                 newArmyInBattle.ArmySide = armyInBattle.ArmySide;
                 newArmyInBattle.ArmyType = typeOfNewArmy;
-                //Console.WriteLine("typeOfNewArmy = " + typeOfNewArmy);
+                newArmyInBattle.CanMove = armyInBattle.CanMove;
 
                 BattleModel.InsertArmyIntoBattleTable(newArmyInBattle, war);
+
+                List<ArmyInBattle> playerArmies = WarWindow.GetPlayerArmies();
+                playerArmies.Add(newArmyInBattle);
+                WarWindow.SetPlayerArmies(playerArmies);
+
             }
 
             if (Convert.ToInt32(armySizeWas.Content) != 0 && (Convert.ToInt32(armySizeNow.Content) != 0))

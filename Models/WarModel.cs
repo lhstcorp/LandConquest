@@ -1,9 +1,11 @@
-﻿using LandConquest.Entities;
+﻿using LandConquestDB.Entities;
 using LandConquest.Forms;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows;
+using LandConquestDB;
+using LandConquestDB.Models;
 
 namespace LandConquest.Models
 {
@@ -13,7 +15,7 @@ namespace LandConquest.Models
         {
             String Query = "INSERT INTO dbo.WarData (war_id, land_attacker_id, land_defender_id, datetime_start) VALUES (@war_id, @land_attacker_id, @land_defender_id, @datetime_start)";
 
-            var Command = new SqlCommand(Query, DbContext.GetConnection());
+            var Command = new SqlCommand(Query, DbContext.GetSqlConnection());
             // int datetimeResult;
             Command.Parameters.AddWithValue("@war_id", war_id);
             Command.Parameters.AddWithValue("@land_attacker_id", landAttacker.LandId);
@@ -28,7 +30,7 @@ namespace LandConquest.Models
         public static War GetWarById(War war)
         {
             String query = "SELECT * FROM dbo.WarData WHERE war_id = @war_id";
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@war_id", war.WarId);
 
             using (var reader = command.ExecuteReader())
@@ -54,7 +56,7 @@ namespace LandConquest.Models
         public static int SelectLastIdOfWars()
         {
             String stateQuery = "SELECT * FROM dbo.WarData ORDER BY war_id DESC";
-            var stateCommand = new SqlCommand(stateQuery, DbContext.GetConnection());
+            var stateCommand = new SqlCommand(stateQuery, DbContext.GetSqlConnection());
             string state_max_id = "";
             int count = 0;
             using (var reader = stateCommand.ExecuteReader())
@@ -79,7 +81,7 @@ namespace LandConquest.Models
             List<Int32> warsLandDefenderId = new List<Int32>();
             List<DateTime> warsWarDateTimeStart = new List<DateTime>();
 
-            var command = new SqlCommand(query, DbContext.GetConnection());
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
             using (var reader = command.ExecuteReader())
             {
