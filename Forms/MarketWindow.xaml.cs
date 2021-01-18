@@ -3,6 +3,8 @@ using LandConquestDB.Models;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace LandConquest.Forms
 {
@@ -72,7 +74,17 @@ namespace LandConquest.Forms
             //labelArmorAmount.Content = equipment.PlayerArmor.ToString();
             //labelSwordAmount.Content = equipment.PlayerSword.ToString();
 
-
+            SeriesCollection series = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Values = new ChartValues<double> { 3, 5, 7, 4 }
+                },
+                new ColumnSeries
+                {
+                    Values = new ChartValues<decimal> { 5, 6, 2, 7 }
+                }
+            };
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
