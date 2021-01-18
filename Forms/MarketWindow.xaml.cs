@@ -1,6 +1,7 @@
 ﻿using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using LiveCharts;
+using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using System;
 using System.Windows;
@@ -74,17 +75,29 @@ namespace LandConquest.Forms
             //labelArmorAmount.Content = equipment.PlayerArmor.ToString();
             //labelSwordAmount.Content = equipment.PlayerSword.ToString();
 
-            SeriesCollection series = new SeriesCollection
+            LiveCharts.SeriesCollection series = new LiveCharts.SeriesCollection
             {
-                new LineSeries
+                
+                new ScatterSeries
                 {
-                    Values = new ChartValues<double> { 3, 5, 7, 4 }
-                },
-                new ColumnSeries
-                {
-                    Values = new ChartValues<decimal> { 5, 6, 2, 7 }
+                    Values = new ChartValues<ScatterPoint>
+                    {
+                        new ScatterPoint(Convert.ToDouble(labelFoodPrice.Content),Convert.ToDouble(labelFoodMarket.Content),Convert.ToDouble(labelFoodMarket.Content)),
+                        new ScatterPoint(Convert.ToDouble(labelWoodPrice.Content),Convert.ToDouble(labelWoodMarket.Content),Convert.ToDouble(labelWoodMarket.Content)),
+                        new ScatterPoint(Convert.ToDouble(labelStonePrice.Content),Convert.ToDouble(labelStoneMarket.Content),Convert.ToDouble(labelStoneMarket.Content)),
+                        new ScatterPoint(Convert.ToDouble(labelIronPrice.Content),Convert.ToDouble(labelIronMarket.Content),Convert.ToDouble(labelIronMarket.Content)),
+                        new ScatterPoint(Convert.ToDouble(labelGoldPrice.Content),Convert.ToDouble(labelGoldMarket.Content),Convert.ToDouble(labelGoldMarket.Content)),
+                        new ScatterPoint(Convert.ToDouble(labelCopperPrice.Content),Convert.ToDouble(labelCopperMarket.Content),Convert.ToDouble(labelCopperMarket.Content)),
+                        new ScatterPoint(Convert.ToDouble(labelGemsPrice.Content),Convert.ToDouble(labelGemsMarket.Content),Convert.ToDouble(labelGemsMarket.Content)),
+                        new ScatterPoint(Convert.ToDouble(labelLeatherPrice.Content),Convert.ToDouble(labelLeatherMarket.Content),Convert.ToDouble(labelLeatherMarket.Content))
+
+                    }
                 }
+
             };
+
+            graphics.Series = series;         
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -661,10 +661,10 @@ namespace LandConquest.Forms
             storage = StorageModel.GetPlayerStorage(player, storage);
             market = MarketModel.GetMarketInfo(player, market);
 
-            MarketWindow window = new MarketWindow(this, storage, market, player);
-            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            window.Owner = this;
-            window.Show();
+            MarketWindow mWindow = new MarketWindow(this, storage, market, player);
+            mWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //window.Owner = this;
+            mWindow.Show();
         }
 
         private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
