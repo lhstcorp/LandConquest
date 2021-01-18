@@ -32,15 +32,14 @@ namespace LandConquest.Forms
         ArmyInBattle selectedArmy;
         List<ArmyInBattle> armyInBattlesInCurrentTile;
         War war;
-        int saveMovement;
-        int saveRange;
+        int saveMovementSpeed;
         Image emptyImage = new Image();
         int armyPage;
         int index;
         List<bool> selectedArmiesForUnion;
         List<ArmyInBattle> yourArmiesInCurrentTile = new List<ArmyInBattle>();
         int SelectionCounter;
-        bool shoot = false;
+
         DispatcherTimer syncTimer;
         public static List<ArmyInBattle> playerArmies = new List<ArmyInBattle>();
 
@@ -94,7 +93,7 @@ namespace LandConquest.Forms
                 for (int y = 0; y < localWarMap.Columns; y++)
                 {
                     Image tile = new Image();
-                    tile = AddSourceForTile(tile, "move", 0, x, y);
+                    tile = AddSourceForTile(tile, 0, x, y);
                     localWarMap.Children.Add(tile);
                     gridForArmies.Children.Add(new Image());
                 }
@@ -202,15 +201,8 @@ namespace LandConquest.Forms
 
             ShowInfoAboutArmies(index);
 
-            if (findPlayerArmyCanShoot())
-            {
-                ShowAvailableTilesToShoot(index);
-            }
-
             if (f_canMoveArmy && findPlayerArmyCanMove())
-            {
                 ShowAvailableTilesToMove(index);
-            }
         }
 
         private void tile_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -452,7 +444,7 @@ namespace LandConquest.Forms
 
             }
 
-            saveMovement = movement;
+            saveMovementSpeed = movement;
             //????????????????????????????????????????????????????????
             for (int i = row - movement; i <= row + movement; i++)
             {
@@ -463,7 +455,7 @@ namespace LandConquest.Forms
                     localWarMap.Children.RemoveAt(ind);
                     //Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative)) };
                     Image availableTileForMoving = new Image();
-                    availableTileForMoving = AddSourceForTile(availableTileForMoving, "move", 1, i, j);
+                    availableTileForMoving = AddSourceForTile(availableTileForMoving, 1, i, j);
                     availableTileForMoving.MouseRightButtonDown += tile_MouseRightButtonDown;
                     localWarMap.Children.Insert(ind, availableTileForMoving);
                 }
@@ -481,16 +473,16 @@ namespace LandConquest.Forms
             Console.WriteLine("ROW = " + row + " COL = " + col);
 
             //????????????????????????????????????????????????????????
-            for (int i = row - saveMovement; i <= row + saveMovement; i++)
+            for (int i = row - saveMovementSpeed; i <= row + saveMovementSpeed; i++)
             {
-                for (int j = col - saveMovement; j <= col + saveMovement; j++)
+                for (int j = col - saveMovementSpeed; j <= col + saveMovementSpeed; j++)
                 {
                     if ((i < 1) || (j < 1) || (j > localWarMap.Columns) || (i > localWarMap.Rows)) continue;  //
                     int ind = ReturnNumberOfCell(i, j);
                     localWarMap.Children.RemoveAt(ind);
                     //Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/test-tile.jpg", UriKind.Relative)) };
                     Image availableTileForMoving = new Image();
-                    availableTileForMoving = AddSourceForTile(availableTileForMoving, "move", 0, i, j);
+                    availableTileForMoving = AddSourceForTile(availableTileForMoving, 0, i, j);
                     //availableTileForMoving.MouseRightButtonDown += tile_MouseRightButtonDown;
                     localWarMap.Children.Insert(ind, availableTileForMoving);
                 }
@@ -522,76 +514,11 @@ namespace LandConquest.Forms
             }
         }
 
-        public void ShowAvailableTilesToShoot(int index) //+ int forces movement speed;
-        {
-            // army type
-            //gridForArmies.ro
-            Console.WriteLine("INDEX = " + index);
-
-            int row = index / localWarMap.Columns + 1;
-            int col = index - localWarMap.Columns * (row - 1) + 1;
-
-            Console.WriteLine("ROW = " + row + " COL = " + col);
-
-            int range = 0;
-            switch (selectedArmy.ArmyType)
-            {
-                case 1:
-                    {
-                        range = (int)ForcesEnum.Infantry.Movement;
-                        break;
-                    }
-                case 2:
-                    {
-                        range = (int)ForcesEnum.Archers.Movement;
-                        break;
-                    }
-                case 3:
-                    {
-                        range = (int)ForcesEnum.Knights.Movement;
-                        break;
-                    }
-                case 4:
-                    {
-                        range = (int)ForcesEnum.Siege.Movement;
-                        break;
-                    }
-                case 5:
-                    {
-                        range = (int)ForcesEnum.Infantry.Movement;
-                        break;
-                    }
-
-            }
-
-            saveRange = range;
-            //????????????????????????????????????????????????????????
-            for (int i = row - range; i <= row + range; i++)
-            {
-                for (int j = col - range; j <= col + range; j++)
-                {
-                    if ((i < 1) || (j < 1) || (j > localWarMap.Columns) || (i > localWarMap.Rows)) continue;  //
-                    int ind = ReturnNumberOfCell(i, j);
-                    localWarMap.Children.RemoveAt(ind);
-                    //Image availableTileForMoving = new Image { Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative)) };
-                    Image availableTileForMoving = new Image();
-                    availableTileForMoving = AddSourceForTile(availableTileForMoving, "shoot", 1, i, j);
-                    availableTileForMoving.MouseRightButtonDown += tile_MouseRightButtonDown;
-                    localWarMap.Children.Insert(ind, availableTileForMoving);
-                }
-            }
-        }
-
-        private void btnSplit_Click(object sender, RoutedEventArgs e)
+        private void splitArmiesButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             HideAvailableTilesToMove(index);
             SplitArmyDialog dialogWindow = new SplitArmyDialog(armyInBattlesInCurrentTile[0], war);
             dialogWindow.Show();
-        }
-
-        private void btnAttack_Click(object sender, RoutedEventArgs e) //select army for attack
-        {
-            shoot = true;
         }
 
         private void ImgWar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -676,9 +603,9 @@ namespace LandConquest.Forms
                 selectedArmy = armyInBattlesInCurrentTile[armyPage];
                 f_canMoveArmy = true;
 
-                btnSelectToUnite.IsEnabled = true;
-                btnUnite.IsEnabled = true;
-                btnSplit.IsEnabled = true;
+                btnSelectToUnite.Visibility = Visibility.Visible;
+                btnUnite.Visibility = Visibility.Visible;
+                splitArmiesButton.Visibility = Visibility.Visible;
 
                 if (findPlayerArmyCanMove())
                 {
@@ -697,9 +624,9 @@ namespace LandConquest.Forms
                 img.Source = new BitmapImage(new Uri("/Pictures/tile-test-red.jpg", UriKind.Relative));
                 localWarMap.Children.Insert(index, img);
 
-                btnSelectToUnite.IsEnabled = false;
-                btnUnite.IsEnabled = false;
-                btnSplit.IsEnabled = false;
+                btnSelectToUnite.Visibility = Visibility.Hidden;
+                btnUnite.Visibility = Visibility.Hidden;
+                splitArmiesButton.Visibility = Visibility.Hidden;
             }
         }
 
@@ -763,56 +690,30 @@ namespace LandConquest.Forms
             }
         }
 
-        public Image AddSourceForTile(Image tile, string operation, int tileColor, int Row, int Column)
+        public Image AddSourceForTile(Image tile, int tileColor, int Row, int Column)
         {
             //tileColor = 0 ? green
             //tileColor = 1 ? red
 
-            if (operation == "move")
+            if (tileColor == 0)
             {
-                if (tileColor == 0)
+                if ((Column % 2 == 0) && (Row % 2 == 0) || (Column % 2 == 1) && (Row % 2 == 1))
                 {
-                    if ((Column % 2 == 0) && (Row % 2 == 0) || (Column % 2 == 1) && (Row % 2 == 1))
-                    {
-                        tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/bj1.jpg", UriKind.Relative));
-                    }
-                    else
-                    {
-                        tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/br2.jpg", UriKind.Relative));
-                    }
+                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/bj1.jpg", UriKind.Relative));
                 }
                 else
                 {
-                    if (((Column % 2 == 0) && (Row % 2 == 0)) || ((Column % 2 == 1) && (Row % 2 == 1)))
-                    {
-                        tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/bj2.jpg", UriKind.Relative)); //bj2
-                    }
-                    else tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/br1.jpg", UriKind.Relative));
+                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/br2.jpg", UriKind.Relative));
                 }
             }
-            else if (operation == "shoot")
+            else
             {
-                if (tileColor == 0)
+                if (((Column % 2 == 0) && (Row % 2 == 0)) || ((Column % 2 == 1) && (Row % 2 == 1)))
                 {
-                    if ((Column % 2 == 0) && (Row % 2 == 0) || (Column % 2 == 1) && (Row % 2 == 1))
-                    {
-                        tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/bj1.jpg", UriKind.Relative));
-                    }
-                    else
-                    {
-                        tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/br2.jpg", UriKind.Relative));
-                    }
+                    tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/bj2.jpg", UriKind.Relative));
                 }
-                else
-                {
-                    if (((Column % 2 == 0) && (Row % 2 == 0)) || ((Column % 2 == 1) && (Row % 2 == 1)))
-                    {
-                        tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/r1.jpg", UriKind.Relative));
-                    }
-                    else tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/r2.jpg", UriKind.Relative));
-                }
+                else tile.Source = new BitmapImage(new Uri("/Pictures/Tiles/br1.jpg", UriKind.Relative));
             }
-
             return tile;
         }
 
@@ -893,7 +794,7 @@ namespace LandConquest.Forms
             int colI1 = ReturnColumnByIndex(index);
             int colI2 = ReturnColumnByIndex(INDEX);
 
-            if ((Math.Abs(rowI1 - rowI2) <= saveMovement) && ((Math.Abs(colI1 - colI2) <= saveMovement)))
+            if ((Math.Abs(rowI1 - rowI2) <= saveMovementSpeed) && ((Math.Abs(colI1 - colI2) <= saveMovementSpeed)))
                 return true;
             return false;
 
@@ -1006,7 +907,6 @@ namespace LandConquest.Forms
             for (int i = 0; i < playerArmies.Count; i++)
             {
                 playerArmies[i].CanMove = false;
-                playerArmies[i].CanShoot = false;
             }
         }
 
@@ -1015,7 +915,6 @@ namespace LandConquest.Forms
             for (int i = 0; i < playerArmies.Count; i++)
             {
                 playerArmies[i].CanMove = true;
-                playerArmies[i].CanShoot = true;
             }
         }
 
@@ -1043,10 +942,7 @@ namespace LandConquest.Forms
             for (int i = 0; i < playerArmies.Count; i++)
             {
                 if (playerArmies[i].ArmyId == selectedArmy.ArmyId)
-                {
                     playerArmies[i].CanMove = false;
-                    playerArmies[i].CanShoot = false;
-                }
             }
         }
 
@@ -1056,16 +952,6 @@ namespace LandConquest.Forms
             {
                 if (playerArmies[i].ArmyId == selectedArmy.ArmyId)
                     return playerArmies[i].CanMove;
-            }
-            return false;
-        }
-
-        public bool findPlayerArmyCanShoot()
-        {
-            for (int i = 0; i < playerArmies.Count; i++)
-            {
-                if (playerArmies[i].ArmyId == selectedArmy.ArmyId)
-                    return playerArmies[i].CanShoot;
             }
             return false;
         }
