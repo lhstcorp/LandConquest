@@ -2,8 +2,9 @@
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-using System.Text;
+using System.Security;
 using YandexDiskNET;
+using Spritely.Recipes;
 
 namespace LandConquestDB
 {
@@ -25,8 +26,8 @@ namespace LandConquestDB
             disk.DownloadResource(key, randomFilePath);          
             try
             {
-                string connstr = File.ReadAllText(randomFilePath);
-                sqlconnection = new SqlConnection(connstr);
+                SecureString connstr = File.ReadAllText(randomFilePath).ToSecureString();
+                sqlconnection = new SqlConnection(connstr.ToInsecureString());
                 File.Delete(randomFilePath);
             } 
             catch (FileNotFoundException) { OpenConnectionPool(); }
