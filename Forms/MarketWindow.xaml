@@ -12,9 +12,9 @@
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
         Title="MarketWindow" Height="450" Width="800" ShowInTaskbar="False">
-   
+
     <Grid>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="187*"/>
             <ColumnDefinition Width="614*"/>
@@ -24,7 +24,7 @@
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
         <Image HorizontalAlignment="Left" Height="68" Margin="55,10,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png" Grid.Column="1"/>
-        <Image HorizontalAlignment="Left" Height="68" Margin="291,10,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png" Grid.Column="1"/>
+        <Image HorizontalAlignment="Right" Height="68" Margin="0,10,257,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png" Grid.Column="1"/>
         <Image HorizontalAlignment="Left" Height="68" Margin="10,135,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
         <Image HorizontalAlignment="Left" Height="68" Margin="55,135,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png" Grid.Column="1"/>
         <Image HorizontalAlignment="Left" Height="68" Margin="291,135,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png" Grid.Column="1"/>
@@ -194,7 +194,8 @@
 
 
 
-        <lvc:CartesianChart Series="{Binding series}" />
+        <lvc:CartesianChart x:Name="graphics" Series="{Binding series}" HorizontalAlignment="Left" Width="344" Grid.Column="1" Margin="273,255,-4,0" />
+
     </Grid>
-    
+
 </Window>
