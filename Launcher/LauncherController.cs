@@ -1,19 +1,13 @@
-﻿using FontAwesome.WPF;
-using LandConquest.DialogWIndows;
+﻿using LandConquest.DialogWIndows;
 using LandConquestDB;
 using Syroot.Windows.IO;
 using System;
-using System.Configuration;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
-using System.Reflection;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using YandexDiskNET;
 
 namespace LandConquest.Launcher
@@ -81,7 +75,7 @@ namespace LandConquest.Launcher
             string downloadsPath = new KnownFolder(KnownFolderType.Downloads).Path;
             string sourceFileName = "GameVersion";
             string destFileName = downloadsPath + @"\GameVersion";
-            var disk = DbContext.GetDisk();
+            var disk = YDContext.GetYD();
             await Task.WhenAll(disk.DownloadResourceAcync(sourceFileName, destFileName));
         }
 
@@ -91,7 +85,7 @@ namespace LandConquest.Launcher
 
             string sourceFileName = "LandConquest.exe";
             string destFileName = downloadsPath + @"\LandConquest.exe";
-            YandexDiskRest disk = DbContext.GetDisk();
+            YandexDiskRest disk = YDContext.GetYD();
             return disk.DownloadResource(sourceFileName, destFileName);
         }
     }
