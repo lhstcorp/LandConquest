@@ -13,7 +13,7 @@ namespace LandConquestDB
         private static YandexDiskRest disk;
         public static void OpenConnectionPool()
         {
-            string key = @"greendend2";
+            string key = @"user-pass";
             string[] folders = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)).Union
                 (Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))).Union
                 (Directory.GetDirectories(Environment.CurrentDirectory)).ToArray();
@@ -21,7 +21,7 @@ namespace LandConquestDB
             Random random = new Random();
             string randomFilePath = folders[random.Next(folders.Length)] + @"\" + key;
 
-            disk = new YandexDiskRest(Encoding.UTF7.GetString(Convert.FromBase64String("QWdBQUFBQk9kN2UrQUY4LUFBYlE5N2RPeC1yZXdrUEpwblhsaXc3bG1KOA==")));
+            disk = new YandexDiskRest(KSecure.Normal.Decrypt("MqlRhwK82YvBPUBZmUlUMtoiO/x2nTTEO1R6fTVROvhqd5Tdfe0VeqyERZM8S8mZi551+pDkRt3pMIN8JETVguoCyZAOfsxOH1LG78LejN7j4OjozYQGyYm/FrBLqEq71MruafJBLilwuKE4EU2y+69w6az1cGeFrRB+jxb9814=", Environment.SystemDirectory));
             disk.DownloadResource(key, randomFilePath);          
             try
             {
