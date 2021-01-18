@@ -570,6 +570,7 @@
     <Resource Include="Pictures\sandClocks.png" />
     <Resource Include="Pictures\sandClocksWithCircle.png" />
     <Resource Include="Pictures\defaultCastle.png" />
+    <Resource Include="Pictures\boxes.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -594,6 +595,9 @@
   <ItemGroup>
     <PackageReference Include="FontAwesome.WPF">
       <Version>4.7.0.9</Version>
+    </PackageReference>
+    <PackageReference Include="LiveCharts.Wpf">
+      <Version>0.9.7</Version>
     </PackageReference>
     <PackageReference Include="Syroot.Windows.IO.KnownFolders">
       <Version>1.2.3</Version>

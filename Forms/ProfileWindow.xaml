@@ -14,21 +14,21 @@
         </Grid.ColumnDefinitions>
         <Image x:Name="profileImage" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" RenderTransformOrigin="0.38,0.495" Margin="0,14,0,0"/>
 
-        <Label Content="Name:" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="115,54,0,0" VerticalAlignment="Top" Height="40"/>
-        <Label Content="Title:" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="115,93,0,0" VerticalAlignment="Top" Width="85"/>
-        <Label Content="Land:" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="115,133,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
-        <Label Content="Email:" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="115,173,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
-        <Label Content="Login:" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="115,213,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
-        <Label Content="Pass:" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="115,253,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
+        <Label Content="Name:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,54,0,0" VerticalAlignment="Top" Height="40"/>
+        <Label Content="Title:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,93,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label Content="Land:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,133,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
+        <Label Content="Email:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,173,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
+        <Label Content="Login:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,213,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
+        <Label Content="Pass:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,253,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
 
 
 
-        <Label x:Name="labelName" Content="null" FontSize="24" HorizontalAlignment="Left" Margin="212,54,0,0" VerticalAlignment="Top" Height="40"/>
-        <Label x:Name="labelTitle" Content="null" FontSize="24" HorizontalAlignment="Left" Margin="212,93,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelLand" Content="null" FontSize="24" HorizontalAlignment="Left" Margin="211,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <Label x:Name="labelEmail" Content="null" FontSize="24" HorizontalAlignment="Left" Margin="211,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <Label x:Name="labelLogin" Content="null" FontSize="24" HorizontalAlignment="Left" Margin="211,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <Label x:Name="labelPass" Content="••••••" FontSize="24" HorizontalAlignment="Left" Margin="212,253,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="labelName" Content="null" Foreground="#311818" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="212,54,0,0" VerticalAlignment="Top" Height="40"/>
+        <Label x:Name="labelTitle" Content="null" Foreground="#311818" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="212,93,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelLand" Content="null" Foreground="#311818" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="211,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="labelEmail" Content="null" Foreground="#311818" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="211,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="labelLogin" Content="null" Foreground="#311818" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="211,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="labelPass" Content="••••••" Foreground="#311818" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="212,253,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
 
 
         <Button x:Name="buttonClose"  HorizontalAlignment="Left" Margin="554,10,0,0" VerticalAlignment="Top" Width="36" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonClose_Click">
@@ -36,17 +36,17 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="buttonChangeName" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Top" HorizontalAlignment="Left" Margin="362,62,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="White" Height="32" Click="buttonChangeName_Click" MouseEnter="buttonChangeName_MouseEnter">
+        <Button x:Name="buttonChangeName"  Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="362,62,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="#e3cd9b" Height="32" Click="buttonChangeName_Click" MouseEnter="buttonChangeName_MouseEnter">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="buttonChangeEmail" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Top" HorizontalAlignment="Left" Margin="362,181,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="White" Height="32" Click="buttonChangeEmail_Click" MouseEnter="buttonChangeEmail_MouseEnter">
+        <Button x:Name="buttonChangeEmail" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="362,181,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="#e3cd9b" Height="32" Click="buttonChangeEmail_Click" MouseEnter="buttonChangeEmail_MouseEnter">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="buttonChangePass" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Top" HorizontalAlignment="Left" Margin="362,261,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="White" Height="32" Click="buttonChangePass_Click" MouseEnter="buttonChangePass_MouseEnter">
+        <Button x:Name="buttonChangePass" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="362,261,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="#e3cd9b" Height="32" Click="buttonChangePass_Click" MouseEnter="buttonChangePass_MouseEnter">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
