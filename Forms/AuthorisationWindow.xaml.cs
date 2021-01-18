@@ -1,7 +1,8 @@
 ﻿using LandConquest.DialogWIndows;
-using LandConquestDB.Entities;
 using LandConquest.Forms;
 using LandConquest.Launcher;
+using LandConquestDB;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using Syroot.Windows.IO;
 using System;
@@ -12,7 +13,6 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
-using LandConquestDB;
 
 namespace LandConquest
 {
@@ -31,9 +31,10 @@ namespace LandConquest
 
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            YDContext.OpenYD();
             DbContext.OpenConnectionPool();
-            LauncherController.CheckLocalUtcDateTime();
-            LauncherController.DisableActiveCheats();
+            //LauncherController.CheckLocalUtcDateTime();
+            //LauncherController.DisableActiveCheats();
             CheckVersion();
             textBoxLogin.Text = Properties.Settings.Default.UserLogin;
             textBoxPass.Password = Properties.Settings.Default.UserPassword;

@@ -20,7 +20,7 @@ namespace LandConquest.Forms
         public AuctionWindow(Player _player)
         {
             InitializeComponent();
-            player = _player;          
+            player = _player;
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
@@ -64,7 +64,7 @@ namespace LandConquest.Forms
         {
             AuctionListings listing = (AuctionListings)auctionDataGrid.SelectedItem;
             BuyListingDialog inputDialog = new BuyListingDialog();
-            int itemAmount; 
+            int itemAmount;
             if (inputDialog.ShowDialog() == true)
             {
                 itemAmount = inputDialog.Amount;

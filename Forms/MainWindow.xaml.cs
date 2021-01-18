@@ -1,7 +1,7 @@
 ﻿using LandConquest.DialogWIndows;
+using LandConquest.Models;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
-using LandConquest.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -794,8 +794,8 @@ namespace LandConquest.Forms
 
         private void image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
-          Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.FileName = ""; // Default file name
                                // dlg.DefaultExt = ".png"; // Default file extension
             dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
