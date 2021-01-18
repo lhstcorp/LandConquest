@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include=".recipes\Spritely.SecureString\SecureString.cs" />
     <Compile Include="DbContext\DBContext.cs" />
     <Compile Include="Entities\Army.cs" />
     <Compile Include="Entities\ArmyInBattle.cs" />
