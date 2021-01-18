@@ -36,7 +36,7 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
                 </Button.Background>
             </Button>
-            
+
             <Button x:Name="btnAttack" Content="A" FontSize="10" FontWeight="Bold"  Foreground="Wheat" HorizontalAlignment="Left" Margin="164,67,0,0" VerticalAlignment="Top" Width="34" BorderBrush="{x:Null}" Click="btnAttack_Click" Height="34">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
