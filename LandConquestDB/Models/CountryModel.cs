@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Windows;
 
 namespace LandConquestDB.Models
 {
@@ -154,7 +153,7 @@ namespace LandConquestDB.Models
             return country;
         }
 
-        
+
         public static void DisbandCountry(Country country)
         {
             String query = "DELETE FROM dbo.CountryData WHERE country_id = @id";

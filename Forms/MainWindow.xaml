@@ -164,7 +164,7 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
-        <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="40" Margin="444,17,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/storeImage.png" Width="41" Cursor="Hand" MouseDown="marketImage_MouseDown"/>
+        <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="40" Margin="444,17,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/boxes.png" Width="41" Cursor="Hand" MouseDown="marketImage_MouseDown"/>
         <Image x:Name="CountryImage"  HorizontalAlignment="Left" Height="37" Margin="497,13,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/parlament.png" Width="37" Cursor="Hand" MouseDown="CountryImage_MouseDown"/>
         <Image x:Name="LandImage" HorizontalAlignment="Left" Height="40" Margin="542,15,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/landMainBuilding.png" Width="40"  MouseDown="LandImage_MouseDown" Opacity="0.25"/>
         <Image x:Name="CoffersImage"  HorizontalAlignment="Left" Height="37" Margin="598,13,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/coins.png" Width="37" Cursor="Hand" MouseDown="CoffersImage_MouseDown"/>

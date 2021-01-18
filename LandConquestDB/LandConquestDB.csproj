@@ -32,8 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="KSecure, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KSecure.1.1.0\lib\net40\KSecure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="Syroot.KnownFolders, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
@@ -59,15 +62,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="YandexDiskNET, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\YandexDiskNET.1.0.7\lib\net45\YandexDiskNET.dll</HintPath>
-    </Reference>
-    <Reference Include="Получить код подтверждения, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\YandexDiskNET.1.0.7\lib\net45\Получить код подтверждения.exe</HintPath>
+    <Reference Include="YandexDiskNET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\YandexDiskNET.1.0.0.1\lib\net45\YandexDiskNET.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include=".recipes\Spritely.SecureString\SecureString.cs" />
     <Compile Include="DbContext\DBContext.cs" />
+    <Compile Include="DbContext\YDContext.cs" />
     <Compile Include="Entities\Army.cs" />
     <Compile Include="Entities\ArmyInBattle.cs" />
     <Compile Include="Entities\AuctionListings.cs" />
