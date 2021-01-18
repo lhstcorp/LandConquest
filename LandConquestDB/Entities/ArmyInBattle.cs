@@ -13,7 +13,5 @@
         public int ArmySide { get; set; }
 
         public bool CanMove { get; set; }
-
-        public bool CanShoot { get; set; }
     }
 }
