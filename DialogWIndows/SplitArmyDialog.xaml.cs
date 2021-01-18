@@ -1,14 +1,13 @@
-﻿using LandConquestDB.Entities;
+﻿using LandConquest.Forms;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
-using System.Data.SqlClient;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
-using LandConquest.Forms;
-using System.Collections.Generic;
 
 namespace LandConquest.DialogWIndows
 {
