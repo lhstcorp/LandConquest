@@ -16,15 +16,15 @@ namespace LandConquest.Forms
     /// </summary>
     public partial class CountryWindow : Window
     {
-        Player player;
-        List<Land> countryLands;
-        List<Land> countryLandsToFight;
-        List<Country> countries;
-        Land selectedLand;
-        Country transferCountry;
-        Land countryLandDefender;
-        int operation = 0;
-        bool f = true;
+        private Player player;
+        private List<Land> countryLands;
+        private List<Land> countryLandsToFight;
+        private List<Country> countries;
+        private Land selectedLand;
+        private Country transferCountry;
+        private Land countryLandDefender;
+        private int operation = 0;
+        private bool f = true;
         public CountryWindow(Player _player)
         {
             player = _player;

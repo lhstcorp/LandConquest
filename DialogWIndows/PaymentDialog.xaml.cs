@@ -6,10 +6,10 @@ namespace LandConquest.DialogWIndows
 {
     public partial class PaymentDialog : Window
     {
-        Player player;
+        private Player player;
         public double moneyAmount;
         public int gameCurrencyAmount;
-        BalanceReplenishmentDialog dialog;
+        private BalanceReplenishmentDialog dialog;
 
         public PaymentDialog(double _moneyAmount, int _gameCurrencyAmount, Player _player, BalanceReplenishmentDialog _dialog)
         {

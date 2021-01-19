@@ -9,7 +9,8 @@ namespace LandConquest.Forms
     /// </summary>
     public partial class CoffersWindow : Window
     {
-        Player player;
+        private Player player;
+
         //List<Land> countryLands;
         //List<Land> countryLandsToFight;
         //List<Country> countries;
@@ -17,7 +18,7 @@ namespace LandConquest.Forms
         //Country transferCountry;
         //Land countryLandDefender;
         //int operation = 0;
-        bool f = true;
+        private bool f = true;
         public CoffersWindow(Player _player)
         {
             player = _player;

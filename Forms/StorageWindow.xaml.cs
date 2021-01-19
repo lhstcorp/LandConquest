@@ -9,11 +9,11 @@ namespace LandConquest.Forms
 
     public partial class StorageWindow : Window
     {
-        MainWindow window;
-        Player player;
-        User user;
-        PlayerStorage storage;
-        PlayerEquipment equipment;
+        private MainWindow window;
+        private Player player;
+        private User user;
+        private PlayerStorage storage;
+        private PlayerEquipment equipment;
         public StorageWindow(MainWindow _window, Player _player, User _user)
         {
             InitializeComponent();

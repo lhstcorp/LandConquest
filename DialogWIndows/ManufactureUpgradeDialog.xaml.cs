@@ -8,12 +8,12 @@ namespace LandConquest.DialogWIndows
 {
     public partial class ManufactureUpgradeDialog : Window
     {
-        Player player;
-        PlayerStorage storage;
-        Manufacture manufacture;
-        PlayerStorage resourcesNeed;
-        ManufactureModel model;
-        StorageModel storageModel;
+        private Player player;
+        private PlayerStorage storage;
+        private Manufacture manufacture;
+        private PlayerStorage resourcesNeed;
+        private ManufactureModel model;
+        private StorageModel storageModel;
         public ManufactureUpgradeDialog(PlayerStorage _storage, Manufacture _manufacture, Player _player)
         {
             InitializeComponent();

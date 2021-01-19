@@ -15,9 +15,9 @@ namespace LandConquest.Forms
 {
     public partial class ChatWindow : Window
     {
-        Player player;
-        List<ChatMessages> messages;
-        SqlTableDependency<ChatMessages> sqlTableDependency;
+        private Player player;
+        private List<ChatMessages> messages;
+        private SqlTableDependency<ChatMessages> sqlTableDependency;
 
         public ChatWindow(Player _player)
         {

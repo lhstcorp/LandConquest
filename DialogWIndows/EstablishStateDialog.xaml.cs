@@ -7,11 +7,10 @@ namespace LandConquest.DialogWIndows
 
     public partial class EstablishStateDialog : Window
     {
-        Player player;
-        Land land;
-
-        LandModel landModel;
-        CountryModel countryModel;
+        private Player player;
+        private Land land;
+        private LandModel landModel;
+        private CountryModel countryModel;
 
         public EstablishStateDialog(Player _player, Land _land)
         {

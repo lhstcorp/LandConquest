@@ -19,28 +19,25 @@ namespace LandConquest.Forms
 {
     public partial class MainWindow : Window
     {
-
-        User user;
-        Player player;
-        Market market;
-        PlayerStorage storage;
-        PlayerEquipment equipment = new PlayerEquipment();
-        Taxes taxes;
-        Peasants peasants;
-        List<Land> lands;
-        List<Path> paths;
-        List<Country> countries;
-        List<War> wars;
-        Land land;
-        Army army;
-        Country country;
-        War WAR; //GLOBAL
-        ManufactureModel manufactureModel;
-
-        Thickness[] marginsOfWarButtons;
-        int[] flagXY = new int[4];
-
-        const int landsCount = 11;
+        private User user;
+        private Player player;
+        private Market market;
+        private PlayerStorage storage;
+        private PlayerEquipment equipment = new PlayerEquipment();
+        private Taxes taxes;
+        private Peasants peasants;
+        private List<Land> lands;
+        private List<Path> paths;
+        private List<Country> countries;
+        private List<War> wars;
+        private Land land;
+        private Army army;
+        private Country country;
+        private War WAR; //GLOBAL
+        private ManufactureModel manufactureModel;
+        private Thickness[] marginsOfWarButtons;
+        private int[] flagXY = new int[4];
+        private const int landsCount = 11;
 
         public MainWindow(User _user)
         {

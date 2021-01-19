@@ -7,7 +7,7 @@ namespace LandConquest.Forms
 
     public partial class WarResultWindow : Window
     {
-        Player player;
+        private Player player;
 
         public WarResultWindow(Player _player)
         {

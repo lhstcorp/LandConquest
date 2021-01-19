@@ -9,8 +9,8 @@ namespace LandConquest.Forms
 {
     public partial class AuctionWindow : Window
     {
-        Player player;
-        List<AuctionListings> listings;
+        private Player player;
+        private List<AuctionListings> listings;
         public int[] qty { get; set; }
         public string[] subject { get; set; }
         public DateTime[] setTime { get; set; }

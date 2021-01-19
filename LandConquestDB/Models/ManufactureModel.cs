@@ -7,7 +7,7 @@ namespace LandConquestDB.Models
 {
     public class ManufactureModel
     {
-        List<Manufacture> manufactures;
+        private List<Manufacture> manufactures;
 
         public DateTime GetManufactureProdStartTime(Player player)
         {

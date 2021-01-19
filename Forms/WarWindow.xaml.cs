@@ -17,31 +17,30 @@ namespace LandConquest.Forms
 {
     public partial class WarWindow : Window
     {
-        System.Windows.Controls.Primitives.UniformGrid localWarMap = new System.Windows.Controls.Primitives.UniformGrid();
-        Image imgArmySelected;
-        Boolean f_armySelected = false;
-        Boolean f_canMoveArmy = false;
-        int INDEX;
-        const int syncTick = 30; //sec
+        private System.Windows.Controls.Primitives.UniformGrid localWarMap = new System.Windows.Controls.Primitives.UniformGrid();
+        private Image imgArmySelected;
+        private Boolean f_armySelected = false;
+        private Boolean f_canMoveArmy = false;
+        private int INDEX;
+        private const int syncTick = 30; //sec
         private int timerValue = 30;
-
-        Player player;
-        List<ArmyInBattle> armies;
-        List<Image> armyImages;
-        ArmyInBattle army;
-        ArmyInBattle selectedArmy;
-        List<ArmyInBattle> armyInBattlesInCurrentTile;
-        War war;
-        int saveMovement;
-        int saveRange;
-        Image emptyImage = new Image();
-        int armyPage;
-        int index;
-        List<bool> selectedArmiesForUnion;
-        List<ArmyInBattle> yourArmiesInCurrentTile = new List<ArmyInBattle>();
-        int SelectionCounter;
-        bool shoot = false;
-        DispatcherTimer syncTimer;
+        private Player player;
+        private List<ArmyInBattle> armies;
+        private List<Image> armyImages;
+        private ArmyInBattle army;
+        private ArmyInBattle selectedArmy;
+        private List<ArmyInBattle> armyInBattlesInCurrentTile;
+        private War war;
+        private int saveMovement;
+        private int saveRange;
+        private Image emptyImage = new Image();
+        private int armyPage;
+        private int index;
+        private List<bool> selectedArmiesForUnion;
+        private List<ArmyInBattle> yourArmiesInCurrentTile = new List<ArmyInBattle>();
+        private int SelectionCounter;
+        private bool shoot = false;
+        private DispatcherTimer syncTimer;
         public static List<ArmyInBattle> playerArmies = new List<ArmyInBattle>();
 
         //Canvas localWarArmyLayer = new Canvas();

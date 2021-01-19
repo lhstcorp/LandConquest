@@ -10,11 +10,11 @@ namespace LandConquest.DialogWIndows
 
     public partial class BalanceReplenishmentDialog : Window
     {
-        PaymentDialog paymentDialog;
-        WarningDialogWindow window;
+        private PaymentDialog paymentDialog;
+        private WarningDialogWindow window;
         public double moneyAmount;
-        Player player;
-        SqlConnection connection;
+        private Player player;
+        private SqlConnection connection;
         public BalanceReplenishmentDialog(Player _player)
         {
             player = _player;
