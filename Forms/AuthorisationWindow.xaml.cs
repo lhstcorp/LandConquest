@@ -19,8 +19,8 @@ namespace LandConquest
 
     public partial class AuthorisationWindow : System.Windows.Window
     {
-        User user;
-        WarningDialogWindow warningWindow;
+        private User user;
+        private WarningDialogWindow warningWindow;
 
         public AuthorisationWindow()
         {

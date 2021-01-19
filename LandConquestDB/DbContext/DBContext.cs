@@ -8,7 +8,7 @@ namespace LandConquestDB
         private static SqlConnection sqlconnection;
         public static void OpenConnectionPool()
         {
-            string name = @"glandeil";
+            string name = @"online";
             try
             {
                 sqlconnection = new SqlConnection(YDContext.ReadResource(name));

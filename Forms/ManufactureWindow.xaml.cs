@@ -10,18 +10,18 @@ namespace LandConquest.Forms
 {
     public partial class ManufactureWindow : Window
     {
-        Player player;
-        MainWindow window;
-        Peasants peasants;
-        List<Manufacture> manufactures;
-        List<Manufacture> landManufactures;
-        List<Manufacture> playerLandManufactures;
-        ManufactureModel model;
-        PlayerStorage storage;
-        int unemployedPeasantsCount;
-        int employedPeasantsCount;
-        int peasantsWorkingOnB1 = 0;
-        int peasantsWorkingOnB2 = 0;
+        private Player player;
+        private MainWindow window;
+        private Peasants peasants;
+        private List<Manufacture> manufactures;
+        private List<Manufacture> landManufactures;
+        private List<Manufacture> playerLandManufactures;
+        private ManufactureModel model;
+        private PlayerStorage storage;
+        private int unemployedPeasantsCount;
+        private int employedPeasantsCount;
+        private int peasantsWorkingOnB1 = 0;
+        private int peasantsWorkingOnB2 = 0;
 
         public ManufactureWindow(MainWindow _window, Player _player, PlayerStorage _storage)
         {

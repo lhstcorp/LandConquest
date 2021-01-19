@@ -11,10 +11,9 @@ namespace LandConquest.Resources
 {
     public sealed partial class StylesDictionary : ResourceDictionary
     {
-        List<Land> lands;
-
-        Color colorOfResource1 = Color.FromRgb(255, 255, 255);
-        Color colorOfResource2 = Color.FromRgb(0, 0, 0);
+        private List<Land> lands;
+        private Color colorOfResource1 = Color.FromRgb(255, 255, 255);
+        private Color colorOfResource2 = Color.FromRgb(0, 0, 0);
         public void ViewboxLoadedHandler(object sender, EventArgs e)
         {
             try

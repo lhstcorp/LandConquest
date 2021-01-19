@@ -9,14 +9,14 @@ namespace LandConquest.DialogWIndows
 
     public partial class CreateListingDialog : Window
     {
-        Player player;
-        PlayerStorage storage;
-        PlayerEquipment equipment;
-        Peasants peasants;
-        Army army;
-        string itemName;
-        string itemGroup;
-        string itemSubgroup;
+        private Player player;
+        private PlayerStorage storage;
+        private PlayerEquipment equipment;
+        private Peasants peasants;
+        private Army army;
+        private string itemName;
+        private string itemGroup;
+        private string itemSubgroup;
 
         public CreateListingDialog(Player _player)
         {

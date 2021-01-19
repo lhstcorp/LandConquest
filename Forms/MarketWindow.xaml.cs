@@ -11,11 +11,10 @@ namespace LandConquest.Forms
 {
     public partial class MarketWindow : Window
     {
-        MainWindow window;
-        Player player;
-
-        PlayerStorage storage;
-        Market market;
+        private MainWindow window;
+        private Player player;
+        private PlayerStorage storage;
+        private Market market;
 
         public MarketWindow(MainWindow _window, PlayerStorage _storage, Market _market, Player _player)
         {
@@ -77,7 +76,7 @@ namespace LandConquest.Forms
 
             LiveCharts.SeriesCollection series = new LiveCharts.SeriesCollection
             {
-                
+
                 new ScatterSeries
                 {
                     Values = new ChartValues<ScatterPoint>
@@ -96,7 +95,7 @@ namespace LandConquest.Forms
 
             };
 
-            graphics.Series = series;         
+            graphics.Series = series;
 
         }
 

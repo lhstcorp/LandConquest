@@ -8,11 +8,11 @@ namespace LandConquest.Forms
 
     public partial class RecruitWindow : Window
     {
-        Player player;
-        PlayerStorage storage;
-        PlayerEquipment equipment;
-        Peasants peasants;
-        Army army = new Army();
+        private Player player;
+        private PlayerStorage storage;
+        private PlayerEquipment equipment;
+        private Peasants peasants;
+        private Army army = new Army();
 
         public RecruitWindow(Player _player, PlayerStorage _storage, PlayerEquipment _equipment)
         {

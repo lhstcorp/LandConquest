@@ -8,10 +8,10 @@ namespace LandConquest.Forms
 {
     public partial class RatingWindow : Window
     {
-        MainWindow window;
-        Player player;
-        Army army;
-        User user;
+        private MainWindow window;
+        private Player player;
+        private Army army;
+        private User user;
 
         public List<Player> playersXp { get; set; }
         public List<Player> playersCoins { get; set; }

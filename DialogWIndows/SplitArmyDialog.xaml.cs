@@ -13,10 +13,10 @@ namespace LandConquest.DialogWIndows
 {
     public partial class SplitArmyDialog : Window
     {
-        ArmyInBattle armyInBattle;
-        War war;
-        int typeOfNewArmy;
-        int typeOfOldArmy;
+        private ArmyInBattle armyInBattle;
+        private War war;
+        private int typeOfNewArmy;
+        private int typeOfOldArmy;
         public SplitArmyDialog(ArmyInBattle _armyInBattle, War _war)
         {
             armyInBattle = _armyInBattle;
