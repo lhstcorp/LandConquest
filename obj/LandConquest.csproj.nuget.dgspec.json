@@ -38,6 +38,10 @@
       "frameworks": {
         "net472": {
           "dependencies": {
+            "EmailValidation": {
+              "target": "Package",
+              "version": "[1.0.4, )"
+            },
             "FontAwesome.WPF": {
               "target": "Package",
               "version": "[4.7.0.9, )"

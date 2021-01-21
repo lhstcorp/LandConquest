@@ -301,9 +301,9 @@ namespace LandConquest.Forms
 
         private void buttonCloseWindow_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
-            Environment.Exit(0);
-
+            AuthorisationWindow window = new AuthorisationWindow();
+            window.Show();
+            this.Close();
         }
 
         private void reload_button_Click(object sender, RoutedEventArgs e)
@@ -522,8 +522,18 @@ namespace LandConquest.Forms
         private void ExitButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             AuthorisationWindow window = new AuthorisationWindow();
+            WarWindow warWindow = App.Current.Windows.OfType<WarWindow>().FirstOrDefault();
+            if (warWindow != null)
+            {
+                warWindow.Close();
+            }
+            foreach (Window f in Application.Current.Windows)
+            {
+
+                f.Close();
+            }
             window.Show();
-            this.Close();
+            //this.Close();
 
         }
         private void playMusic()
@@ -816,6 +826,11 @@ namespace LandConquest.Forms
         {
             CoffersWindow win = new CoffersWindow(player);
             win.Show();
+
+        }
+
+        private void buttonSubmitBug_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
