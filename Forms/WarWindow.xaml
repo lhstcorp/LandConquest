@@ -5,21 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
         mc:Ignorable="d"
-        WindowStyle="None" ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen" WindowState="Maximized"
-        Title="WarWindow" Height="1000" Width="1400">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" 
+        Title="Battle" Height="900" Width="1600">
+
     <Grid x:Name="mainWarWinGrid">
-
-        <Button x:Name="btnWarWindowClose" Foreground="Black" Click="btnWarWindowClose_Click" BorderBrush="{x:Null}" Width="30" Height="30" Margin="0,5,10,0" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-
         <Grid Height="293" Margin="0,179,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="233">
-
             <Label Content="Army of" Margin="0,0,-16.2,260" Grid.ColumnSpan="4" HorizontalAlignment="Right" Width="236" Height="32" VerticalAlignment="Bottom"></Label>
-            <Label x:Name="playerNameLbl" Content="PLAYERNAME" Margin="0,0,-29.2,260" Grid.ColumnSpan="4" HorizontalAlignment="Right" Width="204" Height="32" VerticalAlignment="Bottom"></Label>
+            <Label x:Name="playerNameLbl" Content="PLAYERNAME" Margin="0,0,74,260" HorizontalAlignment="Right" Width="101" Height="32" VerticalAlignment="Bottom"/>
             <Image Margin="0,0,180,234" Source="/Pictures/Armies/TRO-0.png" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="40"/>
             <Label x:Name="warriorsAll" Content="0" FontSize="14" Margin="0,0,113,237" HorizontalAlignment="Right" Width="59" Height="26" VerticalAlignment="Bottom"></Label>
             <Image Margin="0,0,197,174" Source="/Pictures/Armies/INF-0.png" HorizontalAlignment="Right" Width="25" Height="25" VerticalAlignment="Bottom"/>
@@ -54,6 +47,7 @@
                     <ImageBrush ImageSource="/Pictures/armyPageArrowRight.png"/>
                 </Button.Background>
             </Button>
+
             <Button x:Name="btnSelectToUnite" Content="Select" Foreground="Wheat" HorizontalAlignment="Left" Margin="164,35,0,0" VerticalAlignment="Top" Width="68" Click="btnSelectToUnite_Click" BorderBrush="{x:Null}" Height="32">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
@@ -98,7 +92,7 @@
             <Label x:Name="warriorsSiegeRight" Content="0"  Margin="186,135,9.6,141"/>
 
         </Grid>
-        <Label x:Name="timerLabel" Content="0" FontSize="24" HorizontalAlignment="Right" Margin="0,40,-31,0" VerticalAlignment="Top" Width="103" Height="39" Grid.Column="1"/>
+        <Label x:Name="timerLabel" Content="0" FontSize="24" HorizontalAlignment="Right" Margin="0,40,-0.4,0" VerticalAlignment="Top" Width="72" Height="39"/>
         <Label Content="Next step in:" FontSize="20" Margin="0,40,48,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" Grid.Column="1" Height="34"/>
 
         <Image Margin="0,80,88,0"  Source="/LandConquest;component/Pictures/epic_button_brown.png" HorizontalAlignment="Right" Width="132" Height="42" VerticalAlignment="Top"/>
