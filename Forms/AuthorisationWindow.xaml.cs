@@ -13,6 +13,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
+using EmailValidation;
 
 namespace LandConquest
 {
@@ -80,8 +81,7 @@ namespace LandConquest
             bool validNewUserEmail = UserModel.ValidateUserByEmail(textBoxNewEmail.Text);
 
             if (textBoxNewLogin.Text.Length > 6 &&
-                textBoxNewEmail.Text.Length > 6 &&
-                textBoxNewEmail.Text.Contains("@") &&
+                EmailValidator.Validate(textBoxNewEmail.Text, true, true) &&
                 textBoxNewPass.Text.Length > 6 &&
                 validNewUserLogin == true &&
                 validNewUserEmail == true &&
@@ -91,7 +91,6 @@ namespace LandConquest
                 int userCreationResult = UserModel.CreateUser(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, this.textBoxNewPass.Text, userId);
                 if (userCreationResult < 0)
                 {
-                    Console.WriteLine("Error creating new user!");
                     warningWindow = new WarningDialogWindow("Error creating new user!");
                     warningWindow.Show();
                 }
@@ -127,7 +126,7 @@ namespace LandConquest
                 textBoxNewEmail.Text = "";
                 textBoxNewPass.Text = "";
                 textBoxConfirmNewPass.Text = "";
-                warningWindow = new WarningDialogWindow("Your login and email should be unique. Password, login and email length should be more then 6.");
+                warningWindow = new WarningDialogWindow("Your login and email should be unique. Password and login length should be more than 6.");
                 warningWindow.Show();
             }
         }

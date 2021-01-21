@@ -97,7 +97,7 @@
             <Image Margin="66,305,160,143" Source="/Pictures/epic_brown_square.png"/>
             <Image Margin="164,305,62,143" Source="/Pictures/epic_brown_square.png"/>
 
-            <Label x:Name="lblLandNameOnGrid" Content="Land Name" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Height="30" Margin="100,102,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}"/>
+            <Label x:Name="lblLandNameOnGrid" HorizontalContentAlignment="Center" Content="" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Height="30" Margin="31,102,0,0" VerticalAlignment="Top" Width="225" Background="{x:Null}"/>
             <Button x:Name="btnGoToLand" Content="Go to" HorizontalAlignment="Left" Height="38" Margin="66,178,0,0" VerticalAlignment="Top" Width="164" Click="btnGoToLand_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
@@ -111,7 +111,7 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Label x:Name="lblCountryNameOnGrid" Content="Country Name" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Height="41" Margin="60,56,55,0" VerticalAlignment="Top" Width="177" Background="{x:Null}"/>
+            <Label x:Name="lblCountryNameOnGrid" HorizontalContentAlignment="Center" Content="" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Height="41" Margin="31,56,36,0" VerticalAlignment="Top" Width="225" Background="{x:Null}"/>
             <Button x:Name="buttonStartBattle" IsEnabled="False" Content="Start test battle" HorizontalAlignment="Left" Margin="66,261,0,0" VerticalAlignment="Top" Width="164" Height="37" Click="buttonStartBattle_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
@@ -181,7 +181,6 @@
         <Image HorizontalAlignment="Left" Height="20" Margin="107,62,0,0" VerticalAlignment="Top" Width="20" Source="/Pictures/coins.png"/>
         <Label x:Name="labelMoney" Content="0" Foreground="#FFE5D09D" HorizontalAlignment="Left" Margin="128,57,0,0" VerticalAlignment="Top" Height="32" Width="68" FontSize="16"/>
         <Label x:Name="labelDonation" Content="0" Foreground="Goldenrod" FontSize="16" HorizontalAlignment="Left" Margin="128,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.15,0.5" Width="68" Height="31"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="87,206,0,0" VerticalAlignment="Top"/>
 
         <Button x:Name="buttonSubmitBug" Content="Submit bug" Margin="0,819,18.4,0" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" Click="buttonSubmitBug_Click">
             <Button.Background>

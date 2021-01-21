@@ -831,7 +831,10 @@ namespace LandConquest.Forms
 
         private void buttonSubmitBug_Click(object sender, RoutedEventArgs e)
         {
-
+            SubmitBugWindow window = new SubmitBugWindow(player.PlayerName);
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Owner = this;
+            window.Show();
         }
     }
 }

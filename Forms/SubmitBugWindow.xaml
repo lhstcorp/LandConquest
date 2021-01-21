@@ -1,0 +1,34 @@
+﻿<Window x:Class="LandConquest.Forms.SubmitBugWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.Forms"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStyle="None" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="ChatWindow" Height="450" Width="850" Background="{x:Null}"
+        ShowInTaskbar="False">
+    <Grid>
+
+        <Button x:Name="buttonSubmitBug" Content="Send" HorizontalAlignment="Left" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="73" Height="36"  BorderBrush="{x:Null}" Margin="767,404,0,0" Foreground="#FFE1C993" Click="buttonSubmitBug_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="buttonClose" HorizontalAlignment="Center" Content="Close" Margin="767,4,9.6,0" VerticalAlignment="Top" Foreground="#FFE4CC9A" BorderBrush="{x:Null}" Height="34" RenderTransformOrigin="0.5,0.5" Width="73" Click="buttonClose_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="textBoxBugReport" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.Hint="Describe situation in a few words..." materialDesign:HintAssist.IsFloating="False" Padding="5,0,0,0" FontSize="18" Background="Wheat" HorizontalAlignment="Left" Height="356" Margin="10,43,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" VerticalAlignment="Top" Width="830"/>
+        <Label Content="Your name:" FontSize="20" FontFamily="Tahoma" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelPlayerName" Content="Name" FontSize="20" FontFamily="Harrington" HorizontalAlignment="Left" Margin="141,6,0,0" VerticalAlignment="Top"/>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+    </Grid>
+</Window>
