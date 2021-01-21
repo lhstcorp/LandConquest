@@ -215,6 +215,9 @@
     <Compile Include="Forms\RatingWindow.xaml.cs">
       <DependentUpon>RatingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SubmitBugWindow.xaml.cs">
+      <DependentUpon>SubmitBugWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\WarResultWindow.xaml.cs">
       <DependentUpon>WarResultWindow.xaml</DependentUpon>
     </Compile>
@@ -335,6 +338,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\StorageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\SubmitBugWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
