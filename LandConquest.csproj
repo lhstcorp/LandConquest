@@ -179,9 +179,6 @@
     <Compile Include="DialogWIndows\EstablishStateDialog.xaml.cs">
       <DependentUpon>EstablishStateDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DialogWIndows\PaymentDialog.xaml.cs">
-      <DependentUpon>PaymentDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DialogWIndows\SplitArmyDialog.xaml.cs">
       <DependentUpon>SplitArmyDialog.xaml</DependentUpon>
     </Compile>
@@ -206,9 +203,6 @@
     <Compile Include="Forms\MembershipWindow.xaml.cs">
       <DependentUpon>MembershipWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PaymentWindow.xaml.cs">
-      <DependentUpon>PaymentWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Forms\ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
     </Compile>
@@ -225,7 +219,7 @@
       <DependentUpon>WarWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Launcher\LauncherController.cs" />
-    <Compile Include="Models\WarModel.cs" />
+    <Compile Include="Models\WarLogic.cs" />
     <Compile Include="Resources\GlobalMap.xaml.cs">
       <DependentUpon>GlobalMap.xaml</DependentUpon>
     </Compile>
@@ -256,10 +250,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\ManufactureUpgradeDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DialogWIndows\PaymentDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -318,10 +308,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\MembershipWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Forms\PaymentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

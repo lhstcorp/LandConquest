@@ -67,7 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include=".recipes\Spritely.SecureString\SecureString.cs" />
     <Compile Include="DbContext\DBContext.cs" />
     <Compile Include="DbContext\YDContext.cs" />
     <Compile Include="Entities\Army.cs" />
@@ -106,6 +105,7 @@
     <Compile Include="Models\StorageModel.cs" />
     <Compile Include="Models\TaxesModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\WarModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

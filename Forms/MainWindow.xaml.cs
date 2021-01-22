@@ -739,7 +739,7 @@ namespace LandConquest.Forms
                     WAR = new War();
                     WAR.WarId = wars[j].WarId;
                     //DeclareWar(null, e);
-                    WarModel.EnterInWar(WAR, player);
+                    WarLogic.EnterInWar(WAR, player);
                 }
             }
         }
@@ -775,7 +775,7 @@ namespace LandConquest.Forms
             int k = 0;
             while (Convert.ToInt32(label.Content) > 1000)
             {
-                label.Content = (float)Convert.ToInt32(label.Content) / (float)1000;
+                label.Content = Convert.ToInt32(label.Content) / (float)1000;
                 k++;
             }
 

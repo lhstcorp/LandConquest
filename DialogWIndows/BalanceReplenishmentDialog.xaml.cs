@@ -10,7 +10,6 @@ namespace LandConquest.DialogWIndows
 
     public partial class BalanceReplenishmentDialog : Window
     {
-        private PaymentDialog paymentDialog;
         private WarningDialogWindow window;
         public double moneyAmount;
         private Player player;
@@ -26,8 +25,6 @@ namespace LandConquest.DialogWIndows
         {
             if (Convert.ToInt32(currencyAmount.Text) >= 100)
             {
-                paymentDialog = new PaymentDialog(moneyAmount, Convert.ToInt32(currencyAmount.Text), player, this);
-                paymentDialog.Show();
                 this.Hide();
             }
             else

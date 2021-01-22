@@ -164,7 +164,7 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="buyMembership" Content="Membership" FontSize="12" HorizontalAlignment="Left" Margin="217,88,0,0" VerticalAlignment="Top" Width="100" Height="27" IsEnabled="True" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buyMembership_Click">
+        <Button x:Name="buyMembership" Content="Support us" FontSize="12" HorizontalAlignment="Left" Margin="217,88,0,0" VerticalAlignment="Top" Width="94" Height="27" IsEnabled="True" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buyMembership_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
