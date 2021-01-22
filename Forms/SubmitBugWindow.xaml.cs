@@ -28,7 +28,7 @@ namespace LandConquest.Forms
             string path = new KnownFolder(KnownFolderType.Downloads).Path + @"\" + destFileName;
             File.AppendAllText(path, textBoxBugReport.Text);
             var result = disk.UploadResource("SubBugs/" + destFileName, path, true);
-            if(result.Error == null)
+            if (result.Error == null)
             {
                 labelPlayerName.Content = "Success!";
                 textBoxBugReport.Text = "";

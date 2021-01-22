@@ -16,7 +16,7 @@
         <Label Content="Coins:" HorizontalAlignment="Left" Margin="135,83,0,0" VerticalAlignment="Top"/>
         <Label Content="To pay:" HorizontalAlignment="Left" Margin="295,83,0,0" VerticalAlignment="Top"/>
         <Label x:Name="totalMoneyAmountLabel" Content="0" HorizontalAlignment="Left" Margin="343,83,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button x:Name="buttonPurchase" Content="Purchase" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="190,347,0,0" VerticalAlignment="Top" Width="151" Click="buttonPurchase_Click">
+        <Button x:Name="buttonPurchase" Content="Purchase" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="190,347,0,0" VerticalAlignment="Top" Width="151" Click="buttonPurchase_Click" Foreground="#FFE3CA91" Height="28">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>

@@ -113,7 +113,7 @@ namespace LandConquest.Forms
                     }
                 case 2:
                     {
-                        WarModel warModel = new WarModel();
+                        WarLogic warModel = new WarLogic();
                         WarModel.DeclareAWar(GenerateId(), selectedLand, countryLandDefender);
 
                         break;

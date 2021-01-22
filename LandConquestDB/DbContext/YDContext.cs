@@ -1,9 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
-using Spritely.Recipes;
 using System;
 using System.IO;
 using System.Net.Http;
-using System.Security;
 using System.Text;
 using YandexDiskNET;
 
@@ -12,11 +10,11 @@ namespace LandConquestDB
     public static class YDContext
     {
         private static YandexDiskRest disk;
-        private static SecureString oauth;
+        private static string oauth;
         public static void OpenYD()
         {
-            oauth = KSecure.Normal.Decrypt("MqlRhwK82YvBPUBZmUlUMtoiO/x2nTTEO1R6fTVROvhqd5Tdfe0VeqyERZM8S8mZi551+pDkRt3pMIN8JETVguoCyZAOfsxOH1LG78LejN7j4OjozYQGyYm/FrBLqEq71MruafJBLilwuKE4EU2y+69w6az1cGeFrRB+jxb9814=", Environment.SystemDirectory).ToSecureString();
-            disk = new YandexDiskRest(oauth.ToInsecureString());
+            oauth = KSecure.Normal.Decrypt("MqlRhwK82YvBPUBZmUlUMtoiO/x2nTTEO1R6fTVROvhqd5Tdfe0VeqyERZM8S8mZi551+pDkRt3pMIN8JETVguoCyZAOfsxOH1LG78LejN7j4OjozYQGyYm/FrBLqEq71MruafJBLilwuKE4EU2y+69w6az1cGeFrRB+jxb9814=", Environment.SystemDirectory);
+            disk = new YandexDiskRest(oauth);
         }
 
         public static YandexDiskRest GetYD()
@@ -28,7 +26,7 @@ namespace LandConquestDB
         {
             Param param = default(Param);
             param.Path = sourceFileName;
-            string result = ReadFile((string)JObject.Parse(CommandDisk(oauth.ToInsecureString(), param)).SelectToken("href"));
+            string result = ReadFile((string)JObject.Parse(CommandDisk(oauth, param)).SelectToken("href"));
             return result;
         }
 

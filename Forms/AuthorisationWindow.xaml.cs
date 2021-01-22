@@ -1,4 +1,5 @@
-﻿using LandConquest.DialogWIndows;
+﻿using EmailValidation;
+using LandConquest.DialogWIndows;
 using LandConquest.Forms;
 using LandConquest.Launcher;
 using LandConquestDB;
@@ -13,7 +14,6 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
-using EmailValidation;
 
 namespace LandConquest
 {
