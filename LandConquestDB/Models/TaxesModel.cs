@@ -6,9 +6,9 @@ namespace LandConquestDB.Models
 {
     public class TaxesModel
     {
-        public static void CreateTaxesData(String userId)
+        public static void CreateTaxesData(string userId)
         {
-            String taxQuery = "INSERT INTO dbo.TaxesData (player_id, tax_save_datetime) VALUES (@user_id, @tax_save_datetime)";
+            string taxQuery = "INSERT INTO dbo.TaxesData (player_id, tax_save_datetime) VALUES (@user_id, @tax_save_datetime)";
             var taxCommand = new SqlCommand(taxQuery, DbContext.GetSqlConnection());
 
             taxCommand.Parameters.AddWithValue("@user_id", userId);
@@ -20,7 +20,7 @@ namespace LandConquestDB.Models
 
         public static void SaveTaxes(Taxes taxes)
         {
-            String taxesQuery = "UPDATE dbo.TaxesData SET tax_value = @tax_value, tax_money_hour = @tax_money_hour, tax_save_datetime  = @tax_save_datetime WHERE player_id = @player_id ";
+            string taxesQuery = "UPDATE dbo.TaxesData SET tax_value = @tax_value, tax_money_hour = @tax_money_hour, tax_save_datetime  = @tax_save_datetime WHERE player_id = @player_id ";
 
             var taxesCommand = new SqlCommand(taxesQuery, DbContext.GetSqlConnection());
             taxesCommand.Parameters.AddWithValue("@tax_value", Convert.ToInt32(taxes.TaxValue));
@@ -35,7 +35,7 @@ namespace LandConquestDB.Models
 
         public static Taxes GetTaxesInfo(Taxes tax)
         {
-            String query = "SELECT * FROM dbo.TaxesData WHERE player_id = @player_id";
+            string query = "SELECT * FROM dbo.TaxesData WHERE player_id = @player_id";
 
             var taxcommand = new SqlCommand(query, DbContext.GetSqlConnection());
             taxcommand.Parameters.AddWithValue("@player_id", tax.PlayerId);

@@ -19,8 +19,8 @@ namespace LandConquest.Forms
     {
         private System.Windows.Controls.Primitives.UniformGrid localWarMap = new System.Windows.Controls.Primitives.UniformGrid();
         private Image imgArmySelected;
-        private Boolean f_armySelected = false;
-        private Boolean f_canMoveArmy = false;
+        private bool f_armySelected = false;
+        private bool f_canMoveArmy = false;
         private int INDEX;
         private const int syncTick = 30; //sec
         private int timerValue = 30;

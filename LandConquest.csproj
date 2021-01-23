@@ -218,8 +218,8 @@
     <Compile Include="Forms\WarWindow.xaml.cs">
       <DependentUpon>WarWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Launcher\LauncherController.cs" />
-    <Compile Include="Models\WarLogic.cs" />
+    <Compile Include="Logic\LauncherLogic.cs" />
+    <Compile Include="Logic\WarLogic.cs" />
     <Compile Include="Resources\GlobalMap.xaml.cs">
       <DependentUpon>GlobalMap.xaml</DependentUpon>
     </Compile>

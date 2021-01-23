@@ -6,9 +6,9 @@ namespace LandConquestDB.Models
 {
     public static class WarModel
     {
-        public static void DeclareAWar(String war_id, Land landAttacker, Land landDefender)
+        public static void DeclareAWar(string war_id, Land landAttacker, Land landDefender)
         {
-            String Query = "INSERT INTO dbo.WarData (war_id, land_attacker_id, land_defender_id, datetime_start) VALUES (@war_id, @land_attacker_id, @land_defender_id, @datetime_start)";
+            string Query = "INSERT INTO dbo.WarData (war_id, land_attacker_id, land_defender_id, datetime_start) VALUES (@war_id, @land_attacker_id, @land_defender_id, @datetime_start)";
 
             var Command = new SqlCommand(Query, DbContext.GetSqlConnection());
             // int datetimeResult;
@@ -24,7 +24,7 @@ namespace LandConquestDB.Models
 
         public static War GetWarById(War war)
         {
-            String query = "SELECT * FROM dbo.WarData WHERE war_id = @war_id";
+            string query = "SELECT * FROM dbo.WarData WHERE war_id = @war_id";
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@war_id", war.WarId);
 
@@ -50,7 +50,7 @@ namespace LandConquestDB.Models
 
         public static int SelectLastIdOfWars()
         {
-            String stateQuery = "SELECT * FROM dbo.WarData ORDER BY war_id DESC";
+            string stateQuery = "SELECT * FROM dbo.WarData ORDER BY war_id DESC";
             var stateCommand = new SqlCommand(stateQuery, DbContext.GetSqlConnection());
             string state_max_id = "";
             int count = 0;
@@ -70,10 +70,10 @@ namespace LandConquestDB.Models
 
         public static List<War> GetWarsInfo(List<War> wars)
         {
-            String query = "SELECT * FROM dbo.WarData";
-            List<String> warssWarId = new List<String>();
-            List<Int32> warsLandAttackerId = new List<Int32>();
-            List<Int32> warsLandDefenderId = new List<Int32>();
+            string query = "SELECT * FROM dbo.WarData";
+            List<string> warssWarId = new List<string>();
+            List<int> warsLandAttackerId = new List<int>();
+            List<int> warsLandDefenderId = new List<int>();
             List<DateTime> warsWarDateTimeStart = new List<DateTime>();
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
