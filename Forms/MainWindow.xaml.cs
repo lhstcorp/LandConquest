@@ -38,6 +38,7 @@ namespace LandConquest.Forms
         private Thickness[] marginsOfWarButtons;
         private int[] flagXY;
         private const int landsCount = 11;
+        private Window openedWindow;
 
         public MainWindow(User _user)
         {
@@ -597,14 +598,6 @@ namespace LandConquest.Forms
             }
         }
 
-        private void buttonProfile_Click(object sender, RoutedEventArgs e)
-        {
-            ProfileWindow profileWindow = new ProfileWindow(this, player, user);
-            profileWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            profileWindow.Owner = this;
-            profileWindow.Show();
-        }
-
         public Player CheckLvlChange(Player player)
         {
 
@@ -755,14 +748,6 @@ namespace LandConquest.Forms
             Cursor = Cursors.Arrow;
         }
 
-        private void OpenAuction_Click(object sender, RoutedEventArgs e)
-        {
-            AuctionWindow auctionWindow = new AuctionWindow(player);
-            auctionWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            auctionWindow.Owner = this;
-            auctionWindow.Show();
-        }
-
         private void buyCoins_Click(object sender, RoutedEventArgs e)
         {
             BalanceReplenishmentDialog dialog = new BalanceReplenishmentDialog(player);
@@ -802,21 +787,16 @@ namespace LandConquest.Forms
 
         private void image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            dlg.FileName = ""; // Default file name
-                               // dlg.DefaultExt = ".png"; // Default file extension
+            dlg.FileName = ""; 
             dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
          "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-         "Portable Network Graphic (*.png)|*.png";   // Filter files by extension
+         "Portable Network Graphic (*.png)|*.png";   
 
-            // Show open file dialog box
             Nullable<bool> result = dlg.ShowDialog();
 
-            // Process open file dialog box results
             if (result == true)
             {
-                // Open document
                 image.Source = new BitmapImage(new Uri(dlg.FileName));
             }
 
@@ -836,6 +816,45 @@ namespace LandConquest.Forms
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Owner = this;
             window.Show();
+        }
+
+        /// <summary>
+        /// ///////////////////////////////////////////////////////////////////////////
+        /// </summary>
+
+
+        private void buttonProfile_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            ProfileWindow profileWindow = new ProfileWindow(this, player, user);
+            profileWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            profileWindow.Owner = this;
+            profileWindow.Show();
+        }
+
+        private void OpenAuction_Click(object sender, RoutedEventArgs e)
+        {
+            openedWindow = new AuctionWindow(player);
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Owner = this;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+
+        private void FreeData(object data, EventArgs e)
+        {
+            openedWindow = null;
+            GC.Collect();
+        }
+
+        private void CloseUnusedWindows()
+        {
+            foreach (Window window in App.Current.Windows)
+            {
+                if (window != this)
+                    window.Close();
+            }
         }
     }
 }
