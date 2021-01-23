@@ -11,13 +11,13 @@ namespace LandConquestDB.Models
     {
         public static List<Land> GetLandsInfo(List<Land> lands)
         {
-            String query = "SELECT * FROM dbo.LandData";
-            List<Int32> landsLandId = new List<Int32>();
+            string query = "SELECT * FROM dbo.LandData";
+            List<int> landsLandId = new List<int>();
             List<string> landsLandName = new List<string>();
             List<string> landsLandColor = new List<string>();
-            List<Int32> landsCountryId = new List<Int32>();
-            List<Int32> landsResourceType1 = new List<Int32>();
-            List<Int32> landsResourceType2 = new List<Int32>();
+            List<int> landsCountryId = new List<int>();
+            List<int> landsResourceType1 = new List<int>();
+            List<int> landsResourceType2 = new List<int>();
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
@@ -67,7 +67,7 @@ namespace LandConquestDB.Models
 
         public static void UpdateLandInfo(Land land, Country country)
         {
-            String landQuery = "UPDATE dbo.LandData SET land_color = @country_color, country_id = @country_id WHERE land_id = @land_id ";
+            string landQuery = "UPDATE dbo.LandData SET land_color = @country_color, country_id = @country_id WHERE land_id = @land_id ";
 
             var landCommand = new SqlCommand(landQuery, DbContext.GetSqlConnection());
             landCommand.Parameters.AddWithValue("@country_id", country.CountryId);
@@ -82,7 +82,7 @@ namespace LandConquestDB.Models
 
         public static void AddLandManufactures(Land land)
         {
-            String manufactureQuery = "INSERT INTO dbo.LandManufactureData (land_id,manufacture_id,manufacture_name,manufacture_type) VALUES (@player_id, @manufacture_id, @manufacture_name, @manufacture_type)";
+            string manufactureQuery = "INSERT INTO dbo.LandManufactureData (land_id,manufacture_id,manufacture_name,manufacture_type) VALUES (@player_id, @manufacture_id, @manufacture_name, @manufacture_type)";
 
             //wood
             var woodCommand = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
@@ -166,13 +166,13 @@ namespace LandConquestDB.Models
 
         public static List<Land> GetCountryLands(Country country)
         {
-            String query = "SELECT * FROM dbo.LandData WHERE country_id = @country_id";
-            List<Int32> landsLandId = new List<Int32>();
+            string query = "SELECT * FROM dbo.LandData WHERE country_id = @country_id";
+            List<int> landsLandId = new List<int>();
             List<string> landsLandName = new List<string>();
             List<string> landsLandColor = new List<string>();
-            List<Int32> landsCountryId = new List<Int32>();
-            List<Int32> landsResourceType1 = new List<Int32>();
-            List<Int32> landsResourceType2 = new List<Int32>();
+            List<int> landsCountryId = new List<int>();
+            List<int> landsResourceType1 = new List<int>();
+            List<int> landsResourceType2 = new List<int>();
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@country_id", country.CountryId);

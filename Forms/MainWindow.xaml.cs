@@ -1,5 +1,5 @@
 ﻿using LandConquest.DialogWIndows;
-using LandConquest.Models;
+using LandConquest.Logic;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
@@ -23,7 +23,7 @@ namespace LandConquest.Forms
         private Player player;
         private Market market;
         private PlayerStorage storage;
-        private PlayerEquipment equipment = new PlayerEquipment();
+        private PlayerEquipment equipment;
         private Taxes taxes;
         private Peasants peasants;
         private List<Land> lands;
@@ -36,7 +36,7 @@ namespace LandConquest.Forms
         private War WAR; //GLOBAL
         private ManufactureModel manufactureModel;
         private Thickness[] marginsOfWarButtons;
-        private int[] flagXY = new int[4];
+        private int[] flagXY;
         private const int landsCount = 11;
 
         public MainWindow(User _user)
@@ -44,7 +44,7 @@ namespace LandConquest.Forms
             InitializeComponent();
             //this.Resources.Add("buttonGradientBrush", gradientBrush);
             user = _user;
-
+            equipment = new PlayerEquipment();
             player = new Player();
             storage = new PlayerStorage();
             peasants = new Peasants();
@@ -52,6 +52,7 @@ namespace LandConquest.Forms
             market = new Market();
             army = new Army();
             manufactureModel = new ManufactureModel();
+            flagXY = new int[4];
 
             player = PlayerModel.GetPlayerInfo(_user, player);
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;

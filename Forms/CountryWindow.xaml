@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStyle="None"
         Title="CountryWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid x:Name="MainGrid">
         <Grid.Background>
@@ -22,7 +22,13 @@
         <ComboBox x:Name="CbLandToTransfer" HorizontalAlignment="Left" Height="50" Margin="494,165,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbLandToTransfer_SelectionChanged"/>
         <ComboBox x:Name="CbCountryToTransfer" HorizontalAlignment="Left" Height="50" Margin="494,220,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCountryToTransfer_SelectionChanged"/>
 
-        <Button x:Name="IssueALaw" Content="Ok" HorizontalAlignment="Left" Height="44" Margin="710,366,0,0" VerticalAlignment="Top" Width="74" Click="IssueALaw_Click" BorderBrush="{x:Null}">
+        <Button x:Name="IssueALaw" Content="Ok" HorizontalAlignment="Left" Height="44" Margin="710,366,0,0" VerticalAlignment="Top" Width="74" Click="IssueALaw_Click" BorderBrush="{x:Null}" Foreground="#FFDFC58E">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" Height="44" Margin="710,10,0,0" VerticalAlignment="Top" Width="74"  BorderBrush="{x:Null}" Foreground="#FFDFC58E" Click="buttonClose_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>

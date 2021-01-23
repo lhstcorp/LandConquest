@@ -1,4 +1,4 @@
-﻿using LandConquest.Models;
+﻿using LandConquest.Logic;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
@@ -165,6 +165,11 @@ namespace LandConquest.Forms
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvmxyz0123456789";
             return new string(Enumerable.Repeat(chars, 16)
               .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private void buttonClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

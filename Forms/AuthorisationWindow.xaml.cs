@@ -1,7 +1,7 @@
 ﻿using EmailValidation;
 using LandConquest.DialogWIndows;
 using LandConquest.Forms;
-using LandConquest.Launcher;
+using LandConquest.Logic;
 using LandConquestDB;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
@@ -18,11 +18,8 @@ using System.Windows;
 namespace LandConquest
 {
 
-    public partial class AuthorisationWindow : System.Windows.Window
+    public partial class AuthorisationWindow : Window
     {
-        private User user;
-        private WarningDialogWindow warningWindow;
-
         public AuthorisationWindow()
         {
             InitializeComponent();
@@ -45,9 +42,7 @@ namespace LandConquest
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            user = new User();
-
-            user = UserModel.UserAuthorisation(this.textBoxLogin.Text, this.textBoxPass.Password);
+            User user = UserModel.UserAuthorisation(this.textBoxLogin.Text, this.textBoxPass.Password);
 
             if (user.UserLogin == textBoxLogin.Text && user.UserPass == textBoxPass.Password)
             {
@@ -87,11 +82,11 @@ namespace LandConquest
                 validNewUserEmail == true &&
                 textBoxNewPass.Text == textBoxConfirmNewPass.Text)
             {
-                String userId = generateUserId();
+                string userId = generateUserId();
                 int userCreationResult = UserModel.CreateUser(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, this.textBoxNewPass.Text, userId);
                 if (userCreationResult < 0)
                 {
-                    warningWindow = new WarningDialogWindow("Error creating new user!");
+                    WarningDialogWindow warningWindow = new WarningDialogWindow("Error creating new user!");
                     warningWindow.Show();
                 }
                 else
@@ -102,7 +97,7 @@ namespace LandConquest
                     if (playerResult < 0)
                     {
                         Console.WriteLine("Error creating new player!");
-                        warningWindow = new WarningDialogWindow("Error creating new user!");
+                        WarningDialogWindow warningWindow = new WarningDialogWindow("Error creating new user!");
                         warningWindow.Show();
                     }
                     else
@@ -126,7 +121,7 @@ namespace LandConquest
                 textBoxNewEmail.Text = "";
                 textBoxNewPass.Text = "";
                 textBoxConfirmNewPass.Text = "";
-                warningWindow = new WarningDialogWindow("Your login and email should be unique. Password and login length should be more than 6.");
+                WarningDialogWindow warningWindow = new WarningDialogWindow("Your login and email should be unique. Password and login length should be more than 6.");
                 warningWindow.Show();
             }
         }
@@ -165,7 +160,7 @@ namespace LandConquest
 
         private async void CheckVersion()
         {
-            await LauncherController.CheckGameVersion();
+            await LauncherLogic.CheckGameVersion();
             string downloadsPath = new KnownFolder(KnownFolderType.Downloads).Path;
             if (File.ReadAllText(downloadsPath + @"\GameVersion").SequenceEqual(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion))
             {
@@ -191,7 +186,7 @@ namespace LandConquest
 
         private void iconDownload_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            var err = LauncherController.DownloadGame();
+            var err = LauncherLogic.DownloadGame();
             WarningDialogWindow window;
             if (err.Message != null)
             {

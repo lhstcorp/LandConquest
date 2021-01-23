@@ -11,7 +11,7 @@ namespace LandConquestDB.Models
         public static List<ChatMessages> GetMessages()
         {
             List<ChatMessages> messages;
-            String query = "SELECT * FROM dbo.ChatMessages";
+            string query = "SELECT * FROM dbo.ChatMessages";
             List<string> PlayerName = new List<string>();
             List<string> Message = new List<string>();
             List<DateTime> MessageTime = new List<DateTime>();
@@ -50,7 +50,7 @@ namespace LandConquestDB.Models
 
         public static void SendMessage(string message, string playerName)
         {
-            String query = "INSERT INTO dbo.ChatMessages (player_name, player_message, message_sent_time) VALUES (@player_name, @player_message, @message_sent_time)";
+            string query = "INSERT INTO dbo.ChatMessages (player_name, player_message, message_sent_time) VALUES (@player_name, @player_message, @message_sent_time)";
             var userCommand = new SqlCommand(query, DbContext.GetSqlConnection());
 
             userCommand.Parameters.AddWithValue("@player_name", playerName);

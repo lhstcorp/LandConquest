@@ -12,7 +12,7 @@ namespace LandConquest.Forms
         private PlayerStorage storage;
         private PlayerEquipment equipment;
         private Peasants peasants;
-        private Army army = new Army();
+        private Army army; //тут был глобальный объект
 
         public RecruitWindow(Player _player, PlayerStorage _storage, PlayerEquipment _equipment)
         {
@@ -20,6 +20,7 @@ namespace LandConquest.Forms
             player = _player;
             storage = _storage;
             equipment = _equipment;
+            army = new Army();
             Loaded += Window_Loaded;
         }
 
