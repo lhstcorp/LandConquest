@@ -888,6 +888,10 @@ namespace LandConquest.Forms
         {
             this.Close();
         }
+        private void buttonCollapse_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState = WindowState.Minimized;
+        }
 
         public bool CheckDistanceBetweenTwoArmies(int index, int INDEX)
         {
@@ -1071,6 +1075,11 @@ namespace LandConquest.Forms
                     return playerArmies[i].CanShoot;
             }
             return false;
+        }
+
+        private void mainWarWinGrid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 

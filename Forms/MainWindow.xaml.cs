@@ -146,8 +146,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new ManufactureWindow(this, player, storage);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -173,8 +173,8 @@ namespace LandConquest.Forms
             CloseUnusedWindows();
             openedWindow = new StorageWindow(this, player, user);
             PlayerModel.UpdatePlayerExpAndLvl(player);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -186,8 +186,8 @@ namespace LandConquest.Forms
 
             CloseUnusedWindows();
             openedWindow = new RecruitWindow(player, equipment);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -196,8 +196,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new RatingWindow(this, player, user, army);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -206,8 +206,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new ChatWindow(player);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -220,7 +220,7 @@ namespace LandConquest.Forms
             CloseUnusedWindows();
             openedWindow = new MarketWindow(this, storage, market, player);
             openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -230,7 +230,7 @@ namespace LandConquest.Forms
             CloseUnusedWindows();
             openedWindow = new CountryWindow(player);
             openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -239,8 +239,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new MembershipWindow();
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -249,8 +249,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new CoffersWindow(player);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -259,8 +259,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new SubmitBugWindow(player.PlayerName);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -269,8 +269,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new ProfileWindow(this, player, user);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -279,8 +279,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new AuctionWindow(player);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
