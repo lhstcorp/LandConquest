@@ -10,13 +10,12 @@
         ShowInTaskbar="False">
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="475">
-        <Grid Height="450" VerticalAlignment="Top" HorizontalAlignment="Left" Width="475" Margin="0,0,0,-0.2">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+        
+        <Grid Height="450" VerticalAlignment="Top" HorizontalAlignment="Left" Width="475">
+            <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
+            
         <Image HorizontalAlignment="Left" Height="43" Margin="10,39,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
         <Image HorizontalAlignment="Left" Height="43" Margin="123,39,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
         <Image HorizontalAlignment="Left" Height="43" Margin="231,39,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
@@ -31,11 +30,13 @@
         <Label Content="FOOD" Foreground="Brown" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,42,147,0" VerticalAlignment="Top" Height="31" Width="57"/>
         <Image HorizontalAlignment="Left" Height="35" Margin="235,42,0,0" VerticalAlignment="Top" Width="36" Source="/Pictures/food.png" RenderTransformOrigin="-1.55,0.548"/>
         <Label x:Name="labelFoodAmount" Content="0" Foreground="Brown" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="235,82,0,0" VerticalAlignment="Top" Width="112" Height="28"/>
-        <Button x:Name="button_close" Content="Button" HorizontalAlignment="Left" Margin="432,4,0,0" VerticalAlignment="Top" Width="38" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
+        
+            <Button x:Name="button_close" Margin="449,0,6,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            
         <Label Content="GOLD" Foreground="DarkGoldenrod" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="57,131,0,0" VerticalAlignment="Top" Height="27" Width="59"/>
         <Label Content="COPPER" Foreground="#FF7B5D42" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="163,130,0,0" VerticalAlignment="Top" Height="27" Width="75" Background="{x:Null}"/>
         <Image HorizontalAlignment="Left" Height="42" Margin="9,131,0,0" VerticalAlignment="Top" Width="48" Source="/Pictures/gold_ore.png"/>

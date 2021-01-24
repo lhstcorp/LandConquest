@@ -24,7 +24,7 @@
         <Label x:Name="EnemyForcesLeft" Content="0" FontSize="20" HorizontalAlignment="Left" Margin="430,326,0,0" VerticalAlignment="Top" Height="37" Width="131"/>
         
         <Grid.Background>
-            <ImageBrush ImageSource="../Pictures/background.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
     </Grid>
 </Window>

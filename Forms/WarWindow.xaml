@@ -60,7 +60,7 @@
             </Button>
 
             <Grid.Background>
-                <ImageBrush ImageSource="/Pictures/panel.png" Stretch="UniformToFill"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
         </Grid>
         <UniformGrid x:Name="gridForArmies" Panel.ZIndex="2" Grid.ColumnSpan="2" >

@@ -7,9 +7,10 @@
         mc:Ignorable="d" WindowStyle="ToolWindow"
         Title="Upgrade Manufacture" Height="262" Width="268" Loaded="Window_Loaded"
         ShowInTaskbar="False">
-    <Grid Margin="0,0,-6.4,-0.2">
+    
+    <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Image x:Name="manufacture_image" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="/Pictures/sawmill.png"/>
         <Image HorizontalAlignment="Left" Height="74" Margin="93,10,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/UpgradeArrow.png"/>

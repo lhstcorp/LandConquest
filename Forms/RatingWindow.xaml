@@ -13,10 +13,7 @@
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="400" Width="600">
         <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Image x:Name="profileImage" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" RenderTransformOrigin="0.38,0.495" Margin="0,10,0,0"/>
+            <Image x:Name="profileImage" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" RenderTransformOrigin="0.38,0.495" Margin="0,10,0,0"/>
 
         <Button x:Name="buttonXP" Content="Xp"  HorizontalAlignment="Left" Margin="204,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="White" Click="buttonXP_Click">
             <Button.Background>
@@ -42,9 +39,9 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="buttonClose"  HorizontalAlignment="Left" Margin="551,10,0,0" VerticalAlignment="Top" Width="39" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonClose_Click">
+        <Button x:Name="buttonClose" Margin="573,0,0,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonClose_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
             </Button.Background>
         </Button>
 
@@ -59,7 +56,7 @@
         </ListView>
 
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
     </Grid>
         </Border>

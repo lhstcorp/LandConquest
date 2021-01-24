@@ -167,9 +167,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DialogWIndows\BalanceReplenishmentDialog.xaml.cs">
-      <DependentUpon>BalanceReplenishmentDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DialogWIndows\BuyListingDialog.xaml.cs">
       <DependentUpon>BuyListingDialog.xaml</DependentUpon>
     </Compile>
@@ -229,10 +226,6 @@
     <Compile Include="Resources\StylesDictionary.xaml.cs">
       <DependentUpon>StylesDictionary.xaml</DependentUpon>
     </Compile>
-    <Page Include="DialogWIndows\BalanceReplenishmentDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="DialogWIndows\BuyListingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -563,6 +556,10 @@
     <Resource Include="Pictures\boxes.png" />
     <Resource Include="Pictures\undiscovered-map.png" />
     <Resource Include="Pictures\background.jpg" />
+    <Resource Include="Pictures\buttonCross.jpg" />
+    <Resource Include="Pictures\buttonMinus.jpg" />
+    <Resource Include="Pictures\background_pale.jpg" />
+    <Resource Include="Pictures\buttonPlus.jpg" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
