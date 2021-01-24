@@ -7,8 +7,6 @@ namespace LandConquestDB.Models
 {
     public class ManufactureModel
     {
-        private List<Manufacture> manufactures;
-
         public DateTime GetManufactureProdStartTime(Player player)
         {
             string query = "SELECT * FROM dbo.ManufactureData WHERE player_id = @player_id";
@@ -83,7 +81,7 @@ namespace LandConquestDB.Models
 
             command.Dispose();
 
-            manufactures = new List<Manufacture>();
+            List<Manufacture> manufactures = new List<Manufacture>();
             for (int i = 0; i < manufacturesPlayerId.Count; i++)
             {
                 manufactures.Add(new Manufacture());
@@ -167,7 +165,7 @@ namespace LandConquestDB.Models
 
             command.Dispose();
 
-            manufactures = new List<Manufacture>();
+            List<Manufacture> manufactures = new List<Manufacture>();
             for (int i = 0; i < manufacturesLandId.Count; i++)
             {
                 manufactures.Add(new Manufacture());
@@ -460,7 +458,7 @@ namespace LandConquestDB.Models
 
             command.Dispose();
 
-            manufactures = new List<Manufacture>();
+            List<Manufacture> manufactures = new List<Manufacture>();
             for (int i = 0; i < manufacturesPlayerId.Count; i++)
             {
                 manufactures.Add(new Manufacture());

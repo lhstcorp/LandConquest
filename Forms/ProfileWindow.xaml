@@ -6,9 +6,11 @@
         xmlns:local="clr-namespace:LandConquest.Forms"
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
-        Title="ProfileWindow" Height="600" Width="600" Loaded="Window_Loaded"
+        Title="ProfileWindow" Height="350" Width="600" Loaded="Window_Loaded"
         ShowInTaskbar="False">
-    <Grid>
+
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="350" Width="600">
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -58,9 +60,9 @@
 
 
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
-
-
+            
     </Grid>
+        </Border>
 </Window>

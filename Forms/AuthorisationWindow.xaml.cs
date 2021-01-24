@@ -24,7 +24,7 @@ namespace LandConquest
         {
             InitializeComponent();
             Loaded += AuthorisationWindow_Loaded;
-            ShowRegistrationFields(Visibility.Hidden);
+            ShowRegistrationFields(Visibility.Hidden);         
         }
 
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
@@ -48,7 +48,7 @@ namespace LandConquest
             {
                 MainWindow mainWindow = new MainWindow(user);
                 mainWindow.Show();
-
+                
                 if (CheckboxRemember.IsChecked == true)
                 {
                     Properties.Settings.Default.UserLogin = textBoxLogin.Text;
@@ -204,7 +204,6 @@ namespace LandConquest
                 Environment.Exit(0);
             }
         }
-
     }
 }
 

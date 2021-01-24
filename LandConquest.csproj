@@ -392,9 +392,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pictures\map.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Pictures\panel.png" />
     <Resource Include="Pictures\profileDefault.png" />
   </ItemGroup>
@@ -565,6 +562,7 @@
     <Resource Include="Pictures\defaultCastle.png" />
     <Resource Include="Pictures\boxes.png" />
     <Resource Include="Pictures\undiscovered-map.png" />
+    <Resource Include="Pictures\background.jpg" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

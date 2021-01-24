@@ -7,12 +7,11 @@
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
         Title="MarketWindow" Height="375" Width="560" ShowInTaskbar="False" Loaded="Window_Loaded">
-    <Grid>
-
-
-
+    
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="375" Width="560">
+        <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
 
         <Image x:Name="woodButton" HorizontalAlignment="Left" Height="42" Margin="9,16,0,0" VerticalAlignment="Top" Width="48" Source="/LandConquest;component/Pictures/wood.png" Cursor="Hand" MouseDown="woodButton_MouseDown"/>
@@ -72,4 +71,5 @@
         <TextBox x:Name="textBoxPrice" HorizontalAlignment="Left" Height="23" Margin="387,175,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="163" Background="#7F966B52" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}"/>
 
     </Grid>
+        </Border>
 </Window>

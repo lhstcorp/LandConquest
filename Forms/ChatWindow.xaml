@@ -11,6 +11,7 @@
         Title="ChatWindow" Height="450" Width="850" Background="{x:Null}"
         ShowInTaskbar="False">
 
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="850">
     <Grid>
         <TextBox x:Name="textBoxNewMessage" FontSize="16" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap"  VerticalAlignment="Top" Width="752" 
                  Background="White" CaretBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" materialDesign:HintAssist.Hint=" Your message"  materialDesign:HintAssist.IsFloating="False" Margin="10,404,0,0" BorderBrush="{x:Null}"/>
@@ -33,7 +34,8 @@
         </Button>
 
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
     </Grid>
+        </Border>
 </Window>

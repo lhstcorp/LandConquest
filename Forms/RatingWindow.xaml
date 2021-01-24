@@ -10,7 +10,9 @@
         ShowInTaskbar="False"
         WindowStyle="None" ResizeMode="NoResize"
         Title="ProfileWindow" Height="400" Width="600" Loaded="Window_Loaded">
-    <Grid>
+
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="400" Width="600">
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -57,7 +59,8 @@
         </ListView>
 
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
     </Grid>
+        </Border>
 </Window>

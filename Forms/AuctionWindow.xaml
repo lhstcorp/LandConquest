@@ -9,9 +9,10 @@
         Title="MarketWindow" Height="450" Width="670" ShowInTaskbar="False" Loaded="Window_Loaded"
         >
 
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="670">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/LandConquest;component/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/LandConquest;component/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <DataGrid AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontStyle="Oblique" Height="393" Width="460" HorizontalAlignment="Left" ItemsSource="{Binding listings}" Margin="10,47,0,0" x:Name="auctionDataGrid" VerticalAlignment="Top" Foreground="#FFE5CF9E" SelectionChanged="auctionDataGrid_SelectionChanged" BorderBrush="{x:Null}" SelectionMode="Single" CanUserResizeColumns="False" FontFamily="Verdana">
             <DataGrid.Columns>
@@ -84,4 +85,5 @@
             </Button.Background>
         </Button>
     </Grid>
+        </Border>
 </Window>

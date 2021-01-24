@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
         Title="CoffersWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Slider x:Name="sliderOnLive" HorizontalAlignment="Left" Height="21" Margin="33,171,0,0" VerticalAlignment="Top" Width="113" Minimum="0" Maximum="10" Value="5" Foreground="#FF541E0B"/>
         <Label Content="{Binding Value, ElementName=sliderOnLive, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" VerticalAlignment="Top" Margin="151,171,0,0"  Foreground="#FF531E08" FontFamily="Open Sans" Height="20" Width="43" Background="{x:Null}" />
@@ -30,4 +31,5 @@
             </Button.Background>
         </Button>
     </Grid>
+        </Border>
 </Window>

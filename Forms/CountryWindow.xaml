@@ -4,11 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
-        mc:Ignorable="d" WindowStyle="None"
+        mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize"
         Title="CountryWindow" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid x:Name="MainGrid">
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="800">
+    <Grid x:Name="MainGrid" Margin="0,0,-0.4,0.2">
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Label x:Name="CountryNameLbl" FontSize="24"  Content="1234567890123456789012" HorizontalAlignment="Left" Margin="171,10,0,0" VerticalAlignment="Top" Width="294" Height="52"/>
         <Image HorizontalAlignment="Left" Height="102" Margin="10,10,0,0" VerticalAlignment="Top" Width="156" Source="/Pictures/defaultCastle.png"/>
@@ -33,7 +34,7 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
         </Button>
-        <ComboBox x:Name="CbCountryWarLand" Visibility="Hidden" HorizontalAlignment="Left" Height="50" Margin="494,275,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCountryWarLand_SelectionChanged"/>
-
-    </Grid>
+            <ComboBox x:Name="CbCountryWarLand" Visibility="Hidden" HorizontalAlignment="Left" Height="50" Margin="494,275,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCountryWarLand_SelectionChanged"/>
+        </Grid>
+        </Border>
 </Window>
