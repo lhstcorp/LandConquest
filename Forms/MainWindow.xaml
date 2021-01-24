@@ -20,8 +20,8 @@
         <ctrls:ResourceMap x:Key="ResourceMap"></ctrls:ResourceMap>
     </Window.Resources>
 
-    <Border BorderBrush="#FF392018" BorderThickness="5" Height="900" Width="1600">
-        <Grid x:Name="mainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseDown="Grid_MouseDown"  >
+    <Border BorderBrush="#FF392018" BorderThickness="5" Height="900" Width="1600" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid x:Name="mainGrid" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="Grid_MouseDown" Margin="0.2,0.2,0,0" Width="Auto" Height="Auto"  >
 
             <Canvas x:Name="SymbalLayer" Margin="348,68,945.6,502.4" Panel.ZIndex="4">
                 <Image x:Name="flag" Source="/Pictures/flag.png" Height="38" Width="33" Panel.ZIndex="4"/>
@@ -69,13 +69,13 @@
             <Label Content="Productivity: " FontSize="9" FontWeight="Bold" Foreground="#FF311818" HorizontalAlignment="Left" Margin="27,266,0,0" VerticalAlignment="Top"/>
             <Label x:Name="prodRatioValue" Content="0" FontSize="9" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF311818" HorizontalAlignment="Left" Margin="95,266,0,0" VerticalAlignment="Top"  />
             <Image x:Name="recruitImage"  HorizontalAlignment="Left" Height="40" Margin="396,12,0,0" VerticalAlignment="Top" Source="/Pictures/shield.png" Width="40" MouseDown="recruitImage_MouseDown" RenderTransformOrigin="0.5,0.5" Cursor="Hand"/>
-            
+
             <Button x:Name="btnHideLandGrid" Height="20" Width="20" HorizontalAlignment="Left" Margin="287,297,0,0" VerticalAlignment="Top"  Panel.ZIndex="2" Click="btnHideLandGrid_Click" BorderBrush="{x:Null}" Foreground="{x:Null}">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonMinus.jpg"/>
                 </Button.Background>
             </Button>
-            
+
             <Button x:Name="btnShowLandGrid"  HorizontalAlignment="Left" Height="20" Width="20" Margin="22,777,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Click="btnShowLandGrid_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonPlus.jpg"/>
@@ -83,37 +83,37 @@
             </Button>
 
             <Border x:Name="Border_Country_characters" BorderBrush="#FF48291F" BorderThickness="3" Height="507" Width="292" Margin="19,293,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <Grid x:Name="Country_characters" HorizontalAlignment="Left" Height="507" VerticalAlignment="Top" Width="292">
-                <Grid.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"/>
-                </Grid.Background>
+                <Grid x:Name="Country_characters" HorizontalAlignment="Left" Height="507" VerticalAlignment="Top" Width="292">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"/>
+                    </Grid.Background>
 
-                <Image Margin="66,305,160,143" Source="/Pictures/epic_brown_square.png"/>
-                <Image Margin="164,305,62,143" Source="/Pictures/epic_brown_square.png"/>
+                    <Image Margin="66,305,160,143" Source="/Pictures/epic_brown_square.png"/>
+                    <Image Margin="164,305,62,143" Source="/Pictures/epic_brown_square.png"/>
 
-                <Label x:Name="lblLandNameOnGrid" HorizontalContentAlignment="Center" Content="" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Height="30" Margin="31,102,0,0" VerticalAlignment="Top" Width="225" Background="{x:Null}"/>
-                <Button x:Name="btnGoToLand" Content="Go to" HorizontalAlignment="Left" Height="38" Margin="66,178,0,0" VerticalAlignment="Top" Width="164" Click="btnGoToLand_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                    </Button.Background>
-                </Button>
-                <Label x:Name="lblLandResource1NameOnGrid" Content="" FontSize="10" Foreground="#FF8F7D5E"  HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="74,362,0,0" VerticalAlignment="Top" Width="58" Background="{x:Null}" Height="21" RenderTransformOrigin="0.5,0.5"/>
-                <Image x:Name="imgLandResource2ImgOnGrid"  HorizontalAlignment="Left" Height="50" Margin="173,309,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.291,0.465"/>
-                <Label x:Name="lblLandResource2NameOnGrid" Content="" FontSize="10" Foreground="#FF897657" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="173,362,0,0" VerticalAlignment="Top" Width="57" Height="21"/>
-                <Button x:Name="buttonEstablishaState" IsEnabled="True" Content="Establish a state" HorizontalAlignment="Left" Margin="66,220,0,0" VerticalAlignment="Top" Width="164" Height="37" Click="buttonEstablishaState_Click" BorderBrush="{x:Null}" RenderTransformOrigin="0.512,0.524" Foreground="#FFE5D09D">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                    </Button.Background>
-                </Button>
-                <Label x:Name="lblCountryNameOnGrid" HorizontalContentAlignment="Center" Content="" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Height="41" Margin="31,56,36,0" VerticalAlignment="Top" Width="225" Background="{x:Null}"/>
-                <Button x:Name="buttonStartBattle" IsEnabled="False" Content="Start test battle" HorizontalAlignment="Left" Margin="66,261,0,0" VerticalAlignment="Top" Width="164" Height="37" Click="buttonStartBattle_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                    </Button.Background>
-                </Button>
-                <Image x:Name="imgLandResource1ImgOnGrid"  HorizontalAlignment="Left" Height="50" Margin="74,309,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.291,0.465"/>
-            </Grid>
-                </Border>
+                    <Label x:Name="lblLandNameOnGrid" HorizontalContentAlignment="Center" Content="" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Height="30" Margin="31,102,0,0" VerticalAlignment="Top" Width="225" Background="{x:Null}"/>
+                    <Button x:Name="btnGoToLand" Content="Go to" HorizontalAlignment="Left" Height="38" Margin="66,178,0,0" VerticalAlignment="Top" Width="164" Click="btnGoToLand_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Label x:Name="lblLandResource1NameOnGrid" Content="" FontSize="10" Foreground="#FF8F7D5E"  HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="74,362,0,0" VerticalAlignment="Top" Width="58" Background="{x:Null}" Height="21" RenderTransformOrigin="0.5,0.5"/>
+                    <Image x:Name="imgLandResource2ImgOnGrid"  HorizontalAlignment="Left" Height="50" Margin="173,309,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.291,0.465"/>
+                    <Label x:Name="lblLandResource2NameOnGrid" Content="" FontSize="10" Foreground="#FF897657" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="173,362,0,0" VerticalAlignment="Top" Width="57" Height="21"/>
+                    <Button x:Name="buttonEstablishaState" IsEnabled="True" Content="Establish a state" HorizontalAlignment="Left" Margin="66,220,0,0" VerticalAlignment="Top" Width="164" Height="37" Click="buttonEstablishaState_Click" BorderBrush="{x:Null}" RenderTransformOrigin="0.512,0.524" Foreground="#FFE5D09D">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Label x:Name="lblCountryNameOnGrid" HorizontalContentAlignment="Center" Content="" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Height="41" Margin="31,56,36,0" VerticalAlignment="Top" Width="225" Background="{x:Null}"/>
+                    <Button x:Name="buttonStartBattle" IsEnabled="False" Content="Start test battle" HorizontalAlignment="Left" Margin="66,261,0,0" VerticalAlignment="Top" Width="164" Height="37" Click="buttonStartBattle_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Image x:Name="imgLandResource1ImgOnGrid"  HorizontalAlignment="Left" Height="50" Margin="74,309,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.291,0.465"/>
+                </Grid>
+            </Border>
             <Image x:Name="ResourceMapBtn" HorizontalAlignment="Left" Height="51" Margin="248,177,0,0" VerticalAlignment="Top" Width="59" Cursor="Hand" Source="/Pictures/resource_map.png" MouseDown="ResourceMapBtn_MouseDown"/>
             <Image x:Name="GlobalMapBtn" HorizontalAlignment="Left" Height="48" Margin="247,129,0,0" VerticalAlignment="Top" Width="60" Cursor="Hand" Source="/Pictures/map_icon.png" MouseDown="GlobalMapBtn_MouseDown">
             </Image>
@@ -144,7 +144,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="23,8,0,0" FontSize="16" TextWrapping="Wrap" Text="Music:" VerticalAlignment="Top" Width="50"/>
                 <CheckBox x:Name="checkBox"  HorizontalAlignment="Left" Margin="79,14,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="0.88,0.455" Checked="checkBox_Checked"/>
             </Grid>
-            
+
             <Button x:Name="buttonProfile" Content="Profile" HorizontalAlignment="Right" Margin="0,13,232,0" VerticalAlignment="Top" Width="112" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonProfile_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
