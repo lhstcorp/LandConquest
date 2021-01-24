@@ -18,7 +18,7 @@
             </Button.Background>
         </Button>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
 
     </Grid>

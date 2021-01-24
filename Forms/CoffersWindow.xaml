@@ -10,7 +10,7 @@
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+                <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Slider x:Name="sliderOnLive" HorizontalAlignment="Left" Height="21" Margin="33,171,0,0" VerticalAlignment="Top" Width="113" Minimum="0" Maximum="10" Value="5" Foreground="#FF541E0B"/>
         <Label Content="{Binding Value, ElementName=sliderOnLive, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" VerticalAlignment="Top" Margin="151,171,0,0"  Foreground="#FF531E08" FontFamily="Open Sans" Height="20" Width="43" Background="{x:Null}" />
@@ -19,9 +19,10 @@
         <Image HorizontalAlignment="Left" Height="28" Margin="29,59,0,0" VerticalAlignment="Top" Width="88" Source="/LandConquest;component/Pictures/wood_desk_with_circle.png"/>
         <Image HorizontalAlignment="Left" Height="20" Margin="33,63,0,0" VerticalAlignment="Top" Width="20" Source="/LandConquest;component/Pictures/coins.png"/>
         <Label x:Name="labelMoney" Content="0" Foreground="#FFE5D09D" HorizontalAlignment="Left" Margin="53,57,0,0" VerticalAlignment="Top" Height="32" Width="68" FontSize="16"/>
-        <Button HorizontalAlignment="Left" Margin="752,10,0,0" VerticalAlignment="Top" Width="38" Click="Button_Click" BorderBrush="{x:Null}">
+        
+        <Button VerticalAlignment="Top" Width="20" Height="20" Click="Button_Click" BorderBrush="{x:Null}" Margin="773,0,0,0">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Label x:Name="taxesOnLive" Content="On Live" HorizontalAlignment="Left" Margin="69,147,0,0" VerticalAlignment="Top"/>

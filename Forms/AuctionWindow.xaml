@@ -10,80 +10,80 @@
         >
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="670">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/LandConquest;component/Pictures/background.jpg" Stretch="UniformToFill"/>
-        </Grid.Background>
-        <DataGrid AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontStyle="Oblique" Height="393" Width="460" HorizontalAlignment="Left" ItemsSource="{Binding listings}" Margin="10,47,0,0" x:Name="auctionDataGrid" VerticalAlignment="Top" Foreground="#FFE5CF9E" SelectionChanged="auctionDataGrid_SelectionChanged" BorderBrush="{x:Null}" SelectionMode="Single" CanUserResizeColumns="False" FontFamily="Verdana">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="resourceQty" Binding="{Binding Qty}" Header="Qty" Width="60" CanUserSort="True"/>
-                <DataGridTextColumn x:Name="itemName" Binding="{Binding Subject}" Header="Subject" Width="80" CanUserSort="True"/>
-                <DataGridTextColumn x:Name="timeLeft" Binding="{Binding ListingSetTime}" Header="Time" Width="140" CanUserSort="True" FontSize="10"/>
-                <DataGridTextColumn x:Name="sellersName" Binding="{Binding SellerName}" Header="Seller" Width="70" CanUserSort="True"/>
-                <DataGridTextColumn x:Name="totalPrice" Binding="{Binding Price}" Header="Price (each)" CanUserSort="True"/>
-            </DataGrid.Columns>
-            <DataGrid.Background>
-                <SolidColorBrush Color="#FF371C18"></SolidColorBrush>
-            </DataGrid.Background>
-            <DataGrid.CellStyle>
-                <Style TargetType="DataGridCell">
-                    <Setter Property="BorderThickness" Value="0"/>
-                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-                </Style>
-            </DataGrid.CellStyle>
-            <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="Background" Value="#FFE3CC98"/>
-                    <Setter Property="FontStyle" Value="Normal"/>
-                    <Setter Property="FontSize" Value="15"/>
-                    <Setter Property="Foreground" Value="#FF371C18"/>
-                </Style>
-            </DataGrid.ColumnHeaderStyle>
-        </DataGrid>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+            <DataGrid AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontStyle="Oblique" Height="393" Width="460" HorizontalAlignment="Left" ItemsSource="{Binding listings}" Margin="10,47,0,0" x:Name="auctionDataGrid" VerticalAlignment="Top" Foreground="#FFE5CF9E" SelectionChanged="auctionDataGrid_SelectionChanged" BorderBrush="{x:Null}" SelectionMode="Single" CanUserResizeColumns="False" FontFamily="Verdana">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="resourceQty" Binding="{Binding Qty}" Header="Qty" Width="60" CanUserSort="True"/>
+                    <DataGridTextColumn x:Name="itemName" Binding="{Binding Subject}" Header="Subject" Width="80" CanUserSort="True"/>
+                    <DataGridTextColumn x:Name="timeLeft" Binding="{Binding ListingSetTime}" Header="Time" Width="140" CanUserSort="True" FontSize="10"/>
+                    <DataGridTextColumn x:Name="sellersName" Binding="{Binding SellerName}" Header="Seller" Width="70" CanUserSort="True"/>
+                    <DataGridTextColumn x:Name="totalPrice" Binding="{Binding Price}" Header="Price (each)" CanUserSort="True"/>
+                </DataGrid.Columns>
+                <DataGrid.Background>
+                    <SolidColorBrush Color="#FF371C18"></SolidColorBrush>
+                </DataGrid.Background>
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    </Style>
+                </DataGrid.CellStyle>
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#FFE3CC98"/>
+                        <Setter Property="FontStyle" Value="Normal"/>
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="Foreground" Value="#FF371C18"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+            </DataGrid>
 
-        <Button x:Name="buttonShowMyListings" Content="Show My Listings" HorizontalAlignment="Left" Margin="509,84,0,0" VerticalAlignment="Top" Width="151" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Click="buttonShowMyListings_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="buttonCreateListing" Content="Create Listing" HorizontalAlignment="Left" Margin="509,47,0,0" VerticalAlignment="Top" Width="151" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Click="buttonCreateListing_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" Margin="509,10,0,0" VerticalAlignment="Top" Width="151" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonClose_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="buttonBuy" IsEnabled="True" Content="Buy" HorizontalAlignment="Left" Margin="509,121,0,0" VerticalAlignment="Top" Width="151" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonBuy_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
+            <Button x:Name="buttonShowMyListings" Content="Show My Listings" HorizontalAlignment="Left" Margin="509,84,0,0" VerticalAlignment="Top" Width="151" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Click="buttonShowMyListings_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonCreateListing" Content="Create Listing" HorizontalAlignment="Left" Margin="509,47,0,0" VerticalAlignment="Top" Width="151" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Click="buttonCreateListing_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonClose" HorizontalAlignment="Left" Margin="644,0,0,0" VerticalAlignment="Top" Width="20" Height="20" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="buttonClose_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonBuy" IsEnabled="True" Content="Buy" HorizontalAlignment="Left" Margin="509,121,0,0" VerticalAlignment="Top" Width="151" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonBuy_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
 
 
-        <Button x:Name="buttonFindListing" Content="Find" HorizontalAlignment="Left" Margin="386,10,0,0" VerticalAlignment="Top" Width="84" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32" Click="buttonFindListing_Click" >
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <TextBox x:Name="textBoxItemSearchName" HorizontalAlignment="Left" Height="32" Margin="264,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#7F966B52" RenderTransformOrigin="0.5,0.5"/>
-        <Button x:Name="buttonShowType" IsEnabled="False" Content="All" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="118" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="buttonShowSubtypes" IsEnabled="False" Content="" HorizontalAlignment="Left" Margin="133,10,0,0" VerticalAlignment="Top" Width="126" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="buttonDelete" IsEnabled="True" Content="Delete" HorizontalAlignment="Left" Margin="509,158,0,0" VerticalAlignment="Top" Width="151" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonDelete_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-    </Grid>
-        </Border>
+            <Button x:Name="buttonFindListing" Content="Find" HorizontalAlignment="Left" Margin="386,10,0,0" VerticalAlignment="Top" Width="84" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32" Click="buttonFindListing_Click" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <TextBox x:Name="textBoxItemSearchName" HorizontalAlignment="Left" Height="32" Margin="264,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#7F966B52" RenderTransformOrigin="0.5,0.5"/>
+            <Button x:Name="buttonShowType" IsEnabled="False" Content="All" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="118" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonShowSubtypes" IsEnabled="False" Content="" HorizontalAlignment="Left" Margin="133,10,0,0" VerticalAlignment="Top" Width="126" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonDelete" IsEnabled="True" Content="Delete" HorizontalAlignment="Left" Margin="509,159,0,0" VerticalAlignment="Top" Width="151" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonDelete_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+    </Border>
 </Window>

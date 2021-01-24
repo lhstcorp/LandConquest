@@ -136,7 +136,10 @@ namespace LandConquest.Forms
 
             LoadWarsOnMap();
 
-            setFlag();
+            setFlag(); 
+
+            settingsGrid.Visibility = Visibility.Hidden;
+            btnShowLandGrid.Visibility = Visibility.Hidden;
         }
 
         private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
@@ -704,16 +707,29 @@ namespace LandConquest.Forms
         private void btnHideLandGrid_Click(object sender, RoutedEventArgs e)
         {
             Country_characters.Visibility = Visibility.Hidden;
+            btnHideLandGrid.Visibility = Visibility.Hidden;
+            Border_Country_characters.Visibility = Visibility.Hidden;
+            btnShowLandGrid.Visibility = Visibility.Visible;
         }
 
         private void btnShowLandGrid_Click(object sender, RoutedEventArgs e)
         {
             Country_characters.Visibility = Visibility.Visible;
+            btnHideLandGrid.Visibility = Visibility.Visible;
+            Border_Country_characters.Visibility = Visibility.Visible;
+            btnShowLandGrid.Visibility = Visibility.Hidden;
         }
 
-        private void buttonSettings_MouseEnter(object sender, MouseEventArgs e)
+        private void buttonSettings_Click(object sender, RoutedEventArgs e)
         {
-            settingsGrid.Visibility = Visibility.Visible;
+            if (settingsGrid.Visibility == Visibility.Hidden)
+            {
+                settingsGrid.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                settingsGrid.Visibility = Visibility.Hidden;
+            }
         }
 
         private void settingsGrid_MouseLeave(object sender, MouseEventArgs e)
@@ -802,14 +818,6 @@ namespace LandConquest.Forms
             Cursor = Cursors.Arrow;
         }
 
-        private void buyCoins_Click(object sender, RoutedEventArgs e)
-        {
-            //BalanceReplenishmentDialog dialog = new BalanceReplenishmentDialog(player);
-            //dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            //dialog.Owner = this;
-            //dialog.Show();
-        }
-
         public void convertMoneyToMoneyCode(Label label)
         {
             int k = 0;
@@ -831,24 +839,6 @@ namespace LandConquest.Forms
             flag.Margin = new Thickness(flagXY[0], flagXY[1], 0, 0);
         }
 
-        private void image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            dlg.FileName = "";
-            dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
-         "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-         "Portable Network Graphic (*.png)|*.png";
-
-            Nullable<bool> result = dlg.ShowDialog();
-
-            if (result == true)
-            {
-                image.Source = new BitmapImage(new Uri(dlg.FileName));
-            }
-
-            //PlayerModel.UpdatePlayerImage(player);
-        }
-
         private void FreeData(object data, EventArgs e)
         {
             openedWindow = null;
@@ -864,16 +854,10 @@ namespace LandConquest.Forms
             }
         }
 
-        private void Application_Closed(object sender, EventArgs e)
-        {
-            openedWindow = null;
-            foreach (Window window in App.Current.Windows) window.Close();
-            
-        }
-
         private void buttonCollapse_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState = WindowState.Minimized;
         }
+ 
     }
 }

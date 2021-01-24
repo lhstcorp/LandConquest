@@ -24,8 +24,8 @@ namespace LandConquest.Forms
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             peasants = new Peasants();
-            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
 
+            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
             army = ArmyModel.GetArmyInfo(player, army);
 
             TotalRecruitPeasants.Content = peasants.PeasantsCount.ToString();

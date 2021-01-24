@@ -9,7 +9,7 @@
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="800">
     <Grid x:Name="MainGrid" Margin="0,0,-0.4,0.2">
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+         <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Label x:Name="CountryNameLbl" FontSize="24"  Content="1234567890123456789012" HorizontalAlignment="Left" Margin="171,10,0,0" VerticalAlignment="Top" Width="294" Height="52"/>
         <Image HorizontalAlignment="Left" Height="102" Margin="10,10,0,0" VerticalAlignment="Top" Width="156" Source="/Pictures/defaultCastle.png"/>
@@ -23,15 +23,15 @@
         <ComboBox x:Name="CbLandToTransfer" HorizontalAlignment="Left" Height="50" Margin="494,165,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbLandToTransfer_SelectionChanged"/>
         <ComboBox x:Name="CbCountryToTransfer" HorizontalAlignment="Left" Height="50" Margin="494,220,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCountryToTransfer_SelectionChanged"/>
 
-        <Button x:Name="IssueALaw" Content="Ok" HorizontalAlignment="Left" Height="44" Margin="710,366,0,0" VerticalAlignment="Top" Width="74" Click="IssueALaw_Click" BorderBrush="{x:Null}" Foreground="#FFDFC58E">
+        <Button x:Name="IssueALaw" Content="Ok" HorizontalAlignment="Left" Height="44" Margin="719,399,0,0" VerticalAlignment="Top" Width="74" Click="IssueALaw_Click" BorderBrush="{x:Null}" Foreground="#FFDFC58E">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
         </Button>
 
-        <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" Height="44" Margin="710,10,0,0" VerticalAlignment="Top" Width="74"  BorderBrush="{x:Null}" Foreground="#FFDFC58E" Click="buttonClose_Click">
+        <Button x:Name="buttonClose" Height="20" Margin="773,0,0,0" VerticalAlignment="Top" Width="20"  BorderBrush="{x:Null}" Foreground="#FFDFC58E" Click="buttonClose_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
             </Button.Background>
         </Button>
             <ComboBox x:Name="CbCountryWarLand" Visibility="Hidden" HorizontalAlignment="Left" Height="50" Margin="494,275,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCountryWarLand_SelectionChanged"/>

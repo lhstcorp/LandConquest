@@ -11,10 +11,7 @@
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="350" Width="600">
         <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Image x:Name="profileImage" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" RenderTransformOrigin="0.38,0.495" Margin="0,14,0,0"/>
+            <Image x:Name="profileImage" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" RenderTransformOrigin="0.38,0.495" Margin="0,14,0,0"/>
 
         <Label Content="Name:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,54,0,0" VerticalAlignment="Top" Height="40"/>
         <Label Content="Title:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,93,0,0" VerticalAlignment="Top" Width="85"/>
@@ -33,9 +30,9 @@
         <Label x:Name="labelPass" Content="••••••" Foreground="#311818" FontWeight="SemiBold" FontSize="24" HorizontalAlignment="Left" Margin="212,253,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
 
 
-        <Button x:Name="buttonClose"  HorizontalAlignment="Left" Margin="554,10,0,0" VerticalAlignment="Top" Width="36" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonClose_Click">
+        <Button x:Name="buttonClose" Margin="573,0,0,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonClose_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Button x:Name="buttonChangeName"  Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="362,62,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="#e3cd9b" Height="32" Click="buttonChangeName_Click" MouseEnter="buttonChangeName_MouseEnter">
@@ -60,7 +57,7 @@
 
 
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
             
     </Grid>

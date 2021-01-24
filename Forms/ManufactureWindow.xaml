@@ -8,9 +8,11 @@
         WindowStyle="None" ResizeMode="NoResize" BorderThickness="0" 
         Title="ManufactureWindow" Height="550" Width="965" AllowsTransparency="True"
         ShowInTaskbar="False" Background="{x:Null}" Foreground="{x:Null}" SnapsToDevicePixels="True">
-    <Grid Height="550" VerticalAlignment="Top" HorizontalAlignment="Left" Width="962">
+    
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="550" Width="965">
+    <Grid Height="550" VerticalAlignment="Top" HorizontalAlignment="Left" Width="960">
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/panel_horizontal1.png" Stretch="Fill" />
+            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="Fill" />
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="150" Margin="72,38,0,0" VerticalAlignment="Top" Width="116" Source="/Pictures/sawmill.png"/>
         <Image HorizontalAlignment="Left" Height="153" Margin="339,35,0,0" VerticalAlignment="Top" Width="98" Source="/Pictures/quarry.png"/>
@@ -24,11 +26,11 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
-        <Label  Content="Unemployed peasants:" HorizontalAlignment="Left" Margin="93,445,0,0" VerticalAlignment="Top" Height="27" Foreground="#FFBC9D0C"/>
+        <Label  Content="Unemployed peasants:" HorizontalAlignment="Left" Margin="93,445,0,0" VerticalAlignment="Top" Height="27" Foreground="#FF48291F"/>
         <Label x:Name="unemployedPeasants" Foreground="ForestGreen" FontSize="14" FontWeight="SemiBold" Content="0" HorizontalAlignment="Left" Margin="262,446,0,0" VerticalAlignment="Top" Width="53"/>
-        <Label  Content="Total peasants:" HorizontalAlignment="Left" Margin="93,480,0,0" VerticalAlignment="Top" Height="27" Foreground="#FFBC9D0C"/>
+        <Label  Content="Total peasants:" HorizontalAlignment="Left" Margin="93,480,0,0" VerticalAlignment="Top" Height="27" Foreground="#FF48291F"/>
         <Label x:Name="totalPeasants" Foreground="#FFBC9D0C" FontSize="14" FontWeight="SemiBold" Content="0" HorizontalAlignment="Left" Margin="262,481,0,0" VerticalAlignment="Top" Width="53"/>
-        <Label  Content="Employed Peasants:" HorizontalAlignment="Left" Margin="93,413,0,0" VerticalAlignment="Top" Height="27" Foreground="#FFBC9D0C"/>
+        <Label  Content="Employed Peasants:" HorizontalAlignment="Left" Margin="93,413,0,0" VerticalAlignment="Top" Height="27" Foreground="#FF48291F"/>
         <Label x:Name="employedPeasants" Foreground="DarkRed" FontSize="14" FontWeight="SemiBold" Content="0" HorizontalAlignment="Left" Margin="262,411,0,0" VerticalAlignment="Top" Width="53"/>
         <Image HorizontalAlignment="Left" Height="30" Margin="225,407,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/peasant.png"/>
         <Image HorizontalAlignment="Left" Height="30" Margin="225,442,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/Peasant2.png"/>
@@ -68,11 +70,13 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="button_close" HorizontalAlignment="Left" Margin="859,19,0,0" VerticalAlignment="Top" Width="37" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
+        
+        <Button x:Name="button_close" HorizontalAlignment="Left" Margin="938,0,0,0" VerticalAlignment="Top" Height="20" Width="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        
         <Image HorizontalAlignment="Left" Height="141" Margin="85,252,0,0" VerticalAlignment="Top" Width="135" Source="/LandConquest;component/Pictures/sawmill.png"/>
         <Label x:Name="buildingName1" Content="Namebuild1" Foreground="SaddleBrown" FontSize="28" FontWeight="Bold" HorizontalAlignment="Left" Margin="221,235,0,0" VerticalAlignment="Top" Height="43" Width="185"/>
         <Label x:Name="buildinglvl1" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="lvl:" HorizontalAlignment="Left" Margin="221,277,0,0" VerticalAlignment="Top" Height="30" Width="46"/>
@@ -101,10 +105,11 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
-        <Label Content="Working now:" HorizontalAlignment="Left" Height="23" Margin="93,366,0,0" VerticalAlignment="Top" Width="85" Foreground="#FFBC9D0C"/>
-        <Label x:Name="WorkingNowB1" Content="0" FontSize="8"  HorizontalAlignment="Left" Margin="184,371,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.433,2.022" Width="42" Foreground="#FFBC9D0C" Background="{x:Null}"/>
-        <Label Content="Working now:" HorizontalAlignment="Left" Height="23" Margin="427,366,0,0" VerticalAlignment="Top" Width="86" Background="{x:Null}" Foreground="#FFBC9D0C"/>
-        <Label x:Name="WorkingNowB2" Content="0" FontSize="8"  HorizontalAlignment="Left" Margin="514,370,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.433,2.022" Width="43" Foreground="#FFBC9D0C"/>
+        <Label Content="Working now:" HorizontalAlignment="Left" Height="23" Margin="93,366,0,0" VerticalAlignment="Top" Width="85" Foreground="#FF48291F"/>
+        <Label x:Name="WorkingNowB1" Content="0" FontSize="8"  HorizontalAlignment="Left" Margin="184,371,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.433,2.022" Width="42" Foreground="#FF48291F" Background="{x:Null}"/>
+        <Label Content="Working now:" HorizontalAlignment="Left" Height="23" Margin="427,366,0,0" VerticalAlignment="Top" Width="86" Background="{x:Null}" Foreground="#FF48291F"/>
+        <Label x:Name="WorkingNowB2" Content="0" FontSize="8"  HorizontalAlignment="Left" Margin="514,370,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.433,2.022" Width="43" Foreground="#FF48291F"/>
 
     </Grid>
+        </Border>
 </Window>
