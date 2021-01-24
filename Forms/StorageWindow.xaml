@@ -6,14 +6,16 @@
         xmlns:local="clr-namespace:LandConquest.Forms"
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
-        Title="StorageWindow" Height="453.066" Width="475" Loaded="StorageWindow_Loaded"
+        Title="StorageWindow" Height="450" Width="475" Loaded="StorageWindow_Loaded"
         ShowInTaskbar="False">
-    <Grid Height="453" VerticalAlignment="Top" HorizontalAlignment="Left" Width="475" Margin="0,0,0,-0.2">
+
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="475">
+        <Grid Height="450" VerticalAlignment="Top" HorizontalAlignment="Left" Width="475" Margin="0,0,0,-0.2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="43" Margin="10,39,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
         <Image HorizontalAlignment="Left" Height="43" Margin="123,39,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
@@ -113,10 +115,7 @@
         <Image x:Name="craftHarness" HorizontalAlignment="Left" Height="30" Margin="278,286,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftHarness_MouseDown"  />
         <Image x:Name="craftSpear" HorizontalAlignment="Left" Height="30" Margin="372,286,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftSpear_MouseDown"  />
         <Image x:Name="craftBow" HorizontalAlignment="Left" Height="30" Margin="67,413,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftBow_MouseDown"  />
-        <Image x:Name="craftGear" HorizontalAlignment="Left" Height="30" Margin="182,413,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftGear_MouseDown"  />
-
-
-
-
-    </Grid>
+            <Image x:Name="craftGear" HorizontalAlignment="Left" Height="30" Margin="182,413,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftGear_MouseDown"  />
+        </Grid>
+        </Border>
 </Window>

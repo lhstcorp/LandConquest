@@ -54,6 +54,7 @@ namespace LandConquest.Forms
             army = new Army();
             manufactureModel = new ManufactureModel();
             flagXY = new int[4];
+            openedWindow = this;
 
             player = PlayerModel.GetPlayerInfo(_user, player);
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
@@ -137,6 +138,155 @@ namespace LandConquest.Forms
 
             setFlag();
         }
+
+        private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new ManufactureWindow(this, player, storage);
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Owner = this;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void buttonLogout_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new AuthorisationWindow();
+            openedWindow.Show();
+            this.Close();
+        }
+
+        private void reload_button_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new MainWindow(user);
+            openedWindow.Show();
+            this.Close();
+        }
+
+        private void OpenStorage(Player player, User user)
+        {
+            CloseUnusedWindows();
+            openedWindow = new StorageWindow(this, player, user);
+            PlayerModel.UpdatePlayerExpAndLvl(player);
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Owner = this;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void recruitImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            storage = StorageModel.GetPlayerStorage(player, storage);
+            equipment = EquipmentModel.GetPlayerEquipment(player, equipment);
+
+            CloseUnusedWindows();
+            openedWindow = new RecruitWindow(player, equipment);
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Owner = this;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void buttonTop_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new RatingWindow(this, player, user, army);
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Owner = this;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void buttonChat_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new ChatWindow(player);
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Owner = this;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            storage = StorageModel.GetPlayerStorage(player, storage);
+            market = MarketModel.GetMarketInfo(player, market);
+
+            CloseUnusedWindows();
+            openedWindow = new MarketWindow(this, storage, market, player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new CountryWindow(player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void buyMembership_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new MembershipWindow();
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Owner = this;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void CoffersImage_MouseDown(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new CoffersWindow(player);
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Owner = this;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void buttonSubmitBug_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new SubmitBugWindow(player.PlayerName);
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Owner = this;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void buttonProfile_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new ProfileWindow(this, player, user);
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Owner = this;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void OpenAuction_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new AuctionWindow(player);
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.Owner = this;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
 
         private void UpdateInfo()
         {
@@ -284,37 +434,8 @@ namespace LandConquest.Forms
             manufactureModel.UpdateDateTimeForManufacture(manufactures, player);
             if (f) manufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player);
 
-
-            StorageWindow storageWindow = new StorageWindow(this, player, user);
-
-            PlayerModel.UpdatePlayerExpAndLvl(player);
-            storageWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            storageWindow.Owner = this;
-            storageWindow.Show();
+            OpenStorage(player, user);
         }
-
-        private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            ManufactureWindow window = new ManufactureWindow(this, player, storage);
-            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            window.Owner = this;
-            window.Show();
-        }
-
-        private void buttonCloseWindow_Click(object sender, RoutedEventArgs e)
-        {
-            AuthorisationWindow window = new AuthorisationWindow();
-            window.Show();
-            this.Close();
-        }
-
-        private void reload_button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow window = new MainWindow(user);
-            window.Show();
-            this.Close();
-        }
-
 
         private void SaveTaxes_Click(object sender, RoutedEventArgs e)
         {
@@ -326,18 +447,6 @@ namespace LandConquest.Forms
         private void sliderTaxes_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             prodRatioValue.Content = (1 + (1 - Convert.ToDouble(sliderTaxes.Value) / 5)).ToString();
-        }
-
-        private void recruitImage_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            storage = StorageModel.GetPlayerStorage(player, storage);
-            equipment = EquipmentModel.GetPlayerEquipment(player, equipment);
-
-            RecruitWindow window = new RecruitWindow(player, storage, equipment);
-            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            window.Owner = this;
-            window.Show();
-
         }
 
         private void PathEnterHandler(object sender, RoutedEventArgs e)
@@ -519,35 +628,12 @@ namespace LandConquest.Forms
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             settingsGrid.Visibility = Visibility.Hidden;
-        }
-
-        private void ExitButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            AuthorisationWindow window = new AuthorisationWindow();
-            WarWindow warWindow = App.Current.Windows.OfType<WarWindow>().FirstOrDefault();
-            if (warWindow != null)
-            {
-                warWindow.Close();
-            }
-            foreach (Window f in Application.Current.Windows)
-            {
-
-                f.Close();
-            }
-            window.Show();
-            //this.Close();
-
+            this.DragMove();
         }
         private void playMusic()
         {
             SoundPlayer sound = new SoundPlayer(Properties.Resources.MainTheme);
             sound.PlayLooping();
-
-            //sound.SoundLocation = @"music2.wav";
-            //sound.PlayLooping();
-
-            //sound.SoundLocation = @"music3.wav";
-            //sound.PlayLooping();
         }
 
         private void checkBox_Checked(object sender, RoutedEventArgs e)
@@ -635,44 +721,12 @@ namespace LandConquest.Forms
             settingsGrid.Visibility = Visibility.Hidden;
         }
 
-        private void buttonTop_Click(object sender, RoutedEventArgs e)
-        {
-            RatingWindow ratingWindow = new RatingWindow(this, player, user, army);
-            ratingWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ratingWindow.Owner = this;
-            ratingWindow.Show();
-        }
-
         private void test2_Click(object sender, RoutedEventArgs e)
         {
             //Console.WriteLine(land.LandName);
             LandModel.AddLandManufactures(land);
         }
 
-        private void buttonChat_Click(object sender, RoutedEventArgs e)
-        {
-            ChatWindow chatWindow = new ChatWindow(player);
-            chatWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            chatWindow.Owner = this;
-            chatWindow.Show();
-        }
-
-        private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            storage = StorageModel.GetPlayerStorage(player, storage);
-            market = MarketModel.GetMarketInfo(player, market);
-
-            MarketWindow mWindow = new MarketWindow(this, storage, market, player);
-            mWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            //window.Owner = this;
-            mWindow.Show();
-        }
-
-        private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            CountryWindow win = new CountryWindow(player);
-            win.Show();
-        }
 
         private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -680,10 +734,10 @@ namespace LandConquest.Forms
         }
         private void buttonStartBattle_Click(object sender, RoutedEventArgs e)
         {
-            WarResultWindow warResultWindow = new WarResultWindow(player);
-            warResultWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            warResultWindow.Owner = this;
-            warResultWindow.Show();
+            //WarResultWindow warResultWindow = new WarResultWindow(player);
+            //warResultWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //warResultWindow.Owner = this;
+            //warResultWindow.Show();
         }
 
         public void LoadWarsOnMap()
@@ -750,10 +804,10 @@ namespace LandConquest.Forms
 
         private void buyCoins_Click(object sender, RoutedEventArgs e)
         {
-            BalanceReplenishmentDialog dialog = new BalanceReplenishmentDialog(player);
-            dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            dialog.Owner = this;
-            dialog.Show();
+            //BalanceReplenishmentDialog dialog = new BalanceReplenishmentDialog(player);
+            //dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //dialog.Owner = this;
+            //dialog.Show();
         }
 
         public void convertMoneyToMoneyCode(Label label)
@@ -777,21 +831,13 @@ namespace LandConquest.Forms
             flag.Margin = new Thickness(flagXY[0], flagXY[1], 0, 0);
         }
 
-        private void buyMembership_Click(object sender, RoutedEventArgs e)
-        {
-            MembershipWindow window = new MembershipWindow();
-            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            window.Owner = this;
-            window.Show();
-        }
-
         private void image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            dlg.FileName = ""; 
+            dlg.FileName = "";
             dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
          "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-         "Portable Network Graphic (*.png)|*.png";   
+         "Portable Network Graphic (*.png)|*.png";
 
             Nullable<bool> result = dlg.ShowDialog();
 
@@ -802,45 +848,6 @@ namespace LandConquest.Forms
 
             //PlayerModel.UpdatePlayerImage(player);
         }
-
-        private void CoffersImage_MouseDown(object sender, RoutedEventArgs e)
-        {
-            CoffersWindow win = new CoffersWindow(player);
-            win.Show();
-
-        }
-
-        private void buttonSubmitBug_Click(object sender, RoutedEventArgs e)
-        {
-            SubmitBugWindow window = new SubmitBugWindow(player.PlayerName);
-            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            window.Owner = this;
-            window.Show();
-        }
-
-        /// <summary>
-        /// ///////////////////////////////////////////////////////////////////////////
-        /// </summary>
-
-
-        private void buttonProfile_Click(object sender, RoutedEventArgs e)
-        {
-            CloseUnusedWindows();
-            ProfileWindow profileWindow = new ProfileWindow(this, player, user);
-            profileWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            profileWindow.Owner = this;
-            profileWindow.Show();
-        }
-
-        private void OpenAuction_Click(object sender, RoutedEventArgs e)
-        {
-            openedWindow = new AuctionWindow(player);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            openedWindow.Owner = this;
-            openedWindow.Show();
-            openedWindow.Closed += FreeData;
-        }
-
 
         private void FreeData(object data, EventArgs e)
         {
@@ -855,6 +862,18 @@ namespace LandConquest.Forms
                 if (window != this)
                     window.Close();
             }
+        }
+
+        private void Application_Closed(object sender, EventArgs e)
+        {
+            openedWindow = null;
+            foreach (Window window in App.Current.Windows) window.Close();
+            
+        }
+
+        private void buttonCollapse_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState = WindowState.Minimized;
         }
     }
 }

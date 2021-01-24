@@ -9,7 +9,7 @@
     <Grid>
 
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <TextBox x:Name="currencyAmount" HorizontalAlignment="Left" Height="23" Margin="180,83,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="64" TextChanged="currencyAmount_TextChanged"/>
         <Label Content="Exchange rates: 100 coins/ 1 $" FontSize="16" HorizontalAlignment="Left" Margin="151,23,0,0" VerticalAlignment="Top" Width="222"/>

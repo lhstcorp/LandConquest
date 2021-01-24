@@ -5,20 +5,17 @@ using System.Windows;
 
 namespace LandConquest.Forms
 {
-
     public partial class RecruitWindow : Window
     {
         private Player player;
-        private PlayerStorage storage;
         private PlayerEquipment equipment;
         private Peasants peasants;
-        private Army army; //тут был глобальный объект
+        private Army army;
 
-        public RecruitWindow(Player _player, PlayerStorage _storage, PlayerEquipment _equipment)
+        public RecruitWindow(Player _player, PlayerEquipment _equipment)
         {
             InitializeComponent();
             player = _player;
-            storage = _storage;
             equipment = _equipment;
             army = new Army();
             Loaded += Window_Loaded;

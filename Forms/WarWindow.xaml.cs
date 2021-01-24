@@ -17,7 +17,7 @@ namespace LandConquest.Forms
 {
     public partial class WarWindow : Window
     {
-        private System.Windows.Controls.Primitives.UniformGrid localWarMap = new System.Windows.Controls.Primitives.UniformGrid();
+        private System.Windows.Controls.Primitives.UniformGrid localWarMap;
         private Image imgArmySelected;
         private bool f_armySelected = false;
         private bool f_canMoveArmy = false;
@@ -33,15 +33,15 @@ namespace LandConquest.Forms
         private War war;
         private int saveMovement;
         private int saveRange;
-        private Image emptyImage = new Image();
+        private Image emptyImage;
         private int armyPage;
         private int index;
         private List<bool> selectedArmiesForUnion;
-        private List<ArmyInBattle> yourArmiesInCurrentTile = new List<ArmyInBattle>();
+        private List<ArmyInBattle> yourArmiesInCurrentTile;
         private int SelectionCounter;
         private bool shoot = false;
         private DispatcherTimer syncTimer;
-        public static List<ArmyInBattle> playerArmies = new List<ArmyInBattle>();
+        public static List<ArmyInBattle> playerArmies;
 
         //Canvas localWarArmyLayer = new Canvas();
         public WarWindow(Player _player, ArmyInBattle _army, List<ArmyInBattle> _armies, War _war)
@@ -50,6 +50,10 @@ namespace LandConquest.Forms
             army = _army;
             armies = _armies;
             war = _war;
+            playerArmies = new List<ArmyInBattle>();
+            yourArmiesInCurrentTile = new List<ArmyInBattle>();
+            emptyImage = new Image();
+            localWarMap = new System.Windows.Controls.Primitives.UniformGrid();
 
             InitializeComponent();
             int columnWidth = 40;

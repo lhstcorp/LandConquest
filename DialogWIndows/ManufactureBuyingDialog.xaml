@@ -9,7 +9,7 @@
         ShowInTaskbar="False">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="141" Margin="308,27,0,0" VerticalAlignment="Top" Width="149" Source="/Pictures/sawmill.png"/>
         <Image HorizontalAlignment="Left" Height="140" Margin="20,12,0,0" VerticalAlignment="Top" Width="149" Source="/Pictures/quarry.png"/>

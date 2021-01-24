@@ -13,6 +13,7 @@
         WindowStyle="None" ResizeMode="NoResize"
         Title="MarketWindow" Height="450" Width="800" ShowInTaskbar="False">
 
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="800">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -20,7 +21,7 @@
             <ColumnDefinition Width="614*"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
         <Image HorizontalAlignment="Left" Height="68" Margin="55,10,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png" Grid.Column="1"/>
@@ -197,5 +198,6 @@
         <lvc:CartesianChart x:Name="graphics" Series="{Binding series}" HorizontalAlignment="Left" Width="344" Grid.Column="1" Margin="273,255,-4,0" />
 
     </Grid>
+        </Border>
 
 </Window>

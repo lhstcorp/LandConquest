@@ -6,23 +6,26 @@
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
         mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize" HorizontalAlignment="Center" VerticalAlignment="Center"
         Height="150" Width="250">
-    <Grid>
-        <Label Content="Warning" HorizontalAlignment="Center" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold"  Height="38" Margin="70,10,65.6,0" VerticalAlignment="Top" Width="114" Background="{x:Null}" RenderTransformOrigin="0.705,0.279"/>
-        <TextBlock x:Name="textWarning" FontFamily="Verdana" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Center" Margin="10,53,9.6,38.4" TextWrapping="Wrap" Text="Example of long sentence, should be changed after call of window object!"  Height="59" Width="230"/>
-        <Button x:Name="warningButton" Content="OK" FontSize="14" FontFamily="Harrington" HorizontalAlignment="Left" Margin="70,117,0,0" VerticalAlignment="Top" Width="109" BorderBrush="{x:Null}" Height="33" Foreground="#FFE6CF9D" Click="warningButton_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="buttonClose" Content="X" HorizontalAlignment="Left" Margin="218,0,-0.4,0" VerticalAlignment="Top" Width="32" BorderBrush="{x:Null}" Click="buttonClose_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png"/>
-            </Button.Background>
-        </Button>
+
+    <Border BorderBrush="#FF392018" BorderThickness="2" Height="150" Width="250">
+        <Grid>
+            <Label Content="Warning" HorizontalAlignment="Center" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold"  Height="38" Margin="70,10,65.6,0" VerticalAlignment="Top" Width="114" Background="{x:Null}" RenderTransformOrigin="0.705,0.279"/>
+            <TextBlock x:Name="textWarning" FontFamily="Verdana" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Center" Margin="10,53,9.6,38.4" TextWrapping="Wrap" Text="Example of long sentence, should be changed after call of window object!"  Height="59" Width="230"/>
+            <Button x:Name="warningButton" Content="OK" FontSize="14" FontFamily="Harrington" HorizontalAlignment="Left" Margin="70,117,0,0" VerticalAlignment="Top" Width="109" BorderBrush="{x:Null}" Height="33" Foreground="#FFE6CF9D" Click="warningButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonClose" Content="X" HorizontalAlignment="Left" Margin="218,0,0,0" VerticalAlignment="Top" Width="28" BorderBrush="{x:Null}" Click="buttonClose_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png"/>
+                </Button.Background>
+            </Button>
 
 
-        <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
-        </Grid.Background>
-    </Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+        </Grid>
+    </Border>
 </Window>

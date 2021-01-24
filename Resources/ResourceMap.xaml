@@ -1,7 +1,7 @@
 ﻿<UserControl x:Class="LandConquest.Resources.ResourceMap"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Border BorderBrush="Green" BorderThickness="1" Height="300" Width="300">
+    <Border BorderBrush="Green" BorderThickness="0" Height="300" Width="300">
         <Viewbox Stretch="Uniform">
             <Canvas Name="svg2" Width="410" Height="340">
                 <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="Land1" StrokeThickness="2" Fill="#ffffffff" Stroke="#FF000000" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Style="{StaticResource ResourceStyle}">
