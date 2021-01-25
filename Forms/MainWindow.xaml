@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
         xmlns:ctrls="clr-namespace:LandConquest.Resources"
-        mc:Ignorable="d"
+        mc:Ignorable="d" 
         WindowStartupLocation="Manual" Left="10" Top="10" WindowStyle="None" ResizeMode="NoResize"
         Title="Land Conquest"  Height="900" Width="1600">
 
@@ -21,7 +21,7 @@
     </Window.Resources>
 
     <Border BorderBrush="#FF392018" BorderThickness="5" Height="Auto" Width="Auto">
-        <Grid x:Name="mainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseDown="Grid_MouseDown"   >
+        <Grid x:Name="mainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseLeftButtonDown="mainGrid_MouseLeftButtonDown"   >
 
             <Canvas x:Name="SymbalLayer" Margin="348,68,945.6,502.4" Panel.ZIndex="4">
                 <Image x:Name="flag" Source="/Pictures/flag.png" Height="38" Width="33" Panel.ZIndex="4"/>
@@ -52,7 +52,7 @@
             <Image HorizontalAlignment="Left" Height="30" Margin="299,19,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/resource_chest.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
             <Image HorizontalAlignment="Left" Height="30" Margin="351,17,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/manufacturing.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
 
-            <Button x:Name="reload_button" HorizontalAlignment="Left" Content="Reload" Margin="675,15,0,0" VerticalAlignment="Top" Width="75" BorderBrush="{x:Null}" Foreground="#FFE1CD9B" Height="31" Click="reload_button_Click">
+            <Button x:Name="reload_button" HorizontalAlignment="Left" Content="Refresh" Margin="675,15,0,0" VerticalAlignment="Top" Width="82" BorderBrush="{x:Null}" Foreground="#FFE1CD9B" Height="31" Click="reload_button_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
                 </Button.Background>

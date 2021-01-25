@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Threading.Tasks;
+using System.Windows;
 using YandexDiskNET;
 
 namespace LandConquest.Logic
@@ -29,12 +30,8 @@ namespace LandConquest.Logic
                     int minutesDiff = interval.Minutes;
                     if (minutesDiff != 0)
                     {
-                        WarningDialogWindow window = new WarningDialogWindow("Time on your device set incorrectly! Please synchronize your time and try again");
-                        window.Show();
-                        if (window.DialogResult == true)
-                        {
-                            Environment.Exit(0);
-                        }
+                        WarningDialogWindow.CallWarningDialogNoResult("Time on your device set incorrectly! Please synchronize your time and try again.");
+                        Environment.Exit(0);
                     }
                 }
             }
