@@ -65,8 +65,7 @@ namespace LandConquest
             }
             else
             {
-                WarningDialogWindow warningWindow = new WarningDialogWindow("No account with this username/password combination was found!");
-                warningWindow.Show();
+                WarningDialogWindow.CallWarningDialogNoResult("No account with this username/password combination was found!");
             }
         }
 
@@ -86,8 +85,7 @@ namespace LandConquest
                 int userCreationResult = UserModel.CreateUser(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, this.textBoxNewPass.Text, userId);
                 if (userCreationResult < 0)
                 {
-                    WarningDialogWindow warningWindow = new WarningDialogWindow("Error creating new user!");
-                    warningWindow.Show();
+                    WarningDialogWindow.CallWarningDialogNoResult("Error creating new user!");                   
                 }
                 else
                 {
@@ -96,9 +94,7 @@ namespace LandConquest
 
                     if (playerResult < 0)
                     {
-                        Console.WriteLine("Error creating new player!");
-                        WarningDialogWindow warningWindow = new WarningDialogWindow("Error creating new user!");
-                        warningWindow.Show();
+                        WarningDialogWindow.CallWarningDialogNoResult("Error creating new player!");
                     }
                     else
                     {
@@ -121,8 +117,7 @@ namespace LandConquest
                 textBoxNewEmail.Text = "";
                 textBoxNewPass.Text = "";
                 textBoxConfirmNewPass.Text = "";
-                WarningDialogWindow warningWindow = new WarningDialogWindow("Your login and email should be unique. Password and login length should be more than 6.");
-                warningWindow.Show();
+                WarningDialogWindow.CallWarningDialogNoResult("Your login and email should be unique. Password and login length should be more than 6.");
             }
         }
 
@@ -187,23 +182,27 @@ namespace LandConquest
         private void iconDownload_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             var err = LauncherLogic.DownloadGame();
-            WarningDialogWindow window;
             if (err.Message != null)
             {
-                window = new WarningDialogWindow(err.Message);
+                WarningDialogWindow.CallWarningDialogNoResult(err.Message);
+                Environment.Exit(0);
             }
             else
             {
-                window = new WarningDialogWindow("New version is successfully downloaded!");
-            }
-            window.Owner = this;
-            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            window.ShowDialog();
-            if (window.DialogResult.HasValue)
-            {
-                Environment.Exit(0);
+                WarningDialogWindow.CallWarningDialogNoResult("New version is successfully downloaded!");
             }
         }
+
+        //private void CallWarningDialog(string message)
+        //{
+        //    WarningDialogWindow warningWindow = new WarningDialogWindow(message);
+        //    warningWindow.Owner = Application.Current.MainWindow;
+        //    warningWindow.ShowDialog();
+        //    if (warningWindow.DialogResult.HasValue)
+        //    {
+        //        warningWindow.Close();
+        //    }
+        //}
     }
 }
 

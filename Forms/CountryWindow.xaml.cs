@@ -33,7 +33,6 @@ namespace LandConquest.Forms
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             Country country = CountryModel.GetCountryById(CountryModel.GetCountryId(player));
             Player ruler = new Player();
             User rulerUser = new User();

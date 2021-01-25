@@ -4,6 +4,7 @@ using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Media;
 using System.Threading;
@@ -56,7 +57,12 @@ namespace LandConquest.Forms
             flagXY = new int[4];
             openedWindow = this;
 
-            player = PlayerModel.GetPlayerInfo(_user, player);
+            Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            player = PlayerModel.GetPlayerInfo(user, player);
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
             PbExp.Value = player.PlayerExp;
             Level.Content = player.PlayerLvl;
@@ -74,11 +80,7 @@ namespace LandConquest.Forms
             taxes = new Taxes();
             taxes.PlayerId = player.PlayerId;
 
-            Loaded += MainWindow_Loaded;
-        }
-
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
+            /////////////////////////////////////////////////////////
             storage = StorageModel.GetPlayerStorage(player, storage);
 
             peasants = PeasantModel.GetPeasantsInfo(player, peasants);
@@ -136,7 +138,7 @@ namespace LandConquest.Forms
 
             LoadWarsOnMap();
 
-            setFlag(); 
+            setFlag();
 
             settingsGrid.Visibility = Visibility.Hidden;
             btnShowLandGrid.Visibility = Visibility.Hidden;
@@ -146,8 +148,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new ManufactureWindow(this, player, storage);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -162,10 +164,11 @@ namespace LandConquest.Forms
 
         private void reload_button_Click(object sender, RoutedEventArgs e)
         {
-            CloseUnusedWindows();
-            openedWindow = new MainWindow(user);
-            openedWindow.Show();
-            this.Close();
+            //CloseUnusedWindows();
+            //openedWindow = new MainWindow(user);
+            //openedWindow.Show();
+            //this.Close();
+            MainWindow_Loaded(sender, e);
         }
 
         private void OpenStorage(Player player, User user)
@@ -173,8 +176,8 @@ namespace LandConquest.Forms
             CloseUnusedWindows();
             openedWindow = new StorageWindow(this, player, user);
             PlayerModel.UpdatePlayerExpAndLvl(player);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -186,8 +189,8 @@ namespace LandConquest.Forms
 
             CloseUnusedWindows();
             openedWindow = new RecruitWindow(player, equipment);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -196,8 +199,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new RatingWindow(this, player, user, army);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -206,8 +209,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new ChatWindow(player);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -220,7 +223,7 @@ namespace LandConquest.Forms
             CloseUnusedWindows();
             openedWindow = new MarketWindow(this, storage, market, player);
             openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -230,7 +233,7 @@ namespace LandConquest.Forms
             CloseUnusedWindows();
             openedWindow = new CountryWindow(player);
             openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -239,8 +242,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new MembershipWindow();
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -249,8 +252,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new CoffersWindow(player);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -259,8 +262,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new SubmitBugWindow(player.PlayerName);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -269,8 +272,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new ProfileWindow(this, player, user);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -279,8 +282,8 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new AuctionWindow(player);
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -627,12 +630,6 @@ namespace LandConquest.Forms
             GlobalMap.Visibility = Visibility.Visible;
         }
 
-
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            settingsGrid.Visibility = Visibility.Hidden;
-            this.DragMove();
-        }
         private void playMusic()
         {
             SoundPlayer sound = new SoundPlayer(Properties.Resources.MainTheme);
@@ -858,6 +855,11 @@ namespace LandConquest.Forms
         {
             this.WindowState = WindowState = WindowState.Minimized;
         }
- 
+
+        private void mainGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            this.DragMove();
+        }
     }
 }
