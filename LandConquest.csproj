@@ -560,6 +560,7 @@
     <Resource Include="Pictures\buttonMinus.jpg" />
     <Resource Include="Pictures\background_pale.jpg" />
     <Resource Include="Pictures\buttonPlus.jpg" />
+    <Resource Include="Pictures\Tiles\y1.jpg" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
