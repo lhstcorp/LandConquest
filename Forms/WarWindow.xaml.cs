@@ -1077,8 +1077,9 @@ namespace LandConquest.Forms
             return false;
         }
 
-        private void mainWarWinGrid_MouseDown(object sender, MouseButtonEventArgs e)
+        private void mainWarWinGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            base.OnMouseLeftButtonDown(e);
             this.DragMove();
         }
     }

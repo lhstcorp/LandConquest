@@ -10,7 +10,7 @@
         Height="900" Width="1600">
 
     <Border BorderBrush="#FF392018" BorderThickness="5" Height="Auto" Width="Auto">
-    <Grid x:Name="mainWarWinGrid" MouseDown="mainWarWinGrid_MouseDown">
+    <Grid x:Name="mainWarWinGrid" MouseLeftButtonDown="mainWarWinGrid_MouseLeftButtonDown" >
         <Grid Height="293" Margin="0,179,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="233">
             <Label Content="Army of" Margin="0,0,-16.2,260" Grid.ColumnSpan="4" HorizontalAlignment="Right" Width="236" Height="32" VerticalAlignment="Bottom"></Label>
             <Label x:Name="playerNameLbl" Content="PLAYERNAME" Margin="0,0,74,260" HorizontalAlignment="Right" Width="101" Height="32" VerticalAlignment="Bottom"/>
