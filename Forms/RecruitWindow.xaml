@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
         mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize"
-        Title="RecruitWindow" Height="450" Width="950" Loaded="Window_Loaded"
+        Title="RecruitWindow" Height="300" Width="650" Loaded="Window_Loaded"
         ShowInTaskbar="False">
-    <Grid>
+    
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="300" Width="650">
+        <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="100" Margin="33,39,0,0" VerticalAlignment="Top" Width="100" Source="/LandConquest;component/Pictures/peasants_total.png" />
         <Label Content="Peasants     1C" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="33,10,0,0" VerticalAlignment="Top" Height="24" Width="91"/>
@@ -23,9 +25,9 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="button_close" Content="Button" HorizontalAlignment="Left" Margin="907,10,0,0" VerticalAlignment="Top" Width="33" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
+        <Button x:Name="button_close" Margin="623,0,0,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Image HorizontalAlignment="Left" Height="134" Margin="174,9,0,0" VerticalAlignment="Top" Width="129" Source="/LandConquest;component/Pictures/archer.png" />
@@ -78,7 +80,7 @@
         </Button>
         <Grid HorizontalAlignment="Left" Height="48" Margin="228,90,0,0" VerticalAlignment="Top" Width="34">
             <Grid.Background>
-                <ImageBrush ImageSource="/Pictures/settings_back.png" Stretch="UniformToFill"/>
+                    <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
             <Label x:Name="archerCraft1" Content="1" FontSize="8" FontWeight="Bold" HorizontalAlignment="Left" Margin="18,2,0,0" VerticalAlignment="Top" Width="16" Height="17"/>
             <Label x:Name="archerCraft2" Content="1" FontSize="8" FontWeight="Bold" HorizontalAlignment="Left" Margin="18,15,0,0" VerticalAlignment="Top" Width="16" Height="17"/>
@@ -86,17 +88,17 @@
         </Grid>
         <Grid HorizontalAlignment="Left" Height="74" Margin="464,64,0,0" VerticalAlignment="Top" Width="34">
             <Grid.Background>
-                <ImageBrush ImageSource="/Pictures/settings_back.png" Stretch="UniformToFill"/>
+                    <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="74" Margin="334,64,0,0" VerticalAlignment="Top" Width="34">
             <Grid.Background>
-                <ImageBrush ImageSource="/Pictures/settings_back.png" Stretch="UniformToFill"/>
+                    <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="74" Margin="578,64,0,0" VerticalAlignment="Top" Width="35">
             <Grid.Background>
-                <ImageBrush ImageSource="/Pictures/settings_back.png" Stretch="UniformToFill"/>
+                <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
         </Grid>
         <Image HorizontalAlignment="Left" Height="14" Margin="232,94,0,0" VerticalAlignment="Top" Width="14" Source="/Pictures/bow.png"/>
@@ -111,7 +113,7 @@
         <Image HorizontalAlignment="Left" Height="14" Margin="339,98,0,0" VerticalAlignment="Top" Width="12" Source="/Pictures/coin.png"/>
         <Image HorizontalAlignment="Left" Height="14" Margin="468,68,0,0" VerticalAlignment="Top" Width="14" Source="/LandConquest;component/Pictures/spear.png"/>
         <Image HorizontalAlignment="Left" Height="14" Margin="468,80,0,0" VerticalAlignment="Top" Width="11" Source="/LandConquest;component/Pictures/armor.png" RenderTransformOrigin="0.564,0.471"/>
-        <Image HorizontalAlignment="Left" Height="14" Margin="467,98,0,0" VerticalAlignment="Top" Width="12" Source="/LandConquest;component/Pictures/harness.png"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="467,98,0,0" VerticalAlignment="Top" Width="12" Source="/LandConquest;component/Pictures/armor.png"/>
         <Image HorizontalAlignment="Left" Height="14" Margin="467,112,0,0" VerticalAlignment="Top" Width="12" Source="/LandConquest;component/Pictures/coin.png"/>
         <Label x:Name="knightsCraft5" Content="25" FontSize="8" FontWeight="Bold" HorizontalAlignment="Left" Margin="479,108,0,0" VerticalAlignment="Top" Width="19" Height="18"/>
         <Label x:Name="knightsCraft3" Content="1" FontSize="8" FontWeight="Bold" HorizontalAlignment="Left" Margin="479,92,0,0" VerticalAlignment="Top" Width="16" Height="17"/>
@@ -122,4 +124,5 @@
         <Image HorizontalAlignment="Left" Height="14" Margin="583,77,0,0" VerticalAlignment="Top" Width="12" Source="/LandConquest;component/Pictures/coin.png"/>
         <Label x:Name="siegeCraft2" Content="500" FontSize="8" FontWeight="Bold" HorizontalAlignment="Left" Margin="592,74,0,0" VerticalAlignment="Top" Width="29" Height="20"/>
     </Grid>
+        </Border>
 </Window>

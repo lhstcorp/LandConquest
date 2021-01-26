@@ -1,5 +1,4 @@
 ﻿using LandConquestDB.Entities;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -13,7 +12,7 @@ namespace LandConquestDB.Models
             Color newColor = Color.FromArgb(color.A, color.R, color.G, color.B);
             string colorHex = ColorTranslator.ToHtml(newColor);
             string coffers = "10000";
-            String countryQuery = "INSERT INTO dbo.CountryData (country_name,country_ruler,country_color,country_coffers) VALUES (@country_name,@country_ruler,@country_color,@country_coffers)";
+            string countryQuery = "INSERT INTO dbo.CountryData (country_name,country_ruler,country_color,country_coffers) VALUES (@country_name,@country_ruler,@country_color,@country_coffers)";
             var countryCommand = new SqlCommand(countryQuery, DbContext.GetSqlConnection());
 
             countryCommand.Parameters.AddWithValue("@country_name", land.LandName + " state");
@@ -34,7 +33,7 @@ namespace LandConquestDB.Models
 
         public static int SelectLastIdOfStates()
         {
-            String stateQuery = "SELECT TOP 1 * FROM dbo.CountryData ORDER BY country_id DESC";
+            string stateQuery = "SELECT TOP 1 * FROM dbo.CountryData ORDER BY country_id DESC";
             var stateCommand = new SqlCommand(stateQuery, DbContext.GetSqlConnection());
             int state_max_id = 1;
 
@@ -55,8 +54,8 @@ namespace LandConquestDB.Models
 
         public static List<Country> GetCountriesInfo(List<Country> countries)
         {
-            String query = "SELECT * FROM dbo.CountryData";
-            List<Int32> countriesCountryId = new List<Int32>();
+            string query = "SELECT * FROM dbo.CountryData";
+            List<int> countriesCountryId = new List<int>();
             List<string> countriesCountryName = new List<string>();
             List<string> countriesCountryRuler = new List<string>();
             List<string> countriesCountryColor = new List<string>();
@@ -101,7 +100,7 @@ namespace LandConquestDB.Models
         {
             int id = 0;
 
-            String query = "SELECT country_id FROM dbo.LandData WHERE land_id = @land_id ";
+            string query = "SELECT country_id FROM dbo.LandData WHERE land_id = @land_id ";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@land_id", player.PlayerCurrentRegion);
@@ -125,7 +124,7 @@ namespace LandConquestDB.Models
         {
             Country country = new Country();
 
-            String query = "SELECT * FROM dbo.CountryData WHERE country_id = @id";
+            string query = "SELECT * FROM dbo.CountryData WHERE country_id = @id";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@id", id);
@@ -156,7 +155,7 @@ namespace LandConquestDB.Models
 
         public static void DisbandCountry(Country country)
         {
-            String query = "DELETE FROM dbo.CountryData WHERE country_id = @id";
+            string query = "DELETE FROM dbo.CountryData WHERE country_id = @id";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@id", country.CountryId);

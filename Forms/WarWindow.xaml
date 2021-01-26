@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStyle="None"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen" 
-        Title="Battle" Height="900" Width="1600">
+        WindowStartupLocation="Manual" Left="10" Top="10"
+        Height="900" Width="1600">
 
-    <Grid x:Name="mainWarWinGrid">
+    <Border BorderBrush="#FF392018" BorderThickness="5" Height="Auto" Width="Auto">
+    <Grid x:Name="mainWarWinGrid" MouseLeftButtonDown="mainWarWinGrid_MouseLeftButtonDown" >
         <Grid Height="293" Margin="0,179,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="233">
             <Label Content="Army of" Margin="0,0,-16.2,260" Grid.ColumnSpan="4" HorizontalAlignment="Right" Width="236" Height="32" VerticalAlignment="Bottom"></Label>
             <Label x:Name="playerNameLbl" Content="PLAYERNAME" Margin="0,0,74,260" HorizontalAlignment="Right" Width="101" Height="32" VerticalAlignment="Bottom"/>
@@ -23,6 +24,18 @@
             <Label x:Name="warriorsKnights" Content="0"  Margin="42,139,0,0" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
             <Image Margin="0,0,197,104" Source="/Pictures/Armies/SIE-0.png" HorizontalAlignment="Right" Width="25" Height="25" VerticalAlignment="Bottom"></Image>
             <Label x:Name="warriorsSiege" Content="0"  Margin="42,163,0,0" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
+
+            <Button x:Name="buttonExit"  HorizontalContentAlignment="Center" Width="30" Height="30"  VerticalContentAlignment="Center" Click="btnWarWindowClose_Click" Margin="210,-178,-7,441" BorderBrush="{x:Null}" Foreground="{x:Null}"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="buttonCollapse" Height="30" VerticalContentAlignment="Center" Margin="179,-178,25,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCollapse_Click" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonMinus.jpg"/>
+                </Button.Background>
+            </Button>
 
             <Button x:Name="btnSplit" Content="S" FontSize="10" FontWeight="Bold"  Foreground="Wheat" Margin="164,1,35,0" BorderBrush="{x:Null}" Click="btnSplit_Click" HorizontalAlignment="Center" Width="34" Height="34" VerticalAlignment="Top">
                 <Button.Background>
@@ -60,7 +73,7 @@
             </Button>
 
             <Grid.Background>
-                <ImageBrush ImageSource="/Pictures/panel.png" Stretch="UniformToFill"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
         </Grid>
         <UniformGrid x:Name="gridForArmies" Panel.ZIndex="2" Grid.ColumnSpan="2" >
@@ -101,8 +114,9 @@
         <Label x:Name="moveCounterLbl" Content="000" FontSize="20" Margin="0,82,102,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55" Height="34" Foreground="Ivory"/>
 
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
 
     </Grid>
+        </Border>
 </Window>

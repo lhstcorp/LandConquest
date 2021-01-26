@@ -1,6 +1,7 @@
-﻿using LandConquest.DialogWIndows;
+﻿using EmailValidation;
+using LandConquest.DialogWIndows;
 using LandConquest.Forms;
-using LandConquest.Launcher;
+using LandConquest.Logic;
 using LandConquestDB;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
@@ -17,16 +18,13 @@ using System.Windows;
 namespace LandConquest
 {
 
-    public partial class AuthorisationWindow : System.Windows.Window
+    public partial class AuthorisationWindow : Window
     {
-        private User user;
-        private WarningDialogWindow warningWindow;
-
         public AuthorisationWindow()
         {
             InitializeComponent();
             Loaded += AuthorisationWindow_Loaded;
-            ShowRegistrationFields(Visibility.Hidden);
+            ShowRegistrationFields(Visibility.Hidden);         
         }
 
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
@@ -44,15 +42,13 @@ namespace LandConquest
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            user = new User();
-
-            user = UserModel.UserAuthorisation(this.textBoxLogin.Text, this.textBoxPass.Password);
+            User user = UserModel.UserAuthorisation(this.textBoxLogin.Text, this.textBoxPass.Password);
 
             if (user.UserLogin == textBoxLogin.Text && user.UserPass == textBoxPass.Password)
             {
                 MainWindow mainWindow = new MainWindow(user);
                 mainWindow.Show();
-
+                
                 if (CheckboxRemember.IsChecked == true)
                 {
                     Properties.Settings.Default.UserLogin = textBoxLogin.Text;
@@ -69,8 +65,7 @@ namespace LandConquest
             }
             else
             {
-                WarningDialogWindow warningWindow = new WarningDialogWindow("No account with this username/password combination was found!");
-                warningWindow.Show();
+                WarningDialogWindow.CallWarningDialogNoResult("No account with this username/password combination was found!");
             }
         }
 
@@ -80,20 +75,17 @@ namespace LandConquest
             bool validNewUserEmail = UserModel.ValidateUserByEmail(textBoxNewEmail.Text);
 
             if (textBoxNewLogin.Text.Length > 6 &&
-                textBoxNewEmail.Text.Length > 6 &&
-                textBoxNewEmail.Text.Contains("@") &&
+                EmailValidator.Validate(textBoxNewEmail.Text, true, true) &&
                 textBoxNewPass.Text.Length > 6 &&
                 validNewUserLogin == true &&
                 validNewUserEmail == true &&
                 textBoxNewPass.Text == textBoxConfirmNewPass.Text)
             {
-                String userId = generateUserId();
+                string userId = generateUserId();
                 int userCreationResult = UserModel.CreateUser(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, this.textBoxNewPass.Text, userId);
                 if (userCreationResult < 0)
                 {
-                    Console.WriteLine("Error creating new user!");
-                    warningWindow = new WarningDialogWindow("Error creating new user!");
-                    warningWindow.Show();
+                    WarningDialogWindow.CallWarningDialogNoResult("Error creating new user!");                   
                 }
                 else
                 {
@@ -102,9 +94,7 @@ namespace LandConquest
 
                     if (playerResult < 0)
                     {
-                        Console.WriteLine("Error creating new player!");
-                        warningWindow = new WarningDialogWindow("Error creating new user!");
-                        warningWindow.Show();
+                        WarningDialogWindow.CallWarningDialogNoResult("Error creating new player!");
                     }
                     else
                     {
@@ -127,8 +117,7 @@ namespace LandConquest
                 textBoxNewEmail.Text = "";
                 textBoxNewPass.Text = "";
                 textBoxConfirmNewPass.Text = "";
-                warningWindow = new WarningDialogWindow("Your login and email should be unique. Password, login and email length should be more then 6.");
-                warningWindow.Show();
+                WarningDialogWindow.CallWarningDialogNoResult("Your login and email should be unique. Password and login length should be more than 6.");
             }
         }
 
@@ -166,7 +155,7 @@ namespace LandConquest
 
         private async void CheckVersion()
         {
-            await LauncherController.CheckGameVersion();
+            await LauncherLogic.CheckGameVersion();
             string downloadsPath = new KnownFolder(KnownFolderType.Downloads).Path;
             if (File.ReadAllText(downloadsPath + @"\GameVersion").SequenceEqual(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion))
             {
@@ -192,25 +181,28 @@ namespace LandConquest
 
         private void iconDownload_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            var err = LauncherController.DownloadGame();
-            WarningDialogWindow window;
+            var err = LauncherLogic.DownloadGame();
             if (err.Message != null)
             {
-                window = new WarningDialogWindow(err.Message);
+                WarningDialogWindow.CallWarningDialogNoResult(err.Message);
+                Environment.Exit(0);
             }
             else
             {
-                window = new WarningDialogWindow("New version is successfully downloaded!");
-            }
-            window.Owner = this;
-            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            window.ShowDialog();
-            if (window.DialogResult.HasValue)
-            {
-                Environment.Exit(0);
+                WarningDialogWindow.CallWarningDialogNoResult("New version is successfully downloaded!");
             }
         }
 
+        //private void CallWarningDialog(string message)
+        //{
+        //    WarningDialogWindow warningWindow = new WarningDialogWindow(message);
+        //    warningWindow.Owner = Application.Current.MainWindow;
+        //    warningWindow.ShowDialog();
+        //    if (warningWindow.DialogResult.HasValue)
+        //    {
+        //        warningWindow.Close();
+        //    }
+        //}
     }
 }
 

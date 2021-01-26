@@ -7,20 +7,22 @@
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True" BorderThickness="0" Background="{x:Null}" Foreground="{x:Null}"
         Height="450" Width="700" ShowInTaskbar="False" Loaded="Window_Loaded" >
-    <Grid>
 
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="700">
+    <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/panel_horizontal1.png"/>
+            <ImageBrush ImageSource="/Pictures/background_pale.jpg"/>
         </Grid.Background>
         <Button x:Name="buttonBecomeMember" Content="Learn more" FontSize="24" HorizontalAlignment="Left" Margin="244,369,0,0" VerticalAlignment="Top" Width="194" Height="54" BorderBrush="{x:Null}" Foreground="#FFCEA642" Click="buttonBecomeMember_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="buttonClose" Content="Close" FontSize="22" HorizontalAlignment="Left" Margin="614,2,-1,0" VerticalAlignment="Top" Width="87" BorderBrush="{x:Null}" Height="43" Foreground="#FFCEA642" Click="buttonClose_Click">
+        <Button x:Name="buttonClose" Margin="674,0,0,0" VerticalAlignment="Top" Width="20" BorderBrush="{x:Null}" Height="20" Foreground="{x:Null}" Click="buttonClose_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
             </Button.Background>
         </Button>
     </Grid>
+        </Border>
 </Window>

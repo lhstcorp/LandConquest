@@ -5,29 +5,27 @@ using System.Windows;
 
 namespace LandConquest.Forms
 {
-
     public partial class RecruitWindow : Window
     {
         private Player player;
-        private PlayerStorage storage;
         private PlayerEquipment equipment;
         private Peasants peasants;
-        private Army army = new Army();
+        private Army army;
 
-        public RecruitWindow(Player _player, PlayerStorage _storage, PlayerEquipment _equipment)
+        public RecruitWindow(Player _player, PlayerEquipment _equipment)
         {
             InitializeComponent();
             player = _player;
-            storage = _storage;
             equipment = _equipment;
+            army = new Army();
             Loaded += Window_Loaded;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             peasants = new Peasants();
-            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
 
+            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
             army = ArmyModel.GetArmyInfo(player, army);
 
             TotalRecruitPeasants.Content = peasants.PeasantsCount.ToString();

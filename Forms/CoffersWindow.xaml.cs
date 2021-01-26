@@ -4,9 +4,6 @@ using System.Windows;
 
 namespace LandConquest.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для CoffersWindow.xaml
-    /// </summary>
     public partial class CoffersWindow : Window
     {
         private Player player;

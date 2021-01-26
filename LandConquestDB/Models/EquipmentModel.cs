@@ -1,5 +1,4 @@
 ﻿using LandConquestDB.Entities;
-using System;
 using System.Data.SqlClient;
 
 namespace LandConquestDB.Models
@@ -8,7 +7,7 @@ namespace LandConquestDB.Models
     {
         public static PlayerEquipment GetPlayerEquipment(Player player, PlayerEquipment equipment)
         {
-            String storageQuery = "SELECT * FROM dbo.PlayerEquipment WHERE player_id = @player_id";
+            string storageQuery = "SELECT * FROM dbo.PlayerEquipment WHERE player_id = @player_id";
 
             var command = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
@@ -40,7 +39,7 @@ namespace LandConquestDB.Models
 
         public static void UpdateEquipment(Player player, PlayerEquipment _equipment)
         {
-            String storageQuery = "UPDATE dbo.PlayerEquipment SET armor = @armor, sword  = @sword, harness = @harness, spear  = @spear, bow = @bow, gear = @gear WHERE player_id = @player_id ";
+            string storageQuery = "UPDATE dbo.PlayerEquipment SET armor = @armor, sword  = @sword, harness = @harness, spear  = @spear, bow = @bow, gear = @gear WHERE player_id = @player_id ";
 
             var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             // int datetimeResult;

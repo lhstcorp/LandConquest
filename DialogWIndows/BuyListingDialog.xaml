@@ -6,11 +6,10 @@
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
         mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize" HorizontalAlignment="Center" VerticalAlignment="Center"
         Height="150" Width="250" WindowStartupLocation="CenterOwner">
-    <Grid>
-
-
+    <Border BorderBrush="#FF392018" BorderThickness="2" Height="150" Width="250">
+        <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Label FontFamily="Verdana" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Center" Margin="12,50,139.6,76.4" Content="Enter amount:"  Height="24" Width="98"/>
         <TextBox x:Name="textBoxAmount" HorizontalAlignment="Left" Height="23" Margin="110,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="{x:Null}" SelectionBrush="{x:Null}"/>
@@ -19,10 +18,12 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="buttonClose" Content="X" HorizontalAlignment="Left" Margin="224,5,0,0" VerticalAlignment="Top" Width="20" BorderBrush="{x:Null}" Height="20" Click="buttonClose_Click">
+            
+        <Button x:Name="buttonClose"  Margin="226,0,0,0" VerticalAlignment="Top" Width="20" BorderBrush="{x:Null}" Height="20" Click="buttonClose_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
             </Button.Background>
         </Button>
     </Grid>
+        </Border>
 </Window>

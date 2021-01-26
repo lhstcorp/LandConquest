@@ -7,12 +7,11 @@
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
         Title="MarketWindow" Height="375" Width="560" ShowInTaskbar="False" Loaded="Window_Loaded">
-    <Grid>
-
-
-
+    
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="375" Width="560">
+        <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
 
         <Image x:Name="woodButton" HorizontalAlignment="Left" Height="42" Margin="9,16,0,0" VerticalAlignment="Top" Width="48" Source="/LandConquest;component/Pictures/wood.png" Cursor="Hand" MouseDown="woodButton_MouseDown"/>
@@ -56,11 +55,13 @@
         <Label x:Name="labelBowmanAmount" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="63,328,0,0" VerticalAlignment="Top" Width="44" Height="27"/>
         <Label x:Name="labelPeasantAmount" Content="0" Foreground="#FF914C2B" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="10,328,0,0" VerticalAlignment="Top" Width="53" Height="27"/>
         <Label Content="Choose subject" FontSize="24" FontFamily="Verdana" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="337,64,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF573916"/>
-        <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" Margin="514,10,0,0" VerticalAlignment="Top" Width="36" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="buttonClose_Click">
+            
+        <Button x:Name="buttonClose" Margin="533,0,0,0" VerticalAlignment="Top" Width="20" Height="20" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="buttonClose_Click">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+            
         <TextBox x:Name="textBoxAmount" HorizontalAlignment="Left" Height="23" Margin="387,252,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="163" Background="#7F966B52" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}"/>
         <Label x:Name="labelSetPrice" Content="Set price (each)" FontSize="24" FontFamily="Verdana" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="327,138,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF573916" Width="223"/>
         <Label x:Name="labelSetAmount" Content="Set amount" FontSize="24" FontFamily="Verdana" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="387,216,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF573916"/>
@@ -72,4 +73,5 @@
         <TextBox x:Name="textBoxPrice" HorizontalAlignment="Left" Height="23" Margin="387,175,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="163" Background="#7F966B52" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}"/>
 
     </Grid>
+        </Border>
 </Window>

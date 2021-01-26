@@ -1,5 +1,4 @@
 ﻿using LandConquestDB.Entities;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -9,7 +8,7 @@ namespace LandConquestDB.Models
     {
         public static List<ArmyInBattle> GetArmiesInfo(List<ArmyInBattle> armies, War war)
         {
-            String armyQuery = "SELECT * FROM dbo.ArmyDataInBattle WHERE war_id = @war_id";
+            string armyQuery = "SELECT * FROM dbo.ArmyDataInBattle WHERE war_id = @war_id";
             List<string> armiesPlayerId = new List<string>();
             List<string> armiesArmyId = new List<string>();
             List<int> armiesSizeCurrent = new List<int>();
@@ -86,7 +85,7 @@ namespace LandConquestDB.Models
 
         public static void InsertArmyIntoBattleTable(ArmyInBattle army, War war)
         {
-            String armyQuery = "INSERT INTO dbo.ArmyDataInBattle (player_id, army_id, army_size_current, army_type, army_archers_count, army_infantry_count, army_horseman_count, army_siegegun_count, local_land_id, army_side, war_id) VALUES (@player_id, @army_id, @army_size_current, @army_type, @army_archers_count, @army_infantry_count, @army_horseman_count, @army_siegegun_count, @local_land_id, @army_side, @war_id)";
+            string armyQuery = "INSERT INTO dbo.ArmyDataInBattle (player_id, army_id, army_size_current, army_type, army_archers_count, army_infantry_count, army_horseman_count, army_siegegun_count, local_land_id, army_side, war_id) VALUES (@player_id, @army_id, @army_size_current, @army_type, @army_archers_count, @army_infantry_count, @army_horseman_count, @army_siegegun_count, @local_land_id, @army_side, @war_id)";
             var armyCommand = new SqlCommand(armyQuery, DbContext.GetSqlConnection());
 
             armyCommand.Parameters.AddWithValue("@player_id", army.PlayerId);
@@ -108,7 +107,7 @@ namespace LandConquestDB.Models
 
         public static int SelectLastIdOfArmies(War war)
         {
-            String Query = "SELECT * FROM dbo.ArmyDataInBattle WHERE war_id = @war_id";
+            string Query = "SELECT * FROM dbo.ArmyDataInBattle WHERE war_id = @war_id";
             var Command = new SqlCommand(Query, DbContext.GetSqlConnection());
             Command.Parameters.AddWithValue("@war_id", war.WarId);
             string armyId = "";
@@ -129,7 +128,7 @@ namespace LandConquestDB.Models
 
         public static int SelectLastIdOfArmiesInCurrentTile(int index, War war)
         {
-            String Query = "SELECT * FROM dbo.ArmyDataInBattle WHERE war_id = @war_id AND local_land_id = @local_land_id";
+            string Query = "SELECT * FROM dbo.ArmyDataInBattle WHERE war_id = @war_id AND local_land_id = @local_land_id";
             var Command = new SqlCommand(Query, DbContext.GetSqlConnection());
 
             Command.Parameters.AddWithValue("@war_id", war.WarId);
@@ -153,7 +152,7 @@ namespace LandConquestDB.Models
 
         public static List<ArmyInBattle> GetArmiesInfoInCurrentTile(List<ArmyInBattle> armies, War war, int index)
         {
-            String armyQuery = "SELECT * FROM dbo.ArmyDataInBattle WHERE war_id = @war_id AND local_land_id = @local_land_id";
+            string armyQuery = "SELECT * FROM dbo.ArmyDataInBattle WHERE war_id = @war_id AND local_land_id = @local_land_id";
 
             List<string> armiesPlayerId = new List<string>();
             List<string> armiesArmyId = new List<string>();
@@ -231,7 +230,7 @@ namespace LandConquestDB.Models
 
         public static void UpdateLocalLandOfArmy(ArmyInBattle selectedArmy, int index)
         {
-            String ArmyQuery = "UPDATE dbo.ArmyDataInBattle SET local_land_id = @local_land_id WHERE army_id = @army_id";
+            string ArmyQuery = "UPDATE dbo.ArmyDataInBattle SET local_land_id = @local_land_id WHERE army_id = @army_id";
 
             var ArmyCommand = new SqlCommand(ArmyQuery, DbContext.GetSqlConnection());
             ArmyCommand.Parameters.AddWithValue("@local_land_id", index);
@@ -244,7 +243,7 @@ namespace LandConquestDB.Models
 
         public static int CheckPlayerParticipation(Player player, War war)
         {
-            String query = "SELECT * FROM dbo.ArmyDataInBattle WHERE player_id = @player_id AND war_id = @war_id";
+            string query = "SELECT * FROM dbo.ArmyDataInBattle WHERE player_id = @player_id AND war_id = @war_id";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
@@ -266,7 +265,7 @@ namespace LandConquestDB.Models
 
         public static void UpdateArmyType(Army army)
         {
-            String storageQuery = "UPDATE dbo.ArmyDataInBattle SET army_type = @army_type WHERE army_id = @army_id";
+            string storageQuery = "UPDATE dbo.ArmyDataInBattle SET army_type = @army_type WHERE army_id = @army_id";
 
             var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             // int datetimeResult;
@@ -281,7 +280,7 @@ namespace LandConquestDB.Models
 
         public static void UpdateArmyInBattle(Army army)
         {
-            String storageQuery = "UPDATE dbo.ArmyDataInBattle SET army_size_current = @army_size_current, army_type = @army_type, army_archers_count = @army_archers_count, army_infantry_count = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count WHERE army_id = @army_id";
+            string storageQuery = "UPDATE dbo.ArmyDataInBattle SET army_size_current = @army_size_current, army_type = @army_type, army_archers_count = @army_archers_count, army_infantry_count = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count WHERE army_id = @army_id";
 
             var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             // int datetimeResult;
@@ -298,6 +297,18 @@ namespace LandConquestDB.Models
             storageCommand.Dispose();
         }
 
+        public static void DesertAllArmies(Player player, int part)
+        {
+            string storageQuery = "UPDATE dbo.ArmyDataInBattle SET army_size_current = army_size_current / @part, army_type =  army_type / @part, army_archers_count = army_archers_count / @part, army_infantry_count = army_infantry_count / @part, army_horseman_count = army_horseman_count / @part, army_siegegun_count = army_siegegun_count / @part WHERE player_id = @player_id";
+
+            var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
+            storageCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
+            storageCommand.Parameters.AddWithValue("@part", part);
+
+            storageCommand.ExecuteNonQuery();
+            storageCommand.Dispose();
+        }
+
         public static int ReturnTypeOfArmy(List<ArmyInBattle> armies)
         {
             for (int i = 0; i < armies.Count - 1; i++)
@@ -311,7 +322,7 @@ namespace LandConquestDB.Models
 
         public static void DeleteArmyById(ArmyInBattle army)
         {
-            String query = "DELETE FROM dbo.ArmyDataInBattle WHERE army_id = @army_id";
+            string query = "DELETE FROM dbo.ArmyDataInBattle WHERE army_id = @army_id";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@army_id", army.ArmyId);
@@ -348,7 +359,7 @@ namespace LandConquestDB.Models
 
         public static void InsertBattle(Battle battle)
         {
-            String battleQuery = "INSERT INTO dbo.BattleData (battle_id, war_id, local_land_id) VALUES (@battle_id, @war_id, @local_land_id)";
+            string battleQuery = "INSERT INTO dbo.BattleData (battle_id, war_id, local_land_id) VALUES (@battle_id, @war_id, @local_land_id)";
             var battleCommand = new SqlCommand(battleQuery, DbContext.GetSqlConnection());
 
             battleCommand.Parameters.AddWithValue("@battle_id", battle.BattleId);
@@ -363,7 +374,7 @@ namespace LandConquestDB.Models
 
         public static bool DidTheWarStarted(int index, War war)
         {
-            String Query = "SELECT * FROM dbo.BattleData WHERE war_id = @war_id AND local_land_id = @local_land_id";
+            string Query = "SELECT * FROM dbo.BattleData WHERE war_id = @war_id AND local_land_id = @local_land_id";
             var Command = new SqlCommand(Query, DbContext.GetSqlConnection());
 
             Command.Parameters.AddWithValue("@war_id", war.WarId);
@@ -389,7 +400,7 @@ namespace LandConquestDB.Models
 
         public static List<ArmyInBattle> GetPlayerArmiesInfo(List<ArmyInBattle> armies, War war, Player player)
         {
-            String armyQuery = "SELECT * FROM dbo.ArmyDataInBattle WHERE war_id = @war_id AND player_id = @player_id";
+            string armyQuery = "SELECT * FROM dbo.ArmyDataInBattle WHERE war_id = @war_id AND player_id = @player_id";
             List<string> armiesPlayerId = new List<string>();
             List<string> armiesArmyId = new List<string>();
             List<int> armiesSizeCurrent = new List<int>();
@@ -465,10 +476,9 @@ namespace LandConquestDB.Models
             return armies;
         }
 
-
         public static List<ArmyInBattle> GetAllPlayerArmiesInfo(List<ArmyInBattle> armies, Player player)
         {
-            String armyQuery = "SELECT * FROM dbo.ArmyDataInBattle WHERE player_id = @player_id";
+            string armyQuery = "SELECT * FROM dbo.ArmyDataInBattle WHERE player_id = @player_id";
             List<string> armiesPlayerId = new List<string>();
             List<string> armiesArmyId = new List<string>();
             List<int> armiesSizeCurrent = new List<int>();

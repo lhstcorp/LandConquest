@@ -7,11 +7,9 @@ namespace LandConquestDB.Models
 {
     public class ManufactureModel
     {
-        private List<Manufacture> manufactures;
-
         public DateTime GetManufactureProdStartTime(Player player)
         {
-            String query = "SELECT * FROM dbo.ManufactureData WHERE player_id = @player_id";
+            string query = "SELECT * FROM dbo.ManufactureData WHERE player_id = @player_id";
             DateTime dateTime = new DateTime();
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
@@ -35,17 +33,17 @@ namespace LandConquestDB.Models
         {
             //List<Manufacture> manufactures = new List<Manufacture>();
 
-            String query = "SELECT * FROM dbo.ManufactureData WHERE player_id = @player_id";
+            string query = "SELECT * FROM dbo.ManufactureData WHERE player_id = @player_id";
             List<string> manufacturesPlayerId = new List<string>();
             List<string> manufacturesManufactureId = new List<string>();
             List<string> manufacturesManufactureName = new List<string>();
-            List<Int32> manufacturesManufactureType = new List<Int32>();
-            List<Int32> manufacturesManufactureLevel = new List<Int32>();
-            List<Int32> manufacturesManufacturePeasantsMax = new List<Int32>();
-            List<Int32> manufacturesManufacturePeasantsWork = new List<Int32>();
-            List<Int32> manufacturesManufactureProductsHour = new List<Int32>();
+            List<int> manufacturesManufactureType = new List<int>();
+            List<int> manufacturesManufactureLevel = new List<int>();
+            List<int> manufacturesManufacturePeasantsMax = new List<int>();
+            List<int> manufacturesManufacturePeasantsWork = new List<int>();
+            List<int> manufacturesManufactureProductsHour = new List<int>();
             List<DateTime> manufacturesManufactureProdStartTime = new List<DateTime>();
-            List<Int32> manufacturesManufactureBaseProdValue = new List<Int32>();
+            List<int> manufacturesManufactureBaseProdValue = new List<int>();
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
@@ -83,7 +81,7 @@ namespace LandConquestDB.Models
 
             command.Dispose();
 
-            manufactures = new List<Manufacture>();
+            List<Manufacture> manufactures = new List<Manufacture>();
             for (int i = 0; i < manufacturesPlayerId.Count; i++)
             {
                 manufactures.Add(new Manufacture());
@@ -122,17 +120,17 @@ namespace LandConquestDB.Models
         {
             //List<Manufacture> manufactures = new List<Manufacture>();
 
-            String query = "SELECT * FROM dbo.LandManufactureData WHERE land_id = @land_id";
+            string query = "SELECT * FROM dbo.LandManufactureData WHERE land_id = @land_id";
             List<int> manufacturesLandId = new List<int>();
             List<string> manufacturesManufactureId = new List<string>();
             List<string> manufacturesManufactureName = new List<string>();
-            List<Int32> manufacturesManufactureType = new List<Int32>();
-            List<Int32> manufacturesManufactureLevel = new List<Int32>();
-            List<Int32> manufacturesManufacturePeasantsMax = new List<Int32>();
-            List<Int32> manufacturesManufacturePeasantsWork = new List<Int32>();
-            List<Int32> manufacturesManufactureProductsHour = new List<Int32>();
+            List<int> manufacturesManufactureType = new List<int>();
+            List<int> manufacturesManufactureLevel = new List<int>();
+            List<int> manufacturesManufacturePeasantsMax = new List<int>();
+            List<int> manufacturesManufacturePeasantsWork = new List<int>();
+            List<int> manufacturesManufactureProductsHour = new List<int>();
             List<DateTime> manufacturesManufactureProdStartTime = new List<DateTime>();
-            List<Int32> manufacturesManufactureBaseProdValue = new List<Int32>();
+            List<int> manufacturesManufactureBaseProdValue = new List<int>();
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@land_id", player.PlayerCurrentRegion);
@@ -167,7 +165,7 @@ namespace LandConquestDB.Models
 
             command.Dispose();
 
-            manufactures = new List<Manufacture>();
+            List<Manufacture> manufactures = new List<Manufacture>();
             for (int i = 0; i < manufacturesLandId.Count; i++)
             {
                 manufactures.Add(new Manufacture());
@@ -206,7 +204,7 @@ namespace LandConquestDB.Models
 
         public void UpdateDateTimeForManufacture(List<Manufacture> _manufactures, Player _player)
         {
-            String datetimeQuery = "UPDATE dbo.ManufactureData SET manufacture_peasant_work  = @manufacture_peasant_work, manufacture_products_hour  = @manufacture_products_hour, manufacture_prod_start_time = @manufacture_prod_start_time WHERE manufacture_id = @manufacture_id ";
+            string datetimeQuery = "UPDATE dbo.ManufactureData SET manufacture_peasant_work  = @manufacture_peasant_work, manufacture_products_hour  = @manufacture_products_hour, manufacture_prod_start_time = @manufacture_prod_start_time WHERE manufacture_id = @manufacture_id ";
 
             var datetimeCommand = new SqlCommand(datetimeQuery, DbContext.GetSqlConnection());
             // int datetimeResult;
@@ -233,7 +231,7 @@ namespace LandConquestDB.Models
 
         public void UpdateDateTimeForPlayerLandManufacture(List<Manufacture> _manufactures, Player _player)
         {
-            String datetimeQuery = "UPDATE dbo.PlayerLandManufactureData SET manufacture_prod_start_time = @manufacture_prod_start_time WHERE manufacture_id = @manufacture_id ";
+            string datetimeQuery = "UPDATE dbo.PlayerLandManufactureData SET manufacture_prod_start_time = @manufacture_prod_start_time WHERE manufacture_id = @manufacture_id ";
 
             var datetimeCommand1 = new SqlCommand(datetimeQuery, DbContext.GetSqlConnection());
             datetimeCommand1.Parameters.AddWithValue("@manufacture_prod_start_time", DateTime.UtcNow);
@@ -259,7 +257,7 @@ namespace LandConquestDB.Models
             resourcesNeed.PlayerId = null;
             resourcesNeed.PlayerFood = 0;
 
-            String query = "SELECT * FROM dbo.ManufactureLvlData WHERE lvl = @manufacture_lvl";
+            string query = "SELECT * FROM dbo.ManufactureLvlData WHERE lvl = @manufacture_lvl";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@manufacture_lvl", manufacture.ManufactureLevel);
@@ -282,7 +280,7 @@ namespace LandConquestDB.Models
 
         public void UpgradeManufacture(Manufacture manufacture)
         {
-            String manufactureUpgradeQuery = "UPDATE dbo.ManufactureData SET manufacture_lvl = @manufacture_lvl, manufacture_peasant_max  = @manufacture_peasant_max, manufacture_products_hour = @manufacture_products_hour, manufacture_base_prod_value = @manufacture_base_prod_value WHERE manufacture_id = @manufacture_id ";
+            string manufactureUpgradeQuery = "UPDATE dbo.ManufactureData SET manufacture_lvl = @manufacture_lvl, manufacture_peasant_max  = @manufacture_peasant_max, manufacture_products_hour = @manufacture_products_hour, manufacture_base_prod_value = @manufacture_base_prod_value WHERE manufacture_id = @manufacture_id ";
 
             var manufactureUpgradeCommand = new SqlCommand(manufactureUpgradeQuery, DbContext.GetSqlConnection());
 
@@ -309,7 +307,7 @@ namespace LandConquestDB.Models
         public Manufacture GetManufactureById(Manufacture _manufacture)
         {
             Manufacture manufacture = new Manufacture();
-            String query = "SELECT * FROM dbo.ManufactureData WHERE manufacture_id = @manufacture_id";
+            string query = "SELECT * FROM dbo.ManufactureData WHERE manufacture_id = @manufacture_id";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@manufacture_id", _manufacture.ManufactureId);
@@ -348,7 +346,7 @@ namespace LandConquestDB.Models
 
         public void InsertOrUpdateLandManufactures(List<Manufacture> landManufactures, Player player)
         {
-            String manufactureQuery = "IF EXISTS (SELECT * FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id AND manufacture_id = @manufacture_id) BEGIN UPDATE dbo.PlayerLandManufactureData SET manufacture_peasant_work = @manufacture_peasant_work, manufacture_products_hour = @manufacture_products_hour, manufacture_prod_start_time=@manufacture_prod_start_time WHERE manufacture_id=@manufacture_id AND player_id=@player_id END ELSE BEGIN INSERT INTO dbo.PlayerLandManufactureData (player_id,manufacture_id,manufacture_type,manufacture_peasant_work,manufacture_products_hour,manufacture_prod_start_time) VALUES (@player_id, @manufacture_id, @manufacture_type, @manufacture_peasant_work, @manufacture_products_hour, @manufacture_prod_start_time) END";
+            string manufactureQuery = "IF EXISTS (SELECT * FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id AND manufacture_id = @manufacture_id) BEGIN UPDATE dbo.PlayerLandManufactureData SET manufacture_peasant_work = @manufacture_peasant_work, manufacture_products_hour = @manufacture_products_hour, manufacture_prod_start_time=@manufacture_prod_start_time WHERE manufacture_id=@manufacture_id AND player_id=@player_id END ELSE BEGIN INSERT INTO dbo.PlayerLandManufactureData (player_id,manufacture_id,manufacture_type,manufacture_peasant_work,manufacture_products_hour,manufacture_prod_start_time) VALUES (@player_id, @manufacture_id, @manufacture_type, @manufacture_peasant_work, @manufacture_products_hour, @manufacture_prod_start_time) END";
 
             //b1
             var build1Command = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
@@ -383,7 +381,7 @@ namespace LandConquestDB.Models
 
         public void UpdateLandManufactures(List<Manufacture> landManufactures)
         {
-            String manufactureQuery = "UPDATE dbo.LandManufactureData SET manufacture_peasant_work  = @manufacture_peasant_work, manufacture_products_hour  = @manufacture_products_hour WHERE manufacture_id = @manufacture_id ";
+            string manufactureQuery = "UPDATE dbo.LandManufactureData SET manufacture_peasant_work  = @manufacture_peasant_work, manufacture_products_hour  = @manufacture_products_hour WHERE manufacture_id = @manufacture_id ";
 
             //b1
             var build1Command = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
@@ -412,15 +410,15 @@ namespace LandConquestDB.Models
         {
             //List<Manufacture> manufactures = new List<Manufacture>();
 
-            String query = "SELECT * FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id";
+            string query = "SELECT * FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id";
             List<string> manufacturesPlayerId = new List<string>();
             List<string> manufacturesManufactureId = new List<string>();
             //List<string> manufacturesManufactureName = new List<string>();
-            List<Int32> manufacturesManufactureType = new List<Int32>();
+            List<int> manufacturesManufactureType = new List<int>();
             //List<Int32> manufacturesManufactureLevel = new List<Int32>();
             //List<Int32> manufacturesManufacturePeasantsMax = new List<Int32>();
-            List<Int32> manufacturesManufacturePeasantsWork = new List<Int32>();
-            List<Int32> manufacturesManufactureProductsHour = new List<Int32>();
+            List<int> manufacturesManufacturePeasantsWork = new List<int>();
+            List<int> manufacturesManufactureProductsHour = new List<int>();
             List<DateTime> manufacturesManufactureProdStartTime = new List<DateTime>();
             //List<Int32> manufacturesManufactureBaseProdValue = new List<Int32>();
 
@@ -460,7 +458,7 @@ namespace LandConquestDB.Models
 
             command.Dispose();
 
-            manufactures = new List<Manufacture>();
+            List<Manufacture> manufactures = new List<Manufacture>();
             for (int i = 0; i < manufacturesPlayerId.Count; i++)
             {
                 manufactures.Add(new Manufacture());
@@ -497,7 +495,7 @@ namespace LandConquestDB.Models
 
         public void UpdateLandManufacturesWhenMove(List<int> peasantsFree, List<Manufacture> landManufactures)
         {
-            String manufactureQuery = "UPDATE dbo.LandManufactureData SET manufacture_peasant_work  = @manufacture_peasant_work WHERE manufacture_id = @manufacture_id ";
+            string manufactureQuery = "UPDATE dbo.LandManufactureData SET manufacture_peasant_work  = @manufacture_peasant_work WHERE manufacture_id = @manufacture_id ";
 
             //b1
             var build1Command = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());

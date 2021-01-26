@@ -167,9 +167,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DialogWIndows\BalanceReplenishmentDialog.xaml.cs">
-      <DependentUpon>BalanceReplenishmentDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DialogWIndows\BuyListingDialog.xaml.cs">
       <DependentUpon>BuyListingDialog.xaml</DependentUpon>
     </Compile>
@@ -178,9 +175,6 @@
     </Compile>
     <Compile Include="DialogWIndows\EstablishStateDialog.xaml.cs">
       <DependentUpon>EstablishStateDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DialogWIndows\PaymentDialog.xaml.cs">
-      <DependentUpon>PaymentDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="DialogWIndows\SplitArmyDialog.xaml.cs">
       <DependentUpon>SplitArmyDialog.xaml</DependentUpon>
@@ -206,14 +200,14 @@
     <Compile Include="Forms\MembershipWindow.xaml.cs">
       <DependentUpon>MembershipWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PaymentWindow.xaml.cs">
-      <DependentUpon>PaymentWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Forms\ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\RatingWindow.xaml.cs">
       <DependentUpon>RatingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SubmitBugWindow.xaml.cs">
+      <DependentUpon>SubmitBugWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\WarResultWindow.xaml.cs">
       <DependentUpon>WarResultWindow.xaml</DependentUpon>
@@ -221,8 +215,9 @@
     <Compile Include="Forms\WarWindow.xaml.cs">
       <DependentUpon>WarWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Launcher\LauncherController.cs" />
-    <Compile Include="Models\WarModel.cs" />
+    <Compile Include="Logic\ConsumptionLogic.cs" />
+    <Compile Include="Logic\LauncherLogic.cs" />
+    <Compile Include="Logic\WarLogic.cs" />
     <Compile Include="Resources\GlobalMap.xaml.cs">
       <DependentUpon>GlobalMap.xaml</DependentUpon>
     </Compile>
@@ -232,10 +227,6 @@
     <Compile Include="Resources\StylesDictionary.xaml.cs">
       <DependentUpon>StylesDictionary.xaml</DependentUpon>
     </Compile>
-    <Page Include="DialogWIndows\BalanceReplenishmentDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="DialogWIndows\BuyListingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -253,10 +244,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\ManufactureUpgradeDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DialogWIndows\PaymentDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -318,10 +305,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Forms\PaymentWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Forms\ProfileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -335,6 +318,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\StorageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\SubmitBugWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -397,9 +384,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Pictures\map.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\panel.png" />
@@ -571,6 +555,13 @@
     <Resource Include="Pictures\sandClocksWithCircle.png" />
     <Resource Include="Pictures\defaultCastle.png" />
     <Resource Include="Pictures\boxes.png" />
+    <Resource Include="Pictures\undiscovered-map.png" />
+    <Resource Include="Pictures\background.jpg" />
+    <Resource Include="Pictures\buttonCross.jpg" />
+    <Resource Include="Pictures\buttonMinus.jpg" />
+    <Resource Include="Pictures\background_pale.jpg" />
+    <Resource Include="Pictures\buttonPlus.jpg" />
+    <Resource Include="Pictures\Tiles\y1.jpg" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
