@@ -46,10 +46,10 @@ namespace LandConquest.Logic
                         StorageModel.UpdateStorage(player, storage);
                     }
                     else
-                    {
+                    {                       
+                        ArmyDesert(player, consumption / storage.PlayerFood);
                         storage.PlayerFood = 0;
                         StorageModel.UpdateStorage(player, storage);
-                        ArmyDesert(player, 4);
                         WarningDialogWindow.CallWarningDialogNoResult("Milord, part of your army deserted due to lack of provisions. Please, check your storage.");
                     }
                 }
@@ -61,26 +61,35 @@ namespace LandConquest.Logic
             Army playerArmy = new Army();
             playerArmy = ArmyModel.GetArmyInfo(player, playerArmy);
 
-            //List<ArmyInBattle> armiesInBatle = new List<ArmyInBattle>();
-            //armiesInBatle = BattleModel.GetAllPlayerArmiesInfo(armiesInBatle, player);
+            List<ArmyInBattle> armiesInBatle = new List<ArmyInBattle>();
+            armiesInBatle = BattleModel.GetAllPlayerArmiesInfo(armiesInBatle, player);
 
-            playerArmy.ArmyArchersCount = playerArmy.ArmyArchersCount / part;
-            playerArmy.ArmyHorsemanCount = playerArmy.ArmyHorsemanCount / part;
-            playerArmy.ArmyInfantryCount = playerArmy.ArmyInfantryCount / part;
-            playerArmy.ArmySiegegunCount = playerArmy.ArmySiegegunCount / part;
-            playerArmy.ArmySizeCurrent = playerArmy.ArmySizeCurrent / part;
+            foreach (var army in armiesInBatle)
+            {
+                playerArmy.ArmyArchersCount -= army.ArmyArchersCount;
+                playerArmy.ArmyHorsemanCount -= army.ArmyHorsemanCount;
+                playerArmy.ArmyInfantryCount -= army.ArmyInfantryCount;
+                playerArmy.ArmySiegegunCount -= army.ArmySiegegunCount;
+                playerArmy.ArmySizeCurrent -= army.ArmySizeCurrent;
 
-            //foreach (var army in armiesInBatle)
-            //{
-            //    army.ArmyArchersCount = army.ArmyArchersCount / part;
-            //    army.ArmyHorsemanCount = army.ArmyHorsemanCount / part;
-            //    army.ArmyInfantryCount = army.ArmyInfantryCount / part;
-            //    army.ArmySiegegunCount = army.ArmySiegegunCount / part;
-            //    army.ArmySizeCurrent = army.ArmySizeCurrent / part;
-            //}
+                army.ArmyArchersCount = army.ArmyArchersCount / part;
+                playerArmy.ArmyArchersCount += army.ArmyArchersCount;
+                army.ArmyHorsemanCount = army.ArmyHorsemanCount / part;
+                playerArmy.ArmyHorsemanCount += army.ArmyHorsemanCount;
+                army.ArmyInfantryCount = army.ArmyInfantryCount / part;
+                playerArmy.ArmyInfantryCount += army.ArmyInfantryCount;
+                army.ArmySiegegunCount = army.ArmySiegegunCount / part;
+                playerArmy.ArmySiegegunCount += army.ArmySiegegunCount;
+                army.ArmySizeCurrent = army.ArmyArchersCount + army.ArmyHorsemanCount + army.ArmyInfantryCount + army.ArmySiegegunCount;
+                playerArmy.ArmySizeCurrent += army.ArmySizeCurrent;
 
+                if(army.ArmySizeCurrent == 0)
+                {
+                    BattleModel.DeleteArmyById(army);
+                }
+            }
+            BattleModel.UpdateAllPlayerArmyInBattle(armiesInBatle);
             ArmyModel.UpdateArmy(playerArmy);
-            BattleModel.DesertAllArmies(player, part);
         }
 
         public static async void ConsumptionCountAsync(Player player, PlayerStorage storage)
