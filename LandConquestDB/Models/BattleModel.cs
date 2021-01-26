@@ -297,6 +297,18 @@ namespace LandConquestDB.Models
             storageCommand.Dispose();
         }
 
+        public static void DesertAllArmies(Player player, int part)
+        {
+            string storageQuery = "UPDATE dbo.ArmyDataInBattle SET army_size_current = army_size_current / @part, army_type =  army_type / @part, army_archers_count = army_archers_count / @part, army_infantry_count = army_infantry_count / @part, army_horseman_count = army_horseman_count / @part, army_siegegun_count = army_siegegun_count / @part WHERE player_id = @player_id";
+
+            var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
+            storageCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
+            storageCommand.Parameters.AddWithValue("@part", part);
+
+            storageCommand.ExecuteNonQuery();
+            storageCommand.Dispose();
+        }
+
         public static int ReturnTypeOfArmy(List<ArmyInBattle> armies)
         {
             for (int i = 0; i < armies.Count - 1; i++)
@@ -463,7 +475,6 @@ namespace LandConquestDB.Models
 
             return armies;
         }
-
 
         public static List<ArmyInBattle> GetAllPlayerArmiesInfo(List<ArmyInBattle> armies, Player player)
         {

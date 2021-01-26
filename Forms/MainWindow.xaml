@@ -52,7 +52,7 @@
             <Image HorizontalAlignment="Left" Height="30" Margin="299,19,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/resource_chest.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
             <Image HorizontalAlignment="Left" Height="30" Margin="351,17,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/manufacturing.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
 
-            <Button x:Name="reload_button" HorizontalAlignment="Left" Content="Refresh" Margin="675,15,0,0" VerticalAlignment="Top" Width="82" BorderBrush="{x:Null}" Foreground="#FFE1CD9B" Height="31" Click="reload_button_Click">
+            <Button x:Name="reload_button" Content="Refresh" MaxHeight="30" MaxWidth="80" Margin="675,15,563,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="#FFE1CD9B" Height="30" Width="80" Click="reload_button_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
                 </Button.Background>
@@ -119,26 +119,26 @@
             <Image x:Name="GlobalMapBtn" HorizontalAlignment="Left" Height="48" Margin="247,129,0,0" VerticalAlignment="Top" Width="60" Cursor="Hand" Source="/Pictures/map_icon.png" MouseDown="GlobalMapBtn_MouseDown">
             </Image>
 
-            <Button x:Name="buttonSettings" Content="Settings" HorizontalAlignment="Left" Margin="1139,15,0,0" VerticalAlignment="Top" Width="112" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonSettings_Click" >
+            <Button x:Name="buttonSettings" Content="Settings" Margin="0,15,69,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonSettings_Click" HorizontalAlignment="Right" Width="112" >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
 
-            <Button x:Name="buttonExit"  HorizontalContentAlignment="Left"  VerticalContentAlignment="Top"  BorderBrush="{x:Null}" Foreground="{x:Null}" Click="ButtonExit_Click" Margin="1295,0,0,0" Height="25" HorizontalAlignment="Left" Width="25" VerticalAlignment="Top"  >
+            <Button x:Name="buttonExit"  HorizontalContentAlignment="Left"  VerticalContentAlignment="Top"  BorderBrush="{x:Null}" Foreground="{x:Null}" Click="ButtonExit_Click" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25"  >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
                 </Button.Background>
             </Button>
 
-            <Button x:Name="buttonCollapse" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="1270,0,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCollapse_Click" HorizontalAlignment="Left" Width="25" Height="25" >
+            <Button x:Name="buttonCollapse" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,25,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCollapse_Click" Height="25" HorizontalAlignment="Right" Width="25" >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonMinus.jpg"/>
                 </Button.Background>
             </Button>
 
 
-            <Grid x:Name="settingsGrid" Visibility="Visible" HorizontalAlignment="Left" Height="65" Margin="1139,45,0,0" VerticalAlignment="Top" Width="112">
+            <Grid x:Name="settingsGrid" Visibility="Visible" Height="65" Margin="0,45,69,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112">
                 <Grid.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"  />
                 </Grid.Background>
@@ -148,20 +148,20 @@
                 <CheckBox x:Name="checkBoxFs" Margin="79,35,10,16" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxFs_Click" />
             </Grid>
 
-            <Button x:Name="buttonProfile" Content="Profile" HorizontalAlignment="Left" Margin="1022,15,0,0" VerticalAlignment="Top" Width="112" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonProfile_Click">
+            <Button x:Name="buttonProfile" Content="Profile" Margin="0,15,186,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonProfile_Click" HorizontalAlignment="Right" Width="112">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
             <ProgressBar x:Name="PbExp" HorizontalAlignment="Left" Height="18" Margin="106,41,0,0" VerticalAlignment="Top" Width="80" Foreground="#FFD7464B" BorderBrush="#FFD7464B" Background="{x:Null}"/>
             <Label x:Name="Level"  FontSize="12" HorizontalContentAlignment="Center" Content="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,108,0,0" VerticalAlignment="Top" Foreground="#FFE1C793" Width="89" Height="30" Background="#FFD7464B"/>
-            <Button x:Name="buttonTop" Content="Rankigs" Margin="905,15,0,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Left" Width="112" Click="buttonTop_Click">
+            <Button x:Name="buttonTop" Content="Rankigs" Margin="0,15,303,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonTop_Click" HorizontalAlignment="Right" Width="112">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
             <Button x:Name="test2" IsEnabled="False" HorizontalAlignment="Left" Height="97" Margin="191,173,0,0" VerticalAlignment="Top" Width="28" Click="test2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="#FFE1A35E"/>
-            <Button x:Name="buttonChat" Content="Show chat" Margin="47,703,0,0" Click="buttonChat_Click" BorderBrush="{x:Null}" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="166" Foreground="#FFDFC58F">
+            <Button x:Name="buttonChat" Content="Show chat" Margin="47,0,0,2.8" Click="buttonChat_Click" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="166" Foreground="#FFDFC58F" Height="35" VerticalAlignment="Bottom">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -176,7 +176,7 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="OpenAuction" Content="Auction" Height="31" Margin="788,15,0,0" VerticalAlignment="Top" Click="OpenAuction_Click" HorizontalAlignment="Left" Width="112" BorderBrush="{x:Null}" Foreground="#FFE4CE9A">
+            <Button x:Name="OpenAuction" Content="Auction" Height="31" Margin="0,15,420,0" VerticalAlignment="Top" Click="OpenAuction_Click" BorderBrush="{x:Null}" Foreground="#FFE4CE9A" HorizontalAlignment="Right" Width="112">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -189,7 +189,7 @@
             <Label x:Name="labelMoney" Content="0" Foreground="#FFE5D09D" HorizontalAlignment="Left" Margin="128,57,0,0" VerticalAlignment="Top" Height="32" Width="68" FontSize="16"/>
             <Label x:Name="labelDonation" Content="0" Foreground="Goldenrod" FontSize="16" HorizontalAlignment="Left" Margin="128,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.15,0.5" Width="68" Height="31"/>
 
-            <Button x:Name="buttonSubmitBug" Content="Submit bug" Margin="1140,701,0,0" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Left" Width="111" Click="buttonSubmitBug_Click" Height="37" VerticalAlignment="Top">
+            <Button x:Name="buttonSubmitBug" Content="Submit bug" Margin="0,0,69,2.8" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonSubmitBug_Click" HorizontalAlignment="Right" Width="111" Height="37" VerticalAlignment="Bottom">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>

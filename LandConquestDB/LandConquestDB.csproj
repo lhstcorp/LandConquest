@@ -84,6 +84,7 @@
     <Compile Include="Entities\Market.cs" />
     <Compile Include="Entities\Peasants.cs" />
     <Compile Include="Entities\Player.cs" />
+    <Compile Include="Entities\PlayerEntrance.cs" />
     <Compile Include="Entities\PlayerEquipment.cs" />
     <Compile Include="Entities\PlayersRating.cs" />
     <Compile Include="Entities\PlayerStorage.cs" />
@@ -98,7 +99,6 @@
     <Compile Include="Models\AuctionModel.cs" />
     <Compile Include="Models\BattleModel.cs" />
     <Compile Include="Models\ChatModel.cs" />
-    <Compile Include="Models\ConsumptionModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />
     <Compile Include="Models\LandModel.cs" />
@@ -106,6 +106,7 @@
     <Compile Include="Models\MapModel.cs" />
     <Compile Include="Models\MarketModel.cs" />
     <Compile Include="Models\PeasantModel.cs" />
+    <Compile Include="Models\PlayerEntranceModel.cs" />
     <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Models\StorageModel.cs" />
     <Compile Include="Models\TaxesModel.cs" />
