@@ -297,16 +297,26 @@ namespace LandConquestDB.Models
             storageCommand.Dispose();
         }
 
-        public static void DesertAllArmies(Player player, int part)
+
+        public static void UpdateAllPlayerArmyInBattle(List<ArmyInBattle> armiesInBatle)
         {
-            string storageQuery = "UPDATE dbo.ArmyDataInBattle SET army_size_current = army_size_current / @part, army_type =  army_type / @part, army_archers_count = army_archers_count / @part, army_infantry_count = army_infantry_count / @part, army_horseman_count = army_horseman_count / @part, army_siegegun_count = army_siegegun_count / @part WHERE player_id = @player_id";
+            foreach (var army in armiesInBatle)
+            {
+                string storageQuery = "UPDATE dbo.ArmyDataInBattle SET army_size_current = @army_size_current, army_type = @army_type, army_archers_count = @army_archers_count, army_infantry_count = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count WHERE army_id = @army_id";
 
-            var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
-            storageCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
-            storageCommand.Parameters.AddWithValue("@part", part);
+                var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
+                storageCommand.Parameters.AddWithValue("@army_size_current", army.ArmySizeCurrent);
+                storageCommand.Parameters.AddWithValue("@army_type", army.ArmyType);
+                storageCommand.Parameters.AddWithValue("@army_archers_count", army.ArmyArchersCount);
+                storageCommand.Parameters.AddWithValue("@army_infantry_count", army.ArmyInfantryCount);
+                storageCommand.Parameters.AddWithValue("@army_horseman_count", army.ArmyHorsemanCount);
+                storageCommand.Parameters.AddWithValue("@army_siegegun_count", army.ArmySiegegunCount);
+                storageCommand.Parameters.AddWithValue("@army_id", army.ArmyId);
 
-            storageCommand.ExecuteNonQuery();
-            storageCommand.Dispose();
+                storageCommand.ExecuteNonQuery();
+                storageCommand.Dispose();
+            }
+
         }
 
         public static int ReturnTypeOfArmy(List<ArmyInBattle> armies)
