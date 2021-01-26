@@ -105,7 +105,6 @@ namespace LandConquest.Forms
 
 
             Thread myThread = new Thread(new ThreadStart(UpdateInfo));
-
             myThread.Start(); // запускаем поток
 
             lands = new List<Land>();
@@ -137,12 +136,22 @@ namespace LandConquest.Forms
             wars = WarModel.GetWarsInfo(wars);
 
             LoadWarsOnMap();
-
             setFlag();
+            
+            //////////////////
+            /// ГОЛОД ТУТ ////
+            //////////////////
+            ConsumptionLogic.ConsumptionCount(player, storage);
+            //ConsumptionLogic.ConsumptionCountAsync(player, storage);
+            //////////////////
+
 
             settingsGrid.Visibility = Visibility.Hidden;
             btnShowLandGrid.Visibility = Visibility.Hidden;
+
         }
+
+       
 
         private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
         {
