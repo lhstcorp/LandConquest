@@ -630,15 +630,17 @@ namespace LandConquest.Forms
             GlobalMap.Visibility = Visibility.Visible;
         }
 
-        private void playMusic()
+        private void playMusic(bool play)
         {
             SoundPlayer sound = new SoundPlayer(Properties.Resources.MainTheme);
-            sound.PlayLooping();
-        }
-
-        private void checkBox_Checked(object sender, RoutedEventArgs e)
-        {
-            playMusic();
+            if (play)
+            {
+                sound.PlayLooping();
+            }
+            else
+            {
+                sound.Stop();
+            }
         }
 
         private void btnGoToLand_Click(object sender, RoutedEventArgs e)
@@ -728,12 +730,6 @@ namespace LandConquest.Forms
                 settingsGrid.Visibility = Visibility.Hidden;
             }
         }
-
-        private void settingsGrid_MouseLeave(object sender, MouseEventArgs e)
-        {
-            settingsGrid.Visibility = Visibility.Hidden;
-        }
-
         private void test2_Click(object sender, RoutedEventArgs e)
         {
             //Console.WriteLine(land.LandName);
@@ -860,6 +856,36 @@ namespace LandConquest.Forms
         {
             base.OnMouseLeftButtonDown(e);
             this.DragMove();
+        }
+
+        private void checkBoxFs_Click(object sender, RoutedEventArgs e)
+        {
+            if (checkBoxFs.IsChecked == true)
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+                //this.Height = 750;
+                //this.Width = 1330;
+                //openedWindow = new MainWindow(user);
+                //openedWindow.Show();
+                //this.Close();
+            }
+        }
+
+        private void checkBoxMusic_Click(object sender, RoutedEventArgs e)
+        {
+            SoundPlayer sound = new SoundPlayer(Properties.Resources.MainTheme);
+            if (checkBoxMusic.IsChecked == true)
+            {
+                sound.PlayLooping();
+            }
+            else
+            {
+                sound.Stop();
+            }
         }
     }
 }
