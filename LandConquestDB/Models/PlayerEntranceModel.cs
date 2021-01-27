@@ -27,6 +27,27 @@ namespace LandConquestDB.Models
             }  
         }
 
+        public static DateTime GetFirstEntrance(Player player)
+        {
+            string query = "SELECT * FROM dbo.PlayerEntranceData WHERE player_id = @player_id";
+            DateTime dateTime = new DateTime();
+
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
+            command.Parameters.AddWithValue("@player_id", player.PlayerId);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var playerId = reader.GetOrdinal("first_entrance");
+
+
+                while (reader.Read())
+                {
+                    dateTime = reader.GetDateTime(playerId);
+                }
+                return dateTime;
+            }
+        }
+
         public static void SetFirstEntrance(Player player)
         {
             string query = "INSERT INTO dbo.PlayerEntranceData (player_id, last_entrance, first_entrance) VALUES (@player_id, @last_entrance, @first_entrance)";

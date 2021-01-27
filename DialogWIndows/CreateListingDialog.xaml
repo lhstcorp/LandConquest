@@ -61,8 +61,8 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-            
-        <TextBox x:Name="textBoxAmount" HorizontalAlignment="Left" Height="23" Margin="387,252,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="163" Background="#7F966B52" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+
+            <TextBox x:Name="textBoxAmount" HorizontalAlignment="Left" Height="23" Margin="387,252,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="163" Background="#7F966B52" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" PreviewTextInput="textBoxPrice_PreviewTextInput"/>
         <Label x:Name="labelSetPrice" Content="Set price (each)" FontSize="24" FontFamily="Verdana" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="327,138,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF573916" Width="223"/>
         <Label x:Name="labelSetAmount" Content="Set amount" FontSize="24" FontFamily="Verdana" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="387,216,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF573916"/>
         <Button x:Name="buttonPlace" Content="Place" HorizontalAlignment="Left" Margin="399,328,0,0" VerticalAlignment="Top" Width="151" Foreground="White" BorderBrush="{x:Null}" Click="buttonPlace_Click">
@@ -70,7 +70,7 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
-        <TextBox x:Name="textBoxPrice" HorizontalAlignment="Left" Height="23" Margin="387,175,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="163" Background="#7F966B52" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+        <TextBox x:Name="textBoxPrice" HorizontalAlignment="Left" Height="23" Margin="387,175,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="163" Background="#7F966B52" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" PreviewTextInput="textBoxPrice_PreviewTextInput" />
 
     </Grid>
         </Border>
