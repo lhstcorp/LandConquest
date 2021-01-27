@@ -1,4 +1,6 @@
-﻿using LandConquestDB.Entities;
+﻿using EmailValidation;
+using LandConquest.DialogWIndows;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System.Windows;
 using System.Windows.Input;
@@ -48,17 +50,33 @@ namespace LandConquest.Forms
 
         private void buttonChangeName_Click(object sender, RoutedEventArgs e)
         {
-            PlayerModel.UpdatePlayerName(player.PlayerId, newNameBox.Text);
-            player.PlayerName = newNameBox.Text;
-            this.Loaded += Window_Loaded;
-            newNameBox.Visibility = Visibility.Hidden;
+            bool validNameChangeLogin = UserModel.ValidateUserByLogin(newNameBox.Text);
+            if (newNameBox.Text.Length > 6 && validNameChangeLogin == true)
+            {
+                PlayerModel.UpdatePlayerName(player.PlayerId, newNameBox.Text);
+                player.PlayerName = newNameBox.Text;
+                this.Loaded += Window_Loaded;
+                newNameBox.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Error changing login!");
+            }
         }
 
         private void buttonChangeEmail_Click(object sender, RoutedEventArgs e)
         {
-            UserModel.UpdateUserEmail(user.UserId, newEmailBox.Text);
-            this.Loaded += Window_Loaded;
-            newEmailBox.Visibility = Visibility.Hidden;
+            bool validEmailChangeEmail = UserModel.ValidateUserByEmail(newEmailBox.Text);
+            if (validEmailChangeEmail == true && EmailValidator.Validate(newEmailBox.Text, true, true))
+            {
+                UserModel.UpdateUserEmail(user.UserId, newEmailBox.Text);
+                this.Loaded += Window_Loaded;
+                newEmailBox.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Error changing email!");
+            }
         }
 
         private void buttonChangePass_Click(object sender, RoutedEventArgs e)
@@ -82,5 +100,9 @@ namespace LandConquest.Forms
         {
             newNameBox.Visibility = Visibility.Visible;
         }
+
+        
+
+
     }
 }
