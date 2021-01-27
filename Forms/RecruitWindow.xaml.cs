@@ -2,6 +2,7 @@
 using LandConquestDB.Models;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace LandConquest.Forms
 {
@@ -165,6 +166,17 @@ namespace LandConquest.Forms
                 MessageBox.Show("Error");
                 SiegeAmount.Text = "0";
             }
+        }
+
+        private void PeasantsAmount_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
+        }
+
+        public static bool IsValid(string str)
+        {
+            int i;
+            return int.TryParse(str, out i) && i >= 1 && i <= 9999;
         }
     }
 }

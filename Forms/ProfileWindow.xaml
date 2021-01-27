@@ -51,9 +51,9 @@
             </Button.Background>
         </Button>
 
-        <TextBox x:Name="newEmailBox" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="470,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="White"/>
-        <TextBox x:Name="newPassBox" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="470,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="White"/>
-        <TextBox x:Name="newNameBox" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="470,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="White"/>
+            <TextBox x:Name="newEmailBox" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="470,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="White" />
+            <TextBox x:Name="newPassBox" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="470,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="White" />
+            <TextBox x:Name="newNameBox" Visibility="Hidden"  HorizontalAlignment="Left" Height="23" Margin="470,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="White" />
 
 
         <Grid.Background>
