@@ -5,9 +5,9 @@ using System.Data.SqlClient;
 
 namespace LandConquestDB.Models
 {
-    public class ManufactureModel
+    public static class ManufactureModel
     {
-        public DateTime GetManufactureProdStartTime(Player player)
+        public static DateTime GetManufactureProdStartTime(Player player)
         {
             string query = "SELECT * FROM dbo.ManufactureData WHERE player_id = @player_id";
             DateTime dateTime = new DateTime();
@@ -29,7 +29,7 @@ namespace LandConquestDB.Models
             return dateTime;
         }
 
-        public List<Manufacture> GetManufactureInfo(Player player)
+        public static List<Manufacture> GetManufactureInfo(Player player)
         {
             //List<Manufacture> manufactures = new List<Manufacture>();
 
@@ -116,7 +116,7 @@ namespace LandConquestDB.Models
             return manufactures;
         }
 
-        public List<Manufacture> GetLandManufactureInfo(Player player)
+        public static List<Manufacture> GetLandManufactureInfo(Player player)
         {
             //List<Manufacture> manufactures = new List<Manufacture>();
 
@@ -202,7 +202,7 @@ namespace LandConquestDB.Models
 
 
 
-        public void UpdateDateTimeForManufacture(List<Manufacture> _manufactures, Player _player)
+        public static void UpdateDateTimeForManufacture(List<Manufacture> _manufactures, Player _player)
         {
             string datetimeQuery = "UPDATE dbo.ManufactureData SET manufacture_peasant_work  = @manufacture_peasant_work, manufacture_products_hour  = @manufacture_products_hour, manufacture_prod_start_time = @manufacture_prod_start_time WHERE manufacture_id = @manufacture_id ";
 
@@ -229,7 +229,7 @@ namespace LandConquestDB.Models
 
         }
 
-        public void UpdateDateTimeForPlayerLandManufacture(List<Manufacture> _manufactures, Player _player)
+        public static void UpdateDateTimeForPlayerLandManufacture(List<Manufacture> _manufactures, Player _player)
         {
             string datetimeQuery = "UPDATE dbo.PlayerLandManufactureData SET manufacture_prod_start_time = @manufacture_prod_start_time WHERE manufacture_id = @manufacture_id ";
 
@@ -251,7 +251,7 @@ namespace LandConquestDB.Models
 
         }
 
-        public PlayerStorage GetInfoAboutResourcesForUpdate(Manufacture manufacture)
+        public static PlayerStorage GetInfoAboutResourcesForUpdate(Manufacture manufacture)
         {
             PlayerStorage resourcesNeed = new PlayerStorage();
             resourcesNeed.PlayerId = null;
@@ -278,7 +278,7 @@ namespace LandConquestDB.Models
             return resourcesNeed;
         }
 
-        public void UpgradeManufacture(Manufacture manufacture)
+        public static void UpgradeManufacture(Manufacture manufacture)
         {
             string manufactureUpgradeQuery = "UPDATE dbo.ManufactureData SET manufacture_lvl = @manufacture_lvl, manufacture_peasant_max  = @manufacture_peasant_max, manufacture_products_hour = @manufacture_products_hour, manufacture_base_prod_value = @manufacture_base_prod_value WHERE manufacture_id = @manufacture_id ";
 
@@ -304,7 +304,7 @@ namespace LandConquestDB.Models
             manufactureUpgradeCommand.Dispose();
         }
 
-        public Manufacture GetManufactureById(Manufacture _manufacture)
+        public static Manufacture GetManufactureById(Manufacture _manufacture)
         {
             Manufacture manufacture = new Manufacture();
             string query = "SELECT * FROM dbo.ManufactureData WHERE manufacture_id = @manufacture_id";
@@ -344,7 +344,7 @@ namespace LandConquestDB.Models
             return manufacture;
         }
 
-        public void InsertOrUpdateLandManufactures(List<Manufacture> landManufactures, Player player)
+        public static void InsertOrUpdateLandManufactures(List<Manufacture> landManufactures, Player player)
         {
             string manufactureQuery = "IF EXISTS (SELECT * FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id AND manufacture_id = @manufacture_id) BEGIN UPDATE dbo.PlayerLandManufactureData SET manufacture_peasant_work = @manufacture_peasant_work, manufacture_products_hour = @manufacture_products_hour, manufacture_prod_start_time=@manufacture_prod_start_time WHERE manufacture_id=@manufacture_id AND player_id=@player_id END ELSE BEGIN INSERT INTO dbo.PlayerLandManufactureData (player_id,manufacture_id,manufacture_type,manufacture_peasant_work,manufacture_products_hour,manufacture_prod_start_time) VALUES (@player_id, @manufacture_id, @manufacture_type, @manufacture_peasant_work, @manufacture_products_hour, @manufacture_prod_start_time) END";
 
@@ -379,7 +379,7 @@ namespace LandConquestDB.Models
             build2Command.Dispose();
         }
 
-        public void UpdateLandManufactures(List<Manufacture> landManufactures)
+        public static void UpdateLandManufactures(List<Manufacture> landManufactures)
         {
             string manufactureQuery = "UPDATE dbo.LandManufactureData SET manufacture_peasant_work  = @manufacture_peasant_work, manufacture_products_hour  = @manufacture_products_hour WHERE manufacture_id = @manufacture_id ";
 
@@ -406,7 +406,7 @@ namespace LandConquestDB.Models
 
         }
 
-        public List<Manufacture> GetPlayerLandManufactureInfo(Player player)
+        public static List<Manufacture> GetPlayerLandManufactureInfo(Player player)
         {
             //List<Manufacture> manufactures = new List<Manufacture>();
 
@@ -493,7 +493,7 @@ namespace LandConquestDB.Models
             return manufactures;
         }
 
-        public void UpdateLandManufacturesWhenMove(List<int> peasantsFree, List<Manufacture> landManufactures)
+        public static void UpdateLandManufacturesWhenMove(List<int> peasantsFree, List<Manufacture> landManufactures)
         {
             string manufactureQuery = "UPDATE dbo.LandManufactureData SET manufacture_peasant_work  = @manufacture_peasant_work WHERE manufacture_id = @manufacture_id ";
 

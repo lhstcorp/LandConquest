@@ -4,7 +4,6 @@ using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Media;
 using System.Threading;
@@ -35,7 +34,6 @@ namespace LandConquest.Forms
         private Army army;
         private Country country;
         private War WAR; //GLOBAL
-        private ManufactureModel manufactureModel;
         private Thickness[] marginsOfWarButtons;
         private int[] flagXY;
         private const int landsCount = 11;
@@ -53,7 +51,6 @@ namespace LandConquest.Forms
             country = new Country();
             market = new Market();
             army = new Army();
-            manufactureModel = new ManufactureModel();
             flagXY = new int[4];
             openedWindow = this;
 
@@ -89,7 +86,7 @@ namespace LandConquest.Forms
             taxes = TaxesModel.GetTaxesInfo(taxes);
             sliderTaxes.Value = taxes.TaxValue;
 
-            List<Manufacture> manufactures = manufactureModel.GetManufactureInfo(player);
+            List<Manufacture> manufactures = ManufactureModel.GetManufactureInfo(player);
 
             prodRatioValue.Content = (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)).ToString();
 
@@ -207,7 +204,7 @@ namespace LandConquest.Forms
         private void buttonTop_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new RatingWindow(this, player, user, army);
+            //openedWindow = new RatingWindow(this, player, user, army);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
@@ -328,8 +325,8 @@ namespace LandConquest.Forms
         private void ImageStorage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             storage = StorageModel.GetPlayerStorage(player, storage);
-            List<Manufacture> manufactures = manufactureModel.GetManufactureInfo(player);
-            List<Manufacture> playerLandManufactures = manufactureModel.GetPlayerLandManufactureInfo(player);
+            List<Manufacture> manufactures = ManufactureModel.GetManufactureInfo(player);
+            List<Manufacture> playerLandManufactures = ManufactureModel.GetPlayerLandManufactureInfo(player);
             //base manufactures 
             storage.PlayerWood += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
             player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
@@ -446,8 +443,8 @@ namespace LandConquest.Forms
 
             StorageModel.UpdateStorage(player, storage);
 
-            manufactureModel.UpdateDateTimeForManufacture(manufactures, player);
-            if (f) manufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player);
+            ManufactureModel.UpdateDateTimeForManufacture(manufactures, player);
+            if (f) ManufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player);
 
             OpenStorage(player, user);
         }
@@ -639,27 +636,14 @@ namespace LandConquest.Forms
             GlobalMap.Visibility = Visibility.Visible;
         }
 
-        private void playMusic(bool play)
-        {
-            SoundPlayer sound = new SoundPlayer(Properties.Resources.MainTheme);
-            if (play)
-            {
-                sound.PlayLooping();
-            }
-            else
-            {
-                sound.Stop();
-            }
-        }
-
         private void btnGoToLand_Click(object sender, RoutedEventArgs e)
         {
 
             peasants = PeasantModel.GetPeasantsInfo(player, peasants);
             List<int> peasantsFree = PlayerModel.DeletePlayerManufactureLandData(peasants, player);
-            List<Manufacture> landManufactures = manufactureModel.GetLandManufactureInfo(player);
+            List<Manufacture> landManufactures = ManufactureModel.GetLandManufactureInfo(player);
 
-            manufactureModel.UpdateLandManufacturesWhenMove(peasantsFree, landManufactures);
+            ManufactureModel.UpdateLandManufacturesWhenMove(peasantsFree, landManufactures);
             //peasants.PeasantsCount = peasants.PeasantsCount + peasantsFree[0] + peasantsFree[1];
             PeasantModel.UpdatePeasantsInfo(peasants);
 

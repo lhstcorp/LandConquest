@@ -7,7 +7,7 @@
         xmlns:ctrls="clr-namespace:LandConquest.Resources"
         mc:Ignorable="d" 
         WindowStartupLocation="Manual" Left="10" Top="10" WindowStyle="None" ResizeMode="NoResize"
-        Title="Land Conquest"  Height="750" Width="1330" WindowState="Normal">
+        Title="Land Conquest"  Height="750" Width="1330" WindowState="Normal" Topmost="True" >
 
     <Window.Resources>
         <ctrls:GlobalMap x:Key="GlobalMap"></ctrls:GlobalMap>
@@ -18,6 +18,7 @@
             <EventSetter Event="Loaded" Handler="PathLoadedHandler"/>
         </Style>
         <ctrls:ResourceMap x:Key="ResourceMap"></ctrls:ResourceMap>
+
     </Window.Resources>
 
     <Border BorderBrush="#FF392018" BorderThickness="5" Height="Auto" Width="Auto">
@@ -38,7 +39,7 @@
 
 
             <Image x:Name="image" Margin="6,0,0,0" Source = "/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" />
-            <Label x:Name="labelName" Content="Name" Foreground="#FFD7464B" FontSize="28" FontWeight="Bold" FontFamily="Harrington" HorizontalAlignment="Left" Margin="106,0,0,0" VerticalAlignment="Top" Width="145"/>
+            <Label x:Name="labelName" Content="Name" Foreground="#FFD7464B" FontSize="28" FontWeight="Bold" FontFamily="/LandConquest;component/Resources/Fonts/#Harrington" HorizontalAlignment="Left" Margin="106,0,0,0" VerticalAlignment="Top" Width="179"/>
 
             <!--menu header design-->
             <Image HorizontalAlignment="Left" Height="50" Margin="290,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
@@ -92,7 +93,7 @@
                     <Image Margin="25,225,0,0" HorizontalAlignment="Left" Height="60" Width="60" VerticalAlignment="Top" Source="/Pictures/epic_brown_square.png"/>
                     <Image Margin="130,225,0,0" HorizontalAlignment="Left"  Height="60" Width="60"  VerticalAlignment="Top" Source="/Pictures/epic_brown_square.png"/>
 
-                    <Label x:Name="lblLandNameOnGrid" HorizontalContentAlignment="Center" Content="Territory name" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="16" FontWeight="Bold" Height="30" Margin="10,60,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="194"/>
+                    <Label x:Name="lblLandNameOnGrid" HorizontalContentAlignment="Center" Content="Territory name" FontFamily="/LandConquest;component/Resources/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="16" Height="30" Margin="10,57,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="194" FontWeight="Bold"/>
                     <Button x:Name="btnGoToLand" Content="Go to" Height="38" Margin="25,90,25,0" VerticalAlignment="Top" Click="btnGoToLand_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
@@ -106,7 +107,9 @@
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                         </Button.Background>
                     </Button>
-                    <Label x:Name="lblCountryNameOnGrid" HorizontalContentAlignment="Center" Content="Land name" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold" Height="41" Margin="10,20,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="194"/>
+
+                    <Label x:Name="lblCountryNameOnGrid" HorizontalContentAlignment="Center" Content="Land name"  FontFamily="/LandConquest;component/Resources/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold" Height="41" Margin="10,12,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="194"/>
+                    
                     <Button x:Name="buttonStartBattle" IsEnabled="False" Content="Start test battle" HorizontalAlignment="Left" Margin="25,180,0,0" VerticalAlignment="Top" Width="164" Height="37" Click="buttonStartBattle_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
@@ -142,10 +145,10 @@
                 <Grid.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"  />
                 </Grid.Background>
-                <TextBlock Margin="32,8,33,35" FontSize="16" TextWrapping="Wrap" Text="Music:"/>
-                <CheckBox x:Name="checkBoxMusic" Margin="79,13,10,38" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxMusic_Click"/>
-                <TextBlock HorizontalAlignment="Left" Margin="3,30,0,13" FontSize="16" TextWrapping="Wrap" Text="Fullscreen:" Width="76"/>
-                <CheckBox x:Name="checkBoxFs" Margin="79,35,10,16" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxFs_Click" />
+                <TextBlock Margin="35,8,30,35" FontSize="16" TextWrapping="Wrap" Text="Music:"/>
+                <CheckBox x:Name="checkBoxMusic" Margin="84,13,5,38" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxMusic_Click"/>
+                <TextBlock Margin="6,30,30,13" FontSize="16" TextWrapping="Wrap" Text="Fullscreen:"/>
+                <CheckBox x:Name="checkBoxFs" Margin="84,35,5,16" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxFs_Click" />
             </Grid>
 
             <Button x:Name="buttonProfile" Content="Profile" Margin="0,15,186,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonProfile_Click" HorizontalAlignment="Right" Width="112">

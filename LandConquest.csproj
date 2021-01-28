@@ -381,6 +381,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resources\Fonts\HARNGTON.TTF" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

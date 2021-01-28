@@ -21,11 +21,11 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="buttonCoins" Content="Money" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="White" Click="buttonCoins_Click">
+        <!--<Button x:Name="buttonCoins" Content="Money" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="White" Click="buttonCoins_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
-        </Button>
+        </Button>-->
 
         <Button x:Name="buttonArmy" Content="Army"  HorizontalAlignment="Left" Margin="301,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="White" Click="buttonArmy_Click" >
             <Button.Background>

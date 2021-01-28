@@ -13,7 +13,17 @@ namespace LandConquestDB
         private static string oauth;
         public static void OpenYD()
         {
-            oauth = KSecure.Normal.Decrypt("fO4bi4UutIeOwf4jtC0S0EbdXqb/V4fwoLAkyzdkDFcZNeyFn7COODZF5ivGwnxgc1lefRT3JrNSCREGDl74A6/1B6l7TBgPYAupjE/ZqeSIdGgu274q5aEs59PrbocBktyf9zS1oXoVK3x3nM2zfB/kwwEaGLv34Xb2uN/cK8o=", Path.GetPathRoot(Environment.SystemDirectory));
+            Connection();
+            Disk();
+        }
+
+        private static void Connection()
+        {
+            oauth =  KSecure.Normal.Decrypt("fO4bi4UutIeOwf4jtC0S0EbdXqb/V4fwoLAkyzdkDFcZNeyFn7COODZF5ivGwnxgc1lefRT3JrNSCREGDl74A6/1B6l7TBgPYAupjE/ZqeSIdGgu274q5aEs59PrbocBktyf9zS1oXoVK3x3nM2zfB/kwwEaGLv34Xb2uN/cK8o=", Path.GetPathRoot(Environment.SystemDirectory));
+        }
+
+        private static void Disk()
+        {
             disk = new YandexDiskRest(oauth);
         }
 

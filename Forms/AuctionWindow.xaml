@@ -6,15 +6,14 @@
         xmlns:local="clr-namespace:LandConquest.Forms"
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
-        Title="MarketWindow" Height="450" Width="670" ShowInTaskbar="False" Loaded="Window_Loaded"
-        >
+        Title="MarketWindow" Height="450" Width="670" ShowInTaskbar="False" Loaded="Window_Loaded">
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="670">
         <Grid>
             <Grid.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
-            <DataGrid AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontStyle="Oblique" Height="393" Width="460" HorizontalAlignment="Left" ItemsSource="{Binding listings}" Margin="10,47,0,0" x:Name="auctionDataGrid" VerticalAlignment="Top" Foreground="#FFE5CF9E" SelectionChanged="auctionDataGrid_SelectionChanged" BorderBrush="{x:Null}" SelectionMode="Single" CanUserResizeColumns="False" FontFamily="Verdana">
+            <DataGrid AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontStyle="Oblique" Height="393" Width="460" HorizontalAlignment="Left" ItemsSource="{Binding listings}" Margin="10,47,0,0" x:Name="auctionDataGrid" VerticalAlignment="Top" Foreground="#FF392018" SelectionChanged="auctionDataGrid_SelectionChanged" BorderBrush="{x:Null}" SelectionMode="Single" CanUserResizeColumns="False" FontFamily="Verdana">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="resourceQty" Binding="{Binding Qty}" Header="Qty" Width="60" CanUserSort="True"/>
                     <DataGridTextColumn x:Name="itemName" Binding="{Binding Subject}" Header="Subject" Width="80" CanUserSort="True"/>
@@ -23,7 +22,7 @@
                     <DataGridTextColumn x:Name="totalPrice" Binding="{Binding Price}" Header="Price (each)" CanUserSort="True"/>
                 </DataGrid.Columns>
                 <DataGrid.Background>
-                    <SolidColorBrush Color="#FF371C18"></SolidColorBrush>
+                    <SolidColorBrush Color="#7F966B52"></SolidColorBrush>
                 </DataGrid.Background>
                 <DataGrid.CellStyle>
                     <Style TargetType="DataGridCell">
@@ -33,10 +32,10 @@
                 </DataGrid.CellStyle>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="#FFE3CC98"/>
+                        <Setter Property="Background" Value="#FF392018"/>
                         <Setter Property="FontStyle" Value="Normal"/>
                         <Setter Property="FontSize" Value="15"/>
-                        <Setter Property="Foreground" Value="#FF371C18"/>
+                        <Setter Property="Foreground" Value="#FFE3CC98"/>
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
             </DataGrid>

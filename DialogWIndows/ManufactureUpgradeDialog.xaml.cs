@@ -12,7 +12,6 @@ namespace LandConquest.DialogWIndows
         private PlayerStorage storage;
         private Manufacture manufacture;
         private PlayerStorage resourcesNeed;
-        private ManufactureModel model;
         private StorageModel storageModel;
         public ManufactureUpgradeDialog(PlayerStorage _storage, Manufacture _manufacture, Player _player)
         {
@@ -25,7 +24,6 @@ namespace LandConquest.DialogWIndows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            model = new ManufactureModel();
             storageModel = new StorageModel();
 
             switch (manufacture.ManufactureType)
@@ -43,7 +41,7 @@ namespace LandConquest.DialogWIndows
 
             WoodHave.Content = storage.PlayerWood;
             StoneHave.Content = storage.PlayerStone;
-            resourcesNeed = model.GetInfoAboutResourcesForUpdate(manufacture);
+            resourcesNeed = ManufactureModel.GetInfoAboutResourcesForUpdate(manufacture);
 
             WoodNeed.Content = resourcesNeed.PlayerWood;
             StoneNeed.Content = resourcesNeed.PlayerStone;
@@ -55,7 +53,7 @@ namespace LandConquest.DialogWIndows
         {
             if (storage.PlayerWood >= resourcesNeed.PlayerWood && storage.PlayerStone >= resourcesNeed.PlayerStone)
             {
-                model.UpgradeManufacture(manufacture);
+                ManufactureModel.UpgradeManufacture(manufacture);
                 storage.PlayerWood -= resourcesNeed.PlayerWood;
                 storage.PlayerStone -= resourcesNeed.PlayerStone;
 
@@ -66,12 +64,12 @@ namespace LandConquest.DialogWIndows
                 // output
                 WoodHave.Content = storage.PlayerWood;
                 StoneHave.Content = storage.PlayerStone;
-                resourcesNeed = model.GetInfoAboutResourcesForUpdate(manufacture);
+                resourcesNeed = ManufactureModel.GetInfoAboutResourcesForUpdate(manufacture);
 
                 WoodNeed.Content = resourcesNeed.PlayerWood;
                 StoneNeed.Content = resourcesNeed.PlayerStone;
 
-                manufacture = model.GetManufactureById(manufacture);
+                manufacture = ManufactureModel.GetManufactureById(manufacture);
 
                 ManufactureLvl.Content = manufacture.ManufactureLevel;
             }
