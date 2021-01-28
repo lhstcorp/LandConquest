@@ -1,4 +1,5 @@
 ﻿using LandConquestDB.Entities;
+using LandConquest.DialogWIndows;
 using LandConquestDB.Models;
 using LiveCharts;
 using LiveCharts.Defaults;
@@ -111,7 +112,7 @@ namespace LandConquest.Forms
             switch (button.Name)
             {
                 case "buyFoodMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content) && Convert.ToInt32(FoodToBuyTextBox.Text) > 0 && Convert.ToInt32(labelFoodMarket.Content) >= Convert.ToInt32(FoodToBuyTextBox.Text))
+                    if (player.PlayerMoney >= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content) && Convert.ToInt32(labelFoodMarket.Content) >= Convert.ToInt32(FoodToBuyTextBox.Text))
                     {
                         storage.PlayerFood += Convert.ToInt32(FoodToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
@@ -123,12 +124,12 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough money or resources!");
                     }
                     break;
 
                 case "buyWoodMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelWoodPrice.Content) && Convert.ToInt32(WoodToBuyTextBox.Text) > 0 && Convert.ToInt32(labelWoodMarket.Content) >= Convert.ToInt32(WoodToBuyTextBox.Text))
+                    if (player.PlayerMoney >= Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelWoodPrice.Content) && Convert.ToInt32(labelWoodMarket.Content) >= Convert.ToInt32(WoodToBuyTextBox.Text))
                     {
 
                         storage.PlayerWood += Convert.ToInt32(WoodToBuyTextBox.Text);
@@ -141,12 +142,12 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough money or resources!");
                     }
                     break;
 
                 case "buyStoneMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(StoneToBuyTextBox.Text) * Convert.ToInt32(labelStonePrice.Content) && Convert.ToInt32(StoneToBuyTextBox.Text) > 0 && Convert.ToInt32(labelStoneMarket.Content) >= Convert.ToInt32(StoneToBuyTextBox.Text))
+                    if (player.PlayerMoney >= Convert.ToInt32(StoneToBuyTextBox.Text) * Convert.ToInt32(labelStonePrice.Content) && Convert.ToInt32(labelStoneMarket.Content) >= Convert.ToInt32(StoneToBuyTextBox.Text))
                     {
                         storage.PlayerStone += Convert.ToInt32(StoneToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(StoneToBuyTextBox.Text) * Convert.ToInt32(labelStonePrice.Content);
@@ -158,12 +159,12 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough money or resources!");
                     }
                     break;
 
                 case "buyIronMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(IronToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content) && Convert.ToInt32(IronToBuyTextBox.Text) > 0 && Convert.ToInt32(labelIronMarket.Content) >= Convert.ToInt32(IronToBuyTextBox.Text))
+                    if (player.PlayerMoney >= Convert.ToInt32(IronToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content) && Convert.ToInt32(labelIronMarket.Content) >= Convert.ToInt32(IronToBuyTextBox.Text))
                     {
                         storage.PlayerIron += Convert.ToInt32(IronToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(IronToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content);
@@ -175,12 +176,12 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough money or resources!");
                     }
                     break;
 
                 case "buyGoldMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(GoldToBuyTextBox.Text) * Convert.ToInt32(labelGoldPrice.Content) && Convert.ToInt32(GoldToBuyTextBox.Text) > 0 && Convert.ToInt32(labelGoldMarket.Content) >= Convert.ToInt32(GoldToBuyTextBox.Text))
+                    if (player.PlayerMoney >= Convert.ToInt32(GoldToBuyTextBox.Text) * Convert.ToInt32(labelGoldPrice.Content) && Convert.ToInt32(labelGoldMarket.Content) >= Convert.ToInt32(GoldToBuyTextBox.Text))
                     {
                         storage.PlayerGoldOre += Convert.ToInt32(GoldToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(GoldToBuyTextBox.Text) * Convert.ToInt32(labelGoldPrice.Content);
@@ -192,12 +193,12 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough money or resources!");
                     }
                     break;
 
                 case "buyCopperMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(CopperToBuyTextBox.Text) * Convert.ToInt32(labelCopperPrice.Content) && Convert.ToInt32(CopperToBuyTextBox.Text) > 0 && Convert.ToInt32(labelCopperMarket.Content) >= Convert.ToInt32(CopperToBuyTextBox.Text))
+                    if (player.PlayerMoney >= Convert.ToInt32(CopperToBuyTextBox.Text) * Convert.ToInt32(labelCopperPrice.Content) && Convert.ToInt32(labelCopperMarket.Content) >= Convert.ToInt32(CopperToBuyTextBox.Text))
                     {
                         storage.PlayerCopper += Convert.ToInt32(CopperToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(CopperToBuyTextBox.Text) * Convert.ToInt32(labelCopperPrice.Content);
@@ -209,12 +210,12 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough money or resources!");
                     }
                     break;
 
                 case "buyGemsMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(GemsToBuyTextBox.Text) * Convert.ToInt32(labelGemsPrice.Content) && Convert.ToInt32(GemsToBuyTextBox.Text) > 0 && Convert.ToInt32(labelGemsMarket.Content) >= Convert.ToInt32(GemsToBuyTextBox.Text))
+                    if (player.PlayerMoney >= Convert.ToInt32(GemsToBuyTextBox.Text) * Convert.ToInt32(labelGemsPrice.Content) && Convert.ToInt32(labelGemsMarket.Content) >= Convert.ToInt32(GemsToBuyTextBox.Text))
                     {
                         storage.PlayerGems += Convert.ToInt32(GemsToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(GemsToBuyTextBox.Text) * Convert.ToInt32(labelGemsPrice.Content);
@@ -226,12 +227,12 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough money or resources!");
                     }
                     break;
 
                 case "buyLeatherMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(LeatherToBuyTextBox.Text) * Convert.ToInt32(labelLeatherPrice.Content) && Convert.ToInt32(LeatherToBuyTextBox.Text) > 0 && Convert.ToInt32(labelLeatherMarket.Content) >= Convert.ToInt32(LeatherToBuyTextBox.Text))
+                    if (player.PlayerMoney >= Convert.ToInt32(LeatherToBuyTextBox.Text) * Convert.ToInt32(labelLeatherPrice.Content) && Convert.ToInt32(labelLeatherMarket.Content) >= Convert.ToInt32(LeatherToBuyTextBox.Text))
                     {
                         storage.PlayerLeather += Convert.ToInt32(LeatherToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(LeatherToBuyTextBox.Text) * Convert.ToInt32(labelLeatherPrice.Content);
@@ -243,7 +244,7 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough money or resources!");
                     }
                     break;
 
@@ -265,7 +266,7 @@ namespace LandConquest.Forms
             {
 
                 case "sellFoodMarketButton":
-                    if (storage.PlayerFood >= Convert.ToInt32(FoodToBuyTextBox.Text) && Convert.ToInt32(FoodToBuyTextBox.Text) > 0)
+                    if (storage.PlayerFood >= Convert.ToInt32(FoodToBuyTextBox.Text))
                     {
                         storage.PlayerFood -= Convert.ToInt32(FoodToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
@@ -277,7 +278,7 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                     }
                     break;
 
@@ -294,7 +295,7 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                     }
                     break;
 
@@ -311,7 +312,7 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                     }
                     break;
 
@@ -328,7 +329,7 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                     }
                     break;
 
@@ -345,7 +346,7 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                     }
                     break;
 
@@ -362,7 +363,7 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                     }
                     break;
 
@@ -379,7 +380,7 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                     }
                     break;
 
@@ -396,7 +397,7 @@ namespace LandConquest.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Error!");
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                     }
                     break;
 

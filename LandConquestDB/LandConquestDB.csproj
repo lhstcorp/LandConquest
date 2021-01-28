@@ -84,6 +84,7 @@
     <Compile Include="Entities\Market.cs" />
     <Compile Include="Entities\Peasants.cs" />
     <Compile Include="Entities\Player.cs" />
+    <Compile Include="Entities\PlayerEntrance.cs" />
     <Compile Include="Entities\PlayerEquipment.cs" />
     <Compile Include="Entities\PlayersRating.cs" />
     <Compile Include="Entities\PlayerStorage.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Entities\War.cs" />
     <Compile Include="Enums\ForcesEnum.cs" />
     <Compile Include="Enums\ManufacturesLvlEnum.cs" />
+    <Compile Include="Enums\ConsumptionEnum.cs" />
     <Compile Include="Enums\ResourcesEnum.cs" />
     <Compile Include="Models\ArmyModel.cs" />
     <Compile Include="Models\AuctionModel.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Models\MapModel.cs" />
     <Compile Include="Models\MarketModel.cs" />
     <Compile Include="Models\PeasantModel.cs" />
+    <Compile Include="Models\PlayerEntranceModel.cs" />
     <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Models\StorageModel.cs" />
     <Compile Include="Models\TaxesModel.cs" />

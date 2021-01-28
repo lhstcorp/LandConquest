@@ -297,6 +297,28 @@ namespace LandConquestDB.Models
             storageCommand.Dispose();
         }
 
+
+        public static void UpdateAllPlayerArmyInBattle(List<ArmyInBattle> armiesInBatle)
+        {
+            foreach (var army in armiesInBatle)
+            {
+                string storageQuery = "UPDATE dbo.ArmyDataInBattle SET army_size_current = @army_size_current, army_type = @army_type, army_archers_count = @army_archers_count, army_infantry_count = @army_infantry_count, army_horseman_count = @army_horseman_count, army_siegegun_count = @army_siegegun_count WHERE army_id = @army_id";
+
+                var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
+                storageCommand.Parameters.AddWithValue("@army_size_current", army.ArmySizeCurrent);
+                storageCommand.Parameters.AddWithValue("@army_type", army.ArmyType);
+                storageCommand.Parameters.AddWithValue("@army_archers_count", army.ArmyArchersCount);
+                storageCommand.Parameters.AddWithValue("@army_infantry_count", army.ArmyInfantryCount);
+                storageCommand.Parameters.AddWithValue("@army_horseman_count", army.ArmyHorsemanCount);
+                storageCommand.Parameters.AddWithValue("@army_siegegun_count", army.ArmySiegegunCount);
+                storageCommand.Parameters.AddWithValue("@army_id", army.ArmyId);
+
+                storageCommand.ExecuteNonQuery();
+                storageCommand.Dispose();
+            }
+
+        }
+
         public static int ReturnTypeOfArmy(List<ArmyInBattle> armies)
         {
             for (int i = 0; i < armies.Count - 1; i++)
@@ -463,7 +485,6 @@ namespace LandConquestDB.Models
 
             return armies;
         }
-
 
         public static List<ArmyInBattle> GetAllPlayerArmiesInfo(List<ArmyInBattle> armies, Player player)
         {

@@ -2,6 +2,7 @@
 using LandConquestDB.Models;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace LandConquest.DialogWIndows
@@ -11,9 +12,7 @@ namespace LandConquest.DialogWIndows
     {
         private Player player;
         private PlayerStorage storage;
-        private PlayerEquipment equipment;
-        private Peasants peasants;
-        private Army army;
+
         private string itemName;
         private string itemGroup;
         private string itemSubgroup;
@@ -33,30 +32,12 @@ namespace LandConquest.DialogWIndows
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             storage = new PlayerStorage();
-            equipment = new PlayerEquipment();
-
-
-            peasants = new Peasants();
-
-
-            army = new Army();
 
             itemName = null;
             itemGroup = null;
             itemSubgroup = null;
 
-            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
-
-            army = ArmyModel.GetArmyInfo(player, army);
-
-            labelPeasantAmount.Content = peasants.PeasantsCount.ToString();
-            labelBowmanAmount.Content = army.ArmyArchersCount.ToString();
-            labelInfantryAmount.Content = army.ArmyInfantryCount.ToString();
-            labelKnightAmount.Content = army.ArmyHorsemanCount.ToString();
-            labelSiegeMachinesAmount.Content = army.ArmySiegegunCount.ToString();
-
             storage = StorageModel.GetPlayerStorage(player, storage);
-            equipment = EquipmentModel.GetPlayerEquipment(player, equipment);
 
             labelWoodAmount.Content = storage.PlayerWood.ToString();
             labelStoneAmount.Content = storage.PlayerStone.ToString();
@@ -66,13 +47,6 @@ namespace LandConquest.DialogWIndows
             labelGoldAmount.Content = storage.PlayerGoldOre.ToString();
             labelIronAmount.Content = storage.PlayerIron.ToString();
             labelLeatherAmount.Content = storage.PlayerLeather.ToString();
-
-            labelHarnessAmount.Content = equipment.PlayerHarness.ToString();
-            labelGearAmount.Content = equipment.PlayerGear.ToString();
-            labelSpearAmount.Content = equipment.PlayerSpear.ToString();
-            labelBowAmount.Content = equipment.PlayerBow.ToString();
-            labelArmorAmount.Content = equipment.PlayerArmor.ToString();
-            labelSwordAmount.Content = equipment.PlayerSword.ToString();
 
             labelSetPrice.Visibility = Visibility.Hidden;
             labelSetAmount.Visibility = Visibility.Hidden;
@@ -145,61 +119,6 @@ namespace LandConquest.DialogWIndows
             showListingDetails();
         }
 
-        private void armorButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void swordButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void harnesspButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void bowButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void gearButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void spearButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void peasantsButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void archersButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void warriorsButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void horsemanButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void catapultButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
         private void showListingDetails()
         {
             labelSetPrice.Visibility = Visibility.Visible;
@@ -213,6 +132,17 @@ namespace LandConquest.DialogWIndows
         {
             AuctionModel.AddListing(Convert.ToInt32(textBoxAmount.Text), itemName, itemGroup, itemSubgroup, Convert.ToInt32(textBoxPrice.Text), player);
 
+        }
+
+        private void textBoxPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
+        }
+
+        public static bool IsValid(string str)
+        {
+            int i;
+            return int.TryParse(str, out i) && i >= 1 && i <= 99999;
         }
     }
 }

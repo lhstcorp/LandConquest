@@ -215,6 +215,7 @@
     <Compile Include="Forms\WarWindow.xaml.cs">
       <DependentUpon>WarWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ConsumptionLogic.cs" />
     <Compile Include="Logic\LauncherLogic.cs" />
     <Compile Include="Logic\WarLogic.cs" />
     <Compile Include="Resources\GlobalMap.xaml.cs">
@@ -380,6 +381,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resources\Fonts\HARNGTON.TTF" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
