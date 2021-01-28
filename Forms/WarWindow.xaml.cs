@@ -220,12 +220,6 @@ namespace LandConquest.Forms
                 f_armySelected = false;
 
                 armyInBattlesInCurrentTile = new List<ArmyInBattle>();
-
-                for (int i = 0; i < BattleModel.SelectLastIdOfArmiesInCurrentTile(INDEX, war); i++)
-                {
-                    armyInBattlesInCurrentTile.Add(new ArmyInBattle());
-                }
-
                 armyInBattlesInCurrentTile = BattleModel.GetArmiesInfoInCurrentTile(armyInBattlesInCurrentTile, war, INDEX);
 
                 Image imgArmyThatStay = new Image();
@@ -308,12 +302,6 @@ namespace LandConquest.Forms
                     // call method retype;
 
                     armyInBattlesInCurrentTile = new List<ArmyInBattle>();
-
-                    for (int i = 0; i < BattleModel.SelectLastIdOfArmiesInCurrentTile(index, war); i++)
-                    {
-                        armyInBattlesInCurrentTile.Add(new ArmyInBattle());
-                    }
-
                     armyInBattlesInCurrentTile = BattleModel.GetArmiesInfoInCurrentTile(armyInBattlesInCurrentTile, war, index);
                     armyInBattlesInCurrentTile.Add(selectedArmy);
 
@@ -360,12 +348,6 @@ namespace LandConquest.Forms
 
                     //перезаписываем в этот лист армии что остались
                     armyInBattlesInCurrentTile.Clear();
-
-                    for (int i = 0; i < BattleModel.SelectLastIdOfArmiesInCurrentTile(INDEX, war); i++)
-                    {
-                        armyInBattlesInCurrentTile.Add(new ArmyInBattle());
-                    }
-
                     armyInBattlesInCurrentTile = BattleModel.GetArmiesInfoInCurrentTile(armyInBattlesInCurrentTile, war, INDEX);
 
                     if (armyInBattlesInCurrentTile.Count >= 1)
@@ -573,14 +555,12 @@ namespace LandConquest.Forms
             SelectionCounter = 0;
             selectedArmiesForUnion = new List<bool>();
             armyInBattlesInCurrentTile = new List<ArmyInBattle>();
-
-            for (int i = 0; i < BattleModel.SelectLastIdOfArmiesInCurrentTile(index, war); i++)
+            armyInBattlesInCurrentTile = BattleModel.GetArmiesInfoInCurrentTile(armyInBattlesInCurrentTile, war, index);
+            for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++)
             {
-                armyInBattlesInCurrentTile.Add(new ArmyInBattle());
                 selectedArmiesForUnion.Add(false);
             }
 
-            armyInBattlesInCurrentTile = BattleModel.GetArmiesInfoInCurrentTile(armyInBattlesInCurrentTile, war, index);
 
             ShowInfoAboutArmy();
 
@@ -624,12 +604,6 @@ namespace LandConquest.Forms
             int index = gridForArmies.Children.IndexOf((Image)sender);
 
             List<ArmyInBattle> armyInBattlesInCurrentTile = new List<ArmyInBattle>();
-
-            for (int i = 0; i < BattleModel.SelectLastIdOfArmiesInCurrentTile(index, war); i++)
-            {
-                armyInBattlesInCurrentTile.Add(new ArmyInBattle());
-            }
-
             armyInBattlesInCurrentTile = BattleModel.GetArmiesInfoInCurrentTile(armyInBattlesInCurrentTile, war, index);
 
             for (int i = 0; i < armyInBattlesInCurrentTile.Count; i++)
