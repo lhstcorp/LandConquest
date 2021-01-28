@@ -16,7 +16,6 @@ namespace LandConquest.Forms
         private List<Manufacture> manufactures;
         private List<Manufacture> landManufactures;
         private List<Manufacture> playerLandManufactures;
-        private ManufactureModel model;
         private PlayerStorage storage;
         private int unemployedPeasantsCount;
         private int employedPeasantsCount;
@@ -35,7 +34,6 @@ namespace LandConquest.Forms
 
         private void ManufactureWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            model = new ManufactureModel();
             peasants = new Peasants();
 
             peasants = PeasantModel.GetPeasantsInfo(player, peasants);
@@ -50,14 +48,14 @@ namespace LandConquest.Forms
             employedPeasantsCount = peasants.PeasantsWork;
 
             manufactures = new List<Manufacture>();
-            manufactures = model.GetManufactureInfo(player);
+            manufactures = ManufactureModel.GetManufactureInfo(player);
 
             landManufactures = new List<Manufacture>();
-            landManufactures = model.GetLandManufactureInfo(player);
+            landManufactures = ManufactureModel.GetLandManufactureInfo(player);
 
             try
             {
-                playerLandManufactures = model.GetPlayerLandManufactureInfo(player);
+                playerLandManufactures = ManufactureModel.GetPlayerLandManufactureInfo(player);
                 if (playerLandManufactures.Count == 0)
                 {
                     playerLandManufactures = new List<Manufacture>();
@@ -235,7 +233,7 @@ namespace LandConquest.Forms
 
             manufactures[2].ManufactureProductsHour = Convert.ToInt32(WindmillProdValueHour.Content);
 
-            landManufactures = model.GetLandManufactureInfo(player);
+            landManufactures = ManufactureModel.GetLandManufactureInfo(player);
 
             //хуета полнейшая - сделай новую сущность для городских мануфактур игрока
             landManufactures[0].ManufacturePeasantWork = Convert.ToInt32(sliderBuilding1.Value + Convert.ToInt32(WorkingNowB1.Content) - playerLandManufactures[0].ManufacturePeasantWork);
@@ -259,12 +257,12 @@ namespace LandConquest.Forms
             playerLandManufactures[1].ManufactureProductsHour = Convert.ToInt32(building2ProdValueHour.Content);
 
             //не забудь убрать лох //убрал кста
-            model.InsertOrUpdateLandManufactures(playerLandManufactures, player); //это пользовательская сущность городской мануфактуры
+            ManufactureModel.InsertOrUpdateLandManufactures(playerLandManufactures, player); //это пользовательская сущность городской мануфактуры
             //возвращаю костыль
             //model.UpdateLandManufactures(landManufactures, player, connection);
             //---------------------
-            model.UpdateDateTimeForManufacture(manufactures, player);
-            model.UpdateLandManufactures(landManufactures); //это общая сущность - тут хранятся общие данные игроков.
+            ManufactureModel.UpdateDateTimeForManufacture(manufactures, player);
+            ManufactureModel.UpdateLandManufactures(landManufactures); //это общая сущность - тут хранятся общие данные игроков.
 
             ManufactureWindow_Loaded(sender, e);
         }

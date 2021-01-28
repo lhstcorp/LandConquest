@@ -126,30 +126,6 @@ namespace LandConquestDB.Models
             return count;
         }
 
-        public static int SelectLastIdOfArmiesInCurrentTile(int index, War war)
-        {
-            string Query = "SELECT * FROM dbo.ArmyDataInBattle WHERE war_id = @war_id AND local_land_id = @local_land_id";
-            var Command = new SqlCommand(Query, DbContext.GetSqlConnection());
-
-            Command.Parameters.AddWithValue("@war_id", war.WarId);
-            Command.Parameters.AddWithValue("@local_land_id", index);
-
-            string armyId = "";
-            int count = 0;
-            using (var reader = Command.ExecuteReader())
-            {
-                var stateId = reader.GetOrdinal("army_id");
-                while (reader.Read())
-                {
-                    armyId = reader.GetString(stateId);
-                    count++;
-                }
-            }
-
-            Command.Dispose();
-            return count;
-        }
-
         public static List<ArmyInBattle> GetArmiesInfoInCurrentTile(List<ArmyInBattle> armies, War war, int index)
         {
             string armyQuery = "SELECT * FROM dbo.ArmyDataInBattle WHERE war_id = @war_id AND local_land_id = @local_land_id";
@@ -202,6 +178,7 @@ namespace LandConquestDB.Models
 
             for (int i = 0; i < armiesPlayerId.Count; i++)
             {
+                armies.Add(new ArmyInBattle());
                 armies[i].PlayerId = armiesPlayerId[i];
                 armies[i].ArmyId = armiesArmyId[i];
                 armies[i].ArmySizeCurrent = armiesSizeCurrent[i];
