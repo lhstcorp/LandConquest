@@ -73,21 +73,33 @@ namespace LandConquest.Logic
                 playerArmy.ArmySizeCurrent -= army.ArmySizeCurrent;
 
                 army.ArmyArchersCount = army.ArmyArchersCount / part;
-                playerArmy.ArmyArchersCount += army.ArmyArchersCount;
                 army.ArmyHorsemanCount = army.ArmyHorsemanCount / part;
-                playerArmy.ArmyHorsemanCount += army.ArmyHorsemanCount;
                 army.ArmyInfantryCount = army.ArmyInfantryCount / part;
-                playerArmy.ArmyInfantryCount += army.ArmyInfantryCount;
                 army.ArmySiegegunCount = army.ArmySiegegunCount / part;
-                playerArmy.ArmySiegegunCount += army.ArmySiegegunCount;
                 army.ArmySizeCurrent = army.ArmyArchersCount + army.ArmyHorsemanCount + army.ArmyInfantryCount + army.ArmySiegegunCount;
-                playerArmy.ArmySizeCurrent += army.ArmySizeCurrent;
 
-                if(army.ArmySizeCurrent == 0)
+                if (army.ArmySizeCurrent == 0)
                 {
                     BattleModel.DeleteArmyById(army);
                 }
             }
+
+            playerArmy.ArmyArchersCount = playerArmy.ArmyArchersCount / part;
+            playerArmy.ArmyHorsemanCount = playerArmy.ArmyHorsemanCount / part;
+            playerArmy.ArmyInfantryCount = playerArmy.ArmyInfantryCount / part;
+            playerArmy.ArmySiegegunCount = playerArmy.ArmySiegegunCount / part;
+            playerArmy.ArmySizeCurrent = playerArmy.ArmyArchersCount + playerArmy.ArmyHorsemanCount + playerArmy.ArmyInfantryCount + playerArmy.ArmySiegegunCount;
+
+
+            foreach (var army in armiesInBatle)
+            {
+                playerArmy.ArmyArchersCount += army.ArmyArchersCount;
+                playerArmy.ArmyHorsemanCount += army.ArmyHorsemanCount;
+                playerArmy.ArmyInfantryCount += army.ArmyInfantryCount;
+                playerArmy.ArmySiegegunCount += army.ArmySiegegunCount;
+                playerArmy.ArmySizeCurrent += army.ArmySizeCurrent;
+            }
+
             BattleModel.UpdateAllPlayerArmyInBattle(armiesInBatle);
             ArmyModel.UpdateArmy(playerArmy);
         }

@@ -30,9 +30,9 @@ namespace LandConquest.Forms
 
         private void buttonCreateListing_Click(object sender, RoutedEventArgs e)
         {
-            CreateListingDialog createListingDialog = new CreateListingDialog(player);
-            createListingDialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            createListingDialog.Owner = this;
+            CreateListingDialog createListingDialog = new CreateListingDialog(player);         
+            createListingDialog.Owner = Application.Current.MainWindow;
+            createListingDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             createListingDialog.Show();
         }
 
@@ -43,7 +43,6 @@ namespace LandConquest.Forms
             auctionDataGrid.ItemsSource = listings;
             buttonBuy.IsEnabled = false;
             buttonDelete.IsEnabled = false;
-
         }
 
         private void buttonFindListing_Click(object sender, RoutedEventArgs e)
