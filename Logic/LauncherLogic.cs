@@ -1,15 +1,11 @@
 ﻿using LandConquest.DialogWIndows;
 using LandConquestDB;
-using Syroot.Windows.IO;
 using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
-using System.Threading.Tasks;
-using System.Windows;
-using YandexDiskNET;
 
 namespace LandConquest.Logic
 {
@@ -67,23 +63,19 @@ namespace LandConquest.Logic
             }
         }
 
-        public static async Task CheckGameVersion()
+        public static string CheckGameVersion()
         {
-            string downloadsPath = new KnownFolder(KnownFolderType.Downloads).Path;
-            string sourceFileName = "GameVersion";
-            string destFileName = downloadsPath + @"\GameVersion";
-            var disk = YDContext.GetYD();
-            await Task.WhenAll(disk.DownloadResourceAcync(sourceFileName, destFileName));
+            return YDContext.ReadResource("GameVersion");
         }
 
-        public static ErrorResponse DownloadGame()
+        public static void DownloadGame()
         {
-            string downloadsPath = new KnownFolder(KnownFolderType.Downloads).Path;
-
-            string sourceFileName = "LandConquest.exe";
-            string destFileName = downloadsPath + @"\LandConquest.exe";
-            YandexDiskRest disk = YDContext.GetYD();
-            return disk.DownloadResource(sourceFileName, destFileName);
+            var psi = new ProcessStartInfo
+            {
+                FileName = "https://gamejolt.com/games/LandConquest/577432",
+                UseShellExecute = true
+            };
+            Process.Start(psi);
         }
     }
 }

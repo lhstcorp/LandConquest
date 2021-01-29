@@ -7,7 +7,7 @@ namespace LandConquestDB.Models
     public class PlayerEntranceModel
     {
         public static DateTime GetLastEntrance(Player player)
-        { 
+        {
             string query = "SELECT * FROM dbo.PlayerEntranceData WHERE player_id = @player_id";
             DateTime dateTime = new DateTime();
 
@@ -24,7 +24,7 @@ namespace LandConquestDB.Models
                     dateTime = reader.GetDateTime(playerId);
                 }
                 return dateTime;
-            }  
+            }
         }
 
         public static DateTime GetFirstEntrance(Player player)

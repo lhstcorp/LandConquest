@@ -30,7 +30,7 @@ namespace LandConquest.Forms
 
         private void buttonCreateListing_Click(object sender, RoutedEventArgs e)
         {
-            CreateListingDialog createListingDialog = new CreateListingDialog(player);         
+            CreateListingDialog createListingDialog = new CreateListingDialog(player);
             createListingDialog.Owner = Application.Current.MainWindow;
             createListingDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             createListingDialog.Show();

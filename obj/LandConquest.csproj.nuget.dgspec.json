@@ -42,10 +42,6 @@
               "target": "Package",
               "version": "[1.0.4, )"
             },
-            "FontAwesome.WPF": {
-              "target": "Package",
-              "version": "[4.7.0.9, )"
-            },
             "LiveCharts.Wpf": {
               "target": "Package",
               "version": "[0.9.7, )"
@@ -65,10 +61,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.2.29, )"
-            },
-            "Syroot.Windows.IO.KnownFolders": {
-              "target": "Package",
-              "version": "[1.2.3, )"
             },
             "YandexDiskNET": {
               "target": "Package",

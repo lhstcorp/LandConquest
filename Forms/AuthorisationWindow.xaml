@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"         
         Title="Land Conquest" Height="500" Width="800" MaxHeight="500" MaxWidth="800" MinHeight="500" MinWidth="800" FontFamily="Palatino Linotype">
 
@@ -60,14 +59,13 @@
             </Button.Background>
         </Button>
 
-        <fa:ImageAwesome x:Name="iconSpinner" Icon="Refresh" Spin="True" SpinDuration="10" Foreground="#FFCA691E" Margin="726,426,36.6,9.4" />
-        <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Palatino Linotype" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="493,425,0,0" VerticalAlignment="Top" Width="228" Foreground="#FFCA691E"/>
-        <fa:ImageAwesome x:Name="iconDownload" Icon="Download" Foreground="GreenYellow" Margin="461,426,301.6,9.4" Cursor="Hand" MouseDown="iconDownload_MouseDown" />
+        <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Palatino Linotype" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="515,416,0,0" VerticalAlignment="Top" Width="223" Foreground="#FFCA691E"/>
+        <Image Source="/Pictures/downloadicon.png" x:Name="iconDownload" Cursor="Hand" MouseDown="iconDownload_MouseDown" Margin="469,410,274.6,10.4"/>
         <Label Content="Please send us any comment, suggestion or correction you may have!" Foreground="AntiqueWhite" FontFamily="Tahoma" HorizontalAlignment="Left" Margin="19,416,0,0" VerticalAlignment="Top" Width="390"/>
 
         <Label x:Name="labelAgreement" HorizontalContentAlignment="Center" Foreground="#FFE5DE0A" FontSize="13" FontFamily="Tahoma" FontWeight="Bold" HorizontalAlignment="Left" Margin="50,336,0,0" VerticalAlignment="Top" Width="175" Cursor="Hand" Background="{x:Null}" MouseLeftButtonDown="labelAgreement_MouseLeftButtonDown">
             <TextBlock TextDecorations="Underline">User agreement</TextBlock>
-        </Label> 
+        </Label>
 
         <TextBox Text="landconquestofficial@gmail.com" Foreground="AntiqueWhite" FontFamily="Tahoma" Margin="22,441,587.6,0.4" Background="{x:Null}">
             <TextBox.Style>

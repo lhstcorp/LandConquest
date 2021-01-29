@@ -134,7 +134,7 @@ namespace LandConquest.Forms
 
             LoadWarsOnMap();
             setFlag();
-            
+
             //////////////////
             /// ГОЛОД ТУТ ////
             //////////////////
@@ -148,7 +148,7 @@ namespace LandConquest.Forms
 
         }
 
-       
+
 
         private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
         {
