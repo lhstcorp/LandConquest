@@ -571,6 +571,7 @@
     <Resource Include="Pictures\buttonPlus.jpg" />
     <Resource Include="Pictures\Tiles\y1.jpg" />
     <None Include="Resources\UserAgreement.txt" />
+    <Resource Include="Obfuscar.xml" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -601,6 +602,16 @@
     </PackageReference>
     <PackageReference Include="LiveCharts.Wpf">
       <Version>0.9.7</Version>
+    </PackageReference>
+    <PackageReference Include="MSBuild.Obfuscar">
+      <Version>2.2.29.1</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Obfuscar">
+      <Version>2.2.29</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Syroot.Windows.IO.KnownFolders">
       <Version>1.2.3</Version>
