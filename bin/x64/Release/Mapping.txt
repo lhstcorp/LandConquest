@@ -177,24 +177,6 @@ Renamed Types:
 	System.String [LandConquest]System.String LandConquest.Properties.Resources::UserAgreement -> dropped
 }
 
-[LandConquest]LandConquest.Properties.Settings -> [LandConquest] . 
-{
-	[LandConquest]LandConquest.Properties.Settings::get_Default[0]( ) ->  
-	[LandConquest]LandConquest.Properties.Settings::get_UserLogin[0]( ) ->  
-	[LandConquest]LandConquest.Properties.Settings::set_UserLogin[1]( [mscorlib]System.String ) ->  
-	[LandConquest]LandConquest.Properties.Settings::get_UserPassword[0]( ) ->  
-	[LandConquest]LandConquest.Properties.Settings::set_UserPassword[1]( [mscorlib]System.String ) ->  
-
-	[LandConquest]LandConquest.Properties.Settings::.ctor[0]( ) skipped:  special name
-	[LandConquest]LandConquest.Properties.Settings::.cctor[0]( ) skipped:  special name
-
-	LandConquest.Properties.Settings [LandConquest]LandConquest.Properties.Settings LandConquest.Properties.Settings::defaultInstance ->  
-
-	LandConquest.Properties.Settings [LandConquest]LandConquest.Properties.Settings LandConquest.Properties.Settings::Default -> dropped
-	System.String [LandConquest]System.String LandConquest.Properties.Settings::UserLogin ->  
-	System.String [LandConquest]System.String LandConquest.Properties.Settings::UserPassword ->  
-}
-
 [LandConquest]LandConquest.AuthorisationWindow/<>c -> [LandConquest]LandConquest.AuthorisationWindow/ 
 {
 	[LandConquest]LandConquest.AuthorisationWindow/<>c::<generateUserId>b__5_0[1]( [mscorlib]System.String ) ->  
@@ -204,18 +186,6 @@ Renamed Types:
 
 	LandConquest.AuthorisationWindow/<>c [LandConquest]LandConquest.AuthorisationWindow/<>c LandConquest.AuthorisationWindow/<>c::<>9 ->  
 	System.Func`2<System.String,System.Char> [LandConquest]System.Func`2<System.String,System.Char> LandConquest.AuthorisationWindow/<>c::<>9__5_0 ->  
-}
-
-[LandConquest]LandConquest.AuthorisationWindow/<CheckVersion>d__9 -> [LandConquest]LandConquest.AuthorisationWindow/ 
-{
-
-	[LandConquest]LandConquest.AuthorisationWindow/<CheckVersion>d__9::MoveNext[0]( ) skipped:  external base class or interface
-	[LandConquest]LandConquest.AuthorisationWindow/<CheckVersion>d__9::SetStateMachine[1]( [mscorlib]System.Runtime.CompilerServices.IAsyncStateMachine ) skipped:  external base class or interface
-
-	System.Int32 [LandConquest]System.Int32 LandConquest.AuthorisationWindow/<CheckVersion>d__9::<>1__state ->  
-	System.Runtime.CompilerServices.AsyncVoidMethodBuilder [LandConquest]System.Runtime.CompilerServices.AsyncVoidMethodBuilder LandConquest.AuthorisationWindow/<CheckVersion>d__9::<>t__builder ->  
-	LandConquest.AuthorisationWindow [LandConquest]LandConquest.AuthorisationWindow LandConquest.AuthorisationWindow/<CheckVersion>d__9::<>4__this ->  
-	System.Runtime.CompilerServices.TaskAwaiter [LandConquest]System.Runtime.CompilerServices.TaskAwaiter LandConquest.AuthorisationWindow/<CheckVersion>d__9::<>u__1 ->  
 }
 
 [LandConquest]LandConquest.Logic.ConsumptionLogic/<>c__DisplayClass3_0 -> [LandConquest]LandConquest.Logic.ConsumptionLogic/ 
@@ -241,17 +211,6 @@ Renamed Types:
 	LandConquestDB.Entities.PlayerStorage [LandConquest]LandConquestDB.Entities.PlayerStorage LandConquest.Logic.ConsumptionLogic/<ConsumptionCountAsync>d__3::storage ->  
 	LandConquest.Logic.ConsumptionLogic/<>c__DisplayClass3_0 [LandConquest]LandConquest.Logic.ConsumptionLogic/<>c__DisplayClass3_0 LandConquest.Logic.ConsumptionLogic/<ConsumptionCountAsync>d__3::<>8__1 ->  
 	System.Runtime.CompilerServices.TaskAwaiter [LandConquest]System.Runtime.CompilerServices.TaskAwaiter LandConquest.Logic.ConsumptionLogic/<ConsumptionCountAsync>d__3::<>u__1 ->  
-}
-
-[LandConquest]LandConquest.Logic.LauncherLogic/<CheckGameVersion>d__2 -> [LandConquest]LandConquest.Logic.LauncherLogic/ 
-{
-
-	[LandConquest]LandConquest.Logic.LauncherLogic/<CheckGameVersion>d__2::MoveNext[0]( ) skipped:  external base class or interface
-	[LandConquest]LandConquest.Logic.LauncherLogic/<CheckGameVersion>d__2::SetStateMachine[1]( [mscorlib]System.Runtime.CompilerServices.IAsyncStateMachine ) skipped:  external base class or interface
-
-	System.Int32 [LandConquest]System.Int32 LandConquest.Logic.LauncherLogic/<CheckGameVersion>d__2::<>1__state ->  
-	System.Runtime.CompilerServices.AsyncTaskMethodBuilder [LandConquest]System.Runtime.CompilerServices.AsyncTaskMethodBuilder LandConquest.Logic.LauncherLogic/<CheckGameVersion>d__2::<>t__builder ->  
-	System.Runtime.CompilerServices.TaskAwaiter`1<YandexDiskNET.ErrorResponse[]> [LandConquest]System.Runtime.CompilerServices.TaskAwaiter`1<YandexDiskNET.ErrorResponse[]> LandConquest.Logic.LauncherLogic/<CheckGameVersion>d__2::<>u__1 ->  
 }
 
 [LandConquest]LandConquest.Forms.ChatWindow/<>c -> [LandConquest]LandConquest.Forms.ChatWindow/ 
@@ -321,7 +280,7 @@ Renamed Types:
 	[YandexDiskNET]YandexDiskNET.YandexDiskUtils::.ctor[0]( ) skipped:  special name
 }
 
-[LandConquest]<PrivateImplementationDetails> -> [LandConquest] . 
+[LandConquest]<PrivateImplementationDetails> -> [LandConquest] . 
 {
 	[LandConquest]<PrivateImplementationDetails>::ComputeStringHash[1]( [mscorlib]System.String ) ->  
 }
@@ -970,11 +929,29 @@ Skipped Types:
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.AuthorisationWindow::buttonCancelRegistrate ->  
 	System.Windows.Controls.CheckBox [LandConquest]System.Windows.Controls.CheckBox LandConquest.AuthorisationWindow::CheckboxRemember ->  
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.AuthorisationWindow::buttonShowRegistration ->  
-	FontAwesome.WPF.ImageAwesome [LandConquest]FontAwesome.WPF.ImageAwesome LandConquest.AuthorisationWindow::iconSpinner ->  
 	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.AuthorisationWindow::labelGameFiles ->  
-	FontAwesome.WPF.ImageAwesome [LandConquest]FontAwesome.WPF.ImageAwesome LandConquest.AuthorisationWindow::iconDownload ->  
+	System.Windows.Controls.Image [LandConquest]System.Windows.Controls.Image LandConquest.AuthorisationWindow::iconDownload ->  
 	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.AuthorisationWindow::labelAgreement ->  
 	System.Boolean [LandConquest]System.Boolean LandConquest.AuthorisationWindow::_contentLoaded ->  
+}
+
+[LandConquest]LandConquest.Properties.Settings skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquest]LandConquest.Properties.Settings::get_Default[0]( ) skipped:  skip by property
+	[LandConquest]LandConquest.Properties.Settings::get_UserLogin[0]( ) skipped:  skip by property
+	[LandConquest]LandConquest.Properties.Settings::set_UserLogin[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquest]LandConquest.Properties.Settings::get_UserPassword[0]( ) skipped:  skip by property
+	[LandConquest]LandConquest.Properties.Settings::set_UserPassword[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquest]LandConquest.Properties.Settings::.ctor[0]( ) skipped:  special name
+	[LandConquest]LandConquest.Properties.Settings::.cctor[0]( ) skipped:  special name
+
+	LandConquest.Properties.Settings [LandConquest]LandConquest.Properties.Settings LandConquest.Properties.Settings::defaultInstance ->  
+
+
+	LandConquest.Properties.Settings [LandConquest]LandConquest.Properties.Settings LandConquest.Properties.Settings::Default skipped:  KeepPublicApi option in configuration
+	System.String [LandConquest]System.String LandConquest.Properties.Settings::UserLogin skipped:  KeepPublicApi option in configuration
+	System.String [LandConquest]System.String LandConquest.Properties.Settings::UserPassword skipped:  KeepPublicApi option in configuration
 }
 
 [LandConquest]LandConquest.Resources.GlobalMap skipped:  KeepPublicApi option in configuration

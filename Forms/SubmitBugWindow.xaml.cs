@@ -1,8 +1,8 @@
 ﻿using LandConquest.DialogWIndows;
 using LandConquestDB;
-using Syroot.Windows.IO;
 using System;
 using System.IO;
+using System.Reflection;
 using System.Windows;
 
 namespace LandConquest.Forms
@@ -28,7 +28,7 @@ namespace LandConquest.Forms
             {
                 var disk = YDContext.GetYD();
                 string destFileName = @"BugReport_" + PlayerName + DateTime.UtcNow.ToString().Replace(":", "_") + @".txt";
-                string path = new KnownFolder(KnownFolderType.Downloads).Path + @"\" + destFileName;
+                string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
                 File.AppendAllText(path, textBoxBugReport.Text);
                 var result = disk.UploadResource("SubBugs/" + destFileName, path, true);
                 if (result.Error == null)
@@ -42,7 +42,8 @@ namespace LandConquest.Forms
                     labelPlayerName.Content = "Error :(";
                     File.Delete(path);
                 }
-            } else
+            }
+            else
             {
                 WarningDialogWindow.CallWarningDialogNoResult("Text should not be less than 10");
             }

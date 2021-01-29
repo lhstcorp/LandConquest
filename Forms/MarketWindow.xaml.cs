@@ -1,8 +1,7 @@
-﻿using LandConquestDB.Entities;
-using LandConquest.DialogWIndows;
+﻿using LandConquest.DialogWIndows;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using LiveCharts;
-using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using System;
 using System.Windows;
@@ -103,14 +102,14 @@ namespace LandConquest.Forms
                 }
 
             };
-           
-            
+
+
 
             Labels = new[] { "Food", "Wood", "Stone", "Iron", "Gold", "Copper", "Gems", "Leather" };
             Formatter = value => value.ToString("N");
             DataContext = this;
             graphics.Series = series;
-            
+
 
         }
         public SeriesCollection SeriesCollection { get; set; }

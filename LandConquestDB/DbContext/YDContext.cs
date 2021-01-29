@@ -19,7 +19,7 @@ namespace LandConquestDB
 
         private static void Connection()
         {
-            oauth =  KSecure.Normal.Decrypt("fO4bi4UutIeOwf4jtC0S0EbdXqb/V4fwoLAkyzdkDFcZNeyFn7COODZF5ivGwnxgc1lefRT3JrNSCREGDl74A6/1B6l7TBgPYAupjE/ZqeSIdGgu274q5aEs59PrbocBktyf9zS1oXoVK3x3nM2zfB/kwwEaGLv34Xb2uN/cK8o=", Path.GetPathRoot(Environment.SystemDirectory));
+            oauth = KSecure.Normal.Decrypt("fO4bi4UutIeOwf4jtC0S0EbdXqb/V4fwoLAkyzdkDFcZNeyFn7COODZF5ivGwnxgc1lefRT3JrNSCREGDl74A6/1B6l7TBgPYAupjE/ZqeSIdGgu274q5aEs59PrbocBktyf9zS1oXoVK3x3nM2zfB/kwwEaGLv34Xb2uN/cK8o=", Path.GetPathRoot(Environment.SystemDirectory));
         }
 
         private static void Disk()
@@ -34,12 +34,12 @@ namespace LandConquestDB
 
         public static string ReadResource(string sourceFileName)
         {
-            Param param = default(Param);
-            param.Path = sourceFileName;
-            string result = ReadFile((string)JObject.Parse(CommandDisk(oauth, param)).SelectToken("href"));
+            var parameter = default(Param);
+            parameter.Path = sourceFileName;
+            string result = ReadFile((string)JObject.Parse(CommandDisk(oauth, parameter)).SelectToken("href"));
             return result;
         }
-        
+
         private static string CommandDisk(string oauth, Param param)
         {
             HttpMethod method = HttpMethod.Get;

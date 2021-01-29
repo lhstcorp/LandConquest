@@ -532,7 +532,7 @@ namespace LandConquest.Forms
 
         public void HideAvailableTilesToShoot(int index) //+ int forces movement speed;
         {
-            
+
             int row = index / localWarMap.Columns + 1;
             int col = index - localWarMap.Columns * (row - 1) + 1;
 

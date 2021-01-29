@@ -5,11 +5,9 @@ using LandConquest.Logic;
 using LandConquestDB;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
-using Syroot.Windows.IO;
 using System;
 using System.Data;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -17,14 +15,13 @@ using System.Windows;
 
 namespace LandConquest
 {
-
     public partial class AuthorisationWindow : Window
     {
         public AuthorisationWindow()
         {
             InitializeComponent();
             Loaded += AuthorisationWindow_Loaded;
-            ShowRegistrationFields(Visibility.Hidden);         
+            ShowRegistrationFields(Visibility.Hidden);
         }
 
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
@@ -36,7 +33,6 @@ namespace LandConquest
             CheckVersion();
             textBoxLogin.Text = Properties.Settings.Default.UserLogin;
             textBoxPass.Password = Properties.Settings.Default.UserPassword;
-            iconDownload.Visibility = Visibility.Hidden;
         }
 
 
@@ -48,7 +44,7 @@ namespace LandConquest
             {
                 MainWindow mainWindow = new MainWindow(user);
                 mainWindow.Show();
-                
+
                 if (CheckboxRemember.IsChecked == true)
                 {
                     Properties.Settings.Default.UserLogin = textBoxLogin.Text;
@@ -57,8 +53,8 @@ namespace LandConquest
                 }
                 else
                 {
-                    Properties.Settings.Default.UserLogin = null;
-                    Properties.Settings.Default.UserPassword = null;
+                    Properties.Settings.Default.UserLogin = "";
+                    Properties.Settings.Default.UserPassword = "";
                     Properties.Settings.Default.Save();
                 }
                 this.Close();
@@ -85,7 +81,7 @@ namespace LandConquest
                 int userCreationResult = UserModel.CreateUser(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, this.textBoxNewPass.Text, userId);
                 if (userCreationResult < 0)
                 {
-                    WarningDialogWindow.CallWarningDialogNoResult("Error creating new user!");                   
+                    WarningDialogWindow.CallWarningDialogNoResult("Error creating new user!");
                 }
                 else
                 {
@@ -154,44 +150,25 @@ namespace LandConquest
             labelAgreement.Visibility = visibility;
         }
 
-        private async void CheckVersion()
+        private void CheckVersion()
         {
-            await LauncherLogic.CheckGameVersion();
-            string downloadsPath = new KnownFolder(KnownFolderType.Downloads).Path;
-            if (File.ReadAllText(downloadsPath + @"\GameVersion").SequenceEqual(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion))
+            if (LauncherLogic.CheckGameVersion().SequenceEqual(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion))
             {
-                File.Delete(downloadsPath + @"\GameVersion");
                 labelGameFiles.Content = "Game is up to date";
                 labelGameFiles.Foreground = System.Windows.Media.Brushes.GreenYellow;
-                labelGameFiles.Margin = new Thickness(520, 427, 0, 0);
-                iconSpinner.Spin = false;
-                iconSpinner.Foreground = System.Windows.Media.Brushes.GreenYellow;
+                iconDownload.Visibility = Visibility.Hidden;
             }
             else
             {
-                File.Delete(downloadsPath + @"\GameVersion");
                 labelGameFiles.Content = "Update required";
                 labelGameFiles.Foreground = System.Windows.Media.Brushes.Red;
-                labelGameFiles.Margin = new Thickness(550, 427, 0, 0);
-                iconSpinner.Spin = false;
-                iconSpinner.Foreground = System.Windows.Media.Brushes.Red;
                 iconDownload.Visibility = Visibility.Visible;
-                iconDownload.Margin = new Thickness(300, 427, 40, 9);
             }
         }
 
         private void iconDownload_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            var err = LauncherLogic.DownloadGame();
-            if (err.Message != null)
-            {
-                WarningDialogWindow.CallWarningDialogNoResult(err.Message);
-                Environment.Exit(0);
-            }
-            else
-            {
-                WarningDialogWindow.CallWarningDialogNoResult("New version is successfully downloaded!");
-            }
+            LauncherLogic.DownloadGame();
         }
 
         private void labelAgreement_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

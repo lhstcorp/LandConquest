@@ -385,7 +385,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\Fonts\HARNGTON.TTF" />
@@ -572,6 +572,7 @@
     <Resource Include="Pictures\Tiles\y1.jpg" />
     <None Include="Resources\UserAgreement.txt" />
     <Resource Include="Obfuscar.xml" />
+    <Resource Include="Pictures\downloadicon.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -597,9 +598,6 @@
     <PackageReference Include="EmailValidation">
       <Version>1.0.4</Version>
     </PackageReference>
-    <PackageReference Include="FontAwesome.WPF">
-      <Version>4.7.0.9</Version>
-    </PackageReference>
     <PackageReference Include="LiveCharts.Wpf">
       <Version>0.9.7</Version>
     </PackageReference>
@@ -612,9 +610,6 @@
       <Version>2.2.29</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Syroot.Windows.IO.KnownFolders">
-      <Version>1.2.3</Version>
     </PackageReference>
     <PackageReference Include="YandexDiskNET">
       <Version>1.0.7</Version>
