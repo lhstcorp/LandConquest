@@ -264,6 +264,15 @@
           }
         }
       },
+      "MSBuild.Obfuscar/2.2.29.1": {
+        "type": "package",
+        "dependencies": {
+          "Obfuscar": "2.2.29"
+        },
+        "build": {
+          "build/MSBuild.Obfuscar.targets": {}
+        }
+      },
       "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
@@ -271,6 +280,12 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Obfuscar/2.2.29": {
+        "type": "package",
+        "build": {
+          "build/obfuscar.props": {}
         }
       },
       "Syroot.Windows.IO.KnownFolders/1.2.3": {
@@ -390,6 +405,15 @@
           "build/net45/Microsoft.VCRTForwarders.140.targets": {}
         }
       },
+      "MSBuild.Obfuscar/2.2.29.1": {
+        "type": "package",
+        "dependencies": {
+          "Obfuscar": "2.2.29"
+        },
+        "build": {
+          "build/MSBuild.Obfuscar.targets": {}
+        }
+      },
       "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
@@ -397,6 +421,12 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Obfuscar/2.2.29": {
+        "type": "package",
+        "build": {
+          "build/obfuscar.props": {}
         }
       },
       "Syroot.Windows.IO.KnownFolders/1.2.3": {
@@ -510,6 +540,15 @@
           "build/net45/Microsoft.VCRTForwarders.140.targets": {}
         }
       },
+      "MSBuild.Obfuscar/2.2.29.1": {
+        "type": "package",
+        "dependencies": {
+          "Obfuscar": "2.2.29"
+        },
+        "build": {
+          "build/MSBuild.Obfuscar.targets": {}
+        }
+      },
       "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
@@ -517,6 +556,12 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Obfuscar/2.2.29": {
+        "type": "package",
+        "build": {
+          "build/obfuscar.props": {}
         }
       },
       "Syroot.Windows.IO.KnownFolders/1.2.3": {
@@ -630,6 +675,15 @@
           "build/net45/Microsoft.VCRTForwarders.140.targets": {}
         }
       },
+      "MSBuild.Obfuscar/2.2.29.1": {
+        "type": "package",
+        "dependencies": {
+          "Obfuscar": "2.2.29"
+        },
+        "build": {
+          "build/MSBuild.Obfuscar.targets": {}
+        }
+      },
       "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
@@ -637,6 +691,12 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Obfuscar/2.2.29": {
+        "type": "package",
+        "build": {
+          "build/obfuscar.props": {}
         }
       },
       "Syroot.Windows.IO.KnownFolders/1.2.3": {
@@ -876,6 +936,22 @@
         "runtimes/win10-x86/native/release/vcruntime140_app.dll"
       ]
     },
+    "MSBuild.Obfuscar/2.2.29.1": {
+      "sha512": "iOFKFsWEJj6Lja0yHgL6zDQ0our5bvzOUSNzP55v62xvCiSf+TM8y58iPQk4ltRhsl6wrX3MG8jMfkNfgaHWjQ==",
+      "type": "package",
+      "path": "msbuild.obfuscar/2.2.29.1",
+      "files": [
+        ".editoricon.png",
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "build/MSBuild.Obfuscar.targets",
+        "content/Obfuscar.xml.transform",
+        "msbuild.obfuscar.2.2.29.1.nupkg.sha512",
+        "msbuild.obfuscar.nuspec"
+      ]
+    },
     "Newtonsoft.Json/11.0.2": {
       "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "type": "package",
@@ -904,6 +980,21 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "Obfuscar/2.2.29": {
+      "sha512": "vxvMt1V+RIywyqEaT2iMrYqXjkBMlCBh8llYbOpbYhv1aD5QTZ9N/BbxsqBeM4qN1+QhwOI+vt6o3Qn43HslnQ==",
+      "type": "package",
+      "path": "obfuscar/2.2.29",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Potion-icon.png",
+        "build/obfuscar.props",
+        "obfuscar.2.2.29.nupkg.sha512",
+        "obfuscar.nuspec",
+        "tools/Obfuscar.Console.exe"
       ]
     },
     "Syroot.Windows.IO.KnownFolders/1.2.3": {
@@ -1006,7 +1097,9 @@
       "FontAwesome.WPF >= 4.7.0.9",
       "LandConquestDB >= 1.0.0",
       "LiveCharts.Wpf >= 0.9.7",
+      "MSBuild.Obfuscar >= 2.2.29.1",
       "Microsoft.VCRTForwarders.140 >= 1.0.6",
+      "Obfuscar >= 2.2.29",
       "Syroot.Windows.IO.KnownFolders >= 1.2.3",
       "YandexDiskNET >= 1.0.7"
     ]
@@ -1060,9 +1153,21 @@
             "target": "Package",
             "version": "[0.9.7, )"
           },
+          "MSBuild.Obfuscar": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.2.29.1, )"
+          },
           "Microsoft.VCRTForwarders.140": {
             "target": "Package",
             "version": "[1.0.6, )"
+          },
+          "Obfuscar": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.2.29, )"
           },
           "Syroot.Windows.IO.KnownFolders": {
             "target": "Package",
