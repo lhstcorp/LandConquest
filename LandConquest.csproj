@@ -179,6 +179,9 @@
     <Compile Include="DialogWIndows\SplitArmyDialog.xaml.cs">
       <DependentUpon>SplitArmyDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\UserAgreementDialog.xaml.cs">
+      <DependentUpon>UserAgreementDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\WarningDialogWindow.xaml.cs">
       <DependentUpon>WarningDialogWindow.xaml</DependentUpon>
     </Compile>
@@ -248,6 +251,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\SplitArmyDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\UserAgreementDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -563,6 +570,7 @@
     <Resource Include="Pictures\background_pale.jpg" />
     <Resource Include="Pictures\buttonPlus.jpg" />
     <Resource Include="Pictures\Tiles\y1.jpg" />
+    <None Include="Resources\UserAgreement.txt" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

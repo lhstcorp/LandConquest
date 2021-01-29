@@ -7,26 +7,26 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen"
-        Title="ChatWindow" Height="450" Width="850" Background="{x:Null}"
+        WindowStartupLocation="CenterOwner"
+        Height="450" Width="800" Background="{x:Null}"
         ShowInTaskbar="False">
 
-    <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="850">
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
 
         <Grid>
-            <Button x:Name="buttonSubmitBug" Content="Send" HorizontalAlignment="Left" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="73" Height="36"  BorderBrush="{x:Null}" Margin="767,404,0,0" Foreground="#FFE1C993" Click="buttonSubmitBug_Click">
+            <Button x:Name="buttonSubmitBug" Content="Send" VerticalContentAlignment="Center"  VerticalAlignment="Top" Height="36"  BorderBrush="{x:Null}" Margin="0,404,3.2,0" Foreground="#FFE1C993" Click="buttonSubmitBug_Click" HorizontalAlignment="Right" Width="73">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
 
-            <Button x:Name="buttonClose" HorizontalAlignment="Center" Margin="823,0,0.2,0" VerticalAlignment="Top" Foreground="{x:Null}" BorderBrush="{x:Null}" Height="20" RenderTransformOrigin="0.5,0.5" Width="20" Click="buttonClose_Click">
+            <Button x:Name="buttonClose" HorizontalAlignment="Right" Margin="0,0,0.2,0" VerticalAlignment="Top" Foreground="{x:Null}" BorderBrush="{x:Null}" Height="20" RenderTransformOrigin="0.5,0.5" Width="20" Click="buttonClose_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
                 </Button.Background>
             </Button>
 
-            <TextBox x:Name="textBoxBugReport" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.Hint="Describe situation in a few words..." materialDesign:HintAssist.IsFloating="False" Padding="5,0,0,0" FontSize="18" Background="Wheat" HorizontalAlignment="Left" Height="356" Margin="10,43,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" VerticalAlignment="Top" Width="830"/>
+            <TextBox x:Name="textBoxBugReport" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.Hint="Describe situation in a few words (500 symbols max)" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" MaxLength="500" materialDesign:HintAssist.IsFloating="False" Padding="5,0,0,0" FontSize="18" Background="Wheat" Height="356" Margin="10,43,3.2,0" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <Label Content="Your name:" FontSize="20" FontFamily="Tahoma" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top"/>
             <Label x:Name="labelPlayerName" Content="Name" FontSize="20" FontFamily="/LandConquest;component/Resources/Fonts/#Harrington" Margin="132,5,475.2,404.2" FontWeight="Bold"/>
 

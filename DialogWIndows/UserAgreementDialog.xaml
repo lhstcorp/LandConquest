@@ -1,0 +1,25 @@
+﻿<Window x:Class="LandConquest.DialogWIndows.UserAgreementDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
+        Height="400" Width="600" Background="{x:Null}"
+        ShowInTaskbar="False">
+    <Grid>
+
+        <Button x:Name="buttonClose" HorizontalAlignment="Center" Margin="580,0,0,0" VerticalAlignment="Top" Foreground="{x:Null}" BorderBrush="{x:Null}" Height="20" Width="20" Click="buttonClose_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+            </Button.Background>
+        </Button>
+
+        <TextBox x:Name="textBoxUserAgreement" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" IsReadOnly="True" materialDesign:HintAssist.IsFloating="False" Padding="10,0,5,0" FontSize="18" Background="Wheat" Margin="20,20,20,20" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap"/>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+    </Grid>
+</Window>

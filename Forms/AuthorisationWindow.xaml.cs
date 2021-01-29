@@ -151,6 +151,7 @@ namespace LandConquest
             registerGui.Visibility = visibility;
             buttonRegistrate.Visibility = visibility;
             buttonCancelRegistrate.Visibility = visibility;
+            labelAgreement.Visibility = visibility;
         }
 
         private async void CheckVersion()
@@ -193,16 +194,10 @@ namespace LandConquest
             }
         }
 
-        //private void CallWarningDialog(string message)
-        //{
-        //    WarningDialogWindow warningWindow = new WarningDialogWindow(message);
-        //    warningWindow.Owner = Application.Current.MainWindow;
-        //    warningWindow.ShowDialog();
-        //    if (warningWindow.DialogResult.HasValue)
-        //    {
-        //        warningWindow.Close();
-        //    }
-        //}
+        private void labelAgreement_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            UserAgreementDialog.ShowUserAgreement();
+        }
     }
 }
 
