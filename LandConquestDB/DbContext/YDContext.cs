@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using YandexDiskNET;
 
@@ -38,6 +39,24 @@ namespace LandConquestDB
             parameter.Path = sourceFileName;
             string result = ReadFile((string)JObject.Parse(CommandDisk(oauth, parameter)).SelectToken("href"));
             return result;
+        }
+
+        public static bool UploadBugReport(string playerName, string text)
+        {
+            string destFileName = @"BugReport_" + playerName + DateTime.UtcNow.ToString().Replace(":", "_") + @".txt";
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
+            File.AppendAllText(path, text);
+            var result = disk.UploadResource("SubBugs/" + destFileName, path, true);
+            if (result.Error != null)
+            { 
+                File.Delete(path);
+                return false;
+            }
+            else
+            {
+                File.Delete(path);
+                return true;
+            }
         }
 
         private static string CommandDisk(string oauth, Param param)

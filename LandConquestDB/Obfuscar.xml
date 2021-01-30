@@ -13,5 +13,4 @@
   <Var name="SuppressIldasm" value="true" />
   <Module file="$(InPath)/LandConquestDB.dll" />
   <Module file="$(InPath)/KSecure.dll" />
-  <Module file="$(InPath)/YandexDiskNET.dll" />
 </Obfuscator>

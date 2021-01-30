@@ -1,8 +1,5 @@
 ﻿using LandConquest.DialogWIndows;
 using LandConquestDB;
-using System;
-using System.IO;
-using System.Reflection;
 using System.Windows;
 
 namespace LandConquest.Forms
@@ -26,21 +23,15 @@ namespace LandConquest.Forms
         {
             if (textBoxBugReport.Text.Length > 10)
             {
-                var disk = YDContext.GetYD();
-                string destFileName = @"BugReport_" + PlayerName + DateTime.UtcNow.ToString().Replace(":", "_") + @".txt";
-                string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
-                File.AppendAllText(path, textBoxBugReport.Text);
-                var result = disk.UploadResource("SubBugs/" + destFileName, path, true);
-                if (result.Error == null)
+                var result = YDContext.UploadBugReport(PlayerName, textBoxBugReport.Text);
+                if (result == true)
                 {
                     labelPlayerName.Content = "Success!";
                     textBoxBugReport.Text = "";
-                    File.Delete(path);
                 }
                 else
                 {
                     labelPlayerName.Content = "Error :(";
-                    File.Delete(path);
                 }
             }
             else

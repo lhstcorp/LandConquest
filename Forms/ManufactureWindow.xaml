@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:LandConquest.Forms"
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize" BorderThickness="0" 
-        Title="ManufactureWindow" Height="510" Width="830" AllowsTransparency="True"
+        Title="ManufactureWindow" Height="517.2" Width="830" AllowsTransparency="True"
         ShowInTaskbar="False" Background="{x:Null}" Foreground="{x:Null}" SnapsToDevicePixels="True">
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
-        <Grid Height="510" VerticalAlignment="Top" HorizontalAlignment="Left" Width="Auto" Margin="-0.2,-0.2,0,-2.8">
+        <Grid Height="Auto" HorizontalAlignment="Left" Width="Auto">
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="Fill" />
             </Grid.Background>

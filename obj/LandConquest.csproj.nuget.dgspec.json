@@ -61,10 +61,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.2.29, )"
-            },
-            "YandexDiskNET": {
-              "target": "Package",
-              "version": "[1.0.7, )"
             }
           },
           "imports": [
