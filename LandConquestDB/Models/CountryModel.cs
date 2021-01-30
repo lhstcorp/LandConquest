@@ -120,6 +120,27 @@ namespace LandConquestDB.Models
             return id;
         }
 
+        public static string GetCountryRuler(int id)
+        {
+            string rulerId = "";
+            string query = "SELECT country_ruler FROM dbo.CountryData WHERE country_id = @country_id ";
+
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
+            command.Parameters.AddWithValue("@country_id", id);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var countryRuler = reader.GetOrdinal("country_ruler");
+
+                while (reader.Read())
+                {
+                    rulerId = reader.GetString(countryRuler);
+                }
+            }
+            command.Dispose();
+            return rulerId;
+        }
+
         public static Country GetCountryById(int id)
         {
             Country country = new Country();

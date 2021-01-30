@@ -224,6 +224,9 @@ namespace LandConquestDB.Models
             return lands;
         }
 
+
+
+
         private static Random random;
         private static string GenerateUserId()
         {
