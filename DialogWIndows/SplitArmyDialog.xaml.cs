@@ -217,6 +217,7 @@ namespace LandConquest.DialogWIndows
                 newArmyInBattle.ArmyType = typeOfNewArmy;
                 newArmyInBattle.CanMove = armyInBattle.CanMove;
 
+
                 BattleModel.InsertArmyIntoBattleTable(newArmyInBattle, war);
 
                 List<ArmyInBattle> playerArmies = WarWindow.GetPlayerArmies();
