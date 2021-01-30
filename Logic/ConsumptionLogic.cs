@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LandConquest.Logic
 {
-    public class ConsumptionLogic
+    public static class ConsumptionLogic
     {
         public static int CountFunction(Player player, int hoursToCount)
         {
@@ -46,7 +46,7 @@ namespace LandConquest.Logic
                         StorageModel.UpdateStorage(player, storage);
                     }
                     else
-                    {                       
+                    {
                         ArmyDesert(player, consumption / storage.PlayerFood);
                         storage.PlayerFood = 0;
                         StorageModel.UpdateStorage(player, storage);
@@ -115,7 +115,7 @@ namespace LandConquest.Logic
                     consumptionTask.Start();
                 }
                 catch { }
-             }
+            }
         }
     }
 }

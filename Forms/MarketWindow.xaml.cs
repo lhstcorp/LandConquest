@@ -1,8 +1,7 @@
-﻿using LandConquestDB.Entities;
-using LandConquest.DialogWIndows;
+﻿using LandConquest.DialogWIndows;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using LiveCharts;
-using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using System;
 using System.Windows;
@@ -75,30 +74,47 @@ namespace LandConquest.Forms
             //labelArmorAmount.Content = equipment.PlayerArmor.ToString();
             //labelSwordAmount.Content = equipment.PlayerSword.ToString();
 
-            LiveCharts.SeriesCollection series = new LiveCharts.SeriesCollection
+            SeriesCollection series = new SeriesCollection
             {
-
-                new ScatterSeries
+                new ColumnSeries
                 {
-                    Values = new ChartValues<ScatterPoint>
+                    Values = new ChartValues<double>
                     {
-                        new ScatterPoint(Convert.ToDouble(labelFoodPrice.Content),Convert.ToDouble(labelFoodMarket.Content),Convert.ToDouble(labelFoodMarket.Content)),
-                        new ScatterPoint(Convert.ToDouble(labelWoodPrice.Content),Convert.ToDouble(labelWoodMarket.Content),Convert.ToDouble(labelWoodMarket.Content)),
-                        new ScatterPoint(Convert.ToDouble(labelStonePrice.Content),Convert.ToDouble(labelStoneMarket.Content),Convert.ToDouble(labelStoneMarket.Content)),
-                        new ScatterPoint(Convert.ToDouble(labelIronPrice.Content),Convert.ToDouble(labelIronMarket.Content),Convert.ToDouble(labelIronMarket.Content)),
-                        new ScatterPoint(Convert.ToDouble(labelGoldPrice.Content),Convert.ToDouble(labelGoldMarket.Content),Convert.ToDouble(labelGoldMarket.Content)),
-                        new ScatterPoint(Convert.ToDouble(labelCopperPrice.Content),Convert.ToDouble(labelCopperMarket.Content),Convert.ToDouble(labelCopperMarket.Content)),
-                        new ScatterPoint(Convert.ToDouble(labelGemsPrice.Content),Convert.ToDouble(labelGemsMarket.Content),Convert.ToDouble(labelGemsMarket.Content)),
-                        new ScatterPoint(Convert.ToDouble(labelLeatherPrice.Content),Convert.ToDouble(labelLeatherMarket.Content),Convert.ToDouble(labelLeatherMarket.Content))
+                        Convert.ToDouble(labelFoodPrice.Content),
+                        Convert.ToDouble(labelWoodPrice.Content),
+                        Convert.ToDouble(labelStonePrice.Content),
+                        Convert.ToDouble(labelIronPrice.Content),
+                        Convert.ToDouble(labelGoldPrice.Content),
+                        Convert.ToDouble(labelCopperPrice.Content),
+                        Convert.ToDouble(labelGemsPrice.Content),
+                        Convert.ToDouble(labelLeatherPrice.Content)
+                        //new ScatterPoint(Convert.ToDouble(labelFoodPrice.Content),Convert.ToDouble(labelFoodMarket.Content),Convert.ToDouble(labelFoodMarket.Content)),
+                        //new ScatterPoint(Convert.ToDouble(labelWoodPrice.Content),Convert.ToDouble(labelWoodMarket.Content),Convert.ToDouble(labelWoodMarket.Content)),
+                        //new ScatterPoint(Convert.ToDouble(labelStonePrice.Content),Convert.ToDouble(labelStoneMarket.Content),Convert.ToDouble(labelStoneMarket.Content)),
+                        //new ScatterPoint(Convert.ToDouble(labelIronPrice.Content),Convert.ToDouble(labelIronMarket.Content),Convert.ToDouble(labelIronMarket.Content)),
+                        //new ScatterPoint(Convert.ToDouble(labelGoldPrice.Content),Convert.ToDouble(labelGoldMarket.Content),Convert.ToDouble(labelGoldMarket.Content)),
+                        //new ScatterPoint(Convert.ToDouble(labelCopperPrice.Content),Convert.ToDouble(labelCopperMarket.Content),Convert.ToDouble(labelCopperMarket.Content)),
+                        //new ScatterPoint(Convert.ToDouble(labelGemsPrice.Content),Convert.ToDouble(labelGemsMarket.Content),Convert.ToDouble(labelGemsMarket.Content)),
+                        //new ScatterPoint(Convert.ToDouble(labelLeatherPrice.Content),Convert.ToDouble(labelLeatherMarket.Content),Convert.ToDouble(labelLeatherMarket.Content))
 
-                    }
+                    },
+                    Fill = System.Windows.Media.Brushes.AntiqueWhite
                 }
 
             };
 
+
+
+            Labels = new[] { "Food", "Wood", "Stone", "Iron", "Gold", "Copper", "Gems", "Leather" };
+            Formatter = value => value.ToString("N");
+            DataContext = this;
             graphics.Series = series;
 
+
         }
+        public SeriesCollection SeriesCollection { get; set; }
+        public string[] Labels { get; set; }
+        public Func<double, string> Formatter { get; set; }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

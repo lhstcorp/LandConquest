@@ -1,0 +1,1048 @@
+Renamed Types:
+
+[LandConquestDB]LandConquestDB.Models.AuctionModel/<>c -> [LandConquestDB]LandConquestDB.Models.AuctionModel/ 
+{
+	[LandConquestDB]LandConquestDB.Models.AuctionModel/<>c::<GenerateUserId>b__5_0[1]( [mscorlib]System.String ) ->  
+
+	[LandConquestDB]LandConquestDB.Models.AuctionModel/<>c::.cctor[0]( ) skipped:  special name
+	[LandConquestDB]LandConquestDB.Models.AuctionModel/<>c::.ctor[0]( ) skipped:  special name
+
+	LandConquestDB.Models.AuctionModel/<>c [LandConquestDB]LandConquestDB.Models.AuctionModel/<>c LandConquestDB.Models.AuctionModel/<>c::<>9 ->  
+	System.Func`2<System.String,System.Char> [LandConquestDB]System.Func`2<System.String,System.Char> LandConquestDB.Models.AuctionModel/<>c::<>9__5_0 ->  
+}
+
+[LandConquestDB]LandConquestDB.Models.LandModel/<>c -> [LandConquestDB]LandConquestDB.Models.LandModel/ 
+{
+	[LandConquestDB]LandConquestDB.Models.LandModel/<>c::<GenerateUserId>b__5_0[1]( [mscorlib]System.String ) ->  
+
+	[LandConquestDB]LandConquestDB.Models.LandModel/<>c::.cctor[0]( ) skipped:  special name
+	[LandConquestDB]LandConquestDB.Models.LandModel/<>c::.ctor[0]( ) skipped:  special name
+
+	LandConquestDB.Models.LandModel/<>c [LandConquestDB]LandConquestDB.Models.LandModel/<>c LandConquestDB.Models.LandModel/<>c::<>9 ->  
+	System.Func`2<System.String,System.Char> [LandConquestDB]System.Func`2<System.String,System.Char> LandConquestDB.Models.LandModel/<>c::<>9__5_0 ->  
+}
+
+[LandConquestDB]LandConquestDB.Models.PlayerModel/<>c -> [LandConquestDB]LandConquestDB.Models.PlayerModel/ 
+{
+	[LandConquestDB]LandConquestDB.Models.PlayerModel/<>c::<GenerateUserId>b__13_0[1]( [mscorlib]System.String ) ->  
+
+	[LandConquestDB]LandConquestDB.Models.PlayerModel/<>c::.cctor[0]( ) skipped:  special name
+	[LandConquestDB]LandConquestDB.Models.PlayerModel/<>c::.ctor[0]( ) skipped:  special name
+
+	LandConquestDB.Models.PlayerModel/<>c [LandConquestDB]LandConquestDB.Models.PlayerModel/<>c LandConquestDB.Models.PlayerModel/<>c::<>9 ->  
+	System.Func`2<System.String,System.Char> [LandConquestDB]System.Func`2<System.String,System.Char> LandConquestDB.Models.PlayerModel/<>c::<>9__13_0 ->  
+}
+
+Skipped Types:
+
+[KSecure]KSecure.Normal skipped:  KeepPublicApi option in configuration
+{
+	[KSecure]KSecure.Normal::Generate256BitsOfRandomEntropy[0]( ) ->  
+	[KSecure]KSecure.Normal::GetHash[1]( [mscorlib]System.String ) ->  
+
+	[KSecure]KSecure.Normal::Encrypt[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[KSecure]KSecure.Normal::Decrypt[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[KSecure]KSecure.Normal::Hash[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+
+	System.Int32 [KSecure]System.Int32 KSecure.Normal::Keysize ->  
+	System.Int32 [KSecure]System.Int32 KSecure.Normal::DerivationIterations ->  
+	System.String [KSecure]System.String KSecure.Normal::defaultPassPhrase ->  
+}
+
+[LandConquestDB]LandConquestDB.DbContext skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.DbContext::OpenConnectionPool[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.DbContext::GetSqlConnection[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.DbContext::OpenConnection[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.DbContext::CloseConnection[0]( ) skipped:  KeepPublicApi option in configuration
+
+	System.Data.SqlClient.SqlConnection [LandConquestDB]System.Data.SqlClient.SqlConnection LandConquestDB.DbContext::sqlconnection ->  
+}
+
+[LandConquestDB]LandConquestDB.YDContext skipped:  KeepPublicApi option in configuration
+{
+	[LandConquestDB]LandConquestDB.YDContext::Connection[0]( ) ->  
+	[LandConquestDB]LandConquestDB.YDContext::Disk[0]( ) ->  
+	[LandConquestDB]LandConquestDB.YDContext::CommandDisk[2]( [mscorlib]System.String, [YandexDiskNET]YandexDiskNET.Param ) ->  
+	[LandConquestDB]LandConquestDB.YDContext::ReadFile[1]( [mscorlib]System.String ) ->  
+
+	[LandConquestDB]LandConquestDB.YDContext::OpenYD[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.YDContext::GetYD[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.YDContext::ReadResource[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.YDContext::UploadBugReport[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+
+	YandexDiskNET.YandexDiskRest [LandConquestDB]YandexDiskNET.YandexDiskRest LandConquestDB.YDContext::disk ->  
+	System.String [LandConquestDB]System.String LandConquestDB.YDContext::oauth ->  
+}
+
+[LandConquestDB]LandConquestDB.Models.AuctionModel skipped:  KeepPublicApi option in configuration
+{
+	[LandConquestDB]LandConquestDB.Models.AuctionModel::GenerateUserId[0]( ) ->  
+
+	[LandConquestDB]LandConquestDB.Models.AuctionModel::AddListing[6]( [mscorlib]System.Int32, [mscorlib]System.String, [mscorlib]System.String, [mscorlib]System.String, [mscorlib]System.Int32, [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.AuctionModel::DeleteListing[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.AuctionModel::BuyListing[4]( [mscorlib]System.Int32, [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.AuctionListings ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.AuctionModel::GetListings[1]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.AuctionListings> ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.AuctionModel::.ctor[0]( ) skipped:  special name
+
+	System.Random [LandConquestDB]System.Random LandConquestDB.Models.AuctionModel::random ->  
+}
+
+[LandConquestDB]LandConquestDB.Models.LandModel skipped:  KeepPublicApi option in configuration
+{
+	[LandConquestDB]LandConquestDB.Models.LandModel::GenerateUserId[0]( ) ->  
+
+	[LandConquestDB]LandConquestDB.Models.LandModel::GetLandsInfo[1]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.Land> ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.LandModel::UpdateLandInfo[2]( [LandConquestDB]LandConquestDB.Entities.Land, [LandConquestDB]LandConquestDB.Entities.Country ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.LandModel::AddLandManufactures[1]( [LandConquestDB]LandConquestDB.Entities.Land ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.LandModel::GetCountryLands[1]( [LandConquestDB]LandConquestDB.Entities.Country ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.LandModel::.ctor[0]( ) skipped:  special name
+
+	System.Random [LandConquestDB]System.Random LandConquestDB.Models.LandModel::random ->  
+}
+
+[LandConquestDB]LandConquestDB.Models.PlayerModel skipped:  KeepPublicApi option in configuration
+{
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::GenerateUserId[0]( ) ->  
+
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::CreatePlayer[5]( [mscorlib]System.String, [mscorlib]System.String, [mscorlib]System.String, [mscorlib]System.String, [LandConquestDB]LandConquestDB.Entities.User ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::CreatePlayerResources[2]( [mscorlib]System.String, [LandConquestDB]LandConquestDB.Entities.User ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::GetPlayerInfo[2]( [LandConquestDB]LandConquestDB.Entities.User, [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::GetPlayerById[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::UpdatePlayerMoney[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::UpdatePlayerLand[2]( [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.Land ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::UpdatePlayerName[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::GetXpInfo[2]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.Player>, [LandConquestDB]LandConquestDB.Entities.User ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::GetCoinsInfo[2]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.Player>, [LandConquestDB]LandConquestDB.Entities.User ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::UpdatePlayerExpAndLvl[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::DeletePlayerManufactureLandData[2]( [LandConquestDB]LandConquestDB.Entities.Peasants, [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::UpdatePlayerDonationMoney[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerModel::.ctor[0]( ) skipped:  special name
+
+	System.Random [LandConquestDB]System.Random LandConquestDB.Models.PlayerModel::random ->  
+}
+
+[LandConquestDB]LandConquestDB.Entities.Army skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.Army::get_PlayerId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::set_PlayerId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::get_PlayerNameForArmy[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::set_PlayerNameForArmy[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::get_ArmyId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::set_ArmyId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::get_ArmySizeCurrent[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::set_ArmySizeCurrent[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::get_ArmyType[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::set_ArmyType[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::get_ArmyArchersCount[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::set_ArmyArchersCount[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::get_ArmyInfantryCount[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::set_ArmyInfantryCount[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::get_ArmyHorsemanCount[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::set_ArmyHorsemanCount[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::get_ArmySiegegunCount[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::set_ArmySiegegunCount[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Army::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Army::<PlayerId>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Army::<PlayerNameForArmy>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Army::<ArmyId>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Army::<ArmySizeCurrent>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Army::<ArmyType>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Army::<ArmyArchersCount>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Army::<ArmyInfantryCount>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Army::<ArmyHorsemanCount>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Army::<ArmySiegegunCount>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Army::PlayerId skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Army::PlayerNameForArmy skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Army::ArmyId skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Army::ArmySizeCurrent skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Army::ArmyType skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Army::ArmyArchersCount skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Army::ArmyInfantryCount skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Army::ArmyHorsemanCount skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Army::ArmySiegegunCount skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.AuctionListings skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::get_ListingId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::set_ListingId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::get_Qty[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::set_Qty[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::get_SubjectGroup[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::set_SubjectGroup[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::get_SubjectSubgroup[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::set_SubjectSubgroup[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::get_Subject[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::set_Subject[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::get_ListingSetTime[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::set_ListingSetTime[1]( [mscorlib]System.DateTime ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::get_SellerName[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::set_SellerName[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::get_Price[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::set_Price[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::get_SellerId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::set_SellerId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.AuctionListings::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.AuctionListings::<ListingId>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.AuctionListings::<Qty>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.AuctionListings::<SubjectGroup>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.AuctionListings::<SubjectSubgroup>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.AuctionListings::<Subject>k__BackingField ->  
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.AuctionListings::<ListingSetTime>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.AuctionListings::<SellerName>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.AuctionListings::<Price>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.AuctionListings::<SellerId>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.AuctionListings::ListingId skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.AuctionListings::Qty skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.AuctionListings::SubjectGroup skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.AuctionListings::SubjectSubgroup skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.AuctionListings::Subject skipped:  KeepPublicApi option in configuration
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.AuctionListings::ListingSetTime skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.AuctionListings::SellerName skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.AuctionListings::Price skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.AuctionListings::SellerId skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.Battle skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.Battle::get_BattleId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Battle::set_BattleId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Battle::get_WarId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Battle::set_WarId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Battle::get_LocalLandId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Battle::set_LocalLandId[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Battle::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Battle::<BattleId>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Battle::<WarId>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Battle::<LocalLandId>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Battle::BattleId skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Battle::WarId skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Battle::LocalLandId skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.ChatMessages skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.ChatMessages::get_PlayerName[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ChatMessages::set_PlayerName[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ChatMessages::get_PlayerMessage[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ChatMessages::set_PlayerMessage[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ChatMessages::get_MessageTime[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ChatMessages::set_MessageTime[1]( [mscorlib]System.DateTime ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ChatMessages::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.ChatMessages::<PlayerName>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.ChatMessages::<PlayerMessage>k__BackingField ->  
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.ChatMessages::<MessageTime>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.ChatMessages::PlayerName skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.ChatMessages::PlayerMessage skipped:  KeepPublicApi option in configuration
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.ChatMessages::MessageTime skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.Country skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.Country::get_CountryId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Country::set_CountryId[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Country::get_CountryName[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Country::set_CountryName[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Country::get_CountryRuler[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Country::set_CountryRuler[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Country::get_CountryColor[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Country::set_CountryColor[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Country::get_CountryCoffers[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Country::set_CountryCoffers[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Country::.ctor[0]( ) skipped:  special name
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Country::<CountryId>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Country::<CountryName>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Country::<CountryRuler>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Country::<CountryColor>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Country::<CountryCoffers>k__BackingField ->  
+
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Country::CountryId skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Country::CountryName skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Country::CountryRuler skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Country::CountryColor skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Country::CountryCoffers skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.Land skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.Land::get_LandId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Land::set_LandId[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Land::get_LandName[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Land::set_LandName[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Land::get_LandColor[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Land::set_LandColor[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Land::get_CountryId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Land::set_CountryId[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Land::get_ResourceType1[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Land::set_ResourceType1[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Land::get_ResourceType2[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Land::set_ResourceType2[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Land::.ctor[0]( ) skipped:  special name
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Land::<LandId>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Land::<LandName>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Land::<LandColor>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Land::<CountryId>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Land::<ResourceType1>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Land::<ResourceType2>k__BackingField ->  
+
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Land::LandId skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Land::LandName skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Land::LandColor skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Land::CountryId skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Land::ResourceType1 skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Land::ResourceType2 skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.Manufacture skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::get_PlayerId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::set_PlayerId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::get_ManufactureId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::set_ManufactureId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::get_ManufactureName[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::set_ManufactureName[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::get_ManufactureType[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::set_ManufactureType[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::get_ManufactureLevel[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::set_ManufactureLevel[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::get_ManufacturePeasantMax[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::set_ManufacturePeasantMax[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::get_ManufacturePeasantWork[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::set_ManufacturePeasantWork[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::get_ManufactureProductsHour[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::set_ManufactureProductsHour[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::get_ManufactureProdStartTime[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::set_ManufactureProdStartTime[1]( [mscorlib]System.DateTime ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::get_ManufactureBaseProdValue[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::set_ManufactureBaseProdValue[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Manufacture::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Manufacture::<PlayerId>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Manufacture::<ManufactureId>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Manufacture::<ManufactureName>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Manufacture::<ManufactureType>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Manufacture::<ManufactureLevel>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Manufacture::<ManufacturePeasantMax>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Manufacture::<ManufacturePeasantWork>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Manufacture::<ManufactureProductsHour>k__BackingField ->  
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.Manufacture::<ManufactureProdStartTime>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Manufacture::<ManufactureBaseProdValue>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Manufacture::PlayerId skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Manufacture::ManufactureId skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Manufacture::ManufactureName skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Manufacture::ManufactureType skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Manufacture::ManufactureLevel skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Manufacture::ManufacturePeasantMax skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Manufacture::ManufacturePeasantWork skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Manufacture::ManufactureProductsHour skipped:  KeepPublicApi option in configuration
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.Manufacture::ManufactureProdStartTime skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Manufacture::ManufactureBaseProdValue skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.Market skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.Market::get_PlayerId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::set_PlayerId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::get_MarketWood[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::set_MarketWood[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::get_MarketStone[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::set_MarketStone[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::get_MarketFood[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::set_MarketFood[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::get_MarketIron[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::set_MarketIron[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::get_MarketGoldOre[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::set_MarketGoldOre[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::get_MarketCopper[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::set_MarketCopper[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::get_MarketGems[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::set_MarketGems[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::get_MarketLeather[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::set_MarketLeather[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::get_MarketMoney[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::set_MarketMoney[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Market::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Market::<PlayerId>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::<MarketWood>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::<MarketStone>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::<MarketFood>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::<MarketIron>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::<MarketGoldOre>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::<MarketCopper>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::<MarketGems>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::<MarketLeather>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::<MarketMoney>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Market::PlayerId skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::MarketWood skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::MarketStone skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::MarketFood skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::MarketIron skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::MarketGoldOre skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::MarketCopper skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::MarketGems skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::MarketLeather skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Market::MarketMoney skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.Peasants skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.Peasants::get_PlayerId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Peasants::set_PlayerId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Peasants::get_PeasantsCount[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Peasants::set_PeasantsCount[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Peasants::get_PeasantsWork[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Peasants::set_PeasantsWork[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Peasants::get_PeasantsMax[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Peasants::set_PeasantsMax[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Peasants::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Peasants::<PlayerId>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Peasants::<PeasantsCount>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Peasants::<PeasantsWork>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Peasants::<PeasantsMax>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Peasants::PlayerId skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Peasants::PeasantsCount skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Peasants::PeasantsWork skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Peasants::PeasantsMax skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.Player skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.Player::get_PlayerId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::set_PlayerId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::get_PlayerName[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::set_PlayerName[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::get_PlayerExp[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::set_PlayerExp[1]( [mscorlib]System.Int64 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::get_PlayerLvl[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::set_PlayerLvl[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::get_PlayerMoney[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::set_PlayerMoney[1]( [mscorlib]System.Int64 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::get_PlayerDonation[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::set_PlayerDonation[1]( [mscorlib]System.Int64 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::get_PlayerImage[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::set_PlayerImage[1]( [System.Drawing]System.Drawing.Image ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::get_PlayerTitle[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::set_PlayerTitle[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::get_PlayerCurrentRegion[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::set_PlayerCurrentRegion[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Player::.ctor[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  special name
+	[LandConquestDB]LandConquestDB.Entities.Player::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Player::<PlayerId>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Player::<PlayerName>k__BackingField ->  
+	System.Int64 [LandConquestDB]System.Int64 LandConquestDB.Entities.Player::<PlayerExp>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Player::<PlayerLvl>k__BackingField ->  
+	System.Int64 [LandConquestDB]System.Int64 LandConquestDB.Entities.Player::<PlayerMoney>k__BackingField ->  
+	System.Int64 [LandConquestDB]System.Int64 LandConquestDB.Entities.Player::<PlayerDonation>k__BackingField ->  
+	System.Drawing.Image [LandConquestDB]System.Drawing.Image LandConquestDB.Entities.Player::<PlayerImage>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Player::<PlayerTitle>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Player::<PlayerCurrentRegion>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Player::PlayerId skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Player::PlayerName skipped:  KeepPublicApi option in configuration
+	System.Int64 [LandConquestDB]System.Int64 LandConquestDB.Entities.Player::PlayerExp skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Player::PlayerLvl skipped:  KeepPublicApi option in configuration
+	System.Int64 [LandConquestDB]System.Int64 LandConquestDB.Entities.Player::PlayerMoney skipped:  KeepPublicApi option in configuration
+	System.Int64 [LandConquestDB]System.Int64 LandConquestDB.Entities.Player::PlayerDonation skipped:  KeepPublicApi option in configuration
+	System.Drawing.Image [LandConquestDB]System.Drawing.Image LandConquestDB.Entities.Player::PlayerImage skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Player::PlayerTitle skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Player::PlayerCurrentRegion skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.PlayerEntrance skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.PlayerEntrance::get_PlayerId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEntrance::set_PlayerId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEntrance::get_LastEntrance[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEntrance::set_LastEntrance[1]( [mscorlib]System.DateTime ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEntrance::get_FirstEntrance[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEntrance::set_FirstEntrance[1]( [mscorlib]System.DateTime ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEntrance::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.PlayerEntrance::<PlayerId>k__BackingField ->  
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.PlayerEntrance::<LastEntrance>k__BackingField ->  
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.PlayerEntrance::<FirstEntrance>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.PlayerEntrance::PlayerId skipped:  KeepPublicApi option in configuration
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.PlayerEntrance::LastEntrance skipped:  KeepPublicApi option in configuration
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.PlayerEntrance::FirstEntrance skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.PlayerEquipment skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::get_PlayerId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::set_PlayerId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::get_PlayerArmor[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::set_PlayerArmor[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::get_PlayerSword[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::set_PlayerSword[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::get_PlayerHarness[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::set_PlayerHarness[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::get_PlayerSpear[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::set_PlayerSpear[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::get_PlayerBow[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::set_PlayerBow[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::get_PlayerGear[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::set_PlayerGear[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerEquipment::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.PlayerEquipment::<PlayerId>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerEquipment::<PlayerArmor>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerEquipment::<PlayerSword>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerEquipment::<PlayerHarness>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerEquipment::<PlayerSpear>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerEquipment::<PlayerBow>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerEquipment::<PlayerGear>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.PlayerEquipment::PlayerId skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerEquipment::PlayerArmor skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerEquipment::PlayerSword skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerEquipment::PlayerHarness skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerEquipment::PlayerSpear skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerEquipment::PlayerBow skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerEquipment::PlayerGear skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.PlayersRating skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.PlayersRating::get_PlayerId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayersRating::set_PlayerId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayersRating::get_Name[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayersRating::set_Name[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayersRating::get_Qty[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayersRating::set_Qty[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayersRating::.ctor[3]( [mscorlib]System.String, [mscorlib]System.String, [mscorlib]System.Int32 ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.PlayersRating::<PlayerId>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.PlayersRating::<Name>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayersRating::<Qty>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.PlayersRating::PlayerId skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.PlayersRating::Name skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayersRating::Qty skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.PlayerStorage skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::get_PlayerId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::set_PlayerId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::get_PlayerWood[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::set_PlayerWood[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::get_PlayerStone[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::set_PlayerStone[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::get_PlayerFood[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::set_PlayerFood[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::get_PlayerIron[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::set_PlayerIron[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::get_PlayerGoldOre[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::set_PlayerGoldOre[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::get_PlayerCopper[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::set_PlayerCopper[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::get_PlayerGems[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::set_PlayerGems[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::get_PlayerLeather[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::set_PlayerLeather[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.PlayerStorage::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.PlayerStorage::<PlayerId>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::<PlayerWood>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::<PlayerStone>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::<PlayerFood>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::<PlayerIron>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::<PlayerGoldOre>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::<PlayerCopper>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::<PlayerGems>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::<PlayerLeather>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.PlayerStorage::PlayerId skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::PlayerWood skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::PlayerStone skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::PlayerFood skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::PlayerIron skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::PlayerGoldOre skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::PlayerCopper skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::PlayerGems skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.PlayerStorage::PlayerLeather skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.Taxes skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.Taxes::get_PlayerId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Taxes::set_PlayerId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Taxes::get_TaxValue[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Taxes::set_TaxValue[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Taxes::get_TaxMoneyHour[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Taxes::set_TaxMoneyHour[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Taxes::get_TaxSaveDateTime[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Taxes::set_TaxSaveDateTime[1]( [mscorlib]System.DateTime ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.Taxes::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Taxes::<PlayerId>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Taxes::<TaxValue>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Taxes::<TaxMoneyHour>k__BackingField ->  
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.Taxes::<TaxSaveDateTime>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.Taxes::PlayerId skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Taxes::TaxValue skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.Taxes::TaxMoneyHour skipped:  KeepPublicApi option in configuration
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.Taxes::TaxSaveDateTime skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.User skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.User::get_UserId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.User::set_UserId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.User::get_UserLogin[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.User::set_UserLogin[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.User::get_UserEmail[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.User::set_UserEmail[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.User::get_UserPass[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.User::set_UserPass[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.User::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.User::<UserId>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.User::<UserLogin>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.User::<UserEmail>k__BackingField ->  
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.User::<UserPass>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.User::UserId skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.User::UserLogin skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.User::UserEmail skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.User::UserPass skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.War skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.War::get_WarId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.War::set_WarId[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.War::get_LandAttackerId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.War::set_LandAttackerId[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.War::get_LandDefenderId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.War::set_LandDefenderId[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.War::get_WarDateTimeStart[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.War::set_WarDateTimeStart[1]( [mscorlib]System.DateTime ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.War::.ctor[0]( ) skipped:  special name
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.War::<WarId>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.War::<LandAttackerId>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.War::<LandDefenderId>k__BackingField ->  
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.War::<WarDateTimeStart>k__BackingField ->  
+
+
+	System.String [LandConquestDB]System.String LandConquestDB.Entities.War::WarId skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.War::LandAttackerId skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.War::LandDefenderId skipped:  KeepPublicApi option in configuration
+	System.DateTime [LandConquestDB]System.DateTime LandConquestDB.Entities.War::WarDateTimeStart skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ManufacturesLvlEnum/Level1 skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ManufacturesLvlEnum/Level1::value__ skipped:  special name
+	LandConquestDB.Enums.ManufacturesLvlEnum/Level1 [LandConquestDB]LandConquestDB.Enums.ManufacturesLvlEnum/Level1 LandConquestDB.Enums.ManufacturesLvlEnum/Level1::Wood skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Enums.ManufacturesLvlEnum/Level1 [LandConquestDB]LandConquestDB.Enums.ManufacturesLvlEnum/Level1 LandConquestDB.Enums.ManufacturesLvlEnum/Level1::Stone skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Enums.ManufacturesLvlEnum/Level1 [LandConquestDB]LandConquestDB.Enums.ManufacturesLvlEnum/Level1 LandConquestDB.Enums.ManufacturesLvlEnum/Level1::Iron skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Enums.ManufacturesLvlEnum/Level1 [LandConquestDB]LandConquestDB.Enums.ManufacturesLvlEnum/Level1 LandConquestDB.Enums.ManufacturesLvlEnum/Level1::Copper skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Enums.ManufacturesLvlEnum/Level1 [LandConquestDB]LandConquestDB.Enums.ManufacturesLvlEnum/Level1 LandConquestDB.Enums.ManufacturesLvlEnum/Level1::Leather skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Enums.ManufacturesLvlEnum/Level1 [LandConquestDB]LandConquestDB.Enums.ManufacturesLvlEnum/Level1 LandConquestDB.Enums.ManufacturesLvlEnum/Level1::Gems skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Enums.ManufacturesLvlEnum/Level1 [LandConquestDB]LandConquestDB.Enums.ManufacturesLvlEnum/Level1 LandConquestDB.Enums.ManufacturesLvlEnum/Level1::Gold skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Enums.ManufacturesLvlEnum/Level1 [LandConquestDB]LandConquestDB.Enums.ManufacturesLvlEnum/Level1 LandConquestDB.Enums.ManufacturesLvlEnum/Level1::Money skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ConsumptionEnum/Peasants skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ConsumptionEnum/Peasants::value__ skipped:  special name
+	LandConquestDB.Enums.ConsumptionEnum/Peasants [LandConquestDB]LandConquestDB.Enums.ConsumptionEnum/Peasants LandConquestDB.Enums.ConsumptionEnum/Peasants::Consumption skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ConsumptionEnum/Infantry skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ConsumptionEnum/Infantry::value__ skipped:  special name
+	LandConquestDB.Enums.ConsumptionEnum/Infantry [LandConquestDB]LandConquestDB.Enums.ConsumptionEnum/Infantry LandConquestDB.Enums.ConsumptionEnum/Infantry::Consumption skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ConsumptionEnum/Archers skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ConsumptionEnum/Archers::value__ skipped:  special name
+	LandConquestDB.Enums.ConsumptionEnum/Archers [LandConquestDB]LandConquestDB.Enums.ConsumptionEnum/Archers LandConquestDB.Enums.ConsumptionEnum/Archers::Consumption skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ConsumptionEnum/Knights skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ConsumptionEnum/Knights::value__ skipped:  special name
+	LandConquestDB.Enums.ConsumptionEnum/Knights [LandConquestDB]LandConquestDB.Enums.ConsumptionEnum/Knights LandConquestDB.Enums.ConsumptionEnum/Knights::Consumption skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ConsumptionEnum/Siege skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ConsumptionEnum/Siege::value__ skipped:  special name
+	LandConquestDB.Enums.ConsumptionEnum/Siege [LandConquestDB]LandConquestDB.Enums.ConsumptionEnum/Siege LandConquestDB.Enums.ConsumptionEnum/Siege::Consumption skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Wood skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ResourcesEnum/Wood::value__ skipped:  special name
+	LandConquestDB.Enums.ResourcesEnum/Wood [LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Wood LandConquestDB.Enums.ResourcesEnum/Wood::Id skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Stone skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ResourcesEnum/Stone::value__ skipped:  special name
+	LandConquestDB.Enums.ResourcesEnum/Stone [LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Stone LandConquestDB.Enums.ResourcesEnum/Stone::Id skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Food skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ResourcesEnum/Food::value__ skipped:  special name
+	LandConquestDB.Enums.ResourcesEnum/Food [LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Food LandConquestDB.Enums.ResourcesEnum/Food::Id skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Iron skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ResourcesEnum/Iron::value__ skipped:  special name
+	LandConquestDB.Enums.ResourcesEnum/Iron [LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Iron LandConquestDB.Enums.ResourcesEnum/Iron::Id skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Gold_Ore skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ResourcesEnum/Gold_Ore::value__ skipped:  special name
+	LandConquestDB.Enums.ResourcesEnum/Gold_Ore [LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Gold_Ore LandConquestDB.Enums.ResourcesEnum/Gold_Ore::Id skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Copper skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ResourcesEnum/Copper::value__ skipped:  special name
+	LandConquestDB.Enums.ResourcesEnum/Copper [LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Copper LandConquestDB.Enums.ResourcesEnum/Copper::Id skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Gems skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ResourcesEnum/Gems::value__ skipped:  special name
+	LandConquestDB.Enums.ResourcesEnum/Gems [LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Gems LandConquestDB.Enums.ResourcesEnum/Gems::Id skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Leather skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Enums.ResourcesEnum/Leather::value__ skipped:  special name
+	LandConquestDB.Enums.ResourcesEnum/Leather [LandConquestDB]LandConquestDB.Enums.ResourcesEnum/Leather LandConquestDB.Enums.ResourcesEnum/Leather::Id skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Forces.ForcesEnum/Infantry skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Forces.ForcesEnum/Infantry::value__ skipped:  special name
+	LandConquestDB.Forces.ForcesEnum/Infantry [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Infantry LandConquestDB.Forces.ForcesEnum/Infantry::Health skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Infantry [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Infantry LandConquestDB.Forces.ForcesEnum/Infantry::Damage skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Infantry [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Infantry LandConquestDB.Forces.ForcesEnum/Infantry::Range skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Infantry [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Infantry LandConquestDB.Forces.ForcesEnum/Infantry::Movement skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Infantry [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Infantry LandConquestDB.Forces.ForcesEnum/Infantry::Defence skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Forces.ForcesEnum/Archers skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Forces.ForcesEnum/Archers::value__ skipped:  special name
+	LandConquestDB.Forces.ForcesEnum/Archers [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Archers LandConquestDB.Forces.ForcesEnum/Archers::Health skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Archers [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Archers LandConquestDB.Forces.ForcesEnum/Archers::Damage skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Archers [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Archers LandConquestDB.Forces.ForcesEnum/Archers::Range skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Archers [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Archers LandConquestDB.Forces.ForcesEnum/Archers::Movement skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Archers [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Archers LandConquestDB.Forces.ForcesEnum/Archers::Defence skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Forces.ForcesEnum/Knights skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Forces.ForcesEnum/Knights::value__ skipped:  special name
+	LandConquestDB.Forces.ForcesEnum/Knights [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Knights LandConquestDB.Forces.ForcesEnum/Knights::Health skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Knights [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Knights LandConquestDB.Forces.ForcesEnum/Knights::Damage skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Knights [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Knights LandConquestDB.Forces.ForcesEnum/Knights::Range skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Knights [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Knights LandConquestDB.Forces.ForcesEnum/Knights::Movement skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Knights [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Knights LandConquestDB.Forces.ForcesEnum/Knights::Defence skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Forces.ForcesEnum/Siege skipped:  KeepPublicApi option in configuration
+{
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Forces.ForcesEnum/Siege::value__ skipped:  special name
+	LandConquestDB.Forces.ForcesEnum/Siege [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Siege LandConquestDB.Forces.ForcesEnum/Siege::Health skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Siege [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Siege LandConquestDB.Forces.ForcesEnum/Siege::Damage skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Siege [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Siege LandConquestDB.Forces.ForcesEnum/Siege::Range skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Siege [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Siege LandConquestDB.Forces.ForcesEnum/Siege::Movement skipped:  KeepPublicApi option in configuration
+	LandConquestDB.Forces.ForcesEnum/Siege [LandConquestDB]LandConquestDB.Forces.ForcesEnum/Siege LandConquestDB.Forces.ForcesEnum/Siege::Defence skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Entities.ArmyInBattle skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.ArmyInBattle::get_LocalLandId[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ArmyInBattle::set_LocalLandId[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ArmyInBattle::get_ArmySide[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ArmyInBattle::set_ArmySide[1]( [mscorlib]System.Int32 ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ArmyInBattle::get_CanMove[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ArmyInBattle::set_CanMove[1]( [mscorlib]System.Boolean ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ArmyInBattle::get_CanShoot[0]( ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ArmyInBattle::set_CanShoot[1]( [mscorlib]System.Boolean ) skipped:  skip by property
+	[LandConquestDB]LandConquestDB.Entities.ArmyInBattle::.ctor[0]( ) skipped:  special name
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.ArmyInBattle::<LocalLandId>k__BackingField ->  
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.ArmyInBattle::<ArmySide>k__BackingField ->  
+	System.Boolean [LandConquestDB]System.Boolean LandConquestDB.Entities.ArmyInBattle::<CanMove>k__BackingField ->  
+	System.Boolean [LandConquestDB]System.Boolean LandConquestDB.Entities.ArmyInBattle::<CanShoot>k__BackingField ->  
+
+
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.ArmyInBattle::LocalLandId skipped:  KeepPublicApi option in configuration
+	System.Int32 [LandConquestDB]System.Int32 LandConquestDB.Entities.ArmyInBattle::ArmySide skipped:  KeepPublicApi option in configuration
+	System.Boolean [LandConquestDB]System.Boolean LandConquestDB.Entities.ArmyInBattle::CanMove skipped:  KeepPublicApi option in configuration
+	System.Boolean [LandConquestDB]System.Boolean LandConquestDB.Entities.ArmyInBattle::CanShoot skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Models.ArmyModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.ArmyModel::GetArmyInfo[2]( [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.Army ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ArmyModel::GetArmyInfoList[2]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.Army>, [LandConquestDB]LandConquestDB.Entities.User ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ArmyModel::UpdateArmy[1]( [LandConquestDB]LandConquestDB.Entities.Army ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ArmyModel::InsertArmyFromReg[1]( [LandConquestDB]LandConquestDB.Entities.Army ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ArmyModel::ReturnTypeOfArmy[1]( [LandConquestDB]LandConquestDB.Entities.Army ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ArmyModel::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Models.BattleModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.BattleModel::GetArmiesInfo[2]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.ArmyInBattle>, [LandConquestDB]LandConquestDB.Entities.War ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::InsertArmyIntoBattleTable[2]( [LandConquestDB]LandConquestDB.Entities.ArmyInBattle, [LandConquestDB]LandConquestDB.Entities.War ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::SelectLastIdOfArmies[1]( [LandConquestDB]LandConquestDB.Entities.War ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::GetArmiesInfoInCurrentTile[3]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.ArmyInBattle>, [LandConquestDB]LandConquestDB.Entities.War, [mscorlib]System.Int32 ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::UpdateLocalLandOfArmy[2]( [LandConquestDB]LandConquestDB.Entities.ArmyInBattle, [mscorlib]System.Int32 ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::CheckPlayerParticipation[2]( [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.War ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::UpdateArmyType[1]( [LandConquestDB]LandConquestDB.Entities.Army ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::UpdateArmyInBattle[1]( [LandConquestDB]LandConquestDB.Entities.Army ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::UpdateAllPlayerArmyInBattle[1]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.ArmyInBattle> ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::ReturnTypeOfArmy[1]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.ArmyInBattle> ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::DeleteArmyById[1]( [LandConquestDB]LandConquestDB.Entities.ArmyInBattle ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::ReturnTypeOfUnionArmy[1]( [LandConquestDB]LandConquestDB.Entities.ArmyInBattle ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::IfTheBattleShouldStart[1]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.ArmyInBattle> ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::InsertBattle[1]( [LandConquestDB]LandConquestDB.Entities.Battle ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::DidTheWarStarted[2]( [mscorlib]System.Int32, [LandConquestDB]LandConquestDB.Entities.War ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::GetPlayerArmiesInfo[3]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.ArmyInBattle>, [LandConquestDB]LandConquestDB.Entities.War, [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::GetAllPlayerArmiesInfo[2]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.ArmyInBattle>, [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.BattleModel::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Models.ChatModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.ChatModel::GetMessages[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ChatModel::SendMessage[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ChatModel::EnableBroker[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ChatModel::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Models.CountryModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.CountryModel::EstablishaState[3]( [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.Land, [PresentationCore]System.Windows.Media.Color ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.CountryModel::SelectLastIdOfStates[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.CountryModel::GetCountriesInfo[1]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.Country> ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.CountryModel::GetCountryId[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.CountryModel::GetCountryById[1]( [mscorlib]System.Int32 ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.CountryModel::DisbandCountry[1]( [LandConquestDB]LandConquestDB.Entities.Country ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.CountryModel::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Models.EquipmentModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.EquipmentModel::GetPlayerEquipment[2]( [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.PlayerEquipment ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.EquipmentModel::UpdateEquipment[2]( [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.PlayerEquipment ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.EquipmentModel::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Models.ManufactureModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.ManufactureModel::GetManufactureProdStartTime[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ManufactureModel::GetManufactureInfo[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ManufactureModel::GetLandManufactureInfo[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ManufactureModel::UpdateDateTimeForManufacture[2]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.Manufacture>, [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ManufactureModel::UpdateDateTimeForPlayerLandManufacture[2]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.Manufacture>, [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ManufactureModel::GetInfoAboutResourcesForUpdate[1]( [LandConquestDB]LandConquestDB.Entities.Manufacture ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ManufactureModel::UpgradeManufacture[1]( [LandConquestDB]LandConquestDB.Entities.Manufacture ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ManufactureModel::GetManufactureById[1]( [LandConquestDB]LandConquestDB.Entities.Manufacture ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ManufactureModel::InsertOrUpdateLandManufactures[2]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.Manufacture>, [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ManufactureModel::UpdateLandManufactures[1]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.Manufacture> ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ManufactureModel::GetPlayerLandManufactureInfo[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.ManufactureModel::UpdateLandManufacturesWhenMove[2]( [mscorlib]System.Collections.Generic.List`1<[mscorlib]System.Int32>, [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.Manufacture> ) skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Models.MapModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.MapModel::CenterOfLand[1]( [mscorlib]System.Int32 ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.MapModel::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Models.MarketModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.MarketModel::GetMarketInfo[2]( [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.Market ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.MarketModel::UpdateMarket[2]( [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.Market ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.MarketModel::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Models.PeasantModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.PeasantModel::GetPeasantsInfo[2]( [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.Peasants ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PeasantModel::UpdatePeasantsInfo[1]( [LandConquestDB]LandConquestDB.Entities.Peasants ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PeasantModel::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Models.PlayerEntranceModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.PlayerEntranceModel::GetLastEntrance[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerEntranceModel::GetFirstEntrance[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerEntranceModel::SetFirstEntrance[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerEntranceModel::UpdateLastEntrance[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.PlayerEntranceModel::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Models.StorageModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.StorageModel::GetPlayerStorage[2]( [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.PlayerStorage ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.StorageModel::UpdateStorage[2]( [LandConquestDB]LandConquestDB.Entities.Player, [LandConquestDB]LandConquestDB.Entities.PlayerStorage ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.StorageModel::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Models.TaxesModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.TaxesModel::CreateTaxesData[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.TaxesModel::SaveTaxes[1]( [LandConquestDB]LandConquestDB.Entities.Taxes ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.TaxesModel::GetTaxesInfo[1]( [LandConquestDB]LandConquestDB.Entities.Taxes ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.TaxesModel::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Models.UserModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.UserModel::UserAuthorisation[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.UserModel::CreateUser[4]( [mscorlib]System.String, [mscorlib]System.String, [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.UserModel::GetUserInfo[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.UserModel::UpdateUserEmail[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.UserModel::UpdateUserPass[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.UserModel::ValidateUserByLogin[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.UserModel::ValidateUserByEmail[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.UserModel::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Models.WarModel skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Models.WarModel::DeclareAWar[3]( [mscorlib]System.String, [LandConquestDB]LandConquestDB.Entities.Land, [LandConquestDB]LandConquestDB.Entities.Land ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.WarModel::GetWarById[1]( [LandConquestDB]LandConquestDB.Entities.War ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.WarModel::SelectLastIdOfWars[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquestDB]LandConquestDB.Models.WarModel::GetWarsInfo[1]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.War> ) skipped:  KeepPublicApi option in configuration
+}
+
+[LandConquestDB]LandConquestDB.Enums.ManufacturesLvlEnum skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Enums.ManufacturesLvlEnum::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Enums.ConsumptionEnum skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Enums.ConsumptionEnum::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Enums.ResourcesEnum skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Enums.ResourcesEnum::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Forces.ForcesEnum skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Forces.ForcesEnum::.ctor[0]( ) skipped:  special name
+}
+
+[LandConquestDB]LandConquestDB.Entities.Law skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestDB]LandConquestDB.Entities.Law::.ctor[0]( ) skipped:  special name
+}
+
+Renamed Resources:
+
+
+Skipped Resources:
+
