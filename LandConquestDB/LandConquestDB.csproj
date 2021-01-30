@@ -75,6 +75,7 @@
     <Compile Include="Entities\Battle.cs" />
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\DistanceBattle.cs" />
     <Compile Include="Entities\Land.cs" />
     <Compile Include="Entities\Law.cs" />
     <Compile Include="Entities\Manufacture.cs" />

@@ -11,7 +11,7 @@ namespace LandConquestDB.Entities
         public string BattleId { get; set; }
 
         [Required]
-        [Column("battle_id")]
+        [Column("war_id")]
         [StringLength(16)]
         public string WarId { get; set; }
 
