@@ -59,7 +59,7 @@
             </Button.Background>
         </Button>
 
-        <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Palatino Linotype" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="515,416,0,0" VerticalAlignment="Top" Width="223" Foreground="#FFCA691E"/>
+        <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Sitka Small" FontSize="22" FontWeight="SemiBold" Margin="515,416,9.6,10.4" Foreground="#FFCA691E"/>
         <Image Source="/Pictures/downloadicon.png" x:Name="iconDownload" Cursor="Hand" MouseDown="iconDownload_MouseDown" Margin="469,410,274.6,10.4"/>
         <Label Content="Please send us any comment, suggestion or correction you may have!" Foreground="AntiqueWhite" FontFamily="Tahoma" HorizontalAlignment="Left" Margin="19,416,0,0" VerticalAlignment="Top" Width="390"/>
 

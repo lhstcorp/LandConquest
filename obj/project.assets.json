@@ -32,21 +32,6 @@
           "lib/net45/LiveCharts.Wpf.dll": {}
         }
       },
-      "Microsoft.AspNet.WebApi.Client/5.2.6": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
       "Microsoft.VCRTForwarders.140/1.0.6": {
         "type": "package",
         "build": {
@@ -264,34 +249,10 @@
           "build/MSBuild.Obfuscar.targets": {}
         }
       },
-      "Newtonsoft.Json/11.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      },
       "Obfuscar/2.2.29": {
         "type": "package",
         "build": {
           "build/obfuscar.props": {}
-        }
-      },
-      "YandexDiskNET/1.0.7": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.6",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "compile": {
-          "lib/net45/YandexDiskNET.dll": {},
-          "lib/net45/Получить код подтверждения.exe": {}
-        },
-        "runtime": {
-          "lib/net45/YandexDiskNET.dll": {},
-          "lib/net45/Получить код подтверждения.exe": {}
         }
       },
       "LandConquestDB/1.0.0": {
@@ -335,21 +296,6 @@
           "lib/net45/LiveCharts.Wpf.dll": {}
         }
       },
-      "Microsoft.AspNet.WebApi.Client/5.2.6": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
       "Microsoft.VCRTForwarders.140/1.0.6": {
         "type": "package",
         "build": {
@@ -365,34 +311,10 @@
           "build/MSBuild.Obfuscar.targets": {}
         }
       },
-      "Newtonsoft.Json/11.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      },
       "Obfuscar/2.2.29": {
         "type": "package",
         "build": {
           "build/obfuscar.props": {}
-        }
-      },
-      "YandexDiskNET/1.0.7": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.6",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "compile": {
-          "lib/net45/YandexDiskNET.dll": {},
-          "lib/net45/Получить код подтверждения.exe": {}
-        },
-        "runtime": {
-          "lib/net45/YandexDiskNET.dll": {},
-          "lib/net45/Получить код подтверждения.exe": {}
         }
       },
       "LandConquestDB/1.0.0": {
@@ -436,21 +358,6 @@
           "lib/net45/LiveCharts.Wpf.dll": {}
         }
       },
-      "Microsoft.AspNet.WebApi.Client/5.2.6": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
       "Microsoft.VCRTForwarders.140/1.0.6": {
         "type": "package",
         "build": {
@@ -466,34 +373,10 @@
           "build/MSBuild.Obfuscar.targets": {}
         }
       },
-      "Newtonsoft.Json/11.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      },
       "Obfuscar/2.2.29": {
         "type": "package",
         "build": {
           "build/obfuscar.props": {}
-        }
-      },
-      "YandexDiskNET/1.0.7": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.6",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "compile": {
-          "lib/net45/YandexDiskNET.dll": {},
-          "lib/net45/Получить код подтверждения.exe": {}
-        },
-        "runtime": {
-          "lib/net45/YandexDiskNET.dll": {},
-          "lib/net45/Получить код подтверждения.exe": {}
         }
       },
       "LandConquestDB/1.0.0": {
@@ -537,21 +420,6 @@
           "lib/net45/LiveCharts.Wpf.dll": {}
         }
       },
-      "Microsoft.AspNet.WebApi.Client/5.2.6": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
       "Microsoft.VCRTForwarders.140/1.0.6": {
         "type": "package",
         "build": {
@@ -567,34 +435,10 @@
           "build/MSBuild.Obfuscar.targets": {}
         }
       },
-      "Newtonsoft.Json/11.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      },
       "Obfuscar/2.2.29": {
         "type": "package",
         "build": {
           "build/obfuscar.props": {}
-        }
-      },
-      "YandexDiskNET/1.0.7": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.6",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "compile": {
-          "lib/net45/YandexDiskNET.dll": {},
-          "lib/net45/Получить код подтверждения.exe": {}
-        },
-        "runtime": {
-          "lib/net45/YandexDiskNET.dll": {},
-          "lib/net45/Получить код подтверждения.exe": {}
         }
       },
       "LandConquestDB/1.0.0": {
@@ -666,23 +510,6 @@
         "livecharts.wpf.0.9.7.nupkg.sha512",
         "livecharts.wpf.nuspec",
         "tools/install.ps1"
-      ]
-    },
-    "Microsoft.AspNet.WebApi.Client/5.2.6": {
-      "sha512": "owAlEIUZXWSnkK8Z1c+zR47A0X6ykF4XjbPok4lQKNuciUfHLGPd6QnI+rt/8KlQ17PmF+I4S3f+m+Qe4IvViw==",
-      "type": "package",
-      "path": "microsoft.aspnet.webapi.client/5.2.6",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/System.Net.Http.Formatting.dll",
-        "lib/net45/System.Net.Http.Formatting.xml",
-        "lib/netstandard2.0/System.Net.Http.Formatting.dll",
-        "lib/netstandard2.0/System.Net.Http.Formatting.xml",
-        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll",
-        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml",
-        "microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
-        "microsoft.aspnet.webapi.client.nuspec"
       ]
     },
     "Microsoft.VCRTForwarders.140/1.0.6": {
@@ -787,36 +614,6 @@
         "msbuild.obfuscar.nuspec"
       ]
     },
-    "Newtonsoft.Json/11.0.2": {
-      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
-      "type": "package",
-      "path": "newtonsoft.json/11.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.md",
-        "lib/net20/Newtonsoft.Json.dll",
-        "lib/net20/Newtonsoft.Json.xml",
-        "lib/net35/Newtonsoft.Json.dll",
-        "lib/net35/Newtonsoft.Json.xml",
-        "lib/net40/Newtonsoft.Json.dll",
-        "lib/net40/Newtonsoft.Json.xml",
-        "lib/net45/Newtonsoft.Json.dll",
-        "lib/net45/Newtonsoft.Json.xml",
-        "lib/netstandard1.0/Newtonsoft.Json.dll",
-        "lib/netstandard1.0/Newtonsoft.Json.xml",
-        "lib/netstandard1.3/Newtonsoft.Json.dll",
-        "lib/netstandard1.3/Newtonsoft.Json.xml",
-        "lib/netstandard2.0/Newtonsoft.Json.dll",
-        "lib/netstandard2.0/Newtonsoft.Json.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.11.0.2.nupkg.sha512",
-        "newtonsoft.json.nuspec"
-      ]
-    },
     "Obfuscar/2.2.29": {
       "sha512": "vxvMt1V+RIywyqEaT2iMrYqXjkBMlCBh8llYbOpbYhv1aD5QTZ9N/BbxsqBeM4qN1+QhwOI+vt6o3Qn43HslnQ==",
       "type": "package",
@@ -832,26 +629,6 @@
         "tools/Obfuscar.Console.exe"
       ]
     },
-    "YandexDiskNET/1.0.7": {
-      "sha512": "5OMGtfajOsNTPzRdWERrrdLQF0Ux1TsmIRuPBQgSeyB/0pdbZ+iq5fdESo3SE7kIx0iDF7cWzf5OLYPsFbg3eg==",
-      "type": "package",
-      "path": "yandexdisknet/1.0.7",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/YandexDiskNET.dll",
-        "lib/net45/YandexDiskNET.xml",
-        "lib/net45/Получить код подтверждения.exe",
-        "lib/netstandard1.3/YandexDiskNET.dll",
-        "lib/netstandard1.3/YandexDiskNET.xml",
-        "lib/netstandard1.3/Получить код подтверждения.exe",
-        "lib/netstandard2.0/YandexDiskNET.dll",
-        "lib/netstandard2.0/YandexDiskNET.xml",
-        "lib/netstandard2.0/Получить код подтверждения.exe",
-        "yandexdisknet.1.0.7.nupkg.sha512",
-        "yandexdisknet.nuspec"
-      ]
-    },
     "LandConquestDB/1.0.0": {
       "type": "project",
       "path": "LandConquestDB/LandConquestDB.csproj",
@@ -865,8 +642,7 @@
       "LiveCharts.Wpf >= 0.9.7",
       "MSBuild.Obfuscar >= 2.2.29.1",
       "Microsoft.VCRTForwarders.140 >= 1.0.6",
-      "Obfuscar >= 2.2.29",
-      "YandexDiskNET >= 1.0.7"
+      "Obfuscar >= 2.2.29"
     ]
   },
   "packageFolders": {
@@ -929,10 +705,6 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.2.29, )"
-          },
-          "YandexDiskNET": {
-            "target": "Package",
-            "version": "[1.0.7, )"
           }
         },
         "imports": [

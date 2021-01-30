@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LandConquest.Logic
 {
-    public class ConsumptionLogic
+    public static class ConsumptionLogic
     {
         public static int CountFunction(Player player, int hoursToCount)
         {
