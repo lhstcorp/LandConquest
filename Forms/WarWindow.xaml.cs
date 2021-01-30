@@ -375,14 +375,42 @@ namespace LandConquest.Forms
                         gridForArmies.Children.RemoveAt(INDEX);
                         gridForArmies.Children.Insert(INDEX, imgArmyThatStay);
                     }
-
-                    //imgArmySelected.IsEnabled = false;
                     lockSelectedArmy();
                 }
             }
-            else if (shoot && findPlayerArmyCanMove() && checkRange(gridForArmies.Children.IndexOf((Image)sender)))
+            else if (shoot && findPlayerArmyCanShoot() && checkRange(gridForArmies.Children.IndexOf((Image)sender))) // не хватает условия проверки что в этом тайле кто-то есть из врагов
             {
-                // тут будет логика нанесения урона.
+                DistanceBattle distanceBattle = new DistanceBattle();
+                DistanceBattle distanceBattleExist = new DistanceBattle();
+
+                distanceBattle.BattleId = generateId();
+                distanceBattle.Damage = BattleModel.CalculateDamageInDistanceBattle(selectedArmy);
+                distanceBattle.LocalLandId = gridForArmies.Children.IndexOf((Image)sender);
+                distanceBattle.WarId = war.WarId;
+                if (selectedArmy.ArmySide == 0)
+                {
+                    distanceBattle.Side = 1;
+                }
+                else
+                {
+                    distanceBattle.Side = 0;
+                }
+
+                distanceBattleExist = BattleModel.DistanceBattleExist(distanceBattle);
+                if (distanceBattleExist.BattleId != "")
+                {
+                    distanceBattleExist.Damage += distanceBattle.Damage;
+                    BattleModel.UpdateDistanceBattle(distanceBattleExist);
+                }
+                else
+                {
+                    BattleModel.InsertDistanceBattle(distanceBattle);
+                }
+
+                HideAvailableTilesToShoot(index);
+                lockArmyShoot();
+
+
             }
         }
 
@@ -390,13 +418,10 @@ namespace LandConquest.Forms
         {
             if ((Convert.ToString(((Image)localWarMap.Children[indexArmyToShoot]).Source) == "pack://application:,,,/Pictures/Tiles/g2.jpg") || (Convert.ToString(((Image)localWarMap.Children[indexArmyToShoot]).Source) == "pack://application:,,,/Pictures/Tiles/gra1.jpg"))
             {
-                Console.WriteLine("pidor");
                 return true;
             }
 
             return false;
-
-
         }
 
         private void ImgArmy_MouseEnter(object sender, MouseEventArgs e)
@@ -576,7 +601,7 @@ namespace LandConquest.Forms
         private void btnSplit_Click(object sender, RoutedEventArgs e)
         {
             HideAvailableTilesToMove(index);
-            SplitArmyDialog dialogWindow = new SplitArmyDialog(armyInBattlesInCurrentTile[0], war);
+            SplitArmyDialog dialogWindow = new SplitArmyDialog(returnPlayerArmy(), war);
             dialogWindow.Show();
         }
 
@@ -1075,6 +1100,30 @@ namespace LandConquest.Forms
         {
             base.OnMouseLeftButtonDown(e);
             this.DragMove();
+        }
+
+        public void lockArmyShoot()
+        {
+            for (int i = 0; i < playerArmies.Count; i++)
+            {
+                if (playerArmies[i].ArmyId == selectedArmy.ArmyId)
+                {
+                    playerArmies[i].CanShoot = false;
+                    break;
+                }
+            }
+        }
+
+        public ArmyInBattle returnPlayerArmy()
+        {
+            for (int i = 0; i < playerArmies.Count; i++)
+            {
+                if (playerArmies[i].ArmyId == selectedArmy.ArmyId)
+                {
+                    return playerArmies[i];
+                }
+            }
+            return null;
         }
     }
 
