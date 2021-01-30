@@ -206,6 +206,9 @@
     <Compile Include="Forms\ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CastleManagementWindow.xaml.cs">
+      <DependentUpon>CastleManagementWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RatingWindow.xaml.cs">
       <DependentUpon>RatingWindow.xaml</DependentUpon>
     </Compile>
@@ -313,6 +316,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\ProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\CastleManagementWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -573,6 +580,7 @@
     <None Include="Resources\UserAgreement.txt" />
     <Resource Include="Obfuscar.xml" />
     <Resource Include="Pictures\downloadicon.png" />
+    <Resource Include="Pictures\castle.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
