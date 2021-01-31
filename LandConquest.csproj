@@ -224,6 +224,11 @@
     <Compile Include="Logic\ConsumptionLogic.cs" />
     <Compile Include="Logic\LauncherLogic.cs" />
     <Compile Include="Logic\WarLogic.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\GlobalMap.xaml.cs">
       <DependentUpon>GlobalMap.xaml</DependentUpon>
     </Compile>
@@ -376,11 +381,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -388,6 +388,7 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -417,19 +418,7 @@
     <Resource Include="Pictures\manufacturing.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pictures\windmill.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Pictures\food.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Pictures\sawmill.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Pictures\quarry.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Pictures\peasantsAll.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\peasant.png" />
@@ -439,9 +428,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\peasants_total.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Pictures\building_locked.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\UpgradeArrow.png" />
@@ -468,9 +454,6 @@
     <Resource Include="Pictures\reload_button.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pictures\recruit.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Pictures\iron.png" />
   </ItemGroup>
   <ItemGroup>
@@ -486,22 +469,10 @@
     <Resource Include="Pictures\leather.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pictures\food_map.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Pictures\map_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pictures\panel_transparent.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Pictures\warrior.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Pictures\knight_hire.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Pictures\settings_back.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\shield.png" />
@@ -511,21 +482,14 @@
     <Resource Include="Pictures\flag.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pictures\storeImage.png" />
     <Resource Include="Pictures\Design elements v1.0\circleMainMenu.png" />
     <Resource Include="Pictures\Design elements v1.0\first template FULL.png" />
-    <Resource Include="Pictures\panel_horizontal1.png" />
     <Resource Include="Pictures\epic_brown_square.png" />
     <Resource Include="Pictures\epic_long_brown_button.png" />
     <Resource Include="Pictures\epic_button_brown.png" />
-    <Resource Include="Pictures\panel_land.png" />
-    <Resource Include="Pictures\button_close_cross_wood.png" />
-    <Resource Include="Pictures\paper_panel_360_x_240.png" />
     <Resource Include="Pictures\wood_desk_with_circle.png" />
     <Resource Include="Pictures\coins.png" />
     <Resource Include="Pictures\coin_donate.png" />
-    <Resource Include="Pictures\visa-mastercard.png" />
-    <Resource Include="Pictures\paypal_secure_payments.png" />
     <Resource Include="Pictures\Armies\SIE-0.png" />
     <Resource Include="Pictures\Armies\SIE-1.png" />
     <Resource Include="Pictures\Armies\TRO-0.png" />
@@ -553,11 +517,8 @@
     <Resource Include="Pictures\Tiles\g2.jpg" />
     <Resource Include="Pictures\Tiles\r1.jpg" />
     <Resource Include="Pictures\Tiles\r2.jpg" />
-    <Resource Include="Pictures\s0.png" />
-    <Resource Include="Pictures\s1.png" />
     <Resource Include="Pictures\armyPageArrowLeft.png" />
     <Resource Include="Pictures\armyPageArrowRight.png" />
-    <Resource Include="Pictures\question.jpg" />
     <Resource Include="Pictures\warSymbal.png" />
     <Resource Include="Pictures\splitArmies.png" />
     <Resource Include="Pictures\landMainBuilding.png" />
@@ -568,7 +529,6 @@
     <Resource Include="Pictures\Design elements v1.0\square-control-black.png" />
     <Resource Include="Pictures\sandClocks.png" />
     <Resource Include="Pictures\sandClocksWithCircle.png" />
-    <Resource Include="Pictures\defaultCastle.png" />
     <Resource Include="Pictures\boxes.png" />
     <Resource Include="Pictures\undiscovered-map.png" />
     <Resource Include="Pictures\background.jpg" />
@@ -581,13 +541,11 @@
     <Resource Include="Obfuscar.xml" />
     <Resource Include="Pictures\downloadicon.png" />
     <Resource Include="Pictures\castle.png" />
+    <Resource Include="Pictures\blacksmith.png" />
+    <Resource Include="Pictures\sawmill.png" />
+    <Resource Include="Pictures\building.png" />
+    <Resource Include="Pictures\farm.png" />
     <Content Include="Sounds\MainTheme.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Sounds\MainTheme2.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Sounds\MainTheme3.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Pictures\catapult.png" />
@@ -597,10 +555,6 @@
     <Resource Include="Pictures\sword.png" />
     <Resource Include="Pictures\armor.png" />
     <Resource Include="Pictures\craft.png" />
-    <Resource Include="Pictures\coppermine.png" />
-    <Resource Include="Pictures\leatherfarm.png" />
-    <Resource Include="Pictures\gemsmine.png" />
-    <Resource Include="Pictures\ironmine.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EmailValidation">

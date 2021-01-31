@@ -80,24 +80,6 @@ namespace LandConquest.Properties {
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream MainTheme2 {
-            get {
-                return ResourceManager.GetStream("MainTheme2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream MainTheme3 {
-            get {
-                return ResourceManager.GetStream("MainTheme3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на End-User License Agreement (EULA) of Land Conquest.
         ///This End-User License Agreement (&quot;EULA&quot;) is a legal agreement between you and Land Conquest.
         ///This EULA agreement governs your acquisition and use of our Land Conquest software (&quot;Software&quot;) directly from Land Conquest or indirectly through a Land Conquest authorized reseller or distributor (a &quot;Reseller&quot;).

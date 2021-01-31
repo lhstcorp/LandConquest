@@ -142,7 +142,7 @@
                 </Button.Background>
             </Button>
 
-            <Border x:Name="settingsGridBorder" BorderBrush="#FF48291F" BorderThickness="2" Height="Auto" VerticalAlignment="Top" Margin="1140,45,0,0" HorizontalAlignment="Left" Width="111">
+            <Border x:Name="settingsGridBorder" BorderBrush="#FF48291F" BorderThickness="2" Height="Auto" VerticalAlignment="Top" Margin="0,45,70,0" HorizontalAlignment="Right" Width="109">
                 <Grid x:Name="settingsGrid" Visibility="Visible" Height="65" VerticalAlignment="Top" HorizontalAlignment="Right" Width="108">
                     <Grid.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"  />
