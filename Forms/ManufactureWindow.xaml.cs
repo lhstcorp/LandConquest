@@ -81,6 +81,8 @@ namespace LandConquest.Forms
             sliderQuarry.Value = manufactures[1].ManufacturePeasantWork;
             sliderQuarry.Maximum = manufactures[1].ManufacturePeasantMax;
 
+            ManufactureStatucCheck();
+
             Sawmilllvl.Content = manufactures[0].ManufactureLevel;
             PbSawmill.Maximum = manufactures[0].ManufacturePeasantMax;
             sliderSawmill.Value = manufactures[0].ManufacturePeasantWork;
@@ -116,6 +118,28 @@ namespace LandConquest.Forms
                 sliderBuilding1.Maximum = sliderBuilding1.Value + Convert.ToInt32(unemployedPeasants.Content);
             if (sliderBuilding2.Value + Convert.ToInt32(unemployedPeasants.Content) <= sliderBuilding2.Maximum)
                 sliderBuilding2.Maximum = sliderBuilding2.Value + Convert.ToInt32(unemployedPeasants.Content);
+        }
+
+        private void ManufactureStatucCheck()
+        {
+            labelProductionStarted.Visibility = Visibility.Hidden;
+            labelPS.Visibility = Visibility.Hidden;
+            var dateStated = ManufactureModel.GetManufactureProdStartTime(player);
+            if (dateStated != DateTime.MinValue)
+            {
+                if (Convert.ToInt32(employedPeasants.Content) != 0)
+                {
+                    labelProductionStarted.Visibility = Visibility.Visible;
+                    labelPS.Visibility = Visibility.Visible;
+                    labelPS.Content = "Production started on";
+                    labelProductionStarted.Content = dateStated;
+                }
+                else 
+                {
+                    labelPS.Visibility = Visibility.Visible;
+                    labelPS.Content = "Production stopped";
+                }
+            }
         }
 
         private void buttonBuy_Click(object sender, RoutedEventArgs e)
