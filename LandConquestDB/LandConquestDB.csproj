@@ -89,6 +89,7 @@
     <Compile Include="Entities\Taxes.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\War.cs" />
+    <Compile Include="Enums\CastleLvlEnum.cs" />
     <Compile Include="Enums\ForcesEnum.cs" />
     <Compile Include="Enums\ManufacturesLvlEnum.cs" />
     <Compile Include="Enums\ConsumptionEnum.cs" />

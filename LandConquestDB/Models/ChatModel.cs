@@ -62,7 +62,7 @@ namespace LandConquestDB.Models
 
         public static void EnableBroker()
         {
-            string query = "ALTER DATABASE LandConquestDBDB SET ENABLE_BROKER with rollback immediate";
+            string query = "ALTER DATABASE LandConquestDB SET ENABLE_BROKER with rollback immediate";
             var peasantCommand = new SqlCommand(query, DbContext.GetSqlConnection());
             peasantCommand.ExecuteNonQuery();
         }
