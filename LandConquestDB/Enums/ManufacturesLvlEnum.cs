@@ -1,19 +1,14 @@
 ﻿namespace LandConquestDB.Enums
 {
-    public class ManufacturesLvlEnum
+    public static class ManufacturesLvlEnum
     {
-        public enum Level1 : int
+        public enum Level : int
         {
             Wood = 250,
             Stone = 100,
-            Iron = 0,
-            Copper = 0,
-            Leather = 0,
-            Gems = 0,
-            Gold = 0,
+            Iron = 100,
+            Copper = 100,
             Money = 100
         }
-
-
     }
 }
