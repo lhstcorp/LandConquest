@@ -118,6 +118,7 @@ namespace LandConquest.Forms
                 sliderBuilding1.Maximum = sliderBuilding1.Value + Convert.ToInt32(unemployedPeasants.Content);
             if (sliderBuilding2.Value + Convert.ToInt32(unemployedPeasants.Content) <= sliderBuilding2.Maximum)
                 sliderBuilding2.Maximum = sliderBuilding2.Value + Convert.ToInt32(unemployedPeasants.Content);
+
         }
 
         private void ManufactureStatucCheck()
@@ -142,6 +143,17 @@ namespace LandConquest.Forms
             }
         }
 
+        private void ProductionStatusButton()
+        {
+            if (sliderQuarry.Value + sliderSawmill.Value + sliderWindmill.Value + sliderBuilding1.Value + sliderBuilding2.Value == 0)
+            {
+                BtnStartProduction.Content = "Stop production";
+            } else
+            {
+                BtnStartProduction.Content = "Start production";
+            }
+        }
+
         private void buttonBuy_Click(object sender, RoutedEventArgs e)
         {
             ManufactureBuyingDialog manufactureBuying = new ManufactureBuyingDialog();
@@ -153,6 +165,7 @@ namespace LandConquest.Forms
             sliderQuarry.IsSnapToTickEnabled = true;
             PbQuarry.Value = sliderQuarry.Value;
             QuarryProdValueHour.Content = Convert.ToInt32(sliderQuarry.Value) * manufactures[1].ManufactureBaseProdValue;
+            ProductionStatusButton();
         }
 
         private void sliderQuarry_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -178,6 +191,7 @@ namespace LandConquest.Forms
                 PbQuarry.Value = sliderQuarry.Value;
                 sliderQuarry.Maximum = sliderQuarry.Value;
             }
+            ProductionStatusButton();
         }
 
         private void sliderSawmill_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -201,6 +215,7 @@ namespace LandConquest.Forms
                 PbSawmill.Value = sliderSawmill.Value;
                 sliderSawmill.Maximum = sliderSawmill.Value;
             }
+            ProductionStatusButton();
         }
 
         private void sliderWindmill_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -225,6 +240,7 @@ namespace LandConquest.Forms
                 PbWindmill.Value = sliderWindmill.Value;
                 sliderWindmill.Maximum = sliderWindmill.Value;
             }
+            ProductionStatusButton();
         }
 
         private void sliderWindmill_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -232,6 +248,7 @@ namespace LandConquest.Forms
             sliderWindmill.IsSnapToTickEnabled = true;
             PbWindmill.Value = sliderWindmill.Value;
             WindmillProdValueHour.Content = Convert.ToInt32(sliderWindmill.Value) * manufactures[2].ManufactureBaseProdValue;
+            ProductionStatusButton();
         }
 
         private void sliderSawmill_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -239,6 +256,7 @@ namespace LandConquest.Forms
             sliderSawmill.IsSnapToTickEnabled = true;
             PbSawmill.Value = sliderSawmill.Value;
             SawmillProdValueHour.Content = Convert.ToInt32(sliderSawmill.Value) * manufactures[0].ManufactureBaseProdValue;
+            ProductionStatusButton();
         }
 
         private void BtnStartProduction_Click(object sender, RoutedEventArgs e)
@@ -337,6 +355,7 @@ namespace LandConquest.Forms
                 PbBuilding1.Value = sliderBuilding1.Value;
                 sliderBuilding1.Maximum = sliderBuilding1.Value;
             }
+            ProductionStatusButton();
         }
 
         private void sliderBuilding1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -376,6 +395,7 @@ namespace LandConquest.Forms
                 PbBuilding2.Value = sliderBuilding2.Value;
                 sliderBuilding2.Maximum = sliderBuilding2.Value;
             }
-        }
+            ProductionStatusButton();
+        }      
     }
 }

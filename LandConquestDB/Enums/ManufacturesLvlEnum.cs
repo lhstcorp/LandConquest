@@ -4,10 +4,10 @@
     {
         public enum Level : int
         {
-            Wood = 250,
-            Stone = 100,
-            Iron = 100,
-            Copper = 100,
+            Wood = 225,
+            Stone = 250,
+            Iron = 155,
+            Copper = 120,
             Money = 100
         }
     }
