@@ -9,7 +9,5 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sounds/maintheme.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sounds/maintheme2.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sounds/maintheme3.wav")]
 
 

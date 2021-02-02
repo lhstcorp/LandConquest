@@ -1,4 +1,5 @@
 ﻿using LandConquestDB.Entities;
+using LandConquestDB.Enums;
 using LandConquestDB.Models;
 using System;
 using System.Windows;
@@ -41,7 +42,10 @@ namespace LandConquest.DialogWIndows
 
             WoodHave.Content = storage.PlayerWood;
             StoneHave.Content = storage.PlayerStone;
-            resourcesNeed = ManufactureModel.GetInfoAboutResourcesForUpdate(manufacture);
+            //resourcesNeed = ManufactureModel.GetInfoAboutResourcesForUpdate(manufacture);
+            resourcesNeed = new PlayerStorage();
+            resourcesNeed.PlayerWood = Convert.ToInt32(((int)ManufacturesLvlEnum.Level.Wood) * Math.Pow(1.25,manufacture.ManufactureLevel));
+            resourcesNeed.PlayerStone = Convert.ToInt32(((int)ManufacturesLvlEnum.Level.Stone) * Math.Pow(1.25, manufacture.ManufactureLevel));
 
             WoodNeed.Content = resourcesNeed.PlayerWood;
             StoneNeed.Content = resourcesNeed.PlayerStone;
@@ -64,7 +68,9 @@ namespace LandConquest.DialogWIndows
                 // output
                 WoodHave.Content = storage.PlayerWood;
                 StoneHave.Content = storage.PlayerStone;
-                resourcesNeed = ManufactureModel.GetInfoAboutResourcesForUpdate(manufacture);
+                //resourcesNeed = ManufactureModel.GetInfoAboutResourcesForUpdate(manufacture);
+                resourcesNeed.PlayerWood = Convert.ToInt32(((int)ManufacturesLvlEnum.Level.Wood) * Math.Pow(1.5, manufacture.ManufactureLevel));
+                resourcesNeed.PlayerStone = Convert.ToInt32(((int)ManufacturesLvlEnum.Level.Stone) * Math.Pow(1.5, manufacture.ManufactureLevel));
 
                 WoodNeed.Content = resourcesNeed.PlayerWood;
                 StoneNeed.Content = resourcesNeed.PlayerStone;
