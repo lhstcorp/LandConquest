@@ -545,6 +545,8 @@
     <Resource Include="Pictures\sawmill.png" />
     <Resource Include="Pictures\building.png" />
     <Resource Include="Pictures\farm.png" />
+    <Resource Include="Pictures\copper_quarry.png" />
+    <Resource Include="Pictures\iron_quarry.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

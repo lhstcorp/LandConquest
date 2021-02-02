@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
         mc:Ignorable="d" WindowStyle="ToolWindow"
-        Title="Upgrade Manufacture" Height="262" Width="268" Loaded="Window_Loaded"
+        Title="Upgrade Manufacture" Height="370" Width="268" Loaded="Window_Loaded"
         ShowInTaskbar="False">
     
-    <Grid>
+    <Grid Margin="0,0,0,0">
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
@@ -25,7 +25,22 @@
         <Label x:Name="StoneHave" Content="0" HorizontalAlignment="Left" Margin="87,153,0,0" VerticalAlignment="Top" Width="46"/>
         <Label x:Name="WoodNeed" Content="0" HorizontalAlignment="Left" Margin="174,123,0,0" VerticalAlignment="Top" Width="50"/>
         <Label x:Name="StoneNeed" Content="0" HorizontalAlignment="Left" Margin="174,153,0,0" VerticalAlignment="Top" Width="50"/>
-        <Button x:Name="BtnUpgrade" Content="Upgrade" HorizontalAlignment="Left" Margin="82,183,0,0" VerticalAlignment="Top" Width="110" Click="BtnUpgrade_Click" BorderBrush="{x:Null}">
+        <Image HorizontalAlignment="Left" Height="30" Margin="51,237,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/copper.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="51,207,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/iron.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="51,177,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/gold_ore.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="138,237,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/copper.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="138,207,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/iron.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="138,177,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/gold_ore.png"/>
+        <Label x:Name="CopperNeed" Content="0" HorizontalAlignment="Left" Margin="174,241,0,0" VerticalAlignment="Top" Width="46"/>
+        <Label x:Name="GoldHave" Content="0" HorizontalAlignment="Left" Margin="87,181,0,0" VerticalAlignment="Top" Width="46"/>
+        <Label x:Name="IronNeed" Content="0" HorizontalAlignment="Left" Margin="174,210,0,0" VerticalAlignment="Top" Width="46"/>
+        <Label x:Name="IronHave" Content="0" HorizontalAlignment="Left" Margin="87,210,0,0" VerticalAlignment="Top" Width="46"/>
+        <Label x:Name="GoldNeed" Content="0" HorizontalAlignment="Left" Margin="174,181,0,0" VerticalAlignment="Top" Width="46"/>
+        <Label x:Name="CopperHave" Content="0" HorizontalAlignment="Left" Margin="87,241,0,0" VerticalAlignment="Top" Width="46"/>
+
+
+
+        <Button x:Name="BtnUpgrade" Content="Upgrade" HorizontalAlignment="Left" Margin="70,281,0,0" VerticalAlignment="Top" Width="110" Click="BtnUpgrade_Click" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>

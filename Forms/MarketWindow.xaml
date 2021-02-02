@@ -22,32 +22,18 @@
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
-            <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
-            <Image HorizontalAlignment="Left" Height="68" Margin="241,10,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
-            <Image HorizontalAlignment="Right" Height="68" Margin="0,10,256.6,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
-            <Image HorizontalAlignment="Left" Height="68" Margin="10,135,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
-            <Image HorizontalAlignment="Left" Height="68" Margin="241,135,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
-            <Image HorizontalAlignment="Left" Height="68" Margin="472,135,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
-            <Image HorizontalAlignment="Left" Height="68" Margin="10,293,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
-            <Image HorizontalAlignment="Left" Height="68" Margin="10,293,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
-            <Image HorizontalAlignment="Left" Height="68" Margin="241,293,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
 
 
-            <Image HorizontalAlignment="Left" Height="52" Margin="15,16,0,0" VerticalAlignment="Top" Width="55" Source="/Pictures/food.png"/>
-            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,15,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
-            <Label Content="Price" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="labelFoodPrice" Content="3" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="113,10,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="FoodToBuyTextBox" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewTextInput="FoodToBuyTextBox_PreviewTextInput"   />
-            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,83,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
-            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,107,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
-            <Label x:Name="labelFoodAmount" Foreground="#e3cd9b" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="24,78,0,0" VerticalAlignment="Top" Width="65"/>
-
-            <Button Margin="773,0,0,0" VerticalAlignment="Top" Width="20" Height="20" Click="Button_Click" BorderBrush="{x:Null}" Foreground="{x:Null}">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="buyFoodMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top" Width="58" Click="buyAllMarketButton_Click"  BorderBrush="{x:Null}" >
+                    <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
+                    <Image HorizontalAlignment="Left" Height="52" Margin="15,16,0,0" VerticalAlignment="Top" Width="55" Source="/Pictures/food.png"/>
+                    <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,15,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+                    <Label Content="Price" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="labelFoodPrice" Content="3" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="113,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="FoodToBuyTextBox" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewTextInput="FoodToBuyTextBox_PreviewTextInput"   />
+                    <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,83,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+                    <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,107,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+                    <Label x:Name="labelFoodAmount" Foreground="#e3cd9b" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="24,78,0,0" VerticalAlignment="Top" Width="65"/>               
+                <Button x:Name="buyFoodMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top" Width="58" Click="buyAllMarketButton_Click"  BorderBrush="{x:Null}" >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
@@ -58,6 +44,11 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="10,85,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="10,111,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
+              
+            
+            <Image HorizontalAlignment="Left" Height="68" Margin="241,10,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="63" Margin="241,10,0,0" VerticalAlignment="Top" Width="64" Source="/LandConquest;component/Pictures/wood.png"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="310,15,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
             <Label Content="Price" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="310,10,0,0" VerticalAlignment="Top"/>
@@ -77,6 +68,11 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="241,85,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="241,111,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
+
+
+            <Image HorizontalAlignment="Right" Height="68" Margin="0,10,256.6,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="40" Margin="477,28,0,0" VerticalAlignment="Top" Width="55" Source="/LandConquest;component/Pictures/stones.png" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -106,6 +102,11 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="472,85,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="472,111,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
+
+
+            <Image HorizontalAlignment="Left" Height="68" Margin="10,135,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="53" Margin="15,140,0,0" VerticalAlignment="Top" Width="55" Source="/LandConquest;component/Pictures/iron.png"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
             <Label Content="Price" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,135,0,0" VerticalAlignment="Top"/>
@@ -125,6 +126,11 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="10,210,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0.905,0.595"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="10,236,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0.595,-0.333"/>
+
+
+            <Image HorizontalAlignment="Left" Height="68" Margin="241,135,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="53" Margin="247,145,0,0" VerticalAlignment="Top" Width="54" Source="/LandConquest;component/Pictures/gold_ore.png"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="310,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
             <Label Content="Price" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="310,135,0,0" VerticalAlignment="Top"/>
@@ -144,6 +150,11 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="241,210,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="241,236,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
+
+
+            <Image HorizontalAlignment="Left" Height="68" Margin="472,135,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="53" Margin="479,140,0,0" VerticalAlignment="Top" Width="58" Source="/LandConquest;component/Pictures/copper.png"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="546,140,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
             <Label Content="Price" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="546,135,0,0" VerticalAlignment="Top"/>
@@ -163,6 +174,11 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="472,210,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="472,236,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0.929,0.536"/>
+
+
+            <Image HorizontalAlignment="Left" Height="68" Margin="10,293,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="63" Margin="10,293,0,0" VerticalAlignment="Top" Width="65" Source="/LandConquest;component/Pictures/gems.png"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,298,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
             <Label Content="Price" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,293,0,0" VerticalAlignment="Top"/>
@@ -182,6 +198,11 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="10,368,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="10,394,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
+
+
+            <Image HorizontalAlignment="Left" Height="68" Margin="241,293,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="58" Margin="247,298,0,0" VerticalAlignment="Top" Width="54" Source="/LandConquest;component/Pictures/leather.png"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="310,298,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
             <Label Content="Price" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="310,293,0,0" VerticalAlignment="Top"/>
@@ -201,23 +222,15 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
-
-            <Image HorizontalAlignment="Left" Height="14" Margin="10,210,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0.905,0.595"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="10,236,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0.595,-0.333"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="10,85,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="10,111,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="241,85,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="241,111,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="472,85,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="472,111,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="472,210,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="472,236,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0.929,0.536"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="241,210,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="241,236,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
             <Image HorizontalAlignment="Left" Height="14" Margin="241,368,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
             <Image HorizontalAlignment="Left" Height="14" Margin="241,394,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14" RenderTransformOrigin="1.107,0.536"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="10,368,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
-            <Image HorizontalAlignment="Left" Height="14" Margin="10,394,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
+
+            <Button Margin="773,0,0,0" VerticalAlignment="Top" Width="20" Height="20" Click="Button_Click" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+           
 
 
 
