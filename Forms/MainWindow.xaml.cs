@@ -24,6 +24,7 @@ namespace LandConquest.Forms
         private Market market;
         private PlayerStorage storage;
         private PlayerEquipment equipment;
+        private Manufacture manufacture;
         private Taxes taxes;
         private Peasants peasants;
         private List<Land> lands;
@@ -47,6 +48,7 @@ namespace LandConquest.Forms
             equipment = new PlayerEquipment();
             player = new Player();
             storage = new PlayerStorage();
+            manufacture = new Manufacture();
             peasants = new Peasants();
             country = new Country();
             market = new Market();
@@ -157,7 +159,7 @@ namespace LandConquest.Forms
         private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new ManufactureWindow(this, player, storage);
+            openedWindow = new ManufactureWindow(this, player, manufacture, storage);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
