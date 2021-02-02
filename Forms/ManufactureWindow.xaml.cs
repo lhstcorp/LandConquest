@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace LandConquest.Forms
 {
@@ -13,6 +14,7 @@ namespace LandConquest.Forms
         private Player player;
         private MainWindow window;
         private Peasants peasants;
+        private Manufacture manufacture;
         private List<Manufacture> manufactures;
         private List<Manufacture> landManufactures;
         private List<Manufacture> playerLandManufactures;
@@ -22,13 +24,14 @@ namespace LandConquest.Forms
         private int peasantsWorkingOnB1 = 0;
         private int peasantsWorkingOnB2 = 0;
 
-        public ManufactureWindow(MainWindow _window, Player _player, PlayerStorage _storage)
+        public ManufactureWindow(MainWindow _window, Player _player, Manufacture _manufacture, PlayerStorage _storage)
         {
-            InitializeComponent();
-            Loaded += ManufactureWindow_Loaded;
+            InitializeComponent();            
             window = _window;
             player = _player;
             storage = _storage;
+            manufacture = _manufacture;
+            Loaded += ManufactureWindow_Loaded;
             //user = _user;
         }
 
@@ -93,7 +96,48 @@ namespace LandConquest.Forms
             sliderWindmill.Value = manufactures[2].ManufacturePeasantWork;
             sliderWindmill.Maximum = manufactures[2].ManufacturePeasantMax;
             //land manufactures content
+            switch (manufacture.ManufactureType)
+            {
+                
+                case 1:
+                    FirstManufactureImage.Source = new BitmapImage(new Uri("/Pictures/copper_quarry.png", UriKind.Relative));
+                    break;
+                case 2:
+                    FirstManufactureImage.Source = new BitmapImage(new Uri("/Pictures/iron_quarry.png", UriKind.Relative));
+                    break;
+                case 3:
+                    FirstManufactureImage.Source = new BitmapImage(new Uri("/Pictures/gold_ore.png", UriKind.Relative));
+                    break;
+                case 4:
+                    FirstManufactureImage.Source = new BitmapImage(new Uri("/Pictures/gems.png", UriKind.Relative));
+                    break;
+                case 5:
+                    FirstManufactureImage.Source = new BitmapImage(new Uri("/Pictures/leather.png", UriKind.Relative));
+                    break;
+
+            }
+
+            switch (manufacture.ManufactureType)
+            {
+                case 1:
+                    SecondManufactureImage.Source = new BitmapImage(new Uri("/Pictures/copper_quarry.png", UriKind.Relative));
+                    break;
+                case 2:
+                    SecondManufactureImage.Source = new BitmapImage(new Uri("/Pictures/iron_quarry.png", UriKind.Relative));
+                    break;
+                case 3:
+                    SecondManufactureImage.Source = new BitmapImage(new Uri("/Pictures/gold_ore.png", UriKind.Relative));
+                    break;
+                case 4:
+                    SecondManufactureImage.Source = new BitmapImage(new Uri("/Pictures/gems.png", UriKind.Relative));
+                    break;
+                case 5:
+                    SecondManufactureImage.Source = new BitmapImage(new Uri("/Pictures/leather.png", UriKind.Relative));
+                    break;
+
+            }
             //building 1
+
             buildingName1.Content = landManufactures[0].ManufactureName;
             building1LvlAmount.Content = landManufactures[0].ManufactureLevel;
             PbBuilding1.Maximum = landManufactures[0].ManufacturePeasantMax - landManufactures[0].ManufacturePeasantWork + playerLandManufactures[0].ManufacturePeasantWork;
