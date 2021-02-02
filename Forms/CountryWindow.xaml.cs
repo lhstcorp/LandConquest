@@ -170,5 +170,13 @@ namespace LandConquest.Forms
         {
             this.Close();
         }
+
+        private void buttonCastleManagement_Click(object sender, RoutedEventArgs e)
+        {
+            CastleManagementWindow openedWindow = new CastleManagementWindow(player);
+            openedWindow.Owner = Application.Current.MainWindow;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+        }
     }
 }

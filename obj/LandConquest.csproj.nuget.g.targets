@@ -4,6 +4,7 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)msbuild.obfuscar\2.2.29.1\build\MSBuild.Obfuscar.targets" Condition="Exists('$(NuGetPackageRoot)msbuild.obfuscar\2.2.29.1\build\MSBuild.Obfuscar.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.vcrtforwarders.140\1.0.6\build\net45\Microsoft.VCRTForwarders.140.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.vcrtforwarders.140\1.0.6\build\net45\Microsoft.VCRTForwarders.140.targets')" />
   </ImportGroup>
 </Project>

@@ -47,16 +47,8 @@
         <Image HorizontalAlignment="Left" Height="26" Margin="238,137,0,0" VerticalAlignment="Top" Width="37" Source="/Pictures/gems.png" RenderTransformOrigin="-1.55,0.548"/>
         <Label x:Name="labelGemsAmount" Content="0" Foreground="MediumSeaGreen" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="238,162,0,0" VerticalAlignment="Top" Width="112" Height="27"/>
         <Label Content="IRON" Foreground="SlateGray" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,42,52,0" VerticalAlignment="Top" Height="31" Width="57" Background="{x:Null}"/>
-        <Image HorizontalAlignment="Left" Height="35" Margin="329,42,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/iron.png" RenderTransformOrigin="-1.55,0.548" OpacityMask="Black">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.314"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
+            <Image HorizontalAlignment="Left" Height="35" Margin="329,42,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/iron.png" RenderTransformOrigin="-1.55,0.548" OpacityMask="Black">
+            </Image>
         <Label x:Name="labelIronAmount" Content="0" Foreground="SlateGray" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="330,82,0,0" VerticalAlignment="Top" Width="112" Height="28" Background="{x:Null}"/>
         <Label Content="LEATHER" Foreground="#FF914C2B" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,131,25,0" VerticalAlignment="Top" Height="27" Width="88" Background="{x:Null}"/>
         <Image HorizontalAlignment="Left" Height="27" Margin="333,134,0,0" VerticalAlignment="Top" Width="32" Source="/Pictures/Leather.png" RenderTransformOrigin="-1.55,0.548"/>

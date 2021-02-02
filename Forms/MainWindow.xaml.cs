@@ -134,7 +134,7 @@ namespace LandConquest.Forms
 
             LoadWarsOnMap();
             setFlag();
-            
+
             //////////////////
             /// ГОЛОД ТУТ ////
             //////////////////
@@ -144,11 +144,15 @@ namespace LandConquest.Forms
 
 
             settingsGrid.Visibility = Visibility.Hidden;
+            settingsGridBorder.Visibility = Visibility.Hidden;
             btnShowLandGrid.Visibility = Visibility.Hidden;
+            btnShowLeaderGrid.Visibility = Visibility.Hidden;
+
+            GetWorldLeader();
 
         }
 
-       
+
 
         private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -712,15 +716,64 @@ namespace LandConquest.Forms
             btnShowLandGrid.Visibility = Visibility.Hidden;
         }
 
+        private void btnHideLeaderGrid_Click(object sender, RoutedEventArgs e)
+        {
+            worldLeader.Visibility = Visibility.Hidden;
+            worldLeaderBorder.Visibility = Visibility.Hidden;
+            btnShowLeaderGrid.Visibility = Visibility.Visible;
+        }
+
+        private void btnShowLeaderGrid_Click(object sender, RoutedEventArgs e)
+        {
+            worldLeader.Visibility = Visibility.Visible;
+            worldLeaderBorder.Visibility = Visibility.Visible;
+            btnShowLeaderGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void GetWorldLeader()
+        {
+            if (lands.Count > 0)
+            {
+                int check_count = 0;
+                var counts = new Dictionary<int, int>();
+                foreach (var land in lands)
+                {
+                    int count;
+                    if (land.CountryId != 0)
+                    {
+                        counts.TryGetValue(land.CountryId, out count);
+                        count++;
+                        check_count++;
+                        counts[land.CountryId] = count;
+                    }
+                }
+                int mostCommonNumber = 0, occurrences = 0;
+                foreach (var pair in counts)
+                {
+                    if (pair.Value > occurrences)
+                    {
+                        occurrences = pair.Value;
+                        mostCommonNumber = pair.Key;
+                    }
+                }
+                if (check_count != 0)
+                {
+                    lblWorldLeader.Content = PlayerModel.GetPlayerNameById(CountryModel.GetCountryRuler(mostCommonNumber));
+                }
+            }
+        }
+
         private void buttonSettings_Click(object sender, RoutedEventArgs e)
         {
             if (settingsGrid.Visibility == Visibility.Hidden)
             {
                 settingsGrid.Visibility = Visibility.Visible;
+                settingsGridBorder.Visibility = Visibility.Visible;
             }
             else
             {
                 settingsGrid.Visibility = Visibility.Hidden;
+                settingsGridBorder.Visibility = Visibility.Hidden;
             }
         }
         private void test2_Click(object sender, RoutedEventArgs e)

@@ -3,7 +3,6 @@ using LandConquest.DialogWIndows;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System.Windows;
-using System.Windows.Input;
 
 namespace LandConquest.Forms
 {

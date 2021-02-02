@@ -1,4 +1,5 @@
 ﻿using LandConquestDB.Entities;
+using LandConquestDB.Forces;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -538,6 +539,78 @@ namespace LandConquestDB.Models
             armiesArmySide = null;
 
             return armies;
+        }
+
+        public static int CalculateDamageInDistanceBattle(ArmyInBattle _selectedArmy)
+        {
+            int damage = _selectedArmy.ArmyArchersCount * (int)ForcesEnum.Archers.Damage + _selectedArmy.ArmySiegegunCount * (int)ForcesEnum.Siege.Damage;
+            return damage;
+        }
+
+        public static DistanceBattle DistanceBattleExist(DistanceBattle _distanceBattle)
+        {
+            string dbQuery = "SELECT * FROM dbo.DistanceBattleData WHERE local_land_id = @local_land_id AND war_id = @war_id AND side = @side";
+
+            DistanceBattle distanceBattle = new DistanceBattle();
+            distanceBattle.BattleId = "";
+
+            var command = new SqlCommand(dbQuery, DbContext.GetSqlConnection());
+
+            command.Parameters.AddWithValue("@local_land_id", _distanceBattle.LocalLandId);
+            command.Parameters.AddWithValue("@war_id", _distanceBattle.WarId);
+            command.Parameters.AddWithValue("@side", _distanceBattle.Side);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var battleId = reader.GetOrdinal("battle_id");
+                var warId = reader.GetOrdinal("war_id");
+                var localLandId = reader.GetOrdinal("local_land_id");
+                var damage = reader.GetOrdinal("damage");
+                var side = reader.GetOrdinal("side");
+
+                while (reader.Read())
+                {
+                    distanceBattle.BattleId = reader.GetString(battleId);
+                    distanceBattle.WarId = reader.GetString(warId);
+                    distanceBattle.LocalLandId = reader.GetInt32(localLandId);
+                    distanceBattle.Damage = reader.GetInt32(damage);
+                    distanceBattle.Side = reader.GetInt32(side);
+                }
+            }
+
+            command.Dispose();
+
+            return distanceBattle;
+        }
+
+        public static void UpdateDistanceBattle(DistanceBattle _distanceBattle)
+        {
+            string dbQuery = "UPDATE dbo.DistanceBattleData SET damage = @damage WHERE war_id = @war_id AND battle_id = @battle_id";
+
+            var dbCommand = new SqlCommand(dbQuery, DbContext.GetSqlConnection());
+            dbCommand.Parameters.AddWithValue("@war_id", _distanceBattle.WarId);
+            dbCommand.Parameters.AddWithValue("@battle_id", _distanceBattle.BattleId);
+            dbCommand.Parameters.AddWithValue("@damage", _distanceBattle.Damage);
+
+            dbCommand.ExecuteNonQuery();
+
+            dbCommand.Dispose();
+        }
+
+        public static void InsertDistanceBattle(DistanceBattle db)
+        {
+            string dbQuery = "INSERT INTO dbo.DistanceBattleData (battle_id, war_id, local_land_id, damage, side) VALUES (@battle_id, @war_id, @local_land_id, @damage, @side)";
+            var command = new SqlCommand(dbQuery, DbContext.GetSqlConnection());
+
+            command.Parameters.AddWithValue("@battle_id", db.BattleId);
+            command.Parameters.AddWithValue("@war_id", db.WarId);
+            command.Parameters.AddWithValue("@local_land_id", db.LocalLandId);
+            command.Parameters.AddWithValue("@damage", db.Damage);
+            command.Parameters.AddWithValue("@side", db.Side);
+
+            command.ExecuteNonQuery();
+
+            command.Dispose();
         }
     }
 }

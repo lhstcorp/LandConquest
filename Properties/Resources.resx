@@ -124,10 +124,7 @@
   <data name="MainTheme" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Sounds\MainTheme.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MainTheme2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Sounds\MainTheme2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MainTheme3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Sounds\MainTheme3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="UserAgreement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UserAgreement.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
 </root>

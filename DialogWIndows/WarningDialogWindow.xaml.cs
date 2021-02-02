@@ -39,7 +39,8 @@ namespace LandConquest.DialogWIndows
             {
                 warningWindow.Close();
                 return true;
-            } else
+            }
+            else
             {
                 warningWindow.Close();
                 return false;
