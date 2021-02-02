@@ -9,6 +9,15 @@ namespace LandConquest.DialogWIndows
 {
     public partial class ManufactureUpgradeDialog : Window
     {
+        private protected enum Level : int
+        {
+            Wood = 225,
+            Stone = 250,
+            Iron = 155,
+            Copper = 120,
+            Money = 100
+        }
+
         private Player player;
         private PlayerStorage storage;
         private Manufacture manufacture;
@@ -44,8 +53,8 @@ namespace LandConquest.DialogWIndows
             StoneHave.Content = storage.PlayerStone;
             //resourcesNeed = ManufactureModel.GetInfoAboutResourcesForUpdate(manufacture);
             resourcesNeed = new PlayerStorage();
-            resourcesNeed.PlayerWood = Convert.ToInt32(((int)ManufacturesLvlEnum.Level.Wood) * Math.Pow(1.25,manufacture.ManufactureLevel));
-            resourcesNeed.PlayerStone = Convert.ToInt32(((int)ManufacturesLvlEnum.Level.Stone) * Math.Pow(1.25, manufacture.ManufactureLevel));
+            resourcesNeed.PlayerWood = Convert.ToInt32(((int)Level.Wood) * Math.Pow(1.25,manufacture.ManufactureLevel));
+            resourcesNeed.PlayerStone = Convert.ToInt32(((int)Level.Stone) * Math.Pow(1.25, manufacture.ManufactureLevel));
 
             WoodNeed.Content = resourcesNeed.PlayerWood;
             StoneNeed.Content = resourcesNeed.PlayerStone;
@@ -69,8 +78,8 @@ namespace LandConquest.DialogWIndows
                 WoodHave.Content = storage.PlayerWood;
                 StoneHave.Content = storage.PlayerStone;
                 //resourcesNeed = ManufactureModel.GetInfoAboutResourcesForUpdate(manufacture);
-                resourcesNeed.PlayerWood = Convert.ToInt32(((int)ManufacturesLvlEnum.Level.Wood) * Math.Pow(1.5, manufacture.ManufactureLevel));
-                resourcesNeed.PlayerStone = Convert.ToInt32(((int)ManufacturesLvlEnum.Level.Stone) * Math.Pow(1.5, manufacture.ManufactureLevel));
+                resourcesNeed.PlayerWood = Convert.ToInt32(((int)Level.Wood) * Math.Pow(1.5, manufacture.ManufactureLevel));
+                resourcesNeed.PlayerStone = Convert.ToInt32(((int)Level.Stone) * Math.Pow(1.5, manufacture.ManufactureLevel));
 
                 WoodNeed.Content = resourcesNeed.PlayerWood;
                 StoneNeed.Content = resourcesNeed.PlayerStone;

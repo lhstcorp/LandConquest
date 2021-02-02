@@ -88,6 +88,17 @@ Renamed Types:
 	System.Func`2<System.Double,System.String> [LandConquest]System.Func`2<System.Double,System.String> LandConquest.Forms.MarketWindow/<>c::<>9__5_0 ->  
 }
 
+[LandConquest]LandConquest.Forms.CastleManagementWindow/Level -> [LandConquest]LandConquest.Forms.CastleManagementWindow/ 
+{
+	LandConquest.Forms.CastleManagementWindow/Level [LandConquest]LandConquest.Forms.CastleManagementWindow/Level LandConquest.Forms.CastleManagementWindow/Level::Wood ->  
+	LandConquest.Forms.CastleManagementWindow/Level [LandConquest]LandConquest.Forms.CastleManagementWindow/Level LandConquest.Forms.CastleManagementWindow/Level::Stone ->  
+	LandConquest.Forms.CastleManagementWindow/Level [LandConquest]LandConquest.Forms.CastleManagementWindow/Level LandConquest.Forms.CastleManagementWindow/Level::Iron ->  
+	LandConquest.Forms.CastleManagementWindow/Level [LandConquest]LandConquest.Forms.CastleManagementWindow/Level LandConquest.Forms.CastleManagementWindow/Level::Copper ->  
+	LandConquest.Forms.CastleManagementWindow/Level [LandConquest]LandConquest.Forms.CastleManagementWindow/Level LandConquest.Forms.CastleManagementWindow/Level::Money ->  
+
+	System.Int32 [LandConquest]System.Int32 LandConquest.Forms.CastleManagementWindow/Level::value__ skipped:  special name
+}
+
 [LandConquest]LandConquest.Forms.WarWindow/<>c__DisplayClass58_0 -> [LandConquest]LandConquest.Forms.WarWindow/ 
 {
 	[LandConquest]LandConquest.Forms.WarWindow/<>c__DisplayClass58_0::<generateId>b__0[1]( [mscorlib]System.String ) ->  
@@ -104,6 +115,17 @@ Renamed Types:
 	[LandConquest]LandConquest.DialogWIndows.SplitArmyDialog/<>c__DisplayClass16_0::.ctor[0]( ) skipped:  special name
 
 	System.Random [LandConquest]System.Random LandConquest.DialogWIndows.SplitArmyDialog/<>c__DisplayClass16_0::random ->  
+}
+
+[LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level -> [LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/ 
+{
+	LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level [LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level::Wood ->  
+	LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level [LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level::Stone ->  
+	LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level [LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level::Iron ->  
+	LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level [LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level::Copper ->  
+	LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level [LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level::Money ->  
+
+	System.Int32 [LandConquest]System.Int32 LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level::value__ skipped:  special name
 }
 
 [LandConquest]<PrivateImplementationDetails> -> [LandConquest] . 
@@ -529,7 +551,7 @@ Skipped Types:
 	[LandConquest]LandConquest.Forms.CastleManagementWindow::InitializeComponent[0]( ) skipped:  external base class or interface
 	[LandConquest]LandConquest.Forms.CastleManagementWindow::.ctor[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  special name
 
-	LandConquestDB.Entities.Player [LandConquest]LandConquestDB.Entities.Player LandConquest.Forms.CastleManagementWindow::Player ->  
+	LandConquestDB.Entities.Player [LandConquest]LandConquestDB.Entities.Player LandConquest.Forms.CastleManagementWindow::player ->  
 	System.Windows.Controls.Border [LandConquest]System.Windows.Controls.Border LandConquest.Forms.CastleManagementWindow::castleMenuGridBorder ->  
 	System.Windows.Controls.Grid [LandConquest]System.Windows.Controls.Grid LandConquest.Forms.CastleManagementWindow::castleMenuGrid ->  
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.CastleManagementWindow::buttonSendResources ->  
