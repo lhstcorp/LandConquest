@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="LandConquest.DialogWIndows.EstablishStateDialog"
-        mc:Ignorable="d"
-        Title="EstablishStateDialog" Height="450" Width="800"
+        mc:Ignorable="d" WindowStyle="None"
+        Height="450" Width="800" ResizeMode="NoResize"
         ShowInTaskbar="False" Loaded="Window_Loaded">
-    <Grid>
 
+    <Border BorderBrush="#FF392018" BorderThickness="2" Height="Auto" Width="Auto">
+    <Grid>
         <materialDesign:ColorPicker x:Name="StateColor" HorizontalAlignment="Left" Margin="160,71,0,0" VerticalAlignment="Top" Height="304" Width="453"/>
         <Label Content="Choose color for the state" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="252,36,0,0" VerticalAlignment="Top"/>
         <Button x:Name="EstablishState" Content="OK" HorizontalAlignment="Left" Height="69" Margin="641,71,0,0" VerticalAlignment="Top" Width="72" Click="EstablishState_Click" BorderBrush="{x:Null}">
@@ -17,9 +18,15 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
             </Button.Background>
         </Button>
+        <Button x:Name="buttonClose" Margin="0,0,-0.4,0" VerticalAlignment="Top" Height="20" Foreground="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="20" Click="buttonClose_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
 
     </Grid>
+        </Border>
 </Window>
