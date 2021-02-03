@@ -27,6 +27,7 @@ namespace LandConquest.Forms
         private Manufacture manufacture;
         private Taxes taxes;
         private Peasants peasants;
+        private List<Manufacture> landmanufactures;
         private List<Land> lands;
         private List<Path> paths;
         private List<Country> countries;
@@ -52,6 +53,7 @@ namespace LandConquest.Forms
             peasants = new Peasants();
             country = new Country();
             market = new Market();
+            landmanufactures = new List<Manufacture>();
             army = new Army();
             flagXY = new int[4];
             openedWindow = this;
