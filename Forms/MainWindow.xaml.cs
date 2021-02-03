@@ -159,7 +159,7 @@ namespace LandConquest.Forms
         private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new ManufactureWindow(this, player, manufacture, storage);
+            openedWindow = new ManufactureWindow(player, manufacture, storage);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
@@ -186,7 +186,7 @@ namespace LandConquest.Forms
         private void OpenStorage(Player player, User user)
         {
             CloseUnusedWindows();
-            openedWindow = new StorageWindow(this, player, user);
+            openedWindow = new StorageWindow(player);
             PlayerModel.UpdatePlayerExpAndLvl(player);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
@@ -233,7 +233,7 @@ namespace LandConquest.Forms
             market = MarketModel.GetMarketInfo(player, market);
 
             CloseUnusedWindows();
-            openedWindow = new MarketWindow(this, storage, market, player);
+            openedWindow = new MarketWindow(storage, market, player);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
@@ -283,7 +283,7 @@ namespace LandConquest.Forms
         private void buttonProfile_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new ProfileWindow(this, player, user);
+            openedWindow = new ProfileWindow(player, user);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();

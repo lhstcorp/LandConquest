@@ -1,5 +1,4 @@
 ﻿using LandConquestDB.Entities;
-using LandConquestDB.Enums;
 using LandConquestDB.Models;
 using System;
 using System.Windows;
@@ -9,7 +8,7 @@ namespace LandConquest.DialogWIndows
 {
     public partial class ManufactureUpgradeDialog : Window
     {
-        private protected enum Level : int
+        private enum Level : int
         {
             Wood = 225,
             Stone = 250,
@@ -73,7 +72,7 @@ namespace LandConquest.DialogWIndows
             GoldHave.Content = storage.PlayerGoldOre;
 
             resourcesNeed = new PlayerStorage();
-            resourcesNeed.PlayerWood = Convert.ToInt32(((int)Level.Wood) * Math.Pow(1.25,manufacture.ManufactureLevel));
+            resourcesNeed.PlayerWood = Convert.ToInt32(((int)Level.Wood) * Math.Pow(1.25, manufacture.ManufactureLevel));
             resourcesNeed.PlayerStone = Convert.ToInt32(((int)Level.Stone) * Math.Pow(1.25, manufacture.ManufactureLevel));
             resourcesNeed.PlayerIron = Convert.ToInt32(((int)Level.Iron) * Math.Pow(1.25, manufacture.ManufactureLevel));
             resourcesNeed.PlayerGoldOre = Convert.ToInt32(((int)Level.GoldOre) * Math.Pow(1.25, manufacture.ManufactureLevel));
@@ -86,7 +85,7 @@ namespace LandConquest.DialogWIndows
             IronNeed.Content = resourcesNeed.PlayerIron;
             GoldNeed.Content = resourcesNeed.PlayerGoldOre;
             CopperNeed.Content = resourcesNeed.PlayerCopper;
-            
+
 
 
             ManufactureLvl.Content = manufacture.ManufactureLevel;
@@ -102,12 +101,12 @@ namespace LandConquest.DialogWIndows
                 storage.PlayerIron -= resourcesNeed.PlayerIron;
                 storage.PlayerGoldOre -= resourcesNeed.PlayerGoldOre;
                 storage.PlayerCopper -= resourcesNeed.PlayerCopper;
-                
+
 
 
                 StorageModel.UpdateStorage(player, storage);
                 storage = StorageModel.GetPlayerStorage(player, storage);
-                
+
                 WoodHave.Content = storage.PlayerWood;
                 StoneHave.Content = storage.PlayerStone;
                 IronHave.Content = storage.PlayerIron;
@@ -132,6 +131,11 @@ namespace LandConquest.DialogWIndows
                 ManufactureLvl.Content = manufacture.ManufactureLevel;
             }
             Window_Loaded(sender, e);
+        }
+
+        private void buttonClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
