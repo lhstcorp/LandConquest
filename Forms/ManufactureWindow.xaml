@@ -86,7 +86,7 @@
             <Label Content="{Binding Value, ElementName=PbBuilding1, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="218,303,0,0"  Foreground="White" FontFamily="Open Sans" Height="20" Width="43"/>
             <Label x:Name="buildingph1" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="p/h:" HorizontalAlignment="Left" Margin="230,266,0,0" VerticalAlignment="Top" Height="34" Width="44"/>
             <Label x:Name="building1ProdValueHour" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="0" HorizontalAlignment="Left" Margin="274,266,0,0" VerticalAlignment="Top" Height="34" Width="64"/>
-            <Button x:Name="buttonBuilding1Upgrade" Content="Upgrade" FontSize="12" HorizontalAlignment="Left" Margin="183,351,0,0" VerticalAlignment="Top" Width="115" Height="31" Click="buttonSawmillUpgrade_Click" Foreground="#FFE4CE9A" BorderBrush="{x:Null}">
+            <Button x:Name="buttonBuilding1Upgrade" Content="Upgrade" FontSize="12" HorizontalAlignment="Left" Margin="183,351,0,0" VerticalAlignment="Top" Width="115" Height="31"  Foreground="#FFE4CE9A" BorderBrush="{x:Null}" Click="buttonBuilding1Upgrade_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -100,7 +100,7 @@
             <Label Content="{Binding Value, ElementName=PbBuilding2, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="575,303,0,0"  Foreground="White" FontFamily="Open Sans" Height="20" Width="43"/>
             <Label x:Name="buildingph2" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="p/h:" HorizontalAlignment="Left" Margin="588,266,0,0" VerticalAlignment="Top" Height="34" Width="46"/>
             <Label x:Name="building2ProdValueHour" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="0" HorizontalAlignment="Left" Margin="634,266,0,0" VerticalAlignment="Top" Height="32" Width="50"/>
-            <Button x:Name="buttonBuilding2Upgrade" Content="Upgrade" FontSize="12" HorizontalAlignment="Left" Margin="537,351,0,0" VerticalAlignment="Top" Width="115" Height="31" Click="buttonSawmillUpgrade_Click" Foreground="#FFE4CE9A" BorderBrush="{x:Null}">
+            <Button x:Name="buttonBuilding2Upgrade" Content="Upgrade" FontSize="12" HorizontalAlignment="Left" Margin="537,351,0,0" VerticalAlignment="Top" Width="115" Height="31"  Foreground="#FFE4CE9A" BorderBrush="{x:Null}" Click="buttonBuilding2Upgrade_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>

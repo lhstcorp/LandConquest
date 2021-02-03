@@ -304,6 +304,31 @@ namespace LandConquestDB.Models
             manufactureUpgradeCommand.Dispose();
         }
 
+        public static void UpgradeLandManufactures(Manufacture manufacture, List<Manufacture> landManufacture)
+        {
+            string manufactureQuery = "UPDATE dbo.LandManufactureData SET manufacture_peasant_max  = @manufacture_peasant_max, manufacture_lvl =@manufacture_lvl, manufacture_base_prod_value = @manufacture_base_prod_value, manufacture_products_hour  = @manufacture_products_hour WHERE manufacture_id = @manufacture_id ";
+           
+            if (manufacture.ManufactureLevel % 2 == 0)
+            {
+                manufacture.ManufactureBaseProdValue -= 1;
+            }
+            else
+            {
+                manufacture.ManufacturePeasantMax -= 200;
+            }
+            //b1
+            var build1Command = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
+            
+            build1Command.Parameters.AddWithValue("@manufacture_peasant_max", manufacture.ManufacturePeasantMax+200);
+            build1Command.Parameters.AddWithValue("@manufacture_lvl", manufacture.ManufactureLevel + 1);
+            build1Command.Parameters.AddWithValue("@manufacture_base_prod_value", manufacture.ManufactureBaseProdValue + 1);
+            build1Command.Parameters.AddWithValue("@manufacture_products_hour", (manufacture.ManufactureBaseProdValue + 1) * manufacture.ManufacturePeasantWork);            
+            build1Command.Parameters.AddWithValue("@manufacture_id", manufacture.ManufactureId);
+
+            build1Command.ExecuteNonQuery();
+            build1Command.Dispose();            
+        }
+
         public static Manufacture GetManufactureById(Manufacture _manufacture)
         {
             Manufacture manufacture = new Manufacture();
@@ -389,6 +414,7 @@ namespace LandConquestDB.Models
             build1Command.Parameters.AddWithValue("@manufacture_id", landManufactures[0].ManufactureId);
             build1Command.Parameters.AddWithValue("@manufacture_peasant_work", landManufactures[0].ManufacturePeasantWork);
             build1Command.Parameters.AddWithValue("@manufacture_products_hour", landManufactures[0].ManufactureProductsHour);
+            
 
             build1Command.ExecuteNonQuery();
 
@@ -398,6 +424,7 @@ namespace LandConquestDB.Models
             build2Command.Parameters.AddWithValue("@manufacture_id", landManufactures[1].ManufactureId);
             build2Command.Parameters.AddWithValue("@manufacture_peasant_work", landManufactures[1].ManufacturePeasantWork);
             build2Command.Parameters.AddWithValue("@manufacture_products_hour", landManufactures[1].ManufactureProductsHour);
+            
 
             build2Command.ExecuteNonQuery();
 

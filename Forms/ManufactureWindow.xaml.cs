@@ -29,6 +29,7 @@ namespace LandConquest.Forms
             player = _player;
             storage = _storage;
             manufacture = _manufacture;
+            
             Loaded += ManufactureWindow_Loaded;
             //user = _user;
         }
@@ -441,6 +442,18 @@ namespace LandConquest.Forms
                 sliderBuilding2.Maximum = sliderBuilding2.Value;
             }
             ProductionStatusButton();
+        }
+
+        private void buttonBuilding1Upgrade_Click(object sender, RoutedEventArgs e)
+        {
+            CommonManufactureUpgrade dialogwindow = new CommonManufactureUpgrade(storage, landManufactures[0], player, landManufactures);
+            dialogwindow.Show();
+        }
+
+        private void buttonBuilding2Upgrade_Click(object sender, RoutedEventArgs e)
+        {
+            CommonManufactureUpgrade dialogwindow = new CommonManufactureUpgrade(storage, landManufactures[1], player, landManufactures);
+            dialogwindow.Show();
         }
     }
 }
