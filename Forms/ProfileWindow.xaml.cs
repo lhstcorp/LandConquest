@@ -9,14 +9,12 @@ namespace LandConquest.Forms
 
     public partial class ProfileWindow : Window
     {
-        private MainWindow window;
         private Player player;
         private User user;
 
-        public ProfileWindow(MainWindow _window, Player _player, User _user)
+        public ProfileWindow(Player _player, User _user)
         {
             InitializeComponent();
-            window = _window;
             player = _player;
             user = _user;
             Loaded += Window_Loaded;

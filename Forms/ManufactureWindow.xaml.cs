@@ -12,7 +12,6 @@ namespace LandConquest.Forms
     public partial class ManufactureWindow : Window
     {
         private Player player;
-        private MainWindow window;
         private Peasants peasants;
         private Manufacture manufacture;
         private List<Manufacture> manufactures;
@@ -24,10 +23,9 @@ namespace LandConquest.Forms
         private int peasantsWorkingOnB1 = 0;
         private int peasantsWorkingOnB2 = 0;
 
-        public ManufactureWindow(MainWindow _window, Player _player, Manufacture _manufacture, PlayerStorage _storage)
+        public ManufactureWindow(Player _player, Manufacture _manufacture, PlayerStorage _storage)
         {
-            InitializeComponent();            
-            window = _window;
+            InitializeComponent();
             player = _player;
             storage = _storage;
             manufacture = _manufacture;
@@ -98,7 +96,7 @@ namespace LandConquest.Forms
             //land manufactures content
             switch (manufacture.ManufactureType)
             {
-                
+
                 case 1:
                     FirstManufactureImage.Source = new BitmapImage(new Uri("/Pictures/copper_quarry.png", UriKind.Relative));
                     break;
@@ -179,7 +177,7 @@ namespace LandConquest.Forms
                     labelPS.Content = "Production started on";
                     labelProductionStarted.Content = dateStated;
                 }
-                else 
+                else
                 {
                     labelPS.Visibility = Visibility.Visible;
                     labelPS.Content = "Production stopped";
@@ -192,7 +190,8 @@ namespace LandConquest.Forms
             if (sliderQuarry.Value + sliderSawmill.Value + sliderWindmill.Value + sliderBuilding1.Value + sliderBuilding2.Value == 0)
             {
                 BtnStartProduction.Content = "Stop production";
-            } else
+            }
+            else
             {
                 BtnStartProduction.Content = "Start production";
             }
@@ -201,6 +200,8 @@ namespace LandConquest.Forms
         private void buttonBuy_Click(object sender, RoutedEventArgs e)
         {
             ManufactureBuyingDialog manufactureBuying = new ManufactureBuyingDialog();
+            manufactureBuying.Owner = this;
+            manufactureBuying.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             manufactureBuying.Show();
         }
 
@@ -440,6 +441,6 @@ namespace LandConquest.Forms
                 sliderBuilding2.Maximum = sliderBuilding2.Value;
             }
             ProductionStatusButton();
-        }      
+        }
     }
 }
