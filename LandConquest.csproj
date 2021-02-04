@@ -554,6 +554,7 @@
     <Resource Include="Pictures\farm.png" />
     <Resource Include="Pictures\copper_quarry.png" />
     <Resource Include="Pictures\iron_quarry.png" />
+    <Resource Include="Pictures\armor_head.png" />
     <Content Include="Pictures\Buildings\arch.svg" />
     <Content Include="Pictures\Buildings\blacksmith.svg" />
     <Content Include="Pictures\Buildings\bridge_stone2.svg" />
@@ -603,6 +604,8 @@
     <Content Include="Pictures\Buildings\watch_tower.svg" />
     <Content Include="Pictures\Buildings\windmill.svg" />
     <Content Include="Pictures\Buildings\wishing_well.svg" />
+    <Resource Include="Pictures\icon_chain_breast.png" />
+    <Resource Include="Pictures\icon_leather_chest1.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -651,6 +654,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Pictures\Resources\" />
     <Folder Include="Resources\Pictures\Buildings\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

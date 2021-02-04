@@ -304,10 +304,12 @@ namespace LandConquestDB.Models
             manufactureUpgradeCommand.Dispose();
         }
 
-        public static void UpgradeLandManufactures(Manufacture manufacture, List<Manufacture> landManufacture)
+        public static void UpgradeLandManufactureLvl(Manufacture manufacture)
         {
             string manufactureQuery = "UPDATE dbo.LandManufactureData SET manufacture_peasant_max  = @manufacture_peasant_max, manufacture_lvl =@manufacture_lvl, manufacture_base_prod_value = @manufacture_base_prod_value, manufacture_products_hour  = @manufacture_products_hour WHERE manufacture_id = @manufacture_id ";
            
+            var build1Command = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
+
             if (manufacture.ManufactureLevel % 2 == 0)
             {
                 manufacture.ManufactureBaseProdValue -= 1;
@@ -317,7 +319,7 @@ namespace LandConquestDB.Models
                 manufacture.ManufacturePeasantMax -= 200;
             }
             //b1
-            var build1Command = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
+            
             
             build1Command.Parameters.AddWithValue("@manufacture_peasant_max", manufacture.ManufacturePeasantMax+200);
             build1Command.Parameters.AddWithValue("@manufacture_lvl", manufacture.ManufactureLevel + 1);
