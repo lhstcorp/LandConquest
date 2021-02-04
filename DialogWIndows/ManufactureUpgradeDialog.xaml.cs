@@ -95,6 +95,7 @@ namespace LandConquest.DialogWIndows
         {
             if (storage.PlayerWood >= resourcesNeed.PlayerWood && storage.PlayerStone >= resourcesNeed.PlayerStone && storage.PlayerIron >= resourcesNeed.PlayerIron && storage.PlayerGoldOre >= resourcesNeed.PlayerGoldOre && storage.PlayerCopper >= resourcesNeed.PlayerCopper)
             {
+
                 ManufactureModel.UpgradeManufacture(manufacture);
                 storage.PlayerWood -= resourcesNeed.PlayerWood;
                 storage.PlayerStone -= resourcesNeed.PlayerStone;
