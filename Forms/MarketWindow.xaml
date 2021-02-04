@@ -246,7 +246,7 @@
             </lvc:CartesianChart>
 
             <Image HorizontalAlignment="Left" Source="/Pictures/Food.png" Height="26" Margin="573,418,0,0" VerticalAlignment="Top" Width="25"/>
-            <Image HorizontalAlignment="Left" Source="/Pictures/Stones.png" Height="26" Margin="627,424,0,-6" VerticalAlignment="Top" Width="26"/>
+            <Image HorizontalAlignment="Left" Source="/Pictures/Stones.png" Height="26" Margin="629,418,0,-0.8" VerticalAlignment="Top" Width="26"/>
             <Image HorizontalAlignment="Left" Source="/Pictures/Wood.png" Height="26" Margin="600,418,0,0" VerticalAlignment="Top" Width="26"/>
             <Image HorizontalAlignment="Left" Source="/Pictures/Iron.png" Height="26" Margin="658,418,0,0" VerticalAlignment="Top" Width="24"/>
             <Image HorizontalAlignment="Left" Source="/Pictures/Gold_ore.png" Height="26" Margin="687,418,0,0" VerticalAlignment="Top" Width="25" />
