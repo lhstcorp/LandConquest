@@ -1,25 +1,11 @@
 ﻿using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 
 namespace LandConquest.DialogWIndows
 {
-    /// <summary>
-    /// Логика взаимодействия для CommonManufactureUpgrade.xaml
-    /// </summary>
     public partial class CommonManufactureUpgrade : Window
     {
         private enum Level : int
@@ -36,15 +22,14 @@ namespace LandConquest.DialogWIndows
         private PlayerStorage storage;
         private Manufacture manufacture;
         private PlayerStorage resourcesNeed;
-        private List<Manufacture> landManufactures;
         private StorageModel storageModel;
-        public CommonManufactureUpgrade(PlayerStorage _storage, Manufacture _manufacture, Player _player, List<Manufacture> _landmanufactures)
+        public CommonManufactureUpgrade(PlayerStorage _storage, Manufacture _manufacture, Player _player)
         {
             InitializeComponent();
             storage = _storage;
             player = _player;
             manufacture = _manufacture;
-            landManufactures = _landmanufactures;
+            
             Loaded += Window_Loaded;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -102,7 +87,8 @@ namespace LandConquest.DialogWIndows
             
             if (storage.PlayerWood >= resourcesNeed.PlayerWood && storage.PlayerStone >= resourcesNeed.PlayerStone && storage.PlayerIron >= resourcesNeed.PlayerIron && storage.PlayerGoldOre >= resourcesNeed.PlayerGoldOre && storage.PlayerCopper >= resourcesNeed.PlayerCopper)
             {
-                ManufactureModel.UpgradeLandManufactures(manufacture, landManufactures);
+
+                ManufactureModel.UpgradeLandManufactureLvl(manufacture);
                 storage.PlayerWood -= resourcesNeed.PlayerWood;
                 storage.PlayerStone -= resourcesNeed.PlayerStone;
                 storage.PlayerIron -= resourcesNeed.PlayerIron;

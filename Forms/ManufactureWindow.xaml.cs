@@ -446,13 +446,13 @@ namespace LandConquest.Forms
 
         private void buttonBuilding1Upgrade_Click(object sender, RoutedEventArgs e)
         {
-            CommonManufactureUpgrade dialogwindow = new CommonManufactureUpgrade(storage, landManufactures[0], player, landManufactures);
+            CommonManufactureUpgrade dialogwindow = new CommonManufactureUpgrade(storage, landManufactures[0], player);
             dialogwindow.Show();
         }
 
         private void buttonBuilding2Upgrade_Click(object sender, RoutedEventArgs e)
         {
-            CommonManufactureUpgrade dialogwindow = new CommonManufactureUpgrade(storage, landManufactures[1], player, landManufactures);
+            CommonManufactureUpgrade dialogwindow = new CommonManufactureUpgrade(storage, landManufactures[1], player);
             dialogwindow.Show();
         }
     }
