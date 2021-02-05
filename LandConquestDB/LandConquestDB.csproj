@@ -75,6 +75,7 @@
     <Compile Include="Entities\Battle.cs" />
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\CountryStorage.cs" />
     <Compile Include="Entities\DistanceBattle.cs" />
     <Compile Include="Entities\Land.cs" />
     <Compile Include="Entities\Law.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Models\BattleModel.cs" />
     <Compile Include="Models\ChatModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
+    <Compile Include="Models\CountryStorageModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />
     <Compile Include="Models\LandModel.cs" />
     <Compile Include="Models\ManufactureModel.cs" />
