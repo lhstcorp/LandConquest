@@ -24,7 +24,7 @@
             <Label x:Name="warriorsKnights" Content="0"  Margin="42,139,0,0" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
             <Image Margin="0,0,197,104" Source="/Pictures/Armies/SIE-0.png" HorizontalAlignment="Right" Width="25" Height="25" VerticalAlignment="Bottom"></Image>
             <Label x:Name="warriorsSiege" Content="0"  Margin="42,163,0,0" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
-
+            
             <Button x:Name="buttonExit"  HorizontalContentAlignment="Center" Width="30" Height="30"  VerticalContentAlignment="Center" Click="btnWarWindowClose_Click" Margin="210,-178,-7,441" BorderBrush="{x:Null}" Foreground="{x:Null}"  >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
@@ -113,6 +113,7 @@
         <Image Margin="0,81,164,0"  Source="/Pictures/sandClocks.png" HorizontalAlignment="Right" Width="38" Height="66" VerticalAlignment="Top"/>
         <Label x:Name="moveCounterLbl" Content="000" FontSize="20" Margin="0,82,102,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55" Height="34" Foreground="Ivory"/>
 
+        <Rectangle x:Name="thisMoveIndicator" Fill="DarkBlue" HorizontalAlignment="Left" Height="28" Margin="1436,129,0,0" Stroke="Black" VerticalAlignment="Top" Width="61"/>
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
