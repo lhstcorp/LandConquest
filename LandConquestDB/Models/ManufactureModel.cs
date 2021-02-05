@@ -371,6 +371,46 @@ namespace LandConquestDB.Models
             return manufacture;
         }
 
+        public static Manufacture GetLandManufactureById(Manufacture _manufacture)
+        {
+            Manufacture manufacture = new Manufacture();
+            string query = "SELECT * FROM dbo.LandManufactureData WHERE manufacture_id = @manufacture_id";
+
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
+            command.Parameters.AddWithValue("@manufacture_id", _manufacture.ManufactureId);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var landId = reader.GetOrdinal("land_id");
+                var manufactureName = reader.GetOrdinal("manufacture_name");
+                var manufactureType = reader.GetOrdinal("manufacture_type");
+                var manufactureLevel = reader.GetOrdinal("manufacture_lvl");
+                var manufacturePeasantsMax = reader.GetOrdinal("manufacture_peasant_max");
+                var manufacturePeasantsWork = reader.GetOrdinal("manufacture_peasant_work");
+                var manufactureProductsHour = reader.GetOrdinal("manufacture_products_hour");
+                var manufactureProdStartTime = reader.GetOrdinal("manufacture_prod_start_time");
+                var manufactureBaseProdValue = reader.GetOrdinal("manufacture_base_prod_value");
+
+
+                while (reader.Read())
+                {
+                    manufacture.PlayerId = Convert.ToString(reader.GetInt32(landId));
+                    manufacture.ManufactureName = reader.GetString(manufactureName);
+                    manufacture.ManufactureType = reader.GetInt32(manufactureType);
+                    manufacture.ManufactureLevel = reader.GetInt32(manufactureLevel);
+                    manufacture.ManufacturePeasantMax = reader.GetInt32(manufacturePeasantsMax);
+                    manufacture.ManufacturePeasantWork = reader.GetInt32(manufacturePeasantsWork);
+                    manufacture.ManufactureProductsHour = reader.GetInt32(manufactureProductsHour);
+                    manufacture.ManufactureProdStartTime = reader.GetDateTime(manufactureProdStartTime);
+                    manufacture.ManufactureBaseProdValue = reader.GetInt32(manufactureBaseProdValue);
+                }
+            }
+
+            manufacture.ManufactureId = _manufacture.ManufactureId;
+
+            return manufacture;
+        }
+
         public static void InsertOrUpdateLandManufactures(List<Manufacture> landManufactures, Player player)
         {
             string manufactureQuery = "IF EXISTS (SELECT * FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id AND manufacture_id = @manufacture_id) BEGIN UPDATE dbo.PlayerLandManufactureData SET manufacture_peasant_work = @manufacture_peasant_work, manufacture_products_hour = @manufacture_products_hour, manufacture_prod_start_time=@manufacture_prod_start_time WHERE manufacture_id=@manufacture_id AND player_id=@player_id END ELSE BEGIN INSERT INTO dbo.PlayerLandManufactureData (player_id,manufacture_id,manufacture_type,manufacture_peasant_work,manufacture_products_hour,manufacture_prod_start_time) VALUES (@player_id, @manufacture_id, @manufacture_type, @manufacture_peasant_work, @manufacture_products_hour, @manufacture_prod_start_time) END";

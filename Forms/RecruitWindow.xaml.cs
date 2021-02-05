@@ -92,13 +92,13 @@ namespace LandConquest.Forms
 
         private void HireInfantry_Click(object sender, RoutedEventArgs e)
         {
-            if ((player.PlayerMoney >= Convert.ToInt32(InfantryAmount.Text) * 5) && (equipment.PlayerSword >= Convert.ToInt32(InfantryAmount.Text) && (equipment.PlayerArmor >= Convert.ToInt32(InfantryAmount.Text))))
+            if ((player.PlayerMoney >= Convert.ToInt32(InfantryAmount.Text) * 5) && (equipment.PlayerSpear >= Convert.ToInt32(InfantryAmount.Text) && (equipment.PlayerArmor >= Convert.ToInt32(InfantryAmount.Text))))
             {
                 army.ArmyInfantryCount += Convert.ToInt32(InfantryAmount.Text);
                 army.ArmySizeCurrent += Convert.ToInt32(InfantryAmount.Text);
                 player.PlayerMoney -= Convert.ToInt32(InfantryAmount.Text) * 5;
                 player = PlayerModel.UpdatePlayerMoney(player);
-                equipment.PlayerSword -= Convert.ToInt32(InfantryAmount.Text);
+                equipment.PlayerSpear -= Convert.ToInt32(InfantryAmount.Text);
                 equipment.PlayerArmor -= Convert.ToInt32(InfantryAmount.Text);
                 EquipmentModel.UpdateEquipment(player, equipment);
                 TotalRecruitInfantry.Content = army.ArmyInfantryCount.ToString();
@@ -118,13 +118,13 @@ namespace LandConquest.Forms
 
         private void HireKnights_Click(object sender, RoutedEventArgs e)
         {
-            if ((player.PlayerMoney >= Convert.ToInt32(KnightsAmount.Text) * 25) && (equipment.PlayerSpear >= Convert.ToInt32(KnightsAmount.Text) && (equipment.PlayerArmor >= Convert.ToInt32(KnightsAmount.Text)) && (equipment.PlayerHarness >= Convert.ToInt32(KnightsAmount.Text))))
+            if ((player.PlayerMoney >= Convert.ToInt32(KnightsAmount.Text) * 25) && (equipment.PlayerSword >= Convert.ToInt32(KnightsAmount.Text) && (equipment.PlayerArmor >= Convert.ToInt32(KnightsAmount.Text)) && (equipment.PlayerHarness >= Convert.ToInt32(KnightsAmount.Text))))
             {
                 army.ArmyHorsemanCount += Convert.ToInt32(KnightsAmount.Text);
                 army.ArmySizeCurrent += Convert.ToInt32(KnightsAmount.Text);
                 player.PlayerMoney -= Convert.ToInt32(KnightsAmount.Text) * 25;
                 player = PlayerModel.UpdatePlayerMoney(player);
-                equipment.PlayerSpear -= Convert.ToInt32(KnightsAmount.Text);
+                equipment.PlayerSword -= Convert.ToInt32(KnightsAmount.Text);
                 equipment.PlayerArmor -= Convert.ToInt32(KnightsAmount.Text);
                 equipment.PlayerHarness -= Convert.ToInt32(KnightsAmount.Text);
                 EquipmentModel.UpdateEquipment(player, equipment);
