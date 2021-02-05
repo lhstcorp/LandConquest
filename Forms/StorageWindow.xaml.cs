@@ -22,10 +22,10 @@ namespace LandConquest.Forms
 
         private void StorageWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            storage = new PlayerStorage();
+            
             equipment = new PlayerEquipment();
 
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
             equipment = EquipmentModel.GetPlayerEquipment(player, equipment);
 
             labelWoodAmount.Content = storage.PlayerWood.ToString();
@@ -39,10 +39,10 @@ namespace LandConquest.Forms
 
             labelHarnessAmount.Content = equipment.PlayerHarness.ToString();
             labelGearAmount.Content = equipment.PlayerGear.ToString();
-            labelSpearAmount.Content = equipment.PlayerSpear.ToString();
+            labelSpearAmount.Content = equipment.PlayerSword.ToString();
             labelBowAmount.Content = equipment.PlayerBow.ToString();
             labelArmorAmount.Content = equipment.PlayerArmor.ToString();
-            labelSwordAmount.Content = equipment.PlayerSword.ToString();
+            labelSwordAmount.Content = equipment.PlayerSpear.ToString();
 
 
         }
@@ -59,7 +59,7 @@ namespace LandConquest.Forms
                 storage.PlayerCopper -= (Convert.ToInt32(labelSwordAmount1.Content) * (Convert.ToInt32(SwordsToCraft.Text)));
                 storage.PlayerIron -= (Convert.ToInt32(labelSwordAmount2.Content) * (Convert.ToInt32(SwordsToCraft.Text)));
 
-                equipment.PlayerSword += Convert.ToInt32(SwordsToCraft.Text);
+                equipment.PlayerSpear += Convert.ToInt32(SwordsToCraft.Text);
                 StorageModel.UpdateStorage(player, storage);
                 EquipmentModel.UpdateEquipment(player, equipment);
 
@@ -122,7 +122,7 @@ namespace LandConquest.Forms
                 storage.PlayerWood -= (Convert.ToInt32(labelSpearAmount1.Content) * (Convert.ToInt32(SpearToCraft.Text)));
                 storage.PlayerIron -= (Convert.ToInt32(labelSpearAmount2.Content) * (Convert.ToInt32(SpearToCraft.Text)));
 
-                equipment.PlayerSpear += Convert.ToInt32(SpearToCraft.Text);
+                equipment.PlayerSword += Convert.ToInt32(SpearToCraft.Text);
                 StorageModel.UpdateStorage(player, storage);
                 EquipmentModel.UpdateEquipment(player, equipment);
 

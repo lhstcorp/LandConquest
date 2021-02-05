@@ -27,7 +27,7 @@ namespace LandConquest.Forms
             storage = new PlayerStorage();
             market = new Market();
 
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
             market = MarketModel.GetMarketInfo(player, market);
 
             labelWoodMarket.Content = market.MarketWood.ToString();

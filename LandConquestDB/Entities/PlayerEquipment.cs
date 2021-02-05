@@ -13,13 +13,13 @@
         public int PlayerArmor { get; set; }
 
         [Column("sword")]
-        public int PlayerSword { get; set; }
+        public int PlayerSpear { get; set; }
 
         [Column("harness")]
         public int PlayerHarness { get; set; }
 
         [Column("spear")]
-        public int PlayerSpear { get; set; }
+        public int PlayerSword { get; set; }
 
         [Column("bow")]
         public int PlayerBow { get; set; }

@@ -82,7 +82,7 @@ namespace LandConquest.Forms
             taxes.PlayerId = player.PlayerId;
 
             /////////////////////////////////////////////////////////
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
 
             peasants = PeasantModel.GetPeasantsInfo(player, peasants);
             sliderTaxes.IsSnapToTickEnabled = true;
@@ -198,7 +198,7 @@ namespace LandConquest.Forms
 
         private void recruitImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
             equipment = EquipmentModel.GetPlayerEquipment(player, equipment);
 
             CloseUnusedWindows();
@@ -231,7 +231,7 @@ namespace LandConquest.Forms
 
         private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
             market = MarketModel.GetMarketInfo(player, market);
 
             CloseUnusedWindows();
@@ -332,7 +332,7 @@ namespace LandConquest.Forms
 
         private void ImageStorage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
             List<Manufacture> manufactures = ManufactureModel.GetManufactureInfo(player);
             List<Manufacture> playerLandManufactures = ManufactureModel.GetPlayerLandManufactureInfo(player);
             //base manufactures 
