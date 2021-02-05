@@ -49,7 +49,7 @@ namespace LandConquest.Logic
 
                     armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
 
-                    window = new WarWindow(player, armyInBattle, armiesInBattle, war);
+                    window = new WarWindow(player, 1, armyInBattle, armiesInBattle, war);
                     window.Show();
                 }
                 else if (player.PlayerCurrentRegion == war.LandDefenderId)
@@ -68,7 +68,7 @@ namespace LandConquest.Logic
                     armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
 
 
-                    window = new WarWindow(player, armyInBattle, armiesInBattle, war);
+                    window = new WarWindow(player, 0, armyInBattle, armiesInBattle, war);
                     window.Show();
                 }
                 else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
@@ -86,7 +86,7 @@ namespace LandConquest.Logic
 
                     armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
 
-                    WarWindow window = new WarWindow(player, armyInBattle, armiesInBattle, war);
+                    WarWindow window = new WarWindow(player, armyInBattle.ArmySide, armyInBattle, armiesInBattle, war);
                     window.Show();
                 }
                 else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
@@ -108,6 +108,7 @@ namespace LandConquest.Logic
             freePlayerArmy.ArmyInfantryCount = army.ArmyInfantryCount;
             freePlayerArmy.ArmySiegegunCount = army.ArmySiegegunCount;
             freePlayerArmy.ArmyHorsemanCount = army.ArmyHorsemanCount;
+            freePlayerArmy.ArmySide = armies[0].ArmySide;
 
             for (int i = 0; i < armies.Count; i++)
             {
