@@ -13,7 +13,7 @@
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
-            <Image HorizontalAlignment="Left" Height="100" Margin="23,39,0,0" VerticalAlignment="Top" Width="100" Source="/LandConquest;component/Pictures/peasants_total.png" />
+            <Image HorizontalAlignment="Left" Height="100" Margin="23,39,0,0" VerticalAlignment="Top" Width="100" Source="/LandConquest;component/Pictures/Armies/INF-1.png" />
             <Label Content="Peasants     1C" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="23,10,0,0" VerticalAlignment="Top" Height="24" Width="91"/>
             <Label Content="Total" FontSize="10"  FontWeight="SemiBold" HorizontalAlignment="Left" Foreground="#311818" Margin="23,144,0,0" VerticalAlignment="Top"/>
             <Label Content="Available" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Left" Foreground="#311818" Margin="75,144,0,0" VerticalAlignment="Top"/>
@@ -30,10 +30,10 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Image HorizontalAlignment="Left" Height="134" Margin="146,9,0,0" VerticalAlignment="Top" Width="129" Source="/LandConquest;component/Pictures/archer.png" />
+            <Image HorizontalAlignment="Left" Height="100" Margin="147,39,0,0" VerticalAlignment="Top" Width="99" Source="/LandConquest;component/Pictures/Armies/AR-1.png" />
             <Label Content="Archers     1C" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="147,9,0,0" VerticalAlignment="Top"/>
             <Label Content="Total" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="147,143,0,0" VerticalAlignment="Top"/>
-            <Label Content="Available" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="199,143,0,0" VerticalAlignment="Top"/>
+            <Label Content="Available" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="199,143,0,0" VerticalAlignment="Top" Width="51"/>
             <Label x:Name="TotalRecruitArchers" FontSize="10" Content="0" Foreground="#311818" HorizontalAlignment="Left" Margin="147,163,0,0" VerticalAlignment="Top" Height="25" Width="47"/>
             <Label x:Name="AvailableRecruitArchers" Content="0" FontSize="10" Foreground="#311818" HorizontalAlignment="Left" Margin="199,163,0,0" VerticalAlignment="Top" Width="47" Height="25"/>
             <TextBox x:Name="ArchersAmount" HorizontalAlignment="Left"  VerticalContentAlignment="Center" Height="25" Margin="147,188,0,0" Text="0" VerticalAlignment="Top" Width="100" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="PeasantsAmount_PreviewTextInput"/>
@@ -42,7 +42,7 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
-            <Image HorizontalAlignment="Left" Height="100" Margin="283,38,0,0" VerticalAlignment="Top" Width="65" Source="/LandConquest;component/Pictures/warrior.png" RenderTransformOrigin="0.631,0.522" />
+            <Image HorizontalAlignment="Left" Height="100" Margin="271,40,0,0" VerticalAlignment="Top" Width="94" Source="/LandConquest;component/Pictures/Armies/TRO-1.png" RenderTransformOrigin="0.631,0.522" />
             <Label Content="Infantry     1C" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="269,9,0,0" VerticalAlignment="Top"/>
             <Label Content="Total" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="269,143,0,0" VerticalAlignment="Top"/>
             <Label Content="Available" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="321,143,0,0" VerticalAlignment="Top"/>
@@ -54,7 +54,7 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
-            <Image HorizontalAlignment="Left" Height="120" Margin="374,38,0,0" VerticalAlignment="Top" Width="115" Source="/LandConquest;component/Pictures/hourseman.png" />
+            <Image HorizontalAlignment="Left" Height="99" Margin="392,40,0,0" VerticalAlignment="Top" Width="100" Source="/LandConquest;component/Pictures/Armies/KNT-1.png" />
             <Label Content="Knights     1C" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="392,9,0,0" VerticalAlignment="Top"/>
             <Label Content="Total" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="392,143,0,0" VerticalAlignment="Top"/>
             <Label Content="Available" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="444,143,0,0" VerticalAlignment="Top"/>
@@ -66,7 +66,7 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
-            <Image HorizontalAlignment="Left" Height="100" Margin="518,38,0,0" VerticalAlignment="Top" Width="100" Source="/LandConquest;component/Pictures/catapult.png" />
+            <Image HorizontalAlignment="Left" Height="100" Margin="518,38,0,0" VerticalAlignment="Top" Width="100" Source="/LandConquest;component/Pictures/Armies/SIE-1.png" />
             <Label Content="Siege machines" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="518,9,0,0" VerticalAlignment="Top"/>
             <Label Content="Total" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="518,143,0,0" VerticalAlignment="Top"/>
             <Label Content="Available" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="570,143,0,0" VerticalAlignment="Top"/>
