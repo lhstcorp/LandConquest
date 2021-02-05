@@ -48,7 +48,7 @@ namespace LandConquestDB
             File.AppendAllText(path, text);
             var result = disk.UploadResource("SubBugs/" + destFileName, path, true);
             if (result.Error != null)
-            { 
+            {
                 File.Delete(path);
                 return false;
             }

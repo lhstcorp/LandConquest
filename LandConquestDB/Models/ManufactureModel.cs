@@ -304,6 +304,33 @@ namespace LandConquestDB.Models
             manufactureUpgradeCommand.Dispose();
         }
 
+        public static void UpgradeLandManufactureLvl(Manufacture manufacture)
+        {
+            string manufactureQuery = "UPDATE dbo.LandManufactureData SET manufacture_peasant_max  = @manufacture_peasant_max, manufacture_lvl =@manufacture_lvl, manufacture_base_prod_value = @manufacture_base_prod_value, manufacture_products_hour  = @manufacture_products_hour WHERE manufacture_id = @manufacture_id ";
+           
+            var build1Command = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
+
+            if (manufacture.ManufactureLevel % 2 == 0)
+            {
+                manufacture.ManufactureBaseProdValue -= 1;
+            }
+            else
+            {
+                manufacture.ManufacturePeasantMax -= 200;
+            }
+            //b1
+            
+            
+            build1Command.Parameters.AddWithValue("@manufacture_peasant_max", manufacture.ManufacturePeasantMax+200);
+            build1Command.Parameters.AddWithValue("@manufacture_lvl", manufacture.ManufactureLevel + 1);
+            build1Command.Parameters.AddWithValue("@manufacture_base_prod_value", manufacture.ManufactureBaseProdValue + 1);
+            build1Command.Parameters.AddWithValue("@manufacture_products_hour", (manufacture.ManufactureBaseProdValue + 1) * manufacture.ManufacturePeasantWork);            
+            build1Command.Parameters.AddWithValue("@manufacture_id", manufacture.ManufactureId);
+
+            build1Command.ExecuteNonQuery();
+            build1Command.Dispose();            
+        }
+
         public static Manufacture GetManufactureById(Manufacture _manufacture)
         {
             Manufacture manufacture = new Manufacture();
@@ -328,6 +355,46 @@ namespace LandConquestDB.Models
                 while (reader.Read())
                 {
                     manufacture.PlayerId = reader.GetString(playerId);
+                    manufacture.ManufactureName = reader.GetString(manufactureName);
+                    manufacture.ManufactureType = reader.GetInt32(manufactureType);
+                    manufacture.ManufactureLevel = reader.GetInt32(manufactureLevel);
+                    manufacture.ManufacturePeasantMax = reader.GetInt32(manufacturePeasantsMax);
+                    manufacture.ManufacturePeasantWork = reader.GetInt32(manufacturePeasantsWork);
+                    manufacture.ManufactureProductsHour = reader.GetInt32(manufactureProductsHour);
+                    manufacture.ManufactureProdStartTime = reader.GetDateTime(manufactureProdStartTime);
+                    manufacture.ManufactureBaseProdValue = reader.GetInt32(manufactureBaseProdValue);
+                }
+            }
+
+            manufacture.ManufactureId = _manufacture.ManufactureId;
+
+            return manufacture;
+        }
+
+        public static Manufacture GetLandManufactureById(Manufacture _manufacture)
+        {
+            Manufacture manufacture = new Manufacture();
+            string query = "SELECT * FROM dbo.LandManufactureData WHERE manufacture_id = @manufacture_id";
+
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
+            command.Parameters.AddWithValue("@manufacture_id", _manufacture.ManufactureId);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var landId = reader.GetOrdinal("land_id");
+                var manufactureName = reader.GetOrdinal("manufacture_name");
+                var manufactureType = reader.GetOrdinal("manufacture_type");
+                var manufactureLevel = reader.GetOrdinal("manufacture_lvl");
+                var manufacturePeasantsMax = reader.GetOrdinal("manufacture_peasant_max");
+                var manufacturePeasantsWork = reader.GetOrdinal("manufacture_peasant_work");
+                var manufactureProductsHour = reader.GetOrdinal("manufacture_products_hour");
+                var manufactureProdStartTime = reader.GetOrdinal("manufacture_prod_start_time");
+                var manufactureBaseProdValue = reader.GetOrdinal("manufacture_base_prod_value");
+
+
+                while (reader.Read())
+                {
+                    manufacture.PlayerId = Convert.ToString(reader.GetInt32(landId));
                     manufacture.ManufactureName = reader.GetString(manufactureName);
                     manufacture.ManufactureType = reader.GetInt32(manufactureType);
                     manufacture.ManufactureLevel = reader.GetInt32(manufactureLevel);
@@ -389,6 +456,7 @@ namespace LandConquestDB.Models
             build1Command.Parameters.AddWithValue("@manufacture_id", landManufactures[0].ManufactureId);
             build1Command.Parameters.AddWithValue("@manufacture_peasant_work", landManufactures[0].ManufacturePeasantWork);
             build1Command.Parameters.AddWithValue("@manufacture_products_hour", landManufactures[0].ManufactureProductsHour);
+            
 
             build1Command.ExecuteNonQuery();
 
@@ -398,6 +466,7 @@ namespace LandConquestDB.Models
             build2Command.Parameters.AddWithValue("@manufacture_id", landManufactures[1].ManufactureId);
             build2Command.Parameters.AddWithValue("@manufacture_peasant_work", landManufactures[1].ManufacturePeasantWork);
             build2Command.Parameters.AddWithValue("@manufacture_products_hour", landManufactures[1].ManufactureProductsHour);
+            
 
             build2Command.ExecuteNonQuery();
 

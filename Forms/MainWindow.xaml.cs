@@ -24,8 +24,10 @@ namespace LandConquest.Forms
         private Market market;
         private PlayerStorage storage;
         private PlayerEquipment equipment;
+        private Manufacture manufacture;
         private Taxes taxes;
         private Peasants peasants;
+        private List<Manufacture> landmanufactures;
         private List<Land> lands;
         private List<Path> paths;
         private List<Country> countries;
@@ -47,9 +49,11 @@ namespace LandConquest.Forms
             equipment = new PlayerEquipment();
             player = new Player();
             storage = new PlayerStorage();
+            manufacture = new Manufacture();
             peasants = new Peasants();
             country = new Country();
             market = new Market();
+            landmanufactures = new List<Manufacture>();
             army = new Army();
             flagXY = new int[4];
             openedWindow = this;
@@ -78,7 +82,7 @@ namespace LandConquest.Forms
             taxes.PlayerId = player.PlayerId;
 
             /////////////////////////////////////////////////////////
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
 
             peasants = PeasantModel.GetPeasantsInfo(player, peasants);
             sliderTaxes.IsSnapToTickEnabled = true;
@@ -144,7 +148,11 @@ namespace LandConquest.Forms
 
 
             settingsGrid.Visibility = Visibility.Hidden;
+            settingsGridBorder.Visibility = Visibility.Hidden;
             btnShowLandGrid.Visibility = Visibility.Hidden;
+            btnShowLeaderGrid.Visibility = Visibility.Hidden;
+
+            GetWorldLeader();
 
         }
 
@@ -153,7 +161,7 @@ namespace LandConquest.Forms
         private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new ManufactureWindow(this, player, storage);
+            openedWindow = new ManufactureWindow(player, manufacture, storage);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
@@ -180,7 +188,7 @@ namespace LandConquest.Forms
         private void OpenStorage(Player player, User user)
         {
             CloseUnusedWindows();
-            openedWindow = new StorageWindow(this, player, user);
+            openedWindow = new StorageWindow(player);
             PlayerModel.UpdatePlayerExpAndLvl(player);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
@@ -190,7 +198,7 @@ namespace LandConquest.Forms
 
         private void recruitImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
             equipment = EquipmentModel.GetPlayerEquipment(player, equipment);
 
             CloseUnusedWindows();
@@ -223,11 +231,11 @@ namespace LandConquest.Forms
 
         private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
             market = MarketModel.GetMarketInfo(player, market);
 
             CloseUnusedWindows();
-            openedWindow = new MarketWindow(this, storage, market, player);
+            openedWindow = new MarketWindow(storage, market, player);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
@@ -277,7 +285,7 @@ namespace LandConquest.Forms
         private void buttonProfile_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new ProfileWindow(this, player, user);
+            openedWindow = new ProfileWindow(player, user);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
@@ -324,7 +332,7 @@ namespace LandConquest.Forms
 
         private void ImageStorage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
             List<Manufacture> manufactures = ManufactureModel.GetManufactureInfo(player);
             List<Manufacture> playerLandManufactures = ManufactureModel.GetPlayerLandManufactureInfo(player);
             //base manufactures 
@@ -712,15 +720,64 @@ namespace LandConquest.Forms
             btnShowLandGrid.Visibility = Visibility.Hidden;
         }
 
+        private void btnHideLeaderGrid_Click(object sender, RoutedEventArgs e)
+        {
+            worldLeader.Visibility = Visibility.Hidden;
+            worldLeaderBorder.Visibility = Visibility.Hidden;
+            btnShowLeaderGrid.Visibility = Visibility.Visible;
+        }
+
+        private void btnShowLeaderGrid_Click(object sender, RoutedEventArgs e)
+        {
+            worldLeader.Visibility = Visibility.Visible;
+            worldLeaderBorder.Visibility = Visibility.Visible;
+            btnShowLeaderGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void GetWorldLeader()
+        {
+            if (lands.Count > 0)
+            {
+                int check_count = 0;
+                var counts = new Dictionary<int, int>();
+                foreach (var land in lands)
+                {
+                    int count;
+                    if (land.CountryId != 0)
+                    {
+                        counts.TryGetValue(land.CountryId, out count);
+                        count++;
+                        check_count++;
+                        counts[land.CountryId] = count;
+                    }
+                }
+                int mostCommonNumber = 0, occurrences = 0;
+                foreach (var pair in counts)
+                {
+                    if (pair.Value > occurrences)
+                    {
+                        occurrences = pair.Value;
+                        mostCommonNumber = pair.Key;
+                    }
+                }
+                if (check_count != 0)
+                {
+                    lblWorldLeader.Content = PlayerModel.GetPlayerNameById(CountryModel.GetCountryRuler(mostCommonNumber));
+                }
+            }
+        }
+
         private void buttonSettings_Click(object sender, RoutedEventArgs e)
         {
             if (settingsGrid.Visibility == Visibility.Hidden)
             {
                 settingsGrid.Visibility = Visibility.Visible;
+                settingsGridBorder.Visibility = Visibility.Visible;
             }
             else
             {
                 settingsGrid.Visibility = Visibility.Hidden;
+                settingsGridBorder.Visibility = Visibility.Hidden;
             }
         }
         private void test2_Click(object sender, RoutedEventArgs e)

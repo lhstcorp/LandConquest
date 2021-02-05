@@ -11,15 +11,13 @@ namespace LandConquest.Forms
 {
     public partial class MarketWindow : Window
     {
-        private MainWindow window;
         private Player player;
         private PlayerStorage storage;
         private Market market;
 
-        public MarketWindow(MainWindow _window, PlayerStorage _storage, Market _market, Player _player)
+        public MarketWindow(PlayerStorage _storage, Market _market, Player _player)
         {
             InitializeComponent();
-            window = _window;
             player = _player;
             Loaded += MarketWindow_Loaded;
         }
@@ -29,7 +27,7 @@ namespace LandConquest.Forms
             storage = new PlayerStorage();
             market = new Market();
 
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
             market = MarketModel.GetMarketInfo(player, market);
 
             labelWoodMarket.Content = market.MarketWood.ToString();

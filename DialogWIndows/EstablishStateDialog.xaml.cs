@@ -32,5 +32,10 @@ namespace LandConquest.DialogWIndows
             landModel = new LandModel();
             countryModel = new CountryModel();
         }
+
+        private void buttonClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

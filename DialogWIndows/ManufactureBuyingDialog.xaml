@@ -12,8 +12,8 @@
             <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Image HorizontalAlignment="Left" Height="141" Margin="308,27,0,0" VerticalAlignment="Top" Width="149" Source="/Pictures/sawmill.png"/>
-        <Image HorizontalAlignment="Left" Height="140" Margin="20,12,0,0" VerticalAlignment="Top" Width="149" Source="/Pictures/quarry.png"/>
-        <Image HorizontalAlignment="Left" Height="140" Margin="613,12,0,0" VerticalAlignment="Top" Width="149" Source="/Pictures/windmill.png"/>
+        <Image HorizontalAlignment="Left" Height="140" Margin="20,12,0,0" VerticalAlignment="Top" Width="149" />
+        <Image HorizontalAlignment="Left" Height="140" Margin="613,12,0,0" VerticalAlignment="Top" Width="149" />
         <Image HorizontalAlignment="Left" Height="37" Margin="52,157,0,0" VerticalAlignment="Top" Width="39" Source="/Pictures/wood.png" RenderTransformOrigin="0.73,0.56"/>
         <Image HorizontalAlignment="Left" Height="37" Margin="128,157,0,0" VerticalAlignment="Top" Width="41" Source="/Pictures/stones.png"/>
         <Label Content="100" HorizontalAlignment="Left" Margin="20,157,0,0" VerticalAlignment="Top" Foreground="SaddleBrown"/>

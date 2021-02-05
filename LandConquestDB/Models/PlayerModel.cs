@@ -174,6 +174,27 @@ namespace LandConquestDB.Models
             return player;
         }
 
+        public static string GetPlayerNameById(string id)
+        {
+            string playerName = "";
+            string query = "SELECT player_name FROM dbo.PlayerData WHERE player_id = @player_id ";
+
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
+            command.Parameters.AddWithValue("@player_id", id);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var _playerName = reader.GetOrdinal("player_name");
+
+                while (reader.Read())
+                {
+                    playerName = reader.GetString(_playerName);
+                }
+            }
+            command.Dispose();
+            return playerName;
+        }
+
 
         public static Player UpdatePlayerMoney(Player player)
         {

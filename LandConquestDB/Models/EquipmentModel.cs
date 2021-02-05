@@ -26,9 +26,9 @@ namespace LandConquestDB.Models
                 {
                     equipment.PlayerId = reader.GetString(playerId);
                     equipment.PlayerArmor = reader.GetInt32(playerWood);
-                    equipment.PlayerSword = reader.GetInt32(playerStone);
+                    equipment.PlayerSpear = reader.GetInt32(playerStone);
                     equipment.PlayerHarness = reader.GetInt32(playerFood);
-                    equipment.PlayerSpear = reader.GetInt32(playerIron);
+                    equipment.PlayerSword = reader.GetInt32(playerIron);
                     equipment.PlayerBow = reader.GetInt32(playerGoldOre);
                     equipment.PlayerGear = reader.GetInt32(playerCopper);
 
@@ -44,9 +44,9 @@ namespace LandConquestDB.Models
             var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             // int datetimeResult;
             storageCommand.Parameters.AddWithValue("@armor", _equipment.PlayerArmor);
-            storageCommand.Parameters.AddWithValue("@sword", _equipment.PlayerSword);
+            storageCommand.Parameters.AddWithValue("@sword", _equipment.PlayerSpear);
             storageCommand.Parameters.AddWithValue("@harness", _equipment.PlayerHarness);
-            storageCommand.Parameters.AddWithValue("@spear", _equipment.PlayerSpear);
+            storageCommand.Parameters.AddWithValue("@spear", _equipment.PlayerSword);
             storageCommand.Parameters.AddWithValue("@bow", _equipment.PlayerBow);
             storageCommand.Parameters.AddWithValue("@gear", _equipment.PlayerGear);
             storageCommand.Parameters.AddWithValue("@player_id", player.PlayerId);

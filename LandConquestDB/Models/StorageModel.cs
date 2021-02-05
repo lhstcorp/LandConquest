@@ -5,8 +5,9 @@ namespace LandConquestDB.Models
 {
     public class StorageModel
     {
-        public static PlayerStorage GetPlayerStorage(Player player, PlayerStorage storage)
+        public static PlayerStorage GetPlayerStorage(Player player)
         {
+            PlayerStorage storage = new PlayerStorage();
             string storageQuery = "SELECT * FROM dbo.StorageData WHERE player_id = @player_id";
 
             var command = new SqlCommand(storageQuery, DbContext.GetSqlConnection());

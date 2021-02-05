@@ -7,9 +7,7 @@ Renamed Types:
 	[LandConquest]LandConquest.Properties.Resources::set_Culture[1]( [mscorlib]System.Globalization.CultureInfo ) ->  
 	[LandConquest]LandConquest.Properties.Resources::get_HARNGTON[0]( ) ->  
 	[LandConquest]LandConquest.Properties.Resources::get_MainTheme[0]( ) ->  
-	[LandConquest]LandConquest.Properties.Resources::get_MainTheme2[0]( ) ->  
-	[LandConquest]LandConquest.Properties.Resources::get_MainTheme3[0]( ) ->  
-	[LandConquest]LandConquest.Properties.Resources::get_UserAgreement[0]( ) ->  
+	[LandConquest]LandConquest.Properties.Resources::get_UserAgreement[0]( ) ->  
 
 	[LandConquest]LandConquest.Properties.Resources::.ctor[0]( ) skipped:  special name
 
@@ -20,8 +18,6 @@ Renamed Types:
 	System.Globalization.CultureInfo [LandConquest]System.Globalization.CultureInfo LandConquest.Properties.Resources::Culture ->  
 	System.Byte[] [LandConquest]System.Byte[] LandConquest.Properties.Resources::HARNGTON -> dropped
 	System.IO.UnmanagedMemoryStream [LandConquest]System.IO.UnmanagedMemoryStream LandConquest.Properties.Resources::MainTheme -> dropped
-	System.IO.UnmanagedMemoryStream [LandConquest]System.IO.UnmanagedMemoryStream LandConquest.Properties.Resources::MainTheme2 -> dropped
-	System.IO.UnmanagedMemoryStream [LandConquest]System.IO.UnmanagedMemoryStream LandConquest.Properties.Resources::MainTheme3 -> dropped
 	System.String [LandConquest]System.String LandConquest.Properties.Resources::UserAgreement -> dropped
 }
 
@@ -92,6 +88,17 @@ Renamed Types:
 	System.Func`2<System.Double,System.String> [LandConquest]System.Func`2<System.Double,System.String> LandConquest.Forms.MarketWindow/<>c::<>9__5_0 ->  
 }
 
+[LandConquest]LandConquest.Forms.CastleManagementWindow/Level -> [LandConquest]LandConquest.Forms.CastleManagementWindow/ 
+{
+	LandConquest.Forms.CastleManagementWindow/Level [LandConquest]LandConquest.Forms.CastleManagementWindow/Level LandConquest.Forms.CastleManagementWindow/Level::Wood ->  
+	LandConquest.Forms.CastleManagementWindow/Level [LandConquest]LandConquest.Forms.CastleManagementWindow/Level LandConquest.Forms.CastleManagementWindow/Level::Stone ->  
+	LandConquest.Forms.CastleManagementWindow/Level [LandConquest]LandConquest.Forms.CastleManagementWindow/Level LandConquest.Forms.CastleManagementWindow/Level::Iron ->  
+	LandConquest.Forms.CastleManagementWindow/Level [LandConquest]LandConquest.Forms.CastleManagementWindow/Level LandConquest.Forms.CastleManagementWindow/Level::Copper ->  
+	LandConquest.Forms.CastleManagementWindow/Level [LandConquest]LandConquest.Forms.CastleManagementWindow/Level LandConquest.Forms.CastleManagementWindow/Level::Money ->  
+
+	System.Int32 [LandConquest]System.Int32 LandConquest.Forms.CastleManagementWindow/Level::value__ skipped:  special name
+}
+
 [LandConquest]LandConquest.Forms.WarWindow/<>c__DisplayClass58_0 -> [LandConquest]LandConquest.Forms.WarWindow/ 
 {
 	[LandConquest]LandConquest.Forms.WarWindow/<>c__DisplayClass58_0::<generateId>b__0[1]( [mscorlib]System.String ) ->  
@@ -108,6 +115,17 @@ Renamed Types:
 	[LandConquest]LandConquest.DialogWIndows.SplitArmyDialog/<>c__DisplayClass16_0::.ctor[0]( ) skipped:  special name
 
 	System.Random [LandConquest]System.Random LandConquest.DialogWIndows.SplitArmyDialog/<>c__DisplayClass16_0::random ->  
+}
+
+[LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level -> [LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/ 
+{
+	LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level [LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level::Wood ->  
+	LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level [LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level::Stone ->  
+	LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level [LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level::Iron ->  
+	LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level [LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level::Copper ->  
+	LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level [LandConquest]LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level::Money ->  
+
+	System.Int32 [LandConquest]System.Int32 LandConquest.DialogWIndows.ManufactureUpgradeDialog/Level::value__ skipped:  special name
 }
 
 [LandConquest]<PrivateImplementationDetails> -> [LandConquest] . 
@@ -162,25 +180,6 @@ Skipped Types:
 	System.Windows.Controls.Image [LandConquest]System.Windows.Controls.Image LandConquest.AuthorisationWindow::iconDownload ->  
 	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.AuthorisationWindow::labelAgreement ->  
 	System.Boolean [LandConquest]System.Boolean LandConquest.AuthorisationWindow::_contentLoaded ->  
-}
-
-[LandConquest]LandConquest.Properties.Settings skipped:  KeepPublicApi option in configuration
-{
-
-	[LandConquest]LandConquest.Properties.Settings::get_Default[0]( ) skipped:  skip by property
-	[LandConquest]LandConquest.Properties.Settings::get_UserLogin[0]( ) skipped:  skip by property
-	[LandConquest]LandConquest.Properties.Settings::set_UserLogin[1]( [mscorlib]System.String ) skipped:  skip by property
-	[LandConquest]LandConquest.Properties.Settings::get_UserPassword[0]( ) skipped:  skip by property
-	[LandConquest]LandConquest.Properties.Settings::set_UserPassword[1]( [mscorlib]System.String ) skipped:  skip by property
-	[LandConquest]LandConquest.Properties.Settings::.ctor[0]( ) skipped:  special name
-	[LandConquest]LandConquest.Properties.Settings::.cctor[0]( ) skipped:  special name
-
-	LandConquest.Properties.Settings [LandConquest]LandConquest.Properties.Settings LandConquest.Properties.Settings::defaultInstance ->  
-
-
-	LandConquest.Properties.Settings [LandConquest]LandConquest.Properties.Settings LandConquest.Properties.Settings::Default skipped:  KeepPublicApi option in configuration
-	System.String [LandConquest]System.String LandConquest.Properties.Settings::UserLogin skipped:  KeepPublicApi option in configuration
-	System.String [LandConquest]System.String LandConquest.Properties.Settings::UserPassword skipped:  KeepPublicApi option in configuration
 }
 
 [LandConquest]LandConquest.Resources.GlobalMap skipped:  KeepPublicApi option in configuration
@@ -243,6 +242,25 @@ Skipped Types:
 	System.Windows.Media.Color [LandConquest]System.Windows.Media.Color LandConquest.Resources.StylesDictionary::colorOfResource1 ->  
 	System.Windows.Media.Color [LandConquest]System.Windows.Media.Color LandConquest.Resources.StylesDictionary::colorOfResource2 ->  
 	System.Boolean [LandConquest]System.Boolean LandConquest.Resources.StylesDictionary::_contentLoaded ->  
+}
+
+[LandConquest]LandConquest.Properties.Settings skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquest]LandConquest.Properties.Settings::get_Default[0]( ) skipped:  skip by property
+	[LandConquest]LandConquest.Properties.Settings::get_UserLogin[0]( ) skipped:  skip by property
+	[LandConquest]LandConquest.Properties.Settings::set_UserLogin[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquest]LandConquest.Properties.Settings::get_UserPassword[0]( ) skipped:  skip by property
+	[LandConquest]LandConquest.Properties.Settings::set_UserPassword[1]( [mscorlib]System.String ) skipped:  skip by property
+	[LandConquest]LandConquest.Properties.Settings::.ctor[0]( ) skipped:  special name
+	[LandConquest]LandConquest.Properties.Settings::.cctor[0]( ) skipped:  special name
+
+	LandConquest.Properties.Settings [LandConquest]LandConquest.Properties.Settings LandConquest.Properties.Settings::defaultInstance ->  
+
+
+	LandConquest.Properties.Settings [LandConquest]LandConquest.Properties.Settings LandConquest.Properties.Settings::Default skipped:  KeepPublicApi option in configuration
+	System.String [LandConquest]System.String LandConquest.Properties.Settings::UserLogin skipped:  KeepPublicApi option in configuration
+	System.String [LandConquest]System.String LandConquest.Properties.Settings::UserPassword skipped:  KeepPublicApi option in configuration
 }
 
 [LandConquest]LandConquest.Forms.AuctionWindow skipped:  KeepPublicApi option in configuration
@@ -356,6 +374,7 @@ Skipped Types:
 	[LandConquest]LandConquest.Forms.CountryWindow::CbCountryToTransfer_SelectionChanged[2]( [mscorlib]System.Object, [PresentationFramework]System.Windows.Controls.SelectionChangedEventArgs ) ->  
 	[LandConquest]LandConquest.Forms.CountryWindow::CbCountryWarLand_SelectionChanged[2]( [mscorlib]System.Object, [PresentationFramework]System.Windows.Controls.SelectionChangedEventArgs ) ->  
 	[LandConquest]LandConquest.Forms.CountryWindow::buttonClose_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) ->  
+	[LandConquest]LandConquest.Forms.CountryWindow::buttonCastleManagement_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) ->  
 	[LandConquest]LandConquest.Forms.CountryWindow::System.Windows.Markup.IComponentConnector.Connect[2]( [mscorlib]System.Int32, [mscorlib]System.Object ) ->  
 
 	[LandConquest]LandConquest.Forms.CountryWindow::InitializeComponent[0]( ) skipped:  external base class or interface
@@ -379,8 +398,9 @@ Skipped Types:
 	System.Windows.Controls.ComboBox [LandConquest]System.Windows.Controls.ComboBox LandConquest.Forms.CountryWindow::CbAct ->  
 	System.Windows.Controls.ComboBox [LandConquest]System.Windows.Controls.ComboBox LandConquest.Forms.CountryWindow::CbLandToTransfer ->  
 	System.Windows.Controls.ComboBox [LandConquest]System.Windows.Controls.ComboBox LandConquest.Forms.CountryWindow::CbCountryToTransfer ->  
-	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.CountryWindow::IssueALaw ->  
-	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.CountryWindow::buttonClose ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.CountryWindow::buttonCastleManagement ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.CountryWindow::IssueALaw ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.CountryWindow::buttonClose ->  
 	System.Windows.Controls.ComboBox [LandConquest]System.Windows.Controls.ComboBox LandConquest.Forms.CountryWindow::CbCountryWarLand ->  
 	System.Boolean [LandConquest]System.Boolean LandConquest.Forms.CountryWindow::_contentLoaded ->  
 }
@@ -521,6 +541,30 @@ Skipped Types:
 	System.Boolean [LandConquest]System.Boolean LandConquest.Forms.ProfileWindow::_contentLoaded ->  
 }
 
+[LandConquest]LandConquest.Forms.CastleManagementWindow skipped:  KeepPublicApi option in configuration
+{
+	[LandConquest]LandConquest.Forms.CastleManagementWindow::buttonClose_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) ->  
+	[LandConquest]LandConquest.Forms.CastleManagementWindow::buttonShowMenu_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) ->  
+	[LandConquest]LandConquest.Forms.CastleManagementWindow::Window_Loaded[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) ->  
+	[LandConquest]LandConquest.Forms.CastleManagementWindow::System.Windows.Markup.IComponentConnector.Connect[2]( [mscorlib]System.Int32, [mscorlib]System.Object ) ->  
+
+	[LandConquest]LandConquest.Forms.CastleManagementWindow::InitializeComponent[0]( ) skipped:  external base class or interface
+	[LandConquest]LandConquest.Forms.CastleManagementWindow::.ctor[1]( [LandConquestDB]LandConquestDB.Entities.Player ) skipped:  special name
+
+	LandConquestDB.Entities.Player [LandConquest]LandConquestDB.Entities.Player LandConquest.Forms.CastleManagementWindow::player ->  
+	System.Windows.Controls.Border [LandConquest]System.Windows.Controls.Border LandConquest.Forms.CastleManagementWindow::castleMenuGridBorder ->  
+	System.Windows.Controls.Grid [LandConquest]System.Windows.Controls.Grid LandConquest.Forms.CastleManagementWindow::castleMenuGrid ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.CastleManagementWindow::buttonSendResources ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.CastleManagementWindow::buttonUpgrade ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.CastleManagementWindow::buttonSendForces ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.CastleManagementWindow::buttonReturnForces ->  
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.CastleManagementWindow::labelGarrisonReal ->  
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.CastleManagementWindow::labelGarrisonMax ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.CastleManagementWindow::buttonClose ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.CastleManagementWindow::buttonShowMenu ->  
+	System.Boolean [LandConquest]System.Boolean LandConquest.Forms.CastleManagementWindow::_contentLoaded ->  
+}
+
 [LandConquest]LandConquest.Forms.RatingWindow skipped:  KeepPublicApi option in configuration
 {
 	[LandConquest]LandConquest.Forms.RatingWindow::Window_Loaded[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) ->  
@@ -652,6 +696,8 @@ Skipped Types:
 	[LandConquest]LandConquest.Forms.WarWindow::lockSelectedArmy[0]( ) skipped:  KeepPublicApi option in configuration
 	[LandConquest]LandConquest.Forms.WarWindow::findPlayerArmyCanMove[0]( ) skipped:  KeepPublicApi option in configuration
 	[LandConquest]LandConquest.Forms.WarWindow::findPlayerArmyCanShoot[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquest]LandConquest.Forms.WarWindow::lockArmyShoot[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquest]LandConquest.Forms.WarWindow::returnPlayerArmy[0]( ) skipped:  KeepPublicApi option in configuration
 
 	System.Windows.Controls.Primitives.UniformGrid [LandConquest]System.Windows.Controls.Primitives.UniformGrid LandConquest.Forms.WarWindow::localWarMap ->  
 	System.Windows.Controls.Image [LandConquest]System.Windows.Controls.Image LandConquest.Forms.WarWindow::imgArmySelected ->  
@@ -743,24 +789,27 @@ Skipped Types:
 	[LandConquest]LandConquest.Forms.MainWindow::buttonEstablishaState_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> –
 	[LandConquest]LandConquest.Forms.MainWindow::btnHideLandGrid_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> —
 	[LandConquest]LandConquest.Forms.MainWindow::btnShowLandGrid_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> ―
-	[LandConquest]LandConquest.Forms.MainWindow::buttonSettings_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> •
-	[LandConquest]LandConquest.Forms.MainWindow::test2_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> ․
+	[LandConquest]LandConquest.Forms.MainWindow::btnHideLeaderGrid_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> •
+	[LandConquest]LandConquest.Forms.MainWindow::btnShowLeaderGrid_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> ․
+	[LandConquest]LandConquest.Forms.MainWindow::GetWorldLeader[0]( ) ->  
+	[LandConquest]LandConquest.Forms.MainWindow::buttonSettings_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> ‥
+	[LandConquest]LandConquest.Forms.MainWindow::test2_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> ‧
 	[LandConquest]LandConquest.Forms.MainWindow::LandImage_MouseDown[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.Input.MouseButtonEventArgs ) ->  
-	[LandConquest]LandConquest.Forms.MainWindow::buttonStartBattle_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> ‥
+	[LandConquest]LandConquest.Forms.MainWindow::buttonStartBattle_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) ->  
 	[LandConquest]LandConquest.Forms.MainWindow::btnWar_MouseLeftButtonDown[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.Input.MouseButtonEventArgs ) ->  
 	[LandConquest]LandConquest.Forms.MainWindow::btnWar_MouseEnter[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.Input.MouseEventArgs ) ->  
 	[LandConquest]LandConquest.Forms.MainWindow::btnWar_MouseLeave[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.Input.MouseEventArgs ) ->  
 	[LandConquest]LandConquest.Forms.MainWindow::FreeData[2]( [mscorlib]System.Object, [mscorlib]System.EventArgs ) ->  
-	[LandConquest]LandConquest.Forms.MainWindow::CloseUnusedWindows[0]( ) ->  
-	[LandConquest]LandConquest.Forms.MainWindow::buttonCollapse_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> ‧
+	[LandConquest]LandConquest.Forms.MainWindow::CloseUnusedWindows[0]( ) ->  
+	[LandConquest]LandConquest.Forms.MainWindow::buttonCollapse_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) ->  
 	[LandConquest]LandConquest.Forms.MainWindow::mainGrid_MouseLeftButtonDown[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.Input.MouseButtonEventArgs ) ->  
-	[LandConquest]LandConquest.Forms.MainWindow::checkBoxFs_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) ->  
-	[LandConquest]LandConquest.Forms.MainWindow::checkBoxMusic_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) ->  
+	[LandConquest]LandConquest.Forms.MainWindow::checkBoxFs_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> ‪
+	[LandConquest]LandConquest.Forms.MainWindow::checkBoxMusic_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) -> ‫
 	[LandConquest]LandConquest.Forms.MainWindow::_CreateDelegate[2]( [mscorlib]System.Type, [mscorlib]System.String ) ->  
 	[LandConquest]LandConquest.Forms.MainWindow::System.Windows.Markup.IComponentConnector.Connect[2]( [mscorlib]System.Int32, [mscorlib]System.Object ) ->  
 	[LandConquest]LandConquest.Forms.MainWindow::System.Windows.Markup.IStyleConnector.Connect[2]( [mscorlib]System.Int32, [mscorlib]System.Object ) ->  
-	[LandConquest]LandConquest.Forms.MainWindow::<UpdateInfo>b__36_0[0]( ) ->  
-	[LandConquest]LandConquest.Forms.MainWindow::<UpdateInfo>b__36_1[0]( ) ->  
+	[LandConquest]LandConquest.Forms.MainWindow::<UpdateInfo>b__36_0[0]( ) ->  
+	[LandConquest]LandConquest.Forms.MainWindow::<UpdateInfo>b__36_1[0]( ) ->  
 
 	[LandConquest]LandConquest.Forms.MainWindow::InitializeComponent[0]( ) skipped:  external base class or interface
 	[LandConquest]LandConquest.Forms.MainWindow::.ctor[1]( [LandConquestDB]LandConquestDB.Entities.User ) skipped:  special name
@@ -819,30 +868,38 @@ Skipped Types:
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buttonSettings ->  
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buttonExit ->  
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buttonCollapse ->  
+	System.Windows.Controls.Border [LandConquest]System.Windows.Controls.Border LandConquest.Forms.MainWindow::settingsGridBorder ->  
 	System.Windows.Controls.Grid [LandConquest]System.Windows.Controls.Grid LandConquest.Forms.MainWindow::settingsGrid ->  
 	System.Windows.Controls.CheckBox [LandConquest]System.Windows.Controls.CheckBox LandConquest.Forms.MainWindow::checkBoxMusic ->  
 	System.Windows.Controls.CheckBox [LandConquest]System.Windows.Controls.CheckBox LandConquest.Forms.MainWindow::checkBoxFs ->  
-	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buttonProfile ->  
+	System.Windows.Controls.Border [LandConquest]System.Windows.Controls.Border LandConquest.Forms.MainWindow::worldLeaderBorder ->  
+	System.Windows.Controls.Grid [LandConquest]System.Windows.Controls.Grid LandConquest.Forms.MainWindow::worldLeader ->  
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.MainWindow::lblWorldLeader ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::btnHideLeaderGrid ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::btnShowLeaderGrid ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buttonProfile ->  
 	System.Windows.Controls.ProgressBar [LandConquest]System.Windows.Controls.ProgressBar LandConquest.Forms.MainWindow::PbExp ->  
-	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.MainWindow::Level ->  
-	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buttonTop ->  
-	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::test2 ->  
-	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buttonChat -> ​
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.MainWindow::Level ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buttonTop -> ​
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::test2 -> ‐
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buttonChat -> ‑
 	System.Windows.Controls.Image [LandConquest]System.Windows.Controls.Image LandConquest.Forms.MainWindow::marketImage ->  
 	System.Windows.Controls.Image [LandConquest]System.Windows.Controls.Image LandConquest.Forms.MainWindow::CountryImage ->  
 	System.Windows.Controls.Image [LandConquest]System.Windows.Controls.Image LandConquest.Forms.MainWindow::LandImage ->  
 	System.Windows.Controls.Image [LandConquest]System.Windows.Controls.Image LandConquest.Forms.MainWindow::CoffersImage ->  
-	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buyMembership -> ‐
-	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::OpenAuction -> ‑
-	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.MainWindow::labelMoney ->  
-	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.MainWindow::labelDonation ->  
-	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buttonSubmitBug -> ‒
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buyMembership -> ‒
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::OpenAuction -> –
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.MainWindow::labelMoney ->  
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.MainWindow::labelDonation ->  
+	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.MainWindow::buttonSubmitBug -> —
 	System.Boolean [LandConquest]System.Boolean LandConquest.Forms.MainWindow::_contentLoaded ->  
 }
 
 [LandConquest]LandConquest.Forms.ManufactureWindow skipped:  KeepPublicApi option in configuration
 {
 	[LandConquest]LandConquest.Forms.ManufactureWindow::ManufactureWindow_Loaded[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) ->  
+	[LandConquest]LandConquest.Forms.ManufactureWindow::ManufactureStatucCheck[0]( ) ->  
+	[LandConquest]LandConquest.Forms.ManufactureWindow::ProductionStatusButton[0]( ) ->  
 	[LandConquest]LandConquest.Forms.ManufactureWindow::buttonBuy_Click[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.RoutedEventArgs ) ->  
 	[LandConquest]LandConquest.Forms.ManufactureWindow::sliderQuarry_ValueChanged[2]( [mscorlib]System.Object, [PresentationFramework]System.Windows.RoutedPropertyChangedEventArgs`1<[mscorlib]System.Double> ) ->  
 	[LandConquest]LandConquest.Forms.ManufactureWindow::sliderQuarry_PreviewMouseLeftButtonUp[2]( [mscorlib]System.Object, [PresentationCore]System.Windows.Input.MouseButtonEventArgs ) ->  
@@ -913,6 +970,8 @@ Skipped Types:
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.ManufactureWindow::buttonBuilding2Upgrade ->  
 	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.ManufactureWindow::WorkingNowB1 -> ―
 	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.ManufactureWindow::WorkingNowB2 -> •
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.ManufactureWindow::labelProductionStarted -> ․
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.ManufactureWindow::labelPS -> ‥
 	System.Boolean [LandConquest]System.Boolean LandConquest.Forms.ManufactureWindow::_contentLoaded ->  
 }
 

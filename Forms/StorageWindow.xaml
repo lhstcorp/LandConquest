@@ -10,113 +10,132 @@
         ShowInTaskbar="False">
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="475">
-        
+
         <Grid Height="450" VerticalAlignment="Top" HorizontalAlignment="Left" Width="475">
             <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
-        </Grid.Background>
-            
-        <Image HorizontalAlignment="Left" Height="43" Margin="10,39,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
-        <Image HorizontalAlignment="Left" Height="43" Margin="123,39,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
-        <Image HorizontalAlignment="Left" Height="43" Margin="231,39,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
-        <Image HorizontalAlignment="Left" Height="43" Margin="325,39,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+                <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
 
-        <Label Content="WOOD" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="58,42,0,0" VerticalAlignment="Top" Height="31" Width="65"/>
-        <Label Content="STONE" Foreground="#696969" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="167,42,0,0" VerticalAlignment="Top" Height="31" Width="64"/>
-        <Image HorizontalAlignment="Left" Height="43" Margin="12,39,0,0" VerticalAlignment="Top" Width="41" Source="/Pictures/wood.png"/>
-        <Image HorizontalAlignment="Left" Height="32" Margin="127,50,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/stones.png"/>
-        <Label x:Name="labelWoodAmount" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="14,82,0,0"  VerticalAlignment="Top" Width="107" Height="28"/>
-        <Label x:Name="labelStoneAmount" Content="0" Foreground="#696969" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="127,82,0,0" VerticalAlignment="Top" Width="111" Height="28"/>
-        <Label Content="FOOD" Foreground="Brown" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,42,147,0" VerticalAlignment="Top" Height="31" Width="57"/>
-        <Image HorizontalAlignment="Left" Height="35" Margin="235,42,0,0" VerticalAlignment="Top" Width="36" Source="/Pictures/food.png" RenderTransformOrigin="-1.55,0.548"/>
-        <Label x:Name="labelFoodAmount" Content="0" Foreground="Brown" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="235,82,0,0" VerticalAlignment="Top" Width="112" Height="28"/>
-        
+            <Image HorizontalAlignment="Left" Height="43" Margin="39,41,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="43" Margin="144,41,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="43" Margin="249,41,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="43" Margin="354,41,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="43" Margin="354,140,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="43" Margin="249,140,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="43" Margin="144,140,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="43" Margin="39,140,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+
+
+
+
+
+            <Label Content="WOOD" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top" Height="31" Width="65"/>
+            <Label Content="STONE" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,10,0,0" VerticalAlignment="Top" Height="31" Width="64"/>
+            <Image HorizontalAlignment="Left" Height="35" Margin="44,46,0,0" VerticalAlignment="Top" Width="32" Source="/Pictures/wood.png"/>
+            <Image HorizontalAlignment="Left" Height="35" Margin="148,45,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/stones.png"/>
+            <Label x:Name="labelWoodAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,80,0,0"  VerticalAlignment="Top" Width="62" Height="28"/>
+            <Label x:Name="labelStoneAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,80,0,0" VerticalAlignment="Top" Width="64" Height="28"/>
+            <Label Content="FOOD" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,10,169,0" VerticalAlignment="Top" Height="31" Width="57"/>
+            <Image HorizontalAlignment="Left" Height="35" Margin="253,44,0,0" VerticalAlignment="Top" Width="36" Source="/Pictures/food.png" RenderTransformOrigin="-1.55,0.548"/>
+            <Label x:Name="labelFoodAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="249,80,0,0" VerticalAlignment="Top" Width="69" Height="28"/>
+
             <Button x:Name="button_close" Margin="449,0,6,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            
-        <Label Content="GOLD" Foreground="DarkGoldenrod" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="57,131,0,0" VerticalAlignment="Top" Height="27" Width="59"/>
-        <Label Content="COPPER" Foreground="#FF7B5D42" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="163,130,0,0" VerticalAlignment="Top" Height="27" Width="75" Background="{x:Null}"/>
-        <Image HorizontalAlignment="Left" Height="42" Margin="9,131,0,0" VerticalAlignment="Top" Width="48" Source="/Pictures/gold_ore.png"/>
-        <Image HorizontalAlignment="Left" Height="42" Margin="122,131,0,0" VerticalAlignment="Top" Width="48" Source="/Pictures/Copper.png"/>
-        <Label x:Name="labelGoldAmount" Content="0" Foreground="DarkGoldenrod" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="9,162,0,0" VerticalAlignment="Top" Width="107" Height="27"/>
-        <Label x:Name="labelCopperAmount" Content="0" Foreground="#FF7B5D42" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="122,162,0,0" VerticalAlignment="Top" Width="111" Height="27"/>
-        <Label Content="GEMS" Foreground="MediumSeaGreen" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,131,148,0" VerticalAlignment="Top" Height="27" Width="57" Background="{x:Null}"/>
-        <Image HorizontalAlignment="Left" Height="26" Margin="238,137,0,0" VerticalAlignment="Top" Width="37" Source="/Pictures/gems.png" RenderTransformOrigin="-1.55,0.548"/>
-        <Label x:Name="labelGemsAmount" Content="0" Foreground="MediumSeaGreen" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="238,162,0,0" VerticalAlignment="Top" Width="112" Height="27"/>
-        <Label Content="IRON" Foreground="SlateGray" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,42,52,0" VerticalAlignment="Top" Height="31" Width="57" Background="{x:Null}"/>
-        <Image HorizontalAlignment="Left" Height="35" Margin="329,42,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/iron.png" RenderTransformOrigin="-1.55,0.548" OpacityMask="Black">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.314"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Label x:Name="labelIronAmount" Content="0" Foreground="SlateGray" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="330,82,0,0" VerticalAlignment="Top" Width="112" Height="28" Background="{x:Null}"/>
-        <Label Content="LEATHER" Foreground="#FF914C2B" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,131,25,0" VerticalAlignment="Top" Height="27" Width="88" Background="{x:Null}"/>
-        <Image HorizontalAlignment="Left" Height="27" Margin="333,134,0,0" VerticalAlignment="Top" Width="32" Source="/Pictures/Leather.png" RenderTransformOrigin="-1.55,0.548"/>
-        <Label x:Name="labelLeatherAmount" Content="0" Foreground="#FF914C2B" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="333,162,0,0" VerticalAlignment="Top" Width="112" Height="27"/>
+
+            <Label Content="GOLD" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,109,0,0" VerticalAlignment="Top" Height="31" Width="59"/>
+            <Label Content="COPPER" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,109,0,0" VerticalAlignment="Top" Height="36" Width="75" Background="{x:Null}"/>
+            <Image HorizontalAlignment="Left" Height="35" Margin="43,144,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/gold_ore.png"/>
+            <Image HorizontalAlignment="Left" Height="35" Margin="148,144,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/Copper.png"/>
+            <Label x:Name="labelGoldAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,179,0,0" VerticalAlignment="Top" Width="72" Height="31"/>
+            <Label x:Name="labelCopperAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,179,0,0" VerticalAlignment="Top" Width="75" Height="36"/>
+            <Label Content="GEMS" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,109,169,0" VerticalAlignment="Top" Height="31" Width="57" Background="{x:Null}"/>
+            <Image HorizontalAlignment="Left" Height="35" Margin="252,144,0,0" VerticalAlignment="Top" Width="42" Source="/Pictures/gems.png" RenderTransformOrigin="-1.55,0.548"/>
+            <Label x:Name="labelGemsAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="249,179,0,0" VerticalAlignment="Top" Width="69" Height="36"/>
+            <Label Content="IRON" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,10,64,0" VerticalAlignment="Top" Height="31" Width="57" Background="{x:Null}"/>
+            <Image HorizontalAlignment="Left" Height="35" Margin="358,44,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/iron.png" RenderTransformOrigin="-1.55,0.548" OpacityMask="Black">
+            </Image>
+            <Label x:Name="labelIronAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="354,80,0,0" VerticalAlignment="Top" Width="68" Height="28" Background="{x:Null}"/>
+            <Label Content="LEATHER" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,109,33,0" VerticalAlignment="Top" Height="31" Width="88" Background="{x:Null}"/>
+            <Image HorizontalAlignment="Left" Height="35" Margin="358,144,0,0" VerticalAlignment="Top" Width="36" Source="/Pictures/Leather.png" RenderTransformOrigin="-1.55,0.548"/>
+            <Label x:Name="labelLeatherAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="354,179,0,0" VerticalAlignment="Top" Width="68" Height="31"/>
 
 
-        <Label Content="ARMOR" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="57,212,0,0" VerticalAlignment="Top" Height="27" Width="71"/>
-        <Label Content="SWORD" Foreground="#696969" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="170,212,0,0" VerticalAlignment="Top" Height="27" Width="68"/>
-        <Image HorizontalAlignment="Left" Height="42" Margin="24,212,0,0" VerticalAlignment="Top" Width="48" Source="/LandConquest;component/Pictures/armor.png"/>
-        <Image HorizontalAlignment="Left" Height="27" Margin="122,212,0,0" VerticalAlignment="Top" Width="48" Source="/LandConquest;component/Pictures/sword.png"/>
-        <Label x:Name="labelArmorAmount" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="9,233,0,0" VerticalAlignment="Top" Width="107" Height="27"/>
-        <Label x:Name="labelSwordAmount" Content="0" Foreground="#696969" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="122,233,0,0" VerticalAlignment="Top" Width="111" Height="27"/>
-        <Label Content="HARNESS" Foreground="Brown" FontSize="12" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,212,143.2,0" VerticalAlignment="Top" Height="27" Width="62"/>
-        <Image HorizontalAlignment="Left" Height="31" Margin="238,212,0,0" VerticalAlignment="Top" Width="32" Source="/LandConquest;component/Pictures/harness.png" RenderTransformOrigin="-1.55,0.548"/>
-        <Label x:Name="labelHarnessAmount" Content="0" Foreground="Brown" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="238,233,0,0" VerticalAlignment="Top" Width="112" Height="27"/>
-        <Label Content="BOW" Foreground="DarkGoldenrod" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="57,316,0,0" VerticalAlignment="Top" Height="27" Width="71"/>
-        <Label Content="GEAR" Foreground="#FF7B5D42" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="170,315,0,0" VerticalAlignment="Top" Height="27" Width="75" Background="{x:Null}"/>
-        <Image HorizontalAlignment="Left" Height="42" Margin="9,316,0,0" VerticalAlignment="Top" Width="48" Source="/LandConquest;component/Pictures/bow.png"/>
-        <Image HorizontalAlignment="Left" Height="42" Margin="122,316,0,0" VerticalAlignment="Top" Width="48" Source="/LandConquest;component/Pictures/gear.png"/>
-        <Label x:Name="labelBowAmount" Content="0" Foreground="DarkGoldenrod" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="9,347,0,0" VerticalAlignment="Top" Width="107" Height="27"/>
-        <Label x:Name="labelGearAmount" Content="0" Foreground="#FF7B5D42" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="122,347,0,0" VerticalAlignment="Top" Width="111" Height="27"/>
-        <Label Content="SPEAR" Foreground="SlateGray" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,212,53,0" VerticalAlignment="Top" Height="27" Width="57" Background="{x:Null}"/>
-        <Image HorizontalAlignment="Left" Height="21" Margin="333,218,0,0" VerticalAlignment="Top" Width="33" Source="/LandConquest;component/Pictures/spear.png" OpacityMask="Black"/>
-        <Label x:Name="labelSpearAmount" Content="0" Foreground="SlateGray" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="333,233,0,0" VerticalAlignment="Top" Width="112" Height="27" Background="{x:Null}"/>
-            <TextBox x:Name="SwordsToCraft" HorizontalAlignment="Left" Height="23" Margin="182,254,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="55" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="ArmorToCraft_PreviewTextInput"/>
-        <Label x:Name="labelSwordAmount1" Content="1" HorizontalAlignment="Left" Margin="141,252,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
-        <Label x:Name="labelSwordAmount2" Content="2" HorizontalAlignment="Left" Margin="141,262,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
-        <Image HorizontalAlignment="Left" Height="10" Margin="160,257,0,0" VerticalAlignment="Top" Width="10" Source="/Pictures/copper.png"/>
-        <Image HorizontalAlignment="Left" Height="10" Margin="160,267,0,0" VerticalAlignment="Top" Width="10" Source="/Pictures/iron.png"/>
-        <Image x:Name="craftSword" HorizontalAlignment="Left" Height="30" Margin="182,285,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/craft.png" MouseDown="craftSword_MouseDown" />
-        <TextBox x:Name="ArmorToCraft" HorizontalAlignment="Left" Height="23" Margin="67,254,0,0" TextWrapping="Wrap" Text="" BorderBrush="Goldenrod" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" VerticalAlignment="Top" Width="55" PreviewTextInput="ArmorToCraft_PreviewTextInput" />
-        <Image HorizontalAlignment="Left" Height="10" Margin="31,259,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/leather.png"/>
-        <Image HorizontalAlignment="Left" Height="10" Margin="31,269,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/iron.png"/>
-        <Label x:Name="labelArmorAmount1" Content="1" HorizontalAlignment="Left" Margin="9,254,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
-        <Label x:Name="labelArmorAmount2" Content="3" HorizontalAlignment="Left" Margin="9,264,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
-            <TextBox x:Name="HarnessToCraft" HorizontalAlignment="Left" Height="23" Margin="278,254,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="55" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="ArmorToCraft_PreviewTextInput"/>
-            <TextBox x:Name="SpearToCraft" HorizontalAlignment="Left" Height="23" Margin="372,254,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="55" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="ArmorToCraft_PreviewTextInput"/>
-            <TextBox x:Name="BowToCraft" HorizontalAlignment="Left" Height="23" Margin="67,374,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="55" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="ArmorToCraft_PreviewTextInput"/>
-            <TextBox x:Name="GearToCraft" HorizontalAlignment="Left" Height="23" Margin="182,374,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="55" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="ArmorToCraft_PreviewTextInput"/>
-        <Image HorizontalAlignment="Left" Height="10" Margin="260,255,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/leather.png"/>
-        <Image HorizontalAlignment="Left" Height="10" Margin="260,265,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/copper.png"/>
-        <Label x:Name="labelHarnessAmount1" Content="2" HorizontalAlignment="Left" Margin="238,250,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
-        <Label x:Name="labelHarnessAmount2" Content="2" HorizontalAlignment="Left" Margin="238,260,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
-        <Image HorizontalAlignment="Left" Height="10" Margin="355,255,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/wood.png"/>
-        <Image HorizontalAlignment="Left" Height="10" Margin="355,265,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/iron.png"/>
-        <Label x:Name="labelSpearAmount1" Content="3" HorizontalAlignment="Left" Margin="333,250,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
-        <Label x:Name="labelSpearAmount2" Content="1" HorizontalAlignment="Left" Margin="333,260,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
-        <Image HorizontalAlignment="Left" Height="10" Margin="34,379,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/wood.png"/>
-        <Image HorizontalAlignment="Left" Height="10" Margin="34,389,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/leather.png"/>
-        <Label x:Name="labelBowAmount1" Content="2" HorizontalAlignment="Left" Margin="12,374,0,0" VerticalAlignment="Top" Height="23" Width="29" FontSize="8"/>
-        <Label x:Name="labelBowAmount2" Content="1" HorizontalAlignment="Left" Margin="12,384,0,0" VerticalAlignment="Top" Height="21" Width="29" FontSize="8"/>
-        <Image HorizontalAlignment="Left" Height="10" Margin="163,379,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/wood.png"/>
-        <Image HorizontalAlignment="Left" Height="10" Margin="163,389,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/iron.png"/>
-        <Label x:Name="labelGearAmount1" Content="3" HorizontalAlignment="Left" Margin="141,374,0,0" VerticalAlignment="Top" Height="23" Width="29" FontSize="8"/>
-        <Label x:Name="labelGearAmount2" Content="3" HorizontalAlignment="Left" Margin="141,384,0,0" VerticalAlignment="Top" Height="21" Width="29" FontSize="8"/>
-        <Image x:Name="craftArmor" HorizontalAlignment="Left" Height="30" Margin="67,286,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftArmor_MouseDown"  />
-        <Image x:Name="craftHarness" HorizontalAlignment="Left" Height="30" Margin="278,286,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftHarness_MouseDown"  />
-        <Image x:Name="craftSpear" HorizontalAlignment="Left" Height="30" Margin="372,286,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftSpear_MouseDown"  />
-        <Image x:Name="craftBow" HorizontalAlignment="Left" Height="30" Margin="67,413,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftBow_MouseDown"  />
-            <Image x:Name="craftGear" HorizontalAlignment="Left" Height="30" Margin="182,413,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftGear_MouseDown"  />
+            <Label Content="ARMOR" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="68,233,0,0" VerticalAlignment="Top" Height="28" Width="71"/>
+            <Label Content="SWORD" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="210,232,0,0" VerticalAlignment="Top" Height="28" Width="75"/>
+            <Image HorizontalAlignment="Left" Height="38" Margin="34,223,0,0" VerticalAlignment="Top" Width="29" Source="/LandConquest;component/Pictures/new_armor.png"/>
+            <Image HorizontalAlignment="Left" Height="40" Margin="185,218,0,0" VerticalAlignment="Top" Width="25" Source="/LandConquest;component/Pictures/new_sword.png"/>
+            <Label x:Name="labelArmorAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" VerticalContentAlignment="Center" Margin="67,278,0,0" VerticalAlignment="Top" Width="63" Height="31"/>
+            <Label x:Name="labelSwordAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="210,277,0,0" VerticalAlignment="Top" Width="60" Height="31"/>
+            <Label Content="HARNESS" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,232,34,0" VerticalAlignment="Top" Height="28" Width="87"/>
+            <Image HorizontalAlignment="Left" Height="31" Margin="321,227,0,0" VerticalAlignment="Top" Width="32" Source="/LandConquest;component/Pictures/hourseman.png" RenderTransformOrigin="-1.55,0.548"/>
+            <Label x:Name="labelHarnessAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="354,278,0,0" VerticalAlignment="Top" Width="65" Height="32"/>
+            <Label Content="BOW" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="68,350,0,0" VerticalAlignment="Top" Height="28" Width="71"/>
+            <Label Content="GEAR" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="210,350,0,0" VerticalAlignment="Top" Height="28" Width="75" Background="{x:Null}"/>
+            <Image HorizontalAlignment="Left" Height="34" Margin="40,346,0,0" VerticalAlignment="Top" Width="20" Source="/LandConquest;component/Pictures/new_bow.png"/>
+            <Image HorizontalAlignment="Left" Height="37" Margin="172,341,0,0" VerticalAlignment="Top" Width="43" Source="/LandConquest;component/Pictures/Armies/SIE-1.png"/>
+            <Label x:Name="labelBowAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="68,400,0,0" VerticalAlignment="Top" Width="59" Height="32"/>
+            <Label x:Name="labelGearAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="210,400,0,0" VerticalAlignment="Top" Width="60" Height="32"/>
+            <Label Content="SPEAR" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,350,59,0" VerticalAlignment="Top" Height="28" Width="62" Background="{x:Null}"/>
+            <Image HorizontalAlignment="Left" Height="32" Margin="321,346,0,0" VerticalAlignment="Top" Width="47" Source="/LandConquest;component/Pictures/new_spear.png" OpacityMask="Black"/>
+            <Label x:Name="labelSpearAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="354,401,0,0" VerticalAlignment="Top" Width="63" Height="31" Background="{x:Null}"/>
+            <TextBox x:Name="SwordsToCraft" HorizontalAlignment="Left" Height="23" Margin="210,260,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="55" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="ArmorToCraft_PreviewTextInput"/>
+            <Label x:Name="labelSwordAmount1" Content="1" HorizontalAlignment="Left" FontWeight="Bold" Margin="181,256,0,0" VerticalAlignment="Top" Height="20" Width="29" FontSize="8"/>
+            <Label x:Name="labelSwordAmount2" Content="2" HorizontalAlignment="Left" FontWeight="Bold" Margin="181,267,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
+            <Image HorizontalAlignment="Left" Height="10" Margin="195,263,0,0" VerticalAlignment="Top" Width="10" Source="/Pictures/copper.png"/>
+            <Image HorizontalAlignment="Left" Height="10" Margin="195,273,0,0" VerticalAlignment="Top" Width="10" Source="/Pictures/iron.png"/>
+            <Image x:Name="craftSword" HorizontalAlignment="Left" Height="30" Margin="265,257,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/craft.png" MouseDown="craftSword_MouseDown" />
+            <TextBox x:Name="ArmorToCraft" HorizontalAlignment="Left" Height="23" Margin="67,260,0,0" TextWrapping="Wrap" Text="" BorderBrush="Goldenrod" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" VerticalAlignment="Top" Width="55" PreviewTextInput="ArmorToCraft_PreviewTextInput" />
+            <Image HorizontalAlignment="Left" Height="10" Margin="53,263,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/leather.png"/>
+            <Image HorizontalAlignment="Left" Height="10" Margin="53,273,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/iron.png"/>
+            <Label x:Name="labelArmorAmount1" Content="1" HorizontalAlignment="Left" FontWeight="Bold" Margin="39,256,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
+            <Label x:Name="labelArmorAmount2" Content="3" HorizontalAlignment="Left" FontWeight="Bold" Margin="39,267,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
+            <TextBox x:Name="HarnessToCraft" HorizontalAlignment="Left" Height="23" Margin="354,260,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="55" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="ArmorToCraft_PreviewTextInput"/>
+            <TextBox x:Name="SpearToCraft" HorizontalAlignment="Left" Height="23" Margin="354,378,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="55" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="ArmorToCraft_PreviewTextInput"/>
+            <TextBox x:Name="BowToCraft" HorizontalAlignment="Left" Height="23" Margin="67,378,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="55" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="ArmorToCraft_PreviewTextInput"/>
+            <TextBox x:Name="GearToCraft" HorizontalAlignment="Left" Height="23" Margin="210,378,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="55" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="ArmorToCraft_PreviewTextInput"/>
+            <Image HorizontalAlignment="Left" Height="10" Margin="339,263,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/leather.png"/>
+            <Image HorizontalAlignment="Left" Height="10" Margin="339,273,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/copper.png"/>
+            <Label x:Name="labelHarnessAmount1" Content="2" HorizontalAlignment="Left" FontWeight="Bold" Margin="325,256,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
+            <Label x:Name="labelHarnessAmount2" Content="2" HorizontalAlignment="Left" FontWeight="Bold" Margin="325,267,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
+            <Image HorizontalAlignment="Left" Height="10" Margin="339,381,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/wood.png"/>
+            <Image HorizontalAlignment="Left" Height="10" Margin="339,391,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/iron.png"/>
+            <Label x:Name="labelSpearAmount1" Content="3" HorizontalAlignment="Left" FontWeight="Bold" Margin="325,375,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
+            <Label x:Name="labelSpearAmount2" Content="1" HorizontalAlignment="Left" FontWeight="Bold" Margin="325,385,0,0" VerticalAlignment="Top" Height="19" Width="29" FontSize="8"/>
+            <Image HorizontalAlignment="Left" Height="10" Margin="53,381,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/wood.png"/>
+            <Image HorizontalAlignment="Left" Height="10" Margin="53,391,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/leather.png"/>
+            <Label x:Name="labelBowAmount1" Content="2" HorizontalAlignment="Left" FontWeight="Bold" Margin="39,375,0,0" VerticalAlignment="Top" Height="23" Width="29" FontSize="8"/>
+            <Label x:Name="labelBowAmount2" Content="1" HorizontalAlignment="Left" FontWeight="Bold" Margin="39,385,0,0" VerticalAlignment="Top" Height="21" Width="29" FontSize="8"/>
+            <Image HorizontalAlignment="Left" Height="10" Margin="195,381,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/wood.png"/>
+            <Image HorizontalAlignment="Left" Height="10" Margin="195,391,0,0" VerticalAlignment="Top" Width="10" Source="/LandConquest;component/Pictures/iron.png"/>
+            <Label x:Name="labelGearAmount1" Content="3" HorizontalAlignment="Left" FontWeight="Bold" Margin="181,375,0,0" VerticalAlignment="Top" Height="23" Width="29" FontSize="8"/>
+            <Label x:Name="labelGearAmount2" Content="3" HorizontalAlignment="Left" FontWeight="Bold" Margin="181,385,0,0" VerticalAlignment="Top" Height="21" Width="29" FontSize="8"/>
+            <Image x:Name="craftArmor" HorizontalAlignment="Left" Height="30" Margin="122,257,0,0"  VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftArmor_MouseDown"  />
+            <Image x:Name="craftHarness" HorizontalAlignment="Left" Height="30" Margin="409,256,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftHarness_MouseDown"  />
+            <Image x:Name="craftSpear" HorizontalAlignment="Left" Height="30" Margin="409,374,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftSpear_MouseDown"  />
+            <Image x:Name="craftBow" HorizontalAlignment="Left" Height="30" Margin="122,374,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftBow_MouseDown"  />
+            <Image x:Name="craftGear" HorizontalAlignment="Left" Height="30" Margin="265,374,0,0" VerticalAlignment="Top" Width="30" Source="/LandConquest;component/Pictures/craft.png" MouseDown="craftGear_MouseDown"  />
+
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="24,213,0,142" Stroke="#311818" Width="128" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="167,213,0,142" Stroke="#311818" Width="128" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="311,213,0,142" Stroke="#311818" Width="128" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="24,334,0,21" Stroke="#311818" Width="128" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="167,334,0,21" Stroke="#311818" Width="128" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="311,334,0,21" Stroke="#311818" Width="128" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="32,14,0,341" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="137,14,0,341" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="242,113,0,242" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="347,113,0,242" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="347,14,0,341" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="242,14,0,341" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="137,113,0,242" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="32,114,0,242" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Image HorizontalAlignment="Left" Height="34" Margin="48,360,0,0" VerticalAlignment="Top" Width="20" Source="/LandConquest;component/Pictures/new_arrow.png"/>
+
+
+
         </Grid>
-        </Border>
+    </Border>
 </Window>
