@@ -8,7 +8,7 @@ namespace LandConquestDB
         private static SqlConnection sqlconnection;
         public static void OpenConnectionPool()
         {
-            var reference = "glandeil";
+            var reference = "greendend2";
             try
             {
                 sqlconnection = new SqlConnection(YDContext.ReadResource(reference));

@@ -25,6 +25,7 @@ namespace LandConquest.Forms
         private const int syncTick = 30; //sec
         private int timerValue = 30;
         private Player player;
+        private int playerSide;
         private List<ArmyInBattle> armies;
         private List<Image> armyImages;
         private ArmyInBattle army;
@@ -42,11 +43,13 @@ namespace LandConquest.Forms
         private bool shoot = false;
         private DispatcherTimer syncTimer;
         public static List<ArmyInBattle> playerArmies;
+        private int moveCounter = 0;
 
         //Canvas localWarArmyLayer = new Canvas();
-        public WarWindow(Player _player, ArmyInBattle _army, List<ArmyInBattle> _armies, War _war)
+        public WarWindow(Player _player, int _playerSide, ArmyInBattle _army, List<ArmyInBattle> _armies, War _war)
         {
             player = _player;
+            playerSide = _playerSide;
             army = _army;
             armies = _armies;
             war = _war;
@@ -112,6 +115,9 @@ namespace LandConquest.Forms
         {
             armies.Clear();
             armies = BattleModel.GetArmiesInfo(armies, war);
+
+            deleteImagesOnWarGrid();
+            addEmptyImagesOnWarMap();
 
             armyImages = new List<Image>();
             for (int i = 0; i < armies.Count(); i++)
@@ -1005,21 +1011,42 @@ namespace LandConquest.Forms
         public void firstTick()
         {
             Console.WriteLine(DateTime.Now.ToLongTimeString());
-            searchPlayerArmies();
-            ShowArmiesOnMap();
-            unlockAllPlayerArmies();
 
+            ShowArmiesOnMap();
+
+            moveCounter++;
+            if (moveCounter % 2 == playerSide)
+            {
+                searchPlayerArmies();
+                unlockAllPlayerArmies();
+            }
+
+            setCurrentMoveColor();
         }
 
         public void timer_Tick(object sender, EventArgs e)
         {
             Console.WriteLine(DateTime.Now.ToLongTimeString());
-            searchPlayerArmies();
+            
             ShowArmiesOnMap();
-            unlockAllPlayerArmies();
+
+            moveCounter++;
+            if (moveCounter % 2 == playerSide)
+            {
+                searchPlayerArmies();
+                unlockAllPlayerArmies();
+            }
+            else
+            {
+                lockAllPlayerArmies();
+                HideAvailableTilesToMove(index);
+                HideAvailableTilesToShoot(index);
+            }
+
+            setCurrentMoveColor();
+
             timerValue = 30;
         }
-
 
         public void searchPlayerArmies()
         {
@@ -1047,21 +1074,12 @@ namespace LandConquest.Forms
 
         public void calculateMoveCounter()
         {
-            int moveCounter = 0;
             //DateTime warLength = war.WarDateTimeStart;
-
             TimeSpan warLength = DateTime.UtcNow.Subtract(war.WarDateTimeStart);
-
             double currentwarLengthInSeconds = warLength.Hours * 3600 + warLength.Minutes * 60 + warLength.Seconds;
-
             moveCounter = Convert.ToInt32(Math.Floor(currentwarLengthInSeconds / 30));
-
-            if (moveCounter > 720)
-            {
-                //delete war;
-            }
-
             moveCounterLbl.Content = Convert.ToString(moveCounter);
+            setCurrentMoveColor();
         }
 
         public void lockSelectedArmy()
@@ -1124,6 +1142,30 @@ namespace LandConquest.Forms
                 }
             }
             return null;
+        }
+
+        public void deleteImagesOnWarGrid()
+        {
+            for (int i = 0; i < localWarMap.Rows * localWarMap.Columns; i++)
+            {
+                gridForArmies.Children.RemoveAt(0);
+            }
+        }
+
+        public void addEmptyImagesOnWarMap()
+        {
+            for (int i = 0; i < localWarMap.Rows * localWarMap.Columns; i++)
+            {
+                gridForArmies.Children.Add(new Image());
+            }
+        }
+
+        public void setCurrentMoveColor()
+        {
+            if (moveCounter % 2 == 0)
+                thisMoveIndicator.Fill = new SolidColorBrush(Colors.DarkBlue);
+            else
+                thisMoveIndicator.Fill = new SolidColorBrush(Colors.DarkRed);
         }
     }
 
