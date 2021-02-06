@@ -21,7 +21,7 @@
             </Button.Background>
         </Button>
 
-            <Button x:Name="buttonCoins" Content="Old" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="White" Click="buttonCoins_Click">
+            <Button x:Name="buttonCoins" Content="Old" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="White" Click="ButtonFirstEntrance_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
@@ -54,10 +54,13 @@
                 
                 <GridView>
                     <GridViewColumn Header="Player" DisplayMemberBinding="{Binding Name}" Width="200"></GridViewColumn>
-                    <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Qty}" Width="200"></GridViewColumn>
-                        
-                    </GridView>
+                    <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Qty}" Width="200"></GridViewColumn>                             
+                </GridView>
+                    
             </ListView.View>
+            
+            
+            
         </ListView>
 
         <Grid.Background>

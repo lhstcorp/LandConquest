@@ -42,7 +42,7 @@ namespace LandConquestDB.Models
 
         public static List<Army> GetArmyInfoList(List<Army> armies, User user)
         {
-            string query = "SELECT TOP (1000) [dbo].[ArmyData].[player_id],[army_id],[army_size_current],[dbo].[PlayerData].[player_name] FROM[LandConquestDB].[dbo].[ArmyData] JOIN[LandConquestDB].[dbo].[PlayerData] on[dbo].[PlayerData].[player_id] = [dbo].[ArmyData].[player_id] order by[army_size_current] desc";
+            string query = "SELECT TOP (1000) [dbo].[ArmyData].[player_id],[army_id],[army_size_current],[dbo].[PlayerData].[player_name] FROM [dbo].[ArmyData] JOIN [dbo].[PlayerData] on[dbo].[PlayerData].[player_id] = [dbo].[ArmyData].[player_id] order by[army_size_current] desc";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
