@@ -48,7 +48,7 @@ namespace LandConquest.Forms
             playerEntrance = PlayerEntranceModel.GetFirstEntranceInfo(player, playerEntrance);
         }
 
-        private void buttonCoins_Click(object sender, RoutedEventArgs e)
+        private void ButtonFirstEntrance_Click(object sender, RoutedEventArgs e)
         {
             playersFirstEntrance = new List<PlayerEntrance>();
             playersFirstEntrance = PlayerEntranceModel.GetPlayerEntranceInfoList(playersFirstEntrance, user);
@@ -57,8 +57,8 @@ namespace LandConquest.Forms
 
             for (int i = 0; i < playersFirstEntrance.Count; i++)
             {
-                PlayersRating rating = new PlayersRating(playersFirstEntrance[i].PlayerId, playersFirstEntrance[i].PlayerNameForEntrance, Convert.ToInt32(playersFirstEntrance[i].FirstEntrance.Year));
-                ratings.Add(rating);
+                PlayersRating rating = new PlayersRating(playersFirstEntrance[i].PlayerId, playersFirstEntrance[i].PlayerNameForEntrance, playersFirstEntrance[i].FirstEntrance.ToString());
+                ratings.Add(rating);                
             }
 
             rankingsList.ItemsSource = ratings;
@@ -79,7 +79,7 @@ namespace LandConquest.Forms
 
             for (int i = 0; i < playersXp.Count; i++)
             {
-                PlayersRating rating = new PlayersRating(playersXp[i].PlayerId, playersXp[i].PlayerName, Convert.ToInt32(playersXp[i].PlayerExp));
+                PlayersRating rating = new PlayersRating(playersXp[i].PlayerId, playersXp[i].PlayerName, playersXp[i].PlayerExp.ToString());
                 ratings.Add(rating);
             }
 
@@ -95,7 +95,7 @@ namespace LandConquest.Forms
 
             for (int i = 0; i < playersArmy.Count; i++)
             {
-                PlayersRating rating = new PlayersRating(playersArmy[i].PlayerId, playersArmy[i].PlayerNameForArmy, Convert.ToInt32(playersArmy[i].ArmySizeCurrent));
+                PlayersRating rating = new PlayersRating(playersArmy[i].PlayerId, playersArmy[i].PlayerNameForArmy, playersArmy[i].ArmySizeCurrent.ToString());
                 ratings.Add(rating);
             }
 
