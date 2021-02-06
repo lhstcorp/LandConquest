@@ -2,10 +2,10 @@
 {
     public class ConsumptionEnum
     {
-        public enum Peasants : int
-        {
-            Consumption = 1
-        }
+        //public enum Peasants : int
+        //{
+        //    Consumption = 1
+        //}
         public enum Infantry : int
         {
             Consumption = 2
