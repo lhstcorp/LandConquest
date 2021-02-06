@@ -101,7 +101,7 @@
                     <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
                 </Grid.Background>
             </Grid>
-            <Image HorizontalAlignment="Left" Height="14" Margin="213,94,0,0" VerticalAlignment="Top" Width="14" Source="/Pictures/new_bow.png"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="218,93,0,0" VerticalAlignment="Top" Width="7" Source="/Pictures/new_bow.png"/>
             <Image HorizontalAlignment="Left" Height="14" Margin="214,108,0,0" VerticalAlignment="Top" Width="11" Source="/Pictures/new_armor.png"/>
             <Image HorizontalAlignment="Left" Height="14" Margin="214,124,0,0" VerticalAlignment="Top" Width="12" Source="/Pictures/coin.png"/>
 

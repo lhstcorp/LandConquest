@@ -13,15 +13,19 @@ namespace LandConquest.Logic
         public static int CountFunction(Player player, int hoursToCount)
         {
             Army army = new Army();
-            Peasants peasants = new Peasants();
             army = ArmyModel.GetArmyInfo(player, army);
-            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
 
-            int totalConsumption = (peasants.PeasantsCount * (int)ConsumptionEnum.Peasants.Consumption +
-                                   army.ArmyArchersCount * (int)ConsumptionEnum.Archers.Consumption +
-                                  army.ArmyHorsemanCount * (int)ConsumptionEnum.Knights.Consumption +
-                                  army.ArmyInfantryCount * (int)ConsumptionEnum.Infantry.Consumption +
-                                  army.ArmySiegegunCount * (int)ConsumptionEnum.Siege.Consumption) * hoursToCount;
+            //Peasants peasants = new Peasants();
+            //peasants = PeasantModel.GetPeasantsInfo(player, peasants);
+            //int totalConsumption = (peasants.PeasantsCount * (int)ConsumptionEnum.Peasants.Consumption +
+            //                       army.ArmyArchersCount * (int)ConsumptionEnum.Archers.Consumption +
+            //                      army.ArmyHorsemanCount * (int)ConsumptionEnum.Knights.Consumption +
+            //                      army.ArmyInfantryCount * (int)ConsumptionEnum.Infantry.Consumption +
+            //                      army.ArmySiegegunCount * (int)ConsumptionEnum.Siege.Consumption) * hoursToCount;
+            int totalConsumption = (army.ArmyArchersCount * (int)ConsumptionEnum.Archers.Consumption +
+                                 army.ArmyHorsemanCount * (int)ConsumptionEnum.Knights.Consumption +
+                                 army.ArmyInfantryCount * (int)ConsumptionEnum.Infantry.Consumption +
+                                 army.ArmySiegegunCount * (int)ConsumptionEnum.Siege.Consumption) * hoursToCount;
             return totalConsumption;
         }
 
@@ -47,7 +51,16 @@ namespace LandConquest.Logic
                     }
                     else
                     {
-                        ArmyDesert(player, consumption / storage.PlayerFood);
+                        Army playerArmy = new Army();
+                        playerArmy = ArmyModel.GetArmyInfo(player, playerArmy);
+                        if (storage.PlayerFood > 0)
+                        {
+                            ArmyDesert(player, consumption / storage.PlayerFood, playerArmy);
+                        }
+                        else
+                        {
+                            ArmyDesert(player, playerArmy.ArmySizeCurrent * 10 , playerArmy);
+                        }
                         storage.PlayerFood = 0;
                         StorageModel.UpdateStorage(player, storage);
                         WarningDialogWindow.CallWarningDialogNoResult("Milord, part of your army deserted due to lack of provisions. Please, check your storage.");
@@ -56,11 +69,8 @@ namespace LandConquest.Logic
             }
         }
 
-        public static void ArmyDesert(Player player, int part)
+        public static void ArmyDesert(Player player, int part, Army playerArmy)
         {
-            Army playerArmy = new Army();
-            playerArmy = ArmyModel.GetArmyInfo(player, playerArmy);
-
             List<ArmyInBattle> armiesInBatle = new List<ArmyInBattle>();
             armiesInBatle = BattleModel.GetAllPlayerArmiesInfo(armiesInBatle, player);
 
@@ -72,10 +82,10 @@ namespace LandConquest.Logic
                 playerArmy.ArmySiegegunCount -= army.ArmySiegegunCount;
                 playerArmy.ArmySizeCurrent -= army.ArmySizeCurrent;
 
-                army.ArmyArchersCount = army.ArmyArchersCount / part;
-                army.ArmyHorsemanCount = army.ArmyHorsemanCount / part;
-                army.ArmyInfantryCount = army.ArmyInfantryCount / part;
-                army.ArmySiegegunCount = army.ArmySiegegunCount / part;
+                army.ArmyArchersCount /= part;
+                army.ArmyHorsemanCount /= part;
+                army.ArmyInfantryCount /= part;
+                army.ArmySiegegunCount /= part;
                 army.ArmySizeCurrent = army.ArmyArchersCount + army.ArmyHorsemanCount + army.ArmyInfantryCount + army.ArmySiegegunCount;
 
                 if (army.ArmySizeCurrent == 0)
@@ -84,10 +94,10 @@ namespace LandConquest.Logic
                 }
             }
 
-            playerArmy.ArmyArchersCount = playerArmy.ArmyArchersCount / part;
-            playerArmy.ArmyHorsemanCount = playerArmy.ArmyHorsemanCount / part;
-            playerArmy.ArmyInfantryCount = playerArmy.ArmyInfantryCount / part;
-            playerArmy.ArmySiegegunCount = playerArmy.ArmySiegegunCount / part;
+            playerArmy.ArmyArchersCount /= part;
+            playerArmy.ArmyHorsemanCount /= part;
+            playerArmy.ArmyInfantryCount /= part;
+            playerArmy.ArmySiegegunCount /= part;
             playerArmy.ArmySizeCurrent = playerArmy.ArmyArchersCount + playerArmy.ArmyHorsemanCount + playerArmy.ArmyInfantryCount + playerArmy.ArmySiegegunCount;
 
 
