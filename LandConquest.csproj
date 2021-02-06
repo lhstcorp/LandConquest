@@ -558,6 +558,11 @@
     <Resource Include="Pictures\Buildings\Blacksmith.png" />
     <Resource Include="Pictures\Buildings\Mine.png" />
     <Resource Include="Pictures\Buildings\Farm.png" />
+    <Resource Include="Pictures\new_armor.png" />
+    <Resource Include="Pictures\new_sword.png" />
+    <Resource Include="Pictures\new_spear.png" />
+    <Resource Include="Pictures\new_bow.png" />
+    <Resource Include="Pictures\new_arrow.png" />
     <Content Include="Resources\Buildings\arch.svg" />
     <Content Include="Resources\Buildings\blacksmith.svg" />
     <Content Include="Resources\Buildings\bridge_stone2.svg" />

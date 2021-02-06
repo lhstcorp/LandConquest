@@ -23,10 +23,9 @@ namespace LandConquest.DialogWIndows
         private Manufacture manufacture;
         private PlayerStorage resourcesNeed;
         private StorageModel storageModel;
-        public CommonManufactureUpgrade(PlayerStorage _storage, Manufacture _manufacture, Player _player)
+        public CommonManufactureUpgrade(Manufacture _manufacture, Player _player)
         {
-            InitializeComponent();
-            storage = _storage;
+            InitializeComponent();           
             player = _player;
             manufacture = _manufacture;
             
@@ -35,6 +34,8 @@ namespace LandConquest.DialogWIndows
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             storageModel = new StorageModel();
+            storage = StorageModel.GetPlayerStorage(player);
+            manufacture = ManufactureModel.GetLandManufactureById(manufacture);
 
             switch (manufacture.ManufactureType)
             {                
@@ -98,7 +99,7 @@ namespace LandConquest.DialogWIndows
 
 
                 StorageModel.UpdateStorage(player, storage);
-                storage = StorageModel.GetPlayerStorage(player, storage);
+                storage = StorageModel.GetPlayerStorage(player);
 
                 WoodHave.Content = storage.PlayerWood;
                 StoneHave.Content = storage.PlayerStone;
@@ -119,7 +120,7 @@ namespace LandConquest.DialogWIndows
                 GoldNeed.Content = resourcesNeed.PlayerGoldOre;
                 CopperNeed.Content = resourcesNeed.PlayerCopper;
 
-                manufacture = ManufactureModel.GetManufactureById(manufacture);
+                manufacture = ManufactureModel.GetLandManufactureById(manufacture);
 
                 ManufactureLvl.Content = manufacture.ManufactureLevel;
             }

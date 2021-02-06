@@ -21,13 +21,13 @@
             </Button.Background>
         </Button>
 
-        <!--<Button x:Name="buttonCoins" Content="Money" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="White" Click="buttonCoins_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
-            </Button.Background>
-        </Button>-->
+            <Button x:Name="buttonCoins" Content="Old" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="White" Click="buttonCoins_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
 
-        <Button x:Name="buttonArmy" Content="Army"  HorizontalAlignment="Left" Margin="301,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="White" Click="buttonArmy_Click" >
+            <Button x:Name="buttonArmy" Content="Army"  HorizontalAlignment="Left" Margin="301,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="White" Click="buttonArmy_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
@@ -47,11 +47,16 @@
 
 
         <ListView x:Name="rankingsList" HorizontalAlignment="Left" Height="302" Margin="83,74,0,0" VerticalAlignment="Top" Width="413" ItemsSource="{Binding ratings}">
+                <ListView.Background>                    
+                        <ImageBrush ImageSource="/LandConquest;component/Pictures/background.jpg"/>                    
+                </ListView.Background>
             <ListView.View>
+                
                 <GridView>
-                    <GridViewColumn Header="Player"  DisplayMemberBinding="{Binding Name}" Width="200"></GridViewColumn>
+                    <GridViewColumn Header="Player" DisplayMemberBinding="{Binding Name}" Width="200"></GridViewColumn>
                     <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Qty}" Width="200"></GridViewColumn>
-                </GridView>
+                        
+                    </GridView>
             </ListView.View>
         </ListView>
 

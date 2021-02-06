@@ -35,6 +35,7 @@ namespace LandConquest.DialogWIndows
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             storageModel = new StorageModel();
+            manufacture = ManufactureModel.GetManufactureById(manufacture);
 
             switch (manufacture.ManufactureType)
             {
@@ -106,7 +107,7 @@ namespace LandConquest.DialogWIndows
 
 
                 StorageModel.UpdateStorage(player, storage);
-                storage = StorageModel.GetPlayerStorage(player, storage);
+                storage = StorageModel.GetPlayerStorage(player);
 
                 WoodHave.Content = storage.PlayerWood;
                 StoneHave.Content = storage.PlayerStone;

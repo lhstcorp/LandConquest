@@ -24,6 +24,7 @@ namespace LandConquest.Forms
         private Market market;
         private PlayerStorage storage;
         private PlayerEquipment equipment;
+        private PlayerEntrance playerEntrance;
         private Manufacture manufacture;
         private Taxes taxes;
         private Peasants peasants;
@@ -32,6 +33,7 @@ namespace LandConquest.Forms
         private List<Path> paths;
         private List<Country> countries;
         private List<War> wars;
+        private List<PlayerEntrance> playerEntrances;
         private Land land;
         private Army army;
         private Country country;
@@ -82,7 +84,7 @@ namespace LandConquest.Forms
             taxes.PlayerId = player.PlayerId;
 
             /////////////////////////////////////////////////////////
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
 
             peasants = PeasantModel.GetPeasantsInfo(player, peasants);
             sliderTaxes.IsSnapToTickEnabled = true;
@@ -198,7 +200,7 @@ namespace LandConquest.Forms
 
         private void recruitImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
             equipment = EquipmentModel.GetPlayerEquipment(player, equipment);
 
             CloseUnusedWindows();
@@ -212,7 +214,7 @@ namespace LandConquest.Forms
         private void buttonTop_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
-            //openedWindow = new RatingWindow(this, player, user, army);
+            openedWindow = new RatingWindow(this, player, playerEntrance, user, army);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
@@ -231,7 +233,7 @@ namespace LandConquest.Forms
 
         private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
             market = MarketModel.GetMarketInfo(player, market);
 
             CloseUnusedWindows();
@@ -332,7 +334,7 @@ namespace LandConquest.Forms
 
         private void ImageStorage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = StorageModel.GetPlayerStorage(player, storage);
+            storage = StorageModel.GetPlayerStorage(player);
             List<Manufacture> manufactures = ManufactureModel.GetManufactureInfo(player);
             List<Manufacture> playerLandManufactures = ManufactureModel.GetPlayerLandManufactureInfo(player);
             //base manufactures 
