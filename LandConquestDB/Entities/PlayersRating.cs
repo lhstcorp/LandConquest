@@ -1,16 +1,19 @@
-﻿namespace LandConquestDB.Entities
+﻿using System;
+
+namespace LandConquestDB.Entities
 {
     public class PlayersRating
     {
-        public PlayersRating(string playerId, string name, int qty)
+        public PlayersRating(string playerId, string name, string qty)
         {
             PlayerId = playerId;
             Name = name;
             Qty = qty;
         }
+
         public string PlayerId { get; set; }
         public string Name { get; set; }
-        public int Qty { get; set; }
+        public string Qty { get; set; }
 
 
     }

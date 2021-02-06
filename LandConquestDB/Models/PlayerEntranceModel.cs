@@ -105,7 +105,7 @@ namespace LandConquestDB.Models
 
         public static List<PlayerEntrance> GetPlayerEntranceInfoList(List<PlayerEntrance> playerEntrances, User user)
         {
-            string query = "SELECT TOP (1000) [dbo].[PlayerEntranceData].[player_id],[first_entrance],[last_entrance],[dbo].[PlayerData].[player_name] FROM[LandConquestDB].[dbo].[PlayerEntranceData] JOIN[LandConquestDB].[dbo].[PlayerData] on[dbo].[PlayerData].[player_id] = [dbo].[PlayerEntranceData].[player_id] order by[first_entrance] desc";
+            string query = "SELECT TOP (1000) [dbo].[PlayerEntranceData].[player_id],[first_entrance],[last_entrance],[dbo].[PlayerData].[player_name] FROM[LandConquestDB].[dbo].[PlayerEntranceData] JOIN[LandConquestDB].[dbo].[PlayerData] on[dbo].[PlayerData].[player_id] = [dbo].[PlayerEntranceData].[player_id] order by[first_entrance] asc";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
