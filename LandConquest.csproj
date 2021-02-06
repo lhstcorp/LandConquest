@@ -565,6 +565,7 @@
     <Resource Include="Pictures\new_arrow.png" />
     <Resource Include="Pictures\Buildings\CopperMine.png" />
     <Resource Include="Pictures\Buildings\Lumberjack.png" />
+    <Resource Include="Pictures\War\RedCastle.png" />
     <Content Include="Resources\Buildings\arch.svg" />
     <Content Include="Resources\Buildings\blacksmith.svg" />
     <Content Include="Resources\Buildings\bridge_stone2.svg" />
