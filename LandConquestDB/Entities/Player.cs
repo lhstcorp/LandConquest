@@ -21,14 +21,14 @@
         public Player()
         { }
 
-        [Required]
-        [Column("player_id")]
-        [StringLength(16)]
+        //[Required]
+        //[Column("player_id")]
+        //[StringLength(16)]
         public string PlayerId { get; set; }
 
-        [Required]
-        [Column("player_name")]
-        [StringLength(20)]
+        //[Required]
+        //[Column("player_name")]
+        //[StringLength(20)]
         public string PlayerName { get; set; }
 
         [Column("player_exp")]

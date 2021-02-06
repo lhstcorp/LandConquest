@@ -15,7 +15,7 @@ namespace LandConquest.Forms
         private User user;
 
         public List<Player> playersXp { get; set; }
-        public List<PlayerEntrance> playerFirstEntrance { get; set; }
+        public List<PlayerEntrance> playersFirstEntrance { get; set; }
         public List<Army> playersArmy { get; set; }
         public List<PlayersRating> ratings { get; set; }
 
@@ -41,29 +41,28 @@ namespace LandConquest.Forms
             player = new Player();
             player = PlayerModel.GetPlayerInfo(user, player);
 
-            //playerEntrance = new PlayerEntrance();
-            //playerEntrance = PlayerEntranceModel.GetFirstEntrance(player);
-
             army = new Army();
             army = ArmyModel.GetArmyInfo(player, army);
 
+            playerEntrance = new PlayerEntrance();
+            playerEntrance = PlayerEntranceModel.GetFirstEntranceInfo(player, playerEntrance);
         }
 
-        //private void buttonCoins_Click(object sender, RoutedEventArgs e)
-        //{
-        //    playerFirstEntrance = new List<Player>();
-        //    ratings = new List<PlayersRating>();
-        //    playerFirstEntrance = PlayerModel.GetCoinsInfo(playerFirstEntrance, user);
+        private void ButtonFirstEntrance_Click(object sender, RoutedEventArgs e)
+        {
+            playersFirstEntrance = new List<PlayerEntrance>();
+            playersFirstEntrance = PlayerEntranceModel.GetPlayerEntranceInfoList(playersFirstEntrance, user);
+            ratings = new List<PlayersRating>();
+            
 
+            for (int i = 0; i < playersFirstEntrance.Count; i++)
+            {
+                PlayersRating rating = new PlayersRating(playersFirstEntrance[i].PlayerId, playersFirstEntrance[i].PlayerNameForEntrance, playersFirstEntrance[i].FirstEntrance.ToString());
+                ratings.Add(rating);                
+            }
 
-        //    for (int i = 0; i < playerFirstEntrance.Count; i++)
-        //    {
-        //        PlayersRating rating = new PlayersRating(playerFirstEntrance[i].PlayerId, playerFirstEntrance[i].PlayerName, Convert.ToInt32(playerFirstEntrance[i].PlayerMoney));
-        //        ratings.Add(rating);
-        //    }
-
-        //    rankingsList.ItemsSource = ratings;
-        //}
+            rankingsList.ItemsSource = ratings;
+        }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
@@ -80,7 +79,7 @@ namespace LandConquest.Forms
 
             for (int i = 0; i < playersXp.Count; i++)
             {
-                PlayersRating rating = new PlayersRating(playersXp[i].PlayerId, playersXp[i].PlayerName, Convert.ToInt32(playersXp[i].PlayerExp));
+                PlayersRating rating = new PlayersRating(playersXp[i].PlayerId, playersXp[i].PlayerName, playersXp[i].PlayerExp.ToString());
                 ratings.Add(rating);
             }
 
@@ -96,7 +95,7 @@ namespace LandConquest.Forms
 
             for (int i = 0; i < playersArmy.Count; i++)
             {
-                PlayersRating rating = new PlayersRating(playersArmy[i].PlayerId, playersArmy[i].PlayerNameForArmy, Convert.ToInt32(playersArmy[i].ArmySizeCurrent));
+                PlayersRating rating = new PlayersRating(playersArmy[i].PlayerId, playersArmy[i].PlayerNameForArmy, playersArmy[i].ArmySizeCurrent.ToString());
                 ratings.Add(rating);
             }
 

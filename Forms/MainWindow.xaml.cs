@@ -24,6 +24,7 @@ namespace LandConquest.Forms
         private Market market;
         private PlayerStorage storage;
         private PlayerEquipment equipment;
+        private PlayerEntrance playerEntrance;
         private Manufacture manufacture;
         private Taxes taxes;
         private Peasants peasants;
@@ -32,6 +33,7 @@ namespace LandConquest.Forms
         private List<Path> paths;
         private List<Country> countries;
         private List<War> wars;
+        private List<PlayerEntrance> playerEntrances;
         private Land land;
         private Army army;
         private Country country;
@@ -212,7 +214,7 @@ namespace LandConquest.Forms
         private void buttonTop_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
-            //openedWindow = new RatingWindow(this, player, user, army);
+            openedWindow = new RatingWindow(this, player, playerEntrance, user, army);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
