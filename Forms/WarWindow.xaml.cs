@@ -65,18 +65,26 @@ namespace LandConquest.Forms
             localWarMap.Rows = 20;    //40
             gridForArmies.Columns = 30;
             gridForArmies.Rows = 20;
+            elementsWarMap.Columns = 30;
+            elementsWarMap.Rows = 20;
 
             localWarMap.Width = columnWidth * localWarMap.Columns;
             gridForArmies.Width = columnWidth * localWarMap.Columns;
+            elementsWarMap.Width = columnWidth * localWarMap.Columns;
             localWarMap.Height = rowHeight * localWarMap.Rows;
             gridForArmies.Height = rowHeight * localWarMap.Rows;
+            elementsWarMap.Height = rowHeight * localWarMap.Rows;
 
             localWarMap.HorizontalAlignment = HorizontalAlignment.Left;
-            localWarMap.Margin = new Thickness(50, 0, 0, 0);
+            localWarMap.Margin = new Thickness(35, 0, 0, 0);
             localWarMap.VerticalAlignment = VerticalAlignment.Center;
+            localWarMap.Opacity = 0.8;
             gridForArmies.HorizontalAlignment = HorizontalAlignment.Left;
-            gridForArmies.Margin = new Thickness(50, 0, 0, 0);
+            gridForArmies.Margin = new Thickness(35, 0, 0, 0);
             gridForArmies.VerticalAlignment = VerticalAlignment.Center;
+            elementsWarMap.HorizontalAlignment = HorizontalAlignment.Left;
+            elementsWarMap.Margin = new Thickness(35, 0, 0, 0);
+            elementsWarMap.VerticalAlignment = VerticalAlignment.Center;
 
             timerLabel.Content = "syncing...";
             Loaded += WarWin_Loaded;
@@ -103,12 +111,29 @@ namespace LandConquest.Forms
                     tile = AddSourceForTile(tile, "move", 0, x, y);
                     localWarMap.Children.Add(tile);
                     gridForArmies.Children.Add(new Image());
+                    elementsWarMap.Children.Add(new Image());
                 }
             }
             mainWarWinGrid.Children.Add(localWarMap);
 
+            ShowElementsOnMap();
             ShowArmiesOnMap();
             SyncWithServer();
+        }
+
+        public void ShowElementsOnMap()
+        {
+            Image redCastle = new Image();
+            redCastle.Source = new BitmapImage(new Uri("/Pictures/War/RedCastle.png", UriKind.Relative));
+
+            elementsWarMap.Children.RemoveAt(270);
+            elementsWarMap.Children.Insert(270, redCastle);
+
+            Image blueCastle = new Image();
+            blueCastle.Source = new BitmapImage(new Uri("/Pictures/War/BlueCastle.png", UriKind.Relative));
+
+            elementsWarMap.Children.RemoveAt(299);
+            elementsWarMap.Children.Insert(299, blueCastle);
         }
 
         public void ShowArmiesOnMap()
