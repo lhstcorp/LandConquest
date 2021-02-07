@@ -663,6 +663,10 @@
       <Project>{30c9513c-500c-4cd3-b914-aadad401def8}</Project>
       <Name>LandConquestDB</Name>
     </ProjectReference>
+    <ProjectReference Include="LandConquestYD\LandConquestYD.csproj">
+      <Project>{872abfb4-6f5b-4bf9-a9b0-beebcd3f0e4b}</Project>
+      <Name>LandConquestYD</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pictures\Materials\" />

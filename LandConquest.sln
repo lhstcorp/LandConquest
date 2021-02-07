@@ -6,9 +6,15 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LandConquest", "LandConquest.csproj", "{D099D595-DC90-44D4-B189-32ECE766778F}"
 	ProjectSection(ProjectDependencies) = postProject
 		{30C9513C-500C-4CD3-B914-AADAD401DEF8} = {30C9513C-500C-4CD3-B914-AADAD401DEF8}
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B} = {872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LandConquestDB", "LandConquestDB\LandConquestDB.csproj", "{30C9513C-500C-4CD3-B914-AADAD401DEF8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B} = {872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LandConquestYD", "LandConquestYD\LandConquestYD.csproj", "{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +49,18 @@ Global
 		{30C9513C-500C-4CD3-B914-AADAD401DEF8}.Release|x64.Build.0 = Release|Any CPU
 		{30C9513C-500C-4CD3-B914-AADAD401DEF8}.Release|x86.ActiveCfg = Release|Any CPU
 		{30C9513C-500C-4CD3-B914-AADAD401DEF8}.Release|x86.Build.0 = Release|Any CPU
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}.Debug|x64.Build.0 = Debug|Any CPU
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}.Debug|x86.Build.0 = Debug|Any CPU
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}.Release|x64.ActiveCfg = Release|Any CPU
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}.Release|x64.Build.0 = Release|Any CPU
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}.Release|x86.ActiveCfg = Release|Any CPU
+		{872ABFB4-6F5B-4BF9-A9B0-BEEBCD3F0E4B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

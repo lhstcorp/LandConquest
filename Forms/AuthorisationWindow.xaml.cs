@@ -2,9 +2,7 @@
 using LandConquest.DialogWIndows;
 using LandConquest.Forms;
 using LandConquest.Logic;
-using LandConquestDB;
-using LandConquestDB.Entities;
-using LandConquestDB.Models;
+using LandConquestYD;
 using System;
 using System.Data;
 using System.Diagnostics;
@@ -27,7 +25,7 @@ namespace LandConquest
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
             YDContext.OpenYD();
-            DbContext.OpenConnectionPool();
+            LandConquestDB.DbContext.OpenConnectionPool();
             //LauncherController.CheckLocalUtcDateTime();
             //LauncherController.DisableActiveCheats();
             CheckVersion();
@@ -38,7 +36,7 @@ namespace LandConquest
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            User user = UserModel.UserAuthorisation(this.textBoxLogin.Text, this.textBoxPass.Password);
+            LandConquestDB.Entities.User user = LandConquestDB.Models.UserModel.UserAuthorisation(this.textBoxLogin.Text, this.textBoxPass.Password);
 
             if (user.UserLogin == textBoxLogin.Text && user.UserPass == textBoxPass.Password)
             {
@@ -67,8 +65,8 @@ namespace LandConquest
 
         private void buttonRegistrate_Click(object sender, RoutedEventArgs e)
         {
-            bool validNewUserLogin = UserModel.ValidateUserByLogin(textBoxNewLogin.Text);
-            bool validNewUserEmail = UserModel.ValidateUserByEmail(textBoxNewEmail.Text);
+            bool validNewUserLogin = LandConquestDB.Models.UserModel.ValidateUserByLogin(textBoxNewLogin.Text);
+            bool validNewUserEmail = LandConquestDB.Models.UserModel.ValidateUserByEmail(textBoxNewEmail.Text);
 
             if (textBoxNewLogin.Text.Length > 6 &&
                 EmailValidator.Validate(textBoxNewEmail.Text, true, true) &&
@@ -78,15 +76,15 @@ namespace LandConquest
                 textBoxNewPass.Text == textBoxConfirmNewPass.Text)
             {
                 string userId = generateUserId();
-                int userCreationResult = UserModel.CreateUser(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, this.textBoxNewPass.Text, userId);
+                int userCreationResult = LandConquestDB.Models.UserModel.CreateUser(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, this.textBoxNewPass.Text, userId);
                 if (userCreationResult < 0)
                 {
                     WarningDialogWindow.CallWarningDialogNoResult("Error creating new user!");
                 }
                 else
                 {
-                    User registeredUser = new User();
-                    int playerResult = PlayerModel.CreatePlayer(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, this.textBoxNewPass.Text, userId, registeredUser);
+                    LandConquestDB.Entities.User registeredUser = new LandConquestDB.Entities.User();
+                    int playerResult = LandConquestDB.Models.PlayerModel.CreatePlayer(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, this.textBoxNewPass.Text, userId, registeredUser);
 
                     if (playerResult < 0)
                     {
@@ -94,17 +92,17 @@ namespace LandConquest
                     }
                     else
                     {
-                        PlayerModel.CreatePlayerResources(userId, registeredUser);
-                        TaxesModel.CreateTaxesData(userId);
+                        LandConquestDB.Models.PlayerModel.CreatePlayerResources(userId, registeredUser);
+                        LandConquestDB.Models.TaxesModel.CreateTaxesData(userId);
 
                         MainWindow mainWindow = new MainWindow(registeredUser);
                         mainWindow.Show();
                         this.Close();
                     }
-                    Army army = new Army();
+                    LandConquestDB.Entities.Army army = new LandConquestDB.Entities.Army();
                     army.PlayerId = userId;
                     army.ArmyId = generateUserId();
-                    ArmyModel.InsertArmyFromReg(army);
+                    LandConquestDB.Models.ArmyModel.InsertArmyFromReg(army);
                 }
             }
             else
