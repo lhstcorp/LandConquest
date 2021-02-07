@@ -565,7 +565,12 @@
     <Resource Include="Pictures\new_arrow.png" />
     <Resource Include="Pictures\Buildings\CopperMine.png" />
     <Resource Include="Pictures\Buildings\Lumberjack.png" />
+    <Resource Include="Pictures\War\BlueCastle.png" />
+    <Resource Include="Pictures\War\boot.png" />
+    <Resource Include="Pictures\War\loop.png" />
     <Resource Include="Pictures\War\RedCastle.png" />
+    <Resource Include="Pictures\Experimental\city.jpg" />
+    <Resource Include="Pictures\Experimental\globe.png" />
     <Content Include="Resources\Buildings\arch.svg" />
     <Content Include="Resources\Buildings\blacksmith.svg" />
     <Content Include="Resources\Buildings\bridge_stone2.svg" />
