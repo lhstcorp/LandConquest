@@ -1,5 +1,5 @@
 ﻿using LandConquest.DialogWIndows;
-using LandConquestDB;
+using LandConquestYD;
 using System.Windows;
 
 namespace LandConquest.Forms

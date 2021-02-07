@@ -1,0 +1,39 @@
+Renamed Types:
+
+Skipped Types:
+
+[KSecure]KSecure.Normal skipped:  KeepPublicApi option in configuration
+{
+	[KSecure]KSecure.Normal::Generate256BitsOfRandomEntropy[0]( ) ->  
+	[KSecure]KSecure.Normal::GetHash[1]( [mscorlib]System.String ) ->  
+
+	[KSecure]KSecure.Normal::Encrypt[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[KSecure]KSecure.Normal::Decrypt[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[KSecure]KSecure.Normal::Hash[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+
+	System.Int32 [KSecure]System.Int32 KSecure.Normal::Keysize ->  
+	System.Int32 [KSecure]System.Int32 KSecure.Normal::DerivationIterations ->  
+	System.String [KSecure]System.String KSecure.Normal::defaultPassPhrase ->  
+}
+
+[LandConquestYD]LandConquestYD.YDContext skipped:  KeepPublicApi option in configuration
+{
+	[LandConquestYD]LandConquestYD.YDContext::Connection[0]( ) ->  
+	[LandConquestYD]LandConquestYD.YDContext::Disk[0]( ) ->  
+	[LandConquestYD]LandConquestYD.YDContext::CommandDisk[2]( [mscorlib]System.String, [YandexDiskNET]YandexDiskNET.Param ) ->  
+	[LandConquestYD]LandConquestYD.YDContext::ReadFile[1]( [mscorlib]System.String ) ->  
+
+	[LandConquestYD]LandConquestYD.YDContext::OpenYD[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquestYD]LandConquestYD.YDContext::GetYD[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquestYD]LandConquestYD.YDContext::ReadResource[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestYD]LandConquestYD.YDContext::UploadBugReport[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+
+	YandexDiskNET.YandexDiskRest [LandConquestYD]YandexDiskNET.YandexDiskRest LandConquestYD.YDContext::disk ->  
+	System.String [LandConquestYD]System.String LandConquestYD.YDContext::oauth ->  
+}
+
+Renamed Resources:
+
+
+Skipped Resources:
+
