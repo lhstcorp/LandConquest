@@ -15,7 +15,7 @@
     <Grid>
         <TextBox x:Name="textBoxNewMessage" FontSize="16" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap"  VerticalAlignment="Top" Width="752" 
                  Background="White" CaretBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" materialDesign:HintAssist.Hint=" Your message"  materialDesign:HintAssist.IsFloating="False" Margin="10,404,0,0" BorderBrush="{x:Null}"/>
-        <ListView x:Name="listViewChat" HorizontalAlignment="Left" Height="351" VerticalAlignment="Top" Width="830" Foreground="#DD000000" BorderBrush="Black" Loaded="listViewChat_Loaded" Background="White" OpacityMask="White" FontSize="12" Margin="10,48,0,0">
+        <ListView x:Name="listViewChat" HorizontalAlignment="Left" Height="351" VerticalAlignment="Top" Width="823" Foreground="#DD000000" BorderBrush="Black" Loaded="listViewChat_Loaded" Background="White" OpacityMask="White" FontSize="12" Margin="10,48,0,0">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="Background" Value="White"/>

@@ -21,6 +21,17 @@ Renamed Types:
 	System.String [LandConquest]System.String LandConquest.Properties.Resources::UserAgreement -> dropped
 }
 
+[LandConquest]LandConquest.App/<>c -> [LandConquest]LandConquest.App/ 
+{
+	[LandConquest]LandConquest.App/<>c::<SetupExceptionHandling>b__3_0[2]( [mscorlib]System.Object, [mscorlib]System.Threading.Tasks.UnobservedTaskExceptionEventArgs ) ->  
+
+	[LandConquest]LandConquest.App/<>c::.cctor[0]( ) skipped:  special name
+	[LandConquest]LandConquest.App/<>c::.ctor[0]( ) skipped:  special name
+
+	LandConquest.App/<>c [LandConquest]LandConquest.App/<>c LandConquest.App/<>c::<>9 ->  
+	System.EventHandler`1<System.Threading.Tasks.UnobservedTaskExceptionEventArgs> [LandConquest]System.EventHandler`1<System.Threading.Tasks.UnobservedTaskExceptionEventArgs> LandConquest.App/<>c::<>9__3_0 ->  
+}
+
 [LandConquest]LandConquest.AuthorisationWindow/<>c -> [LandConquest]LandConquest.AuthorisationWindow/ 
 {
 	[LandConquest]LandConquest.AuthorisationWindow/<>c::<generateUserId>b__5_0[1]( [mscorlib]System.String ) ->  
@@ -55,6 +66,50 @@ Renamed Types:
 	LandConquestDB.Entities.PlayerStorage [LandConquest]LandConquestDB.Entities.PlayerStorage LandConquest.Logic.ConsumptionLogic/<ConsumptionCountAsync>d__3::storage ->  
 	LandConquest.Logic.ConsumptionLogic/<>c__DisplayClass3_0 [LandConquest]LandConquest.Logic.ConsumptionLogic/<>c__DisplayClass3_0 LandConquest.Logic.ConsumptionLogic/<ConsumptionCountAsync>d__3::<>8__1 ->  
 	System.Runtime.CompilerServices.TaskAwaiter [LandConquest]System.Runtime.CompilerServices.TaskAwaiter LandConquest.Logic.ConsumptionLogic/<ConsumptionCountAsync>d__3::<>u__1 ->  
+}
+
+[LandConquest]LandConquest.Logic.LauncherLogic/<>c__DisplayClass0_0 -> [LandConquest]LandConquest.Logic.LauncherLogic/ 
+{
+	[LandConquest]LandConquest.Logic.LauncherLogic/<>c__DisplayClass0_0::<CheckLocalUtcDateTime>b__0[0]( ) ->  
+
+	[LandConquest]LandConquest.Logic.LauncherLogic/<>c__DisplayClass0_0::.ctor[0]( ) skipped:  special name
+
+	System.IO.StreamReader [LandConquest]System.IO.StreamReader LandConquest.Logic.LauncherLogic/<>c__DisplayClass0_0::streamReader ->  
+}
+
+[LandConquest]LandConquest.Logic.LauncherLogic/<CheckLocalUtcDateTime>d__0 -> [LandConquest]LandConquest.Logic.LauncherLogic/ 
+{
+
+	[LandConquest]LandConquest.Logic.LauncherLogic/<CheckLocalUtcDateTime>d__0::MoveNext[0]( ) skipped:  external base class or interface
+	[LandConquest]LandConquest.Logic.LauncherLogic/<CheckLocalUtcDateTime>d__0::SetStateMachine[1]( [mscorlib]System.Runtime.CompilerServices.IAsyncStateMachine ) skipped:  external base class or interface
+
+	System.Int32 [LandConquest]System.Int32 LandConquest.Logic.LauncherLogic/<CheckLocalUtcDateTime>d__0::<>1__state ->  
+	System.Runtime.CompilerServices.AsyncVoidMethodBuilder [LandConquest]System.Runtime.CompilerServices.AsyncVoidMethodBuilder LandConquest.Logic.LauncherLogic/<CheckLocalUtcDateTime>d__0::<>t__builder ->  
+	LandConquest.Logic.LauncherLogic/<>c__DisplayClass0_0 [LandConquest]LandConquest.Logic.LauncherLogic/<>c__DisplayClass0_0 LandConquest.Logic.LauncherLogic/<CheckLocalUtcDateTime>d__0::<>8__1 ->  
+	System.Runtime.CompilerServices.TaskAwaiter`1<System.String> [LandConquest]System.Runtime.CompilerServices.TaskAwaiter`1<System.String> LandConquest.Logic.LauncherLogic/<CheckLocalUtcDateTime>d__0::<>u__1 ->  
+}
+
+[LandConquest]LandConquest.Logic.LauncherLogic/<>c__DisplayClass2_0 -> [LandConquest]LandConquest.Logic.LauncherLogic/ 
+{
+	[LandConquest]LandConquest.Logic.LauncherLogic/<>c__DisplayClass2_0::<DisableActiveCheatsLoop>b__0[0]( ) ->  
+
+	[LandConquest]LandConquest.Logic.LauncherLogic/<>c__DisplayClass2_0::.ctor[0]( ) skipped:  special name
+
+	System.Diagnostics.Process [LandConquest]System.Diagnostics.Process LandConquest.Logic.LauncherLogic/<>c__DisplayClass2_0::process ->  
+}
+
+[LandConquest]LandConquest.Logic.LauncherLogic/<DisableActiveCheatsLoop>d__2 -> [LandConquest]LandConquest.Logic.LauncherLogic/ 
+{
+
+	[LandConquest]LandConquest.Logic.LauncherLogic/<DisableActiveCheatsLoop>d__2::MoveNext[0]( ) skipped:  external base class or interface
+	[LandConquest]LandConquest.Logic.LauncherLogic/<DisableActiveCheatsLoop>d__2::SetStateMachine[1]( [mscorlib]System.Runtime.CompilerServices.IAsyncStateMachine ) skipped:  external base class or interface
+
+	System.Int32 [LandConquest]System.Int32 LandConquest.Logic.LauncherLogic/<DisableActiveCheatsLoop>d__2::<>1__state ->  
+	System.Runtime.CompilerServices.AsyncVoidMethodBuilder [LandConquest]System.Runtime.CompilerServices.AsyncVoidMethodBuilder LandConquest.Logic.LauncherLogic/<DisableActiveCheatsLoop>d__2::<>t__builder ->  
+	System.String[] [LandConquest]System.String[] LandConquest.Logic.LauncherLogic/<DisableActiveCheatsLoop>d__2::<hackToolsArray>5__2 ->  
+	System.Diagnostics.Process[] [LandConquest]System.Diagnostics.Process[] LandConquest.Logic.LauncherLogic/<DisableActiveCheatsLoop>d__2::<>7__wrap2 ->  
+	System.Int32 [LandConquest]System.Int32 LandConquest.Logic.LauncherLogic/<DisableActiveCheatsLoop>d__2::<>7__wrap3 ->  
+	System.Runtime.CompilerServices.TaskAwaiter [LandConquest]System.Runtime.CompilerServices.TaskAwaiter LandConquest.Logic.LauncherLogic/<DisableActiveCheatsLoop>d__2::<>u__1 ->  
 }
 
 [LandConquest]LandConquest.Forms.ChatWindow/<>c -> [LandConquest]LandConquest.Forms.ChatWindow/ 
@@ -99,13 +154,13 @@ Renamed Types:
 	System.Int32 [LandConquest]System.Int32 LandConquest.Forms.CastleManagementWindow/Level::value__ skipped:  special name
 }
 
-[LandConquest]LandConquest.Forms.WarWindow/<>c__DisplayClass60_0 -> [LandConquest]LandConquest.Forms.WarWindow/ 
+[LandConquest]LandConquest.Forms.WarWindow/<>c__DisplayClass61_0 -> [LandConquest]LandConquest.Forms.WarWindow/ 
 {
-	[LandConquest]LandConquest.Forms.WarWindow/<>c__DisplayClass60_0::<generateId>b__0[1]( [mscorlib]System.String ) ->  
+	[LandConquest]LandConquest.Forms.WarWindow/<>c__DisplayClass61_0::<generateId>b__0[1]( [mscorlib]System.String ) ->  
 
-	[LandConquest]LandConquest.Forms.WarWindow/<>c__DisplayClass60_0::.ctor[0]( ) skipped:  special name
+	[LandConquest]LandConquest.Forms.WarWindow/<>c__DisplayClass61_0::.ctor[0]( ) skipped:  special name
 
-	System.Random [LandConquest]System.Random LandConquest.Forms.WarWindow/<>c__DisplayClass60_0::random ->  
+	System.Random [LandConquest]System.Random LandConquest.Forms.WarWindow/<>c__DisplayClass61_0::random ->  
 }
 
 [LandConquest]LandConquest.DialogWIndows.CommonManufactureUpgrade/Level -> [LandConquest]LandConquest.DialogWIndows.CommonManufactureUpgrade/ 
@@ -150,10 +205,14 @@ Skipped Types:
 
 [LandConquest]LandConquest.App skipped:  KeepPublicApi option in configuration
 {
+	[LandConquest]LandConquest.App::App_Exit[2]( [mscorlib]System.Object, [PresentationFramework]System.Windows.ExitEventArgs ) ->  
+	[LandConquest]LandConquest.App::Application_DispatcherUnhandledException[2]( [mscorlib]System.Object, [WindowsBase]System.Windows.Threading.DispatcherUnhandledExceptionEventArgs ) ->  
+	[LandConquest]LandConquest.App::SetupExceptionHandling[0]( ) ->  
+	[LandConquest]LandConquest.App::MyHandler[2]( [mscorlib]System.Object, [mscorlib]System.UnhandledExceptionEventArgs ) ->  
 
+	[LandConquest]LandConquest.App::.ctor[0]( ) skipped:  special name
 	[LandConquest]LandConquest.App::InitializeComponent[0]( ) skipped:  KeepPublicApi option in configuration
 	[LandConquest]LandConquest.App::Main[0]( ) skipped:  KeepPublicApi option in configuration
-	[LandConquest]LandConquest.App::.ctor[0]( ) skipped:  special name
 
 	System.Boolean [LandConquest]System.Boolean LandConquest.App::_contentLoaded ->  
 }
@@ -189,9 +248,10 @@ Skipped Types:
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.AuthorisationWindow::buttonCancelRegistrate ->  
 	System.Windows.Controls.CheckBox [LandConquest]System.Windows.Controls.CheckBox LandConquest.AuthorisationWindow::CheckboxRemember ->  
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.AuthorisationWindow::buttonShowRegistration ->  
-	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.AuthorisationWindow::labelGameFiles ->  
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.AuthorisationWindow::currentOnlineLabel ->  
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.AuthorisationWindow::labelGameFiles ->  
 	System.Windows.Controls.Image [LandConquest]System.Windows.Controls.Image LandConquest.AuthorisationWindow::iconDownload ->  
-	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.AuthorisationWindow::labelAgreement ->  
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.AuthorisationWindow::labelAgreement ->  
 	System.Boolean [LandConquest]System.Boolean LandConquest.AuthorisationWindow::_contentLoaded ->  
 }
 
@@ -683,6 +743,7 @@ Skipped Types:
 	[LandConquest]LandConquest.Forms.WarWindow::.ctor[5]( [LandConquestDB]LandConquestDB.Entities.Player, [mscorlib]System.Int32, [LandConquestDB]LandConquestDB.Entities.ArmyInBattle, [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.ArmyInBattle>, [LandConquestDB]LandConquestDB.Entities.War ) skipped:  special name
 	[LandConquest]LandConquest.Forms.WarWindow::GetPlayerArmies[0]( ) skipped:  KeepPublicApi option in configuration
 	[LandConquest]LandConquest.Forms.WarWindow::SetPlayerArmies[1]( [mscorlib]System.Collections.Generic.List`1<[LandConquestDB]LandConquestDB.Entities.ArmyInBattle> ) skipped:  KeepPublicApi option in configuration
+	[LandConquest]LandConquest.Forms.WarWindow::ShowElementsOnMap[0]( ) skipped:  KeepPublicApi option in configuration
 	[LandConquest]LandConquest.Forms.WarWindow::ShowArmiesOnMap[0]( ) skipped:  KeepPublicApi option in configuration
 	[LandConquest]LandConquest.Forms.WarWindow::ReturnNumberOfCell[2]( [mscorlib]System.Int32, [mscorlib]System.Int32 ) skipped:  KeepPublicApi option in configuration
 	[LandConquest]LandConquest.Forms.WarWindow::checkRange[1]( [mscorlib]System.Int32 ) skipped:  KeepPublicApi option in configuration
@@ -754,7 +815,8 @@ Skipped Types:
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.WarWindow::armyPageArrowRight ->  
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.WarWindow::btnSelectToUnite ->  
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.WarWindow::btnUnite ->  
-	System.Windows.Controls.Primitives.UniformGrid [LandConquest]System.Windows.Controls.Primitives.UniformGrid LandConquest.Forms.WarWindow::gridForArmies ->  
+	System.Windows.Controls.Primitives.UniformGrid [LandConquest]System.Windows.Controls.Primitives.UniformGrid LandConquest.Forms.WarWindow::elementsWarMap ->  
+	System.Windows.Controls.Primitives.UniformGrid [LandConquest]System.Windows.Controls.Primitives.UniformGrid LandConquest.Forms.WarWindow::gridForArmies ->  
 	System.Windows.Controls.Grid [LandConquest]System.Windows.Controls.Grid LandConquest.Forms.WarWindow::warGrid ->  
 	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.WarWindow::warriorsAllLeft ->  
 	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.WarWindow::warriorsInfantryLeft ->  
@@ -766,10 +828,8 @@ Skipped Types:
 	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.WarWindow::warriorsArchersRight -> ​
 	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.WarWindow::warriorsKnightsRight -> ‐
 	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.WarWindow::warriorsSiegeRight -> ‑
-	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.WarWindow::timerLabel -> ‒
-	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.WarWindow::moveCounterLbl -> –
-	System.Windows.Controls.Image [LandConquest]System.Windows.Controls.Image LandConquest.Forms.WarWindow::RedCastle ->  
-	System.Windows.Controls.Image [LandConquest]System.Windows.Controls.Image LandConquest.Forms.WarWindow::BlueCastle ->  
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.WarWindow::moveCounterLbl -> ‒
+	System.Windows.Controls.Label [LandConquest]System.Windows.Controls.Label LandConquest.Forms.WarWindow::timerLabel -> –
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.WarWindow::buttonCollapse ->  
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.Forms.WarWindow::buttonExit ->  
 	System.Windows.Shapes.Rectangle [LandConquest]System.Windows.Shapes.Rectangle LandConquest.Forms.WarWindow::thisMoveIndicator ->  
@@ -1317,7 +1377,7 @@ Skipped Types:
 	[LandConquest]LandConquest.DialogWIndows.WarningDialogWindow::CallWarningDialogNoResult[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
 	[LandConquest]LandConquest.DialogWIndows.WarningDialogWindow::CallWarningDialogWithResult[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
 
-	System.Windows.Controls.TextBlock [LandConquest]System.Windows.Controls.TextBlock LandConquest.DialogWIndows.WarningDialogWindow::textWarning ->  
+	System.Windows.Controls.TextBox [LandConquest]System.Windows.Controls.TextBox LandConquest.DialogWIndows.WarningDialogWindow::textWarning ->  
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.DialogWIndows.WarningDialogWindow::warningButton ->  
 	System.Windows.Controls.Button [LandConquest]System.Windows.Controls.Button LandConquest.DialogWIndows.WarningDialogWindow::buttonClose ->  
 	System.Boolean [LandConquest]System.Boolean LandConquest.DialogWIndows.WarningDialogWindow::_contentLoaded ->  
@@ -1381,6 +1441,7 @@ Skipped Types:
 
 [LandConquest]LandConquest.Logic.LauncherLogic skipped:  KeepPublicApi option in configuration
 {
+	[LandConquest]LandConquest.Logic.LauncherLogic::DisableActiveCheatsLoop[0]( ) ->  
 
 	[LandConquest]LandConquest.Logic.LauncherLogic::CheckLocalUtcDateTime[0]( ) skipped:  KeepPublicApi option in configuration
 	[LandConquest]LandConquest.Logic.LauncherLogic::DisableActiveCheats[0]( ) skipped:  KeepPublicApi option in configuration
