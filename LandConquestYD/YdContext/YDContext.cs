@@ -22,7 +22,7 @@ namespace LandConquestYD
 
         private static void Connection()
         {
-            oauth = KSecure.Normal.Decrypt("fO4bi4UutIeOwf4jtC0S0EbdXqb/V4fwoLAkyzdkDFcZNeyFn7COODZF5ivGwnxgc1lefRT3JrNSCREGDl74A6/1B6l7TBgPYAupjE/ZqeSIdGgu274q5aEs59PrbocBktyf9zS1oXoVK3x3nM2zfB/kwwEaGLv34Xb2uN/cK8o=", Path.GetPathRoot(Environment.SystemDirectory));
+            oauth = KSecure.Normal.Decrypt(Properties.Settings.Default.Token, Path.GetPathRoot(Environment.SystemDirectory));
         }
 
         private static void Disk()
@@ -45,7 +45,7 @@ namespace LandConquestYD
 
         public static int CountConnections()
         {
-            ConnectionSourceFileName = Environment.MachineName + DateTime.UtcNow.ToString().Replace(":", "_") + @".ttf";
+            ConnectionSourceFileName = @"onlinecount_" + Environment.MachineName + DateTime.UtcNow.ToString().Replace(":", "_") + @".ttf";
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + ConnectionSourceFileName;
             File.AppendAllText(path, "");
             disk.UploadResource("OnlineCount/" + ConnectionSourceFileName, path, true);
@@ -71,6 +71,7 @@ namespace LandConquestYD
                 if (filesByNameFields._Embedded.Items.Count != 0)
                     foreach (var s in filesByNameFields._Embedded.Items)
                     {
+                        if(s.Name.Contains("onlinecount_"))
                         count++;
                     }
             }

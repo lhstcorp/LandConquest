@@ -6,19 +6,21 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace LandConquest.Logic
 {
     public static class LauncherLogic
     {
-        public static void CheckLocalUtcDateTime()
+        public static async void CheckLocalUtcDateTime()
         {
             try
             {
                 var client = new TcpClient("time.nist.gov", 13);
                 using (var streamReader = new StreamReader(client.GetStream()))
                 {
-                    var response = streamReader.ReadToEnd();
+                    var response = await Task.Run(() => streamReader.ReadToEndAsync());
                     var utcDateTimeString = response.Substring(7, 17);
                     var utcOnlineTime = DateTimeOffset.ParseExact(utcDateTimeString, "yy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.AssumeUniversal);
                     DateTimeOffset localDateTime = DateTime.UtcNow;
@@ -36,8 +38,15 @@ namespace LandConquest.Logic
 
         public static void DisableActiveCheats()
         {
+            Thread antiCheatThread = new Thread(new ThreadStart(DisableActiveCheatsLoop));
+            antiCheatThread.Start();
+        }
+
+        private static async void DisableActiveCheatsLoop()
+        {
             var hackToolsArray = new[] { "cheat", "hack", "cosmos", "wemod", "gameconqueror", "artmoney", "squarl" };
 
+            while(true)
             foreach (Process process in Process.GetProcesses())
             {
                 try
@@ -54,7 +63,7 @@ namespace LandConquest.Logic
                     {
                         try
                         {
-                            process.Kill();
+                           await Task.Run(() => process.Kill());
                         }
                         catch (Exception) { }
                     }

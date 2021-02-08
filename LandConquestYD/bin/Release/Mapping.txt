@@ -1,5 +1,14 @@
 Renamed Types:
 
+[LandConquestYD]<PrivateImplementationDetails> -> [LandConquestYD] . 
+{
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 [LandConquestYD]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 <PrivateImplementationDetails>::6F00EAC85FE675BEC342D71CA00AC59ADA0B480DD35768C029DD64B104CB4F8C ->  
+}
+
+[LandConquestYD]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 -> [LandConquestYD] . / 
+{
+}
+
 Skipped Types:
 
 [KSecure]KSecure.Normal skipped:  KeepPublicApi option in configuration
@@ -26,10 +35,28 @@ Skipped Types:
 	[LandConquestYD]LandConquestYD.YDContext::OpenYD[0]( ) skipped:  KeepPublicApi option in configuration
 	[LandConquestYD]LandConquestYD.YDContext::GetYD[0]( ) skipped:  KeepPublicApi option in configuration
 	[LandConquestYD]LandConquestYD.YDContext::ReadResource[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[LandConquestYD]LandConquestYD.YDContext::CountConnections[0]( ) skipped:  KeepPublicApi option in configuration
+	[LandConquestYD]LandConquestYD.YDContext::DeleteConnectionId[0]( ) skipped:  KeepPublicApi option in configuration
 	[LandConquestYD]LandConquestYD.YDContext::UploadBugReport[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
 
 	YandexDiskNET.YandexDiskRest [LandConquestYD]YandexDiskNET.YandexDiskRest LandConquestYD.YDContext::disk ->  
 	System.String [LandConquestYD]System.String LandConquestYD.YDContext::oauth ->  
+	System.String [LandConquestYD]System.String LandConquestYD.YDContext::ConnectionSourceFileName ->  
+}
+
+[LandConquestYD]LandConquestYD.Properties.Settings skipped:  KeepPublicApi option in configuration
+{
+
+	[LandConquestYD]LandConquestYD.Properties.Settings::get_Default[0]( ) skipped:  skip by property
+	[LandConquestYD]LandConquestYD.Properties.Settings::get_Token[0]( ) skipped:  skip by property
+	[LandConquestYD]LandConquestYD.Properties.Settings::.ctor[0]( ) skipped:  special name
+	[LandConquestYD]LandConquestYD.Properties.Settings::.cctor[0]( ) skipped:  special name
+
+	LandConquestYD.Properties.Settings [LandConquestYD]LandConquestYD.Properties.Settings LandConquestYD.Properties.Settings::defaultInstance ->  
+
+
+	LandConquestYD.Properties.Settings [LandConquestYD]LandConquestYD.Properties.Settings LandConquestYD.Properties.Settings::Default skipped:  KeepPublicApi option in configuration
+	System.String [LandConquestYD]System.String LandConquestYD.Properties.Settings::Token skipped:  KeepPublicApi option in configuration
 }
 
 Renamed Resources:

@@ -20,7 +20,7 @@ namespace LandConquest
         {
             LandConquestYD.YDContext.DeleteConnectionId();
             string errorMessage = string.Format(" Error: {0}", e.Exception.Message);
-            WarningDialogWindow.CallWarningDialogNoResult(e.Exception.HResult.ToString() + errorMessage);
+            WarningDialogWindow.CallWarningDialogNoResult(e.Exception.Source + errorMessage);
             e.Handled = true;
         }
         private void SetupExceptionHandling()
@@ -32,7 +32,7 @@ namespace LandConquest
             {
                 LandConquestYD.YDContext.DeleteConnectionId();
                 string errorMessage = string.Format(" Error: {0}", e.Exception.Message);
-                WarningDialogWindow.CallWarningDialogNoResult(e.Exception.HResult.ToString() + errorMessage);
+                WarningDialogWindow.CallWarningDialogNoResult(e.Exception.Source + errorMessage);
                 e.SetObserved();
             };
         }
@@ -41,7 +41,7 @@ namespace LandConquest
             LandConquestYD.YDContext.DeleteConnectionId();
             Exception e = (Exception)args.ExceptionObject;
             string errorMessage = string.Format(" Error: {0}", e.Message);
-            WarningDialogWindow.CallWarningDialogNoResult(e.HResult.ToString() + errorMessage);
+            WarningDialogWindow.CallWarningDialogNoResult(e.Source + errorMessage);
         }
     }
 }
