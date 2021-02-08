@@ -170,6 +170,16 @@ namespace LandConquest.Forms
             openedWindow.Closed += FreeData;
         }
 
+        private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new LandWindow();
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
         private void buttonLogout_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
@@ -788,11 +798,6 @@ namespace LandConquest.Forms
             LandModel.AddLandManufactures(land);
         }
 
-
-        private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
         private void buttonStartBattle_Click(object sender, RoutedEventArgs e)
         {
             //WarResultWindow warResultWindow = new WarResultWindow(player);

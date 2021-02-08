@@ -50,7 +50,7 @@
             <Image HorizontalAlignment="Left" Height="50" Margin="390,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="recruitImage_MouseDown" Cursor="Hand"/>
             <Image HorizontalAlignment="Left" Height="50" Margin="440,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="marketImage_MouseDown" Cursor="Hand"/>
             <Image HorizontalAlignment="Left" Height="50" Margin="490,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="CountryImage_MouseDown" Cursor="Hand"/>
-            <Image HorizontalAlignment="Left" Height="50" Margin="540,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" Cursor="Hand" Opacity="0.25"/>
+            <Image HorizontalAlignment="Left" Height="50" Margin="540,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" Cursor="Hand" MouseDown="LandImage_MouseDown" Opacity="0.25"/>
             <Image HorizontalAlignment="Left" Height="50" Margin="590,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" Cursor="Hand" Opacity="0.25"/>
 
             <Image HorizontalAlignment="Left" Height="30" Margin="299,19,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/resource_chest.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
@@ -195,7 +195,7 @@
             </Button>
             <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="40" Margin="444,17,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/boxes.png" Width="41" Cursor="Hand" MouseDown="marketImage_MouseDown"/>
             <Image x:Name="CountryImage"  HorizontalAlignment="Left" Height="37" Margin="497,13,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/parlament.png" Width="37" Cursor="Hand" MouseDown="CountryImage_MouseDown"/>
-            <Image x:Name="LandImage" HorizontalAlignment="Left" Height="40" Margin="542,15,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/landMainBuilding.png" Width="40" Opacity="0.25"/>
+            <Image x:Name="LandImage" HorizontalAlignment="Left" Height="40" Margin="542,15,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/landMainBuilding.png" Width="40" Cursor="Hand" MouseDown="LandImage_MouseDown" Opacity="0.25"/>
             <Image x:Name="CoffersImage"  HorizontalAlignment="Left" Height="37" Margin="598,13,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/coins.png" Width="37" Opacity="0.25"/>
 
             <Button x:Name="buyMembership" Content="Support us" FontSize="12" HorizontalAlignment="Left" Margin="195,60,0,0" VerticalAlignment="Top" Width="94" Height="27" IsEnabled="True" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buyMembership_Click">
