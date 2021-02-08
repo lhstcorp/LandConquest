@@ -18,12 +18,12 @@ namespace LandConquest.Forms
             InitializeComponent();
             player = _player;
             equipment = _equipment;
-            army = new Army();
             Loaded += Window_Loaded;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            army = new Army();
             peasants = new Peasants();
 
             peasants = PeasantModel.GetPeasantsInfo(player, peasants);
