@@ -29,6 +29,7 @@ namespace LandConquest
             //LauncherController.CheckLocalUtcDateTime();
             //LauncherController.DisableActiveCheats();
             CheckVersion();
+            currentOnlineLabel.Content = YDContext.CountConnections();
             textBoxLogin.Text = Properties.Settings.Default.UserLogin;
             textBoxPass.Password = Properties.Settings.Default.UserPassword;
         }

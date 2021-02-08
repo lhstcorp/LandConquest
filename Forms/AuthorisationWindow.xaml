@@ -59,7 +59,10 @@
             </Button.Background>
         </Button>
 
-        <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Sitka Small" FontSize="22" FontWeight="SemiBold" Margin="515,416,9.6,10.4" Foreground="#FFCA691E"/>
+        <Label Content="Current online:" FontFamily="Sitka Display" FontSize="20" FontWeight="SemiBold" Margin="302,11,342.6,413.4" Foreground="#FF7B3501"/>
+        <Label x:Name="currentOnlineLabel" Content="0" FontFamily="Sitka Display" FontSize="22" FontWeight="SemiBold" Margin="451,10,238.6,414.4" Foreground="#FF7B3501"/>
+
+        <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Sitka Display" FontSize="26" FontWeight="SemiBold" Margin="515,413,9.6,13.4" Foreground="#FFCA691E"/>
         <Image Source="/Pictures/downloadicon.png" x:Name="iconDownload" Cursor="Hand" MouseDown="iconDownload_MouseDown" Margin="469,410,274.6,10.4"/>
         <Label Content="Please send us any comment, suggestion or correction you may have!" Foreground="AntiqueWhite" FontFamily="Tahoma" HorizontalAlignment="Left" Margin="19,416,0,0" VerticalAlignment="Top" Width="390"/>
 

@@ -7,7 +7,7 @@
         mc:Ignorable="d" WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="Manual" Left="10" Top="10"
-        Height="900" Width="1500" Topmost="True">
+        Height="880" Width="1500" >
 
     <Border BorderBrush="#FF392018" BorderThickness="5" Height="Auto" Width="Auto">
         <Grid x:Name="mainWarWinGrid" MouseLeftButtonDown="mainWarWinGrid_MouseLeftButtonDown" >
