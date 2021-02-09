@@ -89,13 +89,15 @@ Renamed Types:
 	System.Runtime.CompilerServices.TaskAwaiter`1<System.String> [LandConquest]System.Runtime.CompilerServices.TaskAwaiter`1<System.String> LandConquest.Logic.LauncherLogic/<CheckLocalUtcDateTime>d__0::<>u__1 ->  
 }
 
-[LandConquest]LandConquest.Logic.LauncherLogic/<>c__DisplayClass2_0 -> [LandConquest]LandConquest.Logic.LauncherLogic/ 
+[LandConquest]LandConquest.Logic.LauncherLogic/<>c -> [LandConquest]LandConquest.Logic.LauncherLogic/ 
 {
-	[LandConquest]LandConquest.Logic.LauncherLogic/<>c__DisplayClass2_0::<DisableActiveCheatsLoop>b__0[0]( ) ->  
+	[LandConquest]LandConquest.Logic.LauncherLogic/<>c::<DisableActiveCheatsLoop>b__2_0[0]( ) ->  
 
-	[LandConquest]LandConquest.Logic.LauncherLogic/<>c__DisplayClass2_0::.ctor[0]( ) skipped:  special name
+	[LandConquest]LandConquest.Logic.LauncherLogic/<>c::.cctor[0]( ) skipped:  special name
+	[LandConquest]LandConquest.Logic.LauncherLogic/<>c::.ctor[0]( ) skipped:  special name
 
-	System.Diagnostics.Process [LandConquest]System.Diagnostics.Process LandConquest.Logic.LauncherLogic/<>c__DisplayClass2_0::process ->  
+	LandConquest.Logic.LauncherLogic/<>c [LandConquest]LandConquest.Logic.LauncherLogic/<>c LandConquest.Logic.LauncherLogic/<>c::<>9 ->  
+	System.Action [LandConquest]System.Action LandConquest.Logic.LauncherLogic/<>c::<>9__2_0 ->  
 }
 
 [LandConquest]LandConquest.Logic.LauncherLogic/<DisableActiveCheatsLoop>d__2 -> [LandConquest]LandConquest.Logic.LauncherLogic/ 

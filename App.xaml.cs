@@ -14,6 +14,7 @@ namespace LandConquest
         private void App_Exit(object sender, ExitEventArgs e)
         {
             LandConquestYD.YDContext.DeleteConnectionId();
+            Environment.Exit(0);
         }
 
         private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)

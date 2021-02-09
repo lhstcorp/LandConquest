@@ -316,6 +316,7 @@ namespace LandConquest.Forms
 
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
+            LandConquestYD.YDContext.DeleteConnectionId();
             Environment.Exit(0);
         }
 

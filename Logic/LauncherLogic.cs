@@ -44,32 +44,39 @@ namespace LandConquest.Logic
 
         private static async void DisableActiveCheatsLoop()
         {
-            var hackToolsArray = new[] { "cheat", "hack", "cosmos", "wemod", "gameconqueror", "artmoney", "squarl" };
+            var hackToolsArray = new[] { "cheatengine", "cheat_engine", "hack", "cosmos", "wemod", "gameconqueror", "artmoney", "squarl", "easyhook", "cheathappens", "injector" };
 
-            while(true)
-            foreach (Process process in Process.GetProcesses())
-            {
-                try
+            while (true)
+                foreach (Process process in Process.GetProcesses())
                 {
-                    FileVersionInfo file = FileVersionInfo.GetVersionInfo(process.MainModule.FileName);
-                    if (
-                        hackToolsArray.Any(process.ProcessName.ToLower().Contains) ||
+                    try
+                    {
+                        FileVersionInfo file = FileVersionInfo.GetVersionInfo(process.MainModule.FileName);
+                        if (
+                        process.ProcessName != null && hackToolsArray.Any(process.ProcessName.ToLower().Contains) ||                   
                         file.CompanyName != null && hackToolsArray.Any(file.CompanyName.ToLower().Contains) ||
                         file.FileName != null && hackToolsArray.Any(file.FileName.ToLower().Contains) ||
                         file.FileDescription != null && hackToolsArray.Any(file.FileDescription.ToLower().Contains) ||
                         file.InternalName != null && hackToolsArray.Any(file.InternalName.ToLower().Contains) ||
-                        file.OriginalFilename != null && hackToolsArray.Any(file.OriginalFilename.ToLower().Contains)
+                        file.OriginalFilename != null && hackToolsArray.Any(file.OriginalFilename.ToLower().Contains) ||
+                        file.Comments != null && hackToolsArray.Any(file.Comments.ToLower().Contains) ||
+                        file.LegalTrademarks != null && hackToolsArray.Any(file.LegalTrademarks.ToLower().Contains) ||
+                        file.ProductName != null && hackToolsArray.Any(file.ProductName.ToLower().Contains)
                         )
-                    {
-                        try
                         {
-                           await Task.Run(() => process.Kill());
+                            try
+                            {
+                                await Task.Run(() => 
+                                {
+                                    YDContext.DeleteConnectionId();
+                                    Environment.Exit(0);
+                                });
+                            }
+                            catch (Exception) { }
                         }
-                        catch (Exception) { }
                     }
+                    catch (Exception) { }
                 }
-                catch (Exception) { }
-            }
         }
 
         public static string CheckGameVersion()

@@ -223,6 +223,11 @@
             </Button>
 
             <Image HorizontalAlignment="Left" Height="481" Margin="332,110,0,0" Source="/LandConquest;component/Pictures/undiscovered-map.png" VerticalAlignment="Top" Width="821" RenderTransformOrigin="0.5,0.5"/>
+            <Label Content="Storage" FontSize="11" HorizontalAlignment="Left" Margin="292,54,0,0" VerticalAlignment="Top" Width="49" FontFamily="Sitka Display" Foreground="#FF392018"/>
+            <Label Content="Industry" FontSize="11" HorizontalAlignment="Left" Margin="341,54,0,0" VerticalAlignment="Top" Width="51" FontFamily="Sitka Display" Foreground="#FF392018" RenderTransformOrigin="0.5,0.5"/>
+            <Label Content="Recruit" FontSize="11" HorizontalAlignment="Left" Margin="395,54,0,0" VerticalAlignment="Top" Width="44" FontFamily="Sitka Display" Foreground="#FF392018"/>
+            <Label Content="Market" FontSize="11" HorizontalAlignment="Left" Margin="444,54,0,0" VerticalAlignment="Top" Width="43" FontFamily="Sitka Display" Foreground="#FF392018"/>
+            <Label Content="Country" FontSize="11" HorizontalAlignment="Left" Margin="491,54,0,0" VerticalAlignment="Top" Width="51" FontFamily="Sitka Display" Foreground="#FF392018"/>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
