@@ -26,7 +26,7 @@ namespace LandConquest
         {
             YDContext.OpenYD();
             LandConquestDB.DbContext.OpenConnectionPool();
-            LauncherLogic.CheckLocalUtcDateTime();
+            //LauncherLogic.CheckLocalUtcDateTime();
             //LauncherLogic.DisableActiveCheats();
             CheckVersion();
             currentOnlineLabel.Content = YDContext.CountConnections();
