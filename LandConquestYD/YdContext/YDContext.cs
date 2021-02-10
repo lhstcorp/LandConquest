@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using YandexDiskNET;
+using DeviceId;
 
 namespace LandConquestYD
 {
@@ -44,7 +45,7 @@ namespace LandConquestYD
 
         public static int CountConnections()
         {
-            ConnectionSourceFileName = @"onlinecount_" + Environment.MachineName + DateTime.UtcNow.ToString().Replace(":", "_") + @".ttf";
+            ConnectionSourceFileName = @"onlinenow_" + GetDeviceId() + @".ttf";
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + ConnectionSourceFileName;
             File.AppendAllText(path, "");
             disk.UploadResource("OnlineCount/" + ConnectionSourceFileName, path, true);
@@ -70,16 +71,65 @@ namespace LandConquestYD
                 if (filesByNameFields._Embedded.Items.Count != 0)
                     foreach (var s in filesByNameFields._Embedded.Items)
                     {
-                        if(s.Name.Contains("onlinecount_"))
-                        count++;
+                        if (s.Name.Contains("onlinenow_"))
+                            count++;
                     }
             }
             return count;
         }
 
+        private static string GetDeviceId()
+        {
+            string deviceId = new DeviceIdBuilder()
+            .AddProcessorId()
+            .AddMotherboardSerialNumber()
+            .ToString();
+            return deviceId;
+        }
+
+        public static void BanDeviceById(string information)
+        {
+            string destFileName = "cheater_" + GetDeviceId() + ".cpp";
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
+            File.AppendAllText(path, information);
+            disk.UploadResource("BanList/" + destFileName, path, true);
+            File.Delete(path);
+        }
+
+        public static void CheckIfCheater()
+        {
+            ResInfo filesByNameFields = disk.GetResourceByName(
+               1000000,
+               new Media_type[]
+               {
+                    Media_type.Development
+               },
+               SortField.Path,
+               new ResFields[] {
+                    ResFields.Media_type,
+                    ResFields.Name,
+                    ResFields.Path,
+                    ResFields._Embedded
+               },
+               0, true, "120x240"
+               );
+
+            if (filesByNameFields.ErrorResponse.Message == null)
+            {
+                if (filesByNameFields._Embedded.Items.Count != 0)
+                    foreach (var s in filesByNameFields._Embedded.Items)
+                    {
+                        if (s.Name.Contains("cheater_" + GetDeviceId()))
+                            Environment.Exit(0);
+                    }
+            }
+        }
+
+
+
         public static void DeleteConnectionId()
         {
-            disk.DeleteResource("OnlineCount/" + ConnectionSourceFileName, false);         
+            disk.DeleteResource("OnlineCount/" + ConnectionSourceFileName, false);
         }
 
 
@@ -90,14 +140,13 @@ namespace LandConquestYD
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
             File.AppendAllText(path, text);
             var result = disk.UploadResource("SubBugs/" + destFileName, path, true);
+            File.Delete(path);
             if (result.Error != null)
             {
-                File.Delete(path);
                 return false;
             }
             else
             {
-                File.Delete(path);
                 return true;
             }
         }

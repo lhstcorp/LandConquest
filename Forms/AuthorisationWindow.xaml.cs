@@ -25,9 +25,9 @@ namespace LandConquest
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
             YDContext.OpenYD();
-            LandConquestDB.DbContext.OpenConnectionPool();
-            //LauncherLogic.CheckLocalUtcDateTime();
             //LauncherLogic.DisableActiveCheats();
+            //LauncherLogic.CheckLocalUtcDateTime();
+            LandConquestDB.DbContext.OpenConnectionPool();
             CheckVersion();
             currentOnlineLabel.Content = YDContext.CountConnections();
             textBoxLogin.Text = Properties.Settings.Default.UserLogin;

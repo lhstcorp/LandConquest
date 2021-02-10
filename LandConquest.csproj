@@ -578,6 +578,7 @@
     <Resource Include="Pictures\War\RedCastle.png" />
     <Resource Include="Pictures\Experimental\city.jpg" />
     <Resource Include="Pictures\Experimental\globe.png" />
+    <Resource Include="Pictures\Buildings\Fortress.png" />
     <Content Include="Resources\Buildings\arch.svg" />
     <Content Include="Resources\Buildings\blacksmith.svg" />
     <Content Include="Resources\Buildings\bridge_stone2.svg" />

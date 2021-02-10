@@ -28,9 +28,5 @@ namespace LandConquest.Forms
         {
             this.Close();
         }
-        private void buttonCollapse_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState = WindowState.Minimized;
-        }
     }
 }
