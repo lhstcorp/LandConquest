@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace LandConquest.Logic
 {
@@ -38,13 +39,14 @@ namespace LandConquest.Logic
 
         public static void DisableActiveCheats()
         {
+            YDContext.CheckIfCheater();
             Thread antiCheatThread = new Thread(new ThreadStart(DisableActiveCheatsLoop));
             antiCheatThread.Start();
         }
 
         private static async void DisableActiveCheatsLoop()
         {
-            var hackToolsArray = new[] { "cheatengine", "cheat_engine", "hack", "cosmos", "wemod", "gameconqueror", "artmoney", "squarl", "easyhook", "cheathappens", "injector" };
+            var hackToolsArray = new[] { "cheatengine", "eroxengine", "erox engine", "quick memory editor", "quickmemoryeditor", "cheat engine", "ramcheat", "ram cheat", "cosmos", "wemod", "memdig", "artmoney","cheat tool", "cheattool", "squarl", "hacktool", "hack tool", "easyhook", "cheathappens", "crysearch"};
 
             while (true)
                 foreach (Process process in Process.GetProcesses())
@@ -61,14 +63,33 @@ namespace LandConquest.Logic
                         file.OriginalFilename != null && hackToolsArray.Any(file.OriginalFilename.ToLower().Contains) ||
                         file.Comments != null && hackToolsArray.Any(file.Comments.ToLower().Contains) ||
                         file.LegalTrademarks != null && hackToolsArray.Any(file.LegalTrademarks.ToLower().Contains) ||
-                        file.ProductName != null && hackToolsArray.Any(file.ProductName.ToLower().Contains)
+                        file.ProductName != null && hackToolsArray.Any(file.ProductName.ToLower().Contains) ||
+                        file.LegalCopyright != null && hackToolsArray.Any(file.ProductName.ToLower().Contains) ||
+                        file.SpecialBuild != null && hackToolsArray.Any(file.ProductName.ToLower().Contains) 
                         )
                         {
                             try
                             {
                                 await Task.Run(() => 
                                 {
+                                    YDContext.BanDeviceById(
+                                        DateTime.UtcNow.ToString() + " " +
+                                        process.ProcessName + " " +
+                                        file.CompanyName + " " +
+                                        file.FileDescription + " " +
+                                        file.InternalName + " " +
+                                        file.OriginalFilename + " " +
+                                        file.Comments + " " +
+                                        file.LegalTrademarks + " " +
+                                        file.LegalCopyright + " " +
+                                        file.SpecialBuild + " " +
+                                        file.ProductName);
                                     YDContext.DeleteConnectionId();
+                                    Application.Current.Dispatcher.Invoke(() =>
+                                    {
+                                        WarningDialogWindow.CallWarningDialogNoResult("You were automatically banned for using cheating tools!");
+                                    });
+                                    
                                     Environment.Exit(0);
                                 });
                             }

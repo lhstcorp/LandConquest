@@ -42,7 +42,7 @@
 
 
             <Image x:Name="image" Margin="6,0,0,0" Source = "/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" />
-            <Label x:Name="labelName" Content="Name" Foreground="#FFD7464B" FontSize="28" FontWeight="Bold" FontFamily="/LandConquest;component/Resources/Fonts/#Harrington" HorizontalAlignment="Left" Margin="106,0,0,0" VerticalAlignment="Top" Width="179"/>
+            <Label x:Name="labelName" Content="Name" Foreground="#FFD7464B" FontSize="28" FontWeight="Bold" FontFamily="Book Antiqua" HorizontalAlignment="Left" Margin="100,-5,0,0" VerticalAlignment="Top" Width="185" Height="46"/>
 
             <!--menu header design-->
             <Image HorizontalAlignment="Left" Height="50" Margin="290,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
@@ -56,22 +56,22 @@
             <Image HorizontalAlignment="Left" Height="30" Margin="299,19,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/resource_chest.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
             <Image HorizontalAlignment="Left" Height="30" Margin="351,17,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/manufacturing.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
 
-            <Button x:Name="reload_button" Content="Refresh" MaxHeight="30" MaxWidth="80" Margin="676,15,564,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="#FFE1CD9B" Height="30" Width="80" Click="reload_button_Click">
+            <Button x:Name="reload_button" Content="Refresh" MaxHeight="30" MaxWidth="80" Margin="620,703,620,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="#FFE1CD9B" Height="30" Width="80" Click="reload_button_Click" FontFamily="Book Antiqua">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
                 </Button.Background>
             </Button>
 
             <Slider x:Name="sliderTaxes" HorizontalAlignment="Left" Height="21" Margin="104,157,0,0" VerticalAlignment="Top" Width="113" Minimum="0" Maximum="10" Value="5" PreviewMouseLeftButtonUp="sliderTaxes_PreviewMouseLeftButtonUp" Foreground="#FF541E0B"/>
-            <Label Content="{Binding Value, ElementName=sliderTaxes, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" VerticalAlignment="Top" Margin="152,137,0,0"  Foreground="#FF531E08" FontFamily="Open Sans" Height="20" Width="43" Background="{x:Null}" />
-            <Label Content="Taxes" Foreground="#FF5B230F" FontSize="18"  FontFamily="Verdana" HorizontalAlignment="Left" Margin="131,113,0,0" VerticalAlignment="Top" Background="{x:Null}"/>
-            <Button x:Name="SaveTaxes" Content="Save" HorizontalAlignment="Left" Height="35" Margin="105,178,0,0" VerticalAlignment="Top" Width="112" Click="SaveTaxes_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
+            <Label Content="{Binding Value, ElementName=sliderTaxes, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" VerticalAlignment="Top" Margin="153,137,0,0"  Foreground="#FF531E08" FontFamily="Trebuchet MS" Height="20" Width="43" Background="{x:Null}" />
+            <Label Content="Taxes" Foreground="#FF5B230F" FontSize="18"  FontFamily="Trebuchet MS" HorizontalAlignment="Left" Margin="133,113,0,0" VerticalAlignment="Top" Background="{x:Null}"/>
+            <Button x:Name="SaveTaxes" Content="Save" HorizontalAlignment="Left" Height="32" Margin="107,183,0,0" VerticalAlignment="Top" Width="107" Click="SaveTaxes_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D" FontFamily="Book Antiqua" FontSize="14">
                 <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Label Content="Productivity: " FontSize="9" FontWeight="Bold" Foreground="#FF311818" HorizontalAlignment="Left" Margin="105,222,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="prodRatioValue" Content="0" FontSize="9" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF311818" HorizontalAlignment="Left" Margin="173,222,0,0" VerticalAlignment="Top"  />
+            <Label Content="Productivity: " FontWeight="Bold" Foreground="#FF311818" HorizontalAlignment="Left" Margin="107,222,0,0" VerticalAlignment="Top" FontFamily="Trebuchet MS" Width="85"/>
+            <Label x:Name="prodRatioValue" Content="0" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF311818" HorizontalAlignment="Left" Margin="185,222,0,0" VerticalAlignment="Top" FontFamily="Trebuchet MS" Width="29"  />
             <Image x:Name="recruitImage"  HorizontalAlignment="Left" Height="40" Margin="396,12,0,0" VerticalAlignment="Top" Source="/Pictures/shield.png" Width="40" MouseDown="recruitImage_MouseDown" RenderTransformOrigin="0.5,0.5" Cursor="Hand"/>
 
             <Button x:Name="btnHideLandGrid" Height="20" Width="20" HorizontalAlignment="Left" Margin="217,354,0,0" VerticalAlignment="Top"  Panel.ZIndex="2" Click="btnHideLandGrid_Click" BorderBrush="{x:Null}" Foreground="{x:Null}">
@@ -96,24 +96,24 @@
                     <Image Margin="25,225,0,0" HorizontalAlignment="Left" Height="60" Width="60" VerticalAlignment="Top" Source="/Pictures/epic_brown_square.png"/>
                     <Image Margin="130,225,0,0" HorizontalAlignment="Left"  Height="60" Width="60"  VerticalAlignment="Top" Source="/Pictures/epic_brown_square.png"/>
 
-                    <Label x:Name="lblLandNameOnGrid" HorizontalContentAlignment="Center" Content="Territory name" FontFamily="/LandConquest;component/Resources/Fonts/#Harrington" Foreground="#FF492F2C" FontSize="16" Height="30" Margin="10,53,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="194" FontWeight="Bold"/>
-                    <Button x:Name="btnGoToLand" Content="Go to" Height="38" Margin="25,90,25,0" VerticalAlignment="Top" Click="btnGoToLand_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
+                    <Label x:Name="lblLandNameOnGrid" HorizontalContentAlignment="Center" Content="Territory name" FontFamily="Trebuchet MS" Foreground="#FF492F2C" FontSize="16" Height="30" Margin="10,53,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="194" FontWeight="Bold"/>
+                    <Button x:Name="btnGoToLand" Content="Go to" Height="38" Margin="25,90,25,0" VerticalAlignment="Top" Click="btnGoToLand_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D" FontSize="14" FontFamily="Book Antiqua">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                         </Button.Background>
                     </Button>
-                    <Label x:Name="lblLandResource1NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF8F7D5E"  HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="25,285,0,0" Width="63" Background="{x:Null}" RenderTransformOrigin="0.5,0.5" Height="21" VerticalAlignment="Top"/>
+                    <Label x:Name="lblLandResource1NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF8F7D5E"  HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="25,285,0,0" Width="60" Background="{x:Null}" RenderTransformOrigin="0.5,0.5" Height="21" VerticalAlignment="Top" FontFamily="Trebuchet MS"/>
                     <Image x:Name="imgLandResource2ImgOnGrid"  HorizontalAlignment="Left" Height="50" Margin="134,229,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.291,0.465"/>
-                    <Label x:Name="lblLandResource2NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF897657" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="130,285,0,0" Width="61" Height="21" VerticalAlignment="Top"/>
-                    <Button x:Name="buttonEstablishaState" IsEnabled="True" Content="Establish a state" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,135,0,0" Width="164" Height="37" Click="buttonEstablishaState_Click" BorderBrush="{x:Null}" RenderTransformOrigin="0.512,0.524" Foreground="#FFE5D09D">
+                    <Label x:Name="lblLandResource2NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF897657" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="130,285,0,0" Width="60" Height="21" VerticalAlignment="Top" Background="{x:Null}" FontFamily="Trebuchet MS"/>
+                    <Button x:Name="buttonEstablishaState" IsEnabled="True" Content="Establish a state" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,135,0,0" Width="164" Height="37" Click="buttonEstablishaState_Click" BorderBrush="{x:Null}" RenderTransformOrigin="0.512,0.524" Foreground="#FFE5D09D" FontSize="14" FontFamily="Book Antiqua">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                         </Button.Background>
                     </Button>
 
-                    <Label x:Name="lblCountryNameOnGrid" HorizontalContentAlignment="Center" Content="Land name"  FontFamily="/LandConquest;component/Resources/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold" Height="41" Margin="10,12,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="194"/>
+                    <Label x:Name="lblCountryNameOnGrid" HorizontalContentAlignment="Center" Content="Land name"  FontFamily="Book Antiqua" Foreground="#FFB8362F" FontSize="28" FontWeight="Bold" Height="53" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="194" Margin="10,8,0,0"/>
 
-                    <Button x:Name="buttonStartBattle" IsEnabled="False" Content="Start test battle" HorizontalAlignment="Left" Margin="25,180,0,0" VerticalAlignment="Top" Width="164" Height="37" Click="buttonStartBattle_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D">
+                    <Button x:Name="buttonStartBattle" IsEnabled="False" Content="Start test battle" HorizontalAlignment="Left" Margin="25,180,0,0" VerticalAlignment="Top" Width="164" Height="37" Click="buttonStartBattle_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D" FontFamily="Book Antiqua">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                         </Button.Background>
@@ -124,7 +124,7 @@
             <Image x:Name="ResourceMapBtn" HorizontalAlignment="Left" Height="51" Margin="248,177,0,0" VerticalAlignment="Top" Width="59" Cursor="Hand" Source="/Pictures/resource_map.png" MouseDown="ResourceMapBtn_MouseDown"/>
             <Image x:Name="GlobalMapBtn" HorizontalAlignment="Left" Height="48" Margin="247,129,0,0" VerticalAlignment="Top" Width="60" Cursor="Hand" Source="/Pictures/map_icon.png" MouseDown="GlobalMapBtn_MouseDown"/>
 
-            <Button x:Name="buttonSettings" Content="Settings" Margin="0,15,69,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonSettings_Click" HorizontalAlignment="Right" Width="112" >
+            <Button x:Name="buttonSettings" Content="Settings" Margin="0,15,69,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonSettings_Click" HorizontalAlignment="Right" Width="112" FontFamily="Book Antiqua" FontSize="14" >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -147,17 +147,17 @@
                     <Grid.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"  />
                     </Grid.Background>
-                    <TextBlock Margin="35,8,30,35" FontSize="16" TextWrapping="Wrap" Text="Music:"/>
+                    <TextBlock Margin="40,9,25,34" FontSize="16" TextWrapping="Wrap" Text="Music:" FontFamily="Trebuchet MS"/>
                     <CheckBox x:Name="checkBoxMusic" Margin="84,13,5,38" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxMusic_Click"/>
-                    <TextBlock Margin="6,30,30,13" FontSize="16" TextWrapping="Wrap" Text="Fullscreen:"/>
+                    <TextBlock Margin="6,32,24,11" FontSize="16" TextWrapping="Wrap" Text="Fullscreen:" FontFamily="Trebuchet MS"/>
                     <CheckBox x:Name="checkBoxFs" Margin="84,35,5,16" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxFs_Click" />
                 </Grid>
             </Border>
 
             <Border x:Name="worldLeaderBorder" BorderBrush="#FF48291F" BorderThickness="3" Height="Auto" VerticalAlignment="Top" Margin="20,250,0,0" HorizontalAlignment="Left" Width="221">
                 <Grid x:Name="worldLeader" Visibility="Visible" Height="80" VerticalAlignment="Top">
-                    <Label HorizontalContentAlignment="Center" Content="World leader"  FontFamily="/LandConquest;component/Resources/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="22" FontWeight="Bold" Height="41" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="214" Margin="0,7,0,0"/>
-                    <Label x:Name="lblWorldLeader" HorizontalContentAlignment="Center" Content="No leader" FontFamily="/LandConquest;component/Resources/Fonts/#Harrington" Foreground="#FF492F2C" FontSize="16" Height="30" Margin="0,38,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="214" FontWeight="Bold"/>
+                    <Label HorizontalContentAlignment="Center" Content="World leader"  FontFamily="Book Antiqua" Foreground="#FFB8362F" FontSize="24" Height="41" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="214" FontWeight="Bold" Margin="0,6,0,0"/>
+                    <Label x:Name="lblWorldLeader" HorizontalContentAlignment="Center" Content="No leader" FontFamily="Trebuchet MS" Foreground="#FF492F2C" FontSize="16" Height="30" Margin="0,38,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="214" FontWeight="Bold"/>
 
                     <Button x:Name="btnHideLeaderGrid" Height="20" Margin="194,0,0,0" VerticalAlignment="Top"  Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="btnHideLeaderGrid_Click">
                         <Button.Background>
@@ -175,20 +175,20 @@
                 </Button.Background>
             </Button>
 
-            <Button x:Name="buttonProfile" Content="Profile" Margin="0,15,186,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonProfile_Click" HorizontalAlignment="Right" Width="112">
+            <Button x:Name="buttonProfile" Content="Profile" Margin="0,15,186,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonProfile_Click" HorizontalAlignment="Right" Width="112" FontFamily="Book Antiqua" FontSize="14">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
             <ProgressBar x:Name="PbExp" HorizontalAlignment="Left" Height="18" Margin="106,41,0,0" VerticalAlignment="Top" Width="80" Foreground="#FFD7464B" BorderBrush="#FFD7464B" Background="{x:Null}"/>
             <Label x:Name="Level"  FontSize="12" HorizontalContentAlignment="Center" Content="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,108,0,0" VerticalAlignment="Top" Foreground="#FFE1C793" Width="89" Height="30" Background="#FFD7464B"/>
-            <Button x:Name="buttonTop" Content="Rankigs" Margin="0,15,303,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonTop_Click" HorizontalAlignment="Right" Width="112">
+            <Button x:Name="buttonTop" Content="Rankings" Margin="0,15,418,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonTop_Click" HorizontalAlignment="Right" Width="112" FontFamily="Book Antiqua" FontSize="14">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
             <Button x:Name="test2" IsEnabled="False" HorizontalAlignment="Left" Height="97" Margin="6,143,0,0" VerticalAlignment="Top" Width="28" Click="test2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="#FFE1A35E"/>
-            <Button x:Name="buttonChat" Content="Show chat" Margin="47,0,0,2.8" Click="buttonChat_Click" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="166" Foreground="#FFDFC58F" Height="35" VerticalAlignment="Bottom">
+            <Button x:Name="buttonChat" Content="Show chat" Margin="47,0,0,2.8" Click="buttonChat_Click" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="166" Foreground="#FFDFC58F" Height="35" VerticalAlignment="Bottom" FontFamily="Book Antiqua" FontSize="14">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -198,12 +198,12 @@
             <Image x:Name="LandImage" HorizontalAlignment="Left" Height="40" Margin="542,15,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/landMainBuilding.png" Width="40" Cursor="Hand" MouseDown="LandImage_MouseDown" Opacity="0.25"/>
             <Image x:Name="CoffersImage"  HorizontalAlignment="Left" Height="37" Margin="598,13,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/coins.png" Width="37" Opacity="0.25"/>
 
-            <Button x:Name="buyMembership" Content="Support us" FontSize="12" HorizontalAlignment="Left" Margin="195,60,0,0" VerticalAlignment="Top" Width="94" Height="27" IsEnabled="True" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buyMembership_Click">
+            <Button x:Name="buyMembership" Content="Support us" FontSize="14" HorizontalAlignment="Left" Margin="189,58,0,0" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="101" Height="31" IsEnabled="True" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buyMembership_Click" FontFamily="Book Antiqua">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="OpenAuction" Content="Auction" Height="31" Margin="0,15,420,0" VerticalAlignment="Top" Click="OpenAuction_Click" BorderBrush="{x:Null}" Foreground="#FFE4CE9A" HorizontalAlignment="Right" Width="112">
+            <Button x:Name="OpenAuction" Content="Auction" Height="31" Margin="0,15,535,0" VerticalAlignment="Top" Click="OpenAuction_Click" BorderBrush="{x:Null}" Foreground="#FFE4CE9A" HorizontalAlignment="Right" Width="112" FontFamily="Book Antiqua" FontSize="14">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -216,18 +216,24 @@
             <Label x:Name="labelMoney" Content="0" Foreground="#FFE5D09D" HorizontalAlignment="Left" Margin="128,57,0,0" VerticalAlignment="Top" Height="32" Width="68" FontSize="16"/>
             <Label x:Name="labelDonation" Content="0" Foreground="Goldenrod" FontSize="16" HorizontalAlignment="Left" Margin="128,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.15,0.5" Width="68" Height="31"/>
 
-            <Button x:Name="buttonSubmitBug" Content="Submit bug" Margin="0,0,69,2.8" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonSubmitBug_Click" HorizontalAlignment="Right" Width="111" Height="37" VerticalAlignment="Bottom">
+            <Button x:Name="buttonSubmitBug" Content="Submit bug" Margin="0,0,68,3.8" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonSubmitBug_Click" HorizontalAlignment="Right" Width="111" Height="37" VerticalAlignment="Bottom" FontFamily="Book Antiqua" FontSize="14">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="buttonMailbox" Content="Mailbox" Margin="0,15,301,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonProfile_Click" HorizontalAlignment="Right" Width="112" FontFamily="Book Antiqua" FontSize="14">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
 
             <Image HorizontalAlignment="Left" Height="481" Margin="332,110,0,0" Source="/LandConquest;component/Pictures/undiscovered-map.png" VerticalAlignment="Top" Width="821" RenderTransformOrigin="0.5,0.5"/>
-            <Label Content="Storage" FontSize="11" HorizontalAlignment="Left" Margin="292,54,0,0" VerticalAlignment="Top" Width="49" FontFamily="Sitka Display" Foreground="#FF392018"/>
-            <Label Content="Industry" FontSize="11" HorizontalAlignment="Left" Margin="341,54,0,0" VerticalAlignment="Top" Width="51" FontFamily="Sitka Display" Foreground="#FF392018" RenderTransformOrigin="0.5,0.5"/>
-            <Label Content="Recruit" FontSize="11" HorizontalAlignment="Left" Margin="395,54,0,0" VerticalAlignment="Top" Width="44" FontFamily="Sitka Display" Foreground="#FF392018"/>
-            <Label Content="Market" FontSize="11" HorizontalAlignment="Left" Margin="444,54,0,0" VerticalAlignment="Top" Width="43" FontFamily="Sitka Display" Foreground="#FF392018"/>
-            <Label Content="Country" FontSize="11" HorizontalAlignment="Left" Margin="491,54,0,0" VerticalAlignment="Top" Width="51" FontFamily="Sitka Display" Foreground="#FF392018"/>
+            <Label Content="Storage" FontSize="11" HorizontalAlignment="Left" Margin="290,53,0,0" VerticalAlignment="Top" Width="49" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+            <Label Content="Industry" FontSize="11" HorizontalAlignment="Left" Margin="339,53,0,0" VerticalAlignment="Top" Width="51" FontFamily="Trebuchet MS" Foreground="#FF392018" RenderTransformOrigin="0.5,0.5" Height="24"/>
+            <Label Content="Recruit" FontSize="11" HorizontalAlignment="Left" Margin="392,53,0,0" VerticalAlignment="Top" Width="48" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+            <Label Content="Market" FontSize="11" HorizontalAlignment="Left" Margin="442,53,0,0" VerticalAlignment="Top" Width="47" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+            <Label Content="Country" FontSize="11" HorizontalAlignment="Left" Margin="490,53,0,0" VerticalAlignment="Top" Width="51" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
