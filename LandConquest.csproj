@@ -203,6 +203,9 @@
     <Compile Include="Forms\LandWindow.xaml.cs">
       <DependentUpon>LandWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MailboxWindow.xaml.cs">
+      <DependentUpon>MailboxWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MarketWindow.xaml.cs">
       <DependentUpon>MarketWindow.xaml</DependentUpon>
     </Compile>
@@ -317,6 +320,10 @@
     <Page Include="Forms\LandWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\MailboxWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\MainWindow.xaml">
       <SubType>Designer</SubType>

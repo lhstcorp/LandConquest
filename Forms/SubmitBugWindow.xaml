@@ -14,7 +14,7 @@
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
 
         <Grid>
-            <Button x:Name="buttonSubmitBug" Content="Send" VerticalContentAlignment="Center"  VerticalAlignment="Top" Height="36"  BorderBrush="{x:Null}" Margin="0,404,3.2,0" Foreground="#FFE1C993" Click="buttonSubmitBug_Click" HorizontalAlignment="Right" Width="73">
+            <Button x:Name="buttonSubmitBug" Content="Send" VerticalContentAlignment="Center"  VerticalAlignment="Top" Height="36"  BorderBrush="{x:Null}" Margin="0,404,3.2,0" Foreground="#FFE1C993" Click="buttonSubmitBug_Click" HorizontalAlignment="Right" Width="73" FontFamily="Book Antiqua">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -26,9 +26,9 @@
                 </Button.Background>
             </Button>
 
-            <TextBox x:Name="textBoxBugReport" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.Hint="Describe situation in a few words (500 symbols max)" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" MaxLength="500" materialDesign:HintAssist.IsFloating="False" Padding="5,0,0,0" FontSize="18" Background="Wheat" Height="356" Margin="10,43,3.2,0" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <Label Content="Your name:" FontSize="20" FontFamily="Tahoma" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="labelPlayerName" Content="Name" FontSize="20" FontFamily="/LandConquest;component/Resources/Fonts/#Harrington" Margin="132,5,475.2,404.2" FontWeight="Bold"/>
+            <TextBox x:Name="textBoxBugReport" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.Hint="Describe situation in a few words (500 symbols max)" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" MaxLength="500" materialDesign:HintAssist.IsFloating="False" Padding="5,0,0,0" FontSize="18" Background="Wheat" Height="356" Margin="10,43,9.6,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <Label Content="Your name:" FontSize="20" FontFamily="Trebuchet MS" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="labelPlayerName" Content="Name" FontSize="20" FontFamily="Bookman Old Style" Margin="132,4,475.6,405.2" FontWeight="Bold"/>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>

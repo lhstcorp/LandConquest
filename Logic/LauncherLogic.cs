@@ -6,7 +6,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -16,12 +15,16 @@ namespace LandConquest.Logic
     {
         public static async void CheckLocalUtcDateTime()
         {
+            await Task.Run(() => CheckLocalUtcDateTimeAsync());
+        }
+        private static void CheckLocalUtcDateTimeAsync()
+        {
             try
             {
                 var client = new TcpClient("time.nist.gov", 13);
                 using (var streamReader = new StreamReader(client.GetStream()))
                 {
-                    var response = await Task.Run(() => streamReader.ReadToEndAsync());
+                    var response = streamReader.ReadToEnd();
                     var utcDateTimeString = response.Substring(7, 17);
                     var utcOnlineTime = DateTimeOffset.ParseExact(utcDateTimeString, "yy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.AssumeUniversal);
                     DateTimeOffset localDateTime = DateTime.UtcNow;
@@ -29,7 +32,10 @@ namespace LandConquest.Logic
                     int minutesDiff = interval.Minutes;
                     if (minutesDiff != 0)
                     {
-                        WarningDialogWindow.CallWarningDialogNoResult("Time on your device set incorrectly! Please synchronize your time and try again.");
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            WarningDialogWindow.CallWarningDialogNoResult("Time on your device set incorrectly! Please synchronize your time and try again.");
+                        });
                         Environment.Exit(0);
                     }
                 }
@@ -37,25 +43,27 @@ namespace LandConquest.Logic
             catch (Exception) { }
         }
 
-        public static void DisableActiveCheats()
+
+        public static async void DisableActiveCheatsAsync()
         {
             YDContext.CheckIfCheater();
-            Thread antiCheatThread = new Thread(new ThreadStart(DisableActiveCheatsLoop));
-            antiCheatThread.Start();
+            await Task.Run(() => DisableActiveCheatsLoop());
         }
 
-        private static async void DisableActiveCheatsLoop()
+        private static async Task DisableActiveCheatsLoop()
         {
-            var hackToolsArray = new[] { "cheatengine", "eroxengine", "erox engine", "quick memory editor", "quickmemoryeditor", "cheat engine", "ramcheat", "ram cheat", "cosmos", "wemod", "memdig", "artmoney","cheat tool", "cheattool", "squarl", "hacktool", "hack tool", "easyhook", "cheathappens", "crysearch"};
+            var hackToolsArray = new[] { "cheatengine", "eroxengine", "erox engine", "quick memory editor", "quickmemoryeditor", "cheat engine", "ramcheat", "ram cheat", "cosmos", "wemod", "memdig", "artmoney", "cheat tool", "cheattool", "squarl", "hacktool", "hack tool", "easyhook", "cheathappens", "crysearch", "reclass", "mhs.exe", "mxtract", "memoryjs", "invtero" };
 
             while (true)
+            {
+                await Task.Delay(10000);
                 foreach (Process process in Process.GetProcesses())
                 {
                     try
                     {
                         FileVersionInfo file = FileVersionInfo.GetVersionInfo(process.MainModule.FileName);
                         if (
-                        process.ProcessName != null && hackToolsArray.Any(process.ProcessName.ToLower().Contains) ||                   
+                        process.ProcessName != null && hackToolsArray.Any(process.ProcessName.ToLower().Contains) ||
                         file.CompanyName != null && hackToolsArray.Any(file.CompanyName.ToLower().Contains) ||
                         file.FileName != null && hackToolsArray.Any(file.FileName.ToLower().Contains) ||
                         file.FileDescription != null && hackToolsArray.Any(file.FileDescription.ToLower().Contains) ||
@@ -65,14 +73,12 @@ namespace LandConquest.Logic
                         file.LegalTrademarks != null && hackToolsArray.Any(file.LegalTrademarks.ToLower().Contains) ||
                         file.ProductName != null && hackToolsArray.Any(file.ProductName.ToLower().Contains) ||
                         file.LegalCopyright != null && hackToolsArray.Any(file.ProductName.ToLower().Contains) ||
-                        file.SpecialBuild != null && hackToolsArray.Any(file.ProductName.ToLower().Contains) 
+                        file.SpecialBuild != null && hackToolsArray.Any(file.ProductName.ToLower().Contains)
                         )
                         {
                             try
                             {
-                                await Task.Run(() => 
-                                {
-                                    YDContext.BanDeviceById(
+                                YDContext.BanDeviceById(
                                         DateTime.UtcNow.ToString() + " " +
                                         process.ProcessName + " " +
                                         file.CompanyName + " " +
@@ -84,20 +90,23 @@ namespace LandConquest.Logic
                                         file.LegalCopyright + " " +
                                         file.SpecialBuild + " " +
                                         file.ProductName);
-                                    YDContext.DeleteConnectionId();
-                                    Application.Current.Dispatcher.Invoke(() =>
-                                    {
-                                        WarningDialogWindow.CallWarningDialogNoResult("You were automatically banned for using cheating tools!");
-                                    });
-                                    
-                                    Environment.Exit(0);
+                                YDContext.DeleteConnectionId();
+                                Application.Current.Dispatcher.Invoke(() =>
+                                {
+                                    WarningDialogWindow.CallWarningDialogNoResult("You were automatically banned for using cheating tools!");
                                 });
+                                Environment.Exit(0);
                             }
                             catch (Exception) { }
                         }
                     }
-                    catch (Exception) { }
+                    catch (Exception) 
+                    {
+                        continue;
+                    }
                 }
+                Console.WriteLine("Checked cheats");                
+            }
         }
 
         public static string CheckGameVersion()

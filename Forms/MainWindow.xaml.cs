@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
-using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -107,8 +107,9 @@ namespace LandConquest.Forms
             convertMoneyToMoneyCode(labelMoney);
 
 
-            Thread myThread = new Thread(new ThreadStart(UpdateInfo));
-            myThread.Start(); // запускаем поток
+            //Thread myThread = new Thread(new ThreadStart(UpdateInfo));
+            //myThread.Start(); // запускаем поток
+            UpdateMainWindowInfoAsync(); 
 
             lands = new List<Land>();
             paths = new List<Path>();
@@ -156,6 +157,11 @@ namespace LandConquest.Forms
 
             GetWorldLeader();
 
+        }
+
+        public async void UpdateMainWindowInfoAsync()
+        {
+            await Task.Run(() => UpdateInfoAsync());
         }
 
 
@@ -314,6 +320,16 @@ namespace LandConquest.Forms
             openedWindow.Closed += FreeData;
         }
 
+        private void ButtonMailbox_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new MailboxWindow(player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
             LandConquestYD.YDContext.DeleteConnectionId();
@@ -321,25 +337,45 @@ namespace LandConquest.Forms
         }
 
 
-        private void UpdateInfo()
+        //private void UpdateInfo()
+        //{
+        //    while (true)
+        //    {
+        //        try
+        //        {
+        //            Thread.Sleep(10000);
+        //            taxes = TaxesModel.GetTaxesInfo(taxes);
+        //            await MainWindow_Loaded(this.sender, RoutedEventArgs e);
+        //            player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
+
+        //            player = PlayerModel.UpdatePlayerMoney(player);
+        //            TaxesModel.SaveTaxes(taxes);
+        //            Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); }));
+        //            lands = LandModel.GetLandsInfo(lands);
+        //            Dispatcher.BeginInvoke(new ThreadStart(delegate { RedrawGlobalMap(); }));
+        //            Console.WriteLine("End of loop");
+        //        }
+        //        catch { }
+        //        labelMoney.Content = player.PlayerMoney;
+        //    }
+        //}
+        private async Task UpdateInfoAsync()
         {
             while (true)
             {
                 try
                 {
-                    Thread.Sleep(10000);
+                    await Task.Delay(10000);
                     taxes = TaxesModel.GetTaxesInfo(taxes);
-                    //await MainWindow_Loaded(this.sender, RoutedEventArgs e); 
                     player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
 
                     player = PlayerModel.UpdatePlayerMoney(player);
                     TaxesModel.SaveTaxes(taxes);
-                    Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); }));
                     lands = LandModel.GetLandsInfo(lands);
-                    Dispatcher.BeginInvoke(new ThreadStart(delegate { RedrawGlobalMap(); }));
+                    await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); RedrawGlobalMap(); }));
+                    Console.WriteLine("End of loop");
                 }
                 catch { }
-                //labelMoney.Content = player.PlayerMoney; 
             }
         }
 
@@ -925,11 +961,6 @@ namespace LandConquest.Forms
             else
             {
                 this.WindowState = WindowState.Normal;
-                //this.Height = 750;
-                //this.Width = 1330;
-                //openedWindow = new MainWindow(user);
-                //openedWindow.Show();
-                //this.Close();
             }
         }
 
