@@ -222,7 +222,7 @@
                 </Button.Background>
             </Button>
 
-            <Button x:Name="buttonMailbox" Content="Mailbox" Margin="0,15,301,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonProfile_Click" HorizontalAlignment="Right" Width="112" FontFamily="Book Antiqua" FontSize="14">
+            <Button x:Name="ButtonMailbox" Content="Mailbox" Margin="0,15,301,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Right" Width="112" FontFamily="Book Antiqua" FontSize="14" Click="ButtonMailbox_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>

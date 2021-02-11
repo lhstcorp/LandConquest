@@ -71,7 +71,7 @@ namespace LandConquest.Forms
             //ALTER AUTHORIZATION ON DATABASE:: LandCoqnuestDB TO имя_компа
             try
             {
-                sqlTableDependency = new SqlTableDependency<ChatMessages>(DbContext.GetSqlConnection().ConnectionString, "ChatMessages", "dbo", mapper);
+                sqlTableDependency = new SqlTableDependency<ChatMessages>(DbContext.GetSqlConnection().ConnectionString, "ChatMessages", "dbo", mapper, null, null, TableDependency.SqlClient.Base.Enums.DmlTriggerType.Insert, false);
                 sqlTableDependency.OnChanged += Changed;
                 sqlTableDependency.Start();
             }
@@ -86,12 +86,6 @@ namespace LandConquest.Forms
         public void Changed(object sender, RecordChangedEventArgs<ChatMessages> e)
         {
             var changedEntity = e.Entity;
-
-            Debug.WriteLine("DML operation: " + e.ChangeType);
-            Debug.WriteLine("PlayerMessage: " + changedEntity.PlayerMessage);
-            Debug.WriteLine("PlayerName: " + changedEntity.PlayerName);
-            Debug.WriteLine("MessageTime: " + changedEntity.MessageTime);
-
             Dispatcher.BeginInvoke(new ThreadStart(delegate { updateChat(); }));
 
         }

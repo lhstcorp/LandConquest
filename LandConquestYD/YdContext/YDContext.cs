@@ -45,10 +45,10 @@ namespace LandConquestYD
 
         public static int CountConnections()
         {
-            ConnectionSourceFileName = @"onlinenow_" + GetDeviceId() + @".ttf";
+            ConnectionSourceFileName = "onlinenow_" + GetDeviceId() + ".ttf";
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + ConnectionSourceFileName;
             File.AppendAllText(path, "");
-            disk.UploadResource("OnlineCount/" + ConnectionSourceFileName, path, true);
+            disk.UploadResource("countstatus/" + ConnectionSourceFileName, path, true);
             File.Delete(path);
             ResInfo filesByNameFields = disk.GetResourceByName(
                 1000000,
@@ -129,7 +129,7 @@ namespace LandConquestYD
 
         public static void DeleteConnectionId()
         {
-            disk.DeleteResource("OnlineCount/" + ConnectionSourceFileName, false);
+            disk.DeleteResource("countstatus/" + ConnectionSourceFileName, false);
         }
 
 
