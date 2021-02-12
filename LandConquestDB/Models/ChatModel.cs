@@ -32,15 +32,11 @@ namespace LandConquestDB.Models
                 }
             }
             command.Dispose();
+            messages = new List<ChatMessages>(Message.Count);
 
-            messages = new List<ChatMessages>();
             for (int i = 0; i < Message.Count; i++)
             {
                 messages.Add(new ChatMessages());
-            }
-
-            for (int i = 0; i < Message.Count; i++)
-            {
                 messages[i].PlayerName = PlayerName[i];
                 messages[i].PlayerMessage = Message[i];
                 messages[i].MessageTime = MessageTime[i];
@@ -58,13 +54,6 @@ namespace LandConquestDB.Models
             userCommand.Parameters.AddWithValue("@message_sent_time", DateTime.UtcNow);
 
             userCommand.ExecuteNonQuery();
-        }
-
-        public static void EnableBroker()
-        {
-            string query = "ALTER DATABASE LandConquestDB SET ENABLE_BROKER with rollback immediate";
-            var peasantCommand = new SqlCommand(query, DbContext.GetSqlConnection());
-            peasantCommand.ExecuteNonQuery();
         }
     }
 }

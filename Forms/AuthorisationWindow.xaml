@@ -59,10 +59,10 @@
             </Button.Background>
         </Button>
 
-        <Label Content="Current online:" FontFamily="Book Antiqua" FontSize="20" FontWeight="SemiBold" Margin="299,11,326.6,413.4" Foreground="#FF7B3501"/>
-        <Label x:Name="currentOnlineLabel" Content="0" FontFamily="Book Antiqua" FontSize="20" FontWeight="SemiBold" Margin="448,11,241.6,413.4" Foreground="#FF7B3501"/>
+        <Label Content="Current online:" FontFamily="Trebuchet MS" FontSize="20" FontWeight="SemiBold" Margin="299,11,326.6,413.4" Foreground="#FF7B3501"/>
+        <Label x:Name="currentOnlineLabel" Content="0" FontFamily="Trebuchet MS" FontSize="20" FontWeight="SemiBold" Margin="448,11,241.6,413.4" Foreground="#FF7B3501"/>
 
-        <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Book Antiqua" FontSize="22" FontWeight="SemiBold" Margin="515,416,9.6,10.4" Foreground="#FFCA691E"/>
+        <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Trebuchet MS" FontSize="22" FontWeight="SemiBold" Margin="515,416,9.6,10.4" Foreground="#FFCA691E"/>
         <Image Source="/Pictures/downloadicon.png" x:Name="iconDownload" Cursor="Hand" MouseDown="IconDownload_MouseDown" Margin="469,410,274.6,10.4"/>
         <Label Content="Please send us any comment, suggestion or correction you may have!" Foreground="AntiqueWhite" FontFamily="Trebuchet MS" HorizontalAlignment="Left" Margin="19,417,0,0" VerticalAlignment="Top" Width="390"/>
 
@@ -70,7 +70,7 @@
             <TextBlock TextDecorations="Underline" HorizontalAlignment="Center" FontFamily="Trebuchet MS">User agreement</TextBlock>
         </Label>
 
-        <TextBox Text="landconquestofficial@gmail.com" Foreground="AntiqueWhite" FontFamily="Trebuchet MS" Margin="22,442,587.6,-0.6" Background="{x:Null}">
+        <TextBox Text="landconquestofficial@gmail.com" Foreground="AntiqueWhite" FontFamily="Trebuchet MS" Margin="22,442,568.6,-0.6" Background="{x:Null}">
             <TextBox.Style>
                 <Style TargetType="TextBox">
                     <Setter Property="IsReadOnly" Value="True" />

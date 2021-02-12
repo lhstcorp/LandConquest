@@ -154,6 +154,7 @@ namespace LandConquest.Forms
             settingsGridBorder.Visibility = Visibility.Hidden;
             btnShowLandGrid.Visibility = Visibility.Hidden;
             btnShowLeaderGrid.Visibility = Visibility.Hidden;
+            BtnShowTaxesGrid.Visibility = Visibility.Hidden;
 
             GetWorldLeader();
 
@@ -975,6 +976,20 @@ namespace LandConquest.Forms
             {
                 sound.Stop();
             }
+        }
+
+        private void BtnHideTaxesGrid_Click(object sender, RoutedEventArgs e)
+        {
+            TaxesGrid.Visibility = Visibility.Hidden;
+            TaxesBorder.Visibility = Visibility.Hidden;
+            BtnShowTaxesGrid.Visibility = Visibility.Visible;
+        }
+
+        private void BtnShowTaxesGrid_Click(object sender, RoutedEventArgs e)
+        {
+            TaxesGrid.Visibility = Visibility.Visible;
+            TaxesBorder.Visibility = Visibility.Visible;
+            BtnShowTaxesGrid.Visibility = Visibility.Hidden;
         }
     }
 }
