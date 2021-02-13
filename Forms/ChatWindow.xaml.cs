@@ -2,6 +2,7 @@
 using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,13 +14,13 @@ namespace LandConquest.Forms
     {
         private Player player;
         private List<ChatMessages> messages;
-        private bool isActive;
+        CancellationTokenSource cancelTokenSource;
+        CancellationToken token;
 
         public ChatWindow(Player _player)
         {
             InitializeComponent();
             player = _player;
-            isActive = true;
         }
 
         private void ButtonSendMessage_Click(object sender, RoutedEventArgs e)
@@ -29,21 +30,23 @@ namespace LandConquest.Forms
 
         public async void CallUpdateChatAsync()
         {
-            await Task.Run(() => UpdateChat());
+            cancelTokenSource = new CancellationTokenSource();
+            token = cancelTokenSource.Token;
+            await Task.Run(() => UpdateChat(token));
         }
 
-        private async Task UpdateChat()
+        private async Task UpdateChat(CancellationToken token)
         {
-            while (isActive)
+            while (!token.IsCancellationRequested)
             {         
                 await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { messages = ChatModel.GetMessages(); listViewChat.ItemsSource = messages; listViewChat.Items.Refresh();}));
-                await Task.Delay(3000);
+                await Task.Delay(1000);
             }
         }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
-            isActive = false;
+            cancelTokenSource.Cancel();
             Close();
         }
 
