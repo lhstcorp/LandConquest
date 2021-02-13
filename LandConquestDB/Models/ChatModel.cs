@@ -28,8 +28,8 @@ namespace LandConquestDB.Models
                     PlayerName.Add(reader.GetString(playerName));
                     Message.Add(reader.GetString(manufactureId));
                     MessageTime.Add(reader.GetDateTime(messageTime));
-
                 }
+                reader.Close();
             }
             command.Dispose();
             messages = new List<ChatMessages>(Message.Count);
