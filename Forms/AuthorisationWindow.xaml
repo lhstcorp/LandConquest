@@ -28,7 +28,7 @@
                 </TransformGroup>
             </PasswordBox.RenderTransform>
         </PasswordBox>
-        <Button x:Name="buttonLogin"  Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="626,241,92.6,192.4" VerticalAlignment="Center" Click="buttonLogin_Click" Height="37" BorderThickness="0" BorderBrush="White" Background="{x:Null}" RenderTransformOrigin="0.501,0.5"/>
+        <Button x:Name="buttonLogin"  Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="628,241,96.6,192.4" VerticalAlignment="Center" Click="ButtonLogin_Click" Height="37" BorderThickness="0" BorderBrush="White" Background="{x:Null}" RenderTransformOrigin="0.501,0.5"/>
 
         <TextBox x:Name="textBoxNewLogin" TextWrapping="Wrap" Text="" Margin="50,112,0,320.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                      Background="{x:Null}" materialDesign:HintAssist.Hint=" New login" CaretBrush="Black" HorizontalAlignment="Left" Width="175" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" />
@@ -39,13 +39,13 @@
         <TextBox x:Name="textBoxConfirmNewPass" HorizontalAlignment="Left" Height="33" Margin="50,304,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                      Background="{x:Null}" materialDesign:HintAssist.Hint=" Confirm password"  CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" />
 
-        <Button x:Name="buttonRegistrate" Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="63,376,657.6,52.4" Height="Auto" Click="buttonRegistrate_Click" BorderThickness="0" Background="{x:Null}"/>
-        <Button x:Name="buttonCancelRegistrate" Content="" HorizontalAlignment="Left" Margin="154,376,0,0" VerticalAlignment="Top" Width="71" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCancelRegistrate_Click"/>
+        <Button x:Name="buttonRegistrate" Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="63,376,657.6,52.4" Height="Auto" Click="ButtonRegistrate_Click" BorderThickness="0" Background="{x:Null}"/>
+        <Button x:Name="buttonCancelRegistrate" Content="" HorizontalAlignment="Left" Margin="154,376,0,0" VerticalAlignment="Top" Width="71" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="ButtonCancelRegistrate_Click"/>
 
 
         <CheckBox x:Name="CheckboxRemember"  HorizontalAlignment="Left" Margin="703,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="15" BorderBrush="Black" IsChecked="True" BorderThickness="1" Background="#FFB4A500" Height="15" Cursor="Hand"/>
 
-        <Button x:Name="buttonShowRegistration" Content="Button" HorizontalAlignment="Left" Margin="53,18,0,0" VerticalAlignment="Top" Width="167" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="46" Click="buttonShowRegistration_Click" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="buttonShowRegistration" Content="Button" HorizontalAlignment="Left" Margin="53,18,0,0" VerticalAlignment="Top" Width="167" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="46" Click="ButtonShowRegistration_Click" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -59,18 +59,18 @@
             </Button.Background>
         </Button>
 
-        <Label Content="Current online:" FontFamily="Sitka Display" FontSize="20" FontWeight="SemiBold" Margin="302,11,342.6,413.4" Foreground="#FF7B3501"/>
-        <Label x:Name="currentOnlineLabel" Content="0" FontFamily="Sitka Display" FontSize="22" FontWeight="SemiBold" Margin="451,10,238.6,414.4" Foreground="#FF7B3501"/>
+        <Label Content="Current online:" FontFamily="Trebuchet MS" FontSize="20" FontWeight="SemiBold" Margin="299,11,326.6,413.4" Foreground="#FF7B3501"/>
+        <Label x:Name="currentOnlineLabel" Content="0" FontFamily="Trebuchet MS" FontSize="20" FontWeight="SemiBold" Margin="448,11,241.6,413.4" Foreground="#FF7B3501"/>
 
-        <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Sitka Display" FontSize="26" FontWeight="SemiBold" Margin="515,413,9.6,13.4" Foreground="#FFCA691E"/>
-        <Image Source="/Pictures/downloadicon.png" x:Name="iconDownload" Cursor="Hand" MouseDown="iconDownload_MouseDown" Margin="469,410,274.6,10.4"/>
-        <Label Content="Please send us any comment, suggestion or correction you may have!" Foreground="AntiqueWhite" FontFamily="Tahoma" HorizontalAlignment="Left" Margin="19,416,0,0" VerticalAlignment="Top" Width="390"/>
+        <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Trebuchet MS" FontSize="22" FontWeight="SemiBold" Margin="515,416,9.6,10.4" Foreground="#FFCA691E"/>
+        <Image Source="/Pictures/downloadicon.png" x:Name="iconDownload" Cursor="Hand" MouseDown="IconDownload_MouseDown" Margin="469,410,274.6,10.4"/>
+        <Label Content="Please send us any comment, suggestion or correction you may have!" Foreground="AntiqueWhite" FontFamily="Trebuchet MS" HorizontalAlignment="Left" Margin="19,417,0,0" VerticalAlignment="Top" Width="390"/>
 
-        <Label x:Name="labelAgreement" HorizontalContentAlignment="Center" Foreground="#FFE5DE0A" FontSize="13" FontFamily="Tahoma" FontWeight="Bold" HorizontalAlignment="Left" Margin="50,336,0,0" VerticalAlignment="Top" Width="175" Cursor="Hand" Background="{x:Null}" MouseLeftButtonDown="labelAgreement_MouseLeftButtonDown">
-            <TextBlock TextDecorations="Underline">User agreement</TextBlock>
+        <Label x:Name="labelAgreement" HorizontalContentAlignment="Center" Foreground="#FFE5DE0A" FontSize="14" FontFamily="Tahoma" HorizontalAlignment="Left" Margin="50,334,0,0" VerticalAlignment="Top" Width="175" Cursor="Hand" Background="{x:Null}" MouseLeftButtonDown="LabelAgreement_MouseLeftButtonDown">
+            <TextBlock TextDecorations="Underline" HorizontalAlignment="Center" FontFamily="Trebuchet MS">User agreement</TextBlock>
         </Label>
 
-        <TextBox Text="landconquestofficial@gmail.com" Foreground="AntiqueWhite" FontFamily="Tahoma" Margin="22,441,587.6,0.4" Background="{x:Null}">
+        <TextBox Text="landconquestofficial@gmail.com" Foreground="AntiqueWhite" FontFamily="Trebuchet MS" Margin="22,442,568.6,-0.6" Background="{x:Null}">
             <TextBox.Style>
                 <Style TargetType="TextBox">
                     <Setter Property="IsReadOnly" Value="True" />

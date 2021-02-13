@@ -1,0 +1,44 @@
+﻿<Window x:Class="LandConquest.Forms.MailboxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.Forms"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStyle="None" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="ChatWindow" Height="450" Width="850" Background="{x:Null}"
+        ShowInTaskbar="False">
+
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
+        <Grid>
+            <ListView x:Name="ListViewDialogs" HorizontalAlignment="Left" Height="366" VerticalAlignment="Top" Width="250" Foreground="#DD000000" BorderBrush="Black" Background="Wheat" OpacityMask="White" FontSize="12" Margin="10,26,0,0">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="White"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+            <TextBox x:Name="TextBoxDialog" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" MaxLength="500" materialDesign:HintAssist.IsFloating="False" Padding="5,0,0,0" FontSize="18" Background="Wheat" Height="366" Margin="267,26,7.2,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+
+            <Button x:Name="ButtonSendMessage" Content="Send" HorizontalAlignment="Left" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="69" Height="36" Click="ButtonSendMessage_Click" BorderBrush="{x:Null}" Margin="767,397,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="ButtonClose" HorizontalAlignment="Center"  Margin="823,0,0.2,0" VerticalAlignment="Top" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="ButtonClose_Click" Height="20" RenderTransformOrigin="0.5,0.5" Width="20">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+                </Button.Background>
+            </Button>
+            <TextBox x:Name="TextBoxNewMessage" FontSize="16" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap"  VerticalAlignment="Top" Width="752" 
+                 Background="White" CaretBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" materialDesign:HintAssist.Hint=" Your message"  materialDesign:HintAssist.IsFloating="False" Margin="10,397,0,0" BorderBrush="{x:Null}"/>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+        </Grid>
+    </Border>
+</Window>

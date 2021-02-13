@@ -3,15 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows" WindowStartupLocation="CenterOwner"
         mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize" HorizontalAlignment="Center" VerticalAlignment="Center"
         Height="150" Width="250">
 
     <Border BorderBrush="#FF392018" BorderThickness="2" Height="150" Width="250">
         <Grid>
-            <Label Content="Warning" HorizontalAlignment="Center" FontFamily="Harrington" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold"  Height="41" Margin="68,5,64.4,0" VerticalAlignment="Top" Width="114" Background="{x:Null}" RenderTransformOrigin="0.705,0.279"/>
-            <TextBlock x:Name="textWarning" FontFamily="Verdana" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Center" Margin="10,53,9.6,38.4" TextWrapping="Wrap" Text="Example of long sentence, should be changed after call of window object!"  Height="59" Width="230"/>
-            <Button x:Name="warningButton" Content="OK" FontSize="14" FontFamily="Harrington" HorizontalAlignment="Left" Margin="70,114,0,0" VerticalAlignment="Top" Width="109" BorderBrush="{x:Null}" Height="33" Foreground="#FFE6CF9D" Click="warningButton_Click">
+            <Label Content="Warning" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontFamily="Sitka Display" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold"  Height="38" Margin="70,5,67.4,0" VerticalAlignment="Top" Width="109" Background="{x:Null}" RenderTransformOrigin="0.705,0.279"/>
+            <TextBox x:Name="textWarning" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" FontFamily="Verdana" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Center" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="8,43,8.4,37.2"  Text="Example of long sentence, should be changed after call of window object!"  Height="67" Width="230" Background="{x:Null}"/>
+            <Button x:Name="warningButton" Content="OK" FontSize="14" FontFamily="Sitka Display" HorizontalAlignment="Left" Margin="70,114,0,0" VerticalAlignment="Top" Width="109" BorderBrush="{x:Null}" Height="33" Foreground="#FFE6CF9D" Click="warningButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>

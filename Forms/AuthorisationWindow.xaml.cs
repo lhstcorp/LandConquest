@@ -25,9 +25,9 @@ namespace LandConquest
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
             YDContext.OpenYD();
+            //LauncherLogic.DisableActiveCheatsAsync();
+            //LauncherLogic.CheckLocalUtcDateTime();
             LandConquestDB.DbContext.OpenConnectionPool();
-            //LauncherController.CheckLocalUtcDateTime();
-            //LauncherController.DisableActiveCheats();
             CheckVersion();
             currentOnlineLabel.Content = YDContext.CountConnections();
             textBoxLogin.Text = Properties.Settings.Default.UserLogin;
@@ -35,7 +35,7 @@ namespace LandConquest
         }
 
 
-        private void buttonLogin_Click(object sender, RoutedEventArgs e)
+        private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
             LandConquestDB.Entities.User user = LandConquestDB.Models.UserModel.UserAuthorisation(this.textBoxLogin.Text, this.textBoxPass.Password);
 
@@ -64,7 +64,7 @@ namespace LandConquest
             }
         }
 
-        private void buttonRegistrate_Click(object sender, RoutedEventArgs e)
+        private void ButtonRegistrate_Click(object sender, RoutedEventArgs e)
         {
             bool validNewUserLogin = LandConquestDB.Models.UserModel.ValidateUserByLogin(textBoxNewLogin.Text);
             bool validNewUserEmail = LandConquestDB.Models.UserModel.ValidateUserByEmail(textBoxNewEmail.Text);
@@ -76,7 +76,7 @@ namespace LandConquest
                 validNewUserEmail == true &&
                 textBoxNewPass.Text == textBoxConfirmNewPass.Text)
             {
-                string userId = generateUserId();
+                string userId = GenerateUserId();
                 int userCreationResult = LandConquestDB.Models.UserModel.CreateUser(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, this.textBoxNewPass.Text, userId);
                 if (userCreationResult < 0)
                 {
@@ -102,7 +102,7 @@ namespace LandConquest
                     }
                     LandConquestDB.Entities.Army army = new LandConquestDB.Entities.Army();
                     army.PlayerId = userId;
-                    army.ArmyId = generateUserId();
+                    army.ArmyId = GenerateUserId();
                     LandConquestDB.Models.ArmyModel.InsertArmyFromReg(army);
                 }
             }
@@ -117,7 +117,7 @@ namespace LandConquest
         }
 
         private static Random random;
-        public static string generateUserId()
+        public static string GenerateUserId()
         {
             Thread.Sleep(15);
             random = new Random();
@@ -126,13 +126,13 @@ namespace LandConquest
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-        private void buttonShowRegistration_Click(object sender, RoutedEventArgs e)
+        private void ButtonShowRegistration_Click(object sender, RoutedEventArgs e)
         {
             ShowRegistrationFields(Visibility.Visible);
             buttonShowRegistration.Visibility = Visibility.Hidden;
         }
 
-        private void buttonCancelRegistrate_Click(object sender, RoutedEventArgs e)
+        private void ButtonCancelRegistrate_Click(object sender, RoutedEventArgs e)
         {
             ShowRegistrationFields(Visibility.Hidden);
             buttonShowRegistration.Visibility = Visibility.Visible;
@@ -165,12 +165,12 @@ namespace LandConquest
             }
         }
 
-        private void iconDownload_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void IconDownload_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             LauncherLogic.DownloadGame();
         }
 
-        private void labelAgreement_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void LabelAgreement_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             UserAgreementDialog.ShowUserAgreement();
         }

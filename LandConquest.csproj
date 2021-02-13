@@ -200,6 +200,12 @@
     <Compile Include="Forms\CountryWindow.xaml.cs">
       <DependentUpon>CountryWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\LandWindow.xaml.cs">
+      <DependentUpon>LandWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MailboxWindow.xaml.cs">
+      <DependentUpon>MailboxWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MarketWindow.xaml.cs">
       <DependentUpon>MarketWindow.xaml</DependentUpon>
     </Compile>
@@ -308,6 +314,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\CountryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\LandWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\MailboxWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -571,6 +585,8 @@
     <Resource Include="Pictures\War\RedCastle.png" />
     <Resource Include="Pictures\Experimental\city.jpg" />
     <Resource Include="Pictures\Experimental\globe.png" />
+    <Resource Include="Pictures\Buildings\Fortress.png" />
+    <Resource Include="Pictures\Buildings\City.png" />
     <Content Include="Resources\Buildings\arch.svg" />
     <Content Include="Resources\Buildings\blacksmith.svg" />
     <Content Include="Resources\Buildings\bridge_stone2.svg" />
