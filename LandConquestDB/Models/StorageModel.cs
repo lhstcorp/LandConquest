@@ -36,8 +36,8 @@ namespace LandConquestDB.Models
                     storage.PlayerGems = reader.GetInt32(playerGems);
                     storage.PlayerLeather = reader.GetInt32(playerLeather);
                 }
+                reader.Close();
             }
-
             command.Dispose();
             return storage;
         }
@@ -67,7 +67,6 @@ namespace LandConquestDB.Models
                 storageCommand.Parameters["@food"].Value = _storage.PlayerFood;
                 storageCommand.Parameters["@player_id"].Value = player.PlayerId;
                 storageCommand.ExecuteNonQuery();
-
             }
 
             storageCommand.Dispose();

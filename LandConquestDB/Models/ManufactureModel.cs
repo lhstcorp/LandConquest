@@ -24,7 +24,9 @@ namespace LandConquestDB.Models
                 {
                     dateTime = reader.GetDateTime(playerId);
                 }
+                reader.Close();
             }
+            command.Dispose();
 
             return dateTime;
         }
@@ -75,10 +77,8 @@ namespace LandConquestDB.Models
                     manufacturesManufactureProdStartTime.Add(reader.GetDateTime(manufactureProdStartTime));
                     manufacturesManufactureBaseProdValue.Add(reader.GetInt32(manufactureBaseProdValue));
                 }
-
-
+                reader.Close();
             }
-
             command.Dispose();
 
             List<Manufacture> manufactures = new List<Manufacture>();
@@ -161,8 +161,8 @@ namespace LandConquestDB.Models
                     manufacturesManufactureProdStartTime.Add(reader.GetDateTime(manufactureProdStartTime));
                     manufacturesManufactureBaseProdValue.Add(reader.GetInt32(manufactureBaseProdValue));
                 }
+                reader.Close();
             }
-
             command.Dispose();
 
             List<Manufacture> manufactures = new List<Manufacture>();
@@ -273,8 +273,9 @@ namespace LandConquestDB.Models
                     resourcesNeed.PlayerWood = reader.GetInt32(woodNeeded);
                     resourcesNeed.PlayerStone = reader.GetInt32(stoneNeeded);
                 }
+                reader.Close();
             }
-
+            command.Dispose();
             return resourcesNeed;
         }
 
@@ -364,8 +365,9 @@ namespace LandConquestDB.Models
                     manufacture.ManufactureProdStartTime = reader.GetDateTime(manufactureProdStartTime);
                     manufacture.ManufactureBaseProdValue = reader.GetInt32(manufactureBaseProdValue);
                 }
+                reader.Close();
             }
-
+            command.Dispose();
             manufacture.ManufactureId = _manufacture.ManufactureId;
 
             return manufacture;
@@ -404,7 +406,9 @@ namespace LandConquestDB.Models
                     manufacture.ManufactureProdStartTime = reader.GetDateTime(manufactureProdStartTime);
                     manufacture.ManufactureBaseProdValue = reader.GetInt32(manufactureBaseProdValue);
                 }
+                reader.Close();
             }
+            command.Dispose();
 
             manufacture.ManufactureId = _manufacture.ManufactureId;
 
@@ -521,10 +525,8 @@ namespace LandConquestDB.Models
                     manufacturesManufactureProdStartTime.Add(reader.GetDateTime(manufactureProdStartTime));
                     //manufacturesManufactureBaseProdValue.Add(reader.GetInt32(manufactureBaseProdValue));
                 }
-
-
+                reader.Close();
             }
-
             command.Dispose();
 
             List<Manufacture> manufactures = new List<Manufacture>();

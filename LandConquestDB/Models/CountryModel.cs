@@ -21,6 +21,7 @@ namespace LandConquestDB.Models
             countryCommand.Parameters.AddWithValue("@country_coffers", coffers);
 
             countryCommand.ExecuteNonQuery();
+            countryCommand.Dispose();
 
             Country country = new Country();
             country.CountryName = land.LandName + " state";
@@ -46,8 +47,8 @@ namespace LandConquestDB.Models
                 {
                     state_max_id = reader.GetInt32(stateId);
                 }
+                reader.Close();
             }
-
             stateCommand.Dispose();
             return state_max_id;
         }
@@ -76,6 +77,7 @@ namespace LandConquestDB.Models
                     countriesCountryRuler.Add(reader.GetString(countryRuler));
                     countriesCountryColor.Add(reader.GetString(countryColor));
                 }
+                reader.Close();
             }
 
             command.Dispose();
@@ -113,6 +115,7 @@ namespace LandConquestDB.Models
                 {
                     id = reader.GetInt32(countryId);
                 }
+                reader.Close();
             }
 
             command.Dispose();
@@ -136,6 +139,7 @@ namespace LandConquestDB.Models
                 {
                     rulerId = reader.GetString(countryRuler);
                 }
+                reader.Close();
             }
             command.Dispose();
             return rulerId;
@@ -166,6 +170,7 @@ namespace LandConquestDB.Models
                     country.CountryColor = reader.GetString(countryColor);
                     country.CountryCoffers = reader.GetString(countryCoffers);
                 }
+                reader.Close();
             }
 
             command.Dispose();

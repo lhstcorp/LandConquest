@@ -33,6 +33,7 @@ namespace LandConquestDB.Models
             playerCommand.Parameters.AddWithValue("@player_current_region", 1);
 
             int playerResult = playerCommand.ExecuteNonQuery();
+            playerCommand.Dispose();
 
             return playerResult;
         }
@@ -47,6 +48,7 @@ namespace LandConquestDB.Models
             storageCommand.Parameters.AddWithValue("@player_id", userId);
 
             storageCommand.ExecuteNonQuery();
+            storageCommand.Dispose();
 
             string equipmentQuery = "INSERT INTO dbo.PlayerEquipment (player_id) VALUES (@player_id)";
             var equipmentCommand = new SqlCommand(equipmentQuery, DbContext.GetSqlConnection());
@@ -55,6 +57,7 @@ namespace LandConquestDB.Models
             equipmentCommand.Parameters.AddWithValue("@player_id", userId);
 
             equipmentCommand.ExecuteNonQuery();
+            equipmentCommand.Dispose();
 
             // create default manufactures for new player
             string manufactureQuery = "INSERT INTO dbo.ManufactureData (player_id,manufacture_id,manufacture_name,manufacture_type) VALUES (@player_id, @manufacture_id, @manufacture_name, @manufacture_type)";
@@ -69,6 +72,7 @@ namespace LandConquestDB.Models
             woodCommand.Parameters.AddWithValue("@manufacture_type", 1);
 
             woodCommand.ExecuteNonQuery();
+            woodCommand.Dispose();
 
             //stone
             var stoneCommand = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
@@ -79,6 +83,7 @@ namespace LandConquestDB.Models
             stoneCommand.Parameters.AddWithValue("@manufacture_type", 2);
 
             stoneCommand.ExecuteNonQuery();
+            stoneCommand.Dispose();
 
             //food
             var foodCommand = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
@@ -88,6 +93,7 @@ namespace LandConquestDB.Models
             foodCommand.Parameters.AddWithValue("@manufacture_type", 3);
 
             foodCommand.ExecuteNonQuery();
+            foodCommand.Dispose();
 
             // create peasants data for player
 
@@ -97,6 +103,7 @@ namespace LandConquestDB.Models
             peasantsCommand.Parameters.AddWithValue("@player_id", userId);
 
             peasantsCommand.ExecuteNonQuery();
+            peasantsCommand.Dispose();
         }
 
         public static Player GetPlayerInfo(User user, Player player)
@@ -131,9 +138,9 @@ namespace LandConquestDB.Models
                     player.PlayerTitle = reader.GetInt32(playerTitle);
                     player.PlayerCurrentRegion = reader.GetInt32(playerCurrentRegion);
                 }
+                reader.Close();
             }
-
-            //command.Dispose();
+            command.Dispose();
 
             return player;
         }
@@ -170,7 +177,9 @@ namespace LandConquestDB.Models
                     player.PlayerTitle = reader.GetInt32(playerTitle);
                     player.PlayerCurrentRegion = reader.GetInt32(playerCurrentRegion);
                 }
+                reader.Close();
             }
+            command.Dispose();
             return player;
         }
 
@@ -190,6 +199,7 @@ namespace LandConquestDB.Models
                 {
                     playerName = reader.GetString(_playerName);
                 }
+                reader.Close();
             }
             command.Dispose();
             return playerName;
@@ -238,6 +248,7 @@ namespace LandConquestDB.Models
             userCommand.Parameters.AddWithValue("@player_name", newPlayerName);
 
             userCommand.ExecuteNonQuery();
+            userCommand.Dispose();
         }
 
 
@@ -262,7 +273,9 @@ namespace LandConquestDB.Models
                     player.PlayerName = reader.GetString(playerName);
                     players.Add(player);
                 }
+                reader.Close();
             }
+            command.Dispose();
 
             return players;
         }
@@ -288,7 +301,9 @@ namespace LandConquestDB.Models
                     player.PlayerName = reader.GetString(playerName);
                     players.Add(player);
                 }
+                reader.Close();
             }
+            command.Dispose();
 
             return players;
         }
@@ -325,10 +340,8 @@ namespace LandConquestDB.Models
                 {
                     listPeasantsWork.Add(reader.GetInt32(manufacturePeasantsWork));
                 }
-
-
+                reader.Close();
             }
-
             command.Dispose();
 
             List<int> list = new List<int>();
@@ -420,5 +433,28 @@ namespace LandConquestDB.Models
 
         //    return player;
         //}
+
+        public static int GetPlayerResourceAmount(Player _player, string resourceName)
+        {
+            string Query = "SELECT " + resourceName + " FROM dbo.StorageData WHERE player_id = @player_id";
+        
+            var command = new SqlCommand(Query, DbContext.GetSqlConnection());
+            command.Parameters.AddWithValue("@player_id", _player.PlayerId);
+
+            int resourceAmount = 0;
+            using (var reader = command.ExecuteReader())
+            {
+
+                var resourceAmountFromDb = reader.GetOrdinal(resourceName);
+
+                while (reader.Read())
+                {
+                    resourceAmount = reader.GetInt32(resourceAmountFromDb);
+                }
+                reader.Close();
+            }
+            command.Dispose();
+            return resourceAmount;
+        }
     }
 }

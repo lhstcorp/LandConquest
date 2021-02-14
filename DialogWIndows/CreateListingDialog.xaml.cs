@@ -44,7 +44,6 @@ namespace LandConquest.DialogWIndows
             labelFoodAmount.Content = storage.PlayerFood.ToString();
             labelGemsAmount.Content = storage.PlayerGems.ToString();
             labelCopperAmount.Content = storage.PlayerCopper.ToString();
-            labelGoldAmount.Content = storage.PlayerGoldOre.ToString();
             labelIronAmount.Content = storage.PlayerIron.ToString();
             labelLeatherAmount.Content = storage.PlayerLeather.ToString();
 
@@ -58,14 +57,14 @@ namespace LandConquest.DialogWIndows
         private void woodButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             showListingDetails();
-            itemName = "Wood";
+            itemName = "wood";
             itemGroup = "Resources";
             itemSubgroup = "";
         }
 
         private void stoneButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "Stone";
+            itemName = "stone";
             itemGroup = "Resources";
             itemSubgroup = "";
             showListingDetails();
@@ -73,23 +72,14 @@ namespace LandConquest.DialogWIndows
 
         private void foodButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "Food";
+            itemName = "food";
             itemGroup = "Resources";
             itemSubgroup = "";
             showListingDetails();
         }
-
-        private void goldButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            itemName = "Gold";
-            itemGroup = "Resources";
-            itemSubgroup = "";
-            showListingDetails();
-        }
-
         private void copperButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "Copper";
+            itemName = "copper";
             itemGroup = "Resources";
             itemSubgroup = "";
             showListingDetails();
@@ -97,7 +87,7 @@ namespace LandConquest.DialogWIndows
 
         private void gemsButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "Gems";
+            itemName = "gems";
             itemGroup = "Resources";
             itemSubgroup = "";
             showListingDetails();
@@ -105,7 +95,7 @@ namespace LandConquest.DialogWIndows
 
         private void metalButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "Iron";
+            itemName = "iron";
             itemGroup = "Resources";
             itemSubgroup = "";
             showListingDetails();
@@ -113,7 +103,7 @@ namespace LandConquest.DialogWIndows
 
         private void leatherButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "Leather";
+            itemName = "leather";
             itemGroup = "Resources";
             itemSubgroup = "";
             showListingDetails();
@@ -130,7 +120,22 @@ namespace LandConquest.DialogWIndows
 
         private void buttonPlace_Click(object sender, RoutedEventArgs e)
         {
-            AuctionModel.AddListing(Convert.ToInt32(textBoxAmount.Text), itemName, itemGroup, itemSubgroup, Convert.ToInt32(textBoxPrice.Text), player);
+            if (Convert.ToInt32(textBoxAmount.Text) > 0 && Convert.ToInt32(textBoxPrice.Text) > 0)
+            {
+                int playersResourceAmount = PlayerModel.GetPlayerResourceAmount(player, itemName);
+                if (playersResourceAmount >= Convert.ToInt32(textBoxAmount.Text) && playersResourceAmount > 0)
+                {
+                    AuctionModel.AddListing(Convert.ToInt32(textBoxAmount.Text), itemName, itemGroup, itemSubgroup, Convert.ToInt32(textBoxPrice.Text), player);
+                }
+                else
+                {
+                    WarningDialogWindow.CallWarningDialogNoResult("You haven't got enough resources!");
+                }
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Value should be more than 0!");
+            }
 
         }
 
@@ -141,8 +146,7 @@ namespace LandConquest.DialogWIndows
 
         public static bool IsValid(string str)
         {
-            int i;
-            return int.TryParse(str, out i) && i >= 1 && i <= 99999;
+            return int.TryParse(str, out int i) && i >= 1 && i <= 99999;
         }
     }
 }
