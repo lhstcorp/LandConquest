@@ -54,6 +54,7 @@ namespace LandConquestDB.Models
             userCommand.Parameters.AddWithValue("@message_sent_time", DateTime.UtcNow);
 
             userCommand.ExecuteNonQuery();
+            userCommand.Dispose();
         }
     }
 }

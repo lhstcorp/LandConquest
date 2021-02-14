@@ -33,7 +33,9 @@ namespace LandConquestDB.Models
                     equipment.PlayerGear = reader.GetInt32(playerCopper);
 
                 }
+                reader.Close();
             }
+            command.Dispose();
             return equipment;
         }
 
@@ -61,8 +63,6 @@ namespace LandConquestDB.Models
             //storageCommand.Parameters["@gear"].Value = _equipment.PlayerGear;
             //storageCommand.Parameters["@player_id"].Value = player.PlayerId;
             storageCommand.ExecuteNonQuery();
-
-
             storageCommand.Dispose();
         }
     }

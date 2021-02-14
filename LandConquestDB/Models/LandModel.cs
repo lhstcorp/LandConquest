@@ -39,8 +39,7 @@ namespace LandConquestDB.Models
                     landsResourceType1.Add(reader.GetInt32(landResourceType1));
                     landsResourceType2.Add(reader.GetInt32(landResourceType2));
                 }
-
-
+                reader.Close();
             }
 
             command.Dispose();
@@ -123,6 +122,7 @@ namespace LandConquestDB.Models
             woodCommand.Parameters.AddWithValue("@manufacture_type", land.ResourceType1);
 
             woodCommand.ExecuteNonQuery();
+            woodCommand.Dispose();
 
             var stoneCommand = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
 
@@ -162,6 +162,7 @@ namespace LandConquestDB.Models
             stoneCommand.Parameters.AddWithValue("@manufacture_type", land.ResourceType2);
 
             stoneCommand.ExecuteNonQuery();
+            stoneCommand.Dispose();
         }
 
         public static List<Land> GetCountryLands(Country country)
@@ -195,10 +196,8 @@ namespace LandConquestDB.Models
                     landsResourceType1.Add(reader.GetInt32(landResourceType1));
                     landsResourceType2.Add(reader.GetInt32(landResourceType2));
                 }
-
-
+                reader.Close();
             }
-
             command.Dispose();
 
             List<Land> lands = new List<Land>();

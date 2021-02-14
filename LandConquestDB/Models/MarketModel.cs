@@ -37,7 +37,9 @@ namespace LandConquestDB.Models
                     market.MarketLeather = reader.GetInt32(marketLeather);
                     //market.MarketMoney = reader.GetInt32(money);
                 }
+                reader.Close();
             }
+            command.Dispose();
             return market;
         }
         public static void UpdateMarket(Player player, Market _market)

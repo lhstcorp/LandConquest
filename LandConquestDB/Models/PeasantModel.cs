@@ -26,8 +26,8 @@ namespace LandConquestDB.Models
                     peasants.PeasantsWork = reader.GetInt32(peasantsWork);
                     peasants.PeasantsMax = reader.GetInt32(peasantsMax);
                 }
+                reader.Close();
             }
-
             command.Dispose();
 
             return peasants;

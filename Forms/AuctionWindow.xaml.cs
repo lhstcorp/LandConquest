@@ -48,7 +48,7 @@ namespace LandConquest.Forms
         private void buttonFindListing_Click(object sender, RoutedEventArgs e)
         {
             Window_Loaded(sender, e);
-            listings = listings.FindAll(x => x.Subject.Contains(textBoxItemSearchName.Text));
+            listings = listings.FindAll(x => x.Subject.Contains(textBoxItemSearchName.Text.ToLower()));
             auctionDataGrid.ItemsSource = listings;
         }
 
@@ -66,9 +66,23 @@ namespace LandConquest.Forms
             int itemAmount;
             if (inputDialog.ShowDialog() == true)
             {
-                itemAmount = inputDialog.Amount;
-                Player seller = PlayerModel.GetPlayerById(listing.SellerId);
-                AuctionModel.BuyListing(itemAmount, player, seller, listing);
+                if (inputDialog.Amount > 0)
+                {
+                    itemAmount = inputDialog.Amount;
+                    Player seller = PlayerModel.GetPlayerById(listing.SellerId);
+                    if (player.PlayerMoney >= listing.Price * itemAmount)
+                    {
+                        AuctionModel.BuyListing(itemAmount, player, seller, listing);
+                    }
+                    else
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("You haven't got enough money!");
+                    }
+                }
+                else
+                {
+                    WarningDialogWindow.CallWarningDialogNoResult("Value should be more than 0!");
+                }
             }
             Window_Loaded(sender, e);
 
@@ -100,6 +114,11 @@ namespace LandConquest.Forms
                     buttonDelete.IsEnabled = false;
                 }
             }
+        }
+
+        private void buttonUpdateListings_Click(object sender, RoutedEventArgs e)
+        {
+            Window_Loaded(sender, e);
         }
     }
 }

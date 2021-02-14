@@ -93,9 +93,9 @@
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                         </Button.Background>
                     </Button>
-                    <Label x:Name="lblLandResource1NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF8F7D5E"  HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="26,244,0,0" Width="59" Background="{x:Null}" RenderTransformOrigin="0.5,0.5" Height="21" VerticalAlignment="Top" FontFamily="Trebuchet MS"/>
+                    <Label x:Name="lblLandResource1NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF392018"  HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="26,244,0,0" Width="59" Background="{x:Null}" RenderTransformOrigin="0.5,0.5" Height="21" VerticalAlignment="Top" FontFamily="Trebuchet MS"/>
                     <Image x:Name="imgLandResource2ImgOnGrid"  HorizontalAlignment="Left" Height="50" Margin="134,188,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.291,0.465"/>
-                    <Label x:Name="lblLandResource2NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF897657" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="129,244,0,0" Width="60" Height="21" VerticalAlignment="Top" Background="{x:Null}" FontFamily="Trebuchet MS"/>
+                    <Label x:Name="lblLandResource2NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF392018" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="129,244,0,0" Width="60" Height="21" VerticalAlignment="Top" Background="{x:Null}" FontFamily="Trebuchet MS"/>
                     <Button x:Name="buttonEstablishaState" IsEnabled="True" Content="Establish a state" Margin="25,138,25,0" Click="buttonEstablishaState_Click" BorderBrush="{x:Null}" RenderTransformOrigin="0.512,0.524" Foreground="#FFE5D09D" FontSize="14" FontFamily="Book Antiqua" Height="37" VerticalAlignment="Top">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>

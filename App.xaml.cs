@@ -1,5 +1,6 @@
 ﻿using LandConquest.DialogWIndows;
 using System;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -19,6 +20,11 @@ namespace LandConquest
 
         private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
+            //if (e.Exception.InnerException is SqlException)
+            //{
+            //    LandConquestDB.DbContext.Reconnect();
+            //    return;
+            //}
             LandConquestYD.YDContext.DeleteConnectionId();
             string errorMessage = string.Format(" Error: {0}", e.Exception.Message);
             WarningDialogWindow.CallWarningDialogNoResult(e.Exception.Source + errorMessage);
@@ -31,6 +37,12 @@ namespace LandConquest
 
             TaskScheduler.UnobservedTaskException += (s, e) =>
             {
+                //if (e.Exception.InnerException is SqlException)
+                //{
+                //    LandConquestDB.DbContext.Reconnect();
+                //    return;
+                //}
+
                 LandConquestYD.YDContext.DeleteConnectionId();
                 string errorMessage = string.Format(" Error: {0}", e.Exception.Message);
                 WarningDialogWindow.CallWarningDialogNoResult(e.Exception.Source + errorMessage);
@@ -39,8 +51,15 @@ namespace LandConquest
         }
         private static void MyHandler(object sender, UnhandledExceptionEventArgs args)
         {
-            LandConquestYD.YDContext.DeleteConnectionId();
             Exception e = (Exception)args.ExceptionObject;
+
+            //if (e.InnerException is SqlException)
+            //{
+            //    LandConquestDB.DbContext.Reconnect();
+            //    return;
+            //}
+            LandConquestYD.YDContext.DeleteConnectionId();
+            
             string errorMessage = string.Format(" Error: {0}", e.Message);
             WarningDialogWindow.CallWarningDialogNoResult(e.Source + errorMessage);
         }
