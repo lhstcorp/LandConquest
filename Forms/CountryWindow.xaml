@@ -22,12 +22,6 @@
             <ComboBox x:Name="CbLandToTransfer" HorizontalAlignment="Left" Height="50" Margin="494,165,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbLandToTransfer_SelectionChanged"/>
             <ComboBox x:Name="CbCountryToTransfer" HorizontalAlignment="Left" Height="50" Margin="494,220,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCountryToTransfer_SelectionChanged"/>
 
-            <Button x:Name="buttonCastleManagement" Content="Castle management" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="66" Margin="10,149,0,0" VerticalAlignment="Top" Width="297" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua" Click="buttonCastleManagement_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                </Button.Background>
-            </Button>
-
             <Button x:Name="IssueALaw" Content="Ok" HorizontalAlignment="Left" Height="44" Margin="719,399,0,0" VerticalAlignment="Top" Width="74" Click="IssueALaw_Click" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
