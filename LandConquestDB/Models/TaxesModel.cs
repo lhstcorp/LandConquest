@@ -53,6 +53,7 @@ namespace LandConquestDB.Models
                     tax.TaxMoneyHour = reader.GetInt32(taxMoneyHour);
                     tax.TaxSaveDateTime = reader.GetDateTime(taxSaveDateTime);
                 }
+                reader.Close();
             }
             taxcommand.Dispose();
 

@@ -51,6 +51,7 @@ namespace LandConquestDB.Models
                     armiesLocalLandId.Add(reader.GetInt32(armyLocalLandId));
                     armiesArmySide.Add(reader.GetInt32(armyArmySide));
                 }
+                reader.Close();
             }
 
             command.Dispose();
@@ -121,6 +122,7 @@ namespace LandConquestDB.Models
                     armyId = reader.GetString(stateId);
                     count++;
                 }
+                reader.Close();
             }
 
             Command.Dispose();
@@ -173,6 +175,7 @@ namespace LandConquestDB.Models
                     armiesLocalLandId.Add(reader.GetInt32(armyLocalLandId));
                     armiesArmySide.Add(reader.GetInt32(armyArmySide));
                 }
+                reader.Close();
             }
 
             command.Dispose();
@@ -237,7 +240,9 @@ namespace LandConquestDB.Models
                     player.PlayerId = reader.GetString(playerId);
                     counter++;
                 }
+                reader.Close();
             }
+            command.Dispose();
             return counter;
         }
 
@@ -251,8 +256,6 @@ namespace LandConquestDB.Models
             storageCommand.Parameters.AddWithValue("@army_id", army.ArmyId);
 
             storageCommand.ExecuteNonQuery();
-
-
             storageCommand.Dispose();
         }
 
@@ -378,11 +381,12 @@ namespace LandConquestDB.Models
                     //armyId = reader.GetString(war);
                     count++;
                 }
+                reader.Close();
             }
 
             if (count == 0)
                 return false;
-
+            Command.Dispose();
             return true;
         }
 
@@ -431,6 +435,7 @@ namespace LandConquestDB.Models
                     armiesLocalLandId.Add(reader.GetInt32(armyLocalLandId));
                     armiesArmySide.Add(reader.GetInt32(armyArmySide));
                 }
+                reader.Close();
             }
 
             command.Dispose();
@@ -508,6 +513,7 @@ namespace LandConquestDB.Models
                     armiesLocalLandId.Add(reader.GetInt32(armyLocalLandId));
                     armiesArmySide.Add(reader.GetInt32(armyArmySide));
                 }
+                reader.Close();
             }
 
             command.Dispose();
@@ -576,6 +582,7 @@ namespace LandConquestDB.Models
                     distanceBattle.Damage = reader.GetInt32(damage);
                     distanceBattle.Side = reader.GetInt32(side);
                 }
+                reader.Close();
             }
 
             command.Dispose();

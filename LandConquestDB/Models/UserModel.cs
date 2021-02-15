@@ -33,7 +33,9 @@ namespace LandConquestDB.Models
 
                     }
                 }
+                reader.Close();
             }
+            command.Dispose();
             return user;
         }
 
@@ -49,6 +51,7 @@ namespace LandConquestDB.Models
             userCommand.Parameters.AddWithValue("@user_pass", pass);
 
             int userResult = userCommand.ExecuteNonQuery();
+            userCommand.Dispose();
             return userResult;
         }
 
@@ -74,7 +77,9 @@ namespace LandConquestDB.Models
                     user.UserEmail = reader.GetString(userEmail);
                     user.UserPass = reader.GetString(userPass);
                 }
+                reader.Close();
             }
+            command.Dispose();
             return user;
         }
 
@@ -88,6 +93,7 @@ namespace LandConquestDB.Models
             userCommand.Parameters.AddWithValue("@user_email", newUserEmail);
 
             userCommand.ExecuteNonQuery();
+            userCommand.Dispose();
         }
 
         public static void UpdateUserPass(string userId, string newUserPass)
@@ -100,6 +106,7 @@ namespace LandConquestDB.Models
             userCommand.Parameters.AddWithValue("@user_pass", newUserPass);
 
             userCommand.ExecuteNonQuery();
+            userCommand.Dispose();
         }
 
         public static bool ValidateUserByLogin(string user_login)
@@ -113,10 +120,12 @@ namespace LandConquestDB.Models
             {
                 if (reader.HasRows)
                 {
+                    reader.Close();
                     return false;
                 }
                 else
                 {
+                    reader.Close();
                     return true;
                 }
             }
@@ -133,10 +142,12 @@ namespace LandConquestDB.Models
             {
                 if (reader.HasRows)
                 {
+                    reader.Close();
                     return false;
                 }
                 else
                 {
+                    reader.Close();
                     return true;
                 }
             }

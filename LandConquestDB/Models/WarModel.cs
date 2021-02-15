@@ -42,6 +42,7 @@ namespace LandConquestDB.Models
                     war.LandDefenderId = (reader.GetInt32(landDefenderId));
                     war.WarDateTimeStart = (reader.GetDateTime(warDateTimeStart));
                 }
+                reader.Close();
             }
 
             command.Dispose();
@@ -62,6 +63,7 @@ namespace LandConquestDB.Models
                     state_max_id = reader.GetString(stateId);
                     count++;
                 }
+                reader.Close();
             }
 
             stateCommand.Dispose();
@@ -92,6 +94,7 @@ namespace LandConquestDB.Models
                     warsLandDefenderId.Add(reader.GetInt32(landDefenderId));
                     warsWarDateTimeStart.Add(reader.GetDateTime(warDateTimeStart));
                 }
+                reader.Close();
             }
 
             command.Dispose();

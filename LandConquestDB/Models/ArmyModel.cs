@@ -33,9 +33,10 @@ namespace LandConquestDB.Models
                     army.ArmyHorsemanCount = reader.GetInt32(armyHorsemanCount);
                     army.ArmySiegegunCount = reader.GetInt32(armySiegegunCount);
                 }
+                reader.Close();
             }
-            army.PlayerId = player.PlayerId;
             armyCommand.Dispose();
+            army.PlayerId = player.PlayerId;
 
             return army;
         }
@@ -63,8 +64,11 @@ namespace LandConquestDB.Models
                     army.PlayerNameForArmy = reader.GetString(playerName);
                     armies.Add(army);
 
+                 
                 }
+                reader.Close();
             }
+            command.Dispose();
 
             return armies;
         }
@@ -101,9 +105,7 @@ namespace LandConquestDB.Models
             armyCommand.Parameters.AddWithValue("@army_id", army.ArmyId);
 
             armyCommand.ExecuteNonQuery();
-
             armyCommand.Dispose();
-
         }
 
         public static int ReturnTypeOfArmy(Army army)

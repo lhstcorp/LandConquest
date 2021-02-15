@@ -31,5 +31,12 @@ namespace LandConquestDB
             sqlconnection.Close();
         }
 
+        public static void Reconnect()
+        {
+            sqlconnection.Close();
+            sqlconnection.Dispose();
+            SqlConnection.ClearAllPools();
+            OpenConnectionPool();
+        }
     }
 }

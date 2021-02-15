@@ -41,6 +41,7 @@ namespace LandConquestDB.Models
                     countryStorage.LandGems = reader.GetInt32(countryGems);
                     countryStorage.LandLeather = reader.GetInt32(countryLeather);
                 }
+                reader.Close();
             }
 
             command.Dispose();

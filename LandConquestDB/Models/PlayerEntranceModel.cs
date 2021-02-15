@@ -24,8 +24,10 @@ namespace LandConquestDB.Models
                 {
                     dateTime = reader.GetDateTime(playerId);
                 }
-                return dateTime;
+                reader.Close();
             }
+            command.Dispose();
+            return dateTime;
         }
 
         public static DateTime GetFirstEntrance(Player player)
@@ -46,9 +48,10 @@ namespace LandConquestDB.Models
                 {
                     dateTime = reader.GetDateTime(playerId);
                 }
-                return dateTime;
+                reader.Close();
             }
-            
+            command.Dispose();
+            return dateTime;           
         }
 
         public static void SetFirstEntrance(Player player)
@@ -96,6 +99,7 @@ namespace LandConquestDB.Models
                     playerEntrance.FirstEntrance = reader.GetDateTime(firstEntrance);
                     playerEntrance.LastEntrance = reader.GetDateTime(lastEntrance);
                 }
+                reader.Close();
             }
             playerEntrance.PlayerId = player.PlayerId;
             command.Dispose();
@@ -127,8 +131,9 @@ namespace LandConquestDB.Models
                     playerEntrances.Add(playerEntrance);
 
                 }
+                reader.Close();
             }
-
+            command.Dispose();
             return playerEntrances;
         }
     }

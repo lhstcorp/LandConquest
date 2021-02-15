@@ -1,7 +1,5 @@
 ﻿namespace LandConquestDB.Entities
 {
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
     using System.Drawing;
     public class Player
     {
@@ -21,38 +19,14 @@
         public Player()
         { }
 
-        //[Required]
-        //[Column("player_id")]
-        //[StringLength(16)]
         public string PlayerId { get; set; }
-
-        //[Required]
-        //[Column("player_name")]
-        //[StringLength(20)]
         public string PlayerName { get; set; }
-
-        [Column("player_exp")]
         public long PlayerExp { get; set; }
-
-        [Required]
-        [Column("player_lvl")]
         public int PlayerLvl { get; set; }
-
-        [Column("player_money")]
         public long PlayerMoney { get; set; }
-
-        [Column("player_donation")]
         public long PlayerDonation { get; set; }
-
-        [Column("player_image")]
         public Image PlayerImage { get; set; }
-
-        [Required]
-        [Column("player_title")]
         public int PlayerTitle { get; set; }
-
-        [Required]
-        [Column("player_current_region")]
         public int PlayerCurrentRegion { get; set; }
     }
 }

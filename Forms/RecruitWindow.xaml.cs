@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using LandConquest.DialogWIndows;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
 using System.Windows;
@@ -49,12 +50,11 @@ namespace LandConquest.Forms
                 AvailableRecruitPeasants.Content = (peasants.PeasantsMax - peasants.PeasantsCount).ToString();
                 player.PlayerMoney -= Convert.ToInt32(PeasantsAmount.Text);
                 player = PlayerModel.UpdatePlayerMoney(player);
-                MessageBox.Show("OK");
                 PeasantsAmount.Text = "0";
             }
             else
             {
-                MessageBox.Show("Error");
+                WarningDialogWindow.CallWarningDialogNoResult("Error");
                 PeasantsAmount.Text = "0";
             }
         }
@@ -80,12 +80,11 @@ namespace LandConquest.Forms
                 army.ArmyType = ArmyModel.ReturnTypeOfArmy(army);
                 army = ArmyModel.UpdateArmy(army);
 
-                MessageBox.Show("OK");
                 ArchersAmount.Text = "0";
             }
             else
             {
-                MessageBox.Show("Error");
+                WarningDialogWindow.CallWarningDialogNoResult("Error");
                 ArchersAmount.Text = "0";
             }
         }
@@ -106,12 +105,11 @@ namespace LandConquest.Forms
                 army.ArmyType = ArmyModel.ReturnTypeOfArmy(army);
                 army = ArmyModel.UpdateArmy(army);
 
-                MessageBox.Show("OK");
                 InfantryAmount.Text = "0";
             }
             else
             {
-                MessageBox.Show("Error");
+                WarningDialogWindow.CallWarningDialogNoResult("Error");
                 InfantryAmount.Text = "0";
             }
         }
@@ -133,12 +131,11 @@ namespace LandConquest.Forms
                 army.ArmyType = ArmyModel.ReturnTypeOfArmy(army);
                 army = ArmyModel.UpdateArmy(army);
 
-                MessageBox.Show("OK");
                 KnightsAmount.Text = "0";
             }
             else
             {
-                MessageBox.Show("Error");
+                WarningDialogWindow.CallWarningDialogNoResult("Error");
                 KnightsAmount.Text = "0";
             }
         }
@@ -158,12 +155,11 @@ namespace LandConquest.Forms
                 army.ArmyType = ArmyModel.ReturnTypeOfArmy(army);
                 army = ArmyModel.UpdateArmy(army);
 
-                MessageBox.Show("OK");
                 SiegeAmount.Text = "0";
             }
             else
             {
-                MessageBox.Show("Error");
+                WarningDialogWindow.CallWarningDialogNoResult("Error");
                 SiegeAmount.Text = "0";
             }
         }
