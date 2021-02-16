@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
         Title="MarketWindow" Height="200" Width="510" ShowInTaskbar="False" Loaded="Window_Loaded">
@@ -14,8 +15,8 @@
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
 
-            <Image x:Name="woodButton" HorizontalAlignment="Left" Height="42" Margin="16,15,0,0" VerticalAlignment="Top" Width="51" Source="/LandConquest;component/Pictures/wood.png" Cursor="Hand" MouseDown="woodButton_MouseDown"/>
-            <Image x:Name="stoneButton" HorizontalAlignment="Left" Height="27" Margin="78,15,0,0" VerticalAlignment="Top" Width="48" Source="/LandConquest;component/Pictures/stones.png" Cursor="Hand" MouseDown="stoneButton_MouseDown"/>
+            <Image x:Name="woodButton" HorizontalAlignment="Left" Height="31" Margin="16,15,0,0" VerticalAlignment="Top" Width="33" Source="/LandConquest;component/Pictures/wood.png" Cursor="Hand" MouseDown="woodButton_MouseDown"/>
+            <Image x:Name="stoneButton" HorizontalAlignment="Left" Height="27" Margin="78,19,0,0" VerticalAlignment="Top" Width="48" Source="/LandConquest;component/Pictures/stones.png" Cursor="Hand" MouseDown="stoneButton_MouseDown"/>
             <Image x:Name="foodButton" HorizontalAlignment="Left" Height="31" Margin="141,15,0,0" VerticalAlignment="Top" Width="39" Source="/LandConquest;component/Pictures/food.png" RenderTransformOrigin="-1.55,0.548" Cursor="Hand" MouseDown="foodButton_MouseDown"/>
             <Image x:Name="copperButton" HorizontalAlignment="Left" Height="42" Margin="78,68,0,0" VerticalAlignment="Top" Width="48" Source="/LandConquest;component/Pictures/copper.png" Cursor="Hand" MouseDown="copperButton_MouseDown" />
             <Image x:Name="gemsButton" HorizontalAlignment="Left" Height="26" Margin="141,74,0,0" VerticalAlignment="Top" Width="37" Source="/LandConquest;component/Pictures/gems.png" RenderTransformOrigin="-1.55,0.548" Cursor="Hand" MouseDown="gemsButton_MouseDown" />
@@ -23,14 +24,14 @@
             <Image x:Name="leatherButton" HorizontalAlignment="Left" Height="27" Margin="200,74,0,0" VerticalAlignment="Top" Width="32" Source="/LandConquest;component/Pictures/leather.png" RenderTransformOrigin="-1.55,0.548" Cursor="Hand" MouseDown="leatherButton_MouseDown" />
 
 
-            <Label x:Name="labelWoodAmount" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="16,46,0,0" VerticalAlignment="Top" Width="51" Height="27"/>
-            <Label x:Name="labelStoneAmount" Content="0" Foreground="#696969" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="78,46,0,0" VerticalAlignment="Top" Width="60" Height="27"/>
+            <Label x:Name="labelWoodAmount" Content="0" Foreground="#FF94735A" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="16,46,0,0" VerticalAlignment="Top" Width="57" Height="27"/>
+            <Label x:Name="labelStoneAmount" Content="0" Foreground="#696969" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="78,46,0,0" VerticalAlignment="Top" Width="58" Height="27"/>
             <Label x:Name="labelFoodAmount" Content="0" Foreground="Brown" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="141,46,0,0" VerticalAlignment="Top" Width="54" Height="27"/>
-            <Label x:Name="labelCopperAmount" Content="0" Foreground="#FF7B5D42" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="78,99,0,0" VerticalAlignment="Top" Width="61" Height="27"/>
+            <Label x:Name="labelCopperAmount" Content="0" Foreground="#FF7B5D42" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="78,99,0,0" VerticalAlignment="Top" Width="58" Height="27"/>
             <Label x:Name="labelGemsAmount" Content="0" Foreground="#FF6EA8A3" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="141,99,0,0" VerticalAlignment="Top" Width="54" Height="27" Background="{x:Null}"/>
             <Label x:Name="labelIronAmount" Content="0" Foreground="SlateGray" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="200,46,0,0" VerticalAlignment="Top" Width="58" Height="27" Background="{x:Null}"/>
             <Label x:Name="labelLeatherAmount" Content="0" Foreground="#FF914C2B" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="200,99,0,0" VerticalAlignment="Top" Width="58" Height="27"/>
-            <Label Content="Choose resource" FontSize="24" FontFamily="Verdana" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="258,8,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF573916" Width="246"/>
+            <Label Content="Choose resource" FontSize="24" FontFamily="Trebuchet MS" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="258,8,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF573916" Width="246"/>
 
             <Button x:Name="buttonClose" Margin="484,0,0,0" VerticalAlignment="Top" Height="20" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="buttonClose_Click" HorizontalAlignment="Left" Width="20">
                 <Button.Background>
@@ -38,15 +39,15 @@
                 </Button.Background>
             </Button>
 
-            <TextBox x:Name="textBoxAmount" HorizontalAlignment="Left" Height="23" Margin="263,160,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="161" Background="#7F966B52" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" PreviewTextInput="textBoxPrice_PreviewTextInput"/>
-            <Label x:Name="labelSetPrice" Content="Set price (each)" FontSize="24" FontFamily="Verdana" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="258,51,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF573916" Width="246"/>
-            <Label x:Name="labelSetAmount" Content="Set amount" FontSize="24" FontFamily="Verdana" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="258,122,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF573916" RenderTransformOrigin="0.307,-1.365" Width="246"/>
-            <Button x:Name="buttonPlace" Content="Place" HorizontalAlignment="Left" Margin="55,148,0,0" VerticalAlignment="Top" Width="151" Foreground="#FFD1C7AE" BorderBrush="{x:Null}" Click="buttonPlace_Click" Height="35">
+            <TextBox x:Name="textBoxAmount" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="23" Margin="263,160,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="161" Background="#7F966B52" BorderBrush="#FF391D18" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" PreviewTextInput="textBoxPrice_PreviewTextInput"/>
+            <Label x:Name="labelSetPrice" Content="Set price (each)" FontSize="24" FontFamily="Trebuchet MS" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="258,51,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF573916" Width="246"/>
+            <Label x:Name="labelSetAmount" Content="Set amount" FontSize="24" FontFamily="Trebuchet MS" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="258,122,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF573916" RenderTransformOrigin="0.307,-1.365" Width="246"/>
+            <Button x:Name="buttonPlace" Content="Place" HorizontalAlignment="Left" Margin="55,148,0,0" VerticalAlignment="Top" Width="151" Foreground="#FFE8CD9C" BorderBrush="{x:Null}" Click="buttonPlace_Click" Height="35" FontFamily="Book Antiqua">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <TextBox x:Name="textBoxPrice" HorizontalAlignment="Left" Height="23" Margin="263,94,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="163" Background="#7F966B52" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" PreviewTextInput="textBoxPrice_PreviewTextInput" />
+            <TextBox x:Name="textBoxPrice" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="23" Margin="263,94,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="163" Background="#7F966B52" BorderBrush="#FF391D18" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" PreviewTextInput="textBoxPrice_PreviewTextInput" />
 
         </Grid>
     </Border>

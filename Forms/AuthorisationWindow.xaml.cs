@@ -66,10 +66,15 @@ namespace LandConquest
 
         private void ButtonRegistrate_Click(object sender, RoutedEventArgs e)
         {
+            textBoxNewLogin.Text.Replace(" ", "");
+            textBoxNewEmail.Text.Replace(" ", "");
+            textBoxNewPass.Text.Replace(" ", "");
+            textBoxConfirmNewPass.Text.Replace(" ", "");
             bool validNewUserLogin = LandConquestDB.Models.UserModel.ValidateUserByLogin(textBoxNewLogin.Text);
             bool validNewUserEmail = LandConquestDB.Models.UserModel.ValidateUserByEmail(textBoxNewEmail.Text);
 
             if (textBoxNewLogin.Text.Length > 6 &&
+                textBoxNewLogin.Text.Any(x => char.IsLetter(x)) &&
                 EmailValidator.Validate(textBoxNewEmail.Text, true, true) &&
                 textBoxNewPass.Text.Length > 6 &&
                 validNewUserLogin == true &&
@@ -112,7 +117,7 @@ namespace LandConquest
                 textBoxNewEmail.Text = "";
                 textBoxNewPass.Text = "";
                 textBoxConfirmNewPass.Text = "";
-                WarningDialogWindow.CallWarningDialogNoResult("Your login and email should be unique. Password and login length should be more than 6.");
+                WarningDialogWindow.CallWarningDialogNoResult("Your login and email should be unique. Password should contain letters and be at least 6 characters long.");
             }
         }
 
