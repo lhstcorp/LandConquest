@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LandConquestDB.Entities;
+using LandConquestDB.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +21,32 @@ namespace LandConquest.Forms
     /// </summary>
     public partial class LandWindow : Window
     {
-        public LandWindow()
+        private Player player;
+        public LandWindow(Player _player)
         {
+            player = _player;
             InitializeComponent();
+
+            Loaded += LandWindow_Loaded;
+        }
+
+        private void LandWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Land land = LandModel.GetLandInfo(player.PlayerCurrentRegion);
+            landNamelbl.Content = land.LandName;
         }
 
         private void btnWarWindowClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonCastleManagement_Click(object sender, RoutedEventArgs e)
+        {
+            CastleManagementWindow openedWindow = new CastleManagementWindow(player);
+            openedWindow.Owner = Application.Current.MainWindow;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
         }
     }
 }
