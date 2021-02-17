@@ -52,7 +52,7 @@ namespace LandConquest.Forms
         {
             newNameBox.Text.Replace(" ", "");
             bool validNameChangeLogin = UserModel.ValidateUserByLogin(newNameBox.Text);
-            if (newNameBox.Text.Length > 6 && validNameChangeLogin == true)
+            if (newNameBox.Text.Length > 6 && validNameChangeLogin == true && newNameBox.Text.Any(x => char.IsLetter(x)))
             {
                 PlayerModel.UpdatePlayerName(player.PlayerId, newNameBox.Text);
                 player.PlayerName = newNameBox.Text;
@@ -88,12 +88,18 @@ namespace LandConquest.Forms
         private void buttonSavePass_Click(object sender, RoutedEventArgs e)
         {
             newPassBox.Text.Replace(" ", "");
-            //ДОБАВИТЬ ВАЛИДАЦИЮ
-            UserModel.UpdateUserPass(user.UserId, newPassBox.Text);
-            this.Loaded += Window_Loaded;
-            newPassBox.Visibility = Visibility.Hidden;
-            buttonSavePass.Visibility = Visibility.Hidden;
-            buttonChangePass.Visibility = Visibility.Visible;
+            if (newPassBox.Text.Length >= 6 && newNameBox.Text.Any(x => char.IsLetter(x)))
+            {
+                UserModel.UpdateUserPass(user.UserId, newPassBox.Text);
+                this.Loaded += Window_Loaded;
+                newPassBox.Visibility = Visibility.Hidden;
+                buttonSavePass.Visibility = Visibility.Hidden;
+                buttonChangePass.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Error changing password!");
+            }
         }
 
         private void buttonChangeName_Click(object sender, RoutedEventArgs e)
