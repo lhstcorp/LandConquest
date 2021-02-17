@@ -257,11 +257,23 @@
       },
       "LandConquestDB/1.0.0": {
         "type": "project",
+        "dependencies": {
+          "LandConquestYD": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/LandConquestDB.dll": {}
         },
         "runtime": {
           "bin/placeholder/LandConquestDB.dll": {}
+        }
+      },
+      "LandConquestYD/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/LandConquestYD.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LandConquestYD.dll": {}
         }
       }
     },
@@ -319,11 +331,23 @@
       },
       "LandConquestDB/1.0.0": {
         "type": "project",
+        "dependencies": {
+          "LandConquestYD": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/LandConquestDB.dll": {}
         },
         "runtime": {
           "bin/placeholder/LandConquestDB.dll": {}
+        }
+      },
+      "LandConquestYD/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/LandConquestYD.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LandConquestYD.dll": {}
         }
       }
     },
@@ -381,11 +405,23 @@
       },
       "LandConquestDB/1.0.0": {
         "type": "project",
+        "dependencies": {
+          "LandConquestYD": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/LandConquestDB.dll": {}
         },
         "runtime": {
           "bin/placeholder/LandConquestDB.dll": {}
+        }
+      },
+      "LandConquestYD/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/LandConquestYD.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LandConquestYD.dll": {}
         }
       }
     },
@@ -443,11 +479,23 @@
       },
       "LandConquestDB/1.0.0": {
         "type": "project",
+        "dependencies": {
+          "LandConquestYD": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/LandConquestDB.dll": {}
         },
         "runtime": {
           "bin/placeholder/LandConquestDB.dll": {}
+        }
+      },
+      "LandConquestYD/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/LandConquestYD.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LandConquestYD.dll": {}
         }
       }
     }
@@ -633,12 +681,18 @@
       "type": "project",
       "path": "LandConquestDB/LandConquestDB.csproj",
       "msbuildProject": "LandConquestDB/LandConquestDB.csproj"
+    },
+    "LandConquestYD/1.0.0": {
+      "type": "project",
+      "path": "LandConquestYD/LandConquestYD.csproj",
+      "msbuildProject": "LandConquestYD/LandConquestYD.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
       "EmailValidation >= 1.0.4",
       "LandConquestDB >= 1.0.0",
+      "LandConquestYD >= 1.0.0",
       "LiveCharts.Wpf >= 0.9.7",
       "MSBuild.Obfuscar >= 2.2.29.1",
       "Microsoft.VCRTForwarders.140 >= 1.0.6",
@@ -646,20 +700,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\green\\.nuget\\packages\\": {}
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
       "projectName": "LandConquest",
-      "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
-      "packagesPath": "C:\\Users\\green\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\obj\\",
+      "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\green\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -672,8 +726,11 @@
       "frameworks": {
         "net472": {
           "projectReferences": {
-            "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
-              "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
+            "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
+              "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
+            },
+            "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj": {
+              "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj"
             }
           }
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using LandConquestYD;
 
 namespace LandConquestDB
 {
@@ -8,7 +9,7 @@ namespace LandConquestDB
         private static SqlConnection sqlconnection;
         public static void OpenConnectionPool()
         {
-            var reference = "glandeil";
+            var reference = "user-pass";
             try
             {
                 sqlconnection = new SqlConnection(YDContext.ReadResource(reference));
@@ -30,5 +31,12 @@ namespace LandConquestDB
             sqlconnection.Close();
         }
 
+        public static void Reconnect()
+        {
+            sqlconnection.Close();
+            sqlconnection.Dispose();
+            SqlConnection.ClearAllPools();
+            OpenConnectionPool();
+        }
     }
 }

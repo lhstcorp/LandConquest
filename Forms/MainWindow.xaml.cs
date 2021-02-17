@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
-using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -107,8 +107,9 @@ namespace LandConquest.Forms
             convertMoneyToMoneyCode(labelMoney);
 
 
-            Thread myThread = new Thread(new ThreadStart(UpdateInfo));
-            myThread.Start(); // запускаем поток
+            //Thread myThread = new Thread(new ThreadStart(UpdateInfo));
+            //myThread.Start(); // запускаем поток
+            UpdateMainWindowInfoAsync(); 
 
             lands = new List<Land>();
             paths = new List<Path>();
@@ -153,9 +154,15 @@ namespace LandConquest.Forms
             settingsGridBorder.Visibility = Visibility.Hidden;
             btnShowLandGrid.Visibility = Visibility.Hidden;
             btnShowLeaderGrid.Visibility = Visibility.Hidden;
+            BtnShowTaxesGrid.Visibility = Visibility.Hidden;
 
             GetWorldLeader();
 
+        }
+
+        public async void UpdateMainWindowInfoAsync()
+        {
+            await Task.Run(() => UpdateInfoAsync());
         }
 
 
@@ -164,6 +171,16 @@ namespace LandConquest.Forms
         {
             CloseUnusedWindows();
             openedWindow = new ManufactureWindow(player, manufacture, storage);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new LandWindow(player);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
@@ -304,31 +321,62 @@ namespace LandConquest.Forms
             openedWindow.Closed += FreeData;
         }
 
+        private void ButtonMailbox_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new MailboxWindow(player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
+            LandConquestYD.YDContext.DeleteConnectionId();
             Environment.Exit(0);
         }
 
 
-        private void UpdateInfo()
+        //private void UpdateInfo()
+        //{
+        //    while (true)
+        //    {
+        //        try
+        //        {
+        //            Thread.Sleep(10000);
+        //            taxes = TaxesModel.GetTaxesInfo(taxes);
+        //            await MainWindow_Loaded(this.sender, RoutedEventArgs e);
+        //            player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
+
+        //            player = PlayerModel.UpdatePlayerMoney(player);
+        //            TaxesModel.SaveTaxes(taxes);
+        //            Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); }));
+        //            lands = LandModel.GetLandsInfo(lands);
+        //            Dispatcher.BeginInvoke(new ThreadStart(delegate { RedrawGlobalMap(); }));
+        //            Console.WriteLine("End of loop");
+        //        }
+        //        catch { }
+        //        labelMoney.Content = player.PlayerMoney;
+        //    }
+        //}
+        private async Task UpdateInfoAsync()
         {
             while (true)
             {
                 try
                 {
-                    Thread.Sleep(10000);
+                    await Task.Delay(10000);
                     taxes = TaxesModel.GetTaxesInfo(taxes);
-                    //await MainWindow_Loaded(this.sender, RoutedEventArgs e); 
                     player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
 
                     player = PlayerModel.UpdatePlayerMoney(player);
                     TaxesModel.SaveTaxes(taxes);
-                    Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); }));
                     lands = LandModel.GetLandsInfo(lands);
-                    Dispatcher.BeginInvoke(new ThreadStart(delegate { RedrawGlobalMap(); }));
+                    await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); RedrawGlobalMap(); }));
+                    Console.WriteLine("End of loop");
                 }
                 catch { }
-                //labelMoney.Content = player.PlayerMoney; 
             }
         }
 
@@ -788,11 +836,6 @@ namespace LandConquest.Forms
             LandModel.AddLandManufactures(land);
         }
 
-
-        private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
         private void buttonStartBattle_Click(object sender, RoutedEventArgs e)
         {
             //WarResultWindow warResultWindow = new WarResultWindow(player);
@@ -919,11 +962,6 @@ namespace LandConquest.Forms
             else
             {
                 this.WindowState = WindowState.Normal;
-                //this.Height = 750;
-                //this.Width = 1330;
-                //openedWindow = new MainWindow(user);
-                //openedWindow.Show();
-                //this.Close();
             }
         }
 
@@ -938,6 +976,20 @@ namespace LandConquest.Forms
             {
                 sound.Stop();
             }
+        }
+
+        private void BtnHideTaxesGrid_Click(object sender, RoutedEventArgs e)
+        {
+            TaxesGrid.Visibility = Visibility.Hidden;
+            TaxesBorder.Visibility = Visibility.Hidden;
+            BtnShowTaxesGrid.Visibility = Visibility.Visible;
+        }
+
+        private void BtnShowTaxesGrid_Click(object sender, RoutedEventArgs e)
+        {
+            TaxesGrid.Visibility = Visibility.Visible;
+            TaxesBorder.Visibility = Visibility.Visible;
+            BtnShowTaxesGrid.Visibility = Visibility.Hidden;
         }
     }
 }

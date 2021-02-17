@@ -2,6 +2,7 @@
 using LandConquest.DialogWIndows;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
+using System.Linq;
 using System.Windows;
 
 namespace LandConquest.Forms
@@ -49,6 +50,7 @@ namespace LandConquest.Forms
 
         private void buttonSaveName_Click(object sender, RoutedEventArgs e)
         {
+            newNameBox.Text.Replace(" ", "");
             bool validNameChangeLogin = UserModel.ValidateUserByLogin(newNameBox.Text);
             if (newNameBox.Text.Length > 6 && validNameChangeLogin == true)
             {
@@ -67,6 +69,7 @@ namespace LandConquest.Forms
 
         private void buttonSaveEmail_Click(object sender, RoutedEventArgs e)
         {
+            newEmailBox.Text.Replace(" ", "");
             bool validEmailChangeEmail = UserModel.ValidateUserByEmail(newEmailBox.Text);
             if (validEmailChangeEmail == true && EmailValidator.Validate(newEmailBox.Text, true, true))
             {
@@ -84,6 +87,8 @@ namespace LandConquest.Forms
 
         private void buttonSavePass_Click(object sender, RoutedEventArgs e)
         {
+            newPassBox.Text.Replace(" ", "");
+            //ДОБАВИТЬ ВАЛИДАЦИЮ
             UserModel.UpdateUserPass(user.UserId, newPassBox.Text);
             this.Loaded += Window_Loaded;
             newPassBox.Visibility = Visibility.Hidden;

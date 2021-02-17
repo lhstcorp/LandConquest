@@ -7,117 +7,125 @@
         mc:Ignorable="d" WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="Manual" Left="10" Top="10"
-        Height="900" Width="1600" Topmost="True">
+        Height="880" Width="1500" >
 
     <Border BorderBrush="#FF392018" BorderThickness="5" Height="Auto" Width="Auto">
-    <Grid x:Name="mainWarWinGrid" MouseLeftButtonDown="mainWarWinGrid_MouseLeftButtonDown" >
-        <Grid Height="293" Margin="0,179,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="233">
-            <Label Content="Army of" Margin="0,0,-16.2,260" Grid.ColumnSpan="4" HorizontalAlignment="Right" Width="236" Height="32" VerticalAlignment="Bottom"></Label>
-            <Label x:Name="playerNameLbl" Content="PLAYERNAME" Margin="0,0,74,260" HorizontalAlignment="Right" Width="101" Height="32" VerticalAlignment="Bottom"/>
-            <Image Margin="0,0,180,234" Source="/Pictures/Armies/TRO-0.png" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="40"/>
-            <Label x:Name="warriorsAll" Content="0" FontSize="14" Margin="0,0,113,237" HorizontalAlignment="Right" Width="59" Height="26" VerticalAlignment="Bottom"></Label>
-            <Image Margin="0,0,197,174" Source="/Pictures/Armies/INF-0.png" HorizontalAlignment="Right" Width="25" Height="25" VerticalAlignment="Bottom"/>
-            <Label x:Name="warriorsInfantry" Content="0"  Margin="42,93,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78"/>
-            <Image Margin="0,0,196,153" Source="/Pictures/Armies/AR-0.png" HorizontalAlignment="Right" Width="25" Height="25" VerticalAlignment="Bottom"></Image>
-            <Label x:Name="warriorsArchers" Content="0"  Margin="42,117,0,0" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
-            <Image Margin="0,0,197,127" Source="/Pictures/Armies/KNT-0.png" HorizontalAlignment="Right" Width="25" Height="25" VerticalAlignment="Bottom"></Image>
-            <Label x:Name="warriorsKnights" Content="0"  Margin="42,139,0,0" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
-            <Image Margin="0,0,197,104" Source="/Pictures/Armies/SIE-0.png" HorizontalAlignment="Right" Width="25" Height="25" VerticalAlignment="Bottom"></Image>
-            <Label x:Name="warriorsSiege" Content="0"  Margin="42,163,0,0" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
+        <Grid x:Name="mainWarWinGrid" MouseLeftButtonDown="mainWarWinGrid_MouseLeftButtonDown" >
             
-            <Button x:Name="buttonExit"  HorizontalContentAlignment="Center" Width="30" Height="30"  VerticalContentAlignment="Center" Click="btnWarWindowClose_Click" Margin="210,-178,-7,441" BorderBrush="{x:Null}" Foreground="{x:Null}"  >
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
-                </Button.Background>
-            </Button>
+            <Grid Height="195" Margin="1282,163,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="199">
+                <Label Content="Army of" Margin="-1,-4,-20,0" HorizontalAlignment="Left" Width="245" Height="32" VerticalAlignment="Top"/>
+                <Label x:Name="playerNameLbl" Content="PLAYERNAME" Margin="44,-4,0,0" HorizontalAlignment="Left" Width="110" Height="32" VerticalAlignment="Top"/>
+                <Image Margin="-1,12,0,0" Source="/Pictures/Armies/TRO-0.png" HorizontalAlignment="Left" Width="49" Height="42" VerticalAlignment="Top"/>
+                <Label x:Name="warriorsAll" Content="0" FontSize="14" Margin="56,25,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="59"/>
+                <Image Margin="11,89,0,0" Source="/Pictures/Armies/INF-0.png" HorizontalAlignment="Left" Width="25" Height="25" VerticalAlignment="Top"/>
+                <Label x:Name="warriorsInfantry" Content="0"  Margin="42,93,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78"/>
+                <Image Margin="12,110,0,0" Source="/Pictures/Armies/AR-0.png" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="25"/>
+                <Label x:Name="warriorsArchers" Content="0"  Margin="42,117,0,0" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
+                <Image Margin="11,136,0,0" Source="/Pictures/Armies/KNT-0.png" HorizontalAlignment="Left" Width="34" Height="25" VerticalAlignment="Top"/>
+                <Label x:Name="warriorsKnights" Content="0"  Margin="42,139,0,0" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
+                <Image Margin="11,159,0,0" Source="/Pictures/Armies/SIE-0.png" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="25"/>
+                <Label x:Name="warriorsSiege" Content="0"  Margin="42,163,0,0" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
 
-            <Button x:Name="buttonCollapse" Height="30" VerticalContentAlignment="Center" Margin="179,-178,25,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCollapse_Click" >
+                <Button x:Name="btnSplit" Content="S" FontSize="10" FontWeight="Bold"  Foreground="Wheat" Margin="126,0,0,0" BorderBrush="{x:Null}" Click="btnSplit_Click" HorizontalAlignment="Left" Width="34" Height="34" VerticalAlignment="Top" HorizontalContentAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
+                    </Button.Background>
+                </Button>
+
+                <Button x:Name="btnAttack" Content="A" FontSize="10" FontWeight="Bold"  Foreground="Wheat" HorizontalAlignment="Left" Margin="126,66,0,0" VerticalAlignment="Top" Width="34" BorderBrush="{x:Null}" Click="btnAttack_Click" Height="34">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
+                    </Button.Background>
+                </Button>
+
+                <Button x:Name="armyPageArrowLeft" Height="32" Margin="0,0,41,3" VerticalAlignment="Bottom" BorderBrush="Transparent" Click="armyPageArrowLeft_Click" HorizontalAlignment="Right" Width="32" Grid.RowSpan="2">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pictures/armyPageArrowLeft.png"/>
+                    </Button.Background>
+                </Button>
+
+                <Button x:Name="armyPageArrowRight" HorizontalAlignment="Right" Height="32" Margin="0,0,9,3" VerticalAlignment="Bottom" Width="32" BorderBrush="Transparent" Click="armyPageArrowRight_Click" Grid.RowSpan="2">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pictures/armyPageArrowRight.png"/>
+                    </Button.Background>
+                </Button>
+
+                <Button x:Name="btnSelectToUnite" Content="Select" Foreground="Wheat" HorizontalAlignment="Left" Margin="126,34,0,0" VerticalAlignment="Top" Width="68" Click="btnSelectToUnite_Click" BorderBrush="{x:Null}" Height="32">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnUnite" Content="U" FontSize="10" FontWeight="Bold"  Foreground="Wheat" HorizontalAlignment="Left" Margin="160,0,0,0" VerticalAlignment="Top" Width="34" BorderBrush="{x:Null}" Click="btnUnite_Click" Height="34">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
+                    </Button.Background>
+                </Button>
+
+                <Grid.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+                </Grid.Background>
+            </Grid>
+            <UniformGrid x:Name="elementsWarMap" Panel.ZIndex="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0.4,0.4" Grid.Row="1"/>
+            <UniformGrid x:Name="gridForArmies" Panel.ZIndex="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0.4,0.4" Grid.Row="1"/>
+            <Grid x:Name="warGrid" Visibility="Hidden" Height="300" Width="300" HorizontalAlignment="Right" Margin="0,408,1.4,0" VerticalAlignment="Top">
+
+                <Grid.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/panel.png" Stretch="UniformToFill"/>
+                </Grid.Background>
+                <Image Margin="15,10,228.6,260" Height="30" Width="30"  Source="/Pictures/Armies/TRO-0.png"/>
+                <Label x:Name="warriorsAllLeft" Content="0"  Margin="91,16,104.6,259"/>
+                <Image Margin="15,40,228.6,230" Height="30" Width="30" Source="/Pictures/Armies/INF-0.png"/>
+                <Label x:Name="warriorsInfantryLeft" Content="0"  Margin="91,46,104.6,229"/>
+                <Image Margin="15,70,228.6,200" Height="30" Width="30" Source="/Pictures/Armies/AR-0.png"/>
+                <Label x:Name="warriorsArchersLeft" Content="0"  Margin="91,76,104.6,200"/>
+                <Image Margin="15,100,228.6,170" Height="30" Width="30" Source="/Pictures/Armies/KNT-0.png"/>
+                <Label x:Name="warriorsKnightsLeft" Content="0"  Margin="91,106,104.6,170"/>
+                <Image Margin="15,129,228.6,141" Height="30" Width="30" Source="/Pictures/Armies/SIE-0.png"/>
+                <Label x:Name="warriorsSiegeLeft" Content="0"  Margin="91,135,104.6,141"/>
+                <Image Margin="260,10,10,260" Height="30" Width="30"  Source="/LandConquest;component/Pictures/Armies/TRO-1.png" Grid.ColumnSpan="2"/>
+                <Image Margin="260,40,10,230" Height="30" Width="30" Source="/LandConquest;component/Pictures/Armies/INF-1.png" Grid.ColumnSpan="2"/>
+                <Image Margin="260,70,10,200" Height="30" Width="30" Source="/LandConquest;component/Pictures/Armies/AR-1.png" Grid.ColumnSpan="2"/>
+                <Image Margin="260,100,10,170" Height="30" Width="30" Source="/LandConquest;component/Pictures/Armies/KNT-1.png" Grid.ColumnSpan="2"/>
+                <Image Margin="260,129,10,141" Height="30" Width="30" Source="/LandConquest;component/Pictures/Armies/SIE-1.png" Grid.ColumnSpan="2"/>
+                <Label x:Name="warriorsAllRight" Content="0"  Margin="186,16,9.6,259"/>
+                <Label x:Name="warriorsInfantryRight" Content="0"  Margin="186,46,9.6,229"/>
+                <Label x:Name="warriorsArchersRight" Content="0"  Margin="186,76,9.6,200"/>
+                <Label x:Name="warriorsKnightsRight" Content="0"  Margin="186,106,9.6,170"/>
+                <Label x:Name="warriorsSiegeRight" Content="0"  Margin="186,135,9.6,141"/>
+
+            </Grid>
+
+            <Image Margin="0,49,128.4,0"  Source="/LandConquest;component/Pictures/epic_button_brown.png" HorizontalAlignment="Right" Width="61" Height="30" VerticalAlignment="Top" Stretch="Fill"/>
+            <Image Margin="0,44,177.4,0"  Source="/Pictures/Design elements v1.0/square-control-black.png" HorizontalAlignment="Right" Width="40" Height="43" VerticalAlignment="Top"/>
+            <Image Margin="0,50,184.4,0"  Source="/Pictures/sandClocks.png" HorizontalAlignment="Right" Width="29" Height="27" VerticalAlignment="Top"/>
+            <Label x:Name="moveCounterLbl" Content="000" FontSize="14" Margin="0,50,128.4,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="54" Height="26" Foreground="Wheat"/>
+
+            <Image Margin="0,77,128.4,0"  Source="/LandConquest;component/Pictures/epic_button_brown.png" HorizontalAlignment="Right" Width="132" Height="30" VerticalAlignment="Top"/>
+            <Image Margin="0,73,177.4,0"  Source="/Pictures/Design elements v1.0/square-control-black.png" HorizontalAlignment="Right" Width="40" Height="49" VerticalAlignment="Top"/>
+            <Image Margin="0,81,185.4,0"  Source="/Pictures/War/boot.png" HorizontalAlignment="Right" Width="23" Height="26" VerticalAlignment="Top"/>
+
+            <Image Margin="0,103,128.4,0"  Source="/LandConquest;component/Pictures/epic_button_brown.png" HorizontalAlignment="Right" Width="132" Height="30" VerticalAlignment="Top"/>
+            <Image Margin="0,99,177.4,0"  Source="/Pictures/Design elements v1.0/square-control-black.png" HorizontalAlignment="Right" Width="40" Height="49" VerticalAlignment="Top"/>
+            <Image Margin="0,107,185.4,0"  Source="/Pictures/War/loop.png" HorizontalAlignment="Right" Width="23" Height="26" VerticalAlignment="Top"/>
+            <Label x:Name="timerLabel" Content="0" FontSize="14" HorizontalAlignment="Right" Foreground="Wheat" Margin="0,103,108.4,0" VerticalAlignment="Top" Width="72" Height="30"/>
+
+            <Button x:Name="buttonCollapse" VerticalContentAlignment="Center" Margin="0,1,21.4,0" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCollapse_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Width="20" >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonMinus.jpg"/>
                 </Button.Background>
             </Button>
 
-            <Button x:Name="btnSplit" Content="S" FontSize="10" FontWeight="Bold"  Foreground="Wheat" Margin="164,1,35,0" BorderBrush="{x:Null}" Click="btnSplit_Click" HorizontalAlignment="Center" Width="34" Height="34" VerticalAlignment="Top">
+            <Button x:Name="buttonExit" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Click="btnWarWindowClose_Click" Margin="0,1,1.4,0" BorderBrush="{x:Null}" Foreground="{x:Null}" RenderTransformOrigin="0.541,0.51" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top">
                 <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
                 </Button.Background>
             </Button>
 
-            <Button x:Name="btnAttack" Content="A" FontSize="10" FontWeight="Bold"  Foreground="Wheat" HorizontalAlignment="Left" Margin="164,67,0,0" VerticalAlignment="Top" Width="34" BorderBrush="{x:Null}" Click="btnAttack_Click" Height="34">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
-                </Button.Background>
-            </Button>
-
-            <Button x:Name="armyPageArrowLeft" Height="32" Margin="0,0,41,3" VerticalAlignment="Bottom" BorderBrush="Transparent" Click="armyPageArrowLeft_Click" HorizontalAlignment="Right" Width="32">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Pictures/armyPageArrowLeft.png"/>
-                </Button.Background>
-            </Button>
-
-            <Button x:Name="armyPageArrowRight" HorizontalAlignment="Right" Height="32" Margin="0,0,8.8,3" VerticalAlignment="Bottom" Width="32" BorderBrush="Transparent" Click="armyPageArrowRight_Click" Grid.ColumnSpan="3" Grid.Column="1">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Pictures/armyPageArrowRight.png"/>
-                </Button.Background>
-            </Button>
-
-            <Button x:Name="btnSelectToUnite" Content="Select" Foreground="Wheat" HorizontalAlignment="Left" Margin="164,35,0,0" VerticalAlignment="Top" Width="68" Click="btnSelectToUnite_Click" BorderBrush="{x:Null}" Height="32">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="btnUnite" Content="U" FontSize="10" FontWeight="Bold"  Foreground="Wheat" HorizontalAlignment="Left" Margin="198,1,0,0" VerticalAlignment="Top" Width="34" BorderBrush="{x:Null}" Click="btnUnite_Click" Height="34">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
-                </Button.Background>
-            </Button>
-
+            <Rectangle x:Name="thisMoveIndicator" Fill="DarkBlue" HorizontalAlignment="Left" Height="25" Margin="1309,80,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+            <Image HorizontalAlignment="Left" Height="861" Margin="0,5,0,0" VerticalAlignment="Top" Width="1272" Source="/Pictures/Experimental/city.jpg" Stretch="Fill" Panel.ZIndex="-1"/>
             <Grid.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+                <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
         </Grid>
-        <UniformGrid x:Name="gridForArmies" Panel.ZIndex="2" Grid.ColumnSpan="2" >
-        </UniformGrid>
-        <Grid x:Name="warGrid" Visibility="Hidden" Height="300" Width="300" HorizontalAlignment="Right" Margin="0,408,31,0" VerticalAlignment="Top" Grid.Column="1">
-
-            <Grid.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/panel.png" Stretch="UniformToFill"/>
-            </Grid.Background>
-            <Image Margin="15,10,228.6,260" Height="30" Width="30"  Source="/Pictures/Armies/TRO-0.png"/>
-            <Label x:Name="warriorsAllLeft" Content="0"  Margin="91,16,104.6,259"/>
-            <Image Margin="15,40,228.6,230" Height="30" Width="30" Source="/Pictures/Armies/INF-0.png"/>
-            <Label x:Name="warriorsInfantryLeft" Content="0"  Margin="91,46,104.6,229"/>
-            <Image Margin="15,70,228.6,200" Height="30" Width="30" Source="/Pictures/Armies/AR-0.png"/>
-            <Label x:Name="warriorsArchersLeft" Content="0"  Margin="91,76,104.6,200"/>
-            <Image Margin="15,100,228.6,170" Height="30" Width="30" Source="/Pictures/Armies/KNT-0.png"/>
-            <Label x:Name="warriorsKnightsLeft" Content="0"  Margin="91,106,104.6,170"/>
-            <Image Margin="15,129,228.6,141" Height="30" Width="30" Source="/Pictures/Armies/SIE-0.png"/>
-            <Label x:Name="warriorsSiegeLeft" Content="0"  Margin="91,135,104.6,141"/>
-            <Image Margin="260,10,10,260" Height="30" Width="30"  Source="/LandConquest;component/Pictures/Armies/TRO-1.png" Grid.ColumnSpan="2"/>
-            <Image Margin="260,40,10,230" Height="30" Width="30" Source="/LandConquest;component/Pictures/Armies/INF-1.png" Grid.ColumnSpan="2"/>
-            <Image Margin="260,70,10,200" Height="30" Width="30" Source="/LandConquest;component/Pictures/Armies/AR-1.png" Grid.ColumnSpan="2"/>
-            <Image Margin="260,100,10,170" Height="30" Width="30" Source="/LandConquest;component/Pictures/Armies/KNT-1.png" Grid.ColumnSpan="2"/>
-            <Image Margin="260,129,10,141" Height="30" Width="30" Source="/LandConquest;component/Pictures/Armies/SIE-1.png" Grid.ColumnSpan="2"/>
-            <Label x:Name="warriorsAllRight" Content="0"  Margin="186,16,9.6,259"/>
-            <Label x:Name="warriorsInfantryRight" Content="0"  Margin="186,46,9.6,229"/>
-            <Label x:Name="warriorsArchersRight" Content="0"  Margin="186,76,9.6,200"/>
-            <Label x:Name="warriorsKnightsRight" Content="0"  Margin="186,106,9.6,170"/>
-            <Label x:Name="warriorsSiegeRight" Content="0"  Margin="186,135,9.6,141"/>
-
-        </Grid>
-        <Label x:Name="timerLabel" Content="0" FontSize="24" HorizontalAlignment="Right" Margin="0,40,-0.4,0" VerticalAlignment="Top" Width="72" Height="39"/>
-        <Label Content="Next step in:" FontSize="20" Margin="0,40,48,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="140" Grid.Column="1" Height="34"/>
-
-        <Image Margin="0,80,88,0"  Source="/LandConquest;component/Pictures/epic_button_brown.png" HorizontalAlignment="Right" Width="132" Height="42" VerticalAlignment="Top"/>
-        <Image Margin="0,74,155,0"  Source="/Pictures/Design elements v1.0/square-control-black.png" HorizontalAlignment="Right" Width="55" Height="60" VerticalAlignment="Top"/>
-        <Image Margin="0,81,164,0"  Source="/Pictures/sandClocks.png" HorizontalAlignment="Right" Width="38" Height="66" VerticalAlignment="Top"/>
-        <Label x:Name="moveCounterLbl" Content="000" FontSize="20" Margin="0,82,102,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55" Height="34" Foreground="Ivory"/>
-
-        <Rectangle x:Name="thisMoveIndicator" Fill="DarkBlue" HorizontalAlignment="Left" Height="28" Margin="1436,129,0,0" Stroke="Black" VerticalAlignment="Top" Width="61"/>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
-        </Grid.Background>
-
-    </Grid>
-        </Border>
+    </Border>
 </Window>

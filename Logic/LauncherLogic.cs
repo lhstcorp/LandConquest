@@ -1,17 +1,23 @@
 ﻿using LandConquest.DialogWIndows;
-using LandConquestDB;
+using LandConquestYD;
 using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Threading.Tasks;
+using System.Windows;
 
 namespace LandConquest.Logic
 {
     public static class LauncherLogic
     {
-        public static void CheckLocalUtcDateTime()
+        public static async void CheckLocalUtcDateTime()
+        {
+            await Task.Run(() => CheckLocalUtcDateTimeAsync());
+        }
+        private static void CheckLocalUtcDateTimeAsync()
         {
             try
             {
@@ -26,7 +32,10 @@ namespace LandConquest.Logic
                     int minutesDiff = interval.Minutes;
                     if (minutesDiff != 0)
                     {
-                        WarningDialogWindow.CallWarningDialogNoResult("Time on your device set incorrectly! Please synchronize your time and try again.");
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            WarningDialogWindow.CallWarningDialogNoResult("Time on your device set incorrectly! Please synchronize your time and try again.");
+                        });
                         Environment.Exit(0);
                     }
                 }
@@ -34,32 +43,69 @@ namespace LandConquest.Logic
             catch (Exception) { }
         }
 
-        public static void DisableActiveCheats()
-        {
-            var hackToolsArray = new[] { "cheat", "hack", "cosmos", "wemod", "gameconqueror", "artmoney", "squarl" };
 
-            foreach (Process process in Process.GetProcesses())
+        public static async void DisableActiveCheatsAsync()
+        {
+            YDContext.CheckIfCheater();
+            await Task.Run(() => DisableActiveCheatsLoop());
+        }
+
+        private static async Task DisableActiveCheatsLoop()
+        {
+            var hackToolsArray = new[] { "cheatengine", "eroxengine", "erox engine", "quick memory editor", "quickmemoryeditor", "cheat engine", "ramcheat", "ram cheat", "cosmos", "wemod", "memdig", "artmoney", "cheat tool", "cheattool", "squarl", "hacktool", "hack tool", "easyhook", "cheathappens", "crysearch", "reclass", "mhs.exe", "mxtract", "memoryjs", "invtero" };
+
+            while (true)
             {
-                try
+                await Task.Delay(10000);
+                foreach (Process process in Process.GetProcesses())
                 {
-                    FileVersionInfo file = FileVersionInfo.GetVersionInfo(process.MainModule.FileName);
-                    if (
-                        hackToolsArray.Any(process.ProcessName.ToLower().Contains) ||
+                    try
+                    {
+                        FileVersionInfo file = FileVersionInfo.GetVersionInfo(process.MainModule.FileName);
+                        if (
+                        process.ProcessName != null && hackToolsArray.Any(process.ProcessName.ToLower().Contains) ||
                         file.CompanyName != null && hackToolsArray.Any(file.CompanyName.ToLower().Contains) ||
                         file.FileName != null && hackToolsArray.Any(file.FileName.ToLower().Contains) ||
                         file.FileDescription != null && hackToolsArray.Any(file.FileDescription.ToLower().Contains) ||
                         file.InternalName != null && hackToolsArray.Any(file.InternalName.ToLower().Contains) ||
-                        file.OriginalFilename != null && hackToolsArray.Any(file.OriginalFilename.ToLower().Contains)
+                        file.OriginalFilename != null && hackToolsArray.Any(file.OriginalFilename.ToLower().Contains) ||
+                        file.Comments != null && hackToolsArray.Any(file.Comments.ToLower().Contains) ||
+                        file.LegalTrademarks != null && hackToolsArray.Any(file.LegalTrademarks.ToLower().Contains) ||
+                        file.ProductName != null && hackToolsArray.Any(file.ProductName.ToLower().Contains) ||
+                        file.LegalCopyright != null && hackToolsArray.Any(file.ProductName.ToLower().Contains) ||
+                        file.SpecialBuild != null && hackToolsArray.Any(file.ProductName.ToLower().Contains)
                         )
-                    {
-                        try
                         {
-                            process.Kill();
+                            try
+                            {
+                                YDContext.BanDeviceById(
+                                        DateTime.UtcNow.ToString() + " " +
+                                        process.ProcessName + " " +
+                                        file.CompanyName + " " +
+                                        file.FileDescription + " " +
+                                        file.InternalName + " " +
+                                        file.OriginalFilename + " " +
+                                        file.Comments + " " +
+                                        file.LegalTrademarks + " " +
+                                        file.LegalCopyright + " " +
+                                        file.SpecialBuild + " " +
+                                        file.ProductName);
+                                YDContext.DeleteConnectionId();
+                                Application.Current.Dispatcher.Invoke(() =>
+                                {
+                                    WarningDialogWindow.CallWarningDialogNoResult("You were automatically banned for using cheating tools!");
+                                });
+                                Environment.Exit(0);
+                            }
+                            catch (Exception) { }
                         }
-                        catch (Exception) { }
+                    }
+                    catch (Exception) 
+                    {
+                        continue;
                     }
                 }
-                catch (Exception) { }
+                Console.WriteLine("Checked cheats");                
             }
         }
 

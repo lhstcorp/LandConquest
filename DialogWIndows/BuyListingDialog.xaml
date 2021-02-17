@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize" HorizontalAlignment="Center" VerticalAlignment="Center"
         Height="150" Width="250" WindowStartupLocation="CenterOwner">
     <Border BorderBrush="#FF392018" BorderThickness="2" Height="150" Width="250">
@@ -12,8 +13,8 @@
             <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Label FontFamily="Verdana" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Center" Margin="12,50,139.6,76.4" Content="Enter amount:"  Height="24" Width="98"/>
-        <TextBox x:Name="textBoxAmount" HorizontalAlignment="Left" Height="23" Margin="110,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" PreviewTextInput="textBoxAmount_PreviewTextInput" />
-        <Button x:Name="buttonBuy" Content="Buy" HorizontalAlignment="Left" Margin="81,114,0,0" VerticalAlignment="Top" Width="86" Height="31" BorderBrush="{x:Null}" Foreground="#FF9D6E19" Click="buttonBuy_Click">
+            <TextBox x:Name="textBoxAmount" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="23" Margin="110,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" PreviewTextInput="textBoxAmount_PreviewTextInput" BorderBrush="#FF391C18" />
+        <Button x:Name="buttonBuy" Content="Buy" HorizontalAlignment="Left" FontFamily="Book Antiqua" Margin="81,114,0,0" VerticalAlignment="Top" Width="86" Height="31" BorderBrush="{x:Null}" Foreground="#FFE0CA99" Click="buttonBuy_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>

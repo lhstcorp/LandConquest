@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\green\Documents\GitHub\LandConquest\obj\x64\Debug\
+C:\Users\Lenovo\Documents\GitHub\LandConquest\obj\x64\Debug\
 LandConquest
 none
 false
 DEBUG;TRACE
-C:\Users\green\Documents\GitHub\LandConquest\App.xaml
-29428976745
+C:\Users\Lenovo\Documents\GitHub\LandConquest\App.xaml
+31640189361
 50-1323899538
-37-582745619
-139-441127316
-DialogWIndows\BuyListingDialog.xaml;DialogWIndows\CommonManufactureUpgrade.xaml;DialogWIndows\CreateListingDialog.xaml;DialogWIndows\EstablishStateDialog.xaml;DialogWIndows\ManufactureBuyingDialog.xaml;DialogWIndows\ManufactureUpgradeDialog.xaml;DialogWIndows\SplitArmyDialog.xaml;DialogWIndows\UserAgreementDialog.xaml;DialogWIndows\WarningDialogWindow.xaml;Forms\AuctionWindow.xaml;Forms\AuthorisationWindow.xaml;Forms\ChatWindow.xaml;Forms\CoffersWindow.xaml;Forms\CountryWindow.xaml;Forms\MainWindow.xaml;Forms\ManufactureWindow.xaml;Forms\MarketWindow.xaml;Forms\MembershipWindow.xaml;Forms\ProfileWindow.xaml;Forms\CastleManagementWindow.xaml;Forms\RatingWindow.xaml;Forms\RecruitWindow.xaml;Forms\StorageWindow.xaml;Forms\SubmitBugWindow.xaml;Forms\WarResultWindow.xaml;Forms\WarWindow.xaml;Resources\GlobalMap.xaml;Resources\ResourceMap.xaml;Resources\StylesDictionary.xaml;
+39-1289843397
+140345070251
+DialogWIndows\BuyListingDialog.xaml;DialogWIndows\CommonManufactureUpgrade.xaml;DialogWIndows\CreateListingDialog.xaml;DialogWIndows\EstablishStateDialog.xaml;DialogWIndows\ManufactureBuyingDialog.xaml;DialogWIndows\ManufactureUpgradeDialog.xaml;DialogWIndows\SplitArmyDialog.xaml;DialogWIndows\UserAgreementDialog.xaml;DialogWIndows\WarningDialogWindow.xaml;Forms\AuctionWindow.xaml;Forms\AuthorisationWindow.xaml;Forms\ChatWindow.xaml;Forms\CoffersWindow.xaml;Forms\CountryWindow.xaml;Forms\LandWindow.xaml;Forms\MailboxWindow.xaml;Forms\MainWindow.xaml;Forms\ManufactureWindow.xaml;Forms\MarketWindow.xaml;Forms\MembershipWindow.xaml;Forms\ProfileWindow.xaml;Forms\CastleManagementWindow.xaml;Forms\RatingWindow.xaml;Forms\RecruitWindow.xaml;Forms\StorageWindow.xaml;Forms\SubmitBugWindow.xaml;Forms\WarResultWindow.xaml;Forms\WarWindow.xaml;Resources\GlobalMap.xaml;Resources\ResourceMap.xaml;Resources\StylesDictionary.xaml;
 
 True
 

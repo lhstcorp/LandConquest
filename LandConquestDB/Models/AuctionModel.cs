@@ -116,6 +116,7 @@ namespace LandConquestDB.Models
                     SellerName.Add(reader.GetString(sellerName));
                     SellerId.Add(reader.GetString(sellerId));
                 }
+                reader.Close();
             }
             command.Dispose();
 
