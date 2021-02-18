@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using LandConquest.DialogWIndows;
+using LandConquestDB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,21 @@ namespace LandConquest.Forms
         private void ButtonSendMessage_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ButtonCreateNewDialog_Click(object sender, RoutedEventArgs e)
+        {
+            EnterTextDialogWindow inputDialog = new EnterTextDialogWindow("Enter player name:");
+            if (inputDialog.ShowDialog() == true)
+            {
+                if(inputDialog.ValueText != null)
+                {
+                    if (!LandConquestDB.Models.UserModel.ValidateUserByLogin(inputDialog.ValueText))
+                    {
+
+                    }
+                }
+            }
         }
     }
 }
