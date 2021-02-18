@@ -176,6 +176,9 @@
     <Compile Include="DialogWIndows\CreateListingDialog.xaml.cs">
       <DependentUpon>CreateListingDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\EnterTextDialogWindow.xaml.cs">
+      <DependentUpon>EnterTextDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\EstablishStateDialog.xaml.cs">
       <DependentUpon>EstablishStateDialog.xaml</DependentUpon>
     </Compile>
@@ -256,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\CreateListingDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\EnterTextDialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
