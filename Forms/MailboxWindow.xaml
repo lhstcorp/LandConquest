@@ -13,19 +13,19 @@
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
         <Grid>
-            <ListView x:Name="ListViewDialogs" HorizontalAlignment="Left" Height="366" VerticalAlignment="Top" Width="250" Foreground="#DD000000" BorderBrush="Black" Background="Wheat" OpacityMask="White" FontSize="12" Margin="10,26,0,0">
+            <ListView x:Name="ListViewDialogs" HorizontalAlignment="Left" Height="366" VerticalAlignment="Top" Width="250" Foreground="#DD000000" BorderBrush="Black" Background="Wheat" OpacityMask="White" FontSize="12" Margin="10,67,0,0">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="Background" Value="White"/>
                     </Style>
                 </ListView.ItemContainerStyle>
             </ListView>
-            <TextBox x:Name="TextBoxDialog" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" MaxLength="500" materialDesign:HintAssist.IsFloating="False" Padding="5,0,0,0" FontSize="18" Background="Wheat" Height="366" Margin="267,26,7.2,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBox x:Name="TextBoxDialog" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" MaxLength="500" materialDesign:HintAssist.IsFloating="False" Padding="5,0,0,0" FontSize="18" Background="Wheat" Height="366" Margin="267,26,10.2,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
 
-            <Button x:Name="ButtonSendMessage" Content="Send" HorizontalAlignment="Left" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="69" Height="36" Click="ButtonSendMessage_Click" BorderBrush="{x:Null}" Margin="767,397,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua">
+            <Button x:Name="ButtonSendMessage" Content="Send" HorizontalAlignment="Left" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="66" Height="36" Click="ButtonSendMessage_Click" BorderBrush="{x:Null}" Margin="767,397,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua">
                 <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
 
@@ -34,8 +34,23 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
                 </Button.Background>
             </Button>
-            <TextBox x:Name="TextBoxNewMessage" FontSize="16" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap"  VerticalAlignment="Top" Width="752" 
-                 Background="White" CaretBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" materialDesign:HintAssist.Hint=" Your message"  materialDesign:HintAssist.IsFloating="False" Margin="10,397,0,0" BorderBrush="{x:Null}"/>
+            <TextBox x:Name="TextBoxNewMessage" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" FontSize="16" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap"  VerticalAlignment="Top" Width="495" 
+                 Background="White" CaretBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" materialDesign:HintAssist.Hint=" Your message"  materialDesign:HintAssist.IsFloating="False" Margin="267,397,0,0" BorderBrush="#FF391D18"/>
+            <Button x:Name="ButtonCreateNewDialog" Content="Create new" HorizontalAlignment="Left" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="88" Height="36" BorderBrush="{x:Null}" Margin="10,26,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua" Click="ButtonCreateNewDialog_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="ButtonDeleteDialog" Content="Delete" HorizontalAlignment="Left" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="80" Height="36" BorderBrush="{x:Null}" Margin="180,26,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="ButtonRefreshDialog" Content="Refresh" HorizontalAlignment="Left" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="72" Height="36" BorderBrush="{x:Null}" Margin="103,26,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
             </Grid.Background>

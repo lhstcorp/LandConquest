@@ -42,7 +42,7 @@
 
 
             <Image x:Name="image" Margin="6,0,0,0" Source = "/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" />
-            <Label x:Name="labelName" Content="Name" Foreground="#FFD7464B" FontSize="28" FontWeight="Bold" FontFamily="Book Antiqua" HorizontalAlignment="Left" Margin="97,-6,0,0" VerticalAlignment="Top" Width="175" Height="46"/>
+            <Label x:Name="labelName" Content="Name" Foreground="#FFD7464B" FontSize="28" FontWeight="Bold" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="97,-5,0,0" VerticalAlignment="Top" Width="175" Height="46"/>
 
             <!--menu header design-->
             <Image HorizontalAlignment="Left" Height="50" Margin="245,8,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
@@ -102,7 +102,7 @@
                         </Button.Background>
                     </Button>
 
-                    <Label x:Name="lblCountryNameOnGrid" HorizontalContentAlignment="Center" Content="Land name"  FontFamily="Book Antiqua" Foreground="#FFB8362F" FontSize="28" FontWeight="Bold" Background="{x:Null}" HorizontalAlignment="Left" Width="194" Margin="10,8,0,0" Height="53" VerticalAlignment="Top"/>
+                    <Label x:Name="lblCountryNameOnGrid" HorizontalContentAlignment="Center" Content="Land name"  FontFamily="/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="28" FontWeight="Bold" Background="{x:Null}" HorizontalAlignment="Left" Width="194" Margin="10,8,0,0" Height="53" VerticalAlignment="Top"/>
 
                     <Image x:Name="imgLandResource1ImgOnGrid"  HorizontalAlignment="Left" Height="50" Margin="30,188,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.291,0.465"/>
                 </Grid>
@@ -149,7 +149,7 @@
 
             <Border x:Name="worldLeaderBorder" BorderBrush="#FF48291F" BorderThickness="3" Height="Auto" VerticalAlignment="Top" Margin="20,304,0,0" HorizontalAlignment="Left" Width="221">
                 <Grid x:Name="worldLeader" Visibility="Visible" Height="80" VerticalAlignment="Top">
-                    <Label HorizontalContentAlignment="Center" Content="World leader"  FontFamily="Book Antiqua" Foreground="#FFB8362F" FontSize="24" Height="41" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="214" FontWeight="Bold" Margin="0,6,0,0"/>
+                    <Label HorizontalContentAlignment="Center" Content="World leader"  FontFamily="/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="24" Height="41" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="214" FontWeight="Bold" Margin="0,6,0,0"/>
                     <Label x:Name="lblWorldLeader" HorizontalContentAlignment="Center" Content="No leader" FontFamily="Trebuchet MS" Foreground="#FF492F2C" FontSize="16" Height="30" Margin="0,38,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="214" FontWeight="Bold"/>
 
                     <Button x:Name="btnHideLeaderGrid" Height="20" Margin="194,0,0,0" Width="20" VerticalAlignment="Top"  Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="btnHideLeaderGrid_Click">
@@ -168,7 +168,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label HorizontalContentAlignment="Center" Content="Taxes"  FontFamily="Book Antiqua" Foreground="#FFB8362F" FontSize="22" Height="40" VerticalAlignment="Bottom" Background="{x:Null}" FontWeight="Bold" Margin="0,-4,0.6,92.4"/>
+                    <Label HorizontalContentAlignment="Center" Content="Taxes"  FontFamily="/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="22" Height="40" VerticalAlignment="Bottom" Background="{x:Null}" FontWeight="Bold" Margin="0,-4,0.6,92.4"/>
 
                     <Slider x:Name="sliderTaxes" HorizontalAlignment="Left" Height="21" VerticalAlignment="Bottom" Width="106" Minimum="0" Maximum="10" Value="5" PreviewMouseLeftButtonUp="sliderTaxes_PreviewMouseLeftButtonUp" Foreground="#FF541E0B" Margin="30,0,0,63.4"/>
                     <Label Content="{Binding Value, ElementName=sliderTaxes, StringFormat=\{0:0\}}" FontSize="10" VerticalAlignment="Bottom" Foreground="#FF531E08" FontFamily="Trebuchet MS" Height="19" Background="{x:Null}" Margin="75,0,54.6,85.4" />

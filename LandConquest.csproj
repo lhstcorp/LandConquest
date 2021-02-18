@@ -176,6 +176,9 @@
     <Compile Include="DialogWIndows\CreateListingDialog.xaml.cs">
       <DependentUpon>CreateListingDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\EnterTextDialogWindow.xaml.cs">
+      <DependentUpon>EnterTextDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\EstablishStateDialog.xaml.cs">
       <DependentUpon>EstablishStateDialog.xaml</DependentUpon>
     </Compile>
@@ -256,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\CreateListingDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\EnterTextDialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -408,7 +415,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -417,7 +424,7 @@
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\Fonts\HARNGTON.TTF" />
+    <Resource Include="Fonts\HARNGTON.TTF" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -587,6 +594,7 @@
     <Resource Include="Pictures\Experimental\globe.png" />
     <Resource Include="Pictures\Buildings\Fortress.png" />
     <Resource Include="Pictures\Buildings\City.png" />
+    <Resource Include="Pictures\splashscreen.png" />
     <Content Include="Resources\Buildings\arch.svg" />
     <Content Include="Resources\Buildings\blacksmith.svg" />
     <Content Include="Resources\Buildings\bridge_stone2.svg" />

@@ -123,5 +123,11 @@ namespace LandConquest.Logic
             };
             Process.Start(psi);
         }
+
+        public static void CallSplashScreen()
+        {
+            var splashScreen = new SplashScreen("Pictures/splashscreen.png");
+            splashScreen.Show(true, true);
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace LandConquest.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace LandConquest.Properties {
         ///   Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LandConquest.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace LandConquest.Properties {
         ///   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,21 +61,21 @@ namespace LandConquest.Properties {
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] HARNGTON {
+        public static System.IO.UnmanagedMemoryStream MainTheme {
             get {
-                object obj = ResourceManager.GetObject("HARNGTON", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("MainTheme", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream MainTheme {
+        public static System.Drawing.Bitmap splashscreen {
             get {
-                return ResourceManager.GetStream("MainTheme", resourceCulture);
+                object obj = ResourceManager.GetObject("splashscreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -85,7 +85,7 @@ namespace LandConquest.Properties {
         ///This EULA agreement governs your acquisition and use of our Land Conquest software (&quot;Software&quot;) directly from Land Conquest or indirectly through a Land Conquest authorized reseller or distributor (a &quot;Reseller&quot;).
         ///Please read this EULA agreement carefully before completing the registration process and using the Land Conquest software. It provides a license to use [остаток строки не уместился]&quot;;.
         /// </summary>
-        internal static string UserAgreement {
+        public static string UserAgreement {
             get {
                 return ResourceManager.GetString("UserAgreement", resourceCulture);
             }

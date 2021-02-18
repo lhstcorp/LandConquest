@@ -2,6 +2,7 @@
 using LandConquest.DialogWIndows;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
+using System.Linq;
 using System.Windows;
 
 namespace LandConquest.Forms
@@ -49,8 +50,9 @@ namespace LandConquest.Forms
 
         private void buttonSaveName_Click(object sender, RoutedEventArgs e)
         {
+            newNameBox.Text.Replace(" ", "");
             bool validNameChangeLogin = UserModel.ValidateUserByLogin(newNameBox.Text);
-            if (newNameBox.Text.Length > 6 && validNameChangeLogin == true)
+            if (newNameBox.Text.Length > 6 && validNameChangeLogin == true && newNameBox.Text.Any(x => char.IsLetter(x)))
             {
                 PlayerModel.UpdatePlayerName(player.PlayerId, newNameBox.Text);
                 player.PlayerName = newNameBox.Text;
@@ -67,6 +69,7 @@ namespace LandConquest.Forms
 
         private void buttonSaveEmail_Click(object sender, RoutedEventArgs e)
         {
+            newEmailBox.Text.Replace(" ", "");
             bool validEmailChangeEmail = UserModel.ValidateUserByEmail(newEmailBox.Text);
             if (validEmailChangeEmail == true && EmailValidator.Validate(newEmailBox.Text, true, true))
             {
@@ -84,11 +87,19 @@ namespace LandConquest.Forms
 
         private void buttonSavePass_Click(object sender, RoutedEventArgs e)
         {
-            UserModel.UpdateUserPass(user.UserId, newPassBox.Text);
-            this.Loaded += Window_Loaded;
-            newPassBox.Visibility = Visibility.Hidden;
-            buttonSavePass.Visibility = Visibility.Hidden;
-            buttonChangePass.Visibility = Visibility.Visible;
+            newPassBox.Text.Replace(" ", "");
+            if (newPassBox.Text.Length >= 6 && newNameBox.Text.Any(x => char.IsLetter(x)))
+            {
+                UserModel.UpdateUserPass(user.UserId, newPassBox.Text);
+                this.Loaded += Window_Loaded;
+                newPassBox.Visibility = Visibility.Hidden;
+                buttonSavePass.Visibility = Visibility.Hidden;
+                buttonChangePass.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Error changing password!");
+            }
         }
 
         private void buttonChangeName_Click(object sender, RoutedEventArgs e)

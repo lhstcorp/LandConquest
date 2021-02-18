@@ -41,6 +41,8 @@ namespace LandConquest
 
             if (user.UserLogin == textBoxLogin.Text && user.UserPass == textBoxPass.Password)
             {
+                LauncherLogic.CallSplashScreen();
+
                 MainWindow mainWindow = new MainWindow(user);
                 mainWindow.Show();
 
@@ -66,12 +68,18 @@ namespace LandConquest
 
         private void ButtonRegistrate_Click(object sender, RoutedEventArgs e)
         {
+            textBoxNewLogin.Text.Replace(" ", "");
+            textBoxNewEmail.Text.Replace(" ", "");
+            textBoxNewPass.Text.Replace(" ", "");
+            textBoxConfirmNewPass.Text.Replace(" ", "");
             bool validNewUserLogin = LandConquestDB.Models.UserModel.ValidateUserByLogin(textBoxNewLogin.Text);
             bool validNewUserEmail = LandConquestDB.Models.UserModel.ValidateUserByEmail(textBoxNewEmail.Text);
 
             if (textBoxNewLogin.Text.Length > 6 &&
+                textBoxNewLogin.Text.Any(x => char.IsLetter(x)) &&
                 EmailValidator.Validate(textBoxNewEmail.Text, true, true) &&
                 textBoxNewPass.Text.Length > 6 &&
+                textBoxNewPass.Text.Any(x => char.IsLetter(x)) &&
                 validNewUserLogin == true &&
                 validNewUserEmail == true &&
                 textBoxNewPass.Text == textBoxConfirmNewPass.Text)
@@ -108,11 +116,8 @@ namespace LandConquest
             }
             else
             {
-                textBoxNewLogin.Text = "";
-                textBoxNewEmail.Text = "";
-                textBoxNewPass.Text = "";
                 textBoxConfirmNewPass.Text = "";
-                WarningDialogWindow.CallWarningDialogNoResult("Your login and email should be unique. Password and login length should be more than 6.");
+                WarningDialogWindow.CallWarningDialogNoResult("Your login and email should be unique. Password and login should contain letters and be at least 6 characters long.");
             }
         }
 
