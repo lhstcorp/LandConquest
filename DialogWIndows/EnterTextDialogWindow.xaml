@@ -13,7 +13,7 @@
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
             <Label x:Name="LabelMessageHeader" FontFamily="Verdana" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Center" Margin="10,35,138.4,88.2" Content="Enter:"  Height="24" Width="98"/>
-            <TextBox x:Name="TextBoxMessageValue" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="23" Margin="10,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" PreviewTextInput="textBoxAmount_PreviewTextInput" BorderBrush="#FF391C18" />
+            <TextBox x:Name="TextBoxMessageValue" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="23" Margin="10,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" BorderBrush="#FF391C18" />
             <Button x:Name="ButtonEnter" Content="Enter" HorizontalAlignment="Left" FontFamily="Book Antiqua" Margin="81,114,0,0" VerticalAlignment="Top" Width="86" Height="31" BorderBrush="{x:Null}" Foreground="#FFE0CA99" Click="ButtonEnter_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
