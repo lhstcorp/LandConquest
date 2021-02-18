@@ -182,6 +182,9 @@
     <Compile Include="DialogWIndows\EstablishStateDialog.xaml.cs">
       <DependentUpon>EstablishStateDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\SendArmiesToHarrisonDialog.xaml.cs">
+      <DependentUpon>SendArmiesToHarrisonDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\SplitArmyDialog.xaml.cs">
       <DependentUpon>SplitArmyDialog.xaml</DependentUpon>
     </Compile>
@@ -275,6 +278,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\ManufactureUpgradeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\SendArmiesToHarrisonDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
