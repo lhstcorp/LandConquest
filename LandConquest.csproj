@@ -609,6 +609,11 @@
     <Resource Include="Pictures\Buildings\Tent.png" />
     <Resource Include="Pictures\Buildings\Caravan.png" />
     <Resource Include="Pictures\Buildings\Stables.png" />
+    <Resource Include="Pictures\Menu items\Auction.png" />
+    <Resource Include="Pictures\Menu items\Market.png" />
+    <Resource Include="Pictures\Menu items\Storage.png" />
+    <Resource Include="Pictures\Menu items\Industry.png" />
+    <Resource Include="Pictures\Experimental\harrison.jpg" />
     <Content Include="Resources\Buildings\arch.svg" />
     <Content Include="Resources\Buildings\blacksmith.svg" />
     <Content Include="Resources\Buildings\bridge_stone2.svg" />
