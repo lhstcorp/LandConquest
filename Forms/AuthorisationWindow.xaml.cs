@@ -25,7 +25,7 @@ namespace LandConquest
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
             YDContext.OpenYD();
-            //LauncherLogic.DisableActiveCheatsAsync();
+            LauncherLogic.DisableActiveCheatsAsync();
             //LauncherLogic.CheckLocalUtcDateTime();
             LandConquestDB.DbContext.OpenConnectionPool();
             CheckVersion();

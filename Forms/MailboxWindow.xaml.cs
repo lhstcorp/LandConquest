@@ -1,5 +1,6 @@
 ﻿using LandConquest.DialogWIndows;
 using LandConquestDB.Entities;
+using LandConquestYD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,11 @@ namespace LandConquest.Forms
 {
     public partial class MailboxWindow : Window
     {
+        private Player player;
         public MailboxWindow(Player _player)
         {
             InitializeComponent();
+            player = _player;
         }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
@@ -42,7 +45,7 @@ namespace LandConquest.Forms
                 {
                     if (!LandConquestDB.Models.UserModel.ValidateUserByLogin(inputDialog.ValueText))
                     {
-
+                        YDContext.CreateDialog(player.PlayerName, inputDialog.ValueText);
                     }
                 }
             }

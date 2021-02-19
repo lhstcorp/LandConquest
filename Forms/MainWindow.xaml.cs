@@ -280,17 +280,6 @@ namespace LandConquest.Forms
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
-
-        private void CoffersImage_MouseDown(object sender, RoutedEventArgs e)
-        {
-            CloseUnusedWindows();
-            openedWindow = new CoffersWindow(player);
-            openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            openedWindow.Show();
-            openedWindow.Closed += FreeData;
-        }
-
         private void buttonSubmitBug_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();

@@ -27,7 +27,7 @@
         <Label Content="Send troops to harrison" FontSize="24" Foreground="#76143c" FontWeight="Bold" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="48" Margin="67,10,0,0" VerticalAlignment="Top" Width="317"/>
         <Image HorizontalAlignment="Left" Height="93" Margin="193,74,0,0" VerticalAlignment="Top" Width="170"/>
 
-        <Button x:Name="btnSplitArmy" Content="Send" Foreground="Wheat" HorizontalAlignment="Left" Height="26" Margin="154,232,0,0" VerticalAlignment="Top" Width="80" Click="btnSplitArmy_Click" BorderBrush="{x:Null}">
+        <Button x:Name="btnSplitArmy" Content="Send" Foreground="Wheat" HorizontalAlignment="Left" Height="26" Margin="154,232,0,0" VerticalAlignment="Top" Width="80" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
