@@ -9,7 +9,7 @@ namespace LandConquestDB
         private static SqlConnection sqlconnection;
         public static void OpenConnectionPool()
         {
-            var reference = "greendend2";
+            var reference = "online_old.txt";
             try
             {
                 sqlconnection = new SqlConnection(YDContext.ReadResource(reference));

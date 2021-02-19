@@ -100,6 +100,15 @@
   <PropertyGroup>
     <StartupObject>LandConquest.App</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
@@ -200,9 +209,6 @@
     <Compile Include="Forms\ChatWindow.xaml.cs">
       <DependentUpon>ChatWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CoffersWindow.xaml.cs">
-      <DependentUpon>CoffersWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Forms\CountryWindow.xaml.cs">
       <DependentUpon>CountryWindow.xaml</DependentUpon>
     </Compile>
@@ -273,10 +279,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DialogWIndows\ManufactureBuyingDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="DialogWIndows\ManufactureUpgradeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -309,9 +311,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DialogWIndows\ManufactureBuyingDialog.xaml.cs">
-      <DependentUpon>ManufactureBuyingDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DialogWIndows\ManufactureUpgradeDialog.xaml.cs">
       <DependentUpon>ManufactureUpgradeDialog.xaml</DependentUpon>
     </Compile>
@@ -320,10 +319,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Forms\ChatWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Forms\CoffersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -427,6 +422,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -602,6 +598,17 @@
     <Resource Include="Pictures\Buildings\Fortress.png" />
     <Resource Include="Pictures\Buildings\City.png" />
     <Resource Include="Pictures\splashscreen.png" />
+    <Resource Include="Pictures\Buildings\Warehouse.png" />
+    <Resource Include="Pictures\Buildings\Cathedral.png" />
+    <Resource Include="Pictures\Buildings\Fort.png" />
+    <Resource Include="Pictures\Buildings\Monastery.png" />
+    <Resource Include="Pictures\Buildings\Tavern.png" />
+    <Resource Include="Pictures\Buildings\Townhall.png" />
+    <Resource Include="Pictures\Buildings\University.png" />
+    <Resource Include="Pictures\Buildings\Inn.png" />
+    <Resource Include="Pictures\Buildings\Tent.png" />
+    <Resource Include="Pictures\Buildings\Caravan.png" />
+    <Resource Include="Pictures\Buildings\Stables.png" />
     <Content Include="Resources\Buildings\arch.svg" />
     <Content Include="Resources\Buildings\blacksmith.svg" />
     <Content Include="Resources\Buildings\bridge_stone2.svg" />

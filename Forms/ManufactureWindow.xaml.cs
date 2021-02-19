@@ -198,14 +198,6 @@ namespace LandConquest.Forms
             }
         }
 
-        private void buttonBuy_Click(object sender, RoutedEventArgs e)
-        {
-            ManufactureBuyingDialog manufactureBuying = new ManufactureBuyingDialog();
-            manufactureBuying.Owner = this;
-            manufactureBuying.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            manufactureBuying.Show();
-        }
-
         private void sliderQuarry_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             sliderQuarry.IsSnapToTickEnabled = true;

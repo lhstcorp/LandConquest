@@ -151,6 +151,15 @@ namespace LandConquestYD
             }
         }
 
+        public static void CreateDialog(string sender, string receiver)
+        {
+            string destFileName = @"Dialog_" + sender + receiver + @".txt";
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
+            File.AppendAllText(path, "");
+            disk.UploadResource("Messages/" + destFileName, path, true);
+            File.Delete(path);
+        }
+
         private static string CommandDisk(string oauth, Param param)
         {
             HttpMethod method = HttpMethod.Get;
