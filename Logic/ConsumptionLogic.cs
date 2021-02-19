@@ -15,13 +15,6 @@ namespace LandConquest.Logic
             Army army = new Army();
             army = ArmyModel.GetArmyInfo(player, army);
 
-            //Peasants peasants = new Peasants();
-            //peasants = PeasantModel.GetPeasantsInfo(player, peasants);
-            //int totalConsumption = (peasants.PeasantsCount * (int)ConsumptionEnum.Peasants.Consumption +
-            //                       army.ArmyArchersCount * (int)ConsumptionEnum.Archers.Consumption +
-            //                      army.ArmyHorsemanCount * (int)ConsumptionEnum.Knights.Consumption +
-            //                      army.ArmyInfantryCount * (int)ConsumptionEnum.Infantry.Consumption +
-            //                      army.ArmySiegegunCount * (int)ConsumptionEnum.Siege.Consumption) * hoursToCount;
             int totalConsumption = (army.ArmyArchersCount * (int)ConsumptionEnum.Archers.Consumption +
                                  army.ArmyHorsemanCount * (int)ConsumptionEnum.Knights.Consumption +
                                  army.ArmyInfantryCount * (int)ConsumptionEnum.Infantry.Consumption +
