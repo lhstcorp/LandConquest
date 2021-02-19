@@ -7,29 +7,70 @@
         mc:Ignorable="d" ResizeMode="NoResize" WindowStyle="None"
         Title="SendArmiesToHarrisonDialog" Height="277.2" Width="400">
     <Grid>
+        <Image HorizontalAlignment="Left" Height="35" Margin="18,49,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/Armies/INF-0.png"/>
+        <Slider x:Name="sliderInfantry" HorizontalAlignment="Left" Margin="53,66,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderInfantry_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
+        <Label x:Name="infantryCount" Content="{Binding Value, ElementName=sliderInfantry, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="87,47,0,0" VerticalAlignment="Top" Width="63" />
 
-        <Image HorizontalAlignment="Left" Height="35" Margin="18,87,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/Armies/INF-0.png"/>
-        <Slider x:Name="sliderInfantry" HorizontalAlignment="Left" Margin="53,104,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderInfantry_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
-        <Label x:Name="infantryCount" Content="{Binding Value, ElementName=sliderInfantry, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="87,85,0,0" VerticalAlignment="Top" Width="63" />
+        <Image HorizontalAlignment="Left" Height="35" Margin="18,84,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/Armies/AR-0.png"/>
+        <Slider x:Name="sliderArchers" HorizontalAlignment="Left" Margin="53,101,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderArchers_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
+        <Label x:Name="archersCount" Content="{Binding Value, ElementName=sliderArchers, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="87,83,0,0" VerticalAlignment="Top" Width="63" />
 
-        <Image HorizontalAlignment="Left" Height="35" Margin="18,122,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/Armies/AR-0.png"/>
-        <Slider x:Name="sliderArchers" HorizontalAlignment="Left" Margin="53,139,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderArchers_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
-        <Label x:Name="archersCount" Content="{Binding Value, ElementName=sliderArchers, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="87,121,0,0" VerticalAlignment="Top" Width="63" />
+        <Image HorizontalAlignment="Left" Height="35" Margin="18,119,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/Armies/KNT-0.png"/>
+        <Slider x:Name="sliderKnights" HorizontalAlignment="Left" Margin="53,136,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderKnights_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
+        <Label x:Name="knightsCount" Content="{Binding Value, ElementName=sliderKnights, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="87,118,0,0" VerticalAlignment="Top" Width="63" />
 
-        <Image HorizontalAlignment="Left" Height="35" Margin="18,157,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/Armies/KNT-0.png"/>
-        <Slider x:Name="sliderKnights" HorizontalAlignment="Left" Margin="53,174,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderKnights_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
-        <Label x:Name="knightsCount" Content="{Binding Value, ElementName=sliderKnights, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="87,156,0,0" VerticalAlignment="Top" Width="63" />
-
-        <Image HorizontalAlignment="Left" Height="35" Margin="18,192,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/Armies/SIE-0.png"/>
-        <Slider x:Name="sliderSiege" HorizontalAlignment="Left" Margin="53,209,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderSiege_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
-        <Label x:Name="siegeCount" Content="{Binding Value, ElementName=sliderSiege, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="87,191,0,0" VerticalAlignment="Top" Width="63" />
+        <Image HorizontalAlignment="Left" Height="35" Margin="18,154,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/Armies/SIE-0.png"/>
+        <Slider x:Name="sliderSiege" HorizontalAlignment="Left" Margin="53,171,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderSiege_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
+        <Label x:Name="siegeCount" Content="{Binding Value, ElementName=sliderSiege, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="87,153,0,0" VerticalAlignment="Top" Width="63" />
 
         <Label Content="Send troops to harrison" FontSize="24" Foreground="#76143c" FontWeight="Bold" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="48" Margin="67,10,0,0" VerticalAlignment="Top" Width="317"/>
-        <Image HorizontalAlignment="Left" Height="93" Margin="193,74,0,0" VerticalAlignment="Top" Width="170"/>
+        <Image HorizontalAlignment="Left" Height="127" Margin="178,46,0,0" Source="/Pictures/Experimental/harrison.jpg" VerticalAlignment="Top" Width="206"/>
 
-        <Button x:Name="btnSplitArmy" Content="Send" Foreground="Wheat" HorizontalAlignment="Left" Height="26" Margin="154,232,0,0" VerticalAlignment="Top" Width="80" BorderBrush="{x:Null}">
+
+        <Button x:Name="btnSplitArmy" Content="Send" Foreground="Wheat" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="26" Margin="154,232,0,0" VerticalAlignment="Top" Width="80" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+            </Button.Background>
+        </Button>
+
+        <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="178,178,0,80.8" Stroke="#311818" Width="42" StrokeThickness="1" />
+        <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="178,194,0,64.8" Stroke="#311818" Width="42" StrokeThickness="1" />
+        <Label Content="MAX ON &#xD;&#xA;THE WALL" Foreground="#311818" FontSize="6" FontWeight="Bold" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="176,174,0,0" VerticalAlignment="Top" Width="67" Height="26"/>
+        <Label Content="CURRENT ON &#xA;THE WALL" Foreground="#311818" FontSize="6" FontWeight="Bold" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="176,191,0,0" VerticalAlignment="Top" Width="48" Height="26"/>
+        <Rectangle Fill="#4F2402" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="218,178,0,80.8" Stroke="#311818" Width="34" StrokeThickness="1" />
+        <Rectangle Fill="#4F2402" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="218,194,0,64.8" Stroke="#311818" Width="34" StrokeThickness="1" />
+        <Label x:Name="MaxHarrisonCount_Copy" Content="999" Foreground="Wheat" FontSize="10" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="218,174,0,0" VerticalAlignment="Top" Width="30" Height="21"/>
+        <Label x:Name="CurrentHarrisonCount_Copy" Content="999" Foreground="Wheat" FontSize="10" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="218,190,0,0" VerticalAlignment="Top" Width="30" Height="21"/>
+
+        <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="252,178,0,59.8" Stroke="#311818" Width="33" StrokeThickness="1" />
+        <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="284,178,0,59.8" Stroke="#311818" Width="33" StrokeThickness="1" />
+        <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="316,178,0,59.8" Stroke="#311818" Width="33" StrokeThickness="1" />
+        <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="348,178,0,59.8" Stroke="#311818" Width="33" StrokeThickness="1" />
+
+        <Rectangle Fill="#4F2402" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="252,216,0,41.8" Stroke="#311818" Width="33" StrokeThickness="1" />
+        <Rectangle Fill="#4F2402" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="284,216,0,41.8" Stroke="#311818" Width="33" StrokeThickness="1" />
+        <Rectangle Fill="#4F2402" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="316,216,0,41.8" Stroke="#311818" Width="33" StrokeThickness="1" />
+        <Rectangle Fill="#4F2402" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="348,216,0,41.8" Stroke="#311818" Width="33" StrokeThickness="1" />
+
+        <Image HorizontalAlignment="Left" Height="28" Margin="255,183,0,0" VerticalAlignment="Top" Width="31" Source="/LandConquest;component/Pictures/Armies/INF-0.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="285,181,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/Armies/AR-0.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Margin="318,183,0,0" VerticalAlignment="Top" Width="29" Source="/LandConquest;component/Pictures/Armies/KNT-0.png"/>
+        <Image HorizontalAlignment="Left" Height="32" Margin="350,185,0,0" VerticalAlignment="Top" Width="29" Source="/LandConquest;component/Pictures/Armies/SIE-0.png"/>
+
+        <Label x:Name="InfantryHarrisonCount" Content="999" Foreground="Wheat" FontSize="10" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="253,214,0,0" VerticalAlignment="Top" Width="30" Height="21"/>
+        <Label x:Name="ArchersHarrisonCount" Content="999" Foreground="Wheat" FontSize="10" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="285,214,0,0" VerticalAlignment="Top" Width="30" Height="21"/>
+        <Label x:Name="KnightsHarrisonCount" Content="999" Foreground="Wheat" FontSize="10" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="316,214,0,0" VerticalAlignment="Top" Width="30" Height="21"/>
+        <Label x:Name="SiegeHarrisonCount" Content="999" Foreground="Wheat" FontSize="10" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="348,214,0,0" VerticalAlignment="Top" Width="30" Height="21"/>
+
+        <Button x:Name="buttonCollapse" VerticalContentAlignment="Center" Margin="0,1,21.4,0" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCollapse_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Width="20" >
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonMinus.jpg"/>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="buttonExit" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Click="btnWarWindowClose_Click" Margin="0,1,1.4,0" BorderBrush="{x:Null}" Foreground="{x:Null}" RenderTransformOrigin="0.541,0.51" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
             </Button.Background>
         </Button>
 
