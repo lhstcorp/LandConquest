@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using LandConquest.DialogWIndows;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,14 @@ namespace LandConquest.Forms
         private void buttonCastleManagement_Click(object sender, RoutedEventArgs e)
         {
             CastleManagementWindow openedWindow = new CastleManagementWindow(player);
+            openedWindow.Owner = Application.Current.MainWindow;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+        }
+
+        private void harrisonBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SendArmiesToHarrisonDialog openedWindow = new SendArmiesToHarrisonDialog();
             openedWindow.Owner = Application.Current.MainWindow;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();

@@ -47,5 +47,14 @@ namespace LandConquest.DialogWIndows
         private void CheckTypeAndReturnCount(object sender, MouseButtonEventArgs e)
         {
         }
+
+        private void btnWarWindowClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        private void buttonCollapse_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState = WindowState.Minimized;
+        }
     }
 }

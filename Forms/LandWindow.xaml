@@ -20,6 +20,7 @@
                 </Button.Background>
             </Button>
             <Label x:Name="landNamelbl" Content="Land name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="143"/>
+            <Button x:Name="harrisonBtn"  Content="Button" HorizontalAlignment="Left" Height="43" Margin="529,343,0,0" VerticalAlignment="Top" Width="131" Click="harrisonBtn_Click"/>
 
             <Grid.Background>
             <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
