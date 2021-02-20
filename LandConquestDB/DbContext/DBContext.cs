@@ -7,9 +7,9 @@ namespace LandConquestDB
     public static class DbContext
     {
         private static SqlConnection sqlconnection;
+        private static string reference = "online_old.txt";
         public static void OpenConnectionPool()
         {
-            var reference = "greendend2";
             try
             {
                 sqlconnection = new SqlConnection(YDContext.ReadResource(reference));
@@ -31,9 +31,14 @@ namespace LandConquestDB
             sqlconnection.Close();
         }
 
+        public static SqlConnection GetTempSqlConnection()
+        {
+            SqlConnection sqlconnectiontask = new SqlConnection(YDContext.ReadResource(reference));
+            return sqlconnectiontask;
+        }
+
         public static void Reconnect()
         {
-            sqlconnection.Close();
             sqlconnection.Dispose();
             SqlConnection.ClearAllPools();
             OpenConnectionPool();
