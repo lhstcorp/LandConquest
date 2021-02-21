@@ -1,6 +1,5 @@
 ﻿using LandConquest.DialogWIndows;
 using LandConquestDB.Entities;
-using LandConquestDB.Enums;
 using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
@@ -10,15 +9,23 @@ namespace LandConquest.Logic
 {
     public static class ConsumptionLogic
     {
+        private enum Consumption : int
+        {
+            Infantry = 2,
+            Archers = 2,
+            Knights = 6,
+            Siege = 4
+        }
+
         public static int CountFunction(Player player, int hoursToCount)
         {
             Army army = new Army();
             army = ArmyModel.GetArmyInfo(player, army);
 
-            int totalConsumption = (army.ArmyArchersCount * (int)ConsumptionEnum.Archers.Consumption +
-                                 army.ArmyHorsemanCount * (int)ConsumptionEnum.Knights.Consumption +
-                                 army.ArmyInfantryCount * (int)ConsumptionEnum.Infantry.Consumption +
-                                 army.ArmySiegegunCount * (int)ConsumptionEnum.Siege.Consumption) * hoursToCount;
+            int totalConsumption = (army.ArmyArchersCount * (int)Consumption.Archers +
+                                 army.ArmyHorsemanCount * (int)Consumption.Knights +
+                                 army.ArmyInfantryCount * (int)Consumption.Infantry +
+                                 army.ArmySiegegunCount * (int)Consumption.Siege) * hoursToCount;
             return totalConsumption;
         }
 

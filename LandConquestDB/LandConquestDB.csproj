@@ -76,7 +76,6 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\War.cs" />
     <Compile Include="Enums\ForcesEnum.cs" />
-    <Compile Include="Enums\ConsumptionEnum.cs" />
     <Compile Include="Models\ArmyModel.cs" />
     <Compile Include="Models\AuctionModel.cs" />
     <Compile Include="Models\BattleModel.cs" />

@@ -43,7 +43,7 @@ namespace LandConquestDB.Models
                 messages[i].PlayerMessage = Message[i];
                 messages[i].MessageTime = MessageTime[i];
             }
-            connection.Dispose();
+            connection.Close();
             return messages;
         }
 
