@@ -18,7 +18,7 @@
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Token {
             get {
-                return "fO4bi4UutIeOwf4jtC0S0EbdXqb/V4fwoLAkyzdkDFcZNeyFn7COODZF5ivGwnxgc1lefRT3JrNSCREGDl74A6/1B6l7TBgPYAupjE/ZqeSIdGgu274q5aEs59PrbocBktyf9zS1oXoVK3x3nM2zfB/kwwEaGLv34Xb2uN/cK8o=";
+                return "AgAAAABOd7e_AAbQ97dOx-rewkPJpnXliw7lmJ8";
             }
         }
     }

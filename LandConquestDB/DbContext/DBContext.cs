@@ -7,12 +7,12 @@ namespace LandConquestDB
     public static class DbContext
     {
         private static SqlConnection sqlconnection;
-        private static string reference = "online_old.txt";
+        private static string value = "online";
         public static void OpenConnectionPool()
         {
             try
             {
-                sqlconnection = new SqlConnection(YDContext.ReadResource(reference));
+                sqlconnection = new SqlConnection(YDContext.ReadResource(value));
             }
             catch (Exception) { }
             sqlconnection.Open();
@@ -33,7 +33,7 @@ namespace LandConquestDB
 
         public static SqlConnection GetTempSqlConnection()
         {
-            SqlConnection sqlconnectiontask = new SqlConnection(YDContext.ReadResource(reference));
+            SqlConnection sqlconnectiontask = new SqlConnection(YDContext.ReadResource(value));
             return sqlconnectiontask;
         }
 
