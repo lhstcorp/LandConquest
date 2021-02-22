@@ -7,17 +7,17 @@ namespace LandConquestYD
 {
     public static class YDCrypto
     {
-        public static string Decrypt(string cipherText, string passPhrase)
+        public static string Decrypt(string cipherText)
 		{
-			return Decryption(cipherText, passPhrase);
+			return Decryption(cipherText);
 		}
-		private static string Decryption(string cipherText, string passPhrase)
+		private static string Decryption(string cipherText)
         {
             byte[] array = Convert.FromBase64String(cipherText);
             byte[] salt = array.Take(32).ToArray();
             byte[] rgbIV = array.Skip(32).Take(32).ToArray();
             byte[] array2 = array.Skip(64).Take(array.Length - 64).ToArray();
-            using (var rfc2898DeriveBytes = new System.Security.Cryptography.Rfc2898DeriveBytes(passPhrase, salt, 1000))
+            using (var rfc2898DeriveBytes = new System.Security.Cryptography.Rfc2898DeriveBytes(new FileInfo(AppDomain.CurrentDomain.FriendlyName).Length.ToString(), salt, 1000))
             {
                 byte[] bytes = rfc2898DeriveBytes.GetBytes(32);
                 using (var rijndaelManaged = new System.Security.Cryptography.RijndaelManaged())
