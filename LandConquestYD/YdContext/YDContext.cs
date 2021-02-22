@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using YandexDiskNET;
 using DeviceId;
+using System.Collections.Generic;
 
 namespace LandConquestYD
 {
@@ -22,7 +23,7 @@ namespace LandConquestYD
 
         private static void Connection()
         {
-            oauth = KSecure.Normal.Decrypt(Properties.Settings.Default.Token, Path.GetPathRoot(Environment.SystemDirectory));
+            oauth = Properties.Settings.Default.Token;
         }
 
         private static void Disk()
@@ -77,6 +78,10 @@ namespace LandConquestYD
             }
             return count;
         }
+        public static void DeleteConnectionId()
+        {
+            disk.DeleteResource("countstatus/" + ConnectionSourceFileName, false);
+        }
 
         private static string GetDeviceId()
         {
@@ -125,18 +130,9 @@ namespace LandConquestYD
             }
         }
 
-
-
-        public static void DeleteConnectionId()
-        {
-            disk.DeleteResource("countstatus/" + ConnectionSourceFileName, false);
-        }
-
-
-
         public static bool UploadBugReport(string playerName, string text)
         {
-            string destFileName = @"BugReport_" + playerName + DateTime.UtcNow.ToString().Replace(":", "_") + @".txt";
+            string destFileName = @"BugReport_" + playerName + DateTime.UtcNow.ToString().Replace(":", "_") + @".log";
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
             File.AppendAllText(path, text);
             var result = disk.UploadResource("SubBugs/" + destFileName, path, true);
@@ -150,23 +146,82 @@ namespace LandConquestYD
                 return true;
             }
         }
+        /// <summary>
+        /// //////////////// Messaging ////////////////////
+        /// </summary>
 
         public static void CreateDialog(string sender, string receiver)
         {
-            string destFileName = @"Dialog_" + sender + receiver + @".txt";
+            string destFileName = @"Dialog_" + sender + receiver + @".rtf";
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
             File.AppendAllText(path, "");
             disk.UploadResource("Messages/" + destFileName, path, true);
             File.Delete(path);
         }
 
+        public static List<string> CheckForMessages(string playerName)
+        {
+            ResInfo filesByNameFields = disk.GetResourceByName(
+               1000000,
+               new Media_type[]
+               {
+                    Media_type.Document,
+                    Media_type.Text
+               },
+               SortField.Path,
+               new ResFields[] {
+                    ResFields.Media_type,
+                    ResFields.Name,
+                    ResFields.Path,
+                    ResFields._Embedded
+               },
+               0, true, "120x240"
+               );
+
+            List<string> messagesList = new List<String>();
+
+            if (filesByNameFields.ErrorResponse.Message == null)
+            {
+                if (filesByNameFields._Embedded.Items.Count != 0)
+                    foreach (var s in filesByNameFields._Embedded.Items)
+                    {
+                        if (s.Name.Contains("Dialog_" + playerName))
+                        {
+                            messagesList.Add(s.Name.Replace("Dialog_" + playerName,""));
+                        }                            
+                    }
+            }
+
+            return messagesList;
+        }
+
+        public static void SendMessage(string messageText, string sender, string receiver)
+        {
+            string destFileName = @"Dialog_" + sender + receiver + @".rtf";
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
+            File.AppendAllText(path, messageText);
+            disk.UploadResource("Messages/" + destFileName, path, true);
+            File.Delete(path);
+        }
+
+        public static string GetDialog(string sender, string receiver)
+        {
+            string destFileName = @"Dialog_" + sender + receiver + @".rtf";
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
+            disk.DownloadResource("Messages/" + destFileName, path);
+            return path;
+        }
+
+        /// <summary>
+        /// //////////////// Messaging End////////////////////
+        /// </summary>
+
         private static string CommandDisk(string oauth, Param param)
         {
             HttpMethod method = HttpMethod.Get;
             HttpClient httpClient = new HttpClient();
             UrlBuilder urlBuilder = new UrlBuilder(param);
-            string requestUri;
-            requestUri = "https://cloud-api.yandex.net/v1/disk/resources/download?" + urlBuilder.Path;
+            var requestUri = "https://cloud-api.yandex.net/v1/disk/resources/download?" + urlBuilder.Path;
             try
             {
                 HttpRequestMessage httpRequestMessage = new HttpRequestMessage(method, requestUri);

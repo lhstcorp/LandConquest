@@ -16,7 +16,9 @@ namespace LandConquestDB.Models
             List<string> Message = new List<string>();
             List<DateTime> MessageTime = new List<DateTime>();
 
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
+            var connection = DbContext.GetTempSqlConnection();
+            connection.Open();
+            var command = new SqlCommand(query, connection);
             using (var reader = command.ExecuteReader())
             {
                 var playerName = reader.GetOrdinal("player_name");
@@ -41,6 +43,7 @@ namespace LandConquestDB.Models
                 messages[i].PlayerMessage = Message[i];
                 messages[i].MessageTime = MessageTime[i];
             }
+            connection.Close();
             return messages;
         }
 
