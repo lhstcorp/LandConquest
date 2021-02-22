@@ -40,7 +40,7 @@
 
 
             <!--Labels-->
-            <Image HorizontalAlignment="Left" Height="200" Margin="21,5,0,0" VerticalAlignment="Top" Width="223" Source="/Pictures/Buildings/Fortress.png"/>
+            <Image HorizontalAlignment="Left" Height="175" Margin="25,30,0,0" VerticalAlignment="Top" Width="187" Source="/LandConquest;component/Pictures/Buildings/Castle.png"/>
             <Label Content="Current lvl:" HorizontalContentAlignment="Right" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,210,0,0" VerticalAlignment="Top" Width="239" FontFamily="Trebuchet MS"/>
             <Label Content="Current defence bonus:" HorizontalContentAlignment="Right" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,259,0,0" VerticalAlignment="Top" Width="239" FontFamily="Trebuchet MS"/>
             <Label Content="Resources to upgrade:" HorizontalContentAlignment="Right" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,307,0,0" VerticalAlignment="Top" Width="239" FontFamily="Trebuchet MS"/>
