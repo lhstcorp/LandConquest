@@ -140,10 +140,10 @@
                     <Grid.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"  />
                     </Grid.Background>
-                    <TextBlock Margin="40,9,25,34" FontSize="16" TextWrapping="Wrap" Text="Music:" FontFamily="Trebuchet MS"/>
-                    <CheckBox x:Name="checkBoxMusic" Margin="84,13,5,38" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxMusic_Click"/>
-                    <TextBlock Margin="6,32,24,11" FontSize="16" TextWrapping="Wrap" Text="Fullscreen:" FontFamily="Trebuchet MS"/>
-                    <CheckBox x:Name="checkBoxFs" Margin="84,35,5,16" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxFs_Click" />
+                    <TextBlock Margin="41,9,24,34" FontSize="16" TextWrapping="Wrap" Text="Music:" FontFamily="Trebuchet MS"/>
+                    <CheckBox x:Name="checkBoxMusic" Margin="86,13,3,38" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxMusic_Click"/>
+                    <TextBlock Margin="7,32,23,11" FontSize="16" TextWrapping="Wrap" Text="Fullscreen:" FontFamily="Trebuchet MS"/>
+                    <CheckBox x:Name="checkBoxFs" Margin="86,35,3,16" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxFs_Click" />
                 </Grid>
             </Border>
 
@@ -190,6 +190,40 @@
                     </Grid.Background>
                 </Grid>
             </Border>
+
+            <Border x:Name="DailyBonusBorder" BorderBrush="#FF48291F" BorderThickness="2" Margin="0,154,69,0" HorizontalAlignment="Right" Width="110" Height="125" VerticalAlignment="Top">
+                <Grid x:Name="DailyBonusGrid" Visibility="Visible" Margin="0.4,0.4,-0.2,-0.4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="BtnHideDailyBonusGrid" Height="15" Width="15" VerticalAlignment="Top"  Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Margin="0,0,-0.4,0" Click="BtnHideDailyBonusGrid_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonMinus.jpg"/>
+                        </Button.Background>
+                    </Button>
+                    <Label Content="Next reward: " FontWeight="Bold" Foreground="#FF311818" HorizontalAlignment="Left"  VerticalAlignment="Bottom" FontFamily="Trebuchet MS" Width="71" Margin="17,0,0,26.6" FontSize="10" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="lblNextDaily"  Content="Avaible" FontFamily="Trebuchet MS" Foreground="#FF392018" FontSize="8" Margin="3,93,3.2,7.6" Background="{x:Null}" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+
+                    <Button x:Name="DailyButton" Content="Claim" BorderBrush="{x:Null}" Foreground="#FFE5D09D" FontFamily="Book Antiqua" FontSize="10" Margin="17,0,0,53.6" HorizontalAlignment="Left" Width="71" Height="30" VerticalAlignment="Bottom" Click="DailyButton_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                        </Button.Background>
+                    </Button>
+
+
+                    <Label HorizontalContentAlignment="Center" Content="Daily Bonus"  FontFamily="/Fonts/#Harrington" Foreground="#FFB8362F" Height="28" VerticalAlignment="Bottom" Background="{x:Null}" FontWeight="Bold" Margin="0,0,0.2,83.6" FontSize="14"/>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"  />
+                    </Grid.Background>
+                </Grid>
+            </Border>
+
+            <Button x:Name="BtnShowDailyBonusGrid" Margin="0,262,163,0" Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Width="15" Height="15" VerticalAlignment="Top" Click="BtnShowDailyBonusGrid_Click" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonPlus.jpg"/>
+                </Button.Background>
+            </Button>
 
             <Button x:Name="BtnShowTaxesGrid" Height="20" Margin="23,266,0,0" VerticalAlignment="Top" Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Left" Width="20" Click="BtnShowTaxesGrid_Click" >
                 <Button.Background>
