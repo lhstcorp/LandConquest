@@ -10,7 +10,7 @@
 
     <Border BorderBrush="#FF392018" BorderThickness="2" Height="150" Width="250">
         <Grid>
-            <Label Content="Warning" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontFamily="Sitka Display" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold"  Height="38" Margin="70,5,67.4,0" VerticalAlignment="Top" Width="109" Background="{x:Null}" RenderTransformOrigin="0.705,0.279"/>
+            <Label x:Name="warningHeader"  Content="Warning" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontFamily="Sitka Display" Foreground="#FFB8362F" FontSize="26" FontWeight="Bold"  Height="38" Margin="70,5,67.4,0" VerticalAlignment="Top" Width="109" Background="{x:Null}" RenderTransformOrigin="0.705,0.279"/>
             <TextBox x:Name="textWarning" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" FontFamily="Verdana" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Center" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="8,43,8.4,37.2"  Text="Example of long sentence, should be changed after call of window object!"  Height="67" Width="230" Background="{x:Null}"/>
             <Button x:Name="warningButton" Content="OK" FontSize="14" FontFamily="Sitka Display" HorizontalAlignment="Left" Margin="70,114,0,0" VerticalAlignment="Top" Width="109" BorderBrush="{x:Null}" Height="33" Foreground="#FFE6CF9D" Click="warningButton_Click">
                 <Button.Background>

@@ -46,5 +46,17 @@ namespace LandConquest.DialogWIndows
                 return false;
             }
         }
+
+        public static void CallInfoDialogNoResult(string message)
+        {
+            WarningDialogWindow warningWindow = new WarningDialogWindow(message);
+            warningWindow.Owner = Application.Current.MainWindow;
+            warningWindow.warningHeader.Visibility = Visibility.Hidden;
+            warningWindow.ShowDialog();
+            if (warningWindow.DialogResult.HasValue)
+            {
+                warningWindow.Close();
+            }
+        }
     }
 }

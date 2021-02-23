@@ -147,7 +147,8 @@ namespace LandConquest.Forms
             //////////////////
             ConsumptionLogic.ConsumptionCount(player, storage);
             //ConsumptionLogic.ConsumptionCountAsync(player, storage);
-            //////////////////
+            //////////////////           
+            DailyBonusCount(player);
 
 
             settingsGrid.Visibility = Visibility.Hidden;
@@ -155,6 +156,7 @@ namespace LandConquest.Forms
             btnShowLandGrid.Visibility = Visibility.Hidden;
             btnShowLeaderGrid.Visibility = Visibility.Hidden;
             BtnShowTaxesGrid.Visibility = Visibility.Hidden;
+            BtnShowDailyBonusGrid.Visibility = Visibility.Hidden;
 
             GetWorldLeader();
 
@@ -979,6 +981,59 @@ namespace LandConquest.Forms
             TaxesGrid.Visibility = Visibility.Visible;
             TaxesBorder.Visibility = Visibility.Visible;
             BtnShowTaxesGrid.Visibility = Visibility.Hidden;
+        }
+
+        /// <summary>
+        /// /////////////////////////////////// DAILY BONUS //////////////////////////////////////////////////////////
+        /// </summary>
+
+        private void DailyButton_Click(object sender, RoutedEventArgs e)
+        {
+            var nextDailyBonus = DailyBonusModel.GetNextDailyBonusTime(player);
+            if (nextDailyBonus <= DateTime.UtcNow)
+            {
+                DailyBonusModel.UpdateNextDailyBonusTime(player);
+                RewardLogic.GiveDailyBonus(player);
+                DailyBonusCount(player);
+            }
+        }
+
+        private void DailyBonusCount(Player player)
+        {
+            var nextDailyBonus = DailyBonusModel.GetNextDailyBonusTime(player);
+            if (nextDailyBonus == DateTime.MinValue)
+            {
+                DailyBonusModel.SetFirstDailyBonusTime(player);
+                DailyButton.IsEnabled = true;
+                DailyButton.Content = "Claim";
+                lblNextDaily.Content = "Avaible";
+            }
+            else if (nextDailyBonus <= DateTime.UtcNow)
+            {
+                DailyButton.IsEnabled = true;
+                DailyButton.Content = "Claim";
+                lblNextDaily.Content = "Avaible";
+            }
+            else
+            {
+                DailyButton.IsEnabled = false;
+                DailyButton.Content = "Claimed";
+                lblNextDaily.Content = nextDailyBonus;
+            }
+        }
+
+        private void BtnHideDailyBonusGrid_Click(object sender, RoutedEventArgs e)
+        {
+            DailyBonusGrid.Visibility = Visibility.Hidden;
+            DailyBonusBorder.Visibility = Visibility.Hidden;
+            BtnShowDailyBonusGrid.Visibility = Visibility.Visible;
+        }
+
+        private void BtnShowDailyBonusGrid_Click(object sender, RoutedEventArgs e)
+        {
+            DailyBonusGrid.Visibility = Visibility.Visible;
+            DailyBonusBorder.Visibility = Visibility.Visible;
+            BtnShowDailyBonusGrid.Visibility = Visibility.Hidden;
         }
     }
 }
