@@ -7,24 +7,25 @@
         mc:Ignorable="d" ResizeMode="NoResize" WindowStyle="None"
         Title="LandWindow" Height="450" Width="800">
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
-    <Grid>
-        <Button x:Name="buttonExit" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Click="btnWarWindowClose_Click" Margin="0,1,1.4,0" BorderBrush="{x:Null}" Foreground="{x:Null}" RenderTransformOrigin="0.541,0.51" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
-            </Button.Background>
-        </Button>
+        <Grid>
+            <Button x:Name="buttonExit" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Click="btnWarWindowClose_Click" Margin="0,1,1.4,0" BorderBrush="{x:Null}" Foreground="{x:Null}" RenderTransformOrigin="0.541,0.51" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+                </Button.Background>
+            </Button>
 
-            <Button x:Name="buttonCastleManagement" Content="Castle management" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="66" Margin="10,149,0,0" VerticalAlignment="Top" Width="297" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua" Click="buttonCastleManagement_Click">
+            <Button x:Name="buttonCastleManagement" Content="Castle management" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="66" Margin="10,149,0,0" VerticalAlignment="Top" Width="260" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua" Click="buttonCastleManagement_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
             <Label x:Name="landNamelbl" Content="Land name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="143"/>
             <Button x:Name="harrisonBtn"  Content="Button" HorizontalAlignment="Left" Height="43" Margin="529,343,0,0" VerticalAlignment="Top" Width="131" Click="harrisonBtn_Click"/>
+            <Image HorizontalAlignment="Left" Source="/Pictures/Experimental/cityForLandWindow.jpg" Height="302" Margin="360,36,0,0" VerticalAlignment="Top" Width="397"/>
 
             <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
-        </Grid.Background>
-    </Grid>
-        </Border>
+                <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+        </Grid>
+    </Border>
 </Window>
