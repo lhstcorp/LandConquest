@@ -68,6 +68,27 @@ namespace LandConquest.DialogWIndows
             fullPlayerArmy = ArmyModel.GetArmyInfo(player, fullPlayerArmy);
 
             ArmyInBattle freeArmy = new ArmyInBattle(fullPlayerArmy);
+            List<ArmyInBattle> playerArmies = new List<ArmyInBattle>();
+            playerArmies = BattleModel.GetAllPlayerArmiesInfo(playerArmies, player);
+
+            for (int i = 0; i < playerArmies.Count; i++)
+            {
+                freeArmy.ArmyArchersCount -= playerArmies[i].ArmyArchersCount;
+                freeArmy.ArmyInfantryCount -= playerArmies[i].ArmyInfantryCount;
+                freeArmy.ArmyHorsemanCount -= playerArmies[i].ArmyHorsemanCount;
+                freeArmy.ArmySiegegunCount -= playerArmies[i].ArmySiegegunCount;
+                freeArmy.ArmySizeCurrent -= playerArmies[i].ArmySizeCurrent;
+            }
+
+            sliderInfantry.Value = 0;
+            sliderArchers.Value = 0;
+            sliderKnights.Value = 0;
+            sliderSiege.Value = 0;
+
+            sliderInfantry.Maximum = freeArmy.ArmyInfantryCount;
+            sliderArchers.Maximum = freeArmy.ArmyArchersCount;
+            sliderKnights.Maximum = freeArmy.ArmyHorsemanCount;
+            sliderSiege.Maximum = freeArmy.ArmySiegegunCount;
             // here I am;
         }
     }
