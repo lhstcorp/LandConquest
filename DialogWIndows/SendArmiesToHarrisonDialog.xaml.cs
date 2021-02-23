@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LandConquestDB.Entities;
+using LandConquestDB.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,33 +21,31 @@ namespace LandConquest.DialogWIndows
     /// </summary>
     public partial class SendArmiesToHarrisonDialog : Window
     {
-        public SendArmiesToHarrisonDialog()
+        private Player player;
+        public SendArmiesToHarrisonDialog(Player _player)
         {
+            player = _player;
             InitializeComponent();
         }
 
         private void sliderInfantry_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            sliderInfantry.Value = 0;
+            sliderInfantry.IsSnapToTickEnabled = true;
         }
 
         private void sliderArchers_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            sliderInfantry.Value = 0;
+            sliderArchers.IsSnapToTickEnabled = true;
         }
 
         private void sliderKnights_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            sliderInfantry.Value = 0;
+            sliderKnights.IsSnapToTickEnabled = true;
         }
 
         private void sliderSiege_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            sliderInfantry.Value = 0;
-        }
-
-        private void CheckTypeAndReturnCount(object sender, MouseButtonEventArgs e)
-        {
+            sliderSiege.IsSnapToTickEnabled = true;
         }
 
         private void btnWarWindowClose_Click(object sender, RoutedEventArgs e)
@@ -55,6 +55,20 @@ namespace LandConquest.DialogWIndows
         private void buttonCollapse_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState = WindowState.Minimized;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            loadSliders();
+        }
+
+        private void loadSliders()
+        {
+            Army fullPlayerArmy = new Army();
+            fullPlayerArmy = ArmyModel.GetArmyInfo(player, fullPlayerArmy);
+
+            ArmyInBattle freeArmy = new ArmyInBattle(fullPlayerArmy);
+            // here I am;
         }
     }
 }
