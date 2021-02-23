@@ -673,16 +673,24 @@ namespace LandConquest.Forms
             }
         }
 
-        private void ResourceMapBtn_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            GlobalMap.Visibility = Visibility.Hidden;
-            ResourceMap.Visibility = Visibility.Visible;
-        }
 
-        private void GlobalMapBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        private void ChangeMapType(object sender, RoutedEventArgs e)
         {
-            ResourceMap.Visibility = Visibility.Hidden;
-            GlobalMap.Visibility = Visibility.Visible;
+            if(GlobalMap.Visibility == Visibility.Visible)
+            {
+                GlobalMap.Visibility = Visibility.Hidden;
+                GlobalMapBtn.Visibility = Visibility.Hidden;
+                ResourceMap.Visibility = Visibility.Visible;
+                ResourceMapBtn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ResourceMap.Visibility = Visibility.Hidden;
+                ResourceMapBtn.Visibility = Visibility.Hidden;
+                GlobalMap.Visibility = Visibility.Visible;
+                GlobalMapBtn.Visibility = Visibility.Visible;
+            }
+                    
         }
 
         private void btnGoToLand_Click(object sender, RoutedEventArgs e)
