@@ -52,7 +52,7 @@ namespace LandConquest.Forms
 
         private void harrisonBtn_Click(object sender, RoutedEventArgs e)
         {
-            SendArmiesToHarrisonDialog openedWindow = new SendArmiesToHarrisonDialog();
+            SendArmiesToHarrisonDialog openedWindow = new SendArmiesToHarrisonDialog(player);
             openedWindow.Owner = Application.Current.MainWindow;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
