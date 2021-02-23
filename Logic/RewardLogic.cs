@@ -23,7 +23,7 @@ namespace LandConquest.Logic
             {
                 resource = "gold ore";
             }
-            WarningDialogWindow.CallInfoDialogNoResult("Your reward is: " + resource + " of amount " + amount);
+            WarningDialogWindow.CallInfoDialogNoResult("Reward: " + resource + " of amount " + amount);
         }
     }
 }
