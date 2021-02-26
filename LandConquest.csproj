@@ -438,7 +438,7 @@
     <Resource Include="Pictures\profileDefault.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pictures\resource_chest.png" />
+    <Resource Include="Pictures\Icons\Menu\IconStorage.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\stones.png" />
@@ -610,7 +610,7 @@
     <Resource Include="Pictures\Buildings\Tent.png" />
     <Resource Include="Pictures\Buildings\Caravan.png" />
     <Resource Include="Pictures\Buildings\Stables.png" />
-    <Resource Include="Pictures\Menu items\Auction.png" />
+    <Resource Include="Pictures\Icons\Menu\IconAuction.png" />
     <Resource Include="Pictures\Menu items\Market.png" />
     <Resource Include="Pictures\Menu items\Storage.png" />
     <Resource Include="Pictures\Menu items\Industry.png" />
@@ -628,7 +628,21 @@
     <Resource Include="Pictures\Buildings\Windmill.png" />
     <Resource Include="Pictures\icon_chain_breast.png" />
     <Resource Include="Pictures\icon_leather_chest1.png" />
-    <Resource Include="Pictures\GUI\Panel.png" />
+    <Resource Include="Pictures\Icons\Army\IconArcher.PNG" />
+    <Resource Include="Pictures\Icons\Army\IconCatapult.png" />
+    <Resource Include="Pictures\Icons\Army\IconKnight.png" />
+    <Resource Include="Pictures\Icons\Army\IconPeasant.png" />
+    <Resource Include="Pictures\Icons\Army\IconInfantry.png" />
+    <Resource Include="Pictures\Icons\Army\IconSiegeMachine.png" />
+    <Resource Include="Pictures\Icons\Menu\IconIndustry.png" />
+    <Resource Include="Pictures\Icons\Menu\IconRecruit.png" />
+    <Resource Include="Pictures\Icons\Menu\IconCountry.png" />
+    <Resource Include="Pictures\Icons\Menu\IconMarket.png" />
+    <Resource Include="Pictures\Icons\Menu\IconRegion.png" />
+    <Resource Include="Pictures\Icons\MainWindow\IconRegionMap.png" />
+    <Resource Include="Pictures\Icons\MainWindow\IconResourceMap.png" />
+    <Resource Include="Pictures\Icons\UI\IconArrowUp.png" />
+    <Resource Include="Pictures\Icons\UI\IconArrowDown.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
