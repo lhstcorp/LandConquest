@@ -7,19 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LandConquest.Forms
 {
     public partial class MailboxWindow : Window
     {
         private Player player;
+        private List<string> messages;
         public MailboxWindow(Player _player)
         {
             InitializeComponent();
@@ -49,6 +43,22 @@ namespace LandConquest.Forms
                     }
                 }
             }
+        }
+        
+        private void RefreshListItems()
+        {
+            ListViewDialogs.ItemsSource = YDContext.CheckForMessages(player.PlayerName);
+            ListViewDialogs.Items.Refresh();
+        }
+
+        private void ButtonRefreshDialog_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshListItems();
+        }
+
+        private void ListViewDialogs_Loaded(object sender, RoutedEventArgs e)
+        {
+            RefreshListItems();
         }
     }
 }

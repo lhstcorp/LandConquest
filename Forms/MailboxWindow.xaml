@@ -13,7 +13,7 @@
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
         <Grid>
-            <ListView x:Name="ListViewDialogs" HorizontalAlignment="Left" Height="366" VerticalAlignment="Top" Width="250" Foreground="#DD000000" BorderBrush="Black" Background="Wheat" OpacityMask="White" FontSize="12" Margin="10,67,0,0">
+            <ListView x:Name="ListViewDialogs" HorizontalAlignment="Left" Height="366" VerticalAlignment="Top" Width="250" Foreground="#DD000000" BorderBrush="Black" Background="Wheat" OpacityMask="White" FontSize="12" Margin="10,67,0,0" Loaded="ListViewDialogs_Loaded">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="Background" Value="White"/>
@@ -46,7 +46,7 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="ButtonRefreshDialog" Content="Refresh" HorizontalAlignment="Left" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="72" Height="36" BorderBrush="{x:Null}" Margin="103,26,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua">
+            <Button x:Name="ButtonRefreshDialog" Content="Refresh" HorizontalAlignment="Left" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="72" Height="36" BorderBrush="{x:Null}" Margin="103,26,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua" Click="ButtonRefreshDialog_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
