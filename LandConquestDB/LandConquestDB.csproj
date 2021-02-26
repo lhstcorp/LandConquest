@@ -57,6 +57,7 @@
     <Compile Include="Entities\ArmyInBattle.cs" />
     <Compile Include="Entities\AuctionListings.cs" />
     <Compile Include="Entities\Battle.cs" />
+    <Compile Include="Entities\Castle.cs" />
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\Garrison.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Models\ArmyModel.cs" />
     <Compile Include="Models\AuctionModel.cs" />
     <Compile Include="Models\BattleModel.cs" />
+    <Compile Include="Models\CastleModel.cs" />
     <Compile Include="Models\ChatModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\DailyBonusModel.cs" />
