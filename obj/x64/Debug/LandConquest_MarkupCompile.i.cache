@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\LandConquest\LandConquest\obj\x64\Debug\
+C:\Users\Lenovo\Documents\GitHub\LandConquest\obj\x64\Debug\
 LandConquest
 none
 false
 DEBUG;TRACE
-D:\LandConquest\LandConquest\App.xaml
+C:\Users\Lenovo\Documents\GitHub\LandConquest\App.xaml
 311419183578
 1888964198
 40-969780072
-140-1390825958
+140345070251
 DialogWIndows\BuyListingDialog.xaml;DialogWIndows\CommonManufactureUpgrade.xaml;DialogWIndows\CreateListingDialog.xaml;DialogWIndows\EnterTextDialogWindow.xaml;DialogWIndows\EstablishStateDialog.xaml;DialogWIndows\ManufactureUpgradeDialog.xaml;DialogWIndows\SendArmiesToHarrisonDialog.xaml;DialogWIndows\SplitArmyDialog.xaml;DialogWIndows\UserAgreementDialog.xaml;DialogWIndows\WarningDialogWindow.xaml;Forms\AuctionWindow.xaml;Forms\AuthorisationWindow.xaml;Forms\ChatWindow.xaml;Forms\CountryWindow.xaml;Forms\LandWindow.xaml;Forms\MailboxWindow.xaml;Forms\MainWindow.xaml;Forms\ManufactureWindow.xaml;Forms\MarketWindow.xaml;Forms\MembershipWindow.xaml;Forms\ProfileWindow.xaml;Forms\CastleManagementWindow.xaml;Forms\RatingWindow.xaml;Forms\RecruitWindow.xaml;Forms\StorageWindow.xaml;Forms\SubmitBugWindow.xaml;Forms\WarResultWindow.xaml;Forms\WarWindow.xaml;Resources\GlobalMap.xaml;Resources\ResourceMap.xaml;Resources\StylesDictionary.xaml;
 
 True

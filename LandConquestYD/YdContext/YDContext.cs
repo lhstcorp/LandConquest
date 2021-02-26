@@ -152,7 +152,7 @@ namespace LandConquestYD
 
         public static void CreateDialog(string sender, string receiver)
         {
-            string destFileName = @"Dialog_" + sender + receiver + @".rtf";
+            string destFileName = sender + "_" + receiver + "_dialog.rtf";
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
             File.AppendAllText(path, "");
             disk.UploadResource("Messages/" + destFileName, path, true);
@@ -185,9 +185,9 @@ namespace LandConquestYD
                 if (filesByNameFields._Embedded.Items.Count != 0)
                     foreach (var s in filesByNameFields._Embedded.Items)
                     {
-                        if (s.Name.Contains("Dialog_" + playerName))
+                        if (s.Name.Contains("_dialog") && s.Name.Contains(playerName))
                         {
-                            messagesList.Add(s.Name.Replace("Dialog_" + playerName,""));
+                            messagesList.Add(s.Name.Replace("dialog.rtf","").Replace(playerName, "").Replace("_", ""));
                         }                            
                     }
             }
@@ -195,18 +195,53 @@ namespace LandConquestYD
             return messagesList;
         }
 
+        public static string GetDialogName(string player1, string player2)
+        {
+            ResInfo filesByNameFields = disk.GetResourceByName(
+               1000000,
+               new Media_type[]
+               {
+                    Media_type.Document,
+                    Media_type.Text
+               },
+               SortField.Path,
+               new ResFields[] {
+                    ResFields.Media_type,
+                    ResFields.Name,
+                    ResFields.Path,
+                    ResFields._Embedded
+               },
+               0, true, "120x240"
+               );
+
+            List<string> messagesList = new List<String>();
+
+            if (filesByNameFields.ErrorResponse.Message == null)
+            {
+                if (filesByNameFields._Embedded.Items.Count != 0)
+                    foreach (var s in filesByNameFields._Embedded.Items)
+                    {
+                        if (s.Name.Contains("_dialog") && s.Name.Contains(player1) && s.Name.Contains(player2))
+                        {
+                            return s.Name;
+                        }
+                    }
+            }
+            return "";
+        }
+
         public static void SendMessage(string messageText, string sender, string receiver)
         {
-            string destFileName = @"Dialog_" + sender + receiver + @".rtf";
+            string destFileName = sender + "_" + receiver + "_dialog.rtf";
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
             File.AppendAllText(path, messageText);
             disk.UploadResource("Messages/" + destFileName, path, true);
             File.Delete(path);
         }
 
-        public static string GetDialog(string sender, string receiver)
+        public static string GetDialog(string player1, string player2)
         {
-            string destFileName = @"Dialog_" + sender + receiver + @".rtf";
+            string destFileName = GetDialogName(player1, player2);
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
             disk.DownloadResource("Messages/" + destFileName, path);
             return path;

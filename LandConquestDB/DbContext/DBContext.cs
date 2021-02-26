@@ -7,7 +7,7 @@ namespace LandConquestDB
     public static class DbContext
     {
         private static SqlConnection sqlconnection;
-        private static string value = "greendend2";
+        private static string value = "user-pass";
         public static void OpenConnectionPool()
         {
             try
