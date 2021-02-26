@@ -643,6 +643,9 @@
     <Resource Include="Pictures\Icons\MainWindow\IconResourceMap.png" />
     <Resource Include="Pictures\Icons\UI\IconArrowUp.png" />
     <Resource Include="Pictures\Icons\UI\IconArrowDown.png" />
+    <Resource Include="Pictures\Experimental\castleForHarrison.jpg" />
+    <Resource Include="Pictures\Experimental\cityForLandWindow.jpg" />
+    <Resource Include="Pictures\LandWindow\castle.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
