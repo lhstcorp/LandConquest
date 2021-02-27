@@ -262,13 +262,13 @@
             </Button>
             <ProgressBar x:Name="PbExp" HorizontalAlignment="Left" Height="18" Margin="97,35,0,0" VerticalAlignment="Top" Width="92" Foreground="#FFD7464B" BorderBrush="#FFD7464B" Background="{x:Null}"/>
             <Label x:Name="Level"  FontSize="12" HorizontalContentAlignment="Center" Content="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" Foreground="#FFE1C793" Width="89" Height="31" Background="#FFD7464B"/>
-            <Button x:Name="buttonTop" Content="Rankings" Margin="0,15,418,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonTop_Click" HorizontalAlignment="Right" Width="112" FontFamily="Book Antiqua" FontSize="14">
+            <Button x:Name="buttonTop" Content="Rankings" Margin="0,15,303,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonTop_Click" HorizontalAlignment="Right" Width="112" FontFamily="Book Antiqua" FontSize="14">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
             <Button x:Name="test2" IsEnabled="False" HorizontalAlignment="Left" Height="37" Margin="351,651,0,0" VerticalAlignment="Top" Width="164" Click="test2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="#FFE1A35E"/>
-            <Button x:Name="buttonChat" Content="Show chat" Margin="47,0,0,2.8" Click="buttonChat_Click" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="166" Foreground="#FFDFC58F" Height="35" VerticalAlignment="Bottom" FontFamily="Book Antiqua" FontSize="14">
+            <Button x:Name="buttonChat" Content="Chat" Margin="20,0,0,7.8" Click="buttonChat_Click" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="109" Foreground="#FFDFC58F" Height="31" VerticalAlignment="Bottom" FontFamily="Book Antiqua" FontSize="14">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -297,7 +297,7 @@
                 </Button.Background>
             </Button>
 
-            <Button x:Name="ButtonMailbox" Content="Mailbox" Margin="0,15,301,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Right" Width="112" FontFamily="Book Antiqua" FontSize="14" Click="ButtonMailbox_Click">
+            <Button x:Name="ButtonMailbox" Content="Mailbox" Margin="134,0,0,7.8" VerticalAlignment="Bottom" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Left" Width="107" FontFamily="Book Antiqua" FontSize="14" Click="ButtonMailbox_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
