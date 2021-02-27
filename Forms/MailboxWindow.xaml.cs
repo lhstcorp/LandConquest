@@ -17,9 +17,27 @@ namespace LandConquest.Forms
 
         private void ButtonSendMessage_Click(object sender, RoutedEventArgs e)
         {
-            if (!LandConquestDB.Models.UserModel.ValidateUserByLogin(TextBoxReceiver.Text))
+            if (TextBoxMessage.Text.Length != 0)
             {
-                LandConquestYD.YDMessaging.CreateAndSendMessage(TextBoxMessage.Text, PlayerName, TextBoxReceiver.Text);
+                if (TextBoxReceiver.Text != PlayerName && !LandConquestDB.Models.UserModel.ValidateUserByLogin(TextBoxReceiver.Text))
+                {
+                    var result = LandConquestYD.YDMessaging.CreateAndSendMessage(TextBoxMessage.Text, PlayerName, TextBoxReceiver.Text);
+                    if (result)
+                    {
+                        DialogWIndows.WarningDialogWindow.CallInfoDialogNoResult("Message was successfully sent. Note that all undelivered messages are automatically deleted at the end of each month. Please, try not to spam.");
+                    }
+                    else
+                    {
+                        DialogWIndows.WarningDialogWindow.CallWarningDialogNoResult("Error!");
+                    }
+                }
+                else
+                {
+                    DialogWIndows.WarningDialogWindow.CallWarningDialogNoResult("Error sending message! Check if player with this name exists");
+                }
+            } else
+            {
+                DialogWIndows.WarningDialogWindow.CallWarningDialogNoResult("Empty message is not allowed.");
             }
         }
     }

@@ -322,10 +322,12 @@ namespace LandConquest.Forms
             openedWindow.Closed += FreeData;
 
             var messagesList = LandConquestYD.YDMessaging.GetAllMessagesName(player.PlayerName);
+            int counter = 0;
             foreach(var messageName in messagesList)
             {
+                counter++;
                 string messageText = LandConquestYD.YDContext.ReadResource("Messages/" + messageName);
-                MessageReceiverDialog.ShowReceivedMessage(messageName.Replace("mail.txt", "").Replace(player.PlayerName, "").Replace("_", ""), messageText);
+                MessageReceiverDialog.ShowReceivedMessage(messageName.Remove(0, 6).Replace("mail.txt", "").Replace(player.PlayerName, "").Replace("_", ""), messageText, counter);
                 LandConquestYD.YDMessaging.DeleteReadedMessage(messageName);
             }
         }

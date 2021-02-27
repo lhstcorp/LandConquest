@@ -110,17 +110,28 @@ namespace LandConquestYD
         }
 
         /// <summary>
-        /// //////////////// Simple messeging system ////////////////////
+        /// //////////////// Simple messaging system ////////////////////
         /// </summary>
         /// 
 
-        public static void CreateAndSendMessage(string messageText, string sender, string receiver)
+        public static bool CreateAndSendMessage(string messageText, string sender, string receiver)
         {
-            string destFileName = sender + "_" + receiver + "_mail.txt";
+            Random r = new Random();
+            var x = r.Next(0, 1000000);
+
+            string destFileName = x.ToString("000000") + "_"+ sender + "_" + receiver + "_mail.txt";
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
             File.AppendAllText(path, messageText);
-            disk.UploadResource("Messages/" + destFileName, path, true);
+            var error = disk.UploadResource("Messages/" + destFileName, path, true);
             File.Delete(path);
+            if (error.Error == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static List<string> GetAllMessagesName(string playerName)
@@ -132,7 +143,7 @@ namespace LandConquestYD
                     Media_type.Document,
                     Media_type.Text
                },
-               SortField.Path,
+               SortField.Created,
                new ResFields[] {
                     ResFields.Media_type,
                     ResFields.Name,
