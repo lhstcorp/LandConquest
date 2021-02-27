@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="YdContext\YDContext.cs" />
     <Compile Include="YdContext\YDCrypto.cs" />
+    <Compile Include="YdContext\YDMessaging.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
