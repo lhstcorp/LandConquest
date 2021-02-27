@@ -31,7 +31,7 @@
             <Label Content="Recipient name:" FontSize="20" FontFamily="Trebuchet MS" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="180"/>
 
             <TextBox x:Name="TextBoxReceiver" MaxLength="16" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" FontSize="16" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap"  VerticalAlignment="Top" Width="222" 
-                 Background="White" CaretBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" materialDesign:HintAssist.Hint=" Your message"  materialDesign:HintAssist.IsFloating="False" Margin="173,5,0,0" BorderBrush="#FF391D18"/>
+                 Background="White" CaretBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" materialDesign:HintAssist.Hint=" Player name"  materialDesign:HintAssist.IsFloating="False" Margin="173,5,0,0" BorderBrush="#FF391D18"/>
             
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>

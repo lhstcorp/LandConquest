@@ -15,12 +15,20 @@ namespace LandConquest.DialogWIndows
             this.DialogResult = true;
         }
 
-        public static void ShowReceivedMessage(string sender, string message)
+        public static void ShowReceivedMessage(string sender, string message, int number)
         {
             MessageReceiverDialog dialog = new MessageReceiverDialog();
             dialog.labelPlayerName.Content = sender;
             dialog.TextBoxMessage.Text = message;
-            dialog.Owner = Application.Current.MainWindow;
+            dialog.LabelInboxNumber.Content = number;
+            if (Application.Current.MainWindow != dialog)
+            {
+                dialog.Owner = Application.Current.MainWindow;
+            }
+            else
+            {
+                dialog.Topmost = true;
+            }
             dialog.ShowDialog();
             if (dialog.DialogResult.HasValue)
             {
