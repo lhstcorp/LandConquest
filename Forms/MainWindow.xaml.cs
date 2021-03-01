@@ -315,11 +315,21 @@ namespace LandConquest.Forms
         private void ButtonMailbox_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new MailboxWindow(player);
+            openedWindow = new MailboxWindow(player.PlayerName);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
+
+            var messagesList = LandConquestYD.YDMessaging.GetAllMessagesName(player.PlayerName);
+            int counter = 0;
+            foreach(var messageName in messagesList)
+            {
+                counter++;
+                string messageText = LandConquestYD.YDContext.ReadResource("Messages/" + messageName);
+                MessageReceiverDialog.ShowReceivedMessage(messageName.Remove(0, 6).Replace("mail.txt", "").Replace(player.PlayerName, "").Replace("_", ""), messageText, counter);
+                LandConquestYD.YDMessaging.DeleteReadedMessage(messageName);
+            }
         }
 
         private void ButtonExit_Click(object sender, RoutedEventArgs e)

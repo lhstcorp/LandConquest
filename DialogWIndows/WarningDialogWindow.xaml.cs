@@ -22,7 +22,13 @@ namespace LandConquest.DialogWIndows
         public static void CallWarningDialogNoResult(string message)
         {
             WarningDialogWindow warningWindow = new WarningDialogWindow(message);
-            warningWindow.Owner = Application.Current.MainWindow;
+            if (Application.Current.MainWindow != warningWindow)
+            {
+                warningWindow.Owner = Application.Current.MainWindow;
+            } else
+            {
+                warningWindow.Topmost = true;
+            }
             warningWindow.ShowDialog();
             if (warningWindow.DialogResult.HasValue)
             {
@@ -33,7 +39,14 @@ namespace LandConquest.DialogWIndows
         public static bool CallWarningDialogWithResult(string message)
         {
             WarningDialogWindow warningWindow = new WarningDialogWindow(message);
-            warningWindow.Owner = Application.Current.MainWindow;
+            if (Application.Current.MainWindow != warningWindow)
+            {
+                warningWindow.Owner = Application.Current.MainWindow;
+            }
+            else
+            {
+                warningWindow.Topmost = true;
+            }
             warningWindow.ShowDialog();
             if (warningWindow.DialogResult == true)
             {
@@ -50,7 +63,14 @@ namespace LandConquest.DialogWIndows
         public static void CallInfoDialogNoResult(string message)
         {
             WarningDialogWindow warningWindow = new WarningDialogWindow(message);
-            warningWindow.Owner = Application.Current.MainWindow;
+            if (Application.Current.MainWindow != warningWindow)
+            {
+                warningWindow.Owner = Application.Current.MainWindow;
+            }
+            else
+            {
+                warningWindow.Topmost = true;
+            }
             warningWindow.warningHeader.Visibility = Visibility.Hidden;
             warningWindow.ShowDialog();
             if (warningWindow.DialogResult.HasValue)
