@@ -221,6 +221,21 @@ namespace LandConquestDB.Models
             return player;
         }
 
+        public static Player UpdatePlayerMoney(Player player, SqlConnection connection)
+        {
+            string taxesQuery = "UPDATE dbo.PlayerData SET player_money = @player_money WHERE player_id = @player_id ";
+
+            var taxesCommand = new SqlCommand(taxesQuery, connection);
+            taxesCommand.Parameters.AddWithValue("@player_money", player.PlayerMoney);
+            taxesCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
+
+            taxesCommand.ExecuteNonQuery();
+
+            taxesCommand.Dispose();
+
+            return player;
+        }
+
         public static Player UpdatePlayerLand(Player player, Land land)
         {
             string taxesQuery = "UPDATE dbo.PlayerData SET player_current_region = @player_current_region WHERE player_id = @player_id ";

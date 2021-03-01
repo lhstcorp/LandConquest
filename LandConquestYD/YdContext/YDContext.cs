@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Text;
 using YandexDiskNET;
 using DeviceId;
-using System.Collections.Generic;
 
 namespace LandConquestYD
 {

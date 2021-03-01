@@ -363,19 +363,22 @@ namespace LandConquest.Forms
         //}
         private async Task UpdateInfoAsync()
         {
+            var connection = LandConquestDB.DbContext.GetTempSqlConnection();
             while (true)
             {
                 try
                 {
+                    connection.Open();
                     await Task.Delay(10000);
-                    taxes = TaxesModel.GetTaxesInfo(taxes);
+                    taxes = TaxesModel.GetTaxesInfo(taxes, connection);
                     player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
 
-                    player = PlayerModel.UpdatePlayerMoney(player);
-                    TaxesModel.SaveTaxes(taxes);
-                    lands = LandModel.GetLandsInfo(lands);
+                    player = PlayerModel.UpdatePlayerMoney(player, connection);
+                    TaxesModel.SaveTaxes(taxes, connection);
+                    lands = LandModel.GetLandsInfo(lands, connection);
                     await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); RedrawGlobalMap(); }));
                     Console.WriteLine("End of loop");
+                    connection.Close();
                 }
                 catch { }
             }
