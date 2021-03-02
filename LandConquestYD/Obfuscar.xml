@@ -13,5 +13,4 @@
   <Var name="OptimizeMethods" value="true" />
   <Var name="SuppressIldasm" value="true" />
   <Module file="$(InPath)/LandConquestYD.dll" />
-  <Module file="$(InPath)/KSecure.dll" />
 </Obfuscator>
