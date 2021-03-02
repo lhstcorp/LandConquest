@@ -45,38 +45,36 @@ namespace LandConquestYD
 
         public static int CountConnections()
         {
-            ConnectionSourceFileName = "onlinenow_" + GetDeviceId() + ".ttf";
+            ConnectionSourceFileName = "onlinenow_" + GetDeviceId();
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + ConnectionSourceFileName;
             File.AppendAllText(path, "");
             disk.UploadResource("countstatus/" + ConnectionSourceFileName, path, true);
+            disk.PublicResource("countstatus/" + ConnectionSourceFileName);
             File.Delete(path);
-            ResInfo filesByNameFields = disk.GetResourceByName(
-                1000000,
-                new Media_type[]
-                {
-                    Media_type.Font
-                },
-                SortField.Path,
+
+            int count = 0;
+            ResInfo connectionInfo = disk.GetResourcePublic(
+                1000,
+                TypeRes.File,
                 new ResFields[] {
-                    ResFields.Media_type,
                     ResFields.Name,
-                    ResFields.Path,
-                    ResFields._Embedded
                 },
                 0, true, "120x240"
                 );
-            int count = 0;
-            if (filesByNameFields.ErrorResponse.Message == null)
+
+            if (connectionInfo.ErrorResponse.Message == null)
             {
-                if (filesByNameFields._Embedded.Items.Count != 0)
-                    foreach (var s in filesByNameFields._Embedded.Items)
-                    {
+
+                if (connectionInfo._Embedded.Items.Count != 0)
+                    foreach (var s in connectionInfo._Embedded.Items)
                         if (s.Name.Contains("onlinenow_"))
+                        {
                             count++;
-                    }
+                        }
             }
             return count;
         }
+
         public static void DeleteConnectionId()
         {
             disk.DeleteResource("countstatus/" + ConnectionSourceFileName, false);
@@ -93,7 +91,7 @@ namespace LandConquestYD
 
         public static void BanDeviceById(string information)
         {
-            string destFileName = "cheater_" + GetDeviceId() + ".cpp";
+            string destFileName = "cheater_" + GetDeviceId();
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
             File.AppendAllText(path, information);
             disk.UploadResource("BanList/" + destFileName, path, true);
@@ -102,30 +100,10 @@ namespace LandConquestYD
 
         public static void CheckIfCheater()
         {
-            ResInfo filesByNameFields = disk.GetResourceByName(
-               1000000,
-               new Media_type[]
-               {
-                    Media_type.Development
-               },
-               SortField.Path,
-               new ResFields[] {
-                    ResFields.Media_type,
-                    ResFields.Name,
-                    ResFields.Path,
-                    ResFields._Embedded
-               },
-               0, true, "120x240"
-               );
-
-            if (filesByNameFields.ErrorResponse.Message == null)
+            var result = ReadResource("BanList/cheater_" + GetDeviceId());
+            if (result != null)
             {
-                if (filesByNameFields._Embedded.Items.Count != 0)
-                    foreach (var s in filesByNameFields._Embedded.Items)
-                    {
-                        if (s.Name.Contains("cheater_" + GetDeviceId()))
-                            Environment.Exit(0);
-                    }
+                Environment.Exit(0);
             }
         }
 
@@ -145,7 +123,7 @@ namespace LandConquestYD
                 return true;
             }
         }
-        
+
 
         private static string CommandDisk(string oauth, Param param)
         {
