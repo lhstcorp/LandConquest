@@ -1,24 +1,12 @@
-﻿using LandConquestDB.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
+﻿using System.Windows;
 namespace LandConquest.Forms
 {
     public partial class MailboxWindow : Window
     {
-        public MailboxWindow(Player _player)
+        private string PlayerName;
+        public MailboxWindow(string _playerName)
         {
+            PlayerName = _playerName;
             InitializeComponent();
         }
 
@@ -29,7 +17,28 @@ namespace LandConquest.Forms
 
         private void ButtonSendMessage_Click(object sender, RoutedEventArgs e)
         {
-
+            if (TextBoxMessage.Text.Length != 0)
+            {
+                if (TextBoxReceiver.Text != PlayerName && !LandConquestDB.Models.UserModel.ValidateUserByLogin(TextBoxReceiver.Text))
+                {
+                    var result = LandConquestYD.YDMessaging.CreateAndSendMessage(TextBoxMessage.Text, PlayerName, TextBoxReceiver.Text);
+                    if (result)
+                    {
+                        DialogWIndows.WarningDialogWindow.CallInfoDialogNoResult("Message was successfully sent. Note that all undelivered messages are automatically deleted at the end of each month. Please, try not to spam.");
+                    }
+                    else
+                    {
+                        DialogWIndows.WarningDialogWindow.CallWarningDialogNoResult("Error!");
+                    }
+                }
+                else
+                {
+                    DialogWIndows.WarningDialogWindow.CallWarningDialogNoResult("Error sending message! Check if player with this name exists");
+                }
+            } else
+            {
+                DialogWIndows.WarningDialogWindow.CallWarningDialogNoResult("Empty message is not allowed.");
+            }
         }
     }
 }

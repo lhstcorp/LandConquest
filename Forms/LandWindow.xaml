@@ -7,23 +7,43 @@
         mc:Ignorable="d" ResizeMode="NoResize" WindowStyle="None"
         Title="LandWindow" Height="450" Width="800">
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
-    <Grid>
-        <Button x:Name="buttonExit" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Click="btnWarWindowClose_Click" Margin="0,1,1.4,0" BorderBrush="{x:Null}" Foreground="{x:Null}" RenderTransformOrigin="0.541,0.51" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
-            </Button.Background>
-        </Button>
+        <Grid>
+            <Button x:Name="buttonExit" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Click="btnWarWindowClose_Click" Margin="0,1,1.6,0" BorderBrush="{x:Null}" Foreground="{x:Null}" RenderTransformOrigin="0.541,0.51" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Grid.Column="1">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+                </Button.Background>
+            </Button>
 
-            <Button x:Name="buttonCastleManagement" Content="Castle management" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="66" Margin="10,149,0,0" VerticalAlignment="Top" Width="297" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua" Click="buttonCastleManagement_Click">
+            <Button x:Name="buttonCastleManagement" Content="Castle management" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="66" Margin="23,248,0,0" VerticalAlignment="Top" Width="260" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua" Click="buttonCastleManagement_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Label x:Name="landNamelbl" Content="Land name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="143"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="29" Margin="59,7,0,0" Stroke="#311818" StrokeThickness="1" VerticalAlignment="Top" Width="177"/>
+            <Label x:Name="landNamelbl" FontSize="24" Foreground="#76143c" FontWeight="Bold" FontFamily="/Fonts/#Harrington" Content="Land name" HorizontalAlignment="Left" Margin="66,1,0,0" VerticalAlignment="Top" Width="172"/>
+
+            <Image HorizontalAlignment="Left" Source="/Pictures/Experimental/cityForLandWindow.jpg" Height="302" Margin="367,26,0,0" VerticalAlignment="Top" Width="397"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="79" Margin="22,55,0,0" Fill="#F7CAA6" Stroke="#311818" StrokeThickness="2" VerticalAlignment="Top" Width="79"/>
+            <Image HorizontalAlignment="Left" Height="75" Margin="23,57,0,0" VerticalAlignment="Top" Width="75" Source="/Pictures/LandWindow/castle.png"/>
+            <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Height="25" Margin="99,55,0,0" Stroke="#311818" StrokeThickness="2" VerticalAlignment="Top" Width="44"/>
+            <Label Content="lvl" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="100,56,0,0" VerticalAlignment="Top"/>
+            <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Height="25" Margin="99,77,0,0" Stroke="#311818" StrokeThickness="2" VerticalAlignment="Top" Width="44"/>
+            <Label Content="harris" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="100,77,0,0" VerticalAlignment="Top"/>
+            <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Height="25" Margin="141,55,0,0" Stroke="#311818" StrokeThickness="2" VerticalAlignment="Top" Width="44"/>
+            <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Height="25" Margin="141,77,0,0" Stroke="#311818" StrokeThickness="2" VerticalAlignment="Top" Width="44"/>
+            <Label x:Name="castleLvlLBL" Content="0" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="141,56,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="harrisonCountLBL" Content="0" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="141,77,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="harrisonBtn" Foreground="#FFDFC58E" Content="Manage" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="35" Margin="98.7,100,0,0" VerticalAlignment="Top" Width="86.8" Click="harrisonBtn_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
 
             <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
-        </Grid.Background>
-    </Grid>
-        </Border>
+                <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+        </Grid>
+    </Border>
 </Window>

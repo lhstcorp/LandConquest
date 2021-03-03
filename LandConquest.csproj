@@ -100,6 +100,15 @@
   <PropertyGroup>
     <StartupObject>LandConquest.App</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
@@ -176,8 +185,17 @@
     <Compile Include="DialogWIndows\CreateListingDialog.xaml.cs">
       <DependentUpon>CreateListingDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\EnterTextDialogWindow.xaml.cs">
+      <DependentUpon>EnterTextDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\EstablishStateDialog.xaml.cs">
       <DependentUpon>EstablishStateDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogWIndows\MessageReceiverDialog.xaml.cs">
+      <DependentUpon>MessageReceiverDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogWIndows\SendArmiesToHarrisonDialog.xaml.cs">
+      <DependentUpon>SendArmiesToHarrisonDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="DialogWIndows\SplitArmyDialog.xaml.cs">
       <DependentUpon>SplitArmyDialog.xaml</DependentUpon>
@@ -194,9 +212,6 @@
     <Compile Include="Forms\ChatWindow.xaml.cs">
       <DependentUpon>ChatWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CoffersWindow.xaml.cs">
-      <DependentUpon>CoffersWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Forms\CountryWindow.xaml.cs">
       <DependentUpon>CountryWindow.xaml</DependentUpon>
     </Compile>
@@ -205,6 +220,9 @@
     </Compile>
     <Compile Include="Forms\MailboxWindow.xaml.cs">
       <DependentUpon>MailboxWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MessengerWindow.xaml.cs">
+      <DependentUpon>MessengerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\MarketWindow.xaml.cs">
       <DependentUpon>MarketWindow.xaml</DependentUpon>
@@ -232,6 +250,7 @@
     </Compile>
     <Compile Include="Logic\ConsumptionLogic.cs" />
     <Compile Include="Logic\LauncherLogic.cs" />
+    <Compile Include="Logic\RewardLogic.cs" />
     <Compile Include="Logic\WarLogic.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -259,15 +278,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DialogWIndows\EnterTextDialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DialogWIndows\EstablishStateDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DialogWIndows\ManufactureBuyingDialog.xaml">
+    <Page Include="DialogWIndows\ManufactureUpgradeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DialogWIndows\ManufactureUpgradeDialog.xaml">
+    <Page Include="DialogWIndows\MessageReceiverDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\SendArmiesToHarrisonDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,9 +322,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DialogWIndows\ManufactureBuyingDialog.xaml.cs">
-      <DependentUpon>ManufactureBuyingDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DialogWIndows\ManufactureUpgradeDialog.xaml.cs">
       <DependentUpon>ManufactureUpgradeDialog.xaml</DependentUpon>
     </Compile>
@@ -306,10 +330,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Forms\ChatWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Forms\CoffersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -322,6 +342,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Forms\MailboxWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\MessengerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -408,16 +432,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\Fonts\HARNGTON.TTF" />
+    <Resource Include="Fonts\HARNGTON.TTF" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -427,7 +452,7 @@
     <Resource Include="Pictures\profileDefault.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pictures\resource_chest.png" />
+    <Resource Include="Pictures\Icons\Menu\IconStorage.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\stones.png" />
@@ -587,57 +612,54 @@
     <Resource Include="Pictures\Experimental\globe.png" />
     <Resource Include="Pictures\Buildings\Fortress.png" />
     <Resource Include="Pictures\Buildings\City.png" />
-    <Content Include="Resources\Buildings\arch.svg" />
-    <Content Include="Resources\Buildings\blacksmith.svg" />
-    <Content Include="Resources\Buildings\bridge_stone2.svg" />
-    <Content Include="Resources\Buildings\bridge_wood.svg" />
-    <Content Include="Resources\Buildings\caravan.svg" />
-    <Content Include="Resources\Buildings\caravan_wreck.svg" />
-    <Content Include="Resources\Buildings\cathedral.svg" />
-    <Content Include="Resources\Buildings\cave_entrance.svg" />
-    <Content Include="Resources\Buildings\circus.svg" />
-    <Content Include="Resources\Buildings\city.svg" />
-    <Content Include="Resources\Buildings\docks.svg" />
-    <Content Include="Resources\Buildings\farm.svg" />
-    <Content Include="Resources\Buildings\fishery.svg" />
-    <Content Include="Resources\Buildings\fort.svg" />
-    <Content Include="Resources\Buildings\fortress.svg" />
-    <Content Include="Resources\Buildings\fountain.svg" />
-    <Content Include="Resources\Buildings\gallows.svg" />
-    <Content Include="Resources\Buildings\gate.svg" />
-    <Content Include="Resources\Buildings\graveyard.svg" />
-    <Content Include="Resources\Buildings\hunter.svg" />
-    <Content Include="Resources\Buildings\inn.svg" />
-    <Content Include="Resources\Buildings\jailhouse.svg" />
-    <Content Include="Resources\Buildings\magic_stones.svg" />
-    <Content Include="Resources\Buildings\maze.svg" />
-    <Content Include="Resources\Buildings\mine.svg" />
-    <Content Include="Resources\Buildings\monastery.svg" />
-    <Content Include="Resources\Buildings\obelisk.svg" />
-    <Content Include="Resources\Buildings\pond.svg" />
-    <Content Include="Resources\Buildings\pyramid.svg" />
-    <Content Include="Resources\Buildings\ruins.svg" />
-    <Content Include="Resources\Buildings\shipwreck.svg" />
-    <Content Include="Resources\Buildings\sign_crossroad.svg" />
-    <Content Include="Resources\Buildings\sign_left.svg" />
-    <Content Include="Resources\Buildings\sign_post.svg" />
-    <Content Include="Resources\Buildings\stables.svg" />
-    <Content Include="Resources\Buildings\statue.svg" />
-    <Content Include="Resources\Buildings\tavern.svg" />
-    <Content Include="Resources\Buildings\tent.svg" />
-    <Content Include="Resources\Buildings\totem.svg" />
-    <Content Include="Resources\Buildings\tower_round.svg" />
-    <Content Include="Resources\Buildings\tower_round_flag.svg" />
-    <Content Include="Resources\Buildings\tower_square.svg" />
-    <Content Include="Resources\Buildings\townhall.svg" />
-    <Content Include="Resources\Buildings\university.svg" />
-    <Content Include="Resources\Buildings\village.svg" />
-    <Content Include="Resources\Buildings\warehouse.svg" />
-    <Content Include="Resources\Buildings\watch_tower.svg" />
-    <Content Include="Resources\Buildings\windmill.svg" />
-    <Content Include="Resources\Buildings\wishing_well.svg" />
+    <Resource Include="Pictures\splashscreen.png" />
+    <Resource Include="Pictures\Buildings\Warehouse.png" />
+    <Resource Include="Pictures\Buildings\Cathedral.png" />
+    <Resource Include="Pictures\Buildings\Fort.png" />
+    <Resource Include="Pictures\Buildings\Monastery.png" />
+    <Resource Include="Pictures\Buildings\Tavern.png" />
+    <Resource Include="Pictures\Buildings\Townhall.png" />
+    <Resource Include="Pictures\Buildings\University.png" />
+    <Resource Include="Pictures\Buildings\Inn.png" />
+    <Resource Include="Pictures\Buildings\Tent.png" />
+    <Resource Include="Pictures\Buildings\Caravan.png" />
+    <Resource Include="Pictures\Buildings\Stables.png" />
+    <Resource Include="Pictures\Icons\Menu\IconAuction.png" />
+    <Resource Include="Pictures\Menu items\Market.png" />
+    <Resource Include="Pictures\Menu items\Storage.png" />
+    <Resource Include="Pictures\Menu items\Industry.png" />
+    <Resource Include="Pictures\Experimental\harrison.jpg" />
+    <Resource Include="Pictures\Buildings\Piggery.png" />
+    <Resource Include="Pictures\Buildings\Quarry.png" />
+    <Resource Include="Pictures\Stonemanson.png" />
+    <Resource Include="Pictures\Buildings\Sawmill.png" />
+    <Resource Include="Pictures\Buildings\GoldMine.png" />
+    <Resource Include="Pictures\Buildings\Bakery.png" />
+    <Resource Include="Pictures\Buildings\Brewery.png" />
+    <Resource Include="Pictures\Buildings\Stonemanson.png" />
+    <Resource Include="Pictures\Buildings\UpgradeHouse.png" />
+    <Resource Include="Pictures\Buildings\Castle.png" />
+    <Resource Include="Pictures\Buildings\Windmill.png" />
     <Resource Include="Pictures\icon_chain_breast.png" />
     <Resource Include="Pictures\icon_leather_chest1.png" />
+    <Resource Include="Pictures\Icons\Army\IconArcher.PNG" />
+    <Resource Include="Pictures\Icons\Army\IconCatapult.png" />
+    <Resource Include="Pictures\Icons\Army\IconKnight.png" />
+    <Resource Include="Pictures\Icons\Army\IconPeasant.png" />
+    <Resource Include="Pictures\Icons\Army\IconInfantry.png" />
+    <Resource Include="Pictures\Icons\Army\IconSiegeMachine.png" />
+    <Resource Include="Pictures\Icons\Menu\IconIndustry.png" />
+    <Resource Include="Pictures\Icons\Menu\IconRecruit.png" />
+    <Resource Include="Pictures\Icons\Menu\IconCountry.png" />
+    <Resource Include="Pictures\Icons\Menu\IconMarket.png" />
+    <Resource Include="Pictures\Icons\Menu\IconRegion.png" />
+    <Resource Include="Pictures\Icons\MainWindow\IconRegionMap.png" />
+    <Resource Include="Pictures\Icons\MainWindow\IconResourceMap.png" />
+    <Resource Include="Pictures\Icons\UI\IconArrowUp.png" />
+    <Resource Include="Pictures\Icons\UI\IconArrowDown.png" />
+    <Resource Include="Pictures\Experimental\castleForHarrison.jpg" />
+    <Resource Include="Pictures\Experimental\cityForLandWindow.jpg" />
+    <Resource Include="Pictures\LandWindow\castle.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

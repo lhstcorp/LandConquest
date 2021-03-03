@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using LandConquest.DialogWIndows;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace LandConquest.Forms
     public partial class LandWindow : Window
     {
         private Player player;
+        private Land land;
         public LandWindow(Player _player)
         {
             player = _player;
@@ -32,8 +34,17 @@ namespace LandConquest.Forms
 
         private void LandWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            Land land = LandModel.GetLandInfo(player.PlayerCurrentRegion);
+            land = LandModel.GetLandInfo(player.PlayerCurrentRegion);
             landNamelbl.Content = land.LandName;
+            LoadCastleContent();
+        }
+
+        private void LoadCastleContent()
+        {
+            Castle castle = CastleModel.GetCastleInfo(land.LandId);
+            castleLvlLBL.Content = castle.CastleLvl;
+
+            harrisonCountLBL.Content = castle.CastleLvl;
         }
 
         private void btnWarWindowClose_Click(object sender, RoutedEventArgs e)
@@ -44,6 +55,14 @@ namespace LandConquest.Forms
         private void buttonCastleManagement_Click(object sender, RoutedEventArgs e)
         {
             CastleManagementWindow openedWindow = new CastleManagementWindow(player);
+            openedWindow.Owner = Application.Current.MainWindow;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+        }
+
+        private void harrisonBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SendArmiesToHarrisonDialog openedWindow = new SendArmiesToHarrisonDialog(player);
             openedWindow.Owner = Application.Current.MainWindow;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();

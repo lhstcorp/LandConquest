@@ -25,8 +25,8 @@ namespace LandConquest
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
             YDContext.OpenYD();
-            //LauncherLogic.DisableActiveCheatsAsync();
-            //LauncherLogic.CheckLocalUtcDateTime();
+            LauncherLogic.DisableActiveCheatsAsync();
+            LauncherLogic.CheckLocalUtcDateTime();
             LandConquestDB.DbContext.OpenConnectionPool();
             CheckVersion();
             currentOnlineLabel.Content = YDContext.CountConnections();
@@ -41,6 +41,8 @@ namespace LandConquest
 
             if (user.UserLogin == textBoxLogin.Text && user.UserPass == textBoxPass.Password)
             {
+                LauncherLogic.CallSplashScreen();
+
                 MainWindow mainWindow = new MainWindow(user);
                 mainWindow.Show();
 
@@ -77,6 +79,7 @@ namespace LandConquest
                 textBoxNewLogin.Text.Any(x => char.IsLetter(x)) &&
                 EmailValidator.Validate(textBoxNewEmail.Text, true, true) &&
                 textBoxNewPass.Text.Length > 6 &&
+                textBoxNewPass.Text.Any(x => char.IsLetter(x)) &&
                 validNewUserLogin == true &&
                 validNewUserEmail == true &&
                 textBoxNewPass.Text == textBoxConfirmNewPass.Text)
@@ -113,11 +116,8 @@ namespace LandConquest
             }
             else
             {
-                textBoxNewLogin.Text = "";
-                textBoxNewEmail.Text = "";
-                textBoxNewPass.Text = "";
                 textBoxConfirmNewPass.Text = "";
-                WarningDialogWindow.CallWarningDialogNoResult("Your login and email should be unique. Password should contain letters and be at least 6 characters long.");
+                WarningDialogWindow.CallWarningDialogNoResult("Your login and email should be unique. Password and login should contain letters and be at least 6 characters long.");
             }
         }
 

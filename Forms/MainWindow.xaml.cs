@@ -147,7 +147,8 @@ namespace LandConquest.Forms
             //////////////////
             ConsumptionLogic.ConsumptionCount(player, storage);
             //ConsumptionLogic.ConsumptionCountAsync(player, storage);
-            //////////////////
+            //////////////////           
+            DailyBonusCount(player);
 
 
             settingsGrid.Visibility = Visibility.Hidden;
@@ -155,6 +156,7 @@ namespace LandConquest.Forms
             btnShowLandGrid.Visibility = Visibility.Hidden;
             btnShowLeaderGrid.Visibility = Visibility.Hidden;
             BtnShowTaxesGrid.Visibility = Visibility.Hidden;
+            BtnShowDailyBonusGrid.Visibility = Visibility.Hidden;
 
             GetWorldLeader();
 
@@ -280,17 +282,6 @@ namespace LandConquest.Forms
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
-
-        private void CoffersImage_MouseDown(object sender, RoutedEventArgs e)
-        {
-            CloseUnusedWindows();
-            openedWindow = new CoffersWindow(player);
-            openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            openedWindow.Show();
-            openedWindow.Closed += FreeData;
-        }
-
         private void buttonSubmitBug_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
@@ -324,11 +315,21 @@ namespace LandConquest.Forms
         private void ButtonMailbox_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new MailboxWindow(player);
+            openedWindow = new MailboxWindow(player.PlayerName);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
+
+            var messagesList = LandConquestYD.YDMessaging.GetAllMessagesName(player.PlayerName);
+            int counter = 0;
+            foreach(var messageName in messagesList)
+            {
+                counter++;
+                string messageText = LandConquestYD.YDContext.ReadResource("Messages/" + messageName);
+                MessageReceiverDialog.ShowReceivedMessage(messageName.Remove(0, 6).Replace("mail.txt", "").Replace(player.PlayerName, "").Replace("_", ""), messageText, counter);
+                LandConquestYD.YDMessaging.DeleteReadedMessage(messageName);
+            }
         }
 
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
@@ -362,19 +363,22 @@ namespace LandConquest.Forms
         //}
         private async Task UpdateInfoAsync()
         {
+            var connection = LandConquestDB.DbContext.GetTempSqlConnection();
             while (true)
             {
                 try
                 {
+                    connection.Open();
                     await Task.Delay(10000);
-                    taxes = TaxesModel.GetTaxesInfo(taxes);
+                    taxes = TaxesModel.GetTaxesInfo(taxes, connection);
                     player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
 
-                    player = PlayerModel.UpdatePlayerMoney(player);
-                    TaxesModel.SaveTaxes(taxes);
-                    lands = LandModel.GetLandsInfo(lands);
+                    player = PlayerModel.UpdatePlayerMoney(player, connection);
+                    TaxesModel.SaveTaxes(taxes, connection);
+                    lands = LandModel.GetLandsInfo(lands, connection);
                     await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); RedrawGlobalMap(); }));
                     Console.WriteLine("End of loop");
+                    connection.Close();
                 }
                 catch { }
             }
@@ -682,16 +686,24 @@ namespace LandConquest.Forms
             }
         }
 
-        private void ResourceMapBtn_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            GlobalMap.Visibility = Visibility.Hidden;
-            ResourceMap.Visibility = Visibility.Visible;
-        }
 
-        private void GlobalMapBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        private void ChangeMapType(object sender, RoutedEventArgs e)
         {
-            ResourceMap.Visibility = Visibility.Hidden;
-            GlobalMap.Visibility = Visibility.Visible;
+            if(GlobalMap.Visibility == Visibility.Visible)
+            {
+                GlobalMap.Visibility = Visibility.Hidden;
+                GlobalMapBtn.Visibility = Visibility.Hidden;
+                ResourceMap.Visibility = Visibility.Visible;
+                ResourceMapBtn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ResourceMap.Visibility = Visibility.Hidden;
+                ResourceMapBtn.Visibility = Visibility.Hidden;
+                GlobalMap.Visibility = Visibility.Visible;
+                GlobalMapBtn.Visibility = Visibility.Visible;
+            }
+                    
         }
 
         private void btnGoToLand_Click(object sender, RoutedEventArgs e)
@@ -990,6 +1002,59 @@ namespace LandConquest.Forms
             TaxesGrid.Visibility = Visibility.Visible;
             TaxesBorder.Visibility = Visibility.Visible;
             BtnShowTaxesGrid.Visibility = Visibility.Hidden;
+        }
+
+        /// <summary>
+        /// /////////////////////////////////// DAILY BONUS //////////////////////////////////////////////////////////
+        /// </summary>
+
+        private void DailyButton_Click(object sender, RoutedEventArgs e)
+        {
+            var nextDailyBonus = DailyBonusModel.GetNextDailyBonusTime(player);
+            if (nextDailyBonus <= DateTime.UtcNow)
+            {
+                DailyBonusModel.UpdateNextDailyBonusTime(player);
+                RewardLogic.GiveDailyBonus(player);
+                DailyBonusCount(player);
+            }
+        }
+
+        private void DailyBonusCount(Player player)
+        {
+            var nextDailyBonus = DailyBonusModel.GetNextDailyBonusTime(player);
+            if (nextDailyBonus == DateTime.MinValue)
+            {
+                DailyBonusModel.SetFirstDailyBonusTime(player);
+                DailyButton.IsEnabled = true;
+                DailyButton.Content = "Claim";
+                lblNextDaily.Content = "Avaible";
+            }
+            else if (nextDailyBonus <= DateTime.UtcNow)
+            {
+                DailyButton.IsEnabled = true;
+                DailyButton.Content = "Claim";
+                lblNextDaily.Content = "Avaible";
+            }
+            else
+            {
+                DailyButton.IsEnabled = false;
+                DailyButton.Content = "Claimed";
+                lblNextDaily.Content = nextDailyBonus;
+            }
+        }
+
+        private void BtnHideDailyBonusGrid_Click(object sender, RoutedEventArgs e)
+        {
+            DailyBonusGrid.Visibility = Visibility.Hidden;
+            DailyBonusBorder.Visibility = Visibility.Hidden;
+            BtnShowDailyBonusGrid.Visibility = Visibility.Visible;
+        }
+
+        private void BtnShowDailyBonusGrid_Click(object sender, RoutedEventArgs e)
+        {
+            DailyBonusGrid.Visibility = Visibility.Visible;
+            DailyBonusBorder.Visibility = Visibility.Visible;
+            BtnShowDailyBonusGrid.Visibility = Visibility.Hidden;
         }
     }
 }

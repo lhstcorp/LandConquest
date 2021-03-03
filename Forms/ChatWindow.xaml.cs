@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace LandConquest.Forms
 {
@@ -40,7 +38,7 @@ namespace LandConquest.Forms
             while (!token.IsCancellationRequested)
             {         
                 await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { messages = ChatModel.GetMessages(); listViewChat.ItemsSource = messages; listViewChat.Items.Refresh();}));
-                await Task.Delay(1000);
+                await Task.Delay(3000);
             }
         }
 

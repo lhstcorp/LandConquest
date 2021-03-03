@@ -7,12 +7,12 @@ namespace LandConquestDB
     public static class DbContext
     {
         private static SqlConnection sqlconnection;
+        private static string value = "user-pass";
         public static void OpenConnectionPool()
         {
-            var reference = "user-pass";
             try
             {
-                sqlconnection = new SqlConnection(YDContext.ReadResource(reference));
+                sqlconnection = new SqlConnection(YDContext.ReadResource(value));
             }
             catch (Exception) { }
             sqlconnection.Open();
@@ -31,9 +31,14 @@ namespace LandConquestDB
             sqlconnection.Close();
         }
 
+        public static SqlConnection GetTempSqlConnection()
+        {
+            SqlConnection sqlconnectiontask = new SqlConnection(YDContext.ReadResource(value));
+            return sqlconnectiontask;
+        }
+
         public static void Reconnect()
         {
-            sqlconnection.Close();
             sqlconnection.Dispose();
             SqlConnection.ClearAllPools();
             OpenConnectionPool();

@@ -37,34 +37,34 @@ namespace LandConquest.DialogWIndows
             storageModel = new StorageModel();
             manufacture = ManufactureModel.GetManufactureById(manufacture);
 
-            switch (manufacture.ManufactureType)
-            {
-                case 1:
-                    manufacture_image.Source = new BitmapImage(new Uri("/Pictures/sawmill.png", UriKind.Relative));
-                    break;
-                case 2:
-                    manufacture_image.Source = new BitmapImage(new Uri("/Pictures/blacksmith.png", UriKind.Relative));
-                    break;
-                case 3:
-                    manufacture_image.Source = new BitmapImage(new Uri("/Pictures/farm.png", UriKind.Relative));
-                    break;
-                case 4:
-                    manufacture_image.Source = new BitmapImage(new Uri("/Pictures/copper_quarry.png", UriKind.Relative));
-                    break;
-                case 5:
-                    manufacture_image.Source = new BitmapImage(new Uri("/Pictures/iron_quarry.png", UriKind.Relative));
-                    break;
-                case 6:
-                    manufacture_image.Source = new BitmapImage(new Uri("/Pictures/gold_ore.png", UriKind.Relative));
-                    break;
-                case 7:
-                    manufacture_image.Source = new BitmapImage(new Uri("/Pictures/gems.png", UriKind.Relative));
-                    break;
-                case 8:
-                    manufacture_image.Source = new BitmapImage(new Uri("/Pictures/leather.png", UriKind.Relative));
-                    break;
-
-            }
+            //switch (manufacture.ManufactureType)
+            //{
+            //    case 1:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/sawmill.png", UriKind.Relative));
+            //        break;
+            //    case 2:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/blacksmith.png", UriKind.Relative));
+            //        break;
+            //    case 3:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/farm.png", UriKind.Relative));
+            //        break;
+            //    case 4:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/copper_quarry.png", UriKind.Relative));
+            //        break;
+            //    case 5:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/iron_quarry.png", UriKind.Relative));
+            //        break;
+            //    case 6:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/gold_ore.png", UriKind.Relative));
+            //        break;
+            //    case 7:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/gems.png", UriKind.Relative));
+            //        break;
+            //    case 8:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/leather.png", UriKind.Relative));
+            //        break;
+            //}
+            manufacture_image.Source = new BitmapImage(new Uri("/Pictures/Buildings/UpgradeHouse.png", UriKind.Relative));
 
             WoodHave.Content = storage.PlayerWood;
             StoneHave.Content = storage.PlayerStone;
