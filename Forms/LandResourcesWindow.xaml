@@ -78,45 +78,69 @@
             <TextBox x:Name="DonateLeatherTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="39,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
 
 
-            <Button x:Name="DonateWoodButton" Content="Donate" HorizontalAlignment="Left" Margin="39,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}"   >
+            <Button x:Name="DonateWoodButton" HorizontalAlignment="Left" Margin="39,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" /> 
+                </Viewbox>
             </Button>
-            <Button x:Name="DonateStoneButton" Content="Donate" HorizontalAlignment="Left" Margin="144,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}"   >
+            <Button x:Name="DonateStoneButton" HorizontalAlignment="Left" Margin="144,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="12" />
+                </Viewbox>
             </Button>
-            <Button x:Name="DonateFoodButton" Content="Donate" HorizontalAlignment="Left" Margin="250,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}"   >
+            <Button x:Name="DonateFoodButton" HorizontalAlignment="Left" Margin="250,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="14" />
+                </Viewbox>
             </Button>
-            <Button x:Name="DonateIronButton" Content="Donate" HorizontalAlignment="Left" Margin="354,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}"   >
+            <Button x:Name="DonateIronButton" HorizontalAlignment="Left" Margin="354,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="16" />
+                </Viewbox>
             </Button>
-            <Button x:Name="DonateGoldButton" Content="Donate" HorizontalAlignment="Left" Margin="354,322,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}"   >
+            <Button x:Name="DonateGoldButton" HorizontalAlignment="Left" Margin="354,322,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" />
+                </Viewbox>
             </Button>
-            <Button x:Name="DonateCopperButton" Content="Donate" HorizontalAlignment="Left" Margin="250,322,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}"   >
+            <Button x:Name="DonateCopperButton" HorizontalAlignment="Left" Margin="250,322,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" />
+                </Viewbox>
             </Button>
-            <Button x:Name="DonateGemsButton" Content="Donate" HorizontalAlignment="Left" Margin="144,322,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}"   >
+            <Button x:Name="DonateGemsButton" HorizontalAlignment="Left" Margin="144,322,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" />
+                </Viewbox>
             </Button>
-            <Button x:Name="DonateLeatherButton" Content="Donate" HorizontalAlignment="Left" Margin="39,322,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}"   >
+            <Button x:Name="DonateLeatherButton" HorizontalAlignment="Left" Margin="39,322,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" />
+                </Viewbox>
             </Button>
 
 

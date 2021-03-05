@@ -10,9 +10,8 @@ namespace LandConquestDB.Models
 {
     public class LandStorageModel
     {
-        public static LandStorage GetLandStorage(Land land)
+        public static LandStorage GetLandStorage(Land land, LandStorage landStorage)
         {
-            LandStorage landStorage = new LandStorage();
             string storageQuery = "SELECT * FROM dbo.LandStorage WHERE land_id = @land_id";
 
             var command = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
@@ -20,7 +19,7 @@ namespace LandConquestDB.Models
 
             using (var reader = command.ExecuteReader())
             {
-                var landId = reader.GetOrdinal("country_id");
+                var landId = reader.GetOrdinal("land_id");
                 var landWood = reader.GetOrdinal("wood");
                 var landStone = reader.GetOrdinal("stone");
                 var landFood = reader.GetOrdinal("food");
@@ -62,7 +61,7 @@ namespace LandConquestDB.Models
             countryStorageCommand.Parameters.AddWithValue("@gems", _landStorage.LandGems);
             countryStorageCommand.Parameters.AddWithValue("@gold_ore", _landStorage.LandGoldOre);
             countryStorageCommand.Parameters.AddWithValue("@leather", _landStorage.LandLeather);
-            countryStorageCommand.Parameters.AddWithValue("@country_id", land.LandId);
+            countryStorageCommand.Parameters.AddWithValue("@land_id", land.LandId);
 
 
             for (int i = 0; i < 3; i++)

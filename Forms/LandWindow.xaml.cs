@@ -24,6 +24,8 @@ namespace LandConquest.Forms
     {
         private Player player;
         private Land land;
+        private LandStorage landStorage;
+        private PlayerStorage storage;
         public LandWindow(Player _player)
         {
             player = _player;
@@ -63,6 +65,14 @@ namespace LandConquest.Forms
         private void harrisonBtn_Click(object sender, RoutedEventArgs e)
         {
             SendArmiesToHarrisonDialog openedWindow = new SendArmiesToHarrisonDialog(player);
+            openedWindow.Owner = Application.Current.MainWindow;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+        }
+
+        private void buttonLandResources_Click(object sender, RoutedEventArgs e)
+        {
+            LandResourcesWindow openedWindow = new LandResourcesWindow(player, storage, landStorage, land);
             openedWindow.Owner = Application.Current.MainWindow;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
