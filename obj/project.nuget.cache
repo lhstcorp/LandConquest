@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "qcU1Q+zSLx7BvUmJIMJ6ZzGWBxiIsS3aM6nnTws/x+ypUlhJ07r+aTXsTvFna2tqo72lZehkHf5oTwQRxuXhqQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\green\\.nuget\\packages\\emailvalidation\\1.0.4\\emailvalidation.1.0.4.nupkg.sha512",
+    "C:\\Users\\green\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
+    "C:\\Users\\green\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512",
+    "C:\\Users\\green\\.nuget\\packages\\microsoft.vcrtforwarders.140\\1.0.6\\microsoft.vcrtforwarders.140.1.0.6.nupkg.sha512",
+    "C:\\Users\\green\\.nuget\\packages\\msbuild.obfuscar\\2.2.29.1\\msbuild.obfuscar.2.2.29.1.nupkg.sha512",
+    "C:\\Users\\green\\.nuget\\packages\\obfuscar\\2.2.29\\obfuscar.2.2.29.nupkg.sha512"
+  ],
+  "logs": []
+}
