@@ -22,6 +22,7 @@ namespace LandConquest.Forms
         private int employedPeasantsCount;
         private int peasantsWorkingOnB1 = 0;
         private int peasantsWorkingOnB2 = 0;
+        private DateTime dateStarted;
 
         public ManufactureWindow(Player _player, Manufacture _manufacture, PlayerStorage _storage)
         {
@@ -83,7 +84,9 @@ namespace LandConquest.Forms
             sliderQuarry.Value = manufactures[1].ManufacturePeasantWork;
             sliderQuarry.Maximum = manufactures[1].ManufacturePeasantMax;
 
+            dateStarted = ManufactureModel.GetManufactureProdStartTime(player);
             ManufactureStatucCheck();
+            ProductionStatusButton();
 
             Sawmilllvl.Content = manufactures[0].ManufactureLevel;
             PbSawmill.Maximum = manufactures[0].ManufacturePeasantMax;
@@ -168,15 +171,14 @@ namespace LandConquest.Forms
         {
             labelProductionStarted.Visibility = Visibility.Hidden;
             labelPS.Visibility = Visibility.Hidden;
-            var dateStated = ManufactureModel.GetManufactureProdStartTime(player);
-            if (dateStated != DateTime.MinValue)
+            if (dateStarted != DateTime.MinValue)
             {
                 if (Convert.ToInt32(employedPeasants.Content) != 0)
                 {
                     labelProductionStarted.Visibility = Visibility.Visible;
                     labelPS.Visibility = Visibility.Visible;
                     labelPS.Content = "Production started on";
-                    labelProductionStarted.Content = dateStated;
+                    labelProductionStarted.Content = dateStarted;
                 }
                 else
                 {
@@ -188,13 +190,20 @@ namespace LandConquest.Forms
 
         private void ProductionStatusButton()
         {
-            if (sliderQuarry.Value + sliderSawmill.Value + sliderWindmill.Value + sliderBuilding1.Value + sliderBuilding2.Value == 0)
+            if (sliderQuarry.Value + sliderSawmill.Value + sliderWindmill.Value + sliderBuilding1.Value + sliderBuilding2.Value == 0 && (string)labelPS.Content != "Production stopped")
             {
                 BtnStartProduction.Content = "Stop production";
             }
             else
             {
-                BtnStartProduction.Content = "Start production";
+                if (dateStarted != DateTime.MinValue && (string)labelPS.Content != "Production stopped")
+                {
+                    BtnStartProduction.Content = "Restart production";
+                }
+                else
+                {
+                    BtnStartProduction.Content = "Start production";
+                }
             }
         }
 
@@ -343,7 +352,7 @@ namespace LandConquest.Forms
             //---------------------
             ManufactureModel.UpdateDateTimeForManufacture(manufactures, player);
             ManufactureModel.UpdateLandManufactures(landManufactures); //это общая сущность - тут хранятся общие данные игроков.
-
+           
             ManufactureWindow_Loaded(sender, e);
         }
 
