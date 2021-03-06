@@ -14,14 +14,14 @@
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="Fill" />
             </Grid.Background>
-            <Image HorizontalAlignment="Left" Height="90" Margin="43,47,0,0" VerticalAlignment="Top" Width="104" Source="/Pictures/Buildings/Sawmill.png"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="38,38,0,0" VerticalAlignment="Top" Width="100" Source="/Pictures/Buildings/Sawmill.png"/>
 
-            <Image HorizontalAlignment="Left" Height="90" Margin="297,47,0,0" VerticalAlignment="Top" Width="105" Source="/Pictures/Buildings/Stonemanson.png"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="297,40,0,0" VerticalAlignment="Top" Width="100" Source="/Pictures/Buildings/Quarry.png"/>
 
-            <Label Content="Sawmill" Foreground="SaddleBrown" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="155,30,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Top" Height="38" Width="115" FontFamily="Courier New"/>
+            <Label Content="Sawmill" Foreground="SaddleBrown" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="153,30,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Top" Height="38" Width="121" FontFamily="Courier New"/>
             <Label Content="Quarry" Foreground="#696969" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="408,30,0,0" VerticalAlignment="Top" Height="33" Width="114" FontFamily="Courier New"/>
             <Label Foreground="#696969" FontSize="18" FontWeight="Bold" Content="lvl:" HorizontalAlignment="Left" Margin="407,61,0,0" VerticalAlignment="Top" Height="30" Width="35"/>
-            <Image HorizontalAlignment="Left" Height="90" Margin="538,47,0,373.4" VerticalAlignment="Center" Width="124" Source="/Pictures/Buildings/Piggery.png"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="536,40,0,373.4" VerticalAlignment="Center" Width="100" Source="/Pictures/Buildings/Farm.png"/>
             <Label Content="Farm" HorizontalContentAlignment="Left" Foreground="Brown" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="666,31,0,0" VerticalAlignment="Top" Height="31" Width="110" FontFamily="Courier New"/>
             <Button x:Name="BtnStartProduction" VerticalContentAlignment="Center" Content="Start production" HorizontalAlignment="Left" FontWeight="DemiBold" FontSize="20" Margin="301,450,0,0" VerticalAlignment="Top" Width="207" Height="50" Click="BtnStartProduction_Click" BorderBrush="{x:Null}" Foreground="#FFE4CE9A" FontFamily="Sitka Display">
                 <Button.Background>
@@ -79,7 +79,7 @@
                 </Button.Background>
             </Button>
 
-            <Image x:Name="FirstManufactureImage" HorizontalAlignment="Left" Height="80" Margin="85,249,0,0" VerticalAlignment="Top" Width="91" Source="/Pictures/Buildings/Bakery.png"/>
+            <Image x:Name="FirstManufactureImage" HorizontalAlignment="Left" Height="100" Margin="73,242,0,0" VerticalAlignment="Top" Width="100" Source="/LandConquest;component/Pictures/Buildings/CopperMine.png"/>
             <Label x:Name="buildingName1" Content="Namebuild1" Foreground="SaddleBrown" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="178,234,0,0" VerticalAlignment="Top" Height="33" Width="224" FontFamily="Courier New"/>
             <Label x:Name="buildinglvl1" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="lvl:" HorizontalAlignment="Left" Margin="178,266,0,0" VerticalAlignment="Top" Height="30" Width="46"/>
             <Label x:Name="building1LvlAmount" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="1" HorizontalAlignment="Left" Margin="204,266,0,0" VerticalAlignment="Top" Height="30" Width="40"/>
@@ -93,7 +93,7 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Image x:Name="SecondManufactureImage" HorizontalAlignment="Left" Height="80" Margin="438,249,0,0" VerticalAlignment="Top" Width="91" Source="/Pictures/Buildings/Brewery.png"/>
+            <Image x:Name="SecondManufactureImage" HorizontalAlignment="Left" Height="100" Margin="424,242,0,0" VerticalAlignment="Top" Width="100" Source="/LandConquest;component/Pictures/Buildings/Warehouse.png"/>
             <Label x:Name="buildingName2" Content="Namebuild2" Foreground="SaddleBrown" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="529,234,0,0" VerticalAlignment="Top" Height="27" Width="247" FontFamily="Courier New"/>
             <Label x:Name="buildinglvl2" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="lvl:" HorizontalAlignment="Left" Margin="532,266,0,0" VerticalAlignment="Top" Height="30" Width="46"/>
             <Label x:Name="building2lvlAmount" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="1" HorizontalAlignment="Left" Margin="560,266,0,0" VerticalAlignment="Top" Height="30" Width="48"/>
@@ -107,10 +107,10 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Label Content="Working now:" HorizontalAlignment="Left" Height="24" Margin="79,325,0,0" VerticalAlignment="Top" FontSize="10" Width="85" Foreground="#FF48291F"/>
-            <Label x:Name="WorkingNowB1" Content="0" FontSize="10"  HorizontalAlignment="Left" Margin="141,325,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.433,2.022" Width="42" Foreground="#FF48291F" Background="{x:Null}"/>
-            <Label Content="Working now:" HorizontalAlignment="Left" Height="24" FontSize="10" Margin="432,325,0,0" VerticalAlignment="Top" Width="86" Background="{x:Null}" Foreground="#FF48291F"/>
-            <Label x:Name="WorkingNowB2" Content="0" FontSize="10"  HorizontalAlignment="Left" Margin="494,325,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.433,2.022" Width="43" Foreground="#FF48291F"/>
+            <Label Content="Working now:" HorizontalAlignment="Left" Height="24" Margin="78,342,0,0" VerticalAlignment="Top" FontSize="10" Width="85" Foreground="#FF48291F"/>
+            <Label x:Name="WorkingNowB1" Content="0" FontSize="10"  HorizontalAlignment="Left" Margin="141,342,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.433,2.022" Width="42" Foreground="#FF48291F" Background="{x:Null}"/>
+            <Label Content="Working now:" HorizontalAlignment="Left" Height="24" FontSize="10" Margin="432,342,0,0" VerticalAlignment="Top" Width="86" Background="{x:Null}" Foreground="#FF48291F"/>
+            <Label x:Name="WorkingNowB2" Content="0" FontSize="10"  HorizontalAlignment="Left" Margin="494,342,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.433,2.022" Width="43" Foreground="#FF48291F"/>
             <Label x:Name="labelProductionStarted" Content="date" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14" FontWeight="SemiBold"  Margin="688,462,0,0" VerticalAlignment="Top" Height="34" Width="116"/>
             <Label x:Name="labelPS" Content="Production started on:" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" FontWeight="SemiBold"  Margin="529,462,0,0" VerticalAlignment="Top" Height="34" Width="169"/>
         </Grid>
