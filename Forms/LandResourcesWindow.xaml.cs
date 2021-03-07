@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using LandConquest.DialogWIndows;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,7 @@ namespace LandConquest.Forms
         {
             InitializeComponent();
             player = _player;
+            storage = _storage;
             landStorage = _landstorage;
             land = _land;
             Loaded += LandResourcesWindow_Loaded;
@@ -67,31 +69,99 @@ namespace LandConquest.Forms
             switch(button.Name)
             {
                 case "DonateWoodButton":
-                    ////
+                    if (storage.PlayerWood >= Convert.ToInt32(DonateWoodTextBox.Text))
+                    {
+                        landStorage.LandWood += Convert.ToInt32(DonateWoodTextBox.Text);
+                        storage.PlayerWood -= Convert.ToInt32(DonateWoodTextBox.Text);
+                    }
+                    else
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
+                    }
+
                     break;
                 case "DonateFoodButton":
-                    ////
+                    if (storage.PlayerFood >= Convert.ToInt32(DonateFoodTextBox.Text))
+                    {
+                        landStorage.LandFood += Convert.ToInt32(DonateFoodTextBox.Text);
+                        storage.PlayerFood -= Convert.ToInt32(DonateFoodTextBox.Text);
+                    }
+                    else
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
+                    }
                     break;
                 case "DonateIronButton":
-                    ////
+                    if (storage.PlayerIron >= Convert.ToInt32(DonateIronTextBox.Text))
+                    {
+                        landStorage.LandIron += Convert.ToInt32(DonateIronTextBox.Text);
+                        storage.PlayerIron -= Convert.ToInt32(DonateIronTextBox.Text);
+                    }
+                    else
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
+                    }
                     break;
                 case "DonateStoneButton":
-                    ////
+                    if (storage.PlayerStone >= Convert.ToInt32(DonateStoneTextBox.Text))
+                    {
+                        landStorage.LandStone += Convert.ToInt32(DonateStoneTextBox.Text);
+                        storage.PlayerStone -= Convert.ToInt32(DonateStoneTextBox.Text);
+                    }
+                    else
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
+                    }
                     break;
                 case "DonateLeatherButton":
-                    ////
+                    if (storage.PlayerStone >= Convert.ToInt32(DonateStoneTextBox.Text))
+                    {
+                        landStorage.LandStone += Convert.ToInt32(DonateStoneTextBox.Text);
+                        storage.PlayerStone -= Convert.ToInt32(DonateStoneTextBox.Text);
+                    }
+                    else
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
+                    }
                     break;
                 case "DonateGoldButton":
-                    ////
+                    if (storage.PlayerGoldOre >= Convert.ToInt32(DonateGoldTextBox.Text))
+                    {
+                        landStorage.LandGoldOre += Convert.ToInt32(DonateGoldTextBox.Text);
+                        storage.PlayerGoldOre -= Convert.ToInt32(DonateGoldTextBox.Text);
+                    }
+                    else
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
+                    }
                     break;
                 case "DonateGemsButton":
-                    ////
+                    if (storage.PlayerGems >= Convert.ToInt32(DonateGemsTextBox.Text))
+                    {
+                        landStorage.LandGems += Convert.ToInt32(DonateGemsTextBox.Text);
+                        storage.PlayerGems -= Convert.ToInt32(DonateGemsTextBox.Text);
+                    }
+                    else
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
+                    }
                     break;
                 case "DonateCopperButton":
-                    ////
+                    if (storage.PlayerCopper >= Convert.ToInt32(DonateCopperTextBox.Text))
+                    {
+                        landStorage.LandCopper += Convert.ToInt32(DonateCopperTextBox.Text);
+                        storage.PlayerCopper -= Convert.ToInt32(DonateCopperTextBox.Text);
+                    }
+                    else
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
+                    }
                     break;
 
             }
+            StorageModel.UpdateStorage(player, storage);
+            LandStorageModel.UpdateLandStorage(land, landStorage);
+            LandResourcesWindow_Loaded(sender, e);
         }
 
         private void FoodToBuyTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)

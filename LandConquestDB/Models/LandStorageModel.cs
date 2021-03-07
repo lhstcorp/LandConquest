@@ -70,7 +70,7 @@ namespace LandConquestDB.Models
                 countryStorageCommand.Parameters["@wood"].Value = _landStorage.LandWood;
                 countryStorageCommand.Parameters["@stone"].Value = _landStorage.LandStone;
                 countryStorageCommand.Parameters["@food"].Value = _landStorage.LandFood;
-                countryStorageCommand.Parameters["@player_id"].Value = land.LandId;
+                countryStorageCommand.Parameters["@land_id"].Value = land.LandId;
                 countryStorageCommand.ExecuteNonQuery();
 
             }
