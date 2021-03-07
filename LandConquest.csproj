@@ -667,6 +667,7 @@
     <Resource Include="Pictures\Experimental\castleForHarrison.jpg" />
     <Resource Include="Pictures\Experimental\cityForLandWindow.jpg" />
     <Resource Include="Pictures\LandWindow\castle.png" />
+    <Resource Include="Pictures\Buildings\Upgrade.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
