@@ -14,3 +14,4 @@ C:\Users\green\Documents\GitHub\LandConquest\LandConquestYD\obj\Debug\LandConque
 C:\Users\green\Documents\GitHub\LandConquest\LandConquestYD\obj\Debug\LandConquestYD.csproj.CopyComplete
 C:\Users\green\Documents\GitHub\LandConquest\LandConquestYD\obj\Debug\LandConquestYD.dll
 C:\Users\green\Documents\GitHub\LandConquest\LandConquestYD\obj\Debug\LandConquestYD.pdb
+C:\Users\green\Documents\GitHub\LandConquest\LandConquestYD\obj\Debug\LandConquestYD.csprojAssemblyReference.cache
