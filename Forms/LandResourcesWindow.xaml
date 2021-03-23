@@ -1,0 +1,149 @@
+﻿<Window x:Class="LandConquest.Forms.LandResourcesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.Forms"
+        WindowStyle="None" ResizeMode="NoResize"
+        ShowInTaskbar="False" 
+        
+        mc:Ignorable="d"
+        Title="LandResourcesWindow" Height="450" Width="475">
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="475">
+        <Grid Height="450" VerticalAlignment="Top" HorizontalAlignment="Left" Width="475">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+
+            <TextBox x:Name="DonateWoodTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="39,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+
+
+            <Image HorizontalAlignment="Left" Height="43" Margin="39,41,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="43" Margin="144,41,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="43" Margin="249,41,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="43" Margin="354,41,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="44" Margin="354,224,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="44" Margin="249,224,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="44" Margin="144,224,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="44" Margin="39,224,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
+
+            <Label Content="WOOD" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top" Height="31" Width="65"/>
+            <Label Content="STONE" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,10,0,0" VerticalAlignment="Top" Height="31" Width="64"/>
+            <Image HorizontalAlignment="Left" Height="35" Margin="44,46,0,0" VerticalAlignment="Top" Width="32" Source="/Pictures/wood.png"/>
+            <Image HorizontalAlignment="Left" Height="35" Margin="148,45,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/stones.png"/>
+            <Label x:Name="labelWoodAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,80,0,0"  VerticalAlignment="Top" Width="62" Height="28"/>
+            <Label x:Name="labelStoneAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,80,0,0" VerticalAlignment="Top" Width="64" Height="28"/>
+            <Label Content="FOOD" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,10,169,0" VerticalAlignment="Top" Height="31" Width="57"/>
+            <Image HorizontalAlignment="Left" Height="35" Margin="253,44,0,0" VerticalAlignment="Top" Width="36" Source="/Pictures/food.png" RenderTransformOrigin="-1.55,0.548"/>
+            <Label x:Name="labelFoodAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="249,80,0,0" VerticalAlignment="Top" Width="69" Height="28"/>
+
+            <Button x:Name="button_close" Margin="449,0,6,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+
+            <Label Content="GOLD" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,194,0,0" VerticalAlignment="Top" Height="30" Width="59"/>
+            <Label Content="COPPER" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,194,0,0" VerticalAlignment="Top" Height="36" Width="75" Background="{x:Null}"/>
+            <Image HorizontalAlignment="Left" Height="36" Margin="43,228,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/gold_ore.png"/>
+            <Image HorizontalAlignment="Left" Height="36" Margin="148,228,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/Copper.png"/>
+            <Label x:Name="labelGoldAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,264,0,0" VerticalAlignment="Top" Width="72" Height="30"/>
+            <Label x:Name="labelCopperAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,264,0,0" VerticalAlignment="Top" Width="75" Height="36"/>
+            <Label Content="GEMS" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,194,169,0" VerticalAlignment="Top" Height="30" Width="57" Background="{x:Null}"/>
+            <Image HorizontalAlignment="Left" Height="36" Margin="252,228,0,0" VerticalAlignment="Top" Width="42" Source="/Pictures/gems.png" RenderTransformOrigin="-1.55,0.548"/>
+            <Label x:Name="labelGemsAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="249,264,0,0" VerticalAlignment="Top" Width="69" Height="36"/>
+            <Label Content="IRON" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,10,64,0" VerticalAlignment="Top" Height="31" Width="57" Background="{x:Null}"/>
+            <Image HorizontalAlignment="Left" Height="35" Margin="358,44,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/iron.png" RenderTransformOrigin="-1.55,0.548" OpacityMask="Black">
+            </Image>
+            <Label x:Name="labelIronAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="354,80,0,0" VerticalAlignment="Top" Width="68" Height="28" Background="{x:Null}"/>
+            <Label Content="LEATHER" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,194,33,0" VerticalAlignment="Top" Height="30" Width="88" Background="{x:Null}"/>
+            <Image HorizontalAlignment="Left" Height="36" Margin="358,228,0,0" VerticalAlignment="Top" Width="36" Source="/Pictures/Leather.png" RenderTransformOrigin="-1.55,0.548"/>
+            <Label x:Name="labelLeatherAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="354,264,0,0" VerticalAlignment="Top" Width="68" Height="30"/>
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="32,14,0,284" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="137,14,0,284" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="242,198,0,100" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="347,198,0,100" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="347,14,0,284" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="242,14,0,284" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="137,198,0,100" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="32,198,0,100" Stroke="#311818" Width="84" StrokeThickness="3" />
+
+
+            <TextBox x:Name="DonateStoneTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="144,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="DonateFoodTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="250,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="DonateIronTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="354,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="DonateGoldTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="354,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="DonateCopperTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="250,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="DonateGemsTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="144,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="DonateLeatherTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="39,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+
+
+            <Button x:Name="DonateWoodButton" HorizontalAlignment="Left" Margin="39,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" /> 
+                </Viewbox>
+            </Button>
+            <Button x:Name="DonateStoneButton" HorizontalAlignment="Left" Margin="144,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="12" />
+                </Viewbox>
+            </Button>
+            <Button x:Name="DonateFoodButton" HorizontalAlignment="Left" Margin="250,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="14" />
+                </Viewbox>
+            </Button>
+            <Button x:Name="DonateIronButton" HorizontalAlignment="Left" Margin="354,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="16" />
+                </Viewbox>
+            </Button>
+            <Button x:Name="DonateGoldButton" HorizontalAlignment="Left" Margin="354,322,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" />
+                </Viewbox>
+            </Button>
+            <Button x:Name="DonateCopperButton" HorizontalAlignment="Left" Margin="250,322,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" />
+                </Viewbox>
+            </Button>
+            <Button x:Name="DonateGemsButton" HorizontalAlignment="Left" Margin="144,322,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" />
+                </Viewbox>
+            </Button>
+            <Button x:Name="DonateLeatherButton" HorizontalAlignment="Left" Margin="39,322,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" />
+                </Viewbox>
+            </Button>
+
+
+        </Grid>
+    </Border>
+</Window>

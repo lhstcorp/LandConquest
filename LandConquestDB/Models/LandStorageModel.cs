@@ -10,73 +10,74 @@ namespace LandConquestDB.Models
 {
     public class LandStorageModel
     {
-        public static LandStorage GetCountryStorage(Country country)
+        public static LandStorage GetLandStorage(Land land, LandStorage landStorage)
         {
-            LandStorage countryStorage = new LandStorage();
-            string storageQuery = "SELECT * FROM dbo.CountryStorage WHERE country_id = @country_id";
+            string storageQuery = "SELECT * FROM dbo.LandStorage WHERE land_id = @land_id";
 
             var command = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@country_id", country.CountryId);
+            command.Parameters.AddWithValue("@land_id", land.LandId);
 
             using (var reader = command.ExecuteReader())
             {
-                var countryId = reader.GetOrdinal("country_id");
-                var countryWood = reader.GetOrdinal("wood");
-                var countryStone = reader.GetOrdinal("stone");
-                var countryFood = reader.GetOrdinal("food");
-                var countryIron = reader.GetOrdinal("iron");
-                var countryGoldOre = reader.GetOrdinal("gold_ore");
-                var countryCopper = reader.GetOrdinal("copper");
-                var countryGems = reader.GetOrdinal("gems");
-                var countryLeather = reader.GetOrdinal("leather");
+                var landId = reader.GetOrdinal("land_id");
+                var landWood = reader.GetOrdinal("wood");
+                var landStone = reader.GetOrdinal("stone");
+                var landFood = reader.GetOrdinal("food");
+                var landIron = reader.GetOrdinal("iron");
+                var landGoldOre = reader.GetOrdinal("gold_ore");
+                var landCopper = reader.GetOrdinal("copper");
+                var landGems = reader.GetOrdinal("gems");
+                var landLeather = reader.GetOrdinal("leather");
                 while (reader.Read())
                 {
-                    countryStorage.LandId = reader.GetString(countryId);
-                    countryStorage.LandWood = reader.GetInt32(countryWood);
-                    countryStorage.LandStone = reader.GetInt32(countryStone);
-                    countryStorage.LandFood = reader.GetInt32(countryFood);
-                    countryStorage.LandIron = reader.GetInt32(countryIron);
-                    countryStorage.LandGoldOre = reader.GetInt32(countryGoldOre);
-                    countryStorage.LandCopper = reader.GetInt32(countryCopper);
-                    countryStorage.LandGems = reader.GetInt32(countryGems);
-                    countryStorage.LandLeather = reader.GetInt32(countryLeather);
+                    landStorage.LandId = reader.GetString(landId);
+                    landStorage.LandWood = reader.GetInt32(landWood);
+                    landStorage.LandStone = reader.GetInt32(landStone);
+                    landStorage.LandFood = reader.GetInt32(landFood);
+                    landStorage.LandIron = reader.GetInt32(landIron);
+                    landStorage.LandGoldOre = reader.GetInt32(landGoldOre);
+                    landStorage.LandCopper = reader.GetInt32(landCopper);
+                    landStorage.LandGems = reader.GetInt32(landGems);
+                    landStorage.LandLeather = reader.GetInt32(landLeather);
                 }
                 reader.Close();
             }
 
             command.Dispose();
-            return countryStorage;
+            return landStorage;
         }
 
-        public static void UpdateStorage(Country country, LandStorage _countryStorage)
+        public static void UpdateLandStorage(Land land, LandStorage _landStorage)
         {
-            string storageQuery = "UPDATE dbo.StorageData SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather WHERE country_id = @country_id ";
+            string storageQuery = "UPDATE dbo.LandStorage SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather WHERE land_id = @land_id ";
 
             var countryStorageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             // int datetimeResult;
-            countryStorageCommand.Parameters.AddWithValue("@wood", _countryStorage.LandWood);
-            countryStorageCommand.Parameters.AddWithValue("@stone", _countryStorage.LandStone);
-            countryStorageCommand.Parameters.AddWithValue("@food", _countryStorage.LandFood);
-            countryStorageCommand.Parameters.AddWithValue("@copper", _countryStorage.LandCopper);
-            countryStorageCommand.Parameters.AddWithValue("@iron", _countryStorage.LandIron);
-            countryStorageCommand.Parameters.AddWithValue("@gems", _countryStorage.LandGems);
-            countryStorageCommand.Parameters.AddWithValue("@gold_ore", _countryStorage.LandGoldOre);
-            countryStorageCommand.Parameters.AddWithValue("@leather", _countryStorage.LandLeather);
-            countryStorageCommand.Parameters.AddWithValue("@country_id", country.CountryId);
+            countryStorageCommand.Parameters.AddWithValue("@wood", _landStorage.LandWood);
+            countryStorageCommand.Parameters.AddWithValue("@stone", _landStorage.LandStone);
+            countryStorageCommand.Parameters.AddWithValue("@food", _landStorage.LandFood);
+            countryStorageCommand.Parameters.AddWithValue("@copper", _landStorage.LandCopper);
+            countryStorageCommand.Parameters.AddWithValue("@iron", _landStorage.LandIron);
+            countryStorageCommand.Parameters.AddWithValue("@gems", _landStorage.LandGems);
+            countryStorageCommand.Parameters.AddWithValue("@gold_ore", _landStorage.LandGoldOre);
+            countryStorageCommand.Parameters.AddWithValue("@leather", _landStorage.LandLeather);
+            countryStorageCommand.Parameters.AddWithValue("@land_id", land.LandId);
 
 
             for (int i = 0; i < 3; i++)
             {
 
-                countryStorageCommand.Parameters["@wood"].Value = _countryStorage.LandWood;
-                countryStorageCommand.Parameters["@stone"].Value = _countryStorage.LandStone;
-                countryStorageCommand.Parameters["@food"].Value = _countryStorage.LandFood;
-                countryStorageCommand.Parameters["@player_id"].Value = country.CountryId;
+                countryStorageCommand.Parameters["@wood"].Value = _landStorage.LandWood;
+                countryStorageCommand.Parameters["@stone"].Value = _landStorage.LandStone;
+                countryStorageCommand.Parameters["@food"].Value = _landStorage.LandFood;
+                countryStorageCommand.Parameters["@land_id"].Value = land.LandId;
                 countryStorageCommand.ExecuteNonQuery();
 
             }
 
             countryStorageCommand.Dispose();
         }
+
+
     }
 }

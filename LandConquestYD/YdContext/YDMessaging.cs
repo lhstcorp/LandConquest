@@ -119,10 +119,11 @@ namespace LandConquestYD
             Random r = new Random();
             var x = r.Next(0, 1000000);
 
-            string destFileName = x.ToString("000000") + "_"+ sender + "_" + receiver + "_mail.txt";
+            string destFileName = x.ToString("000000") + "_" + sender + "_" + receiver + "_mail";
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + destFileName;
             File.AppendAllText(path, messageText);
-            var error = disk.UploadResource("Messages/" + destFileName, path, true);
+            disk.UploadResource("Messages/" + destFileName, path, true);
+            var error = disk.PublicResource("Messages/" + destFileName);
             File.Delete(path);
             if (error.Error == null)
             {
@@ -136,22 +137,14 @@ namespace LandConquestYD
 
         public static List<string> GetAllMessagesName(string playerName)
         {
-            ResInfo filesByNameFields = disk.GetResourceByName(
-               1000000,
-               new Media_type[]
-               {
-                    Media_type.Document,
-                    Media_type.Text
-               },
-               SortField.Created,
-               new ResFields[] {
-                    ResFields.Media_type,
+            ResInfo filesByNameFields = disk.GetResourcePublic(
+                1000,
+                TypeRes.File,
+                new ResFields[] {
                     ResFields.Name,
-                    ResFields.Path,
-                    ResFields._Embedded
-               },
-               0, true, "120x240"
-               );
+                },
+                0, true, "120x240"
+                );
 
             List<string> messagesNamesList = new List<String>();
 
@@ -160,7 +153,7 @@ namespace LandConquestYD
                 if (filesByNameFields._Embedded.Items.Count != 0)
                     foreach (var s in filesByNameFields._Embedded.Items)
                     {
-                        if (s.Name.Contains(playerName + "_mail.txt"))
+                        if (s.Name.Contains(playerName + "_mail"))
                         {
                             messagesNamesList.Add(s.Name);
                         }
