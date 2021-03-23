@@ -84,6 +84,7 @@
     <Compile Include="Models\ChatModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\DailyBonusModel.cs" />
+    <Compile Include="Models\GarrisonModel.cs" />
     <Compile Include="Models\LandStorageModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />
     <Compile Include="Models\LandModel.cs" />
