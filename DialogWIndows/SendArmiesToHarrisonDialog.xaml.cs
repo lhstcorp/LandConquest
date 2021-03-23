@@ -22,6 +22,7 @@ namespace LandConquest.DialogWIndows
     public partial class SendArmiesToHarrisonDialog : Window
     {
         private Player player;
+        Castle castle;
         public SendArmiesToHarrisonDialog(Player _player)
         {
             player = _player;
@@ -60,6 +61,8 @@ namespace LandConquest.DialogWIndows
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             loadSliders();
+            loadCastle();
+            loadSlots();
         }
 
         private void loadSliders()
@@ -90,6 +93,48 @@ namespace LandConquest.DialogWIndows
             sliderKnights.Maximum = freeArmy.ArmyHorsemanCount;
             sliderSiege.Maximum = freeArmy.ArmySiegegunCount;
             // here I am;
+        }
+
+        private void loadCastle()
+        {
+            castle = CastleModel.GetCastleInfo(player.PlayerCurrentRegion);
+        }
+
+        private void loadSlots()
+        {
+            const int slotIncremental = 100;
+            List<Garrison> garrisons = GarrisonModel.GetGarrisonInfo(player.PlayerCurrentRegion);
+
+            // константные цвета для отображения загрузки слотов
+            List<SolidColorBrush> loadColor = new List<SolidColorBrush>();
+            loadColor.Add(new SolidColorBrush((Color.FromArgb(208, 70, 210, 38))));
+            loadColor.Add(new SolidColorBrush((Color.FromArgb(208, 115, 210, 38))));
+            loadColor.Add(new SolidColorBrush((Color.FromArgb(208, 145, 210, 38))));
+            loadColor.Add(new SolidColorBrush((Color.FromArgb(208, 175, 210, 38))));
+            loadColor.Add(new SolidColorBrush((Color.FromArgb(208, 210, 190, 38))));
+            loadColor.Add(new SolidColorBrush((Color.FromArgb(208, 210, 160, 38))));
+            loadColor.Add(new SolidColorBrush((Color.FromArgb(208, 210, 130, 38))));
+            loadColor.Add(new SolidColorBrush((Color.FromArgb(208, 210, 100, 38))));
+            loadColor.Add(new SolidColorBrush((Color.FromArgb(208, 210, 70, 38))));
+            loadColor.Add(new SolidColorBrush((Color.FromArgb(208, 210, 38, 38))));
+
+
+            slot1.Fill = new SolidColorBrush((Color.FromArgb(208, 51, 54, 51)));
+            slot2.Fill = new SolidColorBrush((Color.FromArgb(208, 51, 54, 51)));
+            slot3.Fill = new SolidColorBrush((Color.FromArgb(208, 51, 54, 51)));
+            slot4.Fill = new SolidColorBrush((Color.FromArgb(208, 51, 54, 51)));
+            slot5.Fill = new SolidColorBrush((Color.FromArgb(208, 51, 54, 51)));
+            slot6.Fill = new SolidColorBrush((Color.FromArgb(208, 51, 54, 51)));
+            slot7.Fill = new SolidColorBrush((Color.FromArgb(208, 51, 54, 51)));
+            slot8.Fill = new SolidColorBrush((Color.FromArgb(208, 51, 54, 51)));
+            slot9.Fill = new SolidColorBrush((Color.FromArgb(208, 51, 54, 51)));
+
+            if (castle.CastleLvl < slotIncremental)
+            {
+                //slot1.Fill = new SolidColorBrush((Color.FromArgb(208, 70, 210, 38)));
+                slot1.Fill = GarrisonModel.calculateSlotColor(garrisons, 1); // гиблая веточка :)
+            }
+
         }
     }
 }

@@ -77,15 +77,15 @@
         <Rectangle HorizontalAlignment="Left" Height="40" Margin="128,5,0,0" Stroke="#311818" StrokeThickness="3" VerticalAlignment="Top" Width="291"/>
         <Image HorizontalAlignment="Left" Height="229" Margin="311,51,0,0" Source="/Pictures/Experimental/castleForHarrison.jpg" VerticalAlignment="Top" Width="229" Stretch="Fill"/>
         <Rectangle HorizontalAlignment="Left" Height="229" Margin="311,51,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="229" StrokeDashArray="1"/>
-        <Rectangle x:Name="slot1" HorizontalAlignment="Left" Height="70" Margin="316,56,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot2" HorizontalAlignment="Left" Height="70" Margin="390,56,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot3" HorizontalAlignment="Left" Height="70" Margin="465,56,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot4" HorizontalAlignment="Left" Height="70" Margin="316,131,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot5" HorizontalAlignment="Left" Height="70" Margin="390,131,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot6" HorizontalAlignment="Left" Height="70" Margin="465,131,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot7" HorizontalAlignment="Left" Height="70" Margin="316,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot8" HorizontalAlignment="Left" Height="70" Margin="390,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot9" HorizontalAlignment="Left" Height="70" Margin="465,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
+        <Rectangle x:Name="slot6" HorizontalAlignment="Left" Height="70" Margin="316,56,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
+        <Rectangle x:Name="slot3" HorizontalAlignment="Left" Height="70" Margin="390,56,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
+        <Rectangle x:Name="slot7" HorizontalAlignment="Left" Height="70" Margin="465,56,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
+        <Rectangle x:Name="slot2" HorizontalAlignment="Left" Height="70" Margin="316,131,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
+        <Rectangle x:Name="slot1" HorizontalAlignment="Left" Height="70" Margin="390,131,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
+        <Rectangle x:Name="slot4" HorizontalAlignment="Left" Height="70" Margin="465,131,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
+        <Rectangle x:Name="slot9" HorizontalAlignment="Left" Height="70" Margin="316,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
+        <Rectangle x:Name="slot5" HorizontalAlignment="Left" Height="70" Margin="390,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
+        <Rectangle x:Name="slot8" HorizontalAlignment="Left" Height="70" Margin="465,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
