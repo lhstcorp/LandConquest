@@ -61,6 +61,7 @@
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\Garrison.cs" />
+    <Compile Include="Entities\GarrisonListings.cs" />
     <Compile Include="Entities\LandStorage.cs" />
     <Compile Include="Entities\DistanceBattle.cs" />
     <Compile Include="Entities\Land.cs" />

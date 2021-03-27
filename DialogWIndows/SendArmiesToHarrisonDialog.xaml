@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
         mc:Ignorable="d" ResizeMode="NoResize" WindowStyle="None"
-        Title="SendArmiesToHarrisonDialog" Height="380" Width="570" Loaded="Window_Loaded">
-    <Grid Height="379" VerticalAlignment="Top" HorizontalAlignment="Left" Width="570">
-        <Rectangle Height="380" Width="570"  Stroke="#311818" StrokeThickness="4" Margin="0,-1,0,0"/>
+        Title="SendArmiesToHarrisonDialog" Height="380" Width="770" Loaded="Window_Loaded">
+    <Grid Height="379" VerticalAlignment="Top" HorizontalAlignment="Left" Width="770">
+        <Rectangle Height="380" Width="770"  Stroke="#311818" StrokeThickness="4" Margin="0,-1,0,0"/>
 
         <Image HorizontalAlignment="Left" Height="50" Margin="18,70,0,0" VerticalAlignment="Top" Width="51" Source="/Pictures/Armies/INF-0.png"/>
         <Slider x:Name="sliderInfantry" HorizontalAlignment="Left" Margin="69,94,0,0" VerticalAlignment="Top" Width="165" ValueChanged="sliderInfantry_ValueChanged" Height="25"/>
@@ -86,6 +86,38 @@
         <Rectangle x:Name="slot9" HorizontalAlignment="Left" Height="70" Margin="316,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8" MouseDown="slot_MouseDown"/>
         <Rectangle x:Name="slot5" HorizontalAlignment="Left" Height="70" Margin="390,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8" MouseDown="slot_MouseDown"/>
         <Rectangle x:Name="slot8" HorizontalAlignment="Left" Height="70" Margin="465,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8" MouseDown="slot_MouseDown"/>
+
+        <DataGrid x:Name="garrisonsTroops" ItemsSource="{Binding listings}" SelectionMode="Single" CanUserResizeColumns="False" Foreground="#FF392018" BorderBrush="#FF391C18" AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontFamily="Book Antiqua" FontStyle="Oblique" HorizontalAlignment="Left" Height="229" Margin="560,51,0,0" VerticalAlignment="Top" Width="190">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="resourceQty" Binding="{Binding Qty}" Header=" Slot" Width="40" CanUserSort="True" />
+                <DataGridTextColumn x:Name="itemName" Binding="{Binding Subject}" Header="Inf" Width="30" CanUserSort="True"/>
+                <DataGridTextColumn x:Name="timeLeft" Binding="{Binding ListingSetTime}" Header="Ar" Width="30" CanUserSort="True" FontSize="10"/>
+                <DataGridTextColumn x:Name="sellersName" Binding="{Binding SellerName}" Header="Kn" Width="30" CanUserSort="True"/>
+                <DataGridTextColumn x:Name="totalPrice" Binding="{Binding Price}" Header="Sie" Width="30" CanUserSort="True"/>
+            </DataGrid.Columns>
+
+            <DataGrid.Background>
+                <SolidColorBrush Color="#7F966B52"></SolidColorBrush>
+            </DataGrid.Background>
+            
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                </Style>
+            </DataGrid.CellStyle>
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#FF392018"/>
+                    <Setter Property="FontStyle" Value="Normal"/>
+                    <Setter Property="FontSize" Value="15"/>
+                    <Setter Property="Foreground" Value="#FFE3CC98"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+        <Button x:Name="checkButton" Content="Button" HorizontalAlignment="Left" Height="30" Margin="630,307,0,0" VerticalAlignment="Top" Width="80" Click="checkButton_Click"/>
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
