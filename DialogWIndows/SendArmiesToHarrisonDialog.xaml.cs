@@ -337,5 +337,10 @@ namespace LandConquest.DialogWIndows
             }
             
         }
+
+        private void checkButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
