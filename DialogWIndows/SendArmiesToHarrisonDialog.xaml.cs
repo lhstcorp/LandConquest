@@ -25,6 +25,7 @@ namespace LandConquest.DialogWIndows
         Castle castle;
         List<Garrison> garrisons;
         Rectangle selectedSlot;
+        List<GarrisonListings> listings;
         public SendArmiesToHarrisonDialog(Player _player)
         {
             player = _player;
@@ -67,6 +68,7 @@ namespace LandConquest.DialogWIndows
             loadSlots();
             loadGarrisonInfo();
             selectedSlot = allSlots;
+            loadGarrisonDataGrid();
         }
 
         private void loadSliders()
@@ -342,5 +344,31 @@ namespace LandConquest.DialogWIndows
         {
 
         }
+
+        private void loadGarrisonDataGrid()
+        {
+            listings = new List<GarrisonListings>();
+
+            for (int i = 0; i < garrisons.Count; i++)
+            {
+                GarrisonListings listing = new GarrisonListings();
+
+                listing.ArmyId = garrisons[i].ArmyId;
+                listing.PlayerName = PlayerModel.GetPlayerNameById(garrisons[i].PlayerId);
+                listing.ArmyTypeImg = new BitmapImage(GarrisonModel.returnTypeImg(listing.Inf, listing.Ar, listing.Kn, listing.Sie));
+                listing.SlotId = garrisons[i].SlotId;
+                listing.Inf = garrisons[i].ArmyInfantryCount;
+                listing.Ar = garrisons[i].ArmyArchersCount;
+                listing.Kn = garrisons[i].ArmyHorsemanCount;
+                listing.Sie = garrisons[i].ArmySiegegunCount;
+                listing.Total = garrisons[i].ArmySizeCurrent;
+
+
+                listings.Add(listing);
+            }
+
+            garrisonsTroops.ItemsSource = listings;
+        }
+
     }
 }
