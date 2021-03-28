@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace LandConquestDB.Models
         {
             List<Garrison> armies = new List<Garrison>();
 
-            string armyQuery = "SELECT * FROM dbo.GarrisonData WHERE  land_id = @land_id";
+            string armyQuery = "SELECT * FROM dbo.GarrisonData WHERE land_id = @land_id";
             List<string> armiesPlayerId = new List<string>();
             List<string> armiesArmyId = new List<string>();
             List<int> armiesSizeCurrent = new List<int>();
@@ -167,6 +168,35 @@ namespace LandConquestDB.Models
             armyCommand.ExecuteNonQuery();
 
             armyCommand.Dispose();
+        }
+
+        public static Uri returnTypeImg(int inf, int ar, int kn, int sie)
+        {
+            int total = inf + ar + kn + sie;
+            Uri uri;
+
+            if (inf == total)
+            {
+                uri = new Uri("/Pictures/Armies/INF-0.png", UriKind.Relative);
+            }
+            else if (ar == total)
+            {
+                uri = new Uri("/Pictures/Armies/AR-0.png", UriKind.Relative);
+            }
+            else if (kn == total)
+            {
+                uri = new Uri("/Pictures/Armies/KNT-0.png", UriKind.Relative);
+            }
+            else if (sie == total)
+            {
+                uri = new Uri("/Pictures/Armies/SIE-0.png", UriKind.Relative);
+            }
+            else
+            {
+                uri = new Uri("/Pictures/Armies/TRO-0.png", UriKind.Relative);
+            }
+
+            return uri;
         }
     }
 }
