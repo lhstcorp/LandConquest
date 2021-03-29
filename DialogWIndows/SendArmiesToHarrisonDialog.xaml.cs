@@ -339,12 +339,6 @@ namespace LandConquest.DialogWIndows
             }
             
         }
-
-        private void checkButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void loadGarrisonDataGrid()
         {
             listings = new List<GarrisonListings>();
@@ -370,5 +364,21 @@ namespace LandConquest.DialogWIndows
             garrisonsTroops.ItemsSource = listings;
         }
 
+        private void removeGarrisonBTN_Click(object sender, RoutedEventArgs e)
+        {
+            
+            GarrisonListings listing = (GarrisonListings)garrisonsTroops.SelectedItem;
+
+            if (listing != null)
+            {
+                GarrisonModel.deleteGarrisonById(listing.ArmyId);
+
+                garrisons.Clear();
+                loadSlots();
+                loadGarrisonInfo();
+                loadGarrisonDataGrid();
+
+            }   
+        }
     }
 }

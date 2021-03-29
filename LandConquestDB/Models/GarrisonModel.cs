@@ -198,5 +198,17 @@ namespace LandConquestDB.Models
 
             return uri;
         }
+
+        public static void deleteGarrisonById(string armyId)
+        {
+            string query = "DELETE FROM dbo.GarrisonData WHERE army_id = @army_id";
+
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
+            command.Parameters.AddWithValue("@army_id", armyId);
+
+            command.ExecuteNonQuery();
+
+            command.Dispose();
+        }
     }
 }
