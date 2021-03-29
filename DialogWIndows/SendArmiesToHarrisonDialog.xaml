@@ -126,7 +126,8 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
-        <Button x:Name="checkButton" Content="Button" HorizontalAlignment="Left" Height="30" Margin="630,307,0,0" VerticalAlignment="Top" Width="80" Click="checkButton_Click"/>
+        
+        <Button x:Name="removeGarrisonBTN" Content="Button" HorizontalAlignment="Left" Height="30" Margin="565,287,0,0" VerticalAlignment="Top" Width="80" Click="removeGarrisonBTN_Click"/>
 
 
         <Grid.Background>

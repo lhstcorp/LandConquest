@@ -30,7 +30,21 @@ namespace LandConquestDB.Entities
 
         public int returnMaxTroops()
         {
-            return returnMaxTroopsInSlot() * 9;
+            return returnMaxTroopsInSlot() * slotsAvailable();
+        }
+
+        public int slotsAvailable()
+        {
+            int slotIncremental = 100;
+
+            int slots = this.CastleLvl / slotIncremental + 1;
+
+            if (slots > 9)
+            {
+                slots = 9;
+            }
+
+            return slots;
         }
     }
 }
