@@ -146,6 +146,8 @@ namespace LandConquest.Forms
             /// ГОЛОД ТУТ ////
             //////////////////
             ConsumptionLogic.ConsumptionCount(player, storage);
+            lblConsumption.Content = ConsumptionLogic.CountFunction(player, 1);
+            lblFoodLeft.Content = storage.PlayerFood;
             //ConsumptionLogic.ConsumptionCountAsync(player, storage);
             //////////////////           
             DailyBonusCount(player);
@@ -157,6 +159,7 @@ namespace LandConquest.Forms
             btnShowLeaderGrid.Visibility = Visibility.Hidden;
             BtnShowTaxesGrid.Visibility = Visibility.Hidden;
             BtnShowDailyBonusGrid.Visibility = Visibility.Hidden;
+            BtnShowConsumptionGrid.Visibility = Visibility.Hidden;
 
             GetWorldLeader();
 
@@ -1055,6 +1058,20 @@ namespace LandConquest.Forms
             DailyBonusGrid.Visibility = Visibility.Visible;
             DailyBonusBorder.Visibility = Visibility.Visible;
             BtnShowDailyBonusGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnShowConsumptionGrid_Click(object sender, RoutedEventArgs e)
+        {
+            consumptionGrid.Visibility = Visibility.Visible;
+            consumptionBorder.Visibility = Visibility.Visible;
+            BtnShowConsumptionGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void btnHideConsumptionGrid_Click(object sender, RoutedEventArgs e)
+        {
+            consumptionGrid.Visibility = Visibility.Hidden;
+            consumptionBorder.Visibility = Visibility.Hidden;
+            BtnShowConsumptionGrid.Visibility = Visibility.Visible;
         }
     }
 }
