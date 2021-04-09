@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
         mc:Ignorable="d" ResizeMode="NoResize" WindowStyle="None"
-        Title="SendArmiesToHarrisonDialog" Height="380" Width="570" Loaded="Window_Loaded">
-    <Grid Height="379" VerticalAlignment="Top" HorizontalAlignment="Left" Width="570">
-        <Rectangle Height="380" Width="570"  Stroke="#311818" StrokeThickness="4" Margin="0,-1,0,0"/>
+        Title="SendArmiesToHarrisonDialog" Height="380" Width="900" Loaded="Window_Loaded">
+    <Grid Height="379" VerticalAlignment="Top" HorizontalAlignment="Left" Width="900">
+        <Rectangle Height="380" Width="900"  Stroke="#311818" StrokeThickness="4" Margin="0,-1,0,0"/>
 
         <Image HorizontalAlignment="Left" Height="50" Margin="18,70,0,0" VerticalAlignment="Top" Width="51" Source="/Pictures/Armies/INF-0.png"/>
         <Slider x:Name="sliderInfantry" HorizontalAlignment="Left" Margin="69,94,0,0" VerticalAlignment="Top" Width="165" ValueChanged="sliderInfantry_ValueChanged" Height="25"/>
@@ -28,7 +28,7 @@
         <Label Content="Send troops to harrison" FontSize="24" Foreground="#76143c" FontWeight="Bold" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="47" Margin="139,4,0,0" VerticalAlignment="Top" Width="294"/>
 
 
-        <Button x:Name="btnSplitArmy" Content="Send" Foreground="Wheat" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="30" Margin="264,340,0,0" VerticalAlignment="Top" Width="108" BorderBrush="{x:Null}">
+        <Button x:Name="btnSendArmy" Content="Send" Foreground="Wheat" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="30" Margin="264,340,0,0" VerticalAlignment="Top" Width="108" BorderBrush="{x:Null}" Click="btnSendArmy_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
@@ -40,8 +40,8 @@
         <Label Content="CURRENT ON &#xA;THE WALL" Foreground="#311818" FontSize="9" FontWeight="Bold" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="261,307,0,0" Width="70" Height="37" VerticalAlignment="Top"/>
         <Rectangle Fill="#4F2402" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="323,287,0,0" Stroke="#311818" Width="49" StrokeThickness="1" Height="26" VerticalAlignment="Top" />
         <Rectangle Fill="#4F2402" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="323,310,0,0" Stroke="#311818" Width="49" StrokeThickness="1" Height="25" VerticalAlignment="Top" />
-        <Label x:Name="MaxHarrisonCount_Copy" Content="999" Foreground="Wheat" FontSize="10" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="323,288,0,0" VerticalAlignment="Top" Width="44" Height="30"/>
-        <Label x:Name="CurrentHarrisonCount_Copy" Content="999" Foreground="Wheat" FontSize="10" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="323,311,0,0" VerticalAlignment="Top" Width="44" Height="30"/>
+        <Label x:Name="MaxHarrisonCount" Content="999" Foreground="Wheat" FontSize="10" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="323,288,0,0" VerticalAlignment="Top" Width="44" Height="30"/>
+        <Label x:Name="CurrentHarrisonCount" Content="999" Foreground="Wheat" FontSize="10" FontFamily="/Fonts/#Harrington"  HorizontalAlignment="Left" Margin="323,311,0,0" VerticalAlignment="Top" Width="44" Height="30"/>
 
         <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="373,287,0,0" Stroke="#311818" Width="47" StrokeThickness="1" Height="56" VerticalAlignment="Top" />
         <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="419,287,0,0" Stroke="#311818" Width="48" StrokeThickness="1" Height="56" VerticalAlignment="Top" />
@@ -75,20 +75,64 @@
             </Button.Background>
         </Button>
         <Rectangle HorizontalAlignment="Left" Height="40" Margin="128,5,0,0" Stroke="#311818" StrokeThickness="3" VerticalAlignment="Top" Width="291"/>
-        <Image HorizontalAlignment="Left" Height="229" Margin="311,51,0,0" Source="/Pictures/Experimental/castleForHarrison.jpg" VerticalAlignment="Top" Width="229" Stretch="Fill"/>
-        <Rectangle HorizontalAlignment="Left" Height="229" Margin="311,51,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="229" StrokeDashArray="1"/>
-        <Rectangle x:Name="slot1" HorizontalAlignment="Left" Height="70" Margin="316,56,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot2" HorizontalAlignment="Left" Height="70" Margin="390,56,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot3" HorizontalAlignment="Left" Height="70" Margin="465,56,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot4" HorizontalAlignment="Left" Height="70" Margin="316,131,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot5" HorizontalAlignment="Left" Height="70" Margin="390,131,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot6" HorizontalAlignment="Left" Height="70" Margin="465,131,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot7" HorizontalAlignment="Left" Height="70" Margin="316,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot8" HorizontalAlignment="Left" Height="70" Margin="390,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
-        <Rectangle x:Name="slot9" HorizontalAlignment="Left" Height="70" Margin="465,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8"/>
+        <Image HorizontalAlignment="Left" Height="229" Margin="331,51,0,0" Source="/Pictures/Experimental/castleForHarrison.jpg" VerticalAlignment="Top" Width="229" Stretch="Fill"/>
+        <Rectangle x:Name="allSlots" HorizontalAlignment="Left" Height="229" Margin="331,51,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="229" StrokeDashArray="1" MouseDown="allSlots_MouseDown"/>
+        <Rectangle x:Name="slot6" HorizontalAlignment="Left" Height="70" Margin="336,56,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8" MouseDown="slot_MouseDown"/>
+        <Rectangle x:Name="slot3" HorizontalAlignment="Left" Height="70" Margin="410,56,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8" MouseDown="slot_MouseDown"/>
+        <Rectangle x:Name="slot7" HorizontalAlignment="Left" Height="70" Margin="485,56,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8" MouseDown="slot_MouseDown"/>
+        <Rectangle x:Name="slot2" HorizontalAlignment="Left" Height="70" Margin="336,131,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8" MouseDown="slot_MouseDown"/>
+        <Rectangle x:Name="slot1" HorizontalAlignment="Left" Height="70" Margin="410,131,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8" MouseDown="slot_MouseDown"/>
+        <Rectangle x:Name="slot4" HorizontalAlignment="Left" Height="70" Margin="485,131,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8" MouseDown="slot_MouseDown"/>
+        <Rectangle x:Name="slot9" HorizontalAlignment="Left" Height="70" Margin="336,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8" MouseDown="slot_MouseDown"/>
+        <Rectangle x:Name="slot5" HorizontalAlignment="Left" Height="70" Margin="410,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8" MouseDown="slot_MouseDown"/>
+        <Rectangle x:Name="slot8" HorizontalAlignment="Left" Height="70" Margin="485,205,0,0" Stroke="#311818" Fill="#46D226" StrokeThickness="4" VerticalAlignment="Top" Width="70" StrokeDashArray="1 1" Opacity="0.8" MouseDown="slot_MouseDown"/>
+
+        <DataGrid x:Name="garrisonsTroops" ItemsSource="{Binding listings}" SelectionMode="Single" CanUserResizeColumns="False" Foreground="#FF392018" BorderBrush="#FF391C18" AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontFamily="Book Antiqua" FontStyle="Oblique" HorizontalAlignment="Left" Height="229" Margin="565,51,0,0" VerticalAlignment="Top" Width="325">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="playerNameCol" Binding="{Binding PlayerName}" Header=" Player" Width="80" CanUserSort="True" />
+                <DataGridTemplateColumn x:Name="armyTypeCol" Header="Type" Width="40" CanUserSort="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding ArmyTypeImg}" Width="30" Height="30"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="slotIdCol" Binding="{Binding SlotId}" Header="Slot" Width="40" CanUserSort="True" />
+                <DataGridTextColumn x:Name="infCol" Binding="{Binding Inf}" Header="Inf" Width="30" CanUserSort="True"/>
+                <DataGridTextColumn x:Name="arCol" Binding="{Binding Ar}" Header="Ar" Width="30" CanUserSort="True" FontSize="10"/>
+                <DataGridTextColumn x:Name="knCol" Binding="{Binding Kn}" Header="Kn" Width="30" CanUserSort="True"/>
+                <DataGridTextColumn x:Name="sieCol" Binding="{Binding Sie}" Header="Sie" Width="30" CanUserSort="True"/>
+                <DataGridTextColumn x:Name="totalCol" Binding="{Binding Total}" Header="Total" Width="38" CanUserSort="True"/>
+            </DataGrid.Columns>
+
+            <DataGrid.Background>
+                <SolidColorBrush Color="#7F966B52"></SolidColorBrush>
+            </DataGrid.Background>
+
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                </Style>
+            </DataGrid.CellStyle>
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#FF392018"/>
+                    <Setter Property="FontStyle" Value="Normal"/>
+                    <Setter Property="FontSize" Value="15"/>
+                    <Setter Property="Foreground" Value="#FFE3CC98"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+        
+        <Button x:Name="removeGarrisonBTN" Content="Button" HorizontalAlignment="Left" Height="30" Margin="565,287,0,0" VerticalAlignment="Top" Width="80" Click="removeGarrisonBTN_Click"/>
+
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
+
     </Grid>
 </Window>
