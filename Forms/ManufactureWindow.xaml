@@ -10,7 +10,7 @@
         ShowInTaskbar="False" Background="{x:Null}" Foreground="{x:Null}" SnapsToDevicePixels="True">
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
-        <Grid Height="Auto" HorizontalAlignment="Left" Width="Auto">
+        <Grid Height="Auto" HorizontalAlignment="Left" Width="843" Margin="-0.2,-0.2,0,-0.4">
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="Fill" />
             </Grid.Background>
@@ -73,7 +73,7 @@
                 </Button.Background>
             </Button>
 
-            <Button x:Name="button_close" Margin="820,0,0,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click" HorizontalAlignment="Left" Width="20" RenderTransformOrigin="0.95,0.65">
+            <Button x:Name="button_close" Margin="823,0,0,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click" HorizontalAlignment="Left" Width="20" RenderTransformOrigin="0.95,0.65">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
                 </Button.Background>
