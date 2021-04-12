@@ -8,10 +8,10 @@ namespace LandConquestYD
     public static class YDCrypto
     {
         public static string Decrypt(string cipherText)
-		{
-			return Decryption(cipherText);
-		}
-		private static string Decryption(string cipherText)
+        {
+            return Decryption(cipherText);
+        }
+        private static string Decryption(string cipherText)
         {
             byte[] array = Convert.FromBase64String(cipherText);
             byte[] salt = array.Take(32).ToArray();
@@ -42,5 +42,24 @@ namespace LandConquestYD
                 }
             }
         }
+
+        public static string SHA512(string input)
+        {
+            return SHA512Encrypt(input);
+        }
+
+        private static string SHA512Encrypt(string input)
+        {
+            var bytes = Encoding.UTF8.GetBytes(input);
+            using (var hash = System.Security.Cryptography.SHA512.Create())
+            {
+                var hashedInputBytes = hash.ComputeHash(bytes);
+                var hashedInputStringBuilder = new StringBuilder(128);
+                foreach (var b in hashedInputBytes)
+                    hashedInputStringBuilder.Append(b.ToString("X2"));
+                return hashedInputStringBuilder.ToString();
+            }
+        }
+
     }
 }

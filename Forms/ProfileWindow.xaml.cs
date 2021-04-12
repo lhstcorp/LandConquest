@@ -2,6 +2,7 @@
 using LandConquest.DialogWIndows;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
+using LandConquestYD;
 using System.Linq;
 using System.Windows;
 
@@ -90,7 +91,7 @@ namespace LandConquest.Forms
             newPassBox.Text.Replace(" ", "");
             if (newPassBox.Text.Length >= 6 && newNameBox.Text.Any(x => char.IsLetter(x)))
             {
-                UserModel.UpdateUserPass(user.UserId, newPassBox.Text);
+                UserModel.UpdateUserPass(user.UserId, YDCrypto.SHA512(newPassBox.Text));
                 this.Loaded += Window_Loaded;
                 newPassBox.Visibility = Visibility.Hidden;
                 buttonSavePass.Visibility = Visibility.Hidden;

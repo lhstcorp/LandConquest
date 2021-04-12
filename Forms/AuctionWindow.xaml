@@ -14,6 +14,11 @@
             <Grid.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
+
+            <Grid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF392018"/>
+            </Grid.Resources>
+
             <DataGrid AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontFamily="Book Antiqua" FontStyle="Oblique" Height="393" Width="460" HorizontalAlignment="Left" ItemsSource="{Binding listings}" Margin="10,47,0,0" x:Name="auctionDataGrid" VerticalAlignment="Top" Foreground="#FF392018" SelectionChanged="auctionDataGrid_SelectionChanged" BorderBrush="#FF391C18" SelectionMode="Single" CanUserResizeColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="resourceQty" Binding="{Binding Qty}" Header=" Qty" Width="60" CanUserSort="True" />
