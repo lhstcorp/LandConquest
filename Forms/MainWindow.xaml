@@ -153,15 +153,16 @@
                 </Button.Background>
             </Button>
 
-            <Border x:Name="settingsGridBorder" BorderBrush="#FF48291F" BorderThickness="2" Height="Auto" VerticalAlignment="Top" Margin="0,45,70,0" HorizontalAlignment="Right" Width="109">
-                <Grid x:Name="settingsGrid" Visibility="Visible" Height="65" VerticalAlignment="Top" HorizontalAlignment="Right" Width="108">
+            <Border x:Name="settingsGridBorder" BorderBrush="#FF48291F" BorderThickness="2" Height="82" VerticalAlignment="Top" Margin="0,45,70,0" HorizontalAlignment="Right" Width="109">
+                <Grid x:Name="settingsGrid" Visibility="Visible" Margin="0.4,0.4,0.2,0">
                     <Grid.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"  />
                     </Grid.Background>
-                    <TextBlock Margin="41,9,24,34" FontSize="16" TextWrapping="Wrap" Text="Music:" FontFamily="Trebuchet MS"/>
-                    <CheckBox x:Name="checkBoxMusic" Margin="86,13,3,38" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxMusic_Click"/>
-                    <TextBlock Margin="7,32,23,11" FontSize="16" TextWrapping="Wrap" Text="Fullscreen:" FontFamily="Trebuchet MS"/>
-                    <CheckBox x:Name="checkBoxFs" Margin="86,35,3,16" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxFs_Click" />
+                    <TextBlock Margin="37,9,2,48" FontSize="16" TextWrapping="Wrap" Text="Music:" FontFamily="Trebuchet MS"/>
+                    <CheckBox x:Name="checkBoxMusic" Margin="86,13,3,0" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxMusic_Click" Height="22" VerticalAlignment="Top"/>
+                    <TextBlock Margin="3,32,2,25" FontSize="16" TextWrapping="Wrap" Text="Fullscreen:" FontFamily="Trebuchet MS"/>
+                    <CheckBox x:Name="checkBoxFs" Margin="86,35,3,0" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxFs_Click" Height="18" VerticalAlignment="Top" />
+                    <TextBlock x:Name="SubmitBugTextBlock" Margin="11,53,3,2" FontSize="16" TextWrapping="Wrap" Text="Submit bug" TextDecorations="Underline" FontFamily="Trebuchet MS" Cursor="Hand" MouseDown="SubmitBugTextBlock_MouseDown" />
                 </Grid>
             </Border>
 
@@ -318,12 +319,6 @@
             <Label x:Name="labelMoney" Content="0" Foreground="#FFE5D09D" HorizontalAlignment="Left" Margin="123,52,0,0" VerticalAlignment="Top" Height="32" Width="66" FontSize="16"/>
             <Label x:Name="labelDonation" Content="0" Foreground="Goldenrod" FontSize="16" HorizontalAlignment="Left" Margin="123,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.15,0.5" Width="66" Height="31"/>
 
-            <Button x:Name="buttonSubmitBug" Content="Submit bug" Margin="0,0,68,3.8" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonSubmitBug_Click" HorizontalAlignment="Right" Width="111" Height="37" VerticalAlignment="Bottom" FontFamily="Book Antiqua" FontSize="14">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                </Button.Background>
-            </Button>
-
             <Button x:Name="ButtonMailbox" Content="Mailbox" Margin="134,0,0,7.8" VerticalAlignment="Bottom" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Left" Width="107" FontFamily="Book Antiqua" FontSize="14" Click="ButtonMailbox_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
@@ -338,6 +333,10 @@
             <Label Content="Country" FontSize="11" HorizontalAlignment="Left" Margin="494,55,0,0" VerticalAlignment="Top" Width="51" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
             <Label Content="Region" FontSize="11" HorizontalAlignment="Left" Margin="548,55,0,0" VerticalAlignment="Top" Width="46" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
             <Label Content="Auction" FontSize="11" HorizontalAlignment="Left" Margin="446,54,0,0" VerticalAlignment="Top" Width="49" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+
+            <Label Content="Server time:" FontFamily="/Fonts/#Harrington" FontSize="24" Margin="0,0,159,9.8"  Foreground="#FF392018" RenderTransformOrigin="0.756,0.41" HorizontalAlignment="Right" Width="153" Height="40" VerticalAlignment="Bottom"/>
+            <Label x:Name="LabelServerTime" Content="00:00:00" FontSize="24" Margin="0,0,69,9.8" VerticalAlignment="Bottom" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" Height="40" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="107"/>
+
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>

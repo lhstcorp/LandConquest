@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Windows.Threading;
 
 namespace LandConquest.Forms
 {
@@ -151,6 +151,7 @@ namespace LandConquest.Forms
             //ConsumptionLogic.ConsumptionCountAsync(player, storage);
             //////////////////           
             DailyBonusCount(player);
+            ServerDispatcherTimer();
 
 
             settingsGrid.Visibility = Visibility.Hidden;
@@ -285,7 +286,8 @@ namespace LandConquest.Forms
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
-        private void buttonSubmitBug_Click(object sender, RoutedEventArgs e)
+
+        private void SubmitBugTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CloseUnusedWindows();
             openedWindow = new SubmitBugWindow(player.PlayerName);
@@ -1072,6 +1074,19 @@ namespace LandConquest.Forms
             consumptionGrid.Visibility = Visibility.Hidden;
             consumptionBorder.Visibility = Visibility.Hidden;
             BtnShowConsumptionGrid.Visibility = Visibility.Visible;
+        }
+
+        private void ServerDispatcherTimer()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += serverTimer_Tick;
+            timer.Start();
+        }
+
+        private void serverTimer_Tick(object sender, EventArgs e)
+        {
+            LabelServerTime.Content = DateTime.UtcNow.ToLongTimeString();
         }
     }
 }
