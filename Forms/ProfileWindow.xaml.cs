@@ -36,7 +36,7 @@ namespace LandConquest.Forms
             labelTitle.Content = player.PlayerTitle.ToString();
             labelLand.Content = player.PlayerCurrentRegion.ToString();
 
-            labelEmail.Content = user.UserEmail.ToString();
+            labelEmail.Content = YDCrypto.Decrypt(user.UserEmail);
             labelLogin.Content = user.UserLogin.ToString();
 
             newEmailBox.Visibility = Visibility.Hidden;
@@ -71,10 +71,10 @@ namespace LandConquest.Forms
         private void buttonSaveEmail_Click(object sender, RoutedEventArgs e)
         {
             newEmailBox.Text.Replace(" ", "");
-            bool validEmailChangeEmail = UserModel.ValidateUserByEmail(newEmailBox.Text);
+            bool validEmailChangeEmail = UserModel.ValidateUserByEmail(YDCrypto.Encrypt(newEmailBox.Text));
             if (validEmailChangeEmail == true && EmailValidator.Validate(newEmailBox.Text, true, true))
             {
-                UserModel.UpdateUserEmail(user.UserId, newEmailBox.Text);
+                UserModel.UpdateUserEmail(user.UserId, YDCrypto.Encrypt(newEmailBox.Text));
                 this.Loaded += Window_Loaded;
                 newEmailBox.Visibility = Visibility.Hidden;
                 buttonSaveEmail.Visibility = Visibility.Hidden;

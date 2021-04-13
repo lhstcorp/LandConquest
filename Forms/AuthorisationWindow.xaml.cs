@@ -74,7 +74,7 @@ namespace LandConquest
             textBoxNewPass.Text.Replace(" ", "");
             textBoxConfirmNewPass.Text.Replace(" ", "");
             bool validNewUserLogin = LandConquestDB.Models.UserModel.ValidateUserByLogin(textBoxNewLogin.Text);
-            bool validNewUserEmail = LandConquestDB.Models.UserModel.ValidateUserByEmail(textBoxNewEmail.Text);
+            bool validNewUserEmail = LandConquestDB.Models.UserModel.ValidateUserByEmail(YDCrypto.Encrypt(textBoxNewEmail.Text));
 
             if (textBoxNewLogin.Text.Length > 6 &&
                 textBoxNewLogin.Text.Any(x => char.IsLetter(x)) &&
@@ -86,7 +86,7 @@ namespace LandConquest
                 textBoxNewPass.Text == textBoxConfirmNewPass.Text)
             {
                 string userId = GenerateUserId();
-                int userCreationResult = LandConquestDB.Models.UserModel.CreateUser(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, YDCrypto.SHA512(this.textBoxNewPass.Text), userId);
+                int userCreationResult = LandConquestDB.Models.UserModel.CreateUser(this.textBoxNewLogin.Text, YDCrypto.Encrypt(this.textBoxNewEmail.Text), YDCrypto.SHA512(this.textBoxNewPass.Text), userId);
                 if (userCreationResult < 0)
                 {
                     WarningDialogWindow.CallWarningDialogNoResult("Error creating new user!");
@@ -94,7 +94,7 @@ namespace LandConquest
                 else
                 {
                     LandConquestDB.Entities.User registeredUser = new LandConquestDB.Entities.User();
-                    int playerResult = LandConquestDB.Models.PlayerModel.CreatePlayer(this.textBoxNewLogin.Text, this.textBoxNewEmail.Text, YDCrypto.SHA512(this.textBoxNewPass.Text), userId, registeredUser);
+                    int playerResult = LandConquestDB.Models.PlayerModel.CreatePlayer(this.textBoxNewLogin.Text, YDCrypto.Encrypt(this.textBoxNewEmail.Text), YDCrypto.SHA512(this.textBoxNewPass.Text), userId, registeredUser);
 
                     if (playerResult < 0)
                     {
