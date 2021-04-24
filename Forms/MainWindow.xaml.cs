@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Windows.Threading;
 
 namespace LandConquest.Forms
 {
@@ -146,9 +146,12 @@ namespace LandConquest.Forms
             /// ГОЛОД ТУТ ////
             //////////////////
             ConsumptionLogic.ConsumptionCount(player, storage);
+            lblConsumption.Content = ConsumptionLogic.CountFunction(player, 1);
+            lblFoodLeft.Content = storage.PlayerFood;
             //ConsumptionLogic.ConsumptionCountAsync(player, storage);
             //////////////////           
             DailyBonusCount(player);
+            ServerDispatcherTimer();
 
 
             settingsGrid.Visibility = Visibility.Hidden;
@@ -157,6 +160,7 @@ namespace LandConquest.Forms
             btnShowLeaderGrid.Visibility = Visibility.Hidden;
             BtnShowTaxesGrid.Visibility = Visibility.Hidden;
             BtnShowDailyBonusGrid.Visibility = Visibility.Hidden;
+            BtnShowConsumptionGrid.Visibility = Visibility.Hidden;
 
             GetWorldLeader();
 
@@ -282,7 +286,8 @@ namespace LandConquest.Forms
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
-        private void buttonSubmitBug_Click(object sender, RoutedEventArgs e)
+
+        private void SubmitBugTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CloseUnusedWindows();
             openedWindow = new SubmitBugWindow(player.PlayerName);
@@ -1055,6 +1060,33 @@ namespace LandConquest.Forms
             DailyBonusGrid.Visibility = Visibility.Visible;
             DailyBonusBorder.Visibility = Visibility.Visible;
             BtnShowDailyBonusGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnShowConsumptionGrid_Click(object sender, RoutedEventArgs e)
+        {
+            consumptionGrid.Visibility = Visibility.Visible;
+            consumptionBorder.Visibility = Visibility.Visible;
+            BtnShowConsumptionGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void btnHideConsumptionGrid_Click(object sender, RoutedEventArgs e)
+        {
+            consumptionGrid.Visibility = Visibility.Hidden;
+            consumptionBorder.Visibility = Visibility.Hidden;
+            BtnShowConsumptionGrid.Visibility = Visibility.Visible;
+        }
+
+        private void ServerDispatcherTimer()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += serverTimer_Tick;
+            timer.Start();
+        }
+
+        private void serverTimer_Tick(object sender, EventArgs e)
+        {
+            LabelServerTime.Content = DateTime.UtcNow.ToLongTimeString();
         }
     }
 }
