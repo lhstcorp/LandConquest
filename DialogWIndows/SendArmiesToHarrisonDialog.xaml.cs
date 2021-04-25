@@ -155,7 +155,7 @@ namespace LandConquest.DialogWIndows
             {
                 slot1.Fill = loadColor[GarrisonModel.calculateSlotColor(garrisons, 1, castle)];
             }
-            else if (castle.CastleLvl < slotIncremental*2)
+            else if (castle.CastleLvl < slotIncremental * 2)
             {
                 slot1.Fill = loadColor[GarrisonModel.calculateSlotColor(garrisons, 1, castle)];
                 slot2.Fill = loadColor[GarrisonModel.calculateSlotColor(garrisons, 2, castle)];
@@ -271,15 +271,15 @@ namespace LandConquest.DialogWIndows
         private void unmarkRectangles()
         {
             // всем ректанглам красим границу в дефолтный чёрно-коричневый
-            slot1.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot2.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot3.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot4.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot5.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot6.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot7.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot8.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot9.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot1.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot2.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot3.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot4.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot5.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot6.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot7.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot8.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot9.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
             allSlots.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
             // <--
         }
@@ -382,7 +382,7 @@ namespace LandConquest.DialogWIndows
 
         private void removeGarrisonBTN_Click(object sender, RoutedEventArgs e)
         {
-            
+
             GarrisonListings listing = (GarrisonListings)garrisonsTroops.SelectedItem;
 
             if (listing != null)
@@ -396,7 +396,7 @@ namespace LandConquest.DialogWIndows
                 loadGarrisonInfo();
                 loadGarrisonDataGrid();
 
-            }   
+            }
         }
     }
 }

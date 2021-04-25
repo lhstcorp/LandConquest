@@ -182,7 +182,7 @@ namespace LandConquestDB.Models
             if (share <= 0.1)
             {
                 colorIndex = 0;
-            } 
+            }
             else if (share <= 0.2)
             {
                 colorIndex = 1;
