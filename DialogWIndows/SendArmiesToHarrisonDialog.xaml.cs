@@ -68,6 +68,7 @@ namespace LandConquest.DialogWIndows
             loadSlots();
             loadGarrisonInfo();
             selectedSlot = allSlots;
+            allSlots.Stroke = new SolidColorBrush((Color.FromRgb(199, 176, 8)));
             loadGarrisonDataGrid();
         }
 
@@ -77,8 +78,11 @@ namespace LandConquest.DialogWIndows
             fullPlayerArmy = ArmyModel.GetArmyInfo(player, fullPlayerArmy);
 
             ArmyInBattle freeArmy = new ArmyInBattle(fullPlayerArmy);
+
             List<ArmyInBattle> playerArmies = new List<ArmyInBattle>();
             playerArmies = BattleModel.GetAllPlayerArmiesInfo(playerArmies, player);
+
+            List<Garrison> playerGarrisons = GarrisonModel.GetPlayerGarrisonInfo(player.PlayerId);
 
             for (int i = 0; i < playerArmies.Count; i++)
             {
@@ -87,6 +91,15 @@ namespace LandConquest.DialogWIndows
                 freeArmy.ArmyHorsemanCount -= playerArmies[i].ArmyHorsemanCount;
                 freeArmy.ArmySiegegunCount -= playerArmies[i].ArmySiegegunCount;
                 freeArmy.ArmySizeCurrent -= playerArmies[i].ArmySizeCurrent;
+            }
+
+            for (int i = 0; i < playerGarrisons.Count; i++)
+            {
+                freeArmy.ArmyArchersCount -= playerGarrisons[i].ArmyArchersCount;
+                freeArmy.ArmyInfantryCount -= playerGarrisons[i].ArmyInfantryCount;
+                freeArmy.ArmyHorsemanCount -= playerGarrisons[i].ArmyHorsemanCount;
+                freeArmy.ArmySiegegunCount -= playerGarrisons[i].ArmySiegegunCount;
+                freeArmy.ArmySizeCurrent -= playerGarrisons[i].ArmySizeCurrent;
             }
 
             sliderInfantry.Value = 0;
@@ -142,7 +155,7 @@ namespace LandConquest.DialogWIndows
             {
                 slot1.Fill = loadColor[GarrisonModel.calculateSlotColor(garrisons, 1, castle)];
             }
-            else if (castle.CastleLvl < slotIncremental*2)
+            else if (castle.CastleLvl < slotIncremental * 2)
             {
                 slot1.Fill = loadColor[GarrisonModel.calculateSlotColor(garrisons, 1, castle)];
                 slot2.Fill = loadColor[GarrisonModel.calculateSlotColor(garrisons, 2, castle)];
@@ -258,23 +271,21 @@ namespace LandConquest.DialogWIndows
         private void unmarkRectangles()
         {
             // всем ректанглам красим границу в дефолтный чёрно-коричневый
-            slot1.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot2.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot3.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot4.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot5.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot6.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot7.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot8.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
-            slot9.Stroke    = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot1.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot2.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot3.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot4.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot5.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot6.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot7.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot8.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
+            slot9.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
             allSlots.Stroke = new SolidColorBrush((Color.FromRgb(49, 24, 24)));
             // <--
         }
 
         private void loadGarrisonInfo()
         {
-            allSlots.Stroke = new SolidColorBrush((Color.FromRgb(199, 176, 8)));
-
             Garrison garrison = new Garrison();
             for (int i = 0; i < garrisons.Count; i++)
             {
@@ -337,7 +348,12 @@ namespace LandConquest.DialogWIndows
             {
                 MessageBox.Show("Please, choose castle slot.");
             }
-            
+
+            loadSliders();
+            loadCastle();
+            loadSlots();
+            loadGarrisonInfo();
+            loadGarrisonDataGrid();
         }
         private void loadGarrisonDataGrid()
         {
@@ -366,7 +382,7 @@ namespace LandConquest.DialogWIndows
 
         private void removeGarrisonBTN_Click(object sender, RoutedEventArgs e)
         {
-            
+
             GarrisonListings listing = (GarrisonListings)garrisonsTroops.SelectedItem;
 
             if (listing != null)
@@ -374,11 +390,13 @@ namespace LandConquest.DialogWIndows
                 GarrisonModel.deleteGarrisonById(listing.ArmyId);
 
                 garrisons.Clear();
+                loadSliders();
+                loadCastle();
                 loadSlots();
                 loadGarrisonInfo();
                 loadGarrisonDataGrid();
 
-            }   
+            }
         }
     }
 }
