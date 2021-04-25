@@ -15,3 +15,20 @@ C:\Users\green\Documents\GitHub\LandConquest\LandConquestYD\obj\Debug\LandConque
 C:\Users\green\Documents\GitHub\LandConquest\LandConquestYD\obj\Debug\LandConquestYD.dll
 C:\Users\green\Documents\GitHub\LandConquest\LandConquestYD\obj\Debug\LandConquestYD.pdb
 C:\Users\green\Documents\GitHub\LandConquest\LandConquestYD\obj\Debug\LandConquestYD.csprojAssemblyReference.cache
+D:\LandConquest\LandConquest\LandConquestYD\bin\Debug\LandConquestYD.dll.config
+D:\LandConquest\LandConquest\LandConquestYD\bin\Debug\LandConquestYD.dll
+D:\LandConquest\LandConquest\LandConquestYD\bin\Debug\LandConquestYD.pdb
+D:\LandConquest\LandConquest\LandConquestYD\bin\Debug\DeviceId.dll
+D:\LandConquest\LandConquest\LandConquestYD\bin\Debug\Newtonsoft.Json.dll
+D:\LandConquest\LandConquest\LandConquestYD\bin\Debug\System.Net.Http.Formatting.dll
+D:\LandConquest\LandConquest\LandConquestYD\bin\Debug\YandexDiskNET.dll
+D:\LandConquest\LandConquest\LandConquestYD\bin\Debug\Получить код подтверждения.exe
+D:\LandConquest\LandConquest\LandConquestYD\bin\Debug\DeviceId.xml
+D:\LandConquest\LandConquest\LandConquestYD\bin\Debug\Newtonsoft.Json.xml
+D:\LandConquest\LandConquest\LandConquestYD\bin\Debug\System.Net.Http.Formatting.xml
+D:\LandConquest\LandConquest\LandConquestYD\bin\Debug\YandexDiskNET.xml
+D:\LandConquest\LandConquest\LandConquestYD\obj\Debug\LandConquestYD.csprojAssemblyReference.cache
+D:\LandConquest\LandConquest\LandConquestYD\obj\Debug\LandConquestYD.csproj.CoreCompileInputs.cache
+D:\LandConquest\LandConquest\LandConquestYD\obj\Debug\LandConquestYD.csproj.CopyComplete
+D:\LandConquest\LandConquest\LandConquestYD\obj\Debug\LandConquestYD.dll
+D:\LandConquest\LandConquest\LandConquestYD\obj\Debug\LandConquestYD.pdb
