@@ -126,8 +126,12 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
-        
-        <Button x:Name="removeGarrisonBTN" Content="Button" HorizontalAlignment="Left" Height="30" Margin="565,287,0,0" VerticalAlignment="Top" Width="80" Click="removeGarrisonBTN_Click"/>
+
+        <Button x:Name="removeGarrisonBTN" Content="Remove" Foreground="Wheat" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="30" Margin="565,287,0,0" VerticalAlignment="Top" Width="80" Click="removeGarrisonBTN_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+            </Button.Background>
+        </Button>
 
 
         <Grid.Background>

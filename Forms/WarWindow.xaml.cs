@@ -457,12 +457,32 @@ namespace LandConquest.Forms
 
         public bool checkRange(int indexArmyToShoot)
         {
-            if ((Convert.ToString(((Image)localWarMap.Children[indexArmyToShoot]).Source) == "pack://application:,,,/Pictures/Tiles/g2.jpg") || (Convert.ToString(((Image)localWarMap.Children[indexArmyToShoot]).Source) == "pack://application:,,,/Pictures/Tiles/gra1.jpg"))
+            bool ret = true;
+
+            int row1 = index / localWarMap.Columns + 1;
+            int col1 = index - localWarMap.Columns * (row1 - 1) + 1;
+
+            int row2 = indexArmyToShoot / localWarMap.Columns + 1;
+            int col2 = indexArmyToShoot - localWarMap.Columns * (row2 - 1) + 1;
+
+            int range = 0;
+
+            if (selectedArmy.ArmySiegegunCount > 0)
             {
-                return true;
+                range = (int)ForcesEnum.Siege.Range;
             }
 
-            return false;
+            if (selectedArmy.ArmyArchersCount > 0)
+            {
+                range = (int)ForcesEnum.Archers.Range;
+            }
+
+            if ((Math.Abs(row1 - row2) > range) && (Math.Abs(col1 - col2) > range))
+            {
+                ret = false;
+            }
+
+            return ret;
         }
 
         private void ImgArmy_MouseEnter(object sender, MouseEventArgs e)
@@ -546,7 +566,8 @@ namespace LandConquest.Forms
             {
                 range = (int)ForcesEnum.Siege.Range;
             }
-            else if (selectedArmy.ArmyArchersCount > 0)
+            
+            if (selectedArmy.ArmyArchersCount > 0)
             {
                 range = (int)ForcesEnum.Archers.Range;
             }
@@ -1244,10 +1265,13 @@ namespace LandConquest.Forms
         {
             elementsWarMap.Children[castleAttackerLocalLandId].MouseLeftButtonDown += RedCastle_MouseLeftButtonDown;
             elementsWarMap.Children[castleDefenderLocalLandId].MouseLeftButtonDown += BlueCastle_MouseLeftButtonDown;
+            elementsWarMap.Children[castleAttackerLocalLandId].MouseRightButtonDown += RedCastle_MouseRightButtonDown;// (gridForArmies.Children[castleAttackerLocalLandId], new MouseButtonEventArgs());
+            elementsWarMap.Children[castleDefenderLocalLandId].MouseRightButtonDown += BlueCastle_MouseRightButtonDown;
             elementsWarMap.Children[castleAttackerLocalLandId].MouseEnter += Castle_MouseEnter;
             elementsWarMap.Children[castleDefenderLocalLandId].MouseEnter += Castle_MouseEnter;
             elementsWarMap.Children[castleAttackerLocalLandId].MouseLeave += Castle_MouseLeave;
             elementsWarMap.Children[castleDefenderLocalLandId].MouseLeave += Castle_MouseLeave;
+            
 
         }
 
@@ -1261,6 +1285,16 @@ namespace LandConquest.Forms
         {
             ShowGarrisonInfo(castleDefenderLocalLandId);
             garrisonInfoGrid.Visibility = Visibility.Visible;
+        }
+
+        private void RedCastle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ImgArmy_MouseRightButtonDown(gridForArmies.Children[castleAttackerLocalLandId], e);
+        }
+
+        private void BlueCastle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ImgArmy_MouseRightButtonDown(gridForArmies.Children[castleDefenderLocalLandId], e);
         }
 
         private void Castle_MouseEnter(object sender, MouseEventArgs e)

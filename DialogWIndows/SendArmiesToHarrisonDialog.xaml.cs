@@ -387,15 +387,17 @@ namespace LandConquest.DialogWIndows
 
             if (listing != null)
             {
-                GarrisonModel.deleteGarrisonById(listing.ArmyId);
+                if (GarrisonModel.getPlayerIdByGarrisonId(listing.ArmyId) == player.PlayerId)
+                {
+                    GarrisonModel.deleteGarrisonById(listing.ArmyId);
 
-                garrisons.Clear();
-                loadSliders();
-                loadCastle();
-                loadSlots();
-                loadGarrisonInfo();
-                loadGarrisonDataGrid();
-
+                    garrisons.Clear();
+                    loadSliders();
+                    loadCastle();
+                    loadSlots();
+                    loadGarrisonInfo();
+                    loadGarrisonDataGrid();
+                }
             }
         }
     }
