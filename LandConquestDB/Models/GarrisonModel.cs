@@ -285,5 +285,27 @@ namespace LandConquestDB.Models
 
             command.Dispose();
         }
+
+        public static string getPlayerIdByGarrisonId(string id)
+        {
+            string playerId = "";
+            string query = "SELECT player_id FROM dbo.GarrisonData WHERE army_id = @army_id ";
+
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
+            command.Parameters.AddWithValue("@army_id", id);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var _playerId = reader.GetOrdinal("player_id");
+
+                while (reader.Read())
+                {
+                    playerId = reader.GetString(_playerId);
+                }
+                reader.Close();
+            }
+            command.Dispose();
+            return playerId;
+        }
     }
 }
