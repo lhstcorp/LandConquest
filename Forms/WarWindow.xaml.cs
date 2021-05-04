@@ -17,12 +17,17 @@ namespace LandConquest.Forms
 {
     public partial class WarWindow : Window
     {
+        // --> CONST part
+        private const int syncTick = 30; //sec
+        private const int castleAttackerLocalLandId = 270; //red castle
+        private const int castleDefenderLocalLandId = 299; //blue castle
+        // <--
+
         private System.Windows.Controls.Primitives.UniformGrid localWarMap;
         private Image imgArmySelected;
         private bool f_armySelected = false;
         private bool f_canMoveArmy = false;
         private int INDEX;
-        private const int syncTick = 30; //sec
         private int timerValue = 30;
         private Player player;
         private int playerSide;
@@ -114,6 +119,7 @@ namespace LandConquest.Forms
                     elementsWarMap.Children.Add(new Image());
                 }
             }
+
             mainWarWinGrid.Children.Add(localWarMap);
 
             ShowElementsOnMap();
@@ -126,14 +132,17 @@ namespace LandConquest.Forms
             Image redCastle = new Image();
             redCastle.Source = new BitmapImage(new Uri("/Pictures/War/RedCastle.png", UriKind.Relative));
 
-            elementsWarMap.Children.RemoveAt(270);
-            elementsWarMap.Children.Insert(270, redCastle);
+            elementsWarMap.Children.RemoveAt(castleAttackerLocalLandId);
+            elementsWarMap.Children.Insert(castleAttackerLocalLandId, redCastle);
 
             Image blueCastle = new Image();
             blueCastle.Source = new BitmapImage(new Uri("/Pictures/War/BlueCastle.png", UriKind.Relative));
 
-            elementsWarMap.Children.RemoveAt(299);
-            elementsWarMap.Children.Insert(299, blueCastle);
+            elementsWarMap.Children.RemoveAt(castleDefenderLocalLandId);
+            elementsWarMap.Children.Insert(castleDefenderLocalLandId, blueCastle);
+
+            subscribeToCastleEvents();
+
         }
 
         public void ShowArmiesOnMap()
@@ -154,8 +163,6 @@ namespace LandConquest.Forms
                 imgArmy.MouseRightButtonDown += ImgArmy_MouseRightButtonDown;
                 imgArmy.Width = 40;
                 imgArmy.Height = 40;
-
-
 
                 if (((Image)gridForArmies.Children[armies[i].LocalLandId]).Source == emptyImage.Source)
                 {
@@ -241,6 +248,11 @@ namespace LandConquest.Forms
             if (f_canMoveArmy && findPlayerArmyCanMove())
             {
                 ShowAvailableTilesToMove(index);
+            }
+
+            if (index == castleDefenderLocalLandId || index == castleAttackerLocalLandId) // if the tile is a castle tile
+            {
+                ShowGarrisonInfo(index);
             }
         }
 
@@ -440,19 +452,37 @@ namespace LandConquest.Forms
 
                 HideAvailableTilesToShoot(index);
                 lockArmyShoot();
-
-
             }
         }
 
         public bool checkRange(int indexArmyToShoot)
         {
-            if ((Convert.ToString(((Image)localWarMap.Children[indexArmyToShoot]).Source) == "pack://application:,,,/Pictures/Tiles/g2.jpg") || (Convert.ToString(((Image)localWarMap.Children[indexArmyToShoot]).Source) == "pack://application:,,,/Pictures/Tiles/gra1.jpg"))
+            bool ret = true;
+
+            int row1 = index / localWarMap.Columns + 1;
+            int col1 = index - localWarMap.Columns * (row1 - 1) + 1;
+
+            int row2 = indexArmyToShoot / localWarMap.Columns + 1;
+            int col2 = indexArmyToShoot - localWarMap.Columns * (row2 - 1) + 1;
+
+            int range = 0;
+
+            if (selectedArmy.ArmySiegegunCount > 0)
             {
-                return true;
+                range = (int)ForcesEnum.Siege.Range;
             }
 
-            return false;
+            if (selectedArmy.ArmyArchersCount > 0)
+            {
+                range = (int)ForcesEnum.Archers.Range;
+            }
+
+            if ((Math.Abs(row1 - row2) > range) && (Math.Abs(col1 - col2) > range))
+            {
+                ret = false;
+            }
+
+            return ret;
         }
 
         private void ImgArmy_MouseEnter(object sender, MouseEventArgs e)
@@ -536,7 +566,8 @@ namespace LandConquest.Forms
             {
                 range = (int)ForcesEnum.Siege.Range;
             }
-            else if (selectedArmy.ArmyArchersCount > 0)
+            
+            if (selectedArmy.ArmyArchersCount > 0)
             {
                 range = (int)ForcesEnum.Archers.Range;
             }
@@ -1191,6 +1222,89 @@ namespace LandConquest.Forms
                 thisMoveIndicator.Fill = new SolidColorBrush(Colors.DarkBlue);
             else
                 thisMoveIndicator.Fill = new SolidColorBrush(Colors.DarkRed);
+        }
+
+        public void ShowGarrisonInfo(int _locationId)
+        {
+            List<Garrison> garrisons;
+            if (_locationId == castleDefenderLocalLandId)
+            {
+                garrisons = GarrisonModel.GetGarrisonInfo(war.LandDefenderId);
+            }
+            else
+            {
+                garrisons = GarrisonModel.GetGarrisonInfo(war.LandAttackerId);
+            }
+
+            Garrison fullGarrison = new Garrison();
+
+            for (int i = 0; i < garrisons.Count; i++)
+            {
+                fullGarrison.ArmyInfantryCount += garrisons[i].ArmyInfantryCount;
+                fullGarrison.ArmyArchersCount += garrisons[i].ArmyArchersCount;
+                fullGarrison.ArmyHorsemanCount += garrisons[i].ArmyHorsemanCount;
+                fullGarrison.ArmySiegegunCount += garrisons[i].ArmySiegegunCount;
+                fullGarrison.ArmySizeCurrent += garrisons[i].ArmySizeCurrent;
+            }
+
+            GwarriorsAll.Content = fullGarrison.ArmySizeCurrent;
+            GwarriorsInfantry.Content = fullGarrison.ArmyInfantryCount;
+            GwarriorsArchers.Content = fullGarrison.ArmyArchersCount;
+            GwarriorsKnights.Content = fullGarrison.ArmyHorsemanCount;
+            GwarriorsSiege.Content = fullGarrison.ArmySiegegunCount;
+
+            garrisonInfoGrid.Visibility = Visibility.Visible;
+        }
+
+        private void closeGInfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            garrisonInfoGrid.Visibility = Visibility.Hidden;
+        }
+
+        public void subscribeToCastleEvents()
+        {
+            elementsWarMap.Children[castleAttackerLocalLandId].MouseLeftButtonDown += RedCastle_MouseLeftButtonDown;
+            elementsWarMap.Children[castleDefenderLocalLandId].MouseLeftButtonDown += BlueCastle_MouseLeftButtonDown;
+            elementsWarMap.Children[castleAttackerLocalLandId].MouseRightButtonDown += RedCastle_MouseRightButtonDown;// (gridForArmies.Children[castleAttackerLocalLandId], new MouseButtonEventArgs());
+            elementsWarMap.Children[castleDefenderLocalLandId].MouseRightButtonDown += BlueCastle_MouseRightButtonDown;
+            elementsWarMap.Children[castleAttackerLocalLandId].MouseEnter += Castle_MouseEnter;
+            elementsWarMap.Children[castleDefenderLocalLandId].MouseEnter += Castle_MouseEnter;
+            elementsWarMap.Children[castleAttackerLocalLandId].MouseLeave += Castle_MouseLeave;
+            elementsWarMap.Children[castleDefenderLocalLandId].MouseLeave += Castle_MouseLeave;
+            
+
+        }
+
+        private void RedCastle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ShowGarrisonInfo(castleAttackerLocalLandId);
+            garrisonInfoGrid.Visibility = Visibility.Visible;
+        }
+
+        private void BlueCastle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ShowGarrisonInfo(castleDefenderLocalLandId);
+            garrisonInfoGrid.Visibility = Visibility.Visible;
+        }
+
+        private void RedCastle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ImgArmy_MouseRightButtonDown(gridForArmies.Children[castleAttackerLocalLandId], e);
+        }
+
+        private void BlueCastle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ImgArmy_MouseRightButtonDown(gridForArmies.Children[castleDefenderLocalLandId], e);
+        }
+
+        private void Castle_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void Castle_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Arrow;
         }
     }
 

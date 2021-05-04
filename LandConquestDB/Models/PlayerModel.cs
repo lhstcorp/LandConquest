@@ -203,8 +203,7 @@ namespace LandConquestDB.Models
             }
             command.Dispose();
             return playerName;
-        }
-
+        }        
 
         public static Player UpdatePlayerMoney(Player player)
         {
