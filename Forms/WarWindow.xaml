@@ -26,13 +26,13 @@
                 <Image Margin="6,125,0,0" Source="/Pictures/Armies/SIE-0.png" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="25"/>
                 <Label x:Name="warriorsSiege" Content="0"  Margin="37,129,0,0" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
 
-                <Button x:Name="btnSplit" Content="S" FontSize="10" FontWeight="Bold"  Foreground="Wheat" Margin="126,0,0,0" BorderBrush="{x:Null}" Click="btnSplit_Click" HorizontalAlignment="Left" Width="34" Height="34" VerticalAlignment="Top" HorizontalContentAlignment="Center">
+                <Button x:Name="btnSplit" Content="S" FontSize="8" FontWeight="Bold"  Foreground="Wheat" Margin="126,0,0,0" BorderBrush="{x:Null}" Click="btnSplit_Click" HorizontalAlignment="Left" Width="34" Height="34" VerticalAlignment="Top" HorizontalContentAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnAttack" Content="A" FontSize="10" FontWeight="Bold"  Foreground="Wheat" HorizontalAlignment="Left" Margin="126,66,0,0" VerticalAlignment="Top" Width="34" BorderBrush="{x:Null}" Click="btnAttack_Click" Height="34">
+                <Button x:Name="btnAttack" Content="A" HorizontalContentAlignment="Center" FontSize="8" FontWeight="Bold"  Foreground="Wheat" HorizontalAlignment="Left" Margin="126,66,0,0" VerticalAlignment="Top" Width="34" BorderBrush="{x:Null}" Click="btnAttack_Click" Height="34">
                     <Button.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
                     </Button.Background>
@@ -55,11 +55,34 @@
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnUnite" Content="U" FontSize="10" FontWeight="Bold"  Foreground="Wheat" HorizontalAlignment="Left" Margin="160,0,0,0" VerticalAlignment="Top" Width="34" BorderBrush="{x:Null}" Click="btnUnite_Click" Height="34">
+                <Button x:Name="btnUnite" Content="U" FontSize="8" FontWeight="Bold"  Foreground="Wheat" HorizontalAlignment="Left" Margin="160,0,0,0" VerticalAlignment="Top" Width="34" BorderBrush="{x:Null}" Click="btnUnite_Click" Height="34">
                     <Button.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
                     </Button.Background>
                 </Button>
+                
+                <Button x:Name="btnStartSiege" Margin="160,66,5,54" Width="34" BorderBrush="{x:Null}" Click="btnStartSiege_Click" Height="34" IsEnabled="False">
+                    <Button.ToolTip>
+                        <ToolTip Content="Start siege" Foreground="Wheat" FontFamily="Italic" FontSize="10">
+                            <ToolTip.Background>
+                                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
+                            </ToolTip.Background>
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Button.Background>
+                        <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
+                    </Button.Background>
+                </Button>
+
+                <Image x:Name="siegeImageBtn" Source="/Pictures/War/SiegeTower.png" Width="auto" Margin="162,66,8,55" MouseEnter="Castle_MouseEnter" MouseLeave="Castle_MouseLeave" MouseDown="btnStartSiege_Click" IsEnabled="False">
+                    <Image.ToolTip>
+                        <ToolTip Content="Start siege" Foreground="Wheat" FontFamily="Italic" FontSize="10" >
+                            <ToolTip.Background>
+                                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
+                            </ToolTip.Background>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
 
                 <Grid.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
