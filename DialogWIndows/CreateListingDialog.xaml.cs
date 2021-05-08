@@ -31,91 +31,91 @@ namespace LandConquest.DialogWIndows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            storage = new PlayerStorage();
+            storage         = new PlayerStorage();
 
-            itemName = null;
-            itemGroup = null;
-            itemSubgroup = null;
+            itemName        = null;
+            itemGroup       = null;
+            itemSubgroup    = null;
 
             storage = StorageModel.GetPlayerStorage(player);
 
-            labelWoodAmount.Content = storage.PlayerWood.ToString();
-            labelStoneAmount.Content = storage.PlayerStone.ToString();
-            labelFoodAmount.Content = storage.PlayerFood.ToString();
-            labelGemsAmount.Content = storage.PlayerGems.ToString();
-            labelCopperAmount.Content = storage.PlayerCopper.ToString();
-            labelIronAmount.Content = storage.PlayerIron.ToString();
-            labelLeatherAmount.Content = storage.PlayerLeather.ToString();
+            labelWoodAmount.Content     = storage.PlayerWood.ToString();
+            labelStoneAmount.Content    = storage.PlayerStone.ToString();
+            labelFoodAmount.Content     = storage.PlayerFood.ToString();
+            labelGemsAmount.Content     = storage.PlayerGems.ToString();
+            labelCopperAmount.Content   = storage.PlayerCopper.ToString();
+            labelIronAmount.Content     = storage.PlayerIron.ToString();
+            labelLeatherAmount.Content  = storage.PlayerLeather.ToString();
 
-            labelSetPrice.Visibility = Visibility.Hidden;
-            labelSetAmount.Visibility = Visibility.Hidden;
-            textBoxAmount.Visibility = Visibility.Hidden;
-            textBoxPrice.Visibility = Visibility.Hidden;
-            buttonPlace.Visibility = Visibility.Hidden;
+            labelSetPrice.Visibility    = Visibility.Hidden;
+            labelSetAmount.Visibility   = Visibility.Hidden;
+            textBoxAmount.Visibility    = Visibility.Hidden;
+            textBoxPrice.Visibility     = Visibility.Hidden;
+            buttonPlace.Visibility      = Visibility.Hidden;
         }
 
         private void woodButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             showListingDetails();
-            itemName = "wood";
-            itemGroup = "Resources";
-            itemSubgroup = "";
+            itemName        = "wood";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
         }
 
         private void stoneButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "stone";
-            itemGroup = "Resources";
-            itemSubgroup = "";
+            itemName        = "stone";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
             showListingDetails();
         }
 
         private void foodButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "food";
-            itemGroup = "Resources";
-            itemSubgroup = "";
+            itemName        = "food";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
             showListingDetails();
         }
         private void copperButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "copper";
-            itemGroup = "Resources";
-            itemSubgroup = "";
+            itemName        = "copper";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
             showListingDetails();
         }
 
         private void gemsButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "gems";
-            itemGroup = "Resources";
-            itemSubgroup = "";
+            itemName        = "gems";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
             showListingDetails();
         }
 
         private void metalButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "iron";
-            itemGroup = "Resources";
-            itemSubgroup = "";
+            itemName        = "iron";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
             showListingDetails();
         }
 
         private void leatherButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "leather";
-            itemGroup = "Resources";
-            itemSubgroup = "";
+            itemName        = "leather";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
             showListingDetails();
         }
 
         private void showListingDetails()
         {
-            labelSetPrice.Visibility = Visibility.Visible;
-            labelSetAmount.Visibility = Visibility.Visible;
-            textBoxAmount.Visibility = Visibility.Visible;
-            textBoxPrice.Visibility = Visibility.Visible;
-            buttonPlace.Visibility = Visibility.Visible;
+            labelSetPrice.Visibility    = Visibility.Visible;
+            labelSetAmount.Visibility   = Visibility.Visible;
+            textBoxAmount.Visibility    = Visibility.Visible;
+            textBoxPrice.Visibility     = Visibility.Visible;
+            buttonPlace.Visibility      = Visibility.Visible;
         }
 
         private void buttonPlace_Click(object sender, RoutedEventArgs e)
@@ -126,6 +126,7 @@ namespace LandConquest.DialogWIndows
                 if (playersResourceAmount >= Convert.ToInt32(textBoxAmount.Text) && playersResourceAmount > 0)
                 {
                     AuctionModel.AddListing(Convert.ToInt32(textBoxAmount.Text), itemName, itemGroup, itemSubgroup, Convert.ToInt32(textBoxPrice.Text), player);
+                    WarningDialogWindow.CallWarningDialogNoResult("Listing was successfully placed and will expire after 7 days.");
                 }
                 else
                 {

@@ -31,13 +31,13 @@
         <Button x:Name="buttonLogin"  Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="628,241,96.6,192.4" VerticalAlignment="Center" Click="ButtonLogin_Click" Height="37" BorderThickness="0" BorderBrush="White" Background="{x:Null}" RenderTransformOrigin="0.501,0.5"/>
 
         <TextBox x:Name="textBoxNewLogin" TextWrapping="Wrap" Text="" Margin="50,112,0,320.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                     Background="{x:Null}" materialDesign:HintAssist.Hint=" New login" CaretBrush="Black" HorizontalAlignment="Left" Width="175" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" />
+                     Background="{x:Null}" materialDesign:HintAssist.Hint=" New login" CaretBrush="Black" HorizontalAlignment="Left" Width="175" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" LostKeyboardFocus="textBoxNewLogin_LostKeyboardFocus" />
         <TextBox x:Name="textBoxNewEmail" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="175" Margin="50,172,0,262.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                     Background="{x:Null}" materialDesign:HintAssist.Hint=" Email"   CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"  BorderThickness="0" SelectionOpacity="0" />
+                     Background="{x:Null}" materialDesign:HintAssist.Hint=" Email"   CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"  BorderThickness="0" SelectionOpacity="0" LostKeyboardFocus="textBoxNewEmail_LostKeyboardFocus" />
         <TextBox x:Name="textBoxNewPass" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="175" Margin="50,237,0,198.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                     Background="{x:Null}" materialDesign:HintAssist.Hint=" New password"  CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" />
+                     Background="{x:Null}" materialDesign:HintAssist.Hint=" New password"  CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" LostKeyboardFocus="textBoxNewPass_LostKeyboardFocus" />
         <TextBox x:Name="textBoxConfirmNewPass" HorizontalAlignment="Left" Height="33" Margin="50,304,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                     Background="{x:Null}" materialDesign:HintAssist.Hint=" Confirm password"  CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" />
+                     Background="{x:Null}" materialDesign:HintAssist.Hint=" Confirm password"  CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" LostKeyboardFocus="textBoxConfirmNewPass_LostKeyboardFocus" />
 
         <Button x:Name="buttonRegistrate" Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="63,376,657.6,52.4" Height="Auto" Click="ButtonRegistrate_Click" BorderThickness="0" Background="{x:Null}"/>
         <Button x:Name="buttonCancelRegistrate" Content="" HorizontalAlignment="Left" Margin="154,376,0,0" VerticalAlignment="Top" Width="71" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="ButtonCancelRegistrate_Click"/>
@@ -65,6 +65,11 @@
         <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Trebuchet MS" FontSize="22" FontWeight="SemiBold" Margin="515,416,9.6,10.4" Foreground="#FFCA691E"/>
         <Image Source="/Pictures/downloadicon.png" x:Name="iconDownload" Cursor="Hand" MouseDown="IconDownload_MouseDown" Margin="469,410,274.6,10.4"/>
         <Label Content="Please send us any comment, suggestion or correction you may have!" Foreground="AntiqueWhite" FontFamily="Trebuchet MS" HorizontalAlignment="Left" Margin="19,417,0,0" VerticalAlignment="Top" Width="390"/>
+
+        <Label x:Name="labelNameValid" Content="Error in name!" FontFamily="Book Antiqua" FontSize="16" FontWeight="SemiBold" Margin="260,114,243.6,320.4" Foreground="Red"/>
+        <Label x:Name="labelEmailValid" Content="Error in email!" FontFamily="Book Antiqua" FontSize="16" FontWeight="SemiBold" Margin="260,172,243.6,262.4" Foreground="Red"/>
+        <Label x:Name="labelPassValid" Content="Error in password!" FontFamily="Book Antiqua" FontSize="16" FontWeight="SemiBold" Margin="260,241,243.6,192.4" Foreground="Red" Background="{x:Null}"/>
+        <Label x:Name="labelConfirmPassValid" Content="Passwords do not match!" FontFamily="Book Antiqua" FontSize="16" FontWeight="SemiBold" Margin="260,304,241.6,133.4" Foreground="Red"/>
 
         <Label x:Name="labelAgreement" HorizontalContentAlignment="Center" Foreground="#FFE5DE0A" FontSize="14" FontFamily="Tahoma" HorizontalAlignment="Left" Margin="50,334,0,0" VerticalAlignment="Top" Width="175" Cursor="Hand" Background="{x:Null}" MouseLeftButtonDown="LabelAgreement_MouseLeftButtonDown">
             <TextBlock TextDecorations="Underline" HorizontalAlignment="Center" FontFamily="Trebuchet MS">User agreement</TextBlock>

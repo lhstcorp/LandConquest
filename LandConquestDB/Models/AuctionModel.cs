@@ -19,7 +19,7 @@ namespace LandConquestDB.Models
             auctionCommand.Parameters.AddWithValue("@item_name", itemName);
             auctionCommand.Parameters.AddWithValue("@item_group", itemGroup);
             auctionCommand.Parameters.AddWithValue("@item_subgroup", itemSubgroup);
-            auctionCommand.Parameters.AddWithValue("@item_set_time", DateTime.UtcNow);
+            auctionCommand.Parameters.AddWithValue("@item_set_time", DateTime.UtcNow.AddDays(7));
             auctionCommand.Parameters.AddWithValue("@price", price);
             auctionCommand.Parameters.AddWithValue("@seller_name", player.PlayerName);
             auctionCommand.Parameters.AddWithValue("@seller_id", player.PlayerId);
