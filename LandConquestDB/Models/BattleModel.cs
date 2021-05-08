@@ -619,5 +619,46 @@ namespace LandConquestDB.Models
 
             command.Dispose();
         }
+
+        public static List<Battle> GetInfoAboutBattles(List<Battle> battles, string _warId)
+        {
+            string dbQuery = "SELECT * FROM dbo.BattleData WHERE war_id = @war_id";
+            List<string> battlesBattleId = new List<string>();
+            List<string> battlesWarId = new List<string>();
+            List<int> battleslocalLandId = new List<int>();
+
+            var command = new SqlCommand(dbQuery, DbContext.GetSqlConnection());
+            command.Parameters.AddWithValue("@war_id", _warId);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var battleId = reader.GetOrdinal("battle_id");
+                var warId = reader.GetOrdinal("war_id");
+                var localLandId = reader.GetOrdinal("local_land_id");
+
+                while (reader.Read())
+                {
+                    battles.Add(new Battle());
+                    battlesBattleId.Add(reader.GetString(battleId));
+                    battlesWarId.Add(reader.GetString(warId));
+                    battleslocalLandId.Add(reader.GetInt32(localLandId));
+                }
+            }
+
+            command.Dispose();
+
+            for (int i = 0; i < battlesBattleId.Count; i++)
+            {
+                battles[i].BattleId = battlesBattleId[i];
+                battles[i].WarId = battlesWarId[i];
+                battles[i].LocalLandId = battleslocalLandId[i];
+            }
+
+            battlesBattleId = null;
+            battlesWarId = null;
+            battleslocalLandId = null;
+
+            return battles;
+        }
     }
 }
