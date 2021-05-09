@@ -255,6 +255,30 @@
           "build/obfuscar.props": {}
         }
       },
+      "WPFLocalizeExtension/3.8.0": {
+        "type": "package",
+        "dependencies": {
+          "XAMLMarkupExtensions": "2.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Management"
+        ],
+        "compile": {
+          "lib/net452/WPFLocalizeExtension.dll": {}
+        },
+        "runtime": {
+          "lib/net452/WPFLocalizeExtension.dll": {}
+        }
+      },
+      "XAMLMarkupExtensions/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net472/XAMLMarkupExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/net472/XAMLMarkupExtensions.dll": {}
+        }
+      },
       "LandConquestDB/1.0.0": {
         "type": "project",
         "dependencies": {
@@ -327,6 +351,30 @@
         "type": "package",
         "build": {
           "build/obfuscar.props": {}
+        }
+      },
+      "WPFLocalizeExtension/3.8.0": {
+        "type": "package",
+        "dependencies": {
+          "XAMLMarkupExtensions": "2.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Management"
+        ],
+        "compile": {
+          "lib/net452/WPFLocalizeExtension.dll": {}
+        },
+        "runtime": {
+          "lib/net452/WPFLocalizeExtension.dll": {}
+        }
+      },
+      "XAMLMarkupExtensions/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net472/XAMLMarkupExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/net472/XAMLMarkupExtensions.dll": {}
         }
       },
       "LandConquestDB/1.0.0": {
@@ -403,6 +451,30 @@
           "build/obfuscar.props": {}
         }
       },
+      "WPFLocalizeExtension/3.8.0": {
+        "type": "package",
+        "dependencies": {
+          "XAMLMarkupExtensions": "2.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Management"
+        ],
+        "compile": {
+          "lib/net452/WPFLocalizeExtension.dll": {}
+        },
+        "runtime": {
+          "lib/net452/WPFLocalizeExtension.dll": {}
+        }
+      },
+      "XAMLMarkupExtensions/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net472/XAMLMarkupExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/net472/XAMLMarkupExtensions.dll": {}
+        }
+      },
       "LandConquestDB/1.0.0": {
         "type": "project",
         "dependencies": {
@@ -475,6 +547,30 @@
         "type": "package",
         "build": {
           "build/obfuscar.props": {}
+        }
+      },
+      "WPFLocalizeExtension/3.8.0": {
+        "type": "package",
+        "dependencies": {
+          "XAMLMarkupExtensions": "2.0.0"
+        },
+        "frameworkAssemblies": [
+          "System.Management"
+        ],
+        "compile": {
+          "lib/net452/WPFLocalizeExtension.dll": {}
+        },
+        "runtime": {
+          "lib/net452/WPFLocalizeExtension.dll": {}
+        }
+      },
+      "XAMLMarkupExtensions/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net472/XAMLMarkupExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/net472/XAMLMarkupExtensions.dll": {}
         }
       },
       "LandConquestDB/1.0.0": {
@@ -677,6 +773,63 @@
         "tools/Obfuscar.Console.exe"
       ]
     },
+    "WPFLocalizeExtension/3.8.0": {
+      "sha512": "WJ6ciJOHVp+WcRwjInIZe6z8eKeeNahGBRNxWL/DlDdiGcYuwd52shb+mlLf7QLjugWJG14T5ehmrPcOWZzpkw==",
+      "type": "package",
+      "path": "wpflocalizeextension/3.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net40/WPFLocalizeExtension.dll",
+        "lib/net40/WPFLocalizeExtension.pdb",
+        "lib/net40/WPFLocalizeExtension.xml",
+        "lib/net452/WPFLocalizeExtension.dll",
+        "lib/net452/WPFLocalizeExtension.pdb",
+        "lib/net452/WPFLocalizeExtension.xml",
+        "lib/netcoreapp3.0/WPFLocalizeExtension.dll",
+        "lib/netcoreapp3.0/WPFLocalizeExtension.pdb",
+        "lib/netcoreapp3.0/WPFLocalizeExtension.xml",
+        "lib/netcoreapp3.1/WPFLocalizeExtension.dll",
+        "lib/netcoreapp3.1/WPFLocalizeExtension.pdb",
+        "lib/netcoreapp3.1/WPFLocalizeExtension.xml",
+        "wpflocalizeextension.3.8.0.nupkg.sha512",
+        "wpflocalizeextension.nuspec"
+      ]
+    },
+    "XAMLMarkupExtensions/2.0.0": {
+      "sha512": "lf2OKHcoLWEmLy4WxI4D6IrAv5xCwGLMnrjTQWGPaxUYMdd9/oA4HaE7sX2QIZefruth+sJi0+nzg4dDEILPOQ==",
+      "type": "package",
+      "path": "xamlmarkupextensions/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net40/XAMLMarkupExtensions.dll",
+        "lib/net40/XAMLMarkupExtensions.pdb",
+        "lib/net40/XAMLMarkupExtensions.xml",
+        "lib/net452/XAMLMarkupExtensions.dll",
+        "lib/net452/XAMLMarkupExtensions.pdb",
+        "lib/net452/XAMLMarkupExtensions.xml",
+        "lib/net462/XAMLMarkupExtensions.dll",
+        "lib/net462/XAMLMarkupExtensions.pdb",
+        "lib/net462/XAMLMarkupExtensions.xml",
+        "lib/net472/XAMLMarkupExtensions.dll",
+        "lib/net472/XAMLMarkupExtensions.pdb",
+        "lib/net472/XAMLMarkupExtensions.xml",
+        "lib/net48/XAMLMarkupExtensions.dll",
+        "lib/net48/XAMLMarkupExtensions.pdb",
+        "lib/net48/XAMLMarkupExtensions.xml",
+        "lib/netcoreapp3.0/XAMLMarkupExtensions.dll",
+        "lib/netcoreapp3.0/XAMLMarkupExtensions.pdb",
+        "lib/netcoreapp3.0/XAMLMarkupExtensions.xml",
+        "lib/netcoreapp3.1/XAMLMarkupExtensions.dll",
+        "lib/netcoreapp3.1/XAMLMarkupExtensions.pdb",
+        "lib/netcoreapp3.1/XAMLMarkupExtensions.xml",
+        "xamlmarkupextensions.2.0.0.nupkg.sha512",
+        "xamlmarkupextensions.nuspec"
+      ]
+    },
     "LandConquestDB/1.0.0": {
       "type": "project",
       "path": "LandConquestDB/LandConquestDB.csproj",
@@ -696,7 +849,8 @@
       "LiveCharts.Wpf >= 0.9.7",
       "MSBuild.Obfuscar >= 2.2.29.1",
       "Microsoft.VCRTForwarders.140 >= 1.0.6",
-      "Obfuscar >= 2.2.29"
+      "Obfuscar >= 2.2.29",
+      "WPFLocalizeExtension >= 3.8.0"
     ]
   },
   "packageFolders": {
@@ -762,6 +916,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.2.29, )"
+          },
+          "WPFLocalizeExtension": {
+            "target": "Package",
+            "version": "[3.8.0, )"
           }
         },
         "imports": [
