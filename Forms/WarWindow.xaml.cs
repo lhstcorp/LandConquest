@@ -28,6 +28,7 @@ namespace LandConquest.Forms
         private bool f_armySelected = false;
         private bool f_canMoveArmy = false;
         private int INDEX;
+        private byte TURN;
         private int timerValue = 30;
         private Player player;
         private int playerSide;
@@ -49,6 +50,7 @@ namespace LandConquest.Forms
         private DispatcherTimer syncTimer;
         public static List<ArmyInBattle> playerArmies;
         private int moveCounter = 0;
+        private List<Battle> battles;
 
         //Canvas localWarArmyLayer = new Canvas();
         public WarWindow(Player _player, int _playerSide, ArmyInBattle _army, List<ArmyInBattle> _armies, War _war)
@@ -122,8 +124,10 @@ namespace LandConquest.Forms
 
             mainWarWinGrid.Children.Add(localWarMap);
 
+            CreateGlobals();
             ShowElementsOnMap();
             ShowArmiesOnMap();
+            ShowSiegesOnMap();
             SyncWithServer();
         }
 
@@ -244,6 +248,7 @@ namespace LandConquest.Forms
             INDEX = index;
 
             ShowInfoAboutArmies(index);
+            changeSiegeBtnEnable();
 
             if (f_canMoveArmy && findPlayerArmyCanMove())
             {
@@ -327,11 +332,13 @@ namespace LandConquest.Forms
 
                 //imgArmySelected.IsEnabled = false;
                 lockSelectedArmy();
+                lockControls();
             }
         }
 
         private void ImgArmy_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
+            //int f_warStarted = 0; // flag if the war started in the current move;
             if (f_armySelected && findPlayerArmyCanMove() && !shoot) //<-- sma 16.01.2021
             {
                 int index = gridForArmies.Children.IndexOf((Image)sender);
@@ -360,7 +367,6 @@ namespace LandConquest.Forms
 
                         if (!theWarStarted(index))
                         {
-
                             BattleModel.InsertBattle(battle);
                         }
                         else
@@ -418,7 +424,10 @@ namespace LandConquest.Forms
                         gridForArmies.Children.RemoveAt(INDEX);
                         gridForArmies.Children.Insert(INDEX, imgArmyThatStay);
                     }
+
                     lockSelectedArmy();
+                    lockControls();
+                    setSiegesIfTheyGoOn();
                 }
             }
             else if (shoot && findPlayerArmyCanShoot() && checkRange(gridForArmies.Children.IndexOf((Image)sender))) // не хватает условия проверки что в этом тайле кто-то есть из врагов
@@ -566,7 +575,7 @@ namespace LandConquest.Forms
             {
                 range = (int)ForcesEnum.Siege.Range;
             }
-            
+
             if (selectedArmy.ArmyArchersCount > 0)
             {
                 range = (int)ForcesEnum.Archers.Range;
@@ -1012,7 +1021,6 @@ namespace LandConquest.Forms
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-
         public bool theWarStarted(int index)
         {
             bool theWarStarted = BattleModel.DidTheWarStarted(index, war);
@@ -1069,6 +1077,7 @@ namespace LandConquest.Forms
             Console.WriteLine(DateTime.Now.ToLongTimeString());
 
             ShowArmiesOnMap();
+            ShowSiegesOnMap();
 
             moveCounter++;
             if (moveCounter % 2 == playerSide)
@@ -1083,8 +1092,10 @@ namespace LandConquest.Forms
         public void timer_Tick(object sender, EventArgs e)
         {
             Console.WriteLine(DateTime.Now.ToLongTimeString());
-            
+
             ShowArmiesOnMap();
+            ShowSiegesOnMap();
+            lockControls();
 
             moveCounter++;
             if (moveCounter % 2 == playerSide)
@@ -1219,9 +1230,15 @@ namespace LandConquest.Forms
         public void setCurrentMoveColor()
         {
             if (moveCounter % 2 == 0)
-                thisMoveIndicator.Fill = new SolidColorBrush(Colors.DarkBlue);
-            else
+            {
                 thisMoveIndicator.Fill = new SolidColorBrush(Colors.DarkRed);
+                TURN = 1;
+            }
+            else
+            {
+                thisMoveIndicator.Fill = new SolidColorBrush(Colors.DarkBlue);
+                TURN = 0;
+            }
         }
 
         public void ShowGarrisonInfo(int _locationId)
@@ -1271,7 +1288,7 @@ namespace LandConquest.Forms
             elementsWarMap.Children[castleDefenderLocalLandId].MouseEnter += Castle_MouseEnter;
             elementsWarMap.Children[castleAttackerLocalLandId].MouseLeave += Castle_MouseLeave;
             elementsWarMap.Children[castleDefenderLocalLandId].MouseLeave += Castle_MouseLeave;
-            
+
 
         }
 
@@ -1306,8 +1323,102 @@ namespace LandConquest.Forms
         {
             Cursor = Cursors.Arrow;
         }
-    }
 
+        private void btnStartSiege_Click(object sender, RoutedEventArgs e)
+        {
+            if (!theWarStarted(selectedArmy.LocalLandId)
+             && selectedArmy.PlayerId == player.PlayerId)
+            {
+                Image siegeImage = new Image();
+                siegeImage.Source = new BitmapImage(new Uri("/Pictures/War/SiegeTower.png", UriKind.Relative));
+                siegeImage.MouseLeftButtonDown += ImgWar_MouseLeftButtonDown;
+                siegeImage.MouseRightButtonDown += ImgArmy_MouseRightButtonDown;
+                Battle battle = new Battle();
+                battle.BattleId = generateId();
+                battle.WarId = war.WarId;
+                battle.LocalLandId = selectedArmy.LocalLandId;
+
+                BattleModel.InsertBattle(battle);
+
+                gridForArmies.Children.RemoveAt(selectedArmy.LocalLandId);
+                gridForArmies.Children.Insert(selectedArmy.LocalLandId, siegeImage);
+            }
+        }
+
+        private void changeSiegeBtnEnable()
+        {
+            if (selectedArmy.PlayerId == player.PlayerId
+             && (selectedArmy.LocalLandId == castleAttackerLocalLandId
+              || selectedArmy.LocalLandId == castleDefenderLocalLandId)
+             && selectedArmy.ArmySide == TURN)
+            {
+                btnStartSiege.IsEnabled = true;
+                siegeImageBtn.IsEnabled = true;
+            }
+            else
+            {
+                btnStartSiege.IsEnabled = false;
+                siegeImageBtn.IsEnabled = false;
+            }
+
+        }
+
+        private void lockControls()
+        {
+            btnStartSiege.IsEnabled = false;
+            siegeImageBtn.IsEnabled = false;
+        }
+
+        private void ShowSiegesOnMap()
+        {
+            battles.Clear();
+            battles = BattleModel.GetInfoAboutBattles(battles, war.WarId);
+
+            for (int i = 0; i < battles.Count; i++)
+            {
+                if (battles[i].LocalLandId == castleAttackerLocalLandId
+                 || battles[i].LocalLandId == castleDefenderLocalLandId)
+                {
+                    Image siegeImage = new Image();
+                    siegeImage.Source = new BitmapImage(new Uri("/Pictures/War/SiegeTower.png", UriKind.Relative));
+                    siegeImage.MouseLeftButtonDown += ImgWar_MouseLeftButtonDown;
+                    siegeImage.MouseRightButtonDown += ImgArmy_MouseRightButtonDown;
+                    siegeImage.MouseEnter += Castle_MouseEnter;
+                    siegeImage.MouseLeave += Castle_MouseLeave;
+
+                    gridForArmies.Children.RemoveAt(battles[i].LocalLandId);
+                    gridForArmies.Children.Insert(battles[i].LocalLandId, siegeImage);
+                }
+
+            }
+        }
+
+        private void setSiegesIfTheyGoOn()
+        {
+            for (int i = 0; i < battles.Count; i++)
+            {
+                if (battles[i].LocalLandId == castleAttackerLocalLandId
+                 || battles[i].LocalLandId == castleDefenderLocalLandId)
+                {
+                    Image siegeImage = new Image();
+                    siegeImage.Source = new BitmapImage(new Uri("/Pictures/War/SiegeTower.png", UriKind.Relative));
+                    siegeImage.MouseLeftButtonDown += ImgWar_MouseLeftButtonDown;
+                    siegeImage.MouseRightButtonDown += ImgArmy_MouseRightButtonDown;
+                    siegeImage.MouseEnter += Castle_MouseEnter;
+                    siegeImage.MouseLeave += Castle_MouseLeave;
+
+                    gridForArmies.Children.RemoveAt(battles[i].LocalLandId);
+                    gridForArmies.Children.Insert(battles[i].LocalLandId, siegeImage);
+                }
+
+            }
+        }
+
+        private void CreateGlobals()
+        {
+            battles = new List<Battle>();
+        }
+    }
 }
 
 
