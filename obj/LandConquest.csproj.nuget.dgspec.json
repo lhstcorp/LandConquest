@@ -64,6 +64,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.2.29, )"
+            },
+            "WPFLocalizeExtension": {
+              "target": "Package",
+              "version": "[3.8.0, )"
             }
           },
           "imports": [

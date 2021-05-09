@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
+using WPFLocalizeExtension.Engine;
 
 namespace LandConquest
 {
@@ -20,7 +21,7 @@ namespace LandConquest
             InitializeComponent();
             Loaded += AuthorisationWindow_Loaded;
             ShowRegistrationFields(Visibility.Hidden);
-            ClearAllValidationNotifications();
+            ClearAllValidationNotifications();           
         }
 
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
