@@ -130,14 +130,7 @@ namespace LandConquest.Forms
             countries = CountryModel.GetCountriesInfo(countries);
 
 
-            wars = new List<War>();
-
-            for (int i = 0; i < WarModel.SelectLastIdOfWars(); i++)
-            {
-                wars.Add(new War());
-            }
-
-            wars = WarModel.GetWarsInfo(wars);
+            
 
             LoadWarsOnMap();
             setFlag();
@@ -170,8 +163,6 @@ namespace LandConquest.Forms
         {
             await Task.Run(() => UpdateInfoAsync());
         }
-
-
 
         private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -389,7 +380,7 @@ namespace LandConquest.Forms
                     player = PlayerModel.UpdatePlayerMoney(player, connection);
                     TaxesModel.SaveTaxes(taxes, connection);
                     lands = LandModel.GetLandsInfo(lands, connection);
-                    await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); RedrawGlobalMap(); }));
+                    await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); RedrawGlobalMap(); LoadWarsOnMap();}));
                     Console.WriteLine("End of loop");
                     connection.Close();
                 }
@@ -872,6 +863,17 @@ namespace LandConquest.Forms
 
         public void LoadWarsOnMap()
         {
+            wars = new List<War>();
+
+            for (int i = 0; i < WarModel.SelectLastIdOfWars(); i++)
+            {
+                wars.Add(new War());
+            }
+
+            wars = WarModel.GetWarsInfo(wars);
+
+            SymbalLayer.Children.Clear();
+
             int[] landCenter = new int[1];
             marginsOfWarButtons = new Thickness[wars.Count];
 
