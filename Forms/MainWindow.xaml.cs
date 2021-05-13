@@ -270,11 +270,19 @@ namespace LandConquest.Forms
         private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new CountryWindow(player);
-            openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            openedWindow.Show();
-            openedWindow.Closed += FreeData;
+            Land land = LandModel.GetLandInfo(player.PlayerCurrentRegion);
+            if (land.CountryId != 0)
+            {
+                openedWindow = new CountryWindow(player);
+                openedWindow.Owner = this;
+                openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                openedWindow.Show();
+                openedWindow.Closed += FreeData;
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("This land is independent. The government has not yet been formed.");
+            }
         }
 
         private void buyMembership_Click(object sender, RoutedEventArgs e)
@@ -739,6 +747,7 @@ namespace LandConquest.Forms
 
         private void buttonEstablishaState_Click(object sender, RoutedEventArgs e)
         {
+            land = LandModel.GetLandInfo(player.PlayerCurrentRegion);
             EstablishStateDialog win = new EstablishStateDialog(player, land);
             win.Owner = this;
             win.Show();
@@ -967,7 +976,14 @@ namespace LandConquest.Forms
         private void mainGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
-            this.DragMove();
+            try
+            {   // если убрать try, выпадет ошибка, когда нажимаешь на кнопку ОК в диалоге с ворнингом.
+                this.DragMove();
+            }
+            catch
+            {
+
+            }
         }
 
         private void checkBoxFs_Click(object sender, RoutedEventArgs e)
