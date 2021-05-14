@@ -98,14 +98,14 @@ namespace LandConquestDB.Models
             return countries;
         }
 
-        public static int GetCountryId(Player player)
+        public static int GetCountryIdByLandId(int _landId)
         {
             int id = 0;
 
             string query = "SELECT country_id FROM dbo.LandData WHERE land_id = @land_id ";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@land_id", player.PlayerCurrentRegion);
+            command.Parameters.AddWithValue("@land_id", _landId);
 
             using (var reader = command.ExecuteReader())
             {

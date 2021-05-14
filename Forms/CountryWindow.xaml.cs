@@ -1,4 +1,5 @@
-﻿using LandConquest.Logic;
+﻿using LandConquest.DialogWIndows;
+using LandConquest.Logic;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
@@ -25,6 +26,7 @@ namespace LandConquest.Forms
         private Land countryLandDefender;
         private int operation = 0;
         private bool f = true;
+        private Player ruler;
         public CountryWindow(Player _player)
         {
             player = _player;
@@ -33,8 +35,8 @@ namespace LandConquest.Forms
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Country country = CountryModel.GetCountryById(CountryModel.GetCountryId(player));
-            Player ruler = new Player();
+            Country country = CountryModel.GetCountryById(CountryModel.GetCountryIdByLandId(player.PlayerCurrentRegion));
+            ruler = new Player();
             User rulerUser = new User();
             rulerUser.UserId = country.CountryRuler;
             ruler = PlayerModel.GetPlayerInfo(rulerUser, ruler);
@@ -92,34 +94,39 @@ namespace LandConquest.Forms
 
         private void IssueALaw_Click(object sender, RoutedEventArgs e)
         {
-            switch (operation)
+            if (player.PlayerId == ruler.PlayerId)
             {
-                case 1:
-                    {
-                        Player player = new Player();
-                        player.PlayerCurrentRegion = selectedLand.LandId;
-                        Country ThisCountry = CountryModel.GetCountryById(CountryModel.GetCountryId(player));
-
-                        LandModel.UpdateLandInfo(selectedLand, transferCountry);
-
-                        countryLands = LandModel.GetCountryLands(ThisCountry);
-                        if (countryLands.Count == 0)
+                switch (operation)
+                {
+                    case 1:
                         {
-                            CountryModel.DisbandCountry(ThisCountry);
+                            selectedLand = LandModel.GetLandInfo(selectedLand.LandId);
+
+                            Country ThisCountry = CountryModel.GetCountryById(selectedLand.CountryId);
+
+                            LandModel.UpdateLandInfo(selectedLand, transferCountry);
+
+                            countryLands = LandModel.GetCountryLands(ThisCountry);
+                            if (countryLands.Count == 0)
+                            {
+                                CountryModel.DisbandCountry(ThisCountry);
+                            }
+                            //тут нужно написать функцию на чек пустых государств. Если гос-во пустое - король теряет свой титул.
+                            break;
                         }
-                        //тут нужно написать функцию на чек пустых государств. Если гос-во пустое - король теряет свой титул.
-                        break;
-                    }
-                case 2:
-                    {
-                        WarLogic warModel = new WarLogic();
-                        WarModel.DeclareAWar(GenerateId(), selectedLand, countryLandDefender);
+                    case 2:
+                        {
+                            WarLogic warModel = new WarLogic();
+                            WarModel.DeclareAWar(GenerateId(), selectedLand, countryLandDefender);
 
-                        break;
-                    }
+                            break;
+                        }
+                }
             }
-
-
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Only a ruler of the country can issue a law!");
+            }
         }
 
         private void CbLandToTransfer_SelectionChanged(object sender, SelectionChangedEventArgs e)
