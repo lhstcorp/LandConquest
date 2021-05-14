@@ -872,7 +872,13 @@ namespace LandConquest.Forms
 
             wars = WarModel.GetWarsInfo(wars);
 
-            SymbalLayer.Children.Clear();
+            for (int i = 0; i < SymbalLayer.Children.Count; i++)
+            {
+                if (SymbalLayer.Children[i] != flag)
+                {
+                    SymbalLayer.Children.RemoveAt(1); // flag is always first [0];
+                }
+            }
 
             int[] landCenter = new int[1];
             marginsOfWarButtons = new Thickness[wars.Count];
