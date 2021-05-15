@@ -130,14 +130,7 @@ namespace LandConquest.Forms
             countries = CountryModel.GetCountriesInfo(countries);
 
 
-            wars = new List<War>();
-
-            for (int i = 0; i < WarModel.SelectLastIdOfWars(); i++)
-            {
-                wars.Add(new War());
-            }
-
-            wars = WarModel.GetWarsInfo(wars);
+            
 
             LoadWarsOnMap();
             setFlag();
@@ -170,8 +163,6 @@ namespace LandConquest.Forms
         {
             await Task.Run(() => UpdateInfoAsync());
         }
-
-
 
         private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -270,11 +261,19 @@ namespace LandConquest.Forms
         private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new CountryWindow(player);
-            openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            openedWindow.Show();
-            openedWindow.Closed += FreeData;
+            Land land = LandModel.GetLandInfo(player.PlayerCurrentRegion);
+            if (land.CountryId != 0)
+            {
+                openedWindow = new CountryWindow(player);
+                openedWindow.Owner = this;
+                openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                openedWindow.Show();
+                openedWindow.Closed += FreeData;
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("This land is independent. The government has not yet been formed.");
+            }
         }
 
         private void buyMembership_Click(object sender, RoutedEventArgs e)
@@ -381,7 +380,7 @@ namespace LandConquest.Forms
                     player = PlayerModel.UpdatePlayerMoney(player, connection);
                     TaxesModel.SaveTaxes(taxes, connection);
                     lands = LandModel.GetLandsInfo(lands, connection);
-                    await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); RedrawGlobalMap(); }));
+                    await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); RedrawGlobalMap(); LoadWarsOnMap();}));
                     Console.WriteLine("End of loop");
                     connection.Close();
                 }
@@ -739,6 +738,7 @@ namespace LandConquest.Forms
 
         private void buttonEstablishaState_Click(object sender, RoutedEventArgs e)
         {
+            land = LandModel.GetLandInfo(player.PlayerCurrentRegion);
             EstablishStateDialog win = new EstablishStateDialog(player, land);
             win.Owner = this;
             win.Show();
@@ -863,6 +863,23 @@ namespace LandConquest.Forms
 
         public void LoadWarsOnMap()
         {
+            wars = new List<War>();
+
+            for (int i = 0; i < WarModel.SelectLastIdOfWars(); i++)
+            {
+                wars.Add(new War());
+            }
+
+            wars = WarModel.GetWarsInfo(wars);
+
+            for (int i = 0; i < SymbalLayer.Children.Count; i++)
+            {
+                if (SymbalLayer.Children[i] != flag)
+                {
+                    SymbalLayer.Children.RemoveAt(1); // flag is always first [0];
+                }
+            }
+
             int[] landCenter = new int[1];
             marginsOfWarButtons = new Thickness[wars.Count];
 
@@ -967,7 +984,14 @@ namespace LandConquest.Forms
         private void mainGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
-            this.DragMove();
+            try
+            {   // если убрать try, выпадет ошибка, когда нажимаешь на кнопку ОК в диалоге с ворнингом.
+                this.DragMove();
+            }
+            catch
+            {
+
+            }
         }
 
         private void checkBoxFs_Click(object sender, RoutedEventArgs e)
