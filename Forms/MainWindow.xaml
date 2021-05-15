@@ -335,7 +335,7 @@
             <Label Content="Auction" FontSize="11" HorizontalAlignment="Left" Margin="446,54,0,0" VerticalAlignment="Top" Width="49" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
 
             <Label Content="Server time:" FontFamily="/Fonts/#Harrington" FontSize="24" Margin="0,0,159,9.8"  Foreground="#FF392018" RenderTransformOrigin="0.756,0.41" HorizontalAlignment="Right" Width="153" Height="40" VerticalAlignment="Bottom"/>
-            <Label x:Name="LabelServerTime" Content="00:00:00" FontSize="24" Margin="0,0,69,9.8" VerticalAlignment="Bottom" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" Height="40" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="107"/>
+            <Label x:Name="LabelServerTime" Content="00:00:00" FontSize="24" Margin="0,0,25,10" VerticalAlignment="Bottom" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" Height="40" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="151"/>
 
 
             <Grid.Background>
