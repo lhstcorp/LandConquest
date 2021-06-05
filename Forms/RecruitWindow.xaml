@@ -71,7 +71,7 @@
             <Label Content="Total" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="518,143,0,0" VerticalAlignment="Top"/>
             <Label Content="Available" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="570,143,0,0" VerticalAlignment="Top"/>
             <Label x:Name="TotalRecruitSiege" FontSize="10" Content="0" Foreground="#311818" HorizontalAlignment="Left" Margin="518,163,0,0" VerticalAlignment="Top" Height="25" Width="47"/>
-            <Label x:Name="AvailableRecruitSiege" Content="0" FontSize="10" Foreground="#311818" HorizontalAlignment="Left" Margin="561,163,0,0" VerticalAlignment="Top" Width="47" Height="25"/>
+            <Label x:Name="AvailableRecruitSiege" Content="0" FontSize="10" Foreground="#311818" HorizontalAlignment="Left" Margin="570,163,0,0" VerticalAlignment="Top" Width="47" Height="25"/>
             <TextBox x:Name="SiegeAmount" HorizontalAlignment="Left" Height="25" Margin="518,188,0,0" Text="0" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="100" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="PeasantsAmount_PreviewTextInput"/>
             <Button x:Name="HireSiege" Content="Hire" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="518,219,0,0" VerticalAlignment="Top" Width="100" Click="HireSiege_Click" BorderBrush="{x:Null}" Height="25">
                 <Button.Background>
