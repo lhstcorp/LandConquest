@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:LandConquest.Forms"
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True" BorderThickness="0" Background="{x:Null}" Foreground="{x:Null}"
@@ -13,8 +14,13 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/background_pale.jpg"/>
         </Grid.Background>
-        <Button x:Name="buttonBecomeMember" Content="Learn more" FontSize="24" HorizontalAlignment="Left" Margin="244,369,0,0" VerticalAlignment="Top" Width="194" Height="54" BorderBrush="{x:Null}" Foreground="#FFCEA642" Click="buttonBecomeMember_Click">
-            <Button.Background>
+        <Button x:Name="buttonBecomeMember" Content="Learn more" FontFamily="Book Antiqua" FontSize="24" HorizontalAlignment="Left" Margin="244,369,0,0" VerticalAlignment="Top" Width="194" Height="54" BorderBrush="{x:Null}" Foreground="#FFD2C6AE" Click="buttonBecomeMember_Click">
+                <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonBuyGold" Content="Purchase gold" FontFamily="Book Antiqua" FontSize="22" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" Width="194" Height="54" BorderBrush="{x:Null}" Foreground="#FFCEC1A6" Click="buttonBuyGold_Click">
+         <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Button.Background>
         </Button>
@@ -23,6 +29,9 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
             </Button.Background>
         </Button>
-    </Grid>
+
+            <TextBox x:Name="goldAmount"  HorizontalAlignment="Left" Height="32" Margin="10,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="#FFEDE8DF" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" LostFocus="goldAmount_LostFocus" RenderTransformOrigin="0.521,1.344"/>
+
+        </Grid>
         </Border>
 </Window>
