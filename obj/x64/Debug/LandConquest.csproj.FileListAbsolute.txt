@@ -151,3 +151,16 @@ C:\Users\green\Documents\GitHub\LandConquest\obj\x64\Debug\LandConquest.exe
 C:\Users\green\Documents\GitHub\LandConquest\obj\x64\Debug\LandConquest.pdb
 C:\Users\green\Documents\GitHub\LandConquest\obj\x64\Debug\Forms\LandResourcesWindow.g.cs
 C:\Users\green\Documents\GitHub\LandConquest\obj\x64\Debug\Forms\LandResourcesWindow.baml
+C:\Users\green\Documents\GitHub\LandConquest\bin\x64\Debug\ru\LandConquest.resources.dll
+C:\Users\green\Documents\GitHub\LandConquest\bin\x64\Debug\en\LandConquest.resources.dll
+C:\Users\green\Documents\GitHub\LandConquest\bin\x64\Debug\WPFLocalizeExtension.dll
+C:\Users\green\Documents\GitHub\LandConquest\bin\x64\Debug\WPFLocalizeExtension.pdb
+C:\Users\green\Documents\GitHub\LandConquest\bin\x64\Debug\XAMLMarkupExtensions.dll
+C:\Users\green\Documents\GitHub\LandConquest\bin\x64\Debug\XAMLMarkupExtensions.pdb
+C:\Users\green\Documents\GitHub\LandConquest\obj\x64\Debug\DialogWIndows\PaymentDialog.g.cs
+C:\Users\green\Documents\GitHub\LandConquest\obj\x64\Debug\DialogWIndows\PaymentDialog.baml
+C:\Users\green\Documents\GitHub\LandConquest\obj\x64\Debug\LandConquest.Languages.Resources.resources
+C:\Users\green\Documents\GitHub\LandConquest\obj\x64\Debug\LandConquest.Languages.Resources.ru.resources
+C:\Users\green\Documents\GitHub\LandConquest\obj\x64\Debug\LandConquest.Languages.Resources.en.resources
+C:\Users\green\Documents\GitHub\LandConquest\obj\x64\Debug\ru\LandConquest.resources.dll
+C:\Users\green\Documents\GitHub\LandConquest\obj\x64\Debug\en\LandConquest.resources.dll

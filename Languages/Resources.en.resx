@@ -117,7 +117,148 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LocButtonChat_Content" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="LocButtonClaim_Content" xml:space="preserve">
+    <value>Claim</value>
+  </data>
+  <data name="LocButtonMailbox_Content" xml:space="preserve">
+    <value>Mailbox</value>
+  </data>
+  <data name="LocButtonProfileMain_Content" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="LocButtonRankingsMain_Content" xml:space="preserve">
+    <value>Rankings</value>
+  </data>
+  <data name="LocButtonSave_Content" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="LocButtonSettingsMain_Content" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="LocButtonSupportUs_Content" xml:space="preserve">
+    <value>Support us</value>
+  </data>
+  <data name="LocLabelArmor_Text" xml:space="preserve">
+    <value>Armor</value>
+  </data>
+  <data name="LocLabelAuctionMain_Content" xml:space="preserve">
+    <value>Auction</value>
+  </data>
+  <data name="LocLabelAvailable_Content" xml:space="preserve">
+    <value>Available</value>
+  </data>
+  <data name="LocLabelAvailable_Text" xml:space="preserve">
+    <value>Available</value>
+  </data>
+  <data name="LocLabelBow_Text" xml:space="preserve">
+    <value>Bow</value>
+  </data>
+  <data name="LocLabelConsumption_Content" xml:space="preserve">
+    <value>Consumption</value>
+  </data>
+  <data name="LocLabelCopper_Text" xml:space="preserve">
+    <value>Copper</value>
+  </data>
+  <data name="LocLabelCountryMain_Content" xml:space="preserve">
+    <value>Country</value>
+  </data>
   <data name="LocLabelCurrentOnline_Text" xml:space="preserve">
     <value>Current online:</value>
+  </data>
+  <data name="LocLabelCurrent_Content" xml:space="preserve">
+    <value>Current: </value>
+  </data>
+  <data name="LocLabelDailyBonus_Content" xml:space="preserve">
+    <value>Daily Bonus: </value>
+  </data>
+  <data name="LocLabelEstablishAState_Text" xml:space="preserve">
+    <value>Establish a state</value>
+  </data>
+  <data name="LocLabelFoodLeft_Content" xml:space="preserve">
+    <value>Food left: </value>
+  </data>
+  <data name="LocLabelFood_Text" xml:space="preserve">
+    <value>Food</value>
+  </data>
+  <data name="LocLabelFullScreen_Text" xml:space="preserve">
+    <value>Full Screen</value>
+  </data>
+  <data name="LocLabelGear_Text" xml:space="preserve">
+    <value>Gear</value>
+  </data>
+  <data name="LocLabelGems_Text" xml:space="preserve">
+    <value>Gems</value>
+  </data>
+  <data name="LocLabelGold_Text" xml:space="preserve">
+    <value>Gold</value>
+  </data>
+  <data name="LocLabelGoTo_Text" xml:space="preserve">
+    <value>Go to</value>
+  </data>
+  <data name="LocLabelHarness_Text" xml:space="preserve">
+    <value>Harness</value>
+  </data>
+  <data name="LocLabelHire_Text" xml:space="preserve">
+    <value>Hire</value>
+  </data>
+  <data name="LocLabelIndustryMain_Content" xml:space="preserve">
+    <value>Industry</value>
+  </data>
+  <data name="LocLabelIron_Text" xml:space="preserve">
+    <value>Iron</value>
+  </data>
+  <data name="LocLabelLeather_Text" xml:space="preserve">
+    <value>Leather</value>
+  </data>
+  <data name="LocLabelMarketMain_Content" xml:space="preserve">
+    <value>Market</value>
+  </data>
+  <data name="LocLabelMusic_Text" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="LocLabelNextReward_Content" xml:space="preserve">
+    <value>Next reward: </value>
+  </data>
+  <data name="LocLabelProductivity_Content" xml:space="preserve">
+    <value>Productivity</value>
+  </data>
+  <data name="LocLabelRecruitMain_Content" xml:space="preserve">
+    <value>Recruit</value>
+  </data>
+  <data name="LocLabelRegionMain_Content" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="LocLabelServerTime_Content" xml:space="preserve">
+    <value>Server time: </value>
+  </data>
+  <data name="LocLabelSpear_Text" xml:space="preserve">
+    <value>Spear</value>
+  </data>
+  <data name="LocLabelStone_Text" xml:space="preserve">
+    <value>Stone</value>
+  </data>
+  <data name="LocLabelStorageMain_Content" xml:space="preserve">
+    <value>Storage</value>
+  </data>
+  <data name="LocLabelSubmitBag_Text" xml:space="preserve">
+    <value>Submit Bug</value>
+  </data>
+  <data name="LocLabelSword_Text" xml:space="preserve">
+    <value>Sword</value>
+  </data>
+  <data name="LocLabelTaxes_Content" xml:space="preserve">
+    <value>Taxes</value>
+  </data>
+  <data name="LocLabelTotal_Text" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="LocLabelWood_Text" xml:space="preserve">
+    <value>Wood</value>
+  </data>
+  <data name="LocLabelWorldLeader_Text" xml:space="preserve">
+    <value>World leader</value>
   </data>
 </root>

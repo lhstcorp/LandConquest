@@ -194,6 +194,9 @@
     <Compile Include="DialogWIndows\MessageReceiverDialog.xaml.cs">
       <DependentUpon>MessageReceiverDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\PaymentDialog.xaml.cs">
+      <DependentUpon>PaymentDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\SendArmiesToHarrisonDialog.xaml.cs">
       <DependentUpon>SendArmiesToHarrisonDialog.xaml</DependentUpon>
     </Compile>
@@ -299,6 +302,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\MessageReceiverDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\PaymentDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
