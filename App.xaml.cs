@@ -3,6 +3,8 @@ using System;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
+using WPFLocalizeExtension.Engine;
 
 namespace LandConquest
 {
@@ -11,11 +13,26 @@ namespace LandConquest
         public App()
         {
             SetupExceptionHandling();
+            SetupApplicaionCulture();
         }
         private void App_Exit(object sender, ExitEventArgs e)
         {
             LandConquestYD.YDContext.DeleteConnectionId();
             Environment.Exit(0);
+        }
+
+        private void SetupApplicaionCulture()
+        {
+            var culture = InputLanguageManager.Current.CurrentInputLanguage;
+;
+            if (culture.Equals("ru") || culture.ToString().Contains("ru"))
+            {
+                LocalizeDictionary.Instance.Culture = new System.Globalization.CultureInfo("ru");
+            }
+            else
+            {
+                LocalizeDictionary.Instance.Culture = new System.Globalization.CultureInfo("en");
+            }
         }
 
         private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)

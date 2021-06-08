@@ -108,7 +108,6 @@ namespace LandConquest.Logic
             freePlayerArmy.ArmyInfantryCount = army.ArmyInfantryCount;
             freePlayerArmy.ArmySiegegunCount = army.ArmySiegegunCount;
             freePlayerArmy.ArmyHorsemanCount = army.ArmyHorsemanCount;
-            freePlayerArmy.ArmySide = armies[0].ArmySide;
 
             for (int i = 0; i < armies.Count; i++)
             {

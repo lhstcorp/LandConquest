@@ -22,7 +22,7 @@
                             <GridView>
                                 <GridViewColumn Header="Player" DisplayMemberBinding="{Binding PlayerName}" Width="65"></GridViewColumn>
                                 <GridViewColumn Header="Message" DisplayMemberBinding="{Binding PlayerMessage}" Width="570"></GridViewColumn>
-                                <GridViewColumn Header="Data" DisplayMemberBinding="{Binding MessageTime}" Width="135"></GridViewColumn>
+                                <GridViewColumn Header="Date" DisplayMemberBinding="{Binding MessageTime}" Width="135"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
