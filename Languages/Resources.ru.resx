@@ -172,7 +172,7 @@
     <value>Текущее: </value>
   </data>
   <data name="LocLabelDailyBonus_Content" xml:space="preserve">
-    <value>Дневной бонус: </value>
+    <value>Ежедневный бонус: </value>
   </data>
   <data name="LocLabelEstablishAState_Text" xml:space="preserve">
     <value>Основать государство</value>
@@ -184,7 +184,7 @@
     <value>Еда</value>
   </data>
   <data name="LocLabelFullScreen_Text" xml:space="preserve">
-    <value>Полный экран</value>
+    <value>На весь экран</value>
   </data>
   <data name="LocLabelGear_Text" xml:space="preserve">
     <value>Механизм</value>
@@ -259,6 +259,6 @@
     <value>Дерево</value>
   </data>
   <data name="LocLabelWorldLeader_Text" xml:space="preserve">
-    <value>Мировой лидер</value>
+    <value>Лидер мира</value>
   </data>
 </root>
