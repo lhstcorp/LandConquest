@@ -49,7 +49,7 @@ namespace LandConquest.Forms
         private bool shoot = false;
         private DispatcherTimer syncTimer;
         public static List<ArmyInBattle> playerArmies;
-        private int moveCounter = 0;
+        private int moveCounter = -1;
         private List<Battle> battles;
 
         //Canvas localWarArmyLayer = new Canvas();
@@ -749,8 +749,11 @@ namespace LandConquest.Forms
         private void armyPageArrowRight_Click(object sender, RoutedEventArgs e)
         {
             HideAvailableTilesToMove(index);
-            if ((armyPage % (armyInBattlesInCurrentTile.Count - 1) == 0) && (armyPage != 0)) armyPage = 0; else armyPage++;
-            ShowInfoAboutArmy();
+            if (armyInBattlesInCurrentTile.Count > 1)
+            {
+                if ((armyPage % (armyInBattlesInCurrentTile.Count - 1) == 0) && (armyPage != 0)) armyPage = 0; else armyPage++;
+                ShowInfoAboutArmy();
+            }
         }
 
         public void ShowInfoAboutArmy()
@@ -1079,14 +1082,15 @@ namespace LandConquest.Forms
             ShowArmiesOnMap();
             ShowSiegesOnMap();
 
-            moveCounter++;
+            /*moveCounter++;
             if (moveCounter % 2 == playerSide)
             {
                 searchPlayerArmies();
                 unlockAllPlayerArmies();
             }
-
+            */
             setCurrentMoveColor();
+            moveCounterLbl.Content = moveCounter;
         }
 
         public void timer_Tick(object sender, EventArgs e)
@@ -1098,7 +1102,7 @@ namespace LandConquest.Forms
             lockControls();
 
             moveCounter++;
-            if (moveCounter % 2 == playerSide)
+            if (TURN == playerSide)
             {
                 searchPlayerArmies();
                 unlockAllPlayerArmies();
@@ -1111,6 +1115,7 @@ namespace LandConquest.Forms
             }
 
             setCurrentMoveColor();
+            moveCounterLbl.Content = moveCounter;
 
             timerValue = 30;
         }
@@ -1231,13 +1236,13 @@ namespace LandConquest.Forms
         {
             if (moveCounter % 2 == 0)
             {
-                thisMoveIndicator.Fill = new SolidColorBrush(Colors.DarkRed);
-                TURN = 1;
+                thisMoveIndicator.Fill = new SolidColorBrush(Colors.DarkBlue);
+                TURN = 0;
             }
             else
             {
-                thisMoveIndicator.Fill = new SolidColorBrush(Colors.DarkBlue);
-                TURN = 0;
+                thisMoveIndicator.Fill = new SolidColorBrush(Colors.DarkRed);
+                TURN = 1;
             }
         }
 
