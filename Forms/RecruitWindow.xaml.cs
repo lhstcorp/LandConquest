@@ -41,7 +41,11 @@ namespace LandConquest.Forms
 
         private void HirePeasants_Click(object sender, RoutedEventArgs e)
         {
-            if ((player.PlayerMoney > Convert.ToInt32(PeasantsAmount.Text)) && (Convert.ToInt32(PeasantsAmount.Text) < Convert.ToInt32(AvailableRecruitPeasants.Content)))
+            if (PeasantsAmount.Text == "")
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("No data!");
+            }
+            else if ((player.PlayerMoney > Convert.ToInt32(PeasantsAmount.Text)) && (Convert.ToInt32(PeasantsAmount.Text) < Convert.ToInt32(AvailableRecruitPeasants.Content)))
             {
                 peasants.PeasantsCount += Convert.ToInt32(PeasantsAmount.Text);
 
@@ -50,12 +54,12 @@ namespace LandConquest.Forms
                 AvailableRecruitPeasants.Content = (peasants.PeasantsMax - peasants.PeasantsCount).ToString();
                 player.PlayerMoney -= Convert.ToInt32(PeasantsAmount.Text);
                 player = PlayerModel.UpdatePlayerMoney(player);
-                PeasantsAmount.Text = "0";
+                
             }
             else
             {
                 WarningDialogWindow.CallWarningDialogNoResult("Error");
-                PeasantsAmount.Text = "0";
+                
             }
         }
 
@@ -66,7 +70,11 @@ namespace LandConquest.Forms
 
         private void HireArchers_Click(object sender, RoutedEventArgs e)
         {
-            if ((player.PlayerMoney >= Convert.ToInt32(ArchersAmount.Text) * 5) && (equipment.PlayerBow >= Convert.ToInt32(ArchersAmount.Text) && (equipment.PlayerArmor >= Convert.ToInt32(ArchersAmount.Text))))
+            if (ArchersAmount.Text == "")
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("No data!");
+            }
+            else if ((player.PlayerMoney >= Convert.ToInt32(ArchersAmount.Text) * 5) && (equipment.PlayerBow >= Convert.ToInt32(ArchersAmount.Text) && (equipment.PlayerArmor >= Convert.ToInt32(ArchersAmount.Text))))
             {
                 army.ArmyArchersCount += Convert.ToInt32(ArchersAmount.Text);
                 army.ArmySizeCurrent += Convert.ToInt32(ArchersAmount.Text);
@@ -80,18 +88,22 @@ namespace LandConquest.Forms
                 army.ArmyType = ArmyModel.ReturnTypeOfArmy(army);
                 army = ArmyModel.UpdateArmy(army);
 
-                ArchersAmount.Text = "0";
+                
             }
             else
             {
                 WarningDialogWindow.CallWarningDialogNoResult("Error");
-                ArchersAmount.Text = "0";
+                
             }
         }
 
         private void HireInfantry_Click(object sender, RoutedEventArgs e)
         {
-            if ((player.PlayerMoney >= Convert.ToInt32(InfantryAmount.Text) * 5) && (equipment.PlayerSpear >= Convert.ToInt32(InfantryAmount.Text) && (equipment.PlayerArmor >= Convert.ToInt32(InfantryAmount.Text))))
+            if (InfantryAmount.Text == "")
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("No data!");
+            }
+            else if ((player.PlayerMoney >= Convert.ToInt32(InfantryAmount.Text) * 5) && (equipment.PlayerSpear >= Convert.ToInt32(InfantryAmount.Text) && (equipment.PlayerArmor >= Convert.ToInt32(InfantryAmount.Text))))
             {
                 army.ArmyInfantryCount += Convert.ToInt32(InfantryAmount.Text);
                 army.ArmySizeCurrent += Convert.ToInt32(InfantryAmount.Text);
@@ -105,18 +117,22 @@ namespace LandConquest.Forms
                 army.ArmyType = ArmyModel.ReturnTypeOfArmy(army);
                 army = ArmyModel.UpdateArmy(army);
 
-                InfantryAmount.Text = "0";
+                
             }
             else
             {
                 WarningDialogWindow.CallWarningDialogNoResult("Error");
-                InfantryAmount.Text = "0";
+                
             }
         }
 
         private void HireKnights_Click(object sender, RoutedEventArgs e)
         {
-            if ((player.PlayerMoney >= Convert.ToInt32(KnightsAmount.Text) * 25) && (equipment.PlayerSword >= Convert.ToInt32(KnightsAmount.Text) && (equipment.PlayerArmor >= Convert.ToInt32(KnightsAmount.Text)) && (equipment.PlayerHarness >= Convert.ToInt32(KnightsAmount.Text))))
+            if (KnightsAmount.Text == "")
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("No data!");
+            }
+            else if ((player.PlayerMoney >= Convert.ToInt32(KnightsAmount.Text) * 25) && (equipment.PlayerSword >= Convert.ToInt32(KnightsAmount.Text) && (equipment.PlayerArmor >= Convert.ToInt32(KnightsAmount.Text)) && (equipment.PlayerHarness >= Convert.ToInt32(KnightsAmount.Text))))
             {
                 army.ArmyHorsemanCount += Convert.ToInt32(KnightsAmount.Text);
                 army.ArmySizeCurrent += Convert.ToInt32(KnightsAmount.Text);
@@ -131,18 +147,22 @@ namespace LandConquest.Forms
                 army.ArmyType = ArmyModel.ReturnTypeOfArmy(army);
                 army = ArmyModel.UpdateArmy(army);
 
-                KnightsAmount.Text = "0";
+                
             }
             else
             {
                 WarningDialogWindow.CallWarningDialogNoResult("Error");
-                KnightsAmount.Text = "0";
+                
             }
         }
 
         private void HireSiege_Click(object sender, RoutedEventArgs e)
         {
-            if ((player.PlayerMoney >= Convert.ToInt32(SiegeAmount.Text) * 500) && (equipment.PlayerGear >= Convert.ToInt32(SiegeAmount.Text) * 5))
+            if (SiegeAmount.Text == "")
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("No data!");
+            }
+            else if ((player.PlayerMoney >= Convert.ToInt32(SiegeAmount.Text) * 500) && (equipment.PlayerGear >= Convert.ToInt32(SiegeAmount.Text) * 5))
             {
                 army.ArmySiegegunCount += Convert.ToInt32(SiegeAmount.Text);
                 army.ArmySizeCurrent += Convert.ToInt32(SiegeAmount.Text);
@@ -155,12 +175,12 @@ namespace LandConquest.Forms
                 army.ArmyType = ArmyModel.ReturnTypeOfArmy(army);
                 army = ArmyModel.UpdateArmy(army);
 
-                SiegeAmount.Text = "0";
+                
             }
             else
             {
                 WarningDialogWindow.CallWarningDialogNoResult("Error");
-                SiegeAmount.Text = "0";
+                
             }
         }
 
