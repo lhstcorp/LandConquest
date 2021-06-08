@@ -117,7 +117,148 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LocButtonChat_Content" xml:space="preserve">
+    <value>Чат</value>
+  </data>
+  <data name="LocButtonClaim_Content" xml:space="preserve">
+    <value>Собрать</value>
+  </data>
+  <data name="LocButtonMailbox_Content" xml:space="preserve">
+    <value>Личные сообщения</value>
+  </data>
+  <data name="LocButtonProfileMain_Content" xml:space="preserve">
+    <value>Профиль</value>
+  </data>
+  <data name="LocButtonRankingsMain_Content" xml:space="preserve">
+    <value>Рейтинг</value>
+  </data>
+  <data name="LocButtonSave_Content" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="LocButtonSettingsMain_Content" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="LocButtonSupportUs_Content" xml:space="preserve">
+    <value>Поддержать нас</value>
+  </data>
+  <data name="LocLabelArmor_Text" xml:space="preserve">
+    <value>Броня</value>
+  </data>
+  <data name="LocLabelAuctionMain_Content" xml:space="preserve">
+    <value>Аукцион</value>
+  </data>
+  <data name="LocLabelAvailable_Content" xml:space="preserve">
+    <value>Доступно: </value>
+  </data>
+  <data name="LocLabelAvailable_Text" xml:space="preserve">
+    <value>Доступно</value>
+  </data>
+  <data name="LocLabelBow_Text" xml:space="preserve">
+    <value>Лук</value>
+  </data>
+  <data name="LocLabelConsumption_Content" xml:space="preserve">
+    <value>Потребление</value>
+  </data>
+  <data name="LocLabelCopper_Text" xml:space="preserve">
+    <value>Медь</value>
+  </data>
+  <data name="LocLabelCountryMain_Content" xml:space="preserve">
+    <value>Страна</value>
+  </data>
   <data name="LocLabelCurrentOnline_Text" xml:space="preserve">
     <value>Текущий онлайн:</value>
+  </data>
+  <data name="LocLabelCurrent_Content" xml:space="preserve">
+    <value>Текущее: </value>
+  </data>
+  <data name="LocLabelDailyBonus_Content" xml:space="preserve">
+    <value>Дневной бонус: </value>
+  </data>
+  <data name="LocLabelEstablishAState_Text" xml:space="preserve">
+    <value>Основать государство</value>
+  </data>
+  <data name="LocLabelFoodLeft_Content" xml:space="preserve">
+    <value>Осталось: </value>
+  </data>
+  <data name="LocLabelFood_Text" xml:space="preserve">
+    <value>Еда</value>
+  </data>
+  <data name="LocLabelFullScreen_Text" xml:space="preserve">
+    <value>Полный экран</value>
+  </data>
+  <data name="LocLabelGear_Text" xml:space="preserve">
+    <value>Механизм</value>
+  </data>
+  <data name="LocLabelGems_Text" xml:space="preserve">
+    <value>Изумруды</value>
+  </data>
+  <data name="LocLabelGold_Text" xml:space="preserve">
+    <value>Золото</value>
+  </data>
+  <data name="LocLabelGoTo_Text" xml:space="preserve">
+    <value>Перейти</value>
+  </data>
+  <data name="LocLabelHarness_Text" xml:space="preserve">
+    <value>Сбруя</value>
+  </data>
+  <data name="LocLabelHire_Text" xml:space="preserve">
+    <value>Нанять</value>
+  </data>
+  <data name="LocLabelIndustryMain_Content" xml:space="preserve">
+    <value>Производство</value>
+  </data>
+  <data name="LocLabelIron_Text" xml:space="preserve">
+    <value>Железо</value>
+  </data>
+  <data name="LocLabelLeather_Text" xml:space="preserve">
+    <value>Кожа</value>
+  </data>
+  <data name="LocLabelMarketMain_Content" xml:space="preserve">
+    <value>Рынок</value>
+  </data>
+  <data name="LocLabelMusic_Text" xml:space="preserve">
+    <value>Музыка</value>
+  </data>
+  <data name="LocLabelNextReward_Content" xml:space="preserve">
+    <value>Следующая награда: </value>
+  </data>
+  <data name="LocLabelProductivity_Content" xml:space="preserve">
+    <value>Производительность</value>
+  </data>
+  <data name="LocLabelRecruitMain_Content" xml:space="preserve">
+    <value>Найм войск</value>
+  </data>
+  <data name="LocLabelRegionMain_Content" xml:space="preserve">
+    <value>Регион</value>
+  </data>
+  <data name="LocLabelServerTime_Content" xml:space="preserve">
+    <value>Время сервера: </value>
+  </data>
+  <data name="LocLabelSpear_Text" xml:space="preserve">
+    <value>Копье</value>
+  </data>
+  <data name="LocLabelStone_Text" xml:space="preserve">
+    <value>Камень</value>
+  </data>
+  <data name="LocLabelStorageMain_Content" xml:space="preserve">
+    <value>Склад</value>
+  </data>
+  <data name="LocLabelSubmitBag_Text" xml:space="preserve">
+    <value>Сообщить об ошибке</value>
+  </data>
+  <data name="LocLabelSword_Text" xml:space="preserve">
+    <value>Меч</value>
+  </data>
+  <data name="LocLabelTaxes_Content" xml:space="preserve">
+    <value>Налоги</value>
+  </data>
+  <data name="LocLabelTotal_Text" xml:space="preserve">
+    <value>Всего</value>
+  </data>
+  <data name="LocLabelWood_Text" xml:space="preserve">
+    <value>Дерево</value>
+  </data>
+  <data name="LocLabelWorldLeader_Text" xml:space="preserve">
+    <value>Мировой лидер</value>
   </data>
 </root>
