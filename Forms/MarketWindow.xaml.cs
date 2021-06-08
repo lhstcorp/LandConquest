@@ -126,7 +126,11 @@ namespace LandConquest.Forms
             switch (button.Name)
             {
                 case "buyFoodMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content) && Convert.ToInt32(labelFoodMarket.Content) >= Convert.ToInt32(FoodToBuyTextBox.Text))
+                    if (FoodToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (player.PlayerMoney >= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content) && Convert.ToInt32(labelFoodMarket.Content) >= Convert.ToInt32(FoodToBuyTextBox.Text))
                     {
                         storage.PlayerFood += Convert.ToInt32(FoodToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
@@ -140,10 +144,15 @@ namespace LandConquest.Forms
                     {
                         WarningDialogWindow.CallWarningDialogNoResult("Not enough money or resources!");
                     }
+                   
                     break;
 
                 case "buyWoodMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelWoodPrice.Content) && Convert.ToInt32(labelWoodMarket.Content) >= Convert.ToInt32(WoodToBuyTextBox.Text))
+                    if (WoodToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (player.PlayerMoney >= Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelWoodPrice.Content) && Convert.ToInt32(labelWoodMarket.Content) >= Convert.ToInt32(WoodToBuyTextBox.Text))
                     {
 
                         storage.PlayerWood += Convert.ToInt32(WoodToBuyTextBox.Text);
@@ -161,7 +170,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "buyStoneMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(StoneToBuyTextBox.Text) * Convert.ToInt32(labelStonePrice.Content) && Convert.ToInt32(labelStoneMarket.Content) >= Convert.ToInt32(StoneToBuyTextBox.Text))
+                    if (StoneToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (player.PlayerMoney >= Convert.ToInt32(StoneToBuyTextBox.Text) * Convert.ToInt32(labelStonePrice.Content) && Convert.ToInt32(labelStoneMarket.Content) >= Convert.ToInt32(StoneToBuyTextBox.Text))
                     {
                         storage.PlayerStone += Convert.ToInt32(StoneToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(StoneToBuyTextBox.Text) * Convert.ToInt32(labelStonePrice.Content);
@@ -178,7 +191,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "buyIronMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(IronToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content) && Convert.ToInt32(labelIronMarket.Content) >= Convert.ToInt32(IronToBuyTextBox.Text))
+                    if (IronToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (player.PlayerMoney >= Convert.ToInt32(IronToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content) && Convert.ToInt32(labelIronMarket.Content) >= Convert.ToInt32(IronToBuyTextBox.Text))
                     {
                         storage.PlayerIron += Convert.ToInt32(IronToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(IronToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content);
@@ -195,7 +212,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "buyGoldMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(GoldToBuyTextBox.Text) * Convert.ToInt32(labelGoldPrice.Content) && Convert.ToInt32(labelGoldMarket.Content) >= Convert.ToInt32(GoldToBuyTextBox.Text))
+                    if (GoldToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (player.PlayerMoney >= Convert.ToInt32(GoldToBuyTextBox.Text) * Convert.ToInt32(labelGoldPrice.Content) && Convert.ToInt32(labelGoldMarket.Content) >= Convert.ToInt32(GoldToBuyTextBox.Text))
                     {
                         storage.PlayerGoldOre += Convert.ToInt32(GoldToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(GoldToBuyTextBox.Text) * Convert.ToInt32(labelGoldPrice.Content);
@@ -212,7 +233,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "buyCopperMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(CopperToBuyTextBox.Text) * Convert.ToInt32(labelCopperPrice.Content) && Convert.ToInt32(labelCopperMarket.Content) >= Convert.ToInt32(CopperToBuyTextBox.Text))
+                    if (CopperToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (player.PlayerMoney >= Convert.ToInt32(CopperToBuyTextBox.Text) * Convert.ToInt32(labelCopperPrice.Content) && Convert.ToInt32(labelCopperMarket.Content) >= Convert.ToInt32(CopperToBuyTextBox.Text))
                     {
                         storage.PlayerCopper += Convert.ToInt32(CopperToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(CopperToBuyTextBox.Text) * Convert.ToInt32(labelCopperPrice.Content);
@@ -229,7 +254,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "buyGemsMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(GemsToBuyTextBox.Text) * Convert.ToInt32(labelGemsPrice.Content) && Convert.ToInt32(labelGemsMarket.Content) >= Convert.ToInt32(GemsToBuyTextBox.Text))
+                    if (GemsToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (player.PlayerMoney >= Convert.ToInt32(GemsToBuyTextBox.Text) * Convert.ToInt32(labelGemsPrice.Content) && Convert.ToInt32(labelGemsMarket.Content) >= Convert.ToInt32(GemsToBuyTextBox.Text))
                     {
                         storage.PlayerGems += Convert.ToInt32(GemsToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(GemsToBuyTextBox.Text) * Convert.ToInt32(labelGemsPrice.Content);
@@ -246,7 +275,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "buyLeatherMarketButton":
-                    if (player.PlayerMoney >= Convert.ToInt32(LeatherToBuyTextBox.Text) * Convert.ToInt32(labelLeatherPrice.Content) && Convert.ToInt32(labelLeatherMarket.Content) >= Convert.ToInt32(LeatherToBuyTextBox.Text))
+                    if (LeatherToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (player.PlayerMoney >= Convert.ToInt32(LeatherToBuyTextBox.Text) * Convert.ToInt32(labelLeatherPrice.Content) && Convert.ToInt32(labelLeatherMarket.Content) >= Convert.ToInt32(LeatherToBuyTextBox.Text))
                     {
                         storage.PlayerLeather += Convert.ToInt32(LeatherToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(LeatherToBuyTextBox.Text) * Convert.ToInt32(labelLeatherPrice.Content);
@@ -276,11 +309,16 @@ namespace LandConquest.Forms
         private void sellAllMarketButton_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
+           
             switch (button.Name)
             {
 
                 case "sellFoodMarketButton":
-                    if (storage.PlayerFood >= Convert.ToInt32(FoodToBuyTextBox.Text))
+                    if (FoodToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (storage.PlayerFood >= Convert.ToInt32(FoodToBuyTextBox.Text))
                     {
                         storage.PlayerFood -= Convert.ToInt32(FoodToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
@@ -297,7 +335,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "sellWoodMarketButton":
-                    if (storage.PlayerWood >= Convert.ToInt32(WoodToBuyTextBox.Text) && Convert.ToInt32(WoodToBuyTextBox.Text) > 0)
+                    if (WoodToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (storage.PlayerWood >= Convert.ToInt32(WoodToBuyTextBox.Text) && Convert.ToInt32(WoodToBuyTextBox.Text) > 0)
                     {
                         storage.PlayerWood -= Convert.ToInt32(WoodToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelWoodPrice.Content);
@@ -314,7 +356,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "sellStoneMarketButton":
-                    if (storage.PlayerStone >= Convert.ToInt32(StoneToBuyTextBox.Text) && Convert.ToInt32(StoneToBuyTextBox.Text) > 0)
+                    if (StoneToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (storage.PlayerStone >= Convert.ToInt32(StoneToBuyTextBox.Text) && Convert.ToInt32(StoneToBuyTextBox.Text) > 0)
                     {
                         storage.PlayerStone -= Convert.ToInt32(StoneToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(StoneToBuyTextBox.Text) * Convert.ToInt32(labelStonePrice.Content);
@@ -331,7 +377,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "sellIronMarketButton":
-                    if (storage.PlayerIron >= Convert.ToInt32(IronToBuyTextBox.Text) && Convert.ToInt32(IronToBuyTextBox.Text) > 0)
+                    if (IronToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (storage.PlayerIron >= Convert.ToInt32(IronToBuyTextBox.Text) && Convert.ToInt32(IronToBuyTextBox.Text) > 0)
                     {
                         storage.PlayerIron -= Convert.ToInt32(IronToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(IronToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content);
@@ -348,7 +398,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "sellGoldMarketButton":
-                    if (storage.PlayerGoldOre >= Convert.ToInt32(GoldToBuyTextBox.Text) && Convert.ToInt32(GoldToBuyTextBox.Text) > 0)
+                    if (GoldToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (storage.PlayerGoldOre >= Convert.ToInt32(GoldToBuyTextBox.Text) && Convert.ToInt32(GoldToBuyTextBox.Text) > 0)
                     {
                         storage.PlayerGoldOre -= Convert.ToInt32(GoldToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(GoldToBuyTextBox.Text) * Convert.ToInt32(labelGoldPrice.Content);
@@ -365,7 +419,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "sellCopperMarketButton":
-                    if (storage.PlayerCopper >= Convert.ToInt32(CopperToBuyTextBox.Text) && Convert.ToInt32(CopperToBuyTextBox.Text) > 0)
+                    if (CopperToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (storage.PlayerCopper >= Convert.ToInt32(CopperToBuyTextBox.Text) && Convert.ToInt32(CopperToBuyTextBox.Text) > 0)
                     {
                         storage.PlayerCopper -= Convert.ToInt32(CopperToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(CopperToBuyTextBox.Text) * Convert.ToInt32(labelCopperPrice.Content);
@@ -382,7 +440,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "sellGemsMarketButton":
-                    if (storage.PlayerGems >= Convert.ToInt32(GemsToBuyTextBox.Text) && Convert.ToInt32(GemsToBuyTextBox.Text) > 0)
+                    if (GemsToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (storage.PlayerGems >= Convert.ToInt32(GemsToBuyTextBox.Text) && Convert.ToInt32(GemsToBuyTextBox.Text) > 0)
                     {
                         storage.PlayerGems -= Convert.ToInt32(GemsToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(GemsToBuyTextBox.Text) * Convert.ToInt32(labelGemsPrice.Content);
@@ -399,7 +461,11 @@ namespace LandConquest.Forms
                     break;
 
                 case "sellLeatherMarketButton":
-                    if (storage.PlayerLeather >= Convert.ToInt32(LeatherToBuyTextBox.Text) && Convert.ToInt32(LeatherToBuyTextBox.Text) > 0)
+                    if (LeatherToBuyTextBox.Text == "")
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("No data!");
+                    }
+                    else if (storage.PlayerLeather >= Convert.ToInt32(LeatherToBuyTextBox.Text) && Convert.ToInt32(LeatherToBuyTextBox.Text) > 0)
                     {
                         storage.PlayerGems -= Convert.ToInt32(LeatherToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(LeatherToBuyTextBox.Text) * Convert.ToInt32(labelLeatherPrice.Content);
@@ -434,5 +500,7 @@ namespace LandConquest.Forms
             int i;
             return int.TryParse(str, out i) && i >= 1 && i <= 99999;
         }
+
+
     }
 }
