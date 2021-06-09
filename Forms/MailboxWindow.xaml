@@ -5,6 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="en"
+        lex:LocalizeDictionary.IncludeInvariantCulture="False"
+        lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources"  
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
@@ -14,7 +19,7 @@
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
 
         <Grid>
-            <Button x:Name="buttonSendMessage" Content="Send" VerticalContentAlignment="Center"  VerticalAlignment="Top" Height="36"  BorderBrush="{x:Null}" Margin="400,5,0,0" Foreground="#FFE1C993" Click="ButtonSendMessage_Click" HorizontalAlignment="Left" Width="113" FontFamily="Book Antiqua" FontSize="14">
+            <Button x:Name="buttonSendMessage" Content="{lex:Loc LocButtonSend_Text}" VerticalContentAlignment="Center"  VerticalAlignment="Top" Height="36"  BorderBrush="{x:Null}" Margin="400,5,0,0" Foreground="#FFE1C993" Click="ButtonSendMessage_Click" HorizontalAlignment="Left" Width="113" FontFamily="Book Antiqua" FontSize="14">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -28,7 +33,7 @@
 
             <TextBox x:Name="TextBoxMessage" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"  materialDesign:HintAssist.Hint="Your message (500 symbols max)" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" MaxLength="500" materialDesign:HintAssist.IsFloating="False" Padding="5,0,0,0" FontSize="18" Background="Wheat" Height="356" Margin="10,43,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="503"/>
 
-            <Label Content="Recipient name:" FontSize="20" FontFamily="Trebuchet MS" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="180"/>
+            <Label Content="{lex:Loc LocLabelRecipientName_Text}" FontSize="20" FontFamily="Trebuchet MS" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="180"/>
 
             <TextBox x:Name="TextBoxReceiver" MaxLength="16" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" FontSize="16" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap"  VerticalAlignment="Top" Width="222" 
                  Background="White" CaretBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" materialDesign:HintAssist.Hint=" Player name"  materialDesign:HintAssist.IsFloating="False" Margin="173,5,0,0" BorderBrush="#FF391D18"/>
