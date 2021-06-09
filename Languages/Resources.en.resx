@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LocButtonChange_Content" xml:space="preserve">
+    <value>Change</value>
+  </data>
   <data name="LocButtonChat_Content" xml:space="preserve">
     <value>Chat</value>
   </data>
@@ -144,8 +147,14 @@
   <data name="LocButtonSupportUs_Content" xml:space="preserve">
     <value>Support us</value>
   </data>
+  <data name="LocLabelArchers_Text" xml:space="preserve">
+    <value>Archers</value>
+  </data>
   <data name="LocLabelArmor_Text" xml:space="preserve">
     <value>Armor</value>
+  </data>
+  <data name="LocLabelArmy_Content" xml:space="preserve">
+    <value>Army</value>
   </data>
   <data name="LocLabelAuctionMain_Content" xml:space="preserve">
     <value>Auction</value>
@@ -183,8 +192,14 @@
   <data name="LocLabelDate_Content" xml:space="preserve">
     <value>Date</value>
   </data>
+  <data name="LocLabelEmail_Content" xml:space="preserve">
+    <value>Email</value>
+  </data>
   <data name="LocLabelEstablishAState_Text" xml:space="preserve">
     <value>Establish a state</value>
+  </data>
+  <data name="LocLabelExp_Content" xml:space="preserve">
+    <value>Xp</value>
   </data>
   <data name="LocLabelFarm_Text" xml:space="preserve">
     <value>Farm</value>
@@ -219,14 +234,26 @@
   <data name="LocLabelIndustryMain_Content" xml:space="preserve">
     <value>Industry</value>
   </data>
+  <data name="LocLabelInfantry_Text" xml:space="preserve">
+    <value>Infantry</value>
+  </data>
   <data name="LocLabelIron_Text" xml:space="preserve">
     <value>Iron</value>
+  </data>
+  <data name="LocLabelKnights_Text" xml:space="preserve">
+    <value>Knights</value>
+  </data>
+  <data name="LocLabelLand_Content" xml:space="preserve">
+    <value>Land</value>
   </data>
   <data name="LocLabelLeather_Text" xml:space="preserve">
     <value>Leather</value>
   </data>
   <data name="LocLabelLevel_Content" xml:space="preserve">
     <value>lvl:</value>
+  </data>
+  <data name="LocLabelLogin_Content" xml:space="preserve">
+    <value>Login</value>
   </data>
   <data name="LocLabelMarketMain_Content" xml:space="preserve">
     <value>Market</value>
@@ -237,8 +264,17 @@
   <data name="LocLabelMusic_Text" xml:space="preserve">
     <value>Music</value>
   </data>
+  <data name="LocLabelName_Content" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="LocLabelNextReward_Content" xml:space="preserve">
     <value>Next reward: </value>
+  </data>
+  <data name="LocLabelPass_Content" xml:space="preserve">
+    <value>Pass</value>
+  </data>
+  <data name="LocLabelPeasants_Text" xml:space="preserve">
+    <value>Peasants</value>
   </data>
   <data name="LocLabelPerHour_Text" xml:space="preserve">
     <value>p/h</value>
@@ -264,6 +300,9 @@
   <data name="LocLabelRegionMain_Content" xml:space="preserve">
     <value>Region</value>
   </data>
+  <data name="LocLabelRegistration_Content" xml:space="preserve">
+    <value>Reg</value>
+  </data>
   <data name="LocLabelSawmill_Text" xml:space="preserve">
     <value>Sawmill</value>
   </data>
@@ -272,6 +311,9 @@
   </data>
   <data name="LocLabelServerTime_Content" xml:space="preserve">
     <value>Server time: </value>
+  </data>
+  <data name="LocLabelSiegeMachines_Text" xml:space="preserve">
+    <value>Siege machines</value>
   </data>
   <data name="LocLabelSpear_Text" xml:space="preserve">
     <value>Spear</value>
@@ -290,6 +332,9 @@
   </data>
   <data name="LocLabelTaxes_Content" xml:space="preserve">
     <value>Taxes</value>
+  </data>
+  <data name="LocLabelTitle_Content" xml:space="preserve">
+    <value>Title</value>
   </data>
   <data name="LocLabelTotal_Text" xml:space="preserve">
     <value>Total</value>

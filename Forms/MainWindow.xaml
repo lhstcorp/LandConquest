@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LandConquest.Forms"
         xmlns:ctrls="clr-namespace:LandConquest.Resources"
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
-        lex:LocalizeDictionary.DesignCulture="en"
+        lex:LocalizeDictionary.DesignCulture="ru"
         lex:LocalizeDictionary.IncludeInvariantCulture="False"
         lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
         lex:ResxLocalizationProvider.DefaultDictionary="Resources"  
@@ -331,6 +331,7 @@
             </Button>
 
             <Image HorizontalAlignment="Left" Height="441" Margin="325,113,0,0" Source="/LandConquest;component/Pictures/undiscovered-map.png" VerticalAlignment="Top" Width="705" RenderTransformOrigin="0.5,0.5"/>
+            
             <Label Content="{lex:Loc LocLabelStorageMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="245,54,0,0" VerticalAlignment="Top" Width="49" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
             <Label Content="{lex:Loc LocLabelIndustryMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="345,54,0,0" VerticalAlignment="Top" Width="51" FontFamily="Trebuchet MS" Foreground="#FF392018" RenderTransformOrigin="0.5,0.5" Height="24"/>
             <Label Content="{lex:Loc LocLabelRecruitMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="297,54,0,0" VerticalAlignment="Top" Width="48" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
