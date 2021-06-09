@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LocButtonChange_Content" xml:space="preserve">
+    <value>Изменить</value>
+  </data>
   <data name="LocButtonChat_Content" xml:space="preserve">
     <value>Чат</value>
   </data>
@@ -144,8 +147,14 @@
   <data name="LocButtonSupportUs_Content" xml:space="preserve">
     <value>Поддержать нас</value>
   </data>
+  <data name="LocLabelArchers_Text" xml:space="preserve">
+    <value>Лучники</value>
+  </data>
   <data name="LocLabelArmor_Text" xml:space="preserve">
     <value>Броня</value>
+  </data>
+  <data name="LocLabelArmy_Content" xml:space="preserve">
+    <value>Войска</value>
   </data>
   <data name="LocLabelAuctionMain_Content" xml:space="preserve">
     <value>Аукцион</value>
@@ -183,8 +192,14 @@
   <data name="LocLabelDate_Content" xml:space="preserve">
     <value>Время</value>
   </data>
+  <data name="LocLabelEmail_Content" xml:space="preserve">
+    <value>Почта</value>
+  </data>
   <data name="LocLabelEstablishAState_Text" xml:space="preserve">
     <value>Основать государство</value>
+  </data>
+  <data name="LocLabelExp_Content" xml:space="preserve">
+    <value>Опыт</value>
   </data>
   <data name="LocLabelFarm_Text" xml:space="preserve">
     <value>Ферма</value>
@@ -211,7 +226,7 @@
     <value>Перейти</value>
   </data>
   <data name="LocLabelHarness_Text" xml:space="preserve">
-    <value>Сбруя</value>
+    <value>Упряжь</value>
   </data>
   <data name="LocLabelHire_Text" xml:space="preserve">
     <value>Нанять</value>
@@ -219,14 +234,26 @@
   <data name="LocLabelIndustryMain_Content" xml:space="preserve">
     <value>Производство</value>
   </data>
+  <data name="LocLabelInfantry_Text" xml:space="preserve">
+    <value>Мечники</value>
+  </data>
   <data name="LocLabelIron_Text" xml:space="preserve">
     <value>Железо</value>
+  </data>
+  <data name="LocLabelKnights_Text" xml:space="preserve">
+    <value>Рыцари</value>
+  </data>
+  <data name="LocLabelLand_Content" xml:space="preserve">
+    <value>Земля</value>
   </data>
   <data name="LocLabelLeather_Text" xml:space="preserve">
     <value>Кожа</value>
   </data>
   <data name="LocLabelLevel_Content" xml:space="preserve">
     <value>ур:</value>
+  </data>
+  <data name="LocLabelLogin_Content" xml:space="preserve">
+    <value>Логин</value>
   </data>
   <data name="LocLabelMarketMain_Content" xml:space="preserve">
     <value>Рынок</value>
@@ -237,8 +264,17 @@
   <data name="LocLabelMusic_Text" xml:space="preserve">
     <value>Музыка</value>
   </data>
+  <data name="LocLabelName_Content" xml:space="preserve">
+    <value>Игрок</value>
+  </data>
   <data name="LocLabelNextReward_Content" xml:space="preserve">
     <value>Следующая награда: </value>
+  </data>
+  <data name="LocLabelPass_Content" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="LocLabelPeasants_Text" xml:space="preserve">
+    <value>Жители</value>
   </data>
   <data name="LocLabelPerHour_Text" xml:space="preserve">
     <value>шт/ч</value>
@@ -264,6 +300,9 @@
   <data name="LocLabelRegionMain_Content" xml:space="preserve">
     <value>Регион</value>
   </data>
+  <data name="LocLabelRegistration_Content" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
   <data name="LocLabelSawmill_Text" xml:space="preserve">
     <value>Лесопилка</value>
   </data>
@@ -272,6 +311,9 @@
   </data>
   <data name="LocLabelServerTime_Content" xml:space="preserve">
     <value>Время сервера: </value>
+  </data>
+  <data name="LocLabelSiegeMachines_Text" xml:space="preserve">
+    <value>Катапульты</value>
   </data>
   <data name="LocLabelSpear_Text" xml:space="preserve">
     <value>Копье</value>
@@ -290,6 +332,9 @@
   </data>
   <data name="LocLabelTaxes_Content" xml:space="preserve">
     <value>Налоги</value>
+  </data>
+  <data name="LocLabelTitle_Content" xml:space="preserve">
+    <value>Титул</value>
   </data>
   <data name="LocLabelTotal_Text" xml:space="preserve">
     <value>Всего</value>
