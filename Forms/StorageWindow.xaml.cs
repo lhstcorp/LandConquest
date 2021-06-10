@@ -74,12 +74,13 @@ namespace LandConquest.Forms
             }
             else
             {
-                MessageBox.Show("Error!");
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
             }
         }
 
         private void craftArmor_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            ArmorToCraft.TextDecorations = null;
             if (ArmorToCraft.Text == "")
             {
                 WarningDialogWindow.CallWarningDialogNoResult("No data!");
@@ -99,7 +100,7 @@ namespace LandConquest.Forms
             }
             else
             {
-                MessageBox.Show("Error!");
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
             }
         }
 
@@ -124,7 +125,7 @@ namespace LandConquest.Forms
             }
             else
             {
-                MessageBox.Show("Error!");
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
             }
         }
 
@@ -149,7 +150,7 @@ namespace LandConquest.Forms
             }
             else
             {
-                MessageBox.Show("Error!");
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
             }
         }
 
@@ -174,7 +175,7 @@ namespace LandConquest.Forms
             }
             else
             {
-                MessageBox.Show("Error!");
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
             }
         }
 
@@ -199,7 +200,7 @@ namespace LandConquest.Forms
             }
             else
             {
-                MessageBox.Show("Error!");
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
             }
         }
 
