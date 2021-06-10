@@ -37,7 +37,7 @@ namespace LandConquest.Forms
 
             labelFoodAmount.Content = storage.PlayerFood.ToString();
             labelFoodMarket.Content = market.MarketFood.ToString();
-            labelFoodPrice.Content = 3 * Math.Round(50000 / Convert.ToDouble(labelFoodMarket.Content), 2);
+            labelFoodPrice.Content = 3 * Math.Round(50000 / Convert.ToDouble(labelFoodMarket.Content), 3);
 
             labelStoneMarket.Content = market.MarketStone.ToString();
             labelStoneAmount.Content = storage.PlayerStone.ToString();
