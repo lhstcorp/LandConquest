@@ -12,7 +12,7 @@ namespace LandConquestDB.Models
             Color newColor = Color.FromArgb(color.A, color.R, color.G, color.B);
             string colorHex = ColorTranslator.ToHtml(newColor);
             string coffers = "10000";
-            string capitalId = land.LandId.ToString();
+            int capitalId = land.LandId;
             string countryQuery = "INSERT INTO dbo.CountryData (country_name,country_ruler,country_color,country_coffers, capital_id) VALUES (@country_name,@country_ruler,@country_color,@country_coffers, @capital_id)";
             var countryCommand = new SqlCommand(countryQuery, DbContext.GetSqlConnection());
 
@@ -63,7 +63,7 @@ namespace LandConquestDB.Models
             List<string> countriesCountryName = new List<string>();
             List<string> countriesCountryRuler = new List<string>();
             List<string> countriesCountryColor = new List<string>();
-            List<string> countriesCapitalId = new List<string>();
+            List<int> countriesCapitalId = new List<int>();
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
@@ -81,7 +81,7 @@ namespace LandConquestDB.Models
                     countriesCountryName.Add(reader.GetString(countryName));
                     countriesCountryRuler.Add(reader.GetString(countryRuler));
                     countriesCountryColor.Add(reader.GetString(countryColor));
-                    countriesCapitalId.Add(reader.GetString(capitalId));
+                    countriesCapitalId.Add(reader.GetInt32(capitalId));
                 }
                 reader.Close();
             }
@@ -178,7 +178,7 @@ namespace LandConquestDB.Models
                     country.CountryRuler = reader.GetString(countryRuler);
                     country.CountryColor = reader.GetString(countryColor);
                     country.CountryCoffers = reader.GetString(countryCoffers);
-                    country.CapitalId = reader.GetString(capitalId);
+                   country.CapitalId = reader.GetInt32(capitalId);
                 }
                 reader.Close();
             }

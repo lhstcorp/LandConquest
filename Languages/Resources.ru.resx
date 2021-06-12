@@ -295,7 +295,7 @@
     <value>Получатель</value>
   </data>
   <data name="LocLabelRecruitMain_Content" xml:space="preserve">
-    <value>Найм войск</value>
+    <value>Найм \n войск</value>
   </data>
   <data name="LocLabelRegionMain_Content" xml:space="preserve">
     <value>Регион</value>
