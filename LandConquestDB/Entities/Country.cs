@@ -7,6 +7,7 @@
         public string CountryRuler { get; set; }
         public string CountryColor { get; set; }
         public string CountryCoffers { get; set; }
+        public string CapitalId { get; set; }
 
 
 
