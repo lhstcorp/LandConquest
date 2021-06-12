@@ -24,6 +24,7 @@ namespace LandConquest.DialogWIndows
         {
             Country country = CountryModel.EstablishaState(player, land, StateColor.Color);
             country.CountryId = CountryModel.SelectLastIdOfStates();
+            country.CapitalId = land.LandId.ToString();
             LandModel.UpdateLandInfo(land, country);
         }
 
