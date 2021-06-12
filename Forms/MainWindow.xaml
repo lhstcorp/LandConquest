@@ -332,12 +332,22 @@
 
             <Image HorizontalAlignment="Left" Height="441" Margin="325,113,0,0" Source="/LandConquest;component/Pictures/undiscovered-map.png" VerticalAlignment="Top" Width="705" RenderTransformOrigin="0.5,0.5"/>
             
-            <Label Content="{lex:Loc LocLabelStorageMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="245,54,0,0" VerticalAlignment="Top" Width="49" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+            <Border Margin="249,55,1032,663">
+                <Viewbox StretchDirection="Both" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Label Content="{lex:Loc LocLabelStorageMain_Content}" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="#FF392018"/>
+                </Viewbox>
+            </Border>
+            
             <Label Content="{lex:Loc LocLabelIndustryMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="345,54,0,0" VerticalAlignment="Top" Width="51" FontFamily="Trebuchet MS" Foreground="#FF392018" RenderTransformOrigin="0.5,0.5" Height="24"/>
-            <Label Content="{lex:Loc LocLabelRecruitMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="297,54,0,0" VerticalAlignment="Top" Width="48" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+
+            <TextBlock Text="{lex:Loc LocLabelRecruitMain_Content}" FontSize="11" TextWrapping="Wrap" HorizontalAlignment="Left"  Margin="297,54,0,0" VerticalAlignment="Top" Width="48" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+            
             <Label Content="{lex:Loc LocLabelMarketMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="397,54,0,0" VerticalAlignment="Top" Width="47" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+            
             <Label Content="{lex:Loc LocLabelCountryMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="494,55,0,0" VerticalAlignment="Top" Width="51" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+            
             <Label Content="{lex:Loc LocLabelRegionMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="548,55,0,0" VerticalAlignment="Top" Width="46" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+            
             <Label Content="{lex:Loc LocLabelAuctionMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="446,54,0,0" VerticalAlignment="Top" Width="49" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
 
             <Label Content="{lex:Loc LocLabelServerTime_Content}" FontFamily="/Fonts/#Harrington" FontSize="24" Margin="0,0,159,9.8"  Foreground="#FF392018" RenderTransformOrigin="0.756,0.41" HorizontalAlignment="Right" Width="153" Height="40" VerticalAlignment="Bottom"/>
