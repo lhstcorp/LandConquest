@@ -1,0 +1,70 @@
+﻿<Window x:Class="LandConquest.Forms.CastleManagementWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.Forms"
+        mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize"
+        Height="450" Width="600" Loaded="Window_Loaded">
+
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
+        <Grid>
+            <!--Menu-->
+            <Border x:Name="castleMenuGridBorder" BorderBrush="#FF48291F" BorderThickness="3" Width="Auto" Height="Auto" VerticalAlignment="Top" Margin="288,110,32,0">
+                <Grid x:Name="castleMenuGrid" Visibility="Visible" Height="210" VerticalAlignment="Top" Width="Auto" >
+                    <Button x:Name="buttonSendResources" Content="Send resources" FontSize="20" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua" Margin="10,10,9.6,0" Height="44" VerticalAlignment="Top">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="buttonUpgrade" Content="Upgrade castle" FontSize="20" VerticalContentAlignment="Center" Height="44" Margin="10,59,9.6,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="buttonSendForces" Content="Send forces" FontSize="20" VerticalContentAlignment="Center" Height="44" Margin="10,108,10,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="buttonReturnForces" Content="Return forces" FontSize="20" VerticalContentAlignment="Center" Margin="10,157,9.6,0" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua" Height="44" VerticalAlignment="Top">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/LandConquest;component/Pictures/background.jpg"  />
+                    </Grid.Background>
+                </Grid>
+            </Border>
+
+
+            <!--Labels-->
+            <Image HorizontalAlignment="Left" Height="175" Margin="25,30,0,0" VerticalAlignment="Top" Width="187" Source="/LandConquest;component/Pictures/Buildings/Castle.png"/>
+            <Label Content="Current lvl:" HorizontalContentAlignment="Right" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,210,0,0" VerticalAlignment="Top" Width="239" FontFamily="Trebuchet MS"/>
+            <Label Content="Current defence bonus:" HorizontalContentAlignment="Right" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,259,0,0" VerticalAlignment="Top" Width="239" FontFamily="Trebuchet MS"/>
+            <Label Content="Resources to upgrade:" HorizontalContentAlignment="Right" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,307,0,0" VerticalAlignment="Top" Width="239" FontFamily="Trebuchet MS"/>
+            <Label Content="Garrison:" HorizontalContentAlignment="Right" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,358,0,0" VerticalAlignment="Top" Width="115" FontFamily="Trebuchet MS"/>
+            <Label Content="/" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="160,358,0,0" VerticalAlignment="Top" Width="19" FontFamily="Trebuchet MS"/>
+            <!--Values-->
+            <Label x:Name="labelGarrisonReal"  Content="real" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0,358,433.6,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="45" FontFamily="Trebuchet MS"/>
+            <Label x:Name="labelGarrisonMax"  Content="max" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0,358,361,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="60" FontFamily="Trebuchet MS"/>
+            <!--Buttons-->
+            <Button x:Name="buttonClose" Height="20" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="#FFDFC58E" HorizontalAlignment="Left" Margin="573,0,0,0" Width="21" Click="buttonClose_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonShowMenu" Content="Management menu" FontSize="24" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="66" Margin="288,46,0,0" VerticalAlignment="Top" Width="274" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua" Click="buttonShowMenu_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+        </Grid>
+    </Border>
+</Window>

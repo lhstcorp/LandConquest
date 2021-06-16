@@ -1,39 +1,22 @@
-﻿using LandConquest.Entities;
-using LandConquest.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using EmailValidation;
+using LandConquest.DialogWIndows;
+using LandConquestDB.Entities;
+using LandConquestDB.Models;
+using LandConquestYD;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LandConquest.Forms
 {
 
     public partial class ProfileWindow : Window
     {
-        SqlConnection connection;
-        MainWindow window;
-        Player player;
-        User user;
+        private Player player;
+        private User user;
 
-        PlayerModel playerModel;
-        UserModel userModel;
-
-        public ProfileWindow(MainWindow _window, SqlConnection _connection, Player _player, User _user)
+        public ProfileWindow(Player _player, User _user)
         {
             InitializeComponent();
-            window = _window;
-            connection = _connection;
             player = _player;
             user = _user;
             Loaded += Window_Loaded;
@@ -41,24 +24,24 @@ namespace LandConquest.Forms
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            playerModel = new PlayerModel();
-            userModel = new UserModel();
 
             user = new User();
-            user = userModel.GetUserInfo(player.PlayerId, connection);
+            user = UserModel.GetUserInfo(player.PlayerId);
 
             player = new Player();
-            player = playerModel.GetPlayerInfo(user, connection, player);
+            player = PlayerModel.GetPlayerInfo(user, player);
 
-            
+
             labelName.Content = player.PlayerName.ToString();
             labelTitle.Content = player.PlayerTitle.ToString();
             labelLand.Content = player.PlayerCurrentRegion.ToString();
 
-            labelEmail.Content = user.UserEmail.ToString();
+            labelEmail.Content = YDCrypto.Decrypt(user.UserEmail);
             labelLogin.Content = user.UserLogin.ToString();
-            
 
+            newEmailBox.Visibility = Visibility.Hidden;
+            newNameBox.Visibility = Visibility.Hidden;
+            newPassBox.Visibility = Visibility.Hidden;
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
@@ -66,41 +49,79 @@ namespace LandConquest.Forms
             this.Close();
         }
 
+        private void buttonSaveName_Click(object sender, RoutedEventArgs e)
+        {
+            newNameBox.Text.Replace(" ", "");
+            bool validNameChangeLogin = UserModel.ValidateUserByLogin(newNameBox.Text);
+            if (newNameBox.Text.Length > 6 && validNameChangeLogin == true && newNameBox.Text.Any(x => char.IsLetter(x)))
+            {
+                PlayerModel.UpdatePlayerName(player.PlayerId, newNameBox.Text);
+                player.PlayerName = newNameBox.Text;
+                this.Loaded += Window_Loaded;
+                newNameBox.Visibility = Visibility.Hidden;
+                buttonSaveName.Visibility = Visibility.Hidden;
+                buttonChangeName.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Error changing login!");
+            }
+        }
+
+        private void buttonSaveEmail_Click(object sender, RoutedEventArgs e)
+        {
+            newEmailBox.Text.Replace(" ", "");
+            bool validEmailChangeEmail = UserModel.ValidateUserByEmail(YDCrypto.Encrypt(newEmailBox.Text));
+            if (validEmailChangeEmail == true && EmailValidator.Validate(newEmailBox.Text, true, true))
+            {
+                UserModel.UpdateUserEmail(user.UserId, YDCrypto.Encrypt(newEmailBox.Text));
+                this.Loaded += Window_Loaded;
+                newEmailBox.Visibility = Visibility.Hidden;
+                buttonSaveEmail.Visibility = Visibility.Hidden;
+                buttonChangeEmail.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Error changing email!");
+            }
+        }
+
+        private void buttonSavePass_Click(object sender, RoutedEventArgs e)
+        {
+            newPassBox.Text.Replace(" ", "");
+            if (newPassBox.Text.Length >= 6 && newNameBox.Text.Any(x => char.IsLetter(x)))
+            {
+                UserModel.UpdateUserPass(user.UserId, YDCrypto.SHA512(newPassBox.Text));
+                this.Loaded += Window_Loaded;
+                newPassBox.Visibility = Visibility.Hidden;
+                buttonSavePass.Visibility = Visibility.Hidden;
+                buttonChangePass.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Error changing password!");
+            }
+        }
+
         private void buttonChangeName_Click(object sender, RoutedEventArgs e)
         {
-            playerModel.UpdatePlayerName(connection, player.PlayerId, newNameBox.Text);
-            player.PlayerName = newNameBox.Text;
-            this.Loaded += Window_Loaded;
-            newNameBox.Visibility = Visibility.Hidden;
+            buttonChangeName.Visibility = Visibility.Hidden;
+            buttonSaveName.Visibility = Visibility.Visible;
+            newNameBox.Visibility = Visibility.Visible;
         }
 
         private void buttonChangeEmail_Click(object sender, RoutedEventArgs e)
         {
-            userModel.UpdateUserEmail(connection, user.UserId, newEmailBox.Text);
-            this.Loaded += Window_Loaded;
-            newEmailBox.Visibility = Visibility.Hidden;
+            buttonChangeEmail.Visibility = Visibility.Hidden;
+            buttonSaveEmail.Visibility = Visibility.Visible;
+            newEmailBox.Visibility = Visibility.Visible;
         }
 
         private void buttonChangePass_Click(object sender, RoutedEventArgs e)
         {
-            userModel.UpdateUserPass(connection, user.UserId, newPassBox.Text);
-            this.Loaded += Window_Loaded;
-            newPassBox.Visibility = Visibility.Hidden;
-        }
-
-        private void buttonChangePass_MouseEnter(object sender, MouseEventArgs e)
-        {
+            buttonChangePass.Visibility = Visibility.Hidden;
+            buttonSavePass.Visibility = Visibility.Visible;
             newPassBox.Visibility = Visibility.Visible;
-        }
-
-        private void buttonChangeEmail_MouseEnter(object sender, MouseEventArgs e)
-        {
-            newEmailBox.Visibility = Visibility.Visible;
-        }
-
-        private void buttonChangeName_MouseEnter(object sender, MouseEventArgs e)
-        {
-            newNameBox.Visibility = Visibility.Visible;
         }
     }
 }

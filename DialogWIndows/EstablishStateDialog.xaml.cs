@@ -1,6 +1,5 @@
-﻿using LandConquest.Entities;
-using LandConquest.Models;
-using System.Data.SqlClient;
+﻿using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System.Windows;
 
 namespace LandConquest.DialogWIndows
@@ -8,17 +7,14 @@ namespace LandConquest.DialogWIndows
 
     public partial class EstablishStateDialog : Window
     {
-        SqlConnection connection;
-        Player player;
-        Land land;
+        private Player player;
+        private Land land;
+        private LandModel landModel;
+        private CountryModel countryModel;
 
-        LandModel landModel;
-        CountryModel countryModel;
-
-        public EstablishStateDialog(SqlConnection _connection, Player _player, Land _land)
+        public EstablishStateDialog(Player _player, Land _land)
         {
             InitializeComponent();
-            connection = _connection;
             player = _player;
             land = _land;
             Loaded += Window_Loaded;
@@ -26,15 +22,21 @@ namespace LandConquest.DialogWIndows
 
         private void EstablishState_Click(object sender, RoutedEventArgs e)
         {
-            Country country = countryModel.EstablishaState(connection, player, land, StateColor.Color);
-            country.CountryId = countryModel.SelectLastIdOfStates(connection);
-            landModel.UpdateLandInfo(connection, land, country);
+            Country country = CountryModel.EstablishaState(player, land, StateColor.Color);
+            country.CountryId = CountryModel.SelectLastIdOfStates();
+            country.CapitalId = land.LandId;
+            LandModel.UpdateLandInfo(land, country);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             landModel = new LandModel();
             countryModel = new CountryModel();
+        }
+
+        private void buttonClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

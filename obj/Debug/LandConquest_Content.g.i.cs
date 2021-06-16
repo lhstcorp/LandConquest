@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("music.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("music2.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("music3.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sounds/maintheme.wav")]
 
 

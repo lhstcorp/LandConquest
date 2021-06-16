@@ -1,45 +1,25 @@
-﻿using LandConquest.Entities;
-using LandConquest.Forms;
-using LandConquest.Models;
+﻿using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LandConquest.DialogWIndows
 {
-    
+
     public partial class CreateListingDialog : Window
     {
-        SqlConnection connection;
-        Player player;
-        StorageModel model;
-        PlayerStorage storage;
-        PlayerEquipment equipment;
-        EquipmentModel equipmentModel;
-        Peasants peasants;
-        ArmyModel armyModel;
-        PeasantModel peasantModel;
-        Army army;
-        AuctionModel auctionModel;
-        string itemName;
-        string itemGroup;
-        string itemSubgroup;
+        private Player player;
+        private PlayerStorage storage;
 
-        public CreateListingDialog(SqlConnection _connection, Player _player)
+        private string itemName;
+        private string itemGroup;
+        private string itemSubgroup;
+
+        public CreateListingDialog(Player _player)
         {
             InitializeComponent();
-            connection = _connection;
             player = _player;
             Loaded += Window_Loaded;
         }
@@ -51,172 +31,123 @@ namespace LandConquest.DialogWIndows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            storage = new PlayerStorage();
-            model = new StorageModel();
-            equipment = new PlayerEquipment();
-            equipmentModel = new EquipmentModel();
+            storage         = new PlayerStorage();
 
-            peasants = new Peasants();
-            armyModel = new ArmyModel();
-            peasantModel = new PeasantModel();
+            itemName        = null;
+            itemGroup       = null;
+            itemSubgroup    = null;
 
-            auctionModel = new AuctionModel();
+            storage = StorageModel.GetPlayerStorage(player);
 
-            army = new Army();
+            labelWoodAmount.Content     = storage.PlayerWood.ToString();
+            labelStoneAmount.Content    = storage.PlayerStone.ToString();
+            labelFoodAmount.Content     = storage.PlayerFood.ToString();
+            labelGemsAmount.Content     = storage.PlayerGems.ToString();
+            labelCopperAmount.Content   = storage.PlayerCopper.ToString();
+            labelIronAmount.Content     = storage.PlayerIron.ToString();
+            labelLeatherAmount.Content  = storage.PlayerLeather.ToString();
 
-            itemName = null;
-            itemGroup = null;
-            itemSubgroup = null;
-
-            peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
-
-            army = armyModel.GetArmyInfo(connection, player, army);
-
-            labelPeasantAmount.Content = peasants.PeasantsCount.ToString();
-            labelBowmanAmount.Content = army.ArmyArchersCount.ToString();
-            labelInfantryAmount.Content = army.ArmyInfantryCount.ToString();
-            labelKnightAmount.Content = army.ArmyHorsemanCount.ToString();
-            labelSiegeMachinesAmount.Content = army.ArmySiegegunCount.ToString();
-
-            storage = model.GetPlayerStorage(player, connection, storage);
-            equipment = equipmentModel.GetPlayerEquipment(player, connection, equipment);
-
-            labelWoodAmount.Content = storage.PlayerWood.ToString();
-            labelStoneAmount.Content = storage.PlayerStone.ToString();
-            labelFoodAmount.Content = storage.PlayerFood.ToString();
-            labelGemsAmount.Content = storage.PlayerGems.ToString();
-            labelCopperAmount.Content = storage.PlayerCopper.ToString();
-            labelGoldAmount.Content = storage.PlayerGoldOre.ToString();
-            labelIronAmount.Content = storage.PlayerIron.ToString();
-            labelLeatherAmount.Content = storage.PlayerLeather.ToString();
-
-            labelHarnessAmount.Content = equipment.PlayerHarness.ToString();
-            labelGearAmount.Content = equipment.PlayerGear.ToString();
-            labelSpearAmount.Content = equipment.PlayerSpear.ToString();
-            labelBowAmount.Content = equipment.PlayerBow.ToString();
-            labelArmorAmount.Content = equipment.PlayerArmor.ToString();
-            labelSwordAmount.Content = equipment.PlayerSword.ToString();
-
-            labelSetPrice.Visibility = Visibility.Hidden;
-            labelSetAmount.Visibility = Visibility.Hidden;
-            textBoxAmount.Visibility = Visibility.Hidden;
-            textBoxPrice.Visibility = Visibility.Hidden;
-            buttonPlace.Visibility = Visibility.Hidden;
+            labelSetPrice.Visibility    = Visibility.Hidden;
+            labelSetAmount.Visibility   = Visibility.Hidden;
+            textBoxAmount.Visibility    = Visibility.Hidden;
+            textBoxPrice.Visibility     = Visibility.Hidden;
+            buttonPlace.Visibility      = Visibility.Hidden;
         }
 
         private void woodButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             showListingDetails();
-            itemName = "Wood";
-            itemGroup = "Resources";
-            itemSubgroup = "";
+            itemName        = "wood";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
         }
 
         private void stoneButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            itemName = "Stone";
-            itemGroup = "Resources";
-            itemSubgroup = "";
+            itemName        = "stone";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
             showListingDetails();
         }
 
         private void foodButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            itemName        = "food";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
             showListingDetails();
         }
-
-        private void goldButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
         private void copperButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            itemName        = "copper";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
             showListingDetails();
         }
 
         private void gemsButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            itemName        = "gems";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
             showListingDetails();
         }
 
         private void metalButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            itemName        = "iron";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
             showListingDetails();
         }
 
         private void leatherButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            showListingDetails();
-        }
-
-        private void armorButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void swordButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void harnesspButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void bowButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void gearButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void spearButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void peasantsButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void archersButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void warriorsButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void horsemanButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            showListingDetails();
-        }
-
-        private void catapultButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
+            itemName        = "leather";
+            itemGroup       = "Resources";
+            itemSubgroup    = "";
             showListingDetails();
         }
 
         private void showListingDetails()
         {
-            labelSetPrice.Visibility = Visibility.Visible;
-            labelSetAmount.Visibility = Visibility.Visible;
-            textBoxAmount.Visibility = Visibility.Visible;
-            textBoxPrice.Visibility = Visibility.Visible;
-            buttonPlace.Visibility = Visibility.Visible;
+            labelSetPrice.Visibility    = Visibility.Visible;
+            labelSetAmount.Visibility   = Visibility.Visible;
+            textBoxAmount.Visibility    = Visibility.Visible;
+            textBoxPrice.Visibility     = Visibility.Visible;
+            buttonPlace.Visibility      = Visibility.Visible;
         }
 
         private void buttonPlace_Click(object sender, RoutedEventArgs e)
         {
-            auctionModel.AddListing(Convert.ToInt32(textBoxAmount.Text), itemName, itemGroup, itemSubgroup, Convert.ToInt32(textBoxPrice.Text), player, connection);
+            if (Convert.ToInt32(textBoxAmount.Text) > 0 && Convert.ToInt32(textBoxPrice.Text) > 0)
+            {
+                int playersResourceAmount = PlayerModel.GetPlayerResourceAmount(player, itemName);
+                if (playersResourceAmount >= Convert.ToInt32(textBoxAmount.Text) && playersResourceAmount > 0)
+                {
+                    AuctionModel.AddListing(Convert.ToInt32(textBoxAmount.Text), itemName, itemGroup, itemSubgroup, Convert.ToInt32(textBoxPrice.Text), player);
+                    WarningDialogWindow.CallWarningDialogNoResult("Listing was successfully placed and will expire after 7 days.");
+                }
+                else
+                {
+                    WarningDialogWindow.CallWarningDialogNoResult("You haven't got enough resources!");
+                }
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Value should be more than 0!");
+            }
+
+        }
+
+        private void textBoxPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
+        }
+
+        public static bool IsValid(string str)
+        {
+            return int.TryParse(str, out int i) && i >= 1 && i <= 99999;
         }
     }
 }

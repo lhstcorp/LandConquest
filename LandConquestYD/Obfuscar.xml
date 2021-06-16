@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Obfuscator>
+  <!-- https://docs.obfuscar.com/getting-started/configuration.html -->
+  <Var name="InPath" value="bin/Release" />
+  <Var name="OutPath" value="$(InPath)/obfuscated" />
+  <Var name="KeepPublicApi" value="true" />
+  <Var name="HidePrivateApi" value="true" />
+  <Var name="RenameProperties" value="true" />
+  <Var name="RenameEvents" value="true" />
+  <Var name="RenameFields" value="true" />
+  <Var name="UseUnicodeNames" value="true" />
+  <Var name="UseKoreanNames" value="false" />
+  <Var name="OptimizeMethods" value="true" />
+  <Var name="SuppressIldasm" value="true" />
+  <Module file="$(InPath)/LandConquestYD.dll" />
+</Obfuscator>

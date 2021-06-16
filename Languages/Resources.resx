@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="LocButtonChange_Content" xml:space="preserve">
+    <value>LocButtonChange_Content</value>
+  </data>
+  <data name="LocButtonChat_Content" xml:space="preserve">
+    <value>LocButtonChat_Content</value>
+  </data>
+  <data name="LocButtonClaim_Content" xml:space="preserve">
+    <value>LocButtonClaim_Content</value>
+  </data>
+  <data name="LocButtonMailbox_Content" xml:space="preserve">
+    <value>LocButtonMailbox_Content</value>
+  </data>
+  <data name="LocButtonProfileMain_Content" xml:space="preserve">
+    <value>LocButtonProfileMain_Content</value>
+  </data>
+  <data name="LocButtonRankingsMain_Content" xml:space="preserve">
+    <value>LocButtonRankingsMain_Content</value>
+  </data>
+  <data name="LocButtonSave_Content" xml:space="preserve">
+    <value>LocButtonSave_Content</value>
+  </data>
+  <data name="LocButtonSend_Text" xml:space="preserve">
+    <value>LocButtonSend_Text</value>
+  </data>
+  <data name="LocButtonSettingsMain_Content" xml:space="preserve">
+    <value>LocButtonSettingsMain_Content</value>
+  </data>
+  <data name="LocButtonSupportUs_Content" xml:space="preserve">
+    <value>LocButtonSupportUs_Content</value>
+  </data>
+  <data name="LocLabelArchers_Text" xml:space="preserve">
+    <value>LocLabelArchers_Text</value>
+  </data>
+  <data name="LocLabelArmor_Text" xml:space="preserve">
+    <value>LocLabelArmor_Text</value>
+  </data>
+  <data name="LocLabelArmy_Content" xml:space="preserve">
+    <value>LocLabelArmy_Content</value>
+  </data>
+  <data name="LocLabelAuctionMain_Content" xml:space="preserve">
+    <value>LocLabelAuctionMain_Content</value>
+  </data>
+  <data name="LocLabelAvailable_Content" xml:space="preserve">
+    <value>LocLabelAvailable_Content</value>
+  </data>
+  <data name="LocLabelAvailable_Text" xml:space="preserve">
+    <value>LocLabelAvailable_Text</value>
+  </data>
+  <data name="LocLabelBow_Text" xml:space="preserve">
+    <value>LocLabelBow_Text</value>
+  </data>
+  <data name="LocLabelBuy_Content" xml:space="preserve">
+    <value>LocLabelBuy_Content</value>
+  </data>
+  <data name="LocLabelConsumption_Content" xml:space="preserve">
+    <value>LocLabelConsumption_Content</value>
+  </data>
+  <data name="LocLabelCopper_Text" xml:space="preserve">
+    <value>LocLabelCopper_Text</value>
+  </data>
+  <data name="LocLabelCountryMain_Content" xml:space="preserve">
+    <value>LocLabelCountryMain_Content</value>
+  </data>
+  <data name="LocLabelCurrentOnline_Text" xml:space="preserve">
+    <value>LocLabelCurrentOnline_Text</value>
+  </data>
+  <data name="LocLabelCurrent_Content" xml:space="preserve">
+    <value>LocLabelCurrent_Content</value>
+  </data>
+  <data name="LocLabelDailyBonus_Content" xml:space="preserve">
+    <value>LocLabelDailyBonus_Content</value>
+  </data>
+  <data name="LocLabelDate_Content" xml:space="preserve">
+    <value>LocLabelDate_Content</value>
+  </data>
+  <data name="LocLabelEmail_Content" xml:space="preserve">
+    <value>LocLabelEmail_Content</value>
+  </data>
+  <data name="LocLabelEstablishAState_Text" xml:space="preserve">
+    <value>LocLabelEstablishAState_Text</value>
+  </data>
+  <data name="LocLabelExp_Content" xml:space="preserve">
+    <value>LocLabelExp_Content</value>
+  </data>
+  <data name="LocLabelFarm_Text" xml:space="preserve">
+    <value>LocLabelFarm_Text</value>
+  </data>
+  <data name="LocLabelFoodLeft_Content" xml:space="preserve">
+    <value>LocLabelFoodLeft_Content</value>
+  </data>
+  <data name="LocLabelFood_Text" xml:space="preserve">
+    <value>LocLabelFood_Text</value>
+  </data>
+  <data name="LocLabelFullScreen_Text" xml:space="preserve">
+    <value>LocLabelFullScreen_Text</value>
+  </data>
+  <data name="LocLabelGear_Text" xml:space="preserve">
+    <value>LocLabelGear_Text</value>
+  </data>
+  <data name="LocLabelGems_Text" xml:space="preserve">
+    <value>LocLabelGems_Text</value>
+  </data>
+  <data name="LocLabelGold_Text" xml:space="preserve">
+    <value>LocLabelGold_Text</value>
+  </data>
+  <data name="LocLabelGoTo_Text" xml:space="preserve">
+    <value>LocLabelGoTo_Text</value>
+  </data>
+  <data name="LocLabelHarness_Text" xml:space="preserve">
+    <value>LocLabelHarness_Text</value>
+  </data>
+  <data name="LocLabelHire_Text" xml:space="preserve">
+    <value>LocLabelHire_Text</value>
+  </data>
+  <data name="LocLabelIndustryMain_Content" xml:space="preserve">
+    <value>LocLabelIndustryMain_Content</value>
+  </data>
+  <data name="LocLabelInfantry_Text" xml:space="preserve">
+    <value>LocLabelInfantry_Text</value>
+  </data>
+  <data name="LocLabelIron_Text" xml:space="preserve">
+    <value>LocLabelIron_Text</value>
+  </data>
+  <data name="LocLabelKnights_Text" xml:space="preserve">
+    <value>LocLabelKnights_Text</value>
+  </data>
+  <data name="LocLabelLand_Content" xml:space="preserve">
+    <value>LocLabelLand_Content</value>
+  </data>
+  <data name="LocLabelLeather_Text" xml:space="preserve">
+    <value>LocLabelLeather_Text</value>
+  </data>
+  <data name="LocLabelLevel_Content" xml:space="preserve">
+    <value>LocLabelLevel_Content</value>
+  </data>
+  <data name="LocLabelLogin_Content" xml:space="preserve">
+    <value>LocLabelLogin_Content</value>
+  </data>
+  <data name="LocLabelMarketMain_Content" xml:space="preserve">
+    <value>LocLabelMarketMain_Content</value>
+  </data>
+  <data name="LocLabelMessage_Content" xml:space="preserve">
+    <value>LocLabelMessage_Content</value>
+  </data>
+  <data name="LocLabelMusic_Text" xml:space="preserve">
+    <value>LocLabelMusic_Text</value>
+  </data>
+  <data name="LocLabelName_Content" xml:space="preserve">
+    <value>LocLabelName_Content</value>
+  </data>
+  <data name="LocLabelNextReward_Content" xml:space="preserve">
+    <value>LocLabelNextReward_Content</value>
+  </data>
+  <data name="LocLabelPass_Content" xml:space="preserve">
+    <value>LocLabelPass_Content</value>
+  </data>
+  <data name="LocLabelPeasants_Text" xml:space="preserve">
+    <value>LocLabelPeasants_Text</value>
+  </data>
+  <data name="LocLabelPerHour_Text" xml:space="preserve">
+    <value>LocLabelPerHour_Text</value>
+  </data>
+  <data name="LocLabelPlayer_Content" xml:space="preserve">
+    <value>LocLabelPlayer_Content</value>
+  </data>
+  <data name="LocLabelPrice_Content" xml:space="preserve">
+    <value>LocLabelPrice_Content</value>
+  </data>
+  <data name="LocLabelProductivity_Content" xml:space="preserve">
+    <value>LocLabelProductivity_Content</value>
+  </data>
+  <data name="LocLabelQuarry_Text" xml:space="preserve">
+    <value>LocLabelQuarry_Text</value>
+  </data>
+  <data name="LocLabelRecipientName_Text" xml:space="preserve">
+    <value>LocLabelRecipientName_Text</value>
+  </data>
+  <data name="LocLabelRecruitMain_Content" xml:space="preserve">
+    <value>LocLabelRecruitMain_Content</value>
+  </data>
+  <data name="LocLabelRegionMain_Content" xml:space="preserve">
+    <value>LocLabelRegionMain_Content</value>
+  </data>
+  <data name="LocLabelRegistration_Content" xml:space="preserve">
+    <value>LocLabelRegistration_Content</value>
+  </data>
+  <data name="LocLabelSawmill_Text" xml:space="preserve">
+    <value>LocLabelSawmill_Text</value>
+  </data>
+  <data name="LocLabelSell_Content" xml:space="preserve">
+    <value>LocLabelSell_Content</value>
+  </data>
+  <data name="LocLabelServerTime_Content" xml:space="preserve">
+    <value>LocLabelServerTime_Content</value>
+  </data>
+  <data name="LocLabelSiegeMachines_Text" xml:space="preserve">
+    <value>LocLabelSiegeMachines_Text</value>
+  </data>
+  <data name="LocLabelSpear_Text" xml:space="preserve">
+    <value>LocLabelSpear_Text</value>
+  </data>
+  <data name="LocLabelStone_Text" xml:space="preserve">
+    <value>LocLabelStone_Text</value>
+  </data>
+  <data name="LocLabelStorageMain_Content" xml:space="preserve">
+    <value>LocLabelStorageMain_Content</value>
+  </data>
+  <data name="LocLabelSubmitBag_Text" xml:space="preserve">
+    <value>LocLabelSubmitBag_Text</value>
+  </data>
+  <data name="LocLabelSword_Text" xml:space="preserve">
+    <value>LocLabelSword_Text</value>
+  </data>
+  <data name="LocLabelTaxes_Content" xml:space="preserve">
+    <value>LocLabelTaxes_Content</value>
+  </data>
+  <data name="LocLabelTitle_Content" xml:space="preserve">
+    <value>LocLabelTitle_Content</value>
+  </data>
+  <data name="LocLabelTotal_Text" xml:space="preserve">
+    <value>LocLabelTotal_Text</value>
+  </data>
+  <data name="LocLabelUpgrade_Text" xml:space="preserve">
+    <value>LocLabelUpgrade_Text</value>
+  </data>
+  <data name="LocLabelWood_Text" xml:space="preserve">
+    <value>LocLabelWood_Text</value>
+  </data>
+  <data name="LocLabelWorldLeader_Text" xml:space="preserve">
+    <value>LocLabelWorldLeader_Text</value>
+  </data>
+</root>

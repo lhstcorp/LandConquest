@@ -1,59 +1,45 @@
 ﻿using LandConquest.DialogWIndows;
-using LandConquest.Entities;
-using LandConquest.Models;
+using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LandConquest.Forms
 {
     public partial class ManufactureWindow : Window
     {
-        SqlConnection connection;
-        Player player;
-        MainWindow window;
-        Peasants peasants;
-        List<Manufacture> manufactures;
-        List<Manufacture> landManufactures;
-        List<Manufacture> playerLandManufactures;
-        ManufactureModel model;
-        PeasantModel peasantModel;
-        PlayerStorage storage;
-        int unemployedPeasantsCount;
-        int employedPeasantsCount;
-        int peasantsWorkingOnB1 = 0;
-        int peasantsWorkingOnB2 = 0;
+        private Player player;
+        private Peasants peasants;
+        private Manufacture manufacture;
+        private List<Manufacture> manufactures;
+        private List<Manufacture> landManufactures;
+        private List<Manufacture> playerLandManufactures;
+        private PlayerStorage storage;
+        private int unemployedPeasantsCount;
+        private int employedPeasantsCount;
+        private int peasantsWorkingOnB1 = 0;
+        private int peasantsWorkingOnB2 = 0;
+        private DateTime dateStarted;
 
-        public ManufactureWindow(MainWindow _window, SqlConnection _connection, Player _player, PlayerStorage _storage)
+        public ManufactureWindow(Player _player, Manufacture _manufacture, PlayerStorage _storage)
         {
             InitializeComponent();
-            Loaded += ManufactureWindow_Loaded;
-            window = _window;
             player = _player;
             storage = _storage;
+            manufacture = _manufacture;
+            
+            Loaded += ManufactureWindow_Loaded;
             //user = _user;
-            connection = _connection;
         }
 
         private void ManufactureWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            model = new ManufactureModel();
-            peasantModel = new PeasantModel();
             peasants = new Peasants();
-            
-            peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
+
+            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
 
             Console.WriteLine("workers=" + peasants.PeasantsWork.ToString());
 
@@ -65,14 +51,14 @@ namespace LandConquest.Forms
             employedPeasantsCount = peasants.PeasantsWork;
 
             manufactures = new List<Manufacture>();
-            manufactures = model.GetManufactureInfo(player, connection);
+            manufactures = ManufactureModel.GetManufactureInfo(player);
 
             landManufactures = new List<Manufacture>();
-            landManufactures = model.GetLandManufactureInfo(player, connection);
+            landManufactures = ManufactureModel.GetLandManufactureInfo(player);
 
             try
             {
-                playerLandManufactures = model.GetPlayerLandManufactureInfo(player, connection);
+                playerLandManufactures = ManufactureModel.GetPlayerLandManufactureInfo(player);
                 if (playerLandManufactures.Count == 0)
                 {
                     playerLandManufactures = new List<Manufacture>();
@@ -81,8 +67,6 @@ namespace LandConquest.Forms
                         playerLandManufactures.Add(new Manufacture());
                         playerLandManufactures[i].ManufacturePeasantWork = 0;
                     }
-                    //playerLandManufactures[0].ManufacturePeasantWork = 0;
-                    //playerLandManufactures[1].ManufacturePeasantWork = 0;
                 }
             }
             catch
@@ -100,6 +84,10 @@ namespace LandConquest.Forms
             sliderQuarry.Value = manufactures[1].ManufacturePeasantWork;
             sliderQuarry.Maximum = manufactures[1].ManufacturePeasantMax;
 
+            dateStarted = ManufactureModel.GetManufactureProdStartTime(player);
+            ManufactureStatucCheck();
+            ProductionStatusButton();
+
             Sawmilllvl.Content = manufactures[0].ManufactureLevel;
             PbSawmill.Maximum = manufactures[0].ManufacturePeasantMax;
             sliderSawmill.Value = manufactures[0].ManufacturePeasantWork;
@@ -110,7 +98,48 @@ namespace LandConquest.Forms
             sliderWindmill.Value = manufactures[2].ManufacturePeasantWork;
             sliderWindmill.Maximum = manufactures[2].ManufacturePeasantMax;
             //land manufactures content
+            switch (manufacture.ManufactureType)
+            {
+
+                case 1:
+                    FirstManufactureImage.Source = new BitmapImage(new Uri("/Pictures/copper_quarry.png", UriKind.Relative));
+                    break;
+                case 2:
+                    FirstManufactureImage.Source = new BitmapImage(new Uri("/Pictures/iron_quarry.png", UriKind.Relative));
+                    break;
+                case 3:
+                    FirstManufactureImage.Source = new BitmapImage(new Uri("/Pictures/gold_ore.png", UriKind.Relative));
+                    break;
+                case 4:
+                    FirstManufactureImage.Source = new BitmapImage(new Uri("/Pictures/gems.png", UriKind.Relative));
+                    break;
+                case 5:
+                    FirstManufactureImage.Source = new BitmapImage(new Uri("/Pictures/leather.png", UriKind.Relative));
+                    break;
+
+            }
+
+            switch (manufacture.ManufactureType)
+            {
+                case 1:
+                    SecondManufactureImage.Source = new BitmapImage(new Uri("/Pictures/copper_quarry.png", UriKind.Relative));
+                    break;
+                case 2:
+                    SecondManufactureImage.Source = new BitmapImage(new Uri("/Pictures/iron_quarry.png", UriKind.Relative));
+                    break;
+                case 3:
+                    SecondManufactureImage.Source = new BitmapImage(new Uri("/Pictures/gold_ore.png", UriKind.Relative));
+                    break;
+                case 4:
+                    SecondManufactureImage.Source = new BitmapImage(new Uri("/Pictures/gems.png", UriKind.Relative));
+                    break;
+                case 5:
+                    SecondManufactureImage.Source = new BitmapImage(new Uri("/Pictures/leather.png", UriKind.Relative));
+                    break;
+
+            }
             //building 1
+
             buildingName1.Content = landManufactures[0].ManufactureName;
             building1LvlAmount.Content = landManufactures[0].ManufactureLevel;
             PbBuilding1.Maximum = landManufactures[0].ManufacturePeasantMax - landManufactures[0].ManufacturePeasantWork + playerLandManufactures[0].ManufacturePeasantWork;
@@ -135,12 +164,47 @@ namespace LandConquest.Forms
                 sliderBuilding1.Maximum = sliderBuilding1.Value + Convert.ToInt32(unemployedPeasants.Content);
             if (sliderBuilding2.Value + Convert.ToInt32(unemployedPeasants.Content) <= sliderBuilding2.Maximum)
                 sliderBuilding2.Maximum = sliderBuilding2.Value + Convert.ToInt32(unemployedPeasants.Content);
+
         }
 
-        private void buttonBuy_Click(object sender, RoutedEventArgs e)
+        private void ManufactureStatucCheck()
         {
-            ManufactureBuyingDialog manufactureBuying = new ManufactureBuyingDialog();
-            manufactureBuying.Show();
+            labelProductionStarted.Visibility = Visibility.Hidden;
+            labelPS.Visibility = Visibility.Hidden;
+            if (dateStarted != DateTime.MinValue)
+            {
+                if (Convert.ToInt32(employedPeasants.Content) != 0)
+                {
+                    labelProductionStarted.Visibility = Visibility.Visible;
+                    labelPS.Visibility = Visibility.Visible;
+                    labelPS.Content = "Production started on";
+                    labelProductionStarted.Content = dateStarted;
+                }
+                else
+                {
+                    labelPS.Visibility = Visibility.Visible;
+                    labelPS.Content = "Production stopped";
+                }
+            }
+        }
+
+        private void ProductionStatusButton()
+        {
+            if (sliderQuarry.Value + sliderSawmill.Value + sliderWindmill.Value + sliderBuilding1.Value + sliderBuilding2.Value == 0 && (string)labelPS.Content != "Production stopped")
+            {
+                BtnStartProduction.Content = "Stop production";
+            }
+            else
+            {
+                if (dateStarted != DateTime.MinValue && (string)labelPS.Content != "Production stopped")
+                {
+                    BtnStartProduction.Content = "Restart production";
+                }
+                else
+                {
+                    BtnStartProduction.Content = "Start production";
+                }
+            }
         }
 
         private void sliderQuarry_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -148,6 +212,7 @@ namespace LandConquest.Forms
             sliderQuarry.IsSnapToTickEnabled = true;
             PbQuarry.Value = sliderQuarry.Value;
             QuarryProdValueHour.Content = Convert.ToInt32(sliderQuarry.Value) * manufactures[1].ManufactureBaseProdValue;
+            ProductionStatusButton();
         }
 
         private void sliderQuarry_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -173,6 +238,7 @@ namespace LandConquest.Forms
                 PbQuarry.Value = sliderQuarry.Value;
                 sliderQuarry.Maximum = sliderQuarry.Value;
             }
+            ProductionStatusButton();
         }
 
         private void sliderSawmill_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -196,6 +262,7 @@ namespace LandConquest.Forms
                 PbSawmill.Value = sliderSawmill.Value;
                 sliderSawmill.Maximum = sliderSawmill.Value;
             }
+            ProductionStatusButton();
         }
 
         private void sliderWindmill_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -220,6 +287,7 @@ namespace LandConquest.Forms
                 PbWindmill.Value = sliderWindmill.Value;
                 sliderWindmill.Maximum = sliderWindmill.Value;
             }
+            ProductionStatusButton();
         }
 
         private void sliderWindmill_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -227,6 +295,7 @@ namespace LandConquest.Forms
             sliderWindmill.IsSnapToTickEnabled = true;
             PbWindmill.Value = sliderWindmill.Value;
             WindmillProdValueHour.Content = Convert.ToInt32(sliderWindmill.Value) * manufactures[2].ManufactureBaseProdValue;
+            ProductionStatusButton();
         }
 
         private void sliderSawmill_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -234,6 +303,7 @@ namespace LandConquest.Forms
             sliderSawmill.IsSnapToTickEnabled = true;
             PbSawmill.Value = sliderSawmill.Value;
             SawmillProdValueHour.Content = Convert.ToInt32(sliderSawmill.Value) * manufactures[0].ManufactureBaseProdValue;
+            ProductionStatusButton();
         }
 
         private void BtnStartProduction_Click(object sender, RoutedEventArgs e)
@@ -244,16 +314,15 @@ namespace LandConquest.Forms
 
             peasants.PeasantsWork = Convert.ToInt32(employedPeasants.Content);
             Console.WriteLine("workers=" + peasants.PeasantsWork);
-            peasantModel = new PeasantModel();
-            peasants = peasantModel.UpdatePeasantsInfo(peasants, connection);
+            peasants = PeasantModel.UpdatePeasantsInfo(peasants);
 
             manufactures[0].ManufactureProductsHour = Convert.ToInt32(SawmillProdValueHour.Content);
-            
+
             manufactures[1].ManufactureProductsHour = Convert.ToInt32(QuarryProdValueHour.Content);
 
             manufactures[2].ManufactureProductsHour = Convert.ToInt32(WindmillProdValueHour.Content);
 
-            landManufactures = model.GetLandManufactureInfo(player, connection);            
+            landManufactures = ManufactureModel.GetLandManufactureInfo(player);
 
             //хуета полнейшая - сделай новую сущность для городских мануфактур игрока
             landManufactures[0].ManufacturePeasantWork = Convert.ToInt32(sliderBuilding1.Value + Convert.ToInt32(WorkingNowB1.Content) - playerLandManufactures[0].ManufacturePeasantWork);
@@ -274,32 +343,34 @@ namespace LandConquest.Forms
             playerLandManufactures[1].ManufactureType = landManufactures[1].ManufactureType;
 
             playerLandManufactures[0].ManufactureProductsHour = Convert.ToInt32(building1ProdValueHour.Content);
-            playerLandManufactures[1].ManufactureProductsHour = Convert.ToInt32(building2ProdValueHour.Content); 
+            playerLandManufactures[1].ManufactureProductsHour = Convert.ToInt32(building2ProdValueHour.Content);
 
             //не забудь убрать лох //убрал кста
-            model.InsertOrUpdateLandManufactures(playerLandManufactures, player, connection); //это пользовательская сущность городской мануфактуры
+            ManufactureModel.InsertOrUpdateLandManufactures(playerLandManufactures, player); //это пользовательская сущность городской мануфактуры
             //возвращаю костыль
             //model.UpdateLandManufactures(landManufactures, player, connection);
             //---------------------
-            model.UpdateDateTimeForManufacture(manufactures, player, connection);
-            model.UpdateLandManufactures(landManufactures, connection); //это общая сущность - тут хранятся общие данные игроков.
+            ManufactureModel.UpdateDateTimeForManufacture(manufactures, player);
+            ManufactureModel.UpdateLandManufactures(landManufactures); //это общая сущность - тут хранятся общие данные игроков.
+           
+            ManufactureWindow_Loaded(sender, e);
         }
 
         private void buttonQuarryUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(connection, storage, manufactures[1], player);
+            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(storage, manufactures[1], player);
             dialogwindow.Show();
         }
 
         private void buttonSawmillUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(connection, storage, manufactures[0], player);
+            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(storage, manufactures[0], player);
             dialogwindow.Show();
         }
 
         private void buttonWindmillUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(connection, storage, manufactures[2], player);
+            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(storage, manufactures[2], player);
             dialogwindow.Show();
         }
 
@@ -331,6 +402,7 @@ namespace LandConquest.Forms
                 PbBuilding1.Value = sliderBuilding1.Value;
                 sliderBuilding1.Maximum = sliderBuilding1.Value;
             }
+            ProductionStatusButton();
         }
 
         private void sliderBuilding1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -370,6 +442,19 @@ namespace LandConquest.Forms
                 PbBuilding2.Value = sliderBuilding2.Value;
                 sliderBuilding2.Maximum = sliderBuilding2.Value;
             }
+            ProductionStatusButton();
+        }
+
+        private void buttonBuilding1Upgrade_Click(object sender, RoutedEventArgs e)
+        {
+            CommonManufactureUpgrade dialogwindow = new CommonManufactureUpgrade(landManufactures[0], player);
+            dialogwindow.Show();
+        }
+
+        private void buttonBuilding2Upgrade_Click(object sender, RoutedEventArgs e)
+        {
+            CommonManufactureUpgrade dialogwindow = new CommonManufactureUpgrade(landManufactures[1], player);
+            dialogwindow.Show();
         }
     }
 }

@@ -1,98 +1,71 @@
 ﻿using LandConquest.DialogWIndows;
-using LandConquest.Entities;
-using LandConquest.Models;
+using LandConquest.Logic;
+using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Windows.Threading;
 
 namespace LandConquest.Forms
 {
     public partial class MainWindow : Window
     {
+        private User user;
+        private Player player;
+        private Market market;
+        private PlayerStorage storage;
+        private PlayerEquipment equipment;
+        private PlayerEntrance playerEntrance;
+        private Manufacture manufacture;
+        private Taxes taxes;
+        private Peasants peasants;
+        private List<Manufacture> landmanufactures;
+        private List<Land> lands;
+        private List<Path> paths;
+        private List<Country> countries;
+        private List<War> wars;
+        private List<PlayerEntrance> playerEntrances;
+        private Land land;
+        private Army army;
+        private Country country;
+        private War WAR; //GLOBAL
+        private Thickness[] marginsOfWarButtons;
+        private int[] flagXY;
+        private const int landsCount = 11;
+        private Window openedWindow;
 
-        public SqlConnection connection;
-        User user;
-        Player player;
-
-        PlayerModel playerModel;
-        UserModel userModel;
-        TaxesModel taxesModel;
-        LandModel landModel;
-        CountryModel countryModel;
-        PeasantModel peasantModel;
-        StorageModel storageModel;
-        EquipmentModel equipmentModel;
-        MarketModel marketModel;
-        MapModel mapModel;
-        WarModel warModel;
-        ArmyModel armyModel;
-        BattleModel battleModel;
-
-        Market market;
-        PlayerStorage storage;
-        PlayerEquipment equipment = new PlayerEquipment();
-        Taxes taxes;
-        Peasants peasants;
-        ManufactureModel manufactureModel;
-        List<Land> lands;
-        List<Path> paths;
-        List<Country> countries;
-        List<War> wars;
-        Land land;
-        Army army;
-        Country country;
-        War WAR; //GLOBAL
-
-        Thickness[] marginsOfWarButtons;
-        int[] flagXY = new int[4];
-
-        const int landsCount = 11;
-
-        public MainWindow(SqlConnection _connection, User _user)
+        public MainWindow(User _user)
         {
             InitializeComponent();
             //this.Resources.Add("buttonGradientBrush", gradientBrush);
             user = _user;
-            connection = _connection;
-
+            equipment = new PlayerEquipment();
             player = new Player();
             storage = new PlayerStorage();
+            manufacture = new Manufacture();
             peasants = new Peasants();
             country = new Country();
             market = new Market();
+            landmanufactures = new List<Manufacture>();
             army = new Army();
+            flagXY = new int[4];
+            openedWindow = this;
 
-            armyModel = new ArmyModel();
-            marketModel = new MarketModel();
-            userModel = new UserModel();
-            taxesModel = new TaxesModel();
-            landModel = new LandModel();
-            countryModel = new CountryModel();
-            peasantModel = new PeasantModel();
-            manufactureModel = new ManufactureModel();
-            playerModel = new PlayerModel();
-            storageModel = new StorageModel();
-            equipmentModel = new EquipmentModel();
-            mapModel = new MapModel();
-            warModel = new WarModel();
-            //equipment = new PlayerEquipment();
+            Loaded += MainWindow_Loaded;
+        }
 
-            player = playerModel.GetPlayerInfo(_user, connection, player);
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            player = PlayerModel.GetPlayerInfo(user, player);
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
             PbExp.Value = player.PlayerExp;
             Level.Content = player.PlayerLvl;
@@ -110,21 +83,16 @@ namespace LandConquest.Forms
             taxes = new Taxes();
             taxes.PlayerId = player.PlayerId;
 
-            Loaded += MainWindow_Loaded;
-            connection = _connection;
-        }
+            /////////////////////////////////////////////////////////
+            storage = StorageModel.GetPlayerStorage(player);
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            storage = storageModel.GetPlayerStorage(player, connection, storage);
-
-            peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
+            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
             sliderTaxes.IsSnapToTickEnabled = true;
 
-            taxes = taxesModel.GetTaxesInfo(taxes, connection);
+            taxes = TaxesModel.GetTaxesInfo(taxes);
             sliderTaxes.Value = taxes.TaxValue;
 
-            List<Manufacture> manufactures = manufactureModel.GetManufactureInfo(player, connection);
+            List<Manufacture> manufactures = ManufactureModel.GetManufactureInfo(player);
 
             prodRatioValue.Content = (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)).ToString();
 
@@ -133,15 +101,15 @@ namespace LandConquest.Forms
             //storage.PlayerFood += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[2].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[2].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
             player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
 
-            player = playerModel.UpdatePlayerMoney(player, connection);
-            taxesModel.SaveTaxes(connection, taxes);
+            player = PlayerModel.UpdatePlayerMoney(player);
+            TaxesModel.SaveTaxes(taxes);
             labelMoney.Content = player.PlayerMoney;
             convertMoneyToMoneyCode(labelMoney);
 
 
-            Thread myThread = new Thread(new ThreadStart(UpdateInfo));
-
-            myThread.Start(); // запускаем поток
+            //Thread myThread = new Thread(new ThreadStart(UpdateInfo));
+            //myThread.Start(); // запускаем поток
+            UpdateMainWindowInfoAsync(); 
 
             lands = new List<Land>();
             paths = new List<Path>();
@@ -153,54 +121,278 @@ namespace LandConquest.Forms
 
             countries = new List<Country>();
 
-            for (int i = 0; i < countryModel.SelectLastIdOfStates(connection); i++)
+            for (int i = 0; i < CountryModel.SelectLastIdOfStates(); i++)
             {
                 countries.Add(new Country());
             }
 
-            lands = landModel.GetLandsInfo(lands, connection);
-            countries = countryModel.GetCountriesInfo(countries, connection);
+            lands = LandModel.GetLandsInfo(lands);
+            countries = CountryModel.GetCountriesInfo(countries);
 
 
-            wars = new List<War>();
-
-            for (int i = 0; i < warModel.SelectLastIdOfWars(connection); i++)
-            {
-                wars.Add(new War());
-            }
-
-            wars = warModel.GetWarsInfo(wars, connection);
+            
 
             LoadWarsOnMap();
+            setFlag();
+
+            //////////////////
+            /// ГОЛОД ТУТ ////
+            //////////////////
+            ConsumptionLogic.ConsumptionCount(player, storage);
+            lblConsumption.Content = ConsumptionLogic.CountFunction(player, 1);
+            lblFoodLeft.Content = storage.PlayerFood;
+            //ConsumptionLogic.ConsumptionCountAsync(player, storage);
+            //////////////////           
+            DailyBonusCount(player);
+            ServerDispatcherTimer();
+
+
+            settingsGrid.Visibility = Visibility.Hidden;
+            settingsGridBorder.Visibility = Visibility.Hidden;
+            btnShowLandGrid.Visibility = Visibility.Hidden;
+            btnShowLeaderGrid.Visibility = Visibility.Hidden;
+            BtnShowTaxesGrid.Visibility = Visibility.Hidden;
+            BtnShowDailyBonusGrid.Visibility = Visibility.Hidden;
+            BtnShowConsumptionGrid.Visibility = Visibility.Hidden;
+
+            GetWorldLeader();
+
         }
 
-        private void UpdateInfo()
+        public async void UpdateMainWindowInfoAsync()
         {
+            await Task.Run(() => UpdateInfoAsync());
+        }
+
+        private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new ManufactureWindow(player, manufacture, storage);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new LandWindow(player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void buttonLogout_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new AuthorisationWindow();
+            openedWindow.Show();
+            this.Close();
+        }
+
+        private void reload_button_Click(object sender, RoutedEventArgs e)
+        {
+            //CloseUnusedWindows();
+            //openedWindow = new MainWindow(user);
+            //openedWindow.Show();
+            //this.Close();
+            MainWindow_Loaded(sender, e);
+        }
+
+        private void OpenStorage(Player player, User user)
+        {
+            CloseUnusedWindows();
+            openedWindow = new StorageWindow(player);
+            PlayerModel.UpdatePlayerExpAndLvl(player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void recruitImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            storage = StorageModel.GetPlayerStorage(player);
+            equipment = EquipmentModel.GetPlayerEquipment(player, equipment);
+
+            CloseUnusedWindows();
+            openedWindow = new RecruitWindow(player, equipment);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void buttonTop_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new RatingWindow(this, player, playerEntrance, user, army);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void buttonChat_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new ChatWindow(player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            storage = StorageModel.GetPlayerStorage(player);
+            market = MarketModel.GetMarketInfo(player, market);
+
+            CloseUnusedWindows();
+            openedWindow = new MarketWindow(storage, market, player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseUnusedWindows();
+            Land land = LandModel.GetLandInfo(player.PlayerCurrentRegion);
+            if (land.CountryId != 0)
+            {
+                openedWindow = new CountryWindow(player);
+                openedWindow.Owner = this;
+                openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                openedWindow.Show();
+                openedWindow.Closed += FreeData;
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("This land is independent. The government has not yet been formed.");
+            }
+        }
+
+        private void buyMembership_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new MembershipWindow();
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void SubmitBugTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new SubmitBugWindow(player.PlayerName);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void buttonProfile_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new ProfileWindow(player, user);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void OpenAuction_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new AuctionWindow(player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void ButtonMailbox_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new MailboxWindow(player.PlayerName);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+
+            var messagesList = LandConquestYD.YDMessaging.GetAllMessagesName(player.PlayerName);
+            int counter = 0;
+            foreach(var messageName in messagesList)
+            {
+                counter++;
+                string messageText = LandConquestYD.YDContext.ReadResource("Messages/" + messageName);
+                MessageReceiverDialog.ShowReceivedMessage(messageName.Remove(0, 6).Replace("mail.txt", "").Replace(player.PlayerName, "").Replace("_", ""), messageText, counter);
+                LandConquestYD.YDMessaging.DeleteReadedMessage(messageName);
+            }
+        }
+
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            LandConquestYD.YDContext.DeleteConnectionId();
+            Environment.Exit(0);
+        }
+
+
+        //private void UpdateInfo()
+        //{
+        //    while (true)
+        //    {
+        //        try
+        //        {
+        //            Thread.Sleep(10000);
+        //            taxes = TaxesModel.GetTaxesInfo(taxes);
+        //            await MainWindow_Loaded(this.sender, RoutedEventArgs e);
+        //            player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
+
+        //            player = PlayerModel.UpdatePlayerMoney(player);
+        //            TaxesModel.SaveTaxes(taxes);
+        //            Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); }));
+        //            lands = LandModel.GetLandsInfo(lands);
+        //            Dispatcher.BeginInvoke(new ThreadStart(delegate { RedrawGlobalMap(); }));
+        //            Console.WriteLine("End of loop");
+        //        }
+        //        catch { }
+        //        labelMoney.Content = player.PlayerMoney;
+        //    }
+        //}
+        private async Task UpdateInfoAsync()
+        {
+            var connection = LandConquestDB.DbContext.GetTempSqlConnection();
             while (true)
             {
                 try
                 {
-                    Thread.Sleep(10000);
-                    taxes = taxesModel.GetTaxesInfo(taxes, connection);
-                    //await MainWindow_Loaded(this.sender, RoutedEventArgs e); 
+                    connection.Open();
+                    await Task.Delay(10000);
+                    taxes = TaxesModel.GetTaxesInfo(taxes, connection);
                     player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
 
-                    player = playerModel.UpdatePlayerMoney(player, connection);
-                    taxesModel.SaveTaxes(connection, taxes);
-                    Dispatcher.BeginInvoke(new ThreadStart(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); }));
-                    lands = landModel.GetLandsInfo(lands, connection);
-                    Dispatcher.BeginInvoke(new ThreadStart(delegate { RedrawGlobalMap(); }));
+                    player = PlayerModel.UpdatePlayerMoney(player, connection);
+                    TaxesModel.SaveTaxes(taxes, connection);
+                    lands = LandModel.GetLandsInfo(lands, connection);
+                    await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); RedrawGlobalMap(); LoadWarsOnMap();}));
+                    Console.WriteLine("End of loop");
+                    connection.Close();
                 }
                 catch { }
-                //labelMoney.Content = player.PlayerMoney; 
             }
         }
 
         private void ImageStorage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            storage = storageModel.GetPlayerStorage(player, connection, storage);
-            List<Manufacture> manufactures = manufactureModel.GetManufactureInfo(player, connection);
-            List<Manufacture> playerLandManufactures = manufactureModel.GetPlayerLandManufactureInfo(player, connection);
+            storage = StorageModel.GetPlayerStorage(player);
+            List<Manufacture> manufactures = ManufactureModel.GetManufactureInfo(player);
+            List<Manufacture> playerLandManufactures = ManufactureModel.GetPlayerLandManufactureInfo(player);
             //base manufactures 
             storage.PlayerWood += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
             player.PlayerExp += Convert.ToInt32((DateTime.UtcNow.Subtract(manufactures[0].ManufactureProdStartTime).TotalSeconds / 3600) * manufactures[0].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5)));
@@ -315,65 +507,24 @@ namespace LandConquest.Forms
 
             Console.WriteLine(Convert.ToInt32((DateTime.UtcNow.Subtract(playerLandManufactures[1].ManufactureProdStartTime).TotalSeconds / 3600) * playerLandManufactures[1].ManufactureProductsHour * (1 + (1 - Convert.ToDouble(taxes.TaxValue) / 5))) + " tut");
 
-            storageModel.UpdateStorage(connection, player, storage);
+            StorageModel.UpdateStorage(player, storage);
 
-            manufactureModel.UpdateDateTimeForManufacture(manufactures, player, connection);
-            if (f) manufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player, connection);
+            ManufactureModel.UpdateDateTimeForManufacture(manufactures, player);
+            if (f) ManufactureModel.UpdateDateTimeForPlayerLandManufacture(playerLandManufactures, player);
 
-
-            StorageWindow storageWindow = new StorageWindow(this, connection, player, user);
-
-            playerModel.UpdatePlayerExpAndLvl(player, connection);
-            storageWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            storageWindow.Owner = this;
-            storageWindow.Show();
+            OpenStorage(player, user);
         }
-
-        private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            ManufactureWindow window = new ManufactureWindow(this, connection, player, storage);
-            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            window.Owner = this;
-            window.Show();
-        }
-
-        private void buttonCloseWindow_Click(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Application.Current.Shutdown();
-            Environment.Exit(0);
-
-        }
-
-        private void reload_button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow window = new MainWindow(connection, user);
-            window.Show();
-            this.Close();
-        }
-
 
         private void SaveTaxes_Click(object sender, RoutedEventArgs e)
         {
             taxes.TaxValue = Convert.ToInt32(sliderTaxes.Value);
             taxes.TaxMoneyHour = taxes.TaxValue * peasants.PeasantsCount;
-            taxesModel.SaveTaxes(connection, taxes);
+            TaxesModel.SaveTaxes(taxes);
         }
 
         private void sliderTaxes_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             prodRatioValue.Content = (1 + (1 - Convert.ToDouble(sliderTaxes.Value) / 5)).ToString();
-        }
-
-        private void recruitImage_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            storage = storageModel.GetPlayerStorage(player, connection, storage);
-            equipment = equipmentModel.GetPlayerEquipment(player, connection, equipment);
-
-            RecruitWindow window = new RecruitWindow(connection, player, storage, equipment);
-            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            window.Owner = this;
-            window.Show();
-
         }
 
         private void PathEnterHandler(object sender, RoutedEventArgs e)
@@ -539,66 +690,44 @@ namespace LandConquest.Forms
             }
         }
 
-        private void ResourceMapBtn_MouseDown(object sender, MouseButtonEventArgs e)
+
+        private void ChangeMapType(object sender, RoutedEventArgs e)
         {
-            GlobalMap.Visibility = Visibility.Hidden;
-            ResourceMap.Visibility = Visibility.Visible;
-        }
-
-        private void GlobalMapBtn_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            ResourceMap.Visibility = Visibility.Hidden;
-            GlobalMap.Visibility = Visibility.Visible;
-        }
-
-
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            settingsGrid.Visibility = Visibility.Hidden;
-        }
-
-        private void ExitButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            AuthorisationWindow window = new AuthorisationWindow();
-            window.Show();
-            this.Close();
-
-        }
-        private void playMusic()
-        {
-            SoundPlayer sound = new SoundPlayer();
-            sound.SoundLocation = @"music.wav";
-            sound.PlayLooping();
-
-            //sound.SoundLocation = @"music2.wav";
-            //sound.PlayLooping();
-
-            //sound.SoundLocation = @"music3.wav";
-            //sound.PlayLooping();
-        }
-
-        private void checkBox_Checked(object sender, RoutedEventArgs e)
-        {
-            playMusic();
+            if(GlobalMap.Visibility == Visibility.Visible)
+            {
+                GlobalMap.Visibility = Visibility.Hidden;
+                GlobalMapBtn.Visibility = Visibility.Hidden;
+                ResourceMap.Visibility = Visibility.Visible;
+                ResourceMapBtn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ResourceMap.Visibility = Visibility.Hidden;
+                ResourceMapBtn.Visibility = Visibility.Hidden;
+                GlobalMap.Visibility = Visibility.Visible;
+                GlobalMapBtn.Visibility = Visibility.Visible;
+            }
+                    
         }
 
         private void btnGoToLand_Click(object sender, RoutedEventArgs e)
         {
 
-            peasants = peasantModel.GetPeasantsInfo(player, connection, peasants);
-            List<int> list = playerModel.DeletePlayerManufactureLandData(peasants, player, connection);
-            List<Manufacture> landManufactures = manufactureModel.GetLandManufactureInfo(player, connection);
-            Console.WriteLine("playerRegion: " + player.PlayerCurrentRegion);
-            Console.WriteLine("manufacture: " + landManufactures[0].ManufactureId + "  " + landManufactures[0].ManufacturePeasantWork);
-            Console.WriteLine("list: " + list[0] + "  " + list[1]);
-            manufactureModel.UpdateLandManufacturesWhenMove(connection, list, landManufactures);
-            player = playerModel.UpdatePlayerLand(player, connection, land);
+            peasants = PeasantModel.GetPeasantsInfo(player, peasants);
+            List<int> peasantsFree = PlayerModel.DeletePlayerManufactureLandData(peasants, player);
+            List<Manufacture> landManufactures = ManufactureModel.GetLandManufactureInfo(player);
+
+            ManufactureModel.UpdateLandManufacturesWhenMove(peasantsFree, landManufactures);
+            //peasants.PeasantsCount = peasants.PeasantsCount + peasantsFree[0] + peasantsFree[1];
+            PeasantModel.UpdatePeasantsInfo(peasants);
+
+            player = PlayerModel.UpdatePlayerLand(player, land);
 
             //flag.Margin = new Thickness(flagXY[0] - 69, flagXY[1] - 36, 0, 0);
             //flag.Margin = new Thickness(Convert.ToDouble(GlobalMap.Margin.Left), Convert.ToDouble(GlobalMap.Margin.Top), 0, 0);
 
             //flag.Stretch
-            flagXY = mapModel.CenterOfLand(land.LandId);
+            flagXY = MapModel.CenterOfLand(land.LandId);
             flag.Margin = new Thickness(flagXY[0], flagXY[1], 0, 0);
 
             Console.WriteLine("flag coo: " + flagXY[0] + " " + flagXY[1]);
@@ -609,7 +738,8 @@ namespace LandConquest.Forms
 
         private void buttonEstablishaState_Click(object sender, RoutedEventArgs e)
         {
-            EstablishStateDialog win = new EstablishStateDialog(connection, player, land);
+            land = LandModel.GetLandInfo(player.PlayerCurrentRegion);
+            EstablishStateDialog win = new EstablishStateDialog(player, land);
             win.Owner = this;
             win.Show();
         }
@@ -622,14 +752,6 @@ namespace LandConquest.Forms
 
                 paths[i].Fill = new SolidColorBrush(color);
             }
-        }
-
-        private void buttonProfile_Click(object sender, RoutedEventArgs e)
-        {
-            ProfileWindow profileWindow = new ProfileWindow(this, connection, player, user);
-            profileWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            profileWindow.Owner = this;
-            profileWindow.Show();
         }
 
         public Player CheckLvlChange(Player player)
@@ -652,186 +774,112 @@ namespace LandConquest.Forms
         private void btnHideLandGrid_Click(object sender, RoutedEventArgs e)
         {
             Country_characters.Visibility = Visibility.Hidden;
+            btnHideLandGrid.Visibility = Visibility.Hidden;
+            Border_Country_characters.Visibility = Visibility.Hidden;
+            btnShowLandGrid.Visibility = Visibility.Visible;
         }
 
         private void btnShowLandGrid_Click(object sender, RoutedEventArgs e)
         {
             Country_characters.Visibility = Visibility.Visible;
+            btnHideLandGrid.Visibility = Visibility.Visible;
+            Border_Country_characters.Visibility = Visibility.Visible;
+            btnShowLandGrid.Visibility = Visibility.Hidden;
         }
 
-        private void buttonSettings_MouseEnter(object sender, MouseEventArgs e)
+        private void btnHideLeaderGrid_Click(object sender, RoutedEventArgs e)
         {
-            settingsGrid.Visibility = Visibility.Visible;
+            worldLeader.Visibility = Visibility.Hidden;
+            worldLeaderBorder.Visibility = Visibility.Hidden;
+            btnShowLeaderGrid.Visibility = Visibility.Visible;
         }
 
-        private void settingsGrid_MouseLeave(object sender, MouseEventArgs e)
+        private void btnShowLeaderGrid_Click(object sender, RoutedEventArgs e)
         {
-            settingsGrid.Visibility = Visibility.Hidden;
+            worldLeader.Visibility = Visibility.Visible;
+            worldLeaderBorder.Visibility = Visibility.Visible;
+            btnShowLeaderGrid.Visibility = Visibility.Hidden;
         }
 
-        private void buttonTop_Click(object sender, RoutedEventArgs e)
+        private void GetWorldLeader()
         {
-            RatingWindow ratingWindow = new RatingWindow(this, connection, player, user, army);
-            ratingWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ratingWindow.Owner = this;
-            ratingWindow.Show();
+            if (lands.Count > 0)
+            {
+                int check_count = 0;
+                var counts = new Dictionary<int, int>();
+                foreach (var land in lands)
+                {
+                    int count;
+                    if (land.CountryId != 0)
+                    {
+                        counts.TryGetValue(land.CountryId, out count);
+                        count++;
+                        check_count++;
+                        counts[land.CountryId] = count;
+                    }
+                }
+                int mostCommonNumber = 0, occurrences = 0;
+                foreach (var pair in counts)
+                {
+                    if (pair.Value > occurrences)
+                    {
+                        occurrences = pair.Value;
+                        mostCommonNumber = pair.Key;
+                    }
+                }
+                if (check_count != 0)
+                {
+                    lblWorldLeader.Content = PlayerModel.GetPlayerNameById(CountryModel.GetCountryRuler(mostCommonNumber));
+                }
+            }
         }
 
+        private void buttonSettings_Click(object sender, RoutedEventArgs e)
+        {
+            if (settingsGrid.Visibility == Visibility.Hidden)
+            {
+                settingsGrid.Visibility = Visibility.Visible;
+                settingsGridBorder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                settingsGrid.Visibility = Visibility.Hidden;
+                settingsGridBorder.Visibility = Visibility.Hidden;
+            }
+        }
         private void test2_Click(object sender, RoutedEventArgs e)
         {
             //Console.WriteLine(land.LandName);
-            landModel.AddLandManufactures(land, connection);
-        }
-
-        private void buttonChat_Click(object sender, RoutedEventArgs e)
-        {
-            ChatWindow chatWindow = new ChatWindow(player);
-            chatWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            chatWindow.Owner = this;
-            chatWindow.Show();
-        }
-
-        private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            storage = storageModel.GetPlayerStorage(player, connection, storage);
-            market = marketModel.GetMarketInfo(player, connection, market);
-
-            MarketWindow window = new MarketWindow(this, connection, storage, market, player);
-            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            window.Owner = this;
-            window.Show();
-        }
-
-        private void CountryImage_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            CountryWindow win = new CountryWindow(connection, player);
-            win.Show();
-        }
-
-        private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void DeclareWar(object sender, RoutedEventArgs e)
-        {
-            ArmyModel armyModel = new ArmyModel();
-            Army army = new Army();
-            army = armyModel.GetArmyInfo(connection, player, army);
-
-            BattleModel battleModel = new BattleModel();
-            ArmyInBattle armyInBattle = new ArmyInBattle();
-
-            int count = battleModel.CheckPlayerParticipation(connection, player);
-
-            War war = new War();
-            war.WarId = WAR.WarId;
-
-            war = warModel.GetWarById(connection, war);
-
-            if (count == 0)
-            {
-
-                armyInBattle.PlayerId = army.PlayerId;
-                armyInBattle.ArmyId = army.ArmyId;
-                armyInBattle.ArmySizeCurrent = army.ArmySizeCurrent;
-                armyInBattle.ArmyType = army.ArmyType;
-                armyInBattle.ArmyArchersCount = army.ArmyArchersCount;
-                armyInBattle.ArmyInfantryCount = army.ArmyInfantryCount;
-                armyInBattle.ArmySiegegunCount = army.ArmySiegegunCount;
-                armyInBattle.ArmyHorsemanCount = army.ArmyHorsemanCount;
-
-
-                Random random = new Random();
-                WarWindow window;
-
-                if (player.PlayerCurrentRegion == war.LandAttackerId)
-                {
-                    armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
-                    armyInBattle.ArmySide = 1; // hueta
-
-                    battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
-
-                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-                    //for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-                    //{
-                    //    armiesInBattle.Add(new ArmyInBattle());
-                    //}
-
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-                    window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-                    window.Show();
-                }
-                else if (player.PlayerCurrentRegion == war.LandDefenderId)
-                {
-                    armyInBattle.LocalLandId = ReturnNumberOfCell(1, random.Next(1, 30));
-                    armyInBattle.ArmySide = 0; // hueta
-
-                    battleModel.InsertArmyIntoBattleTable(connection, armyInBattle, war);
-
-                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-                    {
-                        armiesInBattle.Add(new ArmyInBattle());
-                    }
-
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-
-                    window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-                    window.Show();
-                }
-                else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
-
-            } else
-            {
-                if ((player.PlayerCurrentRegion == war.LandDefenderId) || (player.PlayerCurrentRegion == war.LandAttackerId))
-                {
-                    List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-                    for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-                    {
-                        armiesInBattle.Add(new ArmyInBattle());
-                    }
-
-                    armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-                    WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-                    window.Show();
-                } else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
-            }
-
-            //List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-            //for (int i = 0; i < battleModel.SelectLastIdOfArmies(connection, war); i++)
-            //{
-            //    armiesInBattle.Add(new ArmyInBattle());
-            //}
-
-            //armiesInBattle = battleModel.GetArmiesInfo(connection, armiesInBattle, war);
-
-            ////armyModel.UpdateArmy(connection, army);
-            //// до сюда говно ------------------------------------------------------------------------------
-
-            //WarWindow window = new WarWindow(connection, player, armyInBattle, armiesInBattle, war);
-            //window.Show();
-        }
-
-        public int ReturnNumberOfCell(int row, int column)
-        {
-            int index = (row - 1) * 30 + column - 1;
-            return index;
+            LandModel.AddLandManufactures(land);
         }
 
         private void buttonStartBattle_Click(object sender, RoutedEventArgs e)
         {
-            WarResultWindow warResultWindow = new WarResultWindow(connection, player);
-            warResultWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            warResultWindow.Owner = this;
-            warResultWindow.Show();
+            //WarResultWindow warResultWindow = new WarResultWindow(player);
+            //warResultWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //warResultWindow.Owner = this;
+            //warResultWindow.Show();
         }
 
         public void LoadWarsOnMap()
         {
+            wars = new List<War>();
+
+            for (int i = 0; i < WarModel.SelectLastIdOfWars(); i++)
+            {
+                wars.Add(new War());
+            }
+
+            wars = WarModel.GetWarsInfo(wars);
+
+            for (int i = 0; i < SymbalLayer.Children.Count; i++)
+            {
+                if (SymbalLayer.Children[i] != flag)
+                {
+                    SymbalLayer.Children.RemoveAt(1); // flag is always first [0];
+                }
+            }
+
             int[] landCenter = new int[1];
             marginsOfWarButtons = new Thickness[wars.Count];
 
@@ -841,10 +889,10 @@ namespace LandConquest.Forms
                 SymbalLayer.Children.Add(warLine);
                 Console.WriteLine(wars[i].WarId + ' ' + wars[i].LandAttackerId + ' ' + wars[i].LandDefenderId);
                 Console.WriteLine(SymbalLayer.Children.Count);
-                landCenter = mapModel.CenterOfLand(wars[i].LandAttackerId);
+                landCenter = MapModel.CenterOfLand(wars[i].LandAttackerId);
                 warLine.X1 = landCenter[0] + 15;
                 warLine.Y1 = landCenter[1] + 30;
-                landCenter = mapModel.CenterOfLand(wars[i].LandDefenderId);
+                landCenter = MapModel.CenterOfLand(wars[i].LandDefenderId);
                 warLine.X2 = landCenter[0] + 15;
                 warLine.Y2 = landCenter[1] + 30;
                 warLine.Stroke = System.Windows.Media.Brushes.Black;
@@ -873,10 +921,11 @@ namespace LandConquest.Forms
                 if (((Image)sender).Margin == marginsOfWarButtons[j])
                 {
                     Console.WriteLine("Ключ войны = " + wars[j].WarId);
-                    
+
                     WAR = new War();
                     WAR.WarId = wars[j].WarId;
-                    DeclareWar(null, e);
+                    //DeclareWar(null, e);
+                    WarLogic.EnterInWar(WAR, player);
                 }
             }
         }
@@ -891,28 +940,12 @@ namespace LandConquest.Forms
             Cursor = Cursors.Arrow;
         }
 
-        private void OpenAuction_Click(object sender, RoutedEventArgs e)
-        {
-            AuctionWindow auctionWindow = new AuctionWindow(connection, player);
-            auctionWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            auctionWindow.Owner = this;
-            auctionWindow.Show();
-        }
-
-        private void buyCoins_Click(object sender, RoutedEventArgs e)
-        {
-            BalanceReplenishmentDialog dialog = new BalanceReplenishmentDialog(player, connection);
-            dialog.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            dialog.Owner = this;
-            dialog.Show();
-        }
-
         public void convertMoneyToMoneyCode(Label label)
         {
             int k = 0;
             while (Convert.ToInt32(label.Content) > 1000)
             {
-                label.Content = (float)Convert.ToInt32(label.Content) / (float)1000;
+                label.Content = Convert.ToInt32(label.Content) / (float)1000;
                 k++;
             }
 
@@ -920,6 +953,164 @@ namespace LandConquest.Forms
             {
                 label.Content += "k";
             }
+        }
+
+        public void setFlag()
+        {
+            flagXY = MapModel.CenterOfLand(player.PlayerCurrentRegion);
+            flag.Margin = new Thickness(flagXY[0], flagXY[1], 0, 0);
+        }
+
+        private void FreeData(object data, EventArgs e)
+        {
+            openedWindow = null;
+            GC.Collect();
+        }
+
+        private void CloseUnusedWindows()
+        {
+            foreach (Window window in App.Current.Windows)
+            {
+                if (window != this)
+                    window.Close();
+            }
+        }
+
+        private void buttonCollapse_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState = WindowState.Minimized;
+        }
+
+        private void mainGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            try
+            {   // если убрать try, выпадет ошибка, когда нажимаешь на кнопку ОК в диалоге с ворнингом.
+                this.DragMove();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void checkBoxFs_Click(object sender, RoutedEventArgs e)
+        {
+            if (checkBoxFs.IsChecked == true)
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+            }
+        }
+
+        private void checkBoxMusic_Click(object sender, RoutedEventArgs e)
+        {
+            SoundPlayer sound = new SoundPlayer(Properties.Resources.MainTheme);
+            if (checkBoxMusic.IsChecked == true)
+            {
+                sound.PlayLooping();
+            }
+            else
+            {
+                sound.Stop();
+            }
+        }
+
+        private void BtnHideTaxesGrid_Click(object sender, RoutedEventArgs e)
+        {
+            TaxesGrid.Visibility = Visibility.Hidden;
+            TaxesBorder.Visibility = Visibility.Hidden;
+            BtnShowTaxesGrid.Visibility = Visibility.Visible;
+        }
+
+        private void BtnShowTaxesGrid_Click(object sender, RoutedEventArgs e)
+        {
+            TaxesGrid.Visibility = Visibility.Visible;
+            TaxesBorder.Visibility = Visibility.Visible;
+            BtnShowTaxesGrid.Visibility = Visibility.Hidden;
+        }
+
+        /// <summary>
+        /// /////////////////////////////////// DAILY BONUS //////////////////////////////////////////////////////////
+        /// </summary>
+
+        private void DailyButton_Click(object sender, RoutedEventArgs e)
+        {
+            var nextDailyBonus = DailyBonusModel.GetNextDailyBonusTime(player);
+            if (nextDailyBonus <= DateTime.UtcNow)
+            {
+                DailyBonusModel.UpdateNextDailyBonusTime(player);
+                RewardLogic.GiveDailyBonus(player);
+                DailyBonusCount(player);
+            }
+        }
+
+        private void DailyBonusCount(Player player)
+        {
+            var nextDailyBonus = DailyBonusModel.GetNextDailyBonusTime(player);
+            if (nextDailyBonus == DateTime.MinValue)
+            {
+                DailyBonusModel.SetFirstDailyBonusTime(player);
+                DailyButton.IsEnabled = true;
+                DailyButton.Content = "Claim";
+                lblNextDaily.Content = "Avaible";
+            }
+            else if (nextDailyBonus <= DateTime.UtcNow)
+            {
+                DailyButton.IsEnabled = true;
+                DailyButton.Content = "Claim";
+                lblNextDaily.Content = "Avaible";
+            }
+            else
+            {
+                DailyButton.IsEnabled = false;
+                DailyButton.Content = "Claimed";
+                lblNextDaily.Content = nextDailyBonus;
+            }
+        }
+
+        private void BtnHideDailyBonusGrid_Click(object sender, RoutedEventArgs e)
+        {
+            DailyBonusGrid.Visibility = Visibility.Hidden;
+            DailyBonusBorder.Visibility = Visibility.Hidden;
+            BtnShowDailyBonusGrid.Visibility = Visibility.Visible;
+        }
+
+        private void BtnShowDailyBonusGrid_Click(object sender, RoutedEventArgs e)
+        {
+            DailyBonusGrid.Visibility = Visibility.Visible;
+            DailyBonusBorder.Visibility = Visibility.Visible;
+            BtnShowDailyBonusGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnShowConsumptionGrid_Click(object sender, RoutedEventArgs e)
+        {
+            consumptionGrid.Visibility = Visibility.Visible;
+            consumptionBorder.Visibility = Visibility.Visible;
+            BtnShowConsumptionGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void btnHideConsumptionGrid_Click(object sender, RoutedEventArgs e)
+        {
+            consumptionGrid.Visibility = Visibility.Hidden;
+            consumptionBorder.Visibility = Visibility.Hidden;
+            BtnShowConsumptionGrid.Visibility = Visibility.Visible;
+        }
+
+        private void ServerDispatcherTimer()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += serverTimer_Tick;
+            timer.Start();
+        }
+
+        private void serverTimer_Tick(object sender, EventArgs e)
+        {
+            LabelServerTime.Content = DateTime.UtcNow.ToLongTimeString();
         }
     }
 }

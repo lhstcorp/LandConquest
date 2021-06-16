@@ -1,130 +1,56 @@
-﻿using LandConquest.Entities;
-using LandConquest.Models;
+﻿using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using TableDependency.SqlClient;
-using TableDependency.SqlClient.Base;
-using TableDependency.SqlClient.Base.EventArgs;
 
 namespace LandConquest.Forms
 {
     public partial class ChatWindow : Window
     {
-        private string connectionString;
-        SqlConnection connection;
-        Player player;
-        ChatModel chatModel;
-        List<ChatMessages> messages;
-        SqlTableDependency<ChatMessages> sqlTableDependency;
-
+        private Player player;
+        private List<ChatMessages> messages;
+        CancellationTokenSource cancelTokenSource;
+        CancellationToken token;
 
         public ChatWindow(Player _player)
         {
             InitializeComponent();
             player = _player;
-            
-
-            var gridView = new GridView();
-            this.listViewChat.View = gridView;
-            gridView.Columns.Add(new GridViewColumn
-            {
-                Width = 50,
-                DisplayMemberBinding = new Binding("PlayerName")
-
-            });
-            gridView.Columns.Add(new GridViewColumn
-            {
-                Width = 600,
-                DisplayMemberBinding = new Binding("PlayerMessage")
-            });
-            gridView.Columns.Add(new GridViewColumn
-            {
-                Width = 150,
-                DisplayMemberBinding = new Binding("MessageTime")
-            });
-            Loaded += listViewChat_Loaded;
         }
 
-        private void buttonSendMessage_Click(object sender, RoutedEventArgs e)
+        private void ButtonSendMessage_Click(object sender, RoutedEventArgs e)
         {
-            chatModel.SendMessage(textBoxNewMessage.Text, connection, player.PlayerName);
+            ChatModel.SendMessage(textBoxNewMessage.Text, player.PlayerName);
         }
 
-        private void listViewChat_Loaded(object sender, RoutedEventArgs e)
+        public async void CallUpdateChatAsync()
         {
-            connectionString = @"workstation id=LandConquest1.mssql.somee.com;packet size=4096;user id=LandConquest_SQLLogin_1;pwd=3xlofdewbj;data source=LandConquest1.mssql.somee.com;persist security info=False;initial catalog=LandConquest1";
-            connection = new SqlConnection(connectionString);
-            connection.Open();
-            chatModel = new ChatModel();
-            updateChat();
-
-            var mapper = new ModelToTableMapper<ChatMessages>();
-            mapper.AddMapping(c => c.PlayerName, "player_name");
-            mapper.AddMapping(c => c.PlayerMessage, "player_message");
-            mapper.AddMapping(c => c.MessageTime, "message_sent_time");
-
-
-            // Не удалять! Если перестанет работать чат, обязательно сделать этот запрос к бд: 
-
-            // ALTER DATABASE LandConquestDB SET ENABLE_BROKER with rollback immediate
-
-            // Если не помогло то те что ниже
-
-            //CREATE QUEUE ContactChangeMessages;
-
-            //CREATE SERVICE ContactChangeNotifications
-            //  ON QUEUE ContactChangeMessages
-            //([http://schemas.microsoft.com/SQL/Notifications/PostQueryNotification]);  
-
-            //ALTER AUTHORIZATION ON DATABASE:: LandCoqnuestDB TO имя_компа
-
-
-            sqlTableDependency = new SqlTableDependency<ChatMessages>((connectionString), "ChatMessages", "dbo", mapper);
-            sqlTableDependency.OnChanged += Changed;
-            sqlTableDependency.Start();
-
-
+            cancelTokenSource = new CancellationTokenSource();
+            token = cancelTokenSource.Token;
+            await Task.Run(() => UpdateChat(token));
         }
 
-        public void Changed(object sender, RecordChangedEventArgs<ChatMessages> e)
+        private async Task UpdateChat(CancellationToken token)
         {
-            var changedEntity = e.Entity;
-
-            Debug.WriteLine("DML operation: " + e.ChangeType);
-            Debug.WriteLine("PlayerMessage: " + changedEntity.PlayerMessage);
-            Debug.WriteLine("PlayerName: " + changedEntity.PlayerName);
-            Debug.WriteLine("MessageTime: " + changedEntity.MessageTime);
-
-            Dispatcher.BeginInvoke(new ThreadStart(delegate { updateChat(); }));
-
+            while (!token.IsCancellationRequested)
+            {         
+                await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { messages = ChatModel.GetMessages(); listViewChat.ItemsSource = messages; listViewChat.Items.Refresh();}));
+                await Task.Delay(3000);
+            }
         }
 
-        private void updateChat()
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
-            messages = chatModel.GetMessages(connection);
-            listViewChat.ItemsSource = messages;
-            listViewChat.Items.Refresh();
+            cancelTokenSource.Cancel();
+            Close();
         }
 
-        private void buttonClose_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            sqlTableDependency.Stop();
-            connection.Close();
-            this.Close();
+            CallUpdateChatAsync();
         }
     }
 }

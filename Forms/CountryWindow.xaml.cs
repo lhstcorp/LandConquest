@@ -1,20 +1,14 @@
-﻿using LandConquest.Entities;
-using LandConquest.Models;
+﻿using LandConquest.DialogWIndows;
+using LandConquest.Logic;
+using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace LandConquest.Forms
 {
@@ -23,50 +17,42 @@ namespace LandConquest.Forms
     /// </summary>
     public partial class CountryWindow : Window
     {
-        SqlConnection connection;
-        Player player;
-        CountryModel countryModel;
-        PlayerModel playerModel;
-        LandModel landModel;
-        WarModel warModel;
-        List<Land> countryLands;
-        List<Land> countryLandsToFight;
-        List<Country> countries;
-        Land selectedLand;
-        Country transferCountry;
-        Land countryLandDefender;
-        int operation = 0;
-        bool f = true;
-        public CountryWindow(SqlConnection _connection, Player _player)
+        private Player player;
+        private List<Land> countryLands;
+        private List<Land> countryLandsToFight;
+        private List<Country> countries;
+        private Land selectedLand;
+        private Country transferCountry;
+        private Land countryLandDefender;
+        private int operation = 0;
+        private bool f = true;
+        private Player ruler;
+        public CountryWindow(Player _player)
         {
-            connection = _connection;
             player = _player;
             InitializeComponent();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            countryModel = new CountryModel();
-            playerModel = new PlayerModel();
-            Country country = countryModel.GetCountryById(connection, countryModel.GetCountryId(connection, player));
-            Player ruler = new Player();
+            Country country = CountryModel.GetCountryById(CountryModel.GetCountryIdByLandId(player.PlayerCurrentRegion));
+            ruler = new Player();
             User rulerUser = new User();
             rulerUser.UserId = country.CountryRuler;
-            ruler = playerModel.GetPlayerInfo(rulerUser, connection, ruler);
+            ruler = PlayerModel.GetPlayerInfo(rulerUser, ruler);
             RulerNameLbl.Content = ruler.PlayerName;
             CountryNameLbl.Content = country.CountryName;
 
-            landModel = new LandModel();
-            countryLands = landModel.GetCountryLands(connection, country);
+            countryLands = LandModel.GetCountryLands(country);
 
-            int count = countryModel.SelectLastIdOfStates(connection);
+            int count = CountryModel.SelectLastIdOfStates();
 
             countries = new List<Country>();
             for (int i = 0; i < count; i++)
             {
                 countries.Add(new Country());
             }
-            countries = countryModel.GetCountriesInfo(countries, connection);
+            countries = CountryModel.GetCountriesInfo(countries);
         }
 
         private void CbAct_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -108,34 +94,39 @@ namespace LandConquest.Forms
 
         private void IssueALaw_Click(object sender, RoutedEventArgs e)
         {
-            switch (operation)
+            if (player.PlayerId == ruler.PlayerId)
             {
-                case 1:
-                    {
-                        Player player = new Player();
-                        player.PlayerCurrentRegion = selectedLand.LandId;
-                        Country ThisCountry = countryModel.GetCountryById(connection, countryModel.GetCountryId(connection, player));
-
-                        landModel.UpdateLandInfo(connection, selectedLand, transferCountry);
-
-                        countryLands = landModel.GetCountryLands(connection, ThisCountry);
-                        if (countryLands.Count == 0)
+                switch (operation)
+                {
+                    case 1:
                         {
-                            countryModel.DisbandCountry(connection, ThisCountry);
+                            selectedLand = LandModel.GetLandInfo(selectedLand.LandId);
+
+                            Country ThisCountry = CountryModel.GetCountryById(selectedLand.CountryId);
+
+                            LandModel.UpdateLandInfo(selectedLand, transferCountry);
+
+                            countryLands = LandModel.GetCountryLands(ThisCountry);
+                            if (countryLands.Count == 0)
+                            {
+                                CountryModel.DisbandCountry(ThisCountry);
+                            }
+                            //тут нужно написать функцию на чек пустых государств. Если гос-во пустое - король теряет свой титул.
+                            break;
                         }
-                        //тут нужно написать функцию на чек пустых государств. Если гос-во пустое - король теряет свой титул.
-                        break;
-                    }
-                case 2:
-                    {
-                        WarModel warModel = new WarModel();
-                        warModel.DeclareAWar(connection, GenerateId(), selectedLand, countryLandDefender);
+                    case 2:
+                        {
+                            WarLogic warModel = new WarLogic();
+                            WarModel.DeclareAWar(GenerateId(), selectedLand, countryLandDefender);
 
-                        break;
-                    }
+                            break;
+                        }
+                }
             }
-
-
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Only a ruler of the country can issue a law!");
+            }
         }
 
         private void CbLandToTransfer_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -155,7 +146,7 @@ namespace LandConquest.Forms
             {
                 CbCountryWarLand.Items.Clear();
 
-                countryLandsToFight = landModel.GetCountryLands(connection, transferCountry);
+                countryLandsToFight = LandModel.GetCountryLands(transferCountry);
 
                 for (int i = 0; i < countryLandsToFight.Count; i++)
                 {
@@ -169,7 +160,7 @@ namespace LandConquest.Forms
         {
             //countryLandsToFight = new List<Land>();
             if (CbCountryWarLand.SelectedIndex != -1)
-            countryLandDefender = countryLandsToFight[CbCountryWarLand.SelectedIndex]; // STAR!
+                countryLandDefender = countryLandsToFight[CbCountryWarLand.SelectedIndex]; // STAR!
         }
 
         private static Random random;
@@ -181,5 +172,11 @@ namespace LandConquest.Forms
             return new string(Enumerable.Repeat(chars, 16)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
+        private void buttonClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

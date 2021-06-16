@@ -1,85 +1,276 @@
 ﻿<Window x:Class="LandConquest.Forms.MarketWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="ru"
+        lex:LocalizeDictionary.IncludeInvariantCulture="False"
+        lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources"  
+        
+        
         xmlns:local="clr-namespace:LandConquest.Forms"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
         Title="MarketWindow" Height="450" Width="800" ShowInTaskbar="False">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
-        </Grid.Background>
-        <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/food.png"/>
-        <Label Content="Price" FontWeight="Bold" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelFoodPrice" Content="3" FontWeight="Bold" HorizontalAlignment="Left" Margin="116,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="FoodToBuyTextBox" Background="White" Foreground="Black" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
-        <Label x:Name="labelFoodAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="46"/>
-        <Button HorizontalAlignment="Left" Margin="752,10,0,0" VerticalAlignment="Top" Width="38" Click="Button_Click" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="buyFoodMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top" Width="58" Click="buyFoodMarket_Click" />
-        <Label x:Name="labelFoodMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
-        <Button x:Name="sellFoodMarketButton" Content="Sell" HorizontalAlignment="Left" Margin="150,70,0,0" VerticalAlignment="Top" Width="58" Click="sellFoodMarketButton_Click"  />
-        <Image HorizontalAlignment="Left" Height="68" Margin="241,10,0,0" VerticalAlignment="Top" Width="65" Source="/LandConquest;component/Pictures/wood.png"/>
-        <Label Content="Price" FontWeight="Bold" HorizontalAlignment="Left" Margin="311,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelWoodPrice" Content="2" FontWeight="Bold" HorizontalAlignment="Left" Margin="347,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="WoodToBuyTextBox" Background="White" Foreground="Black" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="311,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
-        <Label x:Name="labelWoodAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="241,78,0,0" VerticalAlignment="Top" Width="46"/>
-        <Button x:Name="buyWoodMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="311,70,0,0" VerticalAlignment="Top" Width="58" Click="buyWoodMarketButton_Click"  />
-        <Label x:Name="labelWoodMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="241,102,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
-        <Button x:Name="sellWoodMarketButton" Content="Sell" HorizontalAlignment="Left" Margin="381,70,0,0" VerticalAlignment="Top" Width="58" Click="sellWoodMarketButton_Click"   />
-        <Image HorizontalAlignment="Left" Height="68" Margin="477,10,0,0" VerticalAlignment="Top" Width="65" Source="/LandConquest;component/Pictures/stones.png"/>
-        <Label Content="Price" FontWeight="Bold" HorizontalAlignment="Left" Margin="547,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelStonePrice" Content="2" FontWeight="Bold" HorizontalAlignment="Left" Margin="583,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="StoneToBuyTextBox" Background="White" Foreground="Black" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="547,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
-        <Label x:Name="labelStoneAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="477,78,0,0" VerticalAlignment="Top" Width="46"/>
-        <Button x:Name="buyStoneMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="547,70,0,0" VerticalAlignment="Top" Width="58" Click="buyStoneMarketButton_Click"   />
-        <Label x:Name="labelStoneMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="477,102,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
-        <Button x:Name="sellStoneMarketButton" Content="Sell" HorizontalAlignment="Left" Margin="617,70,0,0" VerticalAlignment="Top" Width="58" Click="sellStoneMarketButton_Click"  />
-        <Image HorizontalAlignment="Left" Height="68" Margin="10,135,0,0" VerticalAlignment="Top" Width="65" Source="/LandConquest;component/Pictures/iron.png"/>
-        <Label Content="Price" FontWeight="Bold" HorizontalAlignment="Left" Margin="80,135,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelIronPrice" Content="3" FontWeight="Bold" HorizontalAlignment="Left" Margin="116,135,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="IronToBuyTextBox" Background="White" Foreground="Black" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
-        <Label x:Name="labelIronAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top" Width="46"/>
-        <Button x:Name="buyIronMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="80,195,0,0" VerticalAlignment="Top" Width="58" Click="buyIronMarketButton_Click"   />
-        <Label x:Name="labelIronMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
-        <Button x:Name="sellIronMarketButton" Content="Sell" HorizontalAlignment="Left" Margin="150,195,0,0" VerticalAlignment="Top" Width="58" Click="sellIronMarketButton_Click"  />
-        <Image HorizontalAlignment="Left" Height="68" Margin="241,135,0,0" VerticalAlignment="Top" Width="65" Source="/LandConquest;component/Pictures/gold_ore.png"/>
-        <Label Content="Price" FontWeight="Bold" HorizontalAlignment="Left" Margin="311,135,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelGoldPrice" Content="7" FontWeight="Bold" HorizontalAlignment="Left" Margin="347,135,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="GoldToBuyTextBox" Background="White" Foreground="Black" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="311,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
-        <Label x:Name="labelGoldAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="241,203,0,0" VerticalAlignment="Top" Width="46"/>
-        <Button x:Name="buyGoldMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="311,195,0,0" VerticalAlignment="Top" Width="58" Click="buyGoldMarketButton_Click"   />
-        <Label x:Name="labelGoldMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="241,227,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
-        <Button x:Name="sellGoldMarketButton" Content="Sell" HorizontalAlignment="Left" Margin="381,195,0,0" VerticalAlignment="Top" Width="58" Click="sellGoldMarketButton_Click"  />
-        <Image HorizontalAlignment="Left" Height="68" Margin="477,135,0,0" VerticalAlignment="Top" Width="65" Source="/LandConquest;component/Pictures/copper.png"/>
-        <Label Content="Price" FontWeight="Bold" HorizontalAlignment="Left" Margin="547,135,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelCopperPrice" Content="4" FontWeight="Bold" HorizontalAlignment="Left" Margin="583,135,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="CopperToBuyTextBox" Background="White" Foreground="Black" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="547,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
-        <Label x:Name="labelCopperAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="477,203,0,0" VerticalAlignment="Top" Width="46"/>
-        <Button x:Name="buyCopperMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="547,195,0,0" VerticalAlignment="Top" Width="58" Click="buyCopperMarketButton_Click"   />
-        <Label x:Name="labelCopperMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="477,227,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
-        <Button x:Name="sellCopperMarketButton" Content="Sell" HorizontalAlignment="Left" Margin="617,195,0,0" VerticalAlignment="Top" Width="58" Click="sellCopperMarketButton_Click"  />
-        <Image HorizontalAlignment="Left" Height="68" Margin="10,293,0,0" VerticalAlignment="Top" Width="65" Source="/LandConquest;component/Pictures/gems.png"/>
-        <Label Content="Price" FontWeight="Bold" HorizontalAlignment="Left" Margin="80,293,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelGemsPrice" Content="10" FontWeight="Bold" HorizontalAlignment="Left" Margin="116,293,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="GemsToBuyTextBox" Background="White" Foreground="Black" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,322,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
-        <Label x:Name="labelGemsAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,361,0,0" VerticalAlignment="Top" Width="46"/>
-        <Button x:Name="buyGemsMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="80,353,0,0" VerticalAlignment="Top" Width="58" Click="buyGemsMarketButton_Click"   />
-        <Label x:Name="labelGemsMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,385,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
-        <Button x:Name="sellGemsMarketButton" Content="Sell" HorizontalAlignment="Left" Margin="150,353,0,0" VerticalAlignment="Top" Width="58" Click="sellGemsMarketButton_Click"  />
-        <Image HorizontalAlignment="Left" Height="68" Margin="241,293,0,0" VerticalAlignment="Top" Width="65" Source="/LandConquest;component/Pictures/leather.png"/>
-        <Label Content="Price" FontWeight="Bold" HorizontalAlignment="Left" Margin="311,293,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelLeatherPrice" Content="5" FontWeight="Bold" HorizontalAlignment="Left" Margin="347,293,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="LeatherToBuyTextBox" Background="White" Foreground="Black" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="311,322,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="58"/>
-        <Label x:Name="labelLeatherAmount" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="241,361,0,0" VerticalAlignment="Top" Width="46"/>
-        <Button x:Name="buyLeatherMarketButton" Content="Buy" HorizontalAlignment="Left" Margin="311,353,0,0" VerticalAlignment="Top" Width="58" Click="buyLeatherMarketButton_Click"   />
-        <Label x:Name="labelLeatherMarket" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="241,385,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
-        <Button x:Name="sellLeatherMarketButton" Content="Sell" HorizontalAlignment="Left" Margin="381,353,0,0" VerticalAlignment="Top" Width="58" Click="sellLeatherMarketButton_Click"  />
 
-    </Grid>
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="800">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+
+
+            <Image HorizontalAlignment="Left" Height="68" Margin="10,27,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="52" Margin="15,33,0,0" VerticalAlignment="Top" Width="55" Source="/Pictures/food.png"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,32,0,0" Stroke="Goldenrod" VerticalAlignment="Top" Width="68"/>
+            <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,27,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="labelFoodPrice" Content="3" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="113,27,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="FoodToBuyTextBox" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewTextInput="FoodToBuyTextBox_PreviewTextInput"   />
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,100,0,0" Stroke="Goldenrod" VerticalAlignment="Top" Width="65"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,124,0,0" Stroke="Goldenrod" VerticalAlignment="Top" Width="65"/>
+            <Label x:Name="labelFoodAmount" Foreground="#e3cd9b" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="24,95,0,0" VerticalAlignment="Top" Width="65"/>
+            <Button x:Name="buyFoodMarketButton" Content="{lex:Loc LocLabelBuy_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,87,0,0" VerticalAlignment="Top" Width="58" Click="buyAllMarketButton_Click"  BorderBrush="{x:Null}" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Label x:Name="labelFoodMarket" Foreground="#e3cd9b" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="24,119,0,0" VerticalAlignment="Top" Width="66" Height="29"/>
+            <Button x:Name="sellFoodMarketButton" Content="{lex:Loc LocLabelSell_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="150,87,0,0" VerticalAlignment="Top" Width="58" Click="sellAllMarketButton_Click" BorderBrush="{x:Null}"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="10,102,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="10,128,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
+
+
+            <Image HorizontalAlignment="Left" Height="68" Margin="241,27,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="51" Margin="248,34,0,0" VerticalAlignment="Top" Width="53" Source="/LandConquest;component/Pictures/wood.png"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="310,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="310,27,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="labelWoodPrice" Content="2" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="343,27,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="WoodToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="310,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" />
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="241,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="241,124,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+            <Label x:Name="labelWoodAmount" Foreground="#e3cd9b" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="255,95,0,0" VerticalAlignment="Top" Width="66"/>
+            <Button x:Name="buyWoodMarketButton" Content="{lex:Loc LocLabelBuy_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="310,87,0,0" VerticalAlignment="Top" Click="buyAllMarketButton_Click" Width="58" BorderBrush="{x:Null}"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Label x:Name="labelWoodMarket" Foreground="#e3cd9b" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="255,119,0,0" VerticalAlignment="Top" Width="65" Height="29"/>
+            <Button x:Name="sellWoodMarketButton" Content="{lex:Loc LocLabelSell_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="380,87,0,0" VerticalAlignment="Top" Width="58" Click="sellAllMarketButton_Click" BorderBrush="{x:Null}"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="241,102,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="241,128,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
+
+
+            <Image HorizontalAlignment="Right" Height="68" Margin="0,27,257,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="54" Margin="478,34,0,0" VerticalAlignment="Top" Width="54" Source="/LandConquest;component/Pictures/stones.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.178"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="542,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="542,27,0,0" VerticalAlignment="Top"/>
+
+            <Label x:Name="labelStonePrice" Content="2" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="575,27,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="StoneToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="542,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="472,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="472,124,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+            <Label x:Name="labelStoneAmount" Foreground="#e3cd9b" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="486,95,0,0" VerticalAlignment="Top" Width="64" Height="24"/>
+            <Button x:Name="buyStoneMarketButton" Content="{lex:Loc LocLabelBuy_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="542,87,0,0" VerticalAlignment="Top" Width="58" Click="buyAllMarketButton_Click" BorderBrush="{x:Null}"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Label x:Name="labelStoneMarket" Foreground="#e3cd9b" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="486,119,0,0" VerticalAlignment="Top" Width="64" Height="25"/>
+            <Button x:Name="sellStoneMarketButton" Content="{lex:Loc LocLabelSell_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="611,87,0,0" VerticalAlignment="Top" Width="58" Click="sellAllMarketButton_Click" BorderBrush="{x:Null}"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="472,102,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="472,128,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
+
+
+            <Image HorizontalAlignment="Left" Height="68" Margin="10,167,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="53" Margin="15,173,0,0" VerticalAlignment="Top" Width="55" Source="/LandConquest;component/Pictures/iron.png"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,172,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,167,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="labelIronPrice" Content="3" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="113,167,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="IronToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,196,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,264,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+            <Label x:Name="labelIronAmount" Foreground="#e3cd9b" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="24,235,0,0" VerticalAlignment="Top" Width="65"/>
+            <Button x:Name="buyIronMarketButton" Content="{lex:Loc LocLabelBuy_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,227,0,0" VerticalAlignment="Top" Width="58" Click="buyAllMarketButton_Click" BorderBrush="{x:Null}"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Label x:Name="labelIronMarket" Foreground="#e3cd9b" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="24,259,0,0" VerticalAlignment="Top" Width="65" Height="27"/>
+            <Button x:Name="sellIronMarketButton" Content="{lex:Loc LocLabelSell_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="150,227,0,0" VerticalAlignment="Top" Width="58" Click="sellAllMarketButton_Click" BorderBrush="{x:Null}"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="10,242,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0.905,0.595"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="10,268,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0.595,-0.333"/>
+
+
+            <Image HorizontalAlignment="Left" Height="68" Margin="241,167,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="53" Margin="247,174,0,0" VerticalAlignment="Top" Width="54" Source="/LandConquest;component/Pictures/gold_ore.png"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="310,172,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="310,167,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="labelGoldPrice" Content="7" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="343,167,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="GoldToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="310,196,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="241,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="241,264,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+            <Label x:Name="labelGoldAmount" Foreground="#e3cd9b" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="255,235,0,0" VerticalAlignment="Top" Width="64"/>
+            <Button x:Name="buyGoldMarketButton" Content="{lex:Loc LocLabelBuy_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="310,227,0,0" VerticalAlignment="Top" Width="58" Click="buyAllMarketButton_Click" BorderBrush="{x:Null}"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Label x:Name="labelGoldMarket" Foreground="#e3cd9b" Content="10000" FontWeight="Bold" HorizontalAlignment="Left" Margin="255,259,0,0" VerticalAlignment="Top" Width="64" Height="25"/>
+            <Button x:Name="sellGoldMarketButton" Content="{lex:Loc LocLabelSell_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="380,227,0,0" VerticalAlignment="Top" Width="58" Click="sellAllMarketButton_Click" BorderBrush="{x:Null}"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="241,242,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="241,268,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
+
+
+            <Image HorizontalAlignment="Left" Height="68" Margin="472,167,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="53" Margin="478,173,0,0" VerticalAlignment="Top" Width="58" Source="/LandConquest;component/Pictures/copper.png"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="541,172,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="541,167,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="labelCopperPrice" Content="4" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="574,167,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="CopperToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="541,196,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="472,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="472,264,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+            <Label x:Name="labelCopperAmount" Content="0" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="486,235,0,0" VerticalAlignment="Top" Width="64"/>
+            <Button x:Name="buyCopperMarketButton" Content="{lex:Loc LocLabelBuy_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="541,227,0,0" VerticalAlignment="Top" Width="58" Click="buyAllMarketButton_Click" BorderBrush="{x:Null}"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Label x:Name="labelCopperMarket" Content="10000" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="486,259,0,0" VerticalAlignment="Top" Width="64" Height="25"/>
+            <Button x:Name="sellCopperMarketButton" Content="{lex:Loc LocLabelSell_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="611,227,0,0" VerticalAlignment="Top" Width="58" Click="sellAllMarketButton_Click" BorderBrush="{x:Null}"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="472,242,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="472,268,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0.929,0.536"/>
+
+
+            <Image HorizontalAlignment="Left" Height="68" Margin="10,306,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="62" Margin="10,306,0,0" VerticalAlignment="Top" Width="65" Source="/LandConquest;component/Pictures/gems.png"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,310,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,306,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="labelGemsPrice" Foreground="#e3cd9b" Content="10" FontWeight="Bold" HorizontalAlignment="Left" Margin="110,306,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="GemsToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="24" Margin="80,334,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,402,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
+            <Label x:Name="labelGemsAmount" Content="0" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="24,374,0,0" VerticalAlignment="Top" Width="65"/>
+            <Button x:Name="buyGemsMarketButton" Content="{lex:Loc LocLabelBuy_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,366,0,0" VerticalAlignment="Top" Width="58" Click="buyAllMarketButton_Click" BorderBrush="{x:Null}"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Label x:Name="labelGemsMarket" Content="10000" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="24,397,0,0" VerticalAlignment="Top" Width="65" Height="26"/>
+            <Button x:Name="sellGemsMarketButton" Content="{lex:Loc LocLabelSell_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="150,366,0,0" VerticalAlignment="Top" Width="58" Click="sellAllMarketButton_Click" BorderBrush="{x:Null}"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="10,380,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="10,406,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14"/>
+
+
+            <Image HorizontalAlignment="Left" Height="68" Margin="241,306,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
+            <Image HorizontalAlignment="Left" Height="58" Margin="247,310,0,0" VerticalAlignment="Top" Width="54" Source="/LandConquest;component/Pictures/leather.png"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="310,310,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="310,306,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="labelLeatherPrice" Content="5" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="342,306,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="LeatherToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="24" Margin="310,334,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="241,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="241,402,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"/>
+            <Label x:Name="labelLeatherAmount" Content="0" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="255,374,0,0" VerticalAlignment="Top" Width="64"/>
+            <Button x:Name="buyLeatherMarketButton" Content="{lex:Loc LocLabelBuy_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="310,366,0,0" VerticalAlignment="Top" Width="58" Click="buyAllMarketButton_Click" BorderBrush="{x:Null}"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Label x:Name="labelLeatherMarket" Content="10000" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="255,397,0,0" VerticalAlignment="Top" Width="64" Height="29"/>
+            <Button x:Name="sellLeatherMarketButton" Content="{lex:Loc LocLabelSell_Content}" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="380,366,0,0" VerticalAlignment="Top" Width="58" Click="sellAllMarketButton_Click" BorderBrush="{x:Null}"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+            </Button>
+            <Image HorizontalAlignment="Left" Height="14" Margin="241,380,0,0" Source="/LandConquest;component/Pictures/resource_chest.png" VerticalAlignment="Top" Width="14"/>
+            <Image HorizontalAlignment="Left" Height="14" Margin="241,406,0,0" Source="/LandConquest;component/Pictures/boxes.png" VerticalAlignment="Top" Width="14" RenderTransformOrigin="1.107,0.536"/>
+
+            <Button Margin="773,0,0,0" VerticalAlignment="Top" Width="20" Height="20" Click="Button_Click" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+
+
+
+
+            <lvc:CartesianChart x:Name="graphics" Series="{Binding SeriesCollection}" LegendLocation="Left" Margin="443,287,0,0" >
+
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Labels="{Binding Labels}"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="{lex:Loc LocLabelPrice_Content}" Foreground="#311818" FontSize="18" FontWeight="SemiBold" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+
+            </lvc:CartesianChart>
+
+            <Image HorizontalAlignment="Left" Source="/Pictures/Food.png" Height="26" Margin="573,418,0,0" VerticalAlignment="Top" Width="25"/>
+            <Image HorizontalAlignment="Left" Source="/Pictures/Stones.png" Height="26" Margin="629,418,0,-0.8" VerticalAlignment="Top" Width="26"/>
+            <Image HorizontalAlignment="Left" Source="/Pictures/Wood.png" Height="26" Margin="600,418,0,0" VerticalAlignment="Top" Width="26"/>
+            <Image HorizontalAlignment="Left" Source="/Pictures/Iron.png" Height="26" Margin="658,418,0,0" VerticalAlignment="Top" Width="24"/>
+            <Image HorizontalAlignment="Left" Source="/Pictures/Gold_ore.png" Height="26" Margin="687,418,0,0" VerticalAlignment="Top" Width="25" />
+            <Image HorizontalAlignment="Left" Source="/Pictures/Copper.png" Height="26" Margin="716,418,0,0" VerticalAlignment="Top" Width="25"/>
+            <Image HorizontalAlignment="Left" Source="/Pictures/Gems.png" Height="26" Margin="741,418,0,0" VerticalAlignment="Top" Width="25"/>
+            <Image HorizontalAlignment="Left" Source="/Pictures/Leather.png" Height="22" Margin="768,418,0,0" VerticalAlignment="Top" Width="26"/>
+
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="4,18,0,296" Stroke="#311818" Width="208" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="235,18,0,296" Stroke="#311818" Width="208" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="466,18,0,296" Stroke="#311818" Width="208" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="466,157,0,157" Stroke="#311818" Width="208" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="235,157,0,157" Stroke="#311818" Width="208" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="4,157,0,157" Stroke="#311818" Width="208" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="4,296,0,18" Stroke="#311818" Width="208" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="235,296,0,18" Stroke="#311818" Width="208" StrokeThickness="3" />
+
+
+
+
+        </Grid>
+    </Border>
+
 </Window>

@@ -1,58 +1,49 @@
-﻿using LandConquest.Entities;
-using LandConquest.Models;
-using System.Data.SqlClient;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace LandConquest.DialogWIndows
 {
+    /// <summary>
+    /// Логика взаимодействия для PaymentDialog.xaml
+    /// </summary>
     public partial class PaymentDialog : Window
     {
-        Player player;
-        public double moneyAmount;
-        public int gameCurrencyAmount;
-        BalanceReplenishmentDialog dialog;
-        SqlConnection connection;
-
-        public PaymentDialog(SqlConnection _connection, double _moneyAmount, int _gameCurrencyAmount, Player _player, BalanceReplenishmentDialog _dialog)
+        private int goldAmount;
+        public PaymentDialog(int _goldAmount)
         {
-            moneyAmount = _moneyAmount;
-            gameCurrencyAmount = _gameCurrencyAmount;
-            dialog = _dialog;
-            player = _player;
-            connection = _connection;
             InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            moneyAmountLabel.Text = "$" + moneyAmount;
-            paymentResult.Text = "";
-        }
-
-        private void buttonBack_Click(object sender, RoutedEventArgs e)
-        {
-            dialog.Show();
-            this.Close();
-        }
-
-        private void payButton_Click(object sender, RoutedEventArgs e)
-        {
-            player.PlayerDonation = player.PlayerDonation + gameCurrencyAmount;
-            PlayerModel playerModel = new PlayerModel();
-            var result = playerModel.UpdatePlayerDonationMoney(player, connection);
-            if (result != null)
-            {
-                paymentResult.Text = "Payment successfull!";
-            } 
-            else
-            {
-                paymentResult.Text = "Something went wrong(";
-            }
+            goldAmount = _goldAmount;
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            moneyAmountLabel.Text = (goldAmount / 100).ToString();
+        }
+
+        private void PayButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -1,7 +1,6 @@
-﻿using LandConquest.Entities;
-using LandConquest.Models;
+﻿using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
-using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
@@ -9,80 +8,140 @@ namespace LandConquest.DialogWIndows
 {
     public partial class ManufactureUpgradeDialog : Window
     {
-        SqlConnection connection;
-        Player player;
-        PlayerStorage storage;
-        Manufacture manufacture;
-        PlayerStorage resourcesNeed;
-        ManufactureModel model;
-        StorageModel storageModel;
-        public ManufactureUpgradeDialog(SqlConnection _connection ,PlayerStorage _storage, Manufacture _manufacture, Player _player)
+        private enum Level : int
+        {
+            Wood = 225,
+            Stone = 250,
+            Iron = 155,
+            Copper = 50,
+            Money = 100,
+            GoldOre = 10
+        }
+
+        private Player player;
+        private PlayerStorage storage;
+        private Manufacture manufacture;
+        private PlayerStorage resourcesNeed;
+        private StorageModel storageModel;
+        public ManufactureUpgradeDialog(PlayerStorage _storage, Manufacture _manufacture, Player _player)
         {
             InitializeComponent();
             storage = _storage;
             player = _player;
-            connection = _connection;
             manufacture = _manufacture;
             Loaded += Window_Loaded;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            model = new ManufactureModel();
             storageModel = new StorageModel();
+            manufacture = ManufactureModel.GetManufactureById(manufacture);
 
-            switch (manufacture.ManufactureType)
-            {
-                case 1:
-                    manufacture_image.Source = new BitmapImage(new Uri("/Pictures/sawmill.png", UriKind.Relative));
-                    break;
-                case 2:
-                    manufacture_image.Source = new BitmapImage(new Uri("/Pictures/quarry.png", UriKind.Relative));
-                    break;
-                case 3:
-                    manufacture_image.Source = new BitmapImage(new Uri("/Pictures/windmill.png", UriKind.Relative));
-                    break;
-            }
+            //switch (manufacture.ManufactureType)
+            //{
+            //    case 1:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/sawmill.png", UriKind.Relative));
+            //        break;
+            //    case 2:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/blacksmith.png", UriKind.Relative));
+            //        break;
+            //    case 3:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/farm.png", UriKind.Relative));
+            //        break;
+            //    case 4:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/copper_quarry.png", UriKind.Relative));
+            //        break;
+            //    case 5:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/iron_quarry.png", UriKind.Relative));
+            //        break;
+            //    case 6:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/gold_ore.png", UriKind.Relative));
+            //        break;
+            //    case 7:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/gems.png", UriKind.Relative));
+            //        break;
+            //    case 8:
+            //        manufacture_image.Source = new BitmapImage(new Uri("/Pictures/leather.png", UriKind.Relative));
+            //        break;
+            //}
+            manufacture_image.Source = new BitmapImage(new Uri("/Pictures/Buildings/UpgradeHouse.png", UriKind.Relative));
 
             WoodHave.Content = storage.PlayerWood;
             StoneHave.Content = storage.PlayerStone;
-            resourcesNeed = model.GetInfoAboutResourcesForUpdate(connection, manufacture);
+            IronHave.Content = storage.PlayerIron;
+            CopperHave.Content = storage.PlayerCopper;
+            GoldHave.Content = storage.PlayerGoldOre;
+
+            resourcesNeed = new PlayerStorage();
+            resourcesNeed.PlayerWood = Convert.ToInt32(((int)Level.Wood) * Math.Pow(1.25, manufacture.ManufactureLevel));
+            resourcesNeed.PlayerStone = Convert.ToInt32(((int)Level.Stone) * Math.Pow(1.25, manufacture.ManufactureLevel));
+            resourcesNeed.PlayerIron = Convert.ToInt32(((int)Level.Iron) * Math.Pow(1.25, manufacture.ManufactureLevel));
+            resourcesNeed.PlayerGoldOre = Convert.ToInt32(((int)Level.GoldOre) * Math.Pow(1.25, manufacture.ManufactureLevel));
+            resourcesNeed.PlayerCopper = Convert.ToInt32(((int)Level.Copper) * Math.Pow(1.25, manufacture.ManufactureLevel));
+
+
 
             WoodNeed.Content = resourcesNeed.PlayerWood;
             StoneNeed.Content = resourcesNeed.PlayerStone;
+            IronNeed.Content = resourcesNeed.PlayerIron;
+            GoldNeed.Content = resourcesNeed.PlayerGoldOre;
+            CopperNeed.Content = resourcesNeed.PlayerCopper;
+
+
 
             ManufactureLvl.Content = manufacture.ManufactureLevel;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void BtnUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            if (storage.PlayerWood >= resourcesNeed.PlayerWood && storage.PlayerStone >= resourcesNeed.PlayerStone)
+            if (storage.PlayerWood >= resourcesNeed.PlayerWood && storage.PlayerStone >= resourcesNeed.PlayerStone && storage.PlayerIron >= resourcesNeed.PlayerIron && storage.PlayerGoldOre >= resourcesNeed.PlayerGoldOre && storage.PlayerCopper >= resourcesNeed.PlayerCopper)
             {
-                model.UpgradeManufacture(connection, manufacture);
+
+                ManufactureModel.UpgradeManufacture(manufacture);
                 storage.PlayerWood -= resourcesNeed.PlayerWood;
                 storage.PlayerStone -= resourcesNeed.PlayerStone;
+                storage.PlayerIron -= resourcesNeed.PlayerIron;
+                storage.PlayerGoldOre -= resourcesNeed.PlayerGoldOre;
+                storage.PlayerCopper -= resourcesNeed.PlayerCopper;
 
-                storageModel.UpdateStorage(connection, player, storage);
-                storage = storageModel.GetPlayerStorage(player, connection, storage);
-                //this.Hide();
-                //this.Show();
-                // output
+
+
+                StorageModel.UpdateStorage(player, storage);
+                storage = StorageModel.GetPlayerStorage(player);
+
                 WoodHave.Content = storage.PlayerWood;
                 StoneHave.Content = storage.PlayerStone;
-                resourcesNeed = model.GetInfoAboutResourcesForUpdate(connection, manufacture);
+                IronHave.Content = storage.PlayerIron;
+                GoldHave.Content = storage.PlayerGoldOre;
+                CopperHave.Content = storage.PlayerCopper;
+
+
+                resourcesNeed.PlayerWood = Convert.ToInt32(((int)Level.Wood) * Math.Pow(1.25, manufacture.ManufactureLevel));
+                resourcesNeed.PlayerStone = Convert.ToInt32(((int)Level.Stone) * Math.Pow(1.25, manufacture.ManufactureLevel));
+                resourcesNeed.PlayerIron = Convert.ToInt32(((int)Level.Iron) * Math.Pow(1.25, manufacture.ManufactureLevel));
+                resourcesNeed.PlayerGoldOre = Convert.ToInt32(((int)Level.GoldOre) * Math.Pow(1.25, manufacture.ManufactureLevel));
+                resourcesNeed.PlayerCopper = Convert.ToInt32(((int)Level.Copper) * Math.Pow(1.25, manufacture.ManufactureLevel));
 
                 WoodNeed.Content = resourcesNeed.PlayerWood;
                 StoneNeed.Content = resourcesNeed.PlayerStone;
+                IronNeed.Content = resourcesNeed.PlayerIron;
+                GoldNeed.Content = resourcesNeed.PlayerGoldOre;
+                CopperNeed.Content = resourcesNeed.PlayerCopper;
 
-                manufacture = model.GetManufactureById(manufacture, connection);
+                manufacture = ManufactureModel.GetManufactureById(manufacture);
 
                 ManufactureLvl.Content = manufacture.ManufactureLevel;
             }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
+            }
+            Window_Loaded(sender, e);
+        }
+
+        private void buttonClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

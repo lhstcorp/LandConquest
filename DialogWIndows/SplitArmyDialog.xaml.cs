@@ -1,7 +1,8 @@
-﻿using LandConquest.Entities;
-using LandConquest.Models;
+﻿using LandConquest.Forms;
+using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
-using System.Data.SqlClient;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Windows;
@@ -12,15 +13,12 @@ namespace LandConquest.DialogWIndows
 {
     public partial class SplitArmyDialog : Window
     {
-        ArmyInBattle armyInBattle;
-        SqlConnection connection;
-        BattleModel battleModel;
-        War war;
-        int typeOfNewArmy;
-        int typeOfOldArmy;
-        public SplitArmyDialog(SqlConnection _connection, ArmyInBattle _armyInBattle, War _war)
+        private ArmyInBattle armyInBattle;
+        private War war;
+        private int typeOfNewArmy;
+        private int typeOfOldArmy;
+        public SplitArmyDialog(ArmyInBattle _armyInBattle, War _war)
         {
-            connection = _connection;
             armyInBattle = _armyInBattle;
             war = _war;
             InitializeComponent();
@@ -204,8 +202,6 @@ namespace LandConquest.DialogWIndows
 
         private void btnSplitArmy_Click(object sender, RoutedEventArgs e)
         {
-            battleModel = new BattleModel();
-
             if ((Convert.ToInt32(armySizeNow.Content) != 0) && (Convert.ToInt32(armySizeWas.Content) != 0))
             {
                 ArmyInBattle newArmyInBattle = new ArmyInBattle();
@@ -219,9 +215,15 @@ namespace LandConquest.DialogWIndows
                 newArmyInBattle.PlayerId = armyInBattle.PlayerId;
                 newArmyInBattle.ArmySide = armyInBattle.ArmySide;
                 newArmyInBattle.ArmyType = typeOfNewArmy;
-                //Console.WriteLine("typeOfNewArmy = " + typeOfNewArmy);
+                newArmyInBattle.CanMove = armyInBattle.CanMove;
 
-                battleModel.InsertArmyIntoBattleTable(connection, newArmyInBattle, war);
+
+                BattleModel.InsertArmyIntoBattleTable(newArmyInBattle, war);
+
+                List<ArmyInBattle> playerArmies = WarWindow.GetPlayerArmies();
+                playerArmies.Add(newArmyInBattle);
+                WarWindow.SetPlayerArmies(playerArmies);
+
             }
 
             if (Convert.ToInt32(armySizeWas.Content) != 0 && (Convert.ToInt32(armySizeNow.Content) != 0))
@@ -234,7 +236,7 @@ namespace LandConquest.DialogWIndows
                 armyInBattle.ArmySiegegunCount = Convert.ToInt32(siegeCountWas.Content);
                 armyInBattle.ArmyType = typeOfOldArmy;
 
-                battleModel.UpdateArmyInBattle(connection, armyInBattle);
+                BattleModel.UpdateArmyInBattle(armyInBattle);
             }
 
             this.Close();

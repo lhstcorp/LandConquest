@@ -4,107 +4,129 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="ru"
+        lex:LocalizeDictionary.IncludeInvariantCulture="False"
+        lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources"  
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize" BorderThickness="0" 
-        Title="ManufactureWindow" Height="550" Width="965" AllowsTransparency="True"
+        Title="ManufactureWindow" Height="517.2" Width="850" AllowsTransparency="True"
         ShowInTaskbar="False" Background="{x:Null}" Foreground="{x:Null}" SnapsToDevicePixels="True">
-    <Grid Height="550" VerticalAlignment="Top" HorizontalAlignment="Left" Width="962">
-        <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/panel_horizontal1.png" Stretch="Fill" />
-        </Grid.Background>
-        <Image HorizontalAlignment="Left" Height="150" Margin="72,38,0,0" VerticalAlignment="Top" Width="116" Source="/Pictures/sawmill.png"/>
-        <Image HorizontalAlignment="Left" Height="153" Margin="339,35,0,0" VerticalAlignment="Top" Width="98" Source="/Pictures/quarry.png"/>
-        <Label Content="Sawmill" Foreground="SaddleBrown" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="197,35,0,0" VerticalAlignment="Top" Height="38" Width="104"/>
-        <Label Content="Quarry" Foreground="#696969" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="450,35,0,0" VerticalAlignment="Top" Height="43" Width="93"/>
-        <Label Foreground="#696969" FontSize="18" FontWeight="Bold" Content="lvl:" HorizontalAlignment="Left" Margin="450,74,0,0" VerticalAlignment="Top" Height="30" Width="35"/>
-        <Image HorizontalAlignment="Left" Height="150" Margin="601,38,0,0" VerticalAlignment="Top" Width="84" Source="/Pictures/windmill.png"/>
-        <Label Content="Windmill" Foreground="Brown" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="706,38,0,0" VerticalAlignment="Top" Height="39" Width="127"/>
-        <Button x:Name="BtnStartProduction"  Content="Start production" HorizontalAlignment="Left" FontWeight="DemiBold" FontSize="20" Margin="427,455,0,0" VerticalAlignment="Top" Width="226" Height="52" Click="BtnStartProduction_Click" BorderBrush="{x:Null}" Foreground="#FFBC9D0C">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <Label  Content="Unemployed peasants:" HorizontalAlignment="Left" Margin="93,445,0,0" VerticalAlignment="Top" Height="27" Foreground="#FFBC9D0C"/>
-        <Label x:Name="unemployedPeasants" Foreground="ForestGreen" FontSize="14" FontWeight="SemiBold" Content="0" HorizontalAlignment="Left" Margin="262,446,0,0" VerticalAlignment="Top" Width="53"/>
-        <Label  Content="Total peasants:" HorizontalAlignment="Left" Margin="93,480,0,0" VerticalAlignment="Top" Height="27" Foreground="#FFBC9D0C"/>
-        <Label x:Name="totalPeasants" Foreground="#FFBC9D0C" FontSize="14" FontWeight="SemiBold" Content="0" HorizontalAlignment="Left" Margin="262,481,0,0" VerticalAlignment="Top" Width="53"/>
-        <Label  Content="Employed Peasants:" HorizontalAlignment="Left" Margin="93,413,0,0" VerticalAlignment="Top" Height="27" Foreground="#FFBC9D0C"/>
-        <Label x:Name="employedPeasants" Foreground="DarkRed" FontSize="14" FontWeight="SemiBold" Content="0" HorizontalAlignment="Left" Margin="262,411,0,0" VerticalAlignment="Top" Width="53"/>
-        <Image HorizontalAlignment="Left" Height="30" Margin="225,407,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/peasant.png"/>
-        <Image HorizontalAlignment="Left" Height="30" Margin="225,442,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/Peasant2.png"/>
-        <Image HorizontalAlignment="Left" Height="30" Margin="225,477,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/peasants_total.png"/>
-        <Label x:Name="Quarrylvl" Foreground="#696969" FontSize="18" FontWeight="Bold" Content="1" HorizontalAlignment="Left" Margin="482,74,0,0" VerticalAlignment="Top" Height="30" Width="22"/>
-        <ProgressBar x:Name="PbQuarry" HorizontalAlignment="Left" Height="16" Margin="450,111,0,0" VerticalAlignment="Top" Width="115" Minimum="0" Maximum="0" Background="#FF9DDBA9" BorderBrush="#FF9DDBA4" Foreground="#696969"/>
-        <Label Content="{Binding ElementName=PbQuarry, Path=Value, StringFormat={}{0:0}}" HorizontalAlignment="Left" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="487,109,0,0"  Foreground="White" FontFamily="Open Sans" Height="20" Width="43"/>
-        <Label Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="lvl:" HorizontalAlignment="Left" Margin="193,72,0,0" VerticalAlignment="Top" Height="30" Width="46"/>
-        <Label x:Name="Sawmilllvl" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="1" HorizontalAlignment="Left" Margin="230,72,0,0" VerticalAlignment="Top" Height="30" Width="22"/>
-        <ProgressBar x:Name="PbSawmill" Foreground="SaddleBrown" HorizontalAlignment="Left" Height="16" Margin="197,111,0,0" VerticalAlignment="Top" Width="116" Minimum="0" Maximum="0"/>
-        <Label Foreground="Brown" FontSize="18" FontWeight="Bold" Content="lvl:" HorizontalAlignment="Left" Margin="706,72,0,0" VerticalAlignment="Top" Height="30" Width="35"/>
-        <Label x:Name="Windmilllvl" Foreground="Brown" FontSize="18" FontWeight="Bold" Content="1" HorizontalAlignment="Left" Margin="733,72,0,0" VerticalAlignment="Top" Height="30" Width="21"/>
-        <ProgressBar x:Name="PbWindmill" Foreground="Brown" HorizontalAlignment="Left" Height="16" Margin="709,111,0,0" VerticalAlignment="Top" Width="110" Minimum="0" Maximum="0"/>
-        <Slider x:Name="sliderQuarry" Foreground="#696969" Maximum="200" HorizontalAlignment="Left" Margin="450,132,0,0" VerticalAlignment="Top" Height="33" Width="115" ValueChanged="sliderQuarry_ValueChanged" PreviewMouseLeftButtonUp="sliderQuarry_PreviewMouseLeftButtonUp"/>
-        <Slider x:Name="sliderSawmill" Foreground="SaddleBrown" Maximum="200" HorizontalAlignment="Left" Margin="198,132,0,0" VerticalAlignment="Top" Height="16" Width="115" PreviewMouseLeftButtonUp="sliderSawmill_PreviewMouseLeftButtonUp" ValueChanged="sliderSawmill_ValueChanged"/>
-        <Slider x:Name="sliderWindmill" Foreground="Brown" Maximum="200" HorizontalAlignment="Left" Margin="709,132,0,0" VerticalAlignment="Top" Height="16" Width="110" PreviewMouseLeftButtonUp="sliderWindmill_PreviewMouseLeftButtonUp" ValueChanged="sliderWindmill_ValueChanged"/>
-        <Label Content="{Binding Value, ElementName=PbSawmill, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="233,109,0,0"  Foreground="White" FontFamily="Open Sans" Height="20" Width="43"/>
-        <Label Content="{Binding Value, ElementName=PbWindmill, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="743,109,0,0"  Foreground="White" FontFamily="Open Sans" Height="20" Width="41"/>
-        <Label Foreground="#696969" FontSize="18" FontWeight="Bold" Content="p/h:" HorizontalAlignment="Left" Margin="504,74,0,0" VerticalAlignment="Top" Height="30" Width="47"/>
-        <Label x:Name="QuarryProdValueHour" Foreground="#696969" FontSize="18" FontWeight="Bold" Content="0" HorizontalAlignment="Left" Margin="552,74,0,0" VerticalAlignment="Top" Height="30" Width="32"/>
-        <Label Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="p/h:" HorizontalAlignment="Left" Margin="252,72,0,0" VerticalAlignment="Top" Height="32" Width="45"/>
-        <Label x:Name="SawmillProdValueHour" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="0" HorizontalAlignment="Left" Margin="297,72,0,0" VerticalAlignment="Top" Height="32" Width="37"/>
-        <Label Foreground="Brown" FontSize="18" FontWeight="Bold" Content="p/h:" HorizontalAlignment="Left" Margin="754,72,0,0" VerticalAlignment="Top" Height="30" Width="41"/>
-        <Label x:Name="WindmillProdValueHour" Foreground="Brown" FontSize="18" FontWeight="Bold" Content="0" HorizontalAlignment="Left" Margin="795,72,0,0" VerticalAlignment="Top" Height="30" Width="38"/>
-        <Button x:Name="buttonQuarryUpgrade" Content="Upgrade" FontSize="12" HorizontalAlignment="Left" Margin="450,157,0,0" VerticalAlignment="Top" Width="115" Height="31" Click="buttonQuarryUpgrade_Click" BorderBrush="{x:Null}" Foreground="#FFBC9D0C">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="buttonSawmillUpgrade" Content="Upgrade" FontSize="12" HorizontalAlignment="Left" Margin="198,157,0,0" VerticalAlignment="Top" Width="115" Height="31" Click="buttonSawmillUpgrade_Click" BorderBrush="{x:Null}" Foreground="#FFBC9D0C">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="buttonWindmillUpgrade" Content="Upgrade" FontSize="12" HorizontalAlignment="Left" Margin="709,157,0,0" VerticalAlignment="Top" Width="110" Height="31" Click="buttonWindmillUpgrade_Click" BorderBrush="{x:Null}" Foreground="#FFBC9D0C">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="button_close" HorizontalAlignment="Left" Margin="859,19,0,0" VerticalAlignment="Top" Width="37" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Image HorizontalAlignment="Left" Height="141" Margin="85,252,0,0" VerticalAlignment="Top" Width="135" Source="/LandConquest;component/Pictures/sawmill.png"/>
-        <Label x:Name="buildingName1" Content="Namebuild1" Foreground="SaddleBrown" FontSize="28" FontWeight="Bold" HorizontalAlignment="Left" Margin="221,235,0,0" VerticalAlignment="Top" Height="43" Width="185"/>
-        <Label x:Name="buildinglvl1" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="lvl:" HorizontalAlignment="Left" Margin="221,277,0,0" VerticalAlignment="Top" Height="30" Width="46"/>
-        <Label x:Name="building1LvlAmount" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="1" HorizontalAlignment="Left" Margin="258,277,0,0" VerticalAlignment="Top" Height="30" Width="22"/>
-        <ProgressBar x:Name="PbBuilding1" Foreground="SaddleBrown" HorizontalAlignment="Left" Height="16" Margin="225,316,0,0" VerticalAlignment="Top" Width="116" Minimum="0" Maximum="0"/>
-        <Slider x:Name="sliderBuilding1" Foreground="SaddleBrown" Maximum="200" HorizontalAlignment="Left" Margin="226,337,0,0" VerticalAlignment="Top" Height="16" Width="115" PreviewMouseLeftButtonUp="sliderBuilding1_PreviewMouseLeftButtonUp" ValueChanged="sliderBuilding1_ValueChanged"/>
-        <Label Content="{Binding Value, ElementName=PbBuilding1, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="261,314,0,0"  Foreground="White" FontFamily="Open Sans" Height="20" Width="43"/>
-        <Label x:Name="buildingph1" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="p/h:" HorizontalAlignment="Left" Margin="280,277,0,0" VerticalAlignment="Top" Height="32" Width="45"/>
-        <Label x:Name="building1ProdValueHour" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="0" HorizontalAlignment="Left" Margin="325,277,0,0" VerticalAlignment="Top" Height="32" Width="40"/>
-        <Button x:Name="buttonBuilding1Upgrade" Content="Upgrade" FontSize="12" HorizontalAlignment="Left" Margin="226,362,0,0" VerticalAlignment="Top" Width="115" Height="31" Click="buttonSawmillUpgrade_Click" Foreground="#FFBC9D0C" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <Image HorizontalAlignment="Left" Height="141" Margin="427,248,0,0" VerticalAlignment="Top" Width="138" Source="/LandConquest;component/Pictures/sawmill.png"/>
-        <Label x:Name="buildingName2" Content="Namebuild2" Foreground="SaddleBrown" FontSize="28" FontWeight="Bold" HorizontalAlignment="Left" Margin="575,235,0,0" VerticalAlignment="Top" Height="43" Width="185"/>
-        <Label x:Name="buildinglvl2" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="lvl:" HorizontalAlignment="Left" Margin="575,277,0,0" VerticalAlignment="Top" Height="30" Width="46"/>
-        <Label x:Name="building2lvlAmount" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="1" HorizontalAlignment="Left" Margin="612,277,0,0" VerticalAlignment="Top" Height="30" Width="22"/>
-        <ProgressBar x:Name="PbBuilding2" Foreground="SaddleBrown" HorizontalAlignment="Left" Height="16" Margin="579,316,0,0" VerticalAlignment="Top" Width="116" Minimum="0" Maximum="0"/>
-        <Slider x:Name="sliderBuilding2" Foreground="SaddleBrown" Maximum="200" HorizontalAlignment="Left" Margin="580,337,0,0" VerticalAlignment="Top" Height="16" Width="115" PreviewMouseLeftButtonUp="sliderBuilding2_PreviewMouseLeftButtonUp" ValueChanged="sliderBuilding2_ValueChanged"/>
-        <Label Content="{Binding Value, ElementName=PbBuilding2, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="615,314,0,0"  Foreground="White" FontFamily="Open Sans" Height="20" Width="43"/>
-        <Label x:Name="buildingph2" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="p/h:" HorizontalAlignment="Left" Margin="634,277,0,0" VerticalAlignment="Top" Height="32" Width="45"/>
-        <Label x:Name="building2ProdValueHour" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="0" HorizontalAlignment="Left" Margin="679,277,0,0" VerticalAlignment="Top" Height="32" Width="40"/>
-        <Button x:Name="buttonBuilding2Upgrade" Content="Upgrade" FontSize="12" HorizontalAlignment="Left" Margin="580,362,0,0" VerticalAlignment="Top" Width="115" Height="31" Click="buttonSawmillUpgrade_Click" Foreground="#FFBC9D0C" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-            </Button.Background>
-        </Button>
-        <Label Content="Working now:" HorizontalAlignment="Left" Height="23" Margin="93,366,0,0" VerticalAlignment="Top" Width="85" Foreground="#FFBC9D0C"/>
-        <Label x:Name="WorkingNowB1" Content="0" FontSize="8"  HorizontalAlignment="Left" Margin="184,371,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.433,2.022" Width="42" Foreground="#FFBC9D0C" Background="{x:Null}"/>
-        <Label Content="Working now:" HorizontalAlignment="Left" Height="23" Margin="427,366,0,0" VerticalAlignment="Top" Width="86" Background="{x:Null}" Foreground="#FFBC9D0C"/>
-        <Label x:Name="WorkingNowB2" Content="0" FontSize="8"  HorizontalAlignment="Left" Margin="514,370,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.433,2.022" Width="43" Foreground="#FFBC9D0C"/>
 
-    </Grid>
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
+        <Grid Height="Auto" HorizontalAlignment="Left" Width="843" Margin="-0.2,-0.2,0,-0.4">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="Fill" />
+            </Grid.Background>
+            <Image HorizontalAlignment="Left" Height="100" Margin="24,38,0,0" VerticalAlignment="Top" Width="100" Source="/Pictures/Buildings/Sawmill.png"/>
+
+            <Image HorizontalAlignment="Left" Height="100" Margin="297,40,0,0" VerticalAlignment="Top" Width="100" Source="/Pictures/Buildings/Quarry.png"/>
+
+            <Label Content="{lex:Loc LocLabelSawmill_Text}" Foreground="SaddleBrown" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="127,30,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Top" Height="38" Width="121" FontFamily="Courier New"/>
+            <Label Content="{lex:Loc LocLabelQuarry_Text}" Foreground="#696969" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="402,30,0,0" VerticalAlignment="Top" Height="33" Width="114" FontFamily="Courier New"/>
+            <Label Foreground="#696969" FontSize="18" FontWeight="Bold" Content="{lex:Loc LocLabelLevel_Content}" HorizontalAlignment="Left" Margin="401,61,0,0" VerticalAlignment="Top" Height="30" Width="35"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="564,39,0,372" VerticalAlignment="Center" Width="100" Source="/Pictures/Buildings/Farm.png"/>
+            <Label Content="{lex:Loc LocLabelFarm_Text}" HorizontalContentAlignment="Left" Foreground="Brown" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="670,31,0,0" VerticalAlignment="Top" Height="31" Width="110" FontFamily="Courier New"/>
+            <Button x:Name="BtnStartProduction" VerticalContentAlignment="Center" Content="Start production" HorizontalAlignment="Left" FontWeight="DemiBold" FontSize="20" Margin="301,450,0,0" VerticalAlignment="Top" Width="207" Height="50" Click="BtnStartProduction_Click" BorderBrush="{x:Null}" Foreground="#FFE4CE9A" FontFamily="Sitka Display">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Label  Content="Unemployed peasants:" HorizontalAlignment="Left" Margin="50,434,0,0" VerticalAlignment="Top" Height="27" Foreground="#FF48291F"/>
+            <Label x:Name="unemployedPeasants" Foreground="ForestGreen" FontSize="14" FontWeight="SemiBold" Content="0" HorizontalAlignment="Left" Margin="219,435,0,0" VerticalAlignment="Top" Width="53"/>
+            <Label  Content="Total peasants:" HorizontalAlignment="Left" Margin="50,469,0,0" VerticalAlignment="Top" Height="27" Foreground="#FF48291F"/>
+            <Label x:Name="totalPeasants" Foreground="#FFBC9D0C" FontSize="14" FontWeight="SemiBold" Content="0" HorizontalAlignment="Left" Margin="219,470,0,0" VerticalAlignment="Top" Width="53"/>
+            <Label  Content="Employed Peasants:" HorizontalAlignment="Left" Margin="50,402,0,0" VerticalAlignment="Top" Height="27" Foreground="#FF48291F"/>
+            <Label x:Name="employedPeasants" Foreground="DarkRed" FontSize="14" FontWeight="SemiBold" Content="0" HorizontalAlignment="Left" Margin="219,400,0,0" VerticalAlignment="Top" Width="53"/>
+            <Image HorizontalAlignment="Left" Height="30" Margin="182,396,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/peasant.png"/>
+            <Image HorizontalAlignment="Left" Height="30" Margin="182,431,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/Peasant2.png"/>
+            <Image HorizontalAlignment="Left" Height="30" Margin="182,466,0,0" VerticalAlignment="Top" Width="30" Source="/Pictures/peasants_total.png"/>
+            <Label x:Name="Quarrylvl" Foreground="#696969" FontSize="18" FontWeight="Bold" Content="1" HorizontalAlignment="Left" Margin="428,61,0,0" VerticalAlignment="Top" Height="30" Width="32"/>
+            <ProgressBar x:Name="PbQuarry" HorizontalAlignment="Left" Height="16" Margin="401,100,0,0" VerticalAlignment="Top" Width="115" Minimum="0" Maximum="0" Background="#FF9DDBA9" BorderBrush="#FF9DDBA4" Foreground="#696969"/>
+            <Label Content="{Binding ElementName=PbQuarry, Path=Value, StringFormat={}{0:0}}" HorizontalAlignment="Left" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="438,98,0,0"  Foreground="White" FontFamily="Open Sans" Height="20" Width="43"/>
+            <Label Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="{lex:Loc LocLabelLevel_Content}" HorizontalAlignment="Left" Margin="124,61,0,0" VerticalAlignment="Top" Height="30" Width="46"/>
+            <Label x:Name="Sawmilllvl" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="1" HorizontalAlignment="Left" Margin="152,61,0,0" VerticalAlignment="Top" Height="30" Width="37"/>
+            <ProgressBar x:Name="PbSawmill" Foreground="SaddleBrown" HorizontalAlignment="Left" Height="16" Margin="128,100,0,0" VerticalAlignment="Top" Width="116" Minimum="0" Maximum="0"/>
+            <Label Foreground="Brown" FontSize="18" FontWeight="Bold" Content="{lex:Loc LocLabelLevel_Content}" HorizontalAlignment="Left" Margin="667,61,0,0" VerticalAlignment="Top" Height="30" Width="35"/>
+            <Label x:Name="Windmilllvl" Foreground="Brown" FontSize="18" FontWeight="Bold" Content="1" HorizontalAlignment="Left" Margin="694,61,0,0" VerticalAlignment="Top" Height="30" Width="37"/>
+            <ProgressBar x:Name="PbWindmill" Foreground="Brown" HorizontalAlignment="Left" Height="16" Margin="670,100,0,0" VerticalAlignment="Top" Width="110" Minimum="0" Maximum="0"/>
+            <Slider x:Name="sliderQuarry" Foreground="#696969" Maximum="200" HorizontalAlignment="Left" Margin="401,121,0,0" VerticalAlignment="Top" Height="33" Width="115" ValueChanged="sliderQuarry_ValueChanged" PreviewMouseLeftButtonUp="sliderQuarry_PreviewMouseLeftButtonUp"/>
+            <Slider x:Name="sliderSawmill" Foreground="SaddleBrown" Maximum="200" HorizontalAlignment="Left" Margin="129,121,0,0" VerticalAlignment="Top" Height="16" Width="115" PreviewMouseLeftButtonUp="sliderSawmill_PreviewMouseLeftButtonUp" ValueChanged="sliderSawmill_ValueChanged"/>
+            <Slider x:Name="sliderWindmill" Foreground="Brown" Maximum="200" HorizontalAlignment="Left" Margin="670,121,0,0" VerticalAlignment="Top" Height="16" Width="110" PreviewMouseLeftButtonUp="sliderWindmill_PreviewMouseLeftButtonUp" ValueChanged="sliderWindmill_ValueChanged"/>
+            <Label Content="{Binding Value, ElementName=PbSawmill, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="164,98,0,0"  Foreground="White" FontFamily="Open Sans" Height="20" Width="43"/>
+            <Label Content="{Binding Value, ElementName=PbWindmill, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="704,98,0,0"  Foreground="White" FontFamily="Open Sans" Height="20" Width="41"/>
+            <Label Foreground="#696969" FontSize="18" FontWeight="Bold" Content="{lex:Loc LocLabelPerHour_Text}" HorizontalAlignment="Left" Margin="450,61,0,0" VerticalAlignment="Top" Height="34" Width="47"/>
+            <Label x:Name="QuarryProdValueHour" Foreground="#696969" FontSize="18" FontWeight="Bold" Content="0" HorizontalAlignment="Left" Margin="489,61,0,0" VerticalAlignment="Top" Height="30" Width="46"/>
+            <Label Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="{lex:Loc LocLabelPerHour_Text}" HorizontalAlignment="Left" Margin="175,61,0,0" VerticalAlignment="Top" Height="34" Width="44"/>
+            <Label x:Name="SawmillProdValueHour" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="0" HorizontalAlignment="Left" Margin="213,61,0,0" VerticalAlignment="Top" Height="32" Width="58"/>
+            <Label Foreground="Brown" FontSize="18" FontWeight="Bold" Content="{lex:Loc LocLabelPerHour_Text}" HorizontalAlignment="Left" Margin="717,61,0,0" VerticalAlignment="Top" Height="34" Width="49"/>
+            <Label x:Name="WindmillProdValueHour" Foreground="Brown" FontSize="18" FontWeight="Bold" Content="0" HorizontalAlignment="Left" Margin="756,61,0,0" VerticalAlignment="Top" Height="34" Width="62"/>
+            <Button x:Name="buttonQuarryUpgrade" Content="{lex:Loc LocLabelUpgrade_Text}" FontSize="12" HorizontalAlignment="Left" Margin="401,146,0,0" VerticalAlignment="Top" Width="115" Height="31" Click="buttonQuarryUpgrade_Click" BorderBrush="{x:Null}" Foreground="#FFE4CE9A" FontFamily="Sitka Display">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonSawmillUpgrade" Content="{lex:Loc LocLabelUpgrade_Text}"  FontSize="12" HorizontalAlignment="Left" Margin="129,146,0,0" VerticalAlignment="Top" Width="115" Height="31" Click="buttonSawmillUpgrade_Click" BorderBrush="{x:Null}" Foreground="#FFE4CE9A" FontFamily="Sitka Display">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonWindmillUpgrade" Content="{lex:Loc LocLabelUpgrade_Text}" FontSize="12" HorizontalAlignment="Left" Margin="670,146,0,0" VerticalAlignment="Top" Width="110" Height="31" Click="buttonWindmillUpgrade_Click" BorderBrush="{x:Null}" Foreground="#FFE4CE9A" FontFamily="Sitka Display">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="button_close" Margin="823,0,0,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click" HorizontalAlignment="Left" Width="20" RenderTransformOrigin="0.95,0.65">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+
+            <Image x:Name="FirstManufactureImage" HorizontalAlignment="Left" Height="100" Margin="24,226,0,0" VerticalAlignment="Top" Width="100" Source="/LandConquest;component/Pictures/Buildings/CopperMine.png"/>
+            <Label x:Name="buildingName1" Content="Namebuild1" Foreground="SaddleBrown" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="124,218,0,0" VerticalAlignment="Top" Height="33" Width="224" FontFamily="Courier New"/>
+            <Label x:Name="buildinglvl1" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="{lex:Loc LocLabelLevel_Content}" HorizontalAlignment="Left" Margin="124,250,0,0" VerticalAlignment="Top" Height="30" Width="46"/>
+            <Label x:Name="building1LvlAmount" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="1" HorizontalAlignment="Left" Margin="150,250,0,0" VerticalAlignment="Top" Height="30" Width="40"/>
+            <ProgressBar x:Name="PbBuilding1" Foreground="SaddleBrown" HorizontalAlignment="Left" Height="16" Margin="128,289,0,0" VerticalAlignment="Top" Width="116" Minimum="0" Maximum="0"/>
+            <Slider x:Name="sliderBuilding1" Foreground="SaddleBrown" Maximum="200" HorizontalAlignment="Left" Margin="129,310,0,0" VerticalAlignment="Top" Height="16" Width="115" PreviewMouseLeftButtonUp="sliderBuilding1_PreviewMouseLeftButtonUp" ValueChanged="sliderBuilding1_ValueChanged"/>
+            <Label Content="{Binding Value, ElementName=PbBuilding1, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="164,287,0,0"  Foreground="White" FontFamily="Open Sans" Height="20" Width="43"/>
+            <Label x:Name="buildingph1" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="{lex:Loc LocLabelPerHour_Text}" HorizontalAlignment="Left" Margin="176,250,0,0" VerticalAlignment="Top" Height="34" Width="44"/>
+            <Label x:Name="building1ProdValueHour" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="0" HorizontalAlignment="Left" Margin="220,250,0,0" VerticalAlignment="Top" Height="34" Width="64"/>
+            <Button x:Name="buttonBuilding1Upgrade" Content="{lex:Loc LocLabelUpgrade_Text}" FontSize="12" HorizontalAlignment="Left" Margin="129,335,0,0" VerticalAlignment="Top" Width="115" Height="31"  Foreground="#FFE4CE9A" BorderBrush="{x:Null}" Click="buttonBuilding1Upgrade_Click" FontFamily="Sitka Display">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Image x:Name="SecondManufactureImage" HorizontalAlignment="Left" Height="100" Margin="297,226,0,0" VerticalAlignment="Top" Width="100" Source="/LandConquest;component/Pictures/Buildings/Warehouse.png"/>
+            <Label x:Name="buildingName2" Content="Namebuild2" Foreground="SaddleBrown" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="394,218,0,0" VerticalAlignment="Top" Height="27" Width="247" FontFamily="Courier New"/>
+            <Label x:Name="buildinglvl2" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="{lex:Loc LocLabelLevel_Content}" HorizontalAlignment="Left" Margin="397,250,0,0" VerticalAlignment="Top" Height="30" Width="46"/>
+            <Label x:Name="building2lvlAmount" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="1" HorizontalAlignment="Left" Margin="425,250,0,0" VerticalAlignment="Top" Height="30" Width="48"/>
+            <ProgressBar x:Name="PbBuilding2" Foreground="SaddleBrown" HorizontalAlignment="Left" Height="16" Margin="401,289,0,0" VerticalAlignment="Top" Width="116" Minimum="0" Maximum="0"/>
+            <Slider x:Name="sliderBuilding2" Foreground="SaddleBrown" Maximum="200" HorizontalAlignment="Left" Margin="402,310,0,0" VerticalAlignment="Top" Height="16" Width="115" PreviewMouseLeftButtonUp="sliderBuilding2_PreviewMouseLeftButtonUp" ValueChanged="sliderBuilding2_ValueChanged"/>
+            <Label Content="{Binding Value, ElementName=PbBuilding2, StringFormat=\{0:0\}}" HorizontalAlignment="Left" FontSize="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="448,287,0,0"  Foreground="White" FontFamily="Open Sans" Height="20" Width="43"/>
+            <Label x:Name="buildingph2" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="{lex:Loc LocLabelPerHour_Text}" HorizontalAlignment="Left" Margin="453,250,0,0" VerticalAlignment="Top" Height="34" Width="46"/>
+            <Label x:Name="building2ProdValueHour" Foreground="SaddleBrown" FontSize="18" FontWeight="Bold" Content="0" HorizontalAlignment="Left" Margin="499,250,0,0" VerticalAlignment="Top" Height="32" Width="50"/>
+            <Button x:Name="buttonBuilding2Upgrade" Content="{lex:Loc LocLabelUpgrade_Text}" FontSize="12" HorizontalAlignment="Left" Margin="402,335,0,0" VerticalAlignment="Top" Width="115" Height="31"  Foreground="#FFE4CE9A" BorderBrush="{x:Null}" Click="buttonBuilding2Upgrade_Click" FontFamily="Sitka Display">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Label Content="Working now:" HorizontalAlignment="Left" Height="24" Margin="29,326,0,0" VerticalAlignment="Top" FontSize="10" Width="85" Foreground="#FF48291F"/>
+            <Label x:Name="WorkingNowB1" Content="0" FontSize="10"  HorizontalAlignment="Left" Margin="92,326,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.433,2.022" Width="42" Foreground="#FF48291F" Background="{x:Null}"/>
+            <Label Content="Working now:" HorizontalAlignment="Left" Height="24" FontSize="10" Margin="305,326,0,0" VerticalAlignment="Top" Width="86" Background="{x:Null}" Foreground="#FF48291F"/>
+            <Label x:Name="WorkingNowB2" Content="0" FontSize="10"  HorizontalAlignment="Left" Margin="367,326,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.433,2.022" Width="43" Foreground="#FF48291F"/>
+            <Label x:Name="labelProductionStarted" Content="date" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14" FontWeight="SemiBold"  Margin="688,462,0,0" VerticalAlignment="Top" Height="34" Width="116"/>
+            <Label x:Name="labelPS" Content="Production started on:" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" FontWeight="SemiBold"  Margin="529,462,0,0" VerticalAlignment="Top" Height="34" Width="169"/>
+
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Height="171" Margin="11,20,0,0" Stroke="#311818" VerticalAlignment="Top" Width="258" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Height="171" Margin="283,20,0,0" Stroke="#311818" VerticalAlignment="Top" Width="254" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Height="171" Margin="550,20,0,0" Stroke="#311818" VerticalAlignment="Top" Width="254" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Height="171" Margin="11,208,0,0" Stroke="#311818" VerticalAlignment="Top" Width="258" StrokeThickness="3" />
+            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Height="171" Margin="283,208,0,0" Stroke="#311818" VerticalAlignment="Top" Width="254" StrokeThickness="3" />
+
+
+
+        </Grid>
+    </Border>
 </Window>

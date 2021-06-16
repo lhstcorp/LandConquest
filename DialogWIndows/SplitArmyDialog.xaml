@@ -8,7 +8,9 @@
         Title="SplitArmyDialog" Height="250" Width="360"
         WindowStyle="None" ResizeMode="NoResize"
         ShowInTaskbar="False">
-    <Grid>
+    
+    <Border BorderBrush="#FF392018" BorderThickness="2" Height="250" Width="360">
+        <Grid>
         <Line X1="180" Y1="20" X2="180" Y2="230" Stroke="Black" StrokeThickness="1"></Line>
         <Image HorizontalAlignment="Left" Height="35" Margin="13,61,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/warrior.png"/>
         <Slider x:Name="sliderInfantryWas" HorizontalAlignment="Left" Margin="48,78,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderInfantryWas_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
@@ -16,11 +18,13 @@
         <Image HorizontalAlignment="Left" Height="35" Margin="190,61,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/warrior.png"/>
         <Slider x:Name="sliderInfantryNow" HorizontalAlignment="Left" Margin="225,78,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderInfantryNow_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
         <Label x:Name="infantryCountNow" Content="{Binding Value, ElementName=sliderInfantryNow, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="259,64,0,0" VerticalAlignment="Top" Width="63" />
-        <Button Content="Button" HorizontalAlignment="Left" Height="18" Margin="335,10,0,0" VerticalAlignment="Top" Width="18" Click="Button_Click" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            
+        <Button Height="20" Margin="337,0,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click" BorderBrush="{x:Null}" Foreground="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/button_close_cross_wood.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+            
         <Image HorizontalAlignment="Left" Height="35" Margin="13,98,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/archer.png"/>
         <Slider x:Name="sliderArchersWas" HorizontalAlignment="Left" Margin="48,115,0,0" VerticalAlignment="Top" Width="114" ValueChanged="sliderArchersWas_ValueChanged" PreviewMouseLeftButtonUp="CheckTypeAndReturnCount"/>
         <Label x:Name="archersCountWas" Content="{Binding Value, ElementName=sliderArchersWas, StringFormat=\{0:0\}}" HorizontalAlignment="Left" Margin="82,101,0,0" VerticalAlignment="Top" Width="63" />
@@ -45,10 +49,15 @@
         <Label x:Name="armySizeNow" FontSize="28" Content="0" HorizontalAlignment="Left" Margin="192,23,0,0" VerticalAlignment="Top" Width="62" Height="44"/>
         <Image x:Name="armyTypeWasImg" HorizontalAlignment="Left" Height="50" Margin="106,10,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/question.jpg" />
         <Image x:Name="armyTypeNowImg" HorizontalAlignment="Left" Height="50" Margin="272,10,0,0" VerticalAlignment="Top" Width="50" Source="/LandConquest;component/Pictures/question.jpg" />
-        <Button x:Name="btnSplitArmy" Content="detach" HorizontalAlignment="Left" Height="26" Margin="242,212,0,0" VerticalAlignment="Top" Width="80" Click="btnSplitArmy_Click"/>
+        <Button x:Name="btnSplitArmy" Content="Detach" Foreground="Wheat" HorizontalAlignment="Left" Height="26" Margin="242,212,0,0" VerticalAlignment="Top" Width="80" Click="btnSplitArmy_Click" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+            </Button.Background>
+        </Button>
 
         <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
     </Grid>
+        </Border>
 </Window>

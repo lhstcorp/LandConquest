@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\LandConquest\LandConquest\obj\Debug\
+C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\
 LandConquest
 none
 false
 DEBUG;TRACE
-D:\LandConquest\LandConquest\App.xaml
-242138656720
-3-2041200384
-641328090229
-133637416457
-DialogWIndows\BalanceReplenishmentDialog.xaml;DialogWIndows\CreateListingDialog.xaml;DialogWIndows\EstablishStateDialog.xaml;DialogWIndows\ManufactureBuyingDialog.xaml;DialogWIndows\ManufactureUpgradeDialog.xaml;DialogWIndows\PaymentDialog.xaml;DialogWIndows\SplitArmyDialog.xaml;Forms\AuctionWindow.xaml;Forms\AuthorisationWindow.xaml;Forms\ChatWindow.xaml;Forms\CountryWindow.xaml;Forms\MainWindow.xaml;Forms\ManufactureWindow.xaml;Forms\MarketWindow.xaml;Forms\PaymentWindow.xaml;Forms\ProfileWindow.xaml;Forms\RatingWindow.xaml;Forms\RecruitWindow.xaml;Forms\StorageWindow.xaml;Forms\WarResultWindow.xaml;Forms\WarWindow.xaml;Resources\GlobalMap.xaml;Resources\ResourceMap.xaml;StylesDictionary.xaml;
+C:\Users\green\Documents\GitHub\LandConquest\App.xaml
+35-1640785104
+1888964198
+45-2138561169
+143-128522378
+DialogWIndows\BuyListingDialog.xaml;DialogWIndows\CommonManufactureUpgrade.xaml;DialogWIndows\CreateListingDialog.xaml;DialogWIndows\EnterTextDialogWindow.xaml;DialogWIndows\EstablishStateDialog.xaml;DialogWIndows\ManufactureUpgradeDialog.xaml;DialogWIndows\MessageReceiverDialog.xaml;DialogWIndows\PaymentDialog.xaml;DialogWIndows\SendArmiesToHarrisonDialog.xaml;DialogWIndows\SplitArmyDialog.xaml;DialogWIndows\UserAgreementDialog.xaml;DialogWIndows\WarningDialogWindow.xaml;Forms\AuctionWindow.xaml;Forms\AuthorisationWindow.xaml;Forms\ChatWindow.xaml;Forms\CountryWindow.xaml;Forms\LandResourcesWindow.xaml;Forms\LandWindow.xaml;Forms\MailboxWindow.xaml;Forms\MessengerWindow.xaml;Forms\MainWindow.xaml;Forms\ManufactureWindow.xaml;Forms\MarketWindow.xaml;Forms\MembershipWindow.xaml;Forms\ProfileWindow.xaml;Forms\CastleManagementWindow.xaml;Forms\RatingWindow.xaml;Forms\RecruitWindow.xaml;Forms\StorageWindow.xaml;Forms\SubmitBugWindow.xaml;Forms\WarResultWindow.xaml;Forms\WarWindow.xaml;Resources\GlobalMap.xaml;Resources\ResourceMap.xaml;Resources\StylesDictionary.xaml;
 
 True
 
