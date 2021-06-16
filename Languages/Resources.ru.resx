@@ -123,6 +123,9 @@
   <data name="LocButtonChat_Content" xml:space="preserve">
     <value>Чат</value>
   </data>
+  <data name="LocButtonClaimed_Content" xml:space="preserve">
+    <value>Собрано</value>
+  </data>
   <data name="LocButtonClaim_Content" xml:space="preserve">
     <value>Собрать</value>
   </data>
@@ -237,6 +240,9 @@
   <data name="LocLabelInfantry_Text" xml:space="preserve">
     <value>Мечники</value>
   </data>
+  <data name="LocLabelIronFactory_Content" xml:space="preserve">
+    <value>Железный завод</value>
+  </data>
   <data name="LocLabelIron_Text" xml:space="preserve">
     <value>Железо</value>
   </data>
@@ -295,10 +301,10 @@
     <value>Получатель</value>
   </data>
   <data name="LocLabelRecruitMain_Content" xml:space="preserve">
-    <value>Найм \n войск</value>
+    <value>Найм</value>
   </data>
   <data name="LocLabelRegionMain_Content" xml:space="preserve">
-    <value>Регион</value>
+    <value>Земля</value>
   </data>
   <data name="LocLabelRegistration_Content" xml:space="preserve">
     <value>Регистрация</value>

@@ -14,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Collections;
+using System.Globalization;
+using WPFLocalizeExtension.Engine;
 
 namespace LandConquest.Forms
 {
@@ -70,6 +73,19 @@ namespace LandConquest.Forms
             PbExp.Value = player.PlayerExp;
             Level.Content = player.PlayerLvl;
             Console.WriteLine(player.PlayerExp);
+
+            CultureInfo newCulture;
+            if (LocalizeDictionary.Instance.Culture.Name.Contains("ru"))
+            {
+                newCulture = CultureInfo.GetCultureInfo("ru");
+            }
+            else
+            {
+                newCulture = CultureInfo.GetCultureInfo("en-US");
+            }
+
+            LocalizeDictionary.Instance.SetCurrentThreadCulture = true;
+            LocalizeDictionary.Instance.Culture = newCulture;
 
             if (player.PlayerId == user.UserId)
             {
@@ -1055,19 +1071,19 @@ namespace LandConquest.Forms
             {
                 DailyBonusModel.SetFirstDailyBonusTime(player);
                 DailyButton.IsEnabled = true;
-                DailyButton.Content = "Claim";
+                DailyButton.Content = $"{Languages.Resources.LocButtonClaim_Content}";
                 lblNextDaily.Content = "Avaible";
             }
             else if (nextDailyBonus <= DateTime.UtcNow)
             {
                 DailyButton.IsEnabled = true;
-                DailyButton.Content = "Claim";
+                DailyButton.Content = $"{Languages.Resources.LocButtonClaim_Content}";
                 lblNextDaily.Content = "Avaible";
             }
             else
             {
                 DailyButton.IsEnabled = false;
-                DailyButton.Content = "Claimed";
+                DailyButton.Content = $"{Languages.Resources.LocButtonClaimed_Content}";
                 lblNextDaily.Content = nextDailyBonus;
             }
         }
