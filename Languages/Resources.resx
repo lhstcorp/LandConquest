@@ -123,6 +123,9 @@
   <data name="LocButtonChat_Content" xml:space="preserve">
     <value>LocButtonChat_Content</value>
   </data>
+  <data name="LocButtonClaimed_Content" xml:space="preserve">
+    <value>LocButtonClaimed_Content</value>
+  </data>
   <data name="LocButtonClaim_Content" xml:space="preserve">
     <value>LocButtonClaim_Content</value>
   </data>
@@ -236,6 +239,9 @@
   </data>
   <data name="LocLabelInfantry_Text" xml:space="preserve">
     <value>LocLabelInfantry_Text</value>
+  </data>
+  <data name="LocLabelIronFactory_Content" xml:space="preserve">
+    <value>Iron factory</value>
   </data>
   <data name="LocLabelIron_Text" xml:space="preserve">
     <value>LocLabelIron_Text</value>

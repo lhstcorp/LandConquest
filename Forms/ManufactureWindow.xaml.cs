@@ -138,6 +138,7 @@ namespace LandConquest.Forms
                     break;
 
             }
+            
             //building 1
 
             buildingName1.Content = landManufactures[0].ManufactureName;

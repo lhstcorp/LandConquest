@@ -88,6 +88,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocButtonClaimed_Content.
+        /// </summary>
+        public static string LocButtonClaimed_Content {
+            get {
+                return ResourceManager.GetString("LocButtonClaimed_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocButtonMailbox_Content.
         /// </summary>
         public static string LocButtonMailbox_Content {
@@ -426,6 +435,15 @@ namespace LandConquest.Languages {
         public static string LocLabelIron_Text {
             get {
                 return ResourceManager.GetString("LocLabelIron_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Iron factory.
+        /// </summary>
+        public static string LocLabelIronFactory_Content {
+            get {
+                return ResourceManager.GetString("LocLabelIronFactory_Content", resourceCulture);
             }
         }
         
