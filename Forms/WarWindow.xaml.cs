@@ -735,7 +735,7 @@ namespace LandConquest.Forms
             warriorsKnightsRight.Content = rightSide.ArmyHorsemanCount;
             warriorsSiegeRight.Content = rightSide.ArmySiegegunCount;
 
-            warGrid.Visibility = Visibility.Visible;
+            battleGrid.Visibility = Visibility.Visible;
         }
 
         private void armyPageArrowLeft_Click(object sender, RoutedEventArgs e)
@@ -1394,7 +1394,6 @@ namespace LandConquest.Forms
                     gridForArmies.Children.RemoveAt(battles[i].LocalLandId);
                     gridForArmies.Children.Insert(battles[i].LocalLandId, siegeImage);
                 }
-
             }
         }
 
@@ -1415,13 +1414,17 @@ namespace LandConquest.Forms
                     gridForArmies.Children.RemoveAt(battles[i].LocalLandId);
                     gridForArmies.Children.Insert(battles[i].LocalLandId, siegeImage);
                 }
-
             }
         }
 
         private void CreateGlobals()
         {
             battles = new List<Battle>();
+        }
+
+        private void battleGridBtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            battleGrid.Visibility = Visibility.Hidden;
         }
     }
 }
