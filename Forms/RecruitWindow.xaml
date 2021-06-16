@@ -19,7 +19,7 @@
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
             <Image Height="110" Margin="16,12,535,0" VerticalAlignment="Top" Source="/LandConquest;component/Pictures/Icons/Army/IconPeasant.png" />
-            <Label Content="Peasants     1C" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="28,122,0,0" VerticalAlignment="Top" Height="24" Width="91"/>
+            <Label Content="{lex:Loc LocLabelPeasants_Text}" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="28,122,0,0" VerticalAlignment="Top" Height="24" Width="91"/>
             <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10"  FontWeight="SemiBold" HorizontalAlignment="Left" Foreground="#311818" Margin="23,144,0,0" VerticalAlignment="Top"/>
             <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Left" Foreground="#311818" Margin="75,144,0,0" VerticalAlignment="Top"/>
             <Label x:Name="TotalRecruitPeasants" FontSize="10" Content="0" Foreground="#311818" HorizontalAlignment="Left" Margin="23,164,0,0" VerticalAlignment="Top" Height="25" Width="47"/>
@@ -36,7 +36,7 @@
                 </Button.Background>
             </Button>
             <Image HorizontalAlignment="Left" Height="112" Margin="139,12,0,0" VerticalAlignment="Top" Width="114" Source="/LandConquest;component/Pictures/Icons/Army/IconArcher.PNG" />
-            <Label Content="Archers     1C" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="152,121,0,0" VerticalAlignment="Top"/>
+            <Label Content="{lex:Loc LocLabelArchers_Text}" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="152,121,0,0" VerticalAlignment="Top"/>
             <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="147,143,0,0" VerticalAlignment="Top"/>
             <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="199,143,0,0" VerticalAlignment="Top" Width="51"/>
             <Label x:Name="TotalRecruitArchers" FontSize="10" Content="0" Foreground="#311818" HorizontalAlignment="Left" Margin="147,163,0,0" VerticalAlignment="Top" Height="25" Width="47"/>
@@ -48,7 +48,7 @@
                 </Button.Background>
             </Button>
             <Image HorizontalAlignment="Left" Height="111" Margin="263,12,0,0" VerticalAlignment="Top" Width="113" Source="/LandConquest;component/Pictures/Icons/Army/IconInfantry.png" RenderTransformOrigin="0.631,0.522" />
-            <Label Content="Infantry     1C" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="274,122,0,0" VerticalAlignment="Top"/>
+            <Label Content="{lex:Loc LocLabelInfantry_Text}" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="274,122,0,0" VerticalAlignment="Top"/>
             <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="269,143,0,0" VerticalAlignment="Top"/>
             <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="321,143,0,0" VerticalAlignment="Top"/>
             <Label x:Name="TotalRecruitInfantry" FontSize="10" Content="0" Foreground="#311818" HorizontalAlignment="Left" Margin="269,163,0,0" VerticalAlignment="Top" Height="25" Width="47"/>
@@ -60,7 +60,7 @@
                 </Button.Background>
             </Button>
             <Image HorizontalAlignment="Left" Height="110" Margin="388,12,0,0" VerticalAlignment="Top" Width="109" Source="/LandConquest;component/Pictures/Icons/Army/IconKnight.png" />
-            <Label Content="Knights     1C" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="399,122,0,0" VerticalAlignment="Top"/>
+            <Label Content="{lex:Loc LocLabelKnights_Text}" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="399,122,0,0" VerticalAlignment="Top"/>
             <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="392,143,0,0" VerticalAlignment="Top"/>
             <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="444,143,0,0" VerticalAlignment="Top"/>
             <Label x:Name="TotalRecruitKnights" FontSize="10" Content="0" Foreground="#311818" HorizontalAlignment="Left" Margin="392,163,0,0" VerticalAlignment="Top" Height="25" Width="47"/>
@@ -72,7 +72,7 @@
                 </Button.Background>
             </Button>
             <Image HorizontalAlignment="Left" Height="107" Margin="514,13,0,0" VerticalAlignment="Top" Width="107" Source="/LandConquest;component/Pictures/Icons/Army/IconSiegeMachine.png" />
-            <Label Content="Siege machines" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="517,121,0,0" VerticalAlignment="Top" Width="101"/>
+            <Label Content="{lex:Loc LocLabelSiegeMachines_Text}" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="517,121,0,0" VerticalAlignment="Top" Width="101"/>
             <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="518,143,0,0" VerticalAlignment="Top"/>
             <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="570,143,0,0" VerticalAlignment="Top"/>
             <Label x:Name="TotalRecruitSiege" FontSize="10" Content="0" Foreground="#311818" HorizontalAlignment="Left" Margin="518,163,0,0" VerticalAlignment="Top" Height="25" Width="47"/>

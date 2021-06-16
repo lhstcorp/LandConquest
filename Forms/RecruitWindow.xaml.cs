@@ -58,7 +58,7 @@ namespace LandConquest.Forms
             }
             else
             {
-                WarningDialogWindow.CallWarningDialogNoResult("Error");
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                 
             }
         }
@@ -92,7 +92,7 @@ namespace LandConquest.Forms
             }
             else
             {
-                WarningDialogWindow.CallWarningDialogNoResult("Error");
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                 
             }
         }
@@ -121,7 +121,7 @@ namespace LandConquest.Forms
             }
             else
             {
-                WarningDialogWindow.CallWarningDialogNoResult("Error");
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                 
             }
         }
@@ -151,7 +151,7 @@ namespace LandConquest.Forms
             }
             else
             {
-                WarningDialogWindow.CallWarningDialogNoResult("Error");
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                 
             }
         }
@@ -179,7 +179,7 @@ namespace LandConquest.Forms
             }
             else
             {
-                WarningDialogWindow.CallWarningDialogNoResult("Error");
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                 
             }
         }

@@ -39,6 +39,23 @@ namespace LandConquest.Forms
             land = LandModel.GetLandInfo(player.PlayerCurrentRegion);
             landNamelbl.Content = land.LandName;
             LoadCastleContent();
+
+            storage = new PlayerStorage();
+            landStorage = new LandStorage();
+
+            storage = StorageModel.GetPlayerStorage(player);
+            landStorage = LandStorageModel.GetLandStorage(land, landStorage);
+            landWoodToolTip.Content = landStorage.LandWood;
+            landFoodToolTip.Content = landStorage.LandFood;
+            landStoneToolTip.Content = landStorage.LandStone;
+            landIronToolTip.Content = landStorage.LandIron;
+            landGoldToolTip.Content = landStorage.LandGoldOre;
+            landCopperToolTip.Content = landStorage.LandCopper;
+            landGemsToolTip.Content = landStorage.LandGems;
+            landLeatherToolTip.Content = landStorage.LandLeather;
+
+
+
         }
 
         private void LoadCastleContent()
@@ -77,5 +94,7 @@ namespace LandConquest.Forms
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
         }
+
+      
     }
 }

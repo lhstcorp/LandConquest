@@ -35,16 +35,93 @@
             <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Height="25" Margin="141,77,0,0" Stroke="#311818" StrokeThickness="2" VerticalAlignment="Top" Width="44"/>
             <Label x:Name="castleLvlLBL" Content="0" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="141,56,0,0" VerticalAlignment="Top"/>
             <Label x:Name="harrisonCountLBL" Content="0" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="141,77,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="harrisonBtn" Foreground="#FFDFC58E" Content="Manage" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="35" Margin="98.7,100,0,0" VerticalAlignment="Top" Width="86.8" Click="harrisonBtn_Click">
+            <Button x:Name="harrisonBtn" Foreground="#FFDFC58E" Content="Manage" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="36" Margin="101,100,0,0" VerticalAlignment="Top" Width="85" Click="harrisonBtn_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="buttonLandResources" Content="Land resources" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="66" Margin="22,334,0,0" VerticalAlignment="Top" Width="260" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua" Click="buttonLandResources_Click" >
+            <Button x:Name="buttonLandResources" Content="Donate resources" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="66" Margin="22,334,0,0" VerticalAlignment="Top" Width="260" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua" Click="buttonLandResources_Click" >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
+            <Border BorderBrush="Transparent" BorderThickness="2" HorizontalAlignment="Left" Height="88" Margin="20,132,0,0" VerticalAlignment="Top" Width="168">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border BorderBrush="#FF392018" BorderThickness="2">
+                        <Image x:Name="landWoodImage"  Grid.Row="0" Grid.Column="0" Source="/LandConquest;component/Pictures/wood.png">
+                            <Image.ToolTip>
+                                <ToolTip x:Name="landWoodToolTip" Content="" Placement="MousePoint" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
+                            </Image.ToolTip>
+                        </Image>
+                    </Border>
+
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="2" Grid.Row="0">
+                        <Image x:Name="landFoodImage" Grid.Row="0" Grid.Column="2" Source="/LandConquest;component/Pictures/food.png">
+                            <Image.ToolTip>
+                                <ToolTip x:Name="landFoodToolTip" Placement="MousePoint" Content="" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
+                            </Image.ToolTip>
+                        </Image>
+                    </Border>
+
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="1" Grid.Row="0">
+                        <Image x:Name="landStoneImage" Grid.Row="0" Grid.Column="1" Source="/LandConquest;component/Pictures/stones.png">
+                            <Image.ToolTip>
+                                <ToolTip x:Name="landStoneToolTip" Placement="MousePoint" Content="" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
+                            </Image.ToolTip>
+                        </Image>
+                    </Border>
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="3" Grid.Row="0">
+                        <Image x:Name="landIronImage" Grid.Row="0" Grid.Column="3" Source="/LandConquest;component/Pictures/iron.png">
+                            <Image.ToolTip>
+                                <ToolTip x:Name="landIronToolTip" Placement="MousePoint" Content="" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
+                            </Image.ToolTip>
+                        </Image>
+                    </Border>
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="0" Grid.Row="1">
+                        <Image x:Name="landGoldImage" Grid.Row="1" Grid.Column="0" Source="/LandConquest;component/Pictures/gold_ore.png">
+                            <Image.ToolTip>
+                                <ToolTip x:Name="landGoldToolTip" Placement="MousePoint" Content="" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
+                            </Image.ToolTip>
+                        </Image>
+                    </Border>
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="1" Grid.Row="1">
+                        <Image x:Name="landCopperImage" Grid.Row="1" Grid.Column="1" Source="/LandConquest;component/Pictures/copper.png">
+                            <Image.ToolTip>
+                                <ToolTip x:Name="landCopperToolTip" Content="" Placement="MousePoint" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
+                            </Image.ToolTip>
+                        </Image>
+                    </Border>
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="2" Grid.Row="1">
+                        <Image x:Name="landGemsImage" Grid.Row="1" Grid.Column="2" Source="/LandConquest;component/Pictures/gems.png">
+                            <Image.ToolTip>
+                                <ToolTip x:Name="landGemsToolTip" Placement="MousePoint" Content="" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
+                            </Image.ToolTip>
+                        </Image>
+                    </Border>
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="3" Grid.Row="1">
+                        <Image x:Name="landLeatherImage" Grid.Row="1" Grid.Column="3" Source="/LandConquest;component/Pictures/leather.png">
+                            <Image.ToolTip>
+                                <ToolTip x:Name="landLeatherToolTip" Placement="MousePoint" Content="" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
+                            </Image.ToolTip>
+                        </Image>
+                    </Border>
+
+
+                </Grid>
+
+
+            </Border>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>

@@ -132,6 +132,10 @@ namespace LandConquest.DialogWIndows
 
                 ManufactureLvl.Content = manufacture.ManufactureLevel;
             }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
+            }
             Window_Loaded(sender, e);
         }
 
