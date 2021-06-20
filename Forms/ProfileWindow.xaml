@@ -5,6 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:LandConquest.Forms"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="ru"
+        lex:LocalizeDictionary.IncludeInvariantCulture="False"
+        lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources" 
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
         Title="ProfileWindow" Height="350" Width="600" Loaded="Window_Loaded"
@@ -14,12 +19,12 @@
         <Grid>
             <Image x:Name="profileImage" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" RenderTransformOrigin="0.38,0.495" Margin="0,14,0,0"/>
 
-            <Label Content="Name:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,54,0,0" VerticalAlignment="Top" Height="40"/>
-            <Label Content="Title:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,93,0,0" VerticalAlignment="Top" Width="85"/>
-            <Label Content="Land:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,133,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
-            <Label Content="Email:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,173,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
-            <Label Content="Login:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,213,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
-            <Label Content="Pass:" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,253,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
+            <Label Content="{lex:Loc LocLabelName_Content}" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,54,0,0" VerticalAlignment="Top" Height="40"/>
+            <Label Content="{lex:Loc LocLabelTitle_Content}" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,93,0,0" VerticalAlignment="Top" Width="85"/>
+            <Label Content="{lex:Loc LocLabelLand_Content}" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,133,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
+            <Label Content="{lex:Loc LocLabelEmail_Content}" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,173,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
+            <Label Content="{lex:Loc LocLabelLogin_Content}" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,213,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
+            <Label Content="{lex:Loc LocLabelPass_Content}" FontSize="24" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="115,253,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.532,0.948"/>
 
 
 
@@ -36,18 +41,18 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            
-            <Button x:Name="buttonChangeName"  Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="362,62,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="#e3cd9b" Height="32" Click="buttonChangeName_Click">
+
+            <Button x:Name="buttonChangeName"  Content="{lex:Loc LocButtonChange_Content}" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="362,62,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="#e3cd9b" Height="32" Click="buttonChangeName_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="buttonChangeEmail" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="362,181,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="#e3cd9b" Height="32" Click="buttonChangeEmail_Click">
+            <Button x:Name="buttonChangeEmail" Content="{lex:Loc LocButtonChange_Content}" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="362,181,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="#e3cd9b" Height="32" Click="buttonChangeEmail_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="buttonChangePass" Content="Change" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="362,261,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="#e3cd9b" Height="32" Click="buttonChangePass_Click">
+            <Button x:Name="buttonChangePass" Content="{lex:Loc LocButtonChange_Content}" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="362,261,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="#e3cd9b" Height="32" Click="buttonChangePass_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
