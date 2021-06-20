@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
-        lex:LocalizeDictionary.DesignCulture="en"
+        lex:LocalizeDictionary.DesignCulture="ru"
         lex:LocalizeDictionary.IncludeInvariantCulture="False"
         lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
         lex:ResxLocalizationProvider.DefaultDictionary="Resources"  
@@ -38,7 +38,7 @@
             <Image HorizontalAlignment="Left" Height="112" Margin="139,12,0,0" VerticalAlignment="Top" Width="114" Source="/LandConquest;component/Pictures/Icons/Army/IconArcher.PNG" />
             <Label Content="{lex:Loc LocLabelArchers_Text}" HorizontalAlignment="Left"  FontWeight="Bold" Foreground="#311818" Margin="152,121,0,0" VerticalAlignment="Top"/>
             <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="147,143,0,0" VerticalAlignment="Top"/>
-            <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="199,143,0,0" VerticalAlignment="Top" Width="51"/>
+            <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#311818" Margin="196,143,0,0" VerticalAlignment="Top" Width="56"/>
             <Label x:Name="TotalRecruitArchers" FontSize="10" Content="0" Foreground="#311818" HorizontalAlignment="Left" Margin="147,163,0,0" VerticalAlignment="Top" Height="25" Width="47"/>
             <Label x:Name="AvailableRecruitArchers" Content="0" FontSize="10" Foreground="#311818" HorizontalAlignment="Left" Margin="199,163,0,0" VerticalAlignment="Top" Width="47" Height="25"/>
             <TextBox x:Name="ArchersAmount" HorizontalAlignment="Left"  VerticalContentAlignment="Center" Height="25" Margin="147,188,0,0" VerticalAlignment="Top" Width="100" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="PeasantsAmount_PreviewTextInput"/>
