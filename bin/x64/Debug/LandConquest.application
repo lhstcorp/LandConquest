@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="LandConquest.exe.manifest" size="21376">
+    <dependentAssembly dependencyType="install" codebase="LandConquest.exe.manifest" size="21375">
       <assemblyIdentity name="LandConquest.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>daGmA+y5MUFn9Jj2FWpO58i/HPsnEihGR7Z1kOwqYpU=</dsig:DigestValue>
+        <dsig:DigestValue>1TMH53QVsc0c1uvIwvvvkYWB4t5bqJOCP0ZRCMm8oeg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

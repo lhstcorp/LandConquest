@@ -12,13 +12,15 @@ namespace LandConquestDB.Models
             Color newColor = Color.FromArgb(color.A, color.R, color.G, color.B);
             string colorHex = ColorTranslator.ToHtml(newColor);
             string coffers = "10000";
-            string countryQuery = "INSERT INTO dbo.CountryData (country_name,country_ruler,country_color,country_coffers) VALUES (@country_name,@country_ruler,@country_color,@country_coffers)";
+            int capitalId = land.LandId;
+            string countryQuery = "INSERT INTO dbo.CountryData (country_name,country_ruler,country_color,country_coffers, capital_id) VALUES (@country_name,@country_ruler,@country_color,@country_coffers, @capital_id)";
             var countryCommand = new SqlCommand(countryQuery, DbContext.GetSqlConnection());
 
             countryCommand.Parameters.AddWithValue("@country_name", land.LandName + " state");
             countryCommand.Parameters.AddWithValue("@country_ruler", player.PlayerId);
             countryCommand.Parameters.AddWithValue("@country_color", colorHex);
             countryCommand.Parameters.AddWithValue("@country_coffers", coffers);
+            countryCommand.Parameters.AddWithValue("@capital_id", capitalId);
 
             countryCommand.ExecuteNonQuery();
             countryCommand.Dispose();
@@ -28,6 +30,7 @@ namespace LandConquestDB.Models
             country.CountryRuler = player.PlayerId;
             country.CountryColor = colorHex;
             country.CountryCoffers = coffers;
+            country.CapitalId = capitalId;
 
             return country;
         }
@@ -60,6 +63,7 @@ namespace LandConquestDB.Models
             List<string> countriesCountryName = new List<string>();
             List<string> countriesCountryRuler = new List<string>();
             List<string> countriesCountryColor = new List<string>();
+            List<int> countriesCapitalId = new List<int>();
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
@@ -69,6 +73,7 @@ namespace LandConquestDB.Models
                 var countryName = reader.GetOrdinal("country_name");
                 var countryRuler = reader.GetOrdinal("country_ruler");
                 var countryColor = reader.GetOrdinal("country_color");
+                var capitalId = reader.GetOrdinal("capital_id");
 
                 while (reader.Read())
                 {
@@ -76,6 +81,7 @@ namespace LandConquestDB.Models
                     countriesCountryName.Add(reader.GetString(countryName));
                     countriesCountryRuler.Add(reader.GetString(countryRuler));
                     countriesCountryColor.Add(reader.GetString(countryColor));
+                    countriesCapitalId.Add(reader.GetInt32(capitalId));
                 }
                 reader.Close();
             }
@@ -88,12 +94,14 @@ namespace LandConquestDB.Models
                 countries[i].CountryName = countriesCountryName[i];
                 countries[i].CountryRuler = countriesCountryRuler[i];
                 countries[i].CountryColor = countriesCountryColor[i];
+                countries[i].CapitalId = countriesCapitalId[i];
             }
 
             countriesCountryId = null;
             countriesCountryName = null;
             countriesCountryRuler = null;
             countriesCountryColor = null;
+            countriesCapitalId = null;
 
             return countries;
         }
@@ -161,6 +169,7 @@ namespace LandConquestDB.Models
                 var countryRuler = reader.GetOrdinal("country_ruler");
                 var countryColor = reader.GetOrdinal("country_color");
                 var countryCoffers = reader.GetOrdinal("country_coffers");
+                var capitalId = reader.GetOrdinal("capital_id"); 
 
                 while (reader.Read())
                 {
@@ -169,6 +178,7 @@ namespace LandConquestDB.Models
                     country.CountryRuler = reader.GetString(countryRuler);
                     country.CountryColor = reader.GetString(countryColor);
                     country.CountryCoffers = reader.GetString(countryCoffers);
+                   country.CapitalId = reader.GetInt32(capitalId);
                 }
                 reader.Close();
             }

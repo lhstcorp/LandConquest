@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:LandConquest.Forms"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         xmlns:ctrls="clr-namespace:LandConquest.Resources"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="ru"
+        lex:LocalizeDictionary.IncludeInvariantCulture="False"
+        lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources" 
         mc:Ignorable="d"
         ShowInTaskbar="False"
         WindowStyle="None" ResizeMode="NoResize"
@@ -15,19 +20,19 @@
         <Grid>
             <Image x:Name="profileImage" Source="/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" RenderTransformOrigin="0.38,0.495" Margin="0,10,0,0"/>
 
-        <Button x:Name="buttonXP" Content="Exp"  HorizontalAlignment="Left" Margin="204,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="#FFD2C8B1" Click="buttonXP_Click">
+            <Button x:Name="buttonXP" Content="{lex:Loc LocLabelExp_Content}"  HorizontalAlignment="Left" Margin="204,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="#FFD2C8B1" Click="buttonXP_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
         </Button>
 
-            <Button x:Name="buttonCoins" Content="Reg" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="#FFD2C8B1" Click="ButtonFirstEntrance_Click">
+            <Button x:Name="buttonCoins" Content="{lex:Loc LocLabelRegistration_Content}" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="#FFD2C8B1" Click="ButtonFirstEntrance_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
 
-            <Button x:Name="buttonArmy" Content="Army"  HorizontalAlignment="Left" Margin="301,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="#FFD2C8B1" Click="buttonArmy_Click" >
+            <Button x:Name="buttonArmy" Content="{lex:Loc LocLabelArmy_Content}"  HorizontalAlignment="Left" Margin="301,10,0,0" VerticalAlignment="Top" Width="76" BorderBrush="{x:Null}" Foreground="#FFD2C8B1" Click="buttonArmy_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
             </Button.Background>
