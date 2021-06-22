@@ -1112,5 +1112,15 @@ namespace LandConquest.Forms
         {
             LabelServerTime.Content = DateTime.UtcNow.ToLongTimeString();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new CoatOfArmsWindow(player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
     }
 }
