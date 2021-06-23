@@ -81,7 +81,10 @@ namespace LandConquestDB.Models
                     countriesCountryName.Add(reader.GetString(countryName));
                     countriesCountryRuler.Add(reader.GetString(countryRuler));
                     countriesCountryColor.Add(reader.GetString(countryColor));
-                    countriesCapitalId.Add(reader.GetInt32(capitalId));
+                    if (reader.IsDBNull(capitalId))
+                        countriesCapitalId.Add(0);
+                    else
+                        countriesCapitalId.Add(reader.GetInt32(capitalId));
                 }
                 reader.Close();
             }
@@ -178,7 +181,10 @@ namespace LandConquestDB.Models
                     country.CountryRuler = reader.GetString(countryRuler);
                     country.CountryColor = reader.GetString(countryColor);
                     country.CountryCoffers = reader.GetString(countryCoffers);
-                   country.CapitalId = reader.GetInt32(capitalId);
+                    if (reader.IsDBNull(capitalId))
+                        country.CapitalId = 0;
+                    else
+                        country.CapitalId = reader.GetInt32(capitalId);
                 }
                 reader.Close();
             }
