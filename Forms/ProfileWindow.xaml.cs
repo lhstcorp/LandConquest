@@ -3,8 +3,10 @@ using LandConquest.DialogWIndows;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using LandConquestYD;
+using System;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 
 namespace LandConquest.Forms
 {
@@ -13,6 +15,7 @@ namespace LandConquest.Forms
     {
         private Player player;
         private User user;
+        private Window openedWindow;
 
         public ProfileWindow(Player _player, User _user)
         {
@@ -122,6 +125,30 @@ namespace LandConquest.Forms
             buttonChangePass.Visibility = Visibility.Hidden;
             buttonSavePass.Visibility = Visibility.Visible;
             newPassBox.Visibility = Visibility.Visible;
+        }
+
+        private void ChangeAvatarLabel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            openedWindow = new CoatOfArmsWindow(player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+        private void FreeData(object data, EventArgs e)
+        {
+            openedWindow = null;
+            GC.Collect();
+        }
+
+        private void ChangeAvatarLabel_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void ChangeAvatarLabel_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Cursor = Cursors.Arrow;
         }
     }
 }

@@ -408,9 +408,7 @@
             </Border>
 
             <Label x:Name="LabelServerTime" Content="00:00:00" FontSize="24" Margin="0,0,25,10" VerticalAlignment="Bottom" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" Height="40" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="151"/>
-            <Button Content="CoatOfArmsBtn" HorizontalAlignment="Left" Margin="753,35,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-
-
+            
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>

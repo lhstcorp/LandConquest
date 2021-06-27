@@ -179,6 +179,9 @@
     <Compile Include="DialogWIndows\BuyListingDialog.xaml.cs">
       <DependentUpon>BuyListingDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CoatOfArmsWindow.xaml.cs">
+      <DependentUpon>CoatOfArmsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\CommonManufactureUpgrade.xaml.cs">
       <DependentUpon>CommonManufactureUpgrade.xaml</DependentUpon>
     </Compile>
@@ -280,6 +283,10 @@
     <Page Include="DialogWIndows\BuyListingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\CoatOfArmsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DialogWIndows\CommonManufactureUpgrade.xaml">
       <SubType>Designer</SubType>
