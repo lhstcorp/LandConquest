@@ -7,12 +7,12 @@ namespace LandConquestDB
     public static class DbContext
     {
         private static SqlConnection sqlconnection;
-        private static string value = "online_admin";
+        private static string value = "player_secured";
         public static void OpenConnectionPool()
         {
             try
             {
-                sqlconnection = new SqlConnection(YDContext.ReadResource(value));
+                sqlconnection = new SqlConnection(YDCrypto.Decrypt(YDContext.ReadResource(value)));
             }
             catch (Exception) { }
             sqlconnection.Open();
@@ -33,7 +33,7 @@ namespace LandConquestDB
 
         public static SqlConnection GetTempSqlConnection()
         {
-            SqlConnection sqlconnectiontask = new SqlConnection(YDContext.ReadResource(value));
+            SqlConnection sqlconnectiontask = new SqlConnection(YDCrypto.Decrypt(YDContext.ReadResource(value)));
             return sqlconnectiontask;
         }
 

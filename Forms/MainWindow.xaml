@@ -245,7 +245,7 @@
                         </Button.Background>
                     </Button>
 
-                    <Border Margin="26,12,25,83.6">
+                    <Border Margin="26,66,54.6,43.4">
                         <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Label Content="{lex:Loc LocLabelProductivity_Content}" FontWeight="Bold" Foreground="#FF311818" HorizontalAlignment="Left"  VerticalAlignment="Bottom" FontFamily="Trebuchet MS" />
                         </Viewbox>
@@ -408,8 +408,7 @@
             </Border>
 
             <Label x:Name="LabelServerTime" Content="00:00:00" FontSize="24" Margin="0,0,25,10" VerticalAlignment="Bottom" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" Height="40" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="151"/>
-
-
+            
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>

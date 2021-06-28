@@ -1128,5 +1128,6 @@ namespace LandConquest.Forms
         {
             LabelServerTime.Content = DateTime.UtcNow.ToLongTimeString();
         }
+
     }
 }
