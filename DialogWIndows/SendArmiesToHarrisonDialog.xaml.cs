@@ -211,7 +211,7 @@ namespace LandConquest.DialogWIndows
                 slot7.Fill = loadColor[GarrisonModel.calculateSlotColor(garrisons, 7, castle)];
                 slot8.Fill = loadColor[GarrisonModel.calculateSlotColor(garrisons, 8, castle)];
             }
-            else if (castle.CastleLvl >= slotIncremental * 9)
+            else if (castle.CastleLvl >= slotIncremental * 8)
             {
                 slot1.Fill = loadColor[GarrisonModel.calculateSlotColor(garrisons, 1, castle)];
                 slot2.Fill = loadColor[GarrisonModel.calculateSlotColor(garrisons, 2, castle)];
