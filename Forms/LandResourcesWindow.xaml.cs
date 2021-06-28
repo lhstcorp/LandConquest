@@ -114,10 +114,10 @@ namespace LandConquest.Forms
                     }
                     break;
                 case "DonateLeatherButton":
-                    if (storage.PlayerStone >= Convert.ToInt32(DonateStoneTextBox.Text))
+                    if (storage.PlayerLeather >= Convert.ToInt32(DonateLeatherTextBox.Text))
                     {
-                        landStorage.LandStone += Convert.ToInt32(DonateStoneTextBox.Text);
-                        storage.PlayerStone -= Convert.ToInt32(DonateStoneTextBox.Text);
+                        landStorage.LandLeather += Convert.ToInt32(DonateLeatherTextBox.Text);
+                        storage.PlayerLeather -= Convert.ToInt32(DonateLeatherTextBox.Text);
                     }
                     else
                     {
