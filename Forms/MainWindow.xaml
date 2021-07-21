@@ -245,7 +245,7 @@
                         </Button.Background>
                     </Button>
 
-                    <Border Margin="26,12,25,83.6">
+                    <Border Margin="26,66,54.6,43.4">
                         <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Label Content="{lex:Loc LocLabelProductivity_Content}" FontWeight="Bold" Foreground="#FF311818" HorizontalAlignment="Left"  VerticalAlignment="Bottom" FontFamily="Trebuchet MS" />
                         </Viewbox>
@@ -377,29 +377,47 @@
 
             <Border Margin="249,55,1032,663">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <Label Content="{lex:Loc LocLabelStorageMain_Content}" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="#FF392018"/>
+                    <Label Content="{lex:Loc LocLabelStorageMain_Content}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="#FF392018"/>
                 </Viewbox>
             </Border>
 
-            <Border Margin="343,57,916,660">
+            <Border Margin="337,56,918,662">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelIndustryMain_Content}" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="#FF392018" Width="81" Height="24" />
+                    <Label Content="{lex:Loc LocLabelIndustryMain_Content}"  HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="#FF392018" />
                 </Viewbox>
             </Border>
 
-            <Border Margin="302,57,983,666">
+            <Border Margin="294,58,985,665">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBlock Text="{lex:Loc LocLabelRecruitMain_Content}" FontSize="11" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="12" Width="32"/>
+                    <TextBlock Text="{lex:Loc LocLabelRecruitMain_Content}" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="#FF392018" />
                 </Viewbox>
             </Border>
 
-            <Label Content="{lex:Loc LocLabelMarketMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="401,56,0,0" VerticalAlignment="Top" Width="47" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+            <Border Margin="399,57,874,663">
+                <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Label Content="{lex:Loc LocLabelMarketMain_Content}" FontSize="11" HorizontalAlignment="Left" VerticalAlignment="Top" Width="47" FontFamily="Trebuchet MS" Foreground="#FF392018" />
+                </Viewbox>
+            </Border>
 
-            <Label Content="{lex:Loc LocLabelCountryMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="496,56,0,0" VerticalAlignment="Top" Width="51" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+            <Border Margin="497,57,780,663">
+                <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Label Content="{lex:Loc LocLabelCountryMain_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Trebuchet MS" Foreground="#FF392018"/>
+                </Viewbox>
+            </Border>
 
-            <Label Content="{lex:Loc LocLabelRegionMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="543,56,0,0" VerticalAlignment="Top" Width="46" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="24"/>
+            <Border Margin="542,56,726,663">
+                <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Label Content="{lex:Loc LocLabelRegionMain_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Trebuchet MS" Foreground="#FF392018"/>
+                </Viewbox>
+            </Border>
 
-            <Label Content="{lex:Loc LocLabelAuctionMain_Content}" FontSize="11" HorizontalAlignment="Left" Margin="443,56,0,0" VerticalAlignment="Top" Width="55" FontFamily="Trebuchet MS" Foreground="#FF392018" Height="27"/>
+
+            <Border Margin="442,56,824,663">
+                <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Label Content="{lex:Loc LocLabelAuctionMain_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Trebuchet MS" Foreground="#FF392018" />
+                </Viewbox>
+            </Border>
+
 
             <Border Margin="977,684,167,8">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -408,7 +426,6 @@
             </Border>
 
             <Label x:Name="LabelServerTime" Content="00:00:00" FontSize="24" Margin="0,0,25,10" VerticalAlignment="Bottom" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" Height="40" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="151"/>
-
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>

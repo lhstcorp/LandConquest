@@ -63,7 +63,7 @@ namespace LandConquestDB.Models
             countryStorageCommand.Parameters.AddWithValue("@leather", _landStorage.LandLeather);
             countryStorageCommand.Parameters.AddWithValue("@land_id", land.LandId);
 
-
+            /*
             for (int i = 0; i < 3; i++)
             {
 
@@ -71,9 +71,10 @@ namespace LandConquestDB.Models
                 countryStorageCommand.Parameters["@stone"].Value = _landStorage.LandStone;
                 countryStorageCommand.Parameters["@food"].Value = _landStorage.LandFood;
                 countryStorageCommand.Parameters["@land_id"].Value = land.LandId;
-                countryStorageCommand.ExecuteNonQuery();
+                
 
-            }
+            }*/
+            countryStorageCommand.ExecuteNonQuery();
 
             countryStorageCommand.Dispose();
         }
