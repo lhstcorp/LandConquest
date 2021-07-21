@@ -65,12 +65,12 @@ namespace LandConquest.Forms
                     shieldLayer.Height = 40;
                     shieldLayer.Width = 40;
                     CoatOfArmsLayersList.Items.Insert(0, shieldLayer);
-
+                    /*
                     VisualBrush b = new VisualBrush();
                     b.Visual = shield;
                     b.Stretch = Stretch.None;
                     CoatOfArmsCanvas.OpacityMask = b;
-                    
+                    */
                    // CoatOfArmsCanvas.OpacityMask.Freeze();
                     
                     //shield.MouseDown += Img_MouseDown;
@@ -115,7 +115,6 @@ namespace LandConquest.Forms
             }
             if (currentMenu == 3) //additional items
             {
-              
                 if ( !CoatOfArmsCanvas.Children.Contains(atribute))
                 {
                     Image buffer = (Image)sender;
@@ -137,13 +136,6 @@ namespace LandConquest.Forms
                 DataObject data = new DataObject(typeof(ImageSource), atribute.Source);
                 DragDrop.DoDragDrop(atribute, data, DragDropEffects.Move);
             }
-
-
-
-
-
-
-
         }
 
      
@@ -163,7 +155,6 @@ namespace LandConquest.Forms
 
                 Canvas.SetLeft(selectedImage, e.GetPosition(CoatOfArmsCanvas).X - selectedImage.Width / 2);
                 Canvas.SetTop(selectedImage, e.GetPosition(CoatOfArmsCanvas).Y - selectedImage.Height / 2);
-                logBox.Text = CoatOfArmsCanvas.ActualHeight + " " + CoatOfArmsCanvas.ActualWidth;
             }
            
         }
@@ -183,9 +174,6 @@ namespace LandConquest.Forms
             
             form1.Source = new BitmapImage(new Uri("/Pictures/CoatOfArms/shield1.png", UriKind.Relative));
             form2.Source = new BitmapImage(new Uri("/Pictures/CoatOfArms/shield2.jpg", UriKind.Relative));
-            
-            
-
         }
 
 
@@ -194,10 +182,6 @@ namespace LandConquest.Forms
             currentMenu = 2;
             form1.Source = new BitmapImage(new Uri("/Pictures/CoatOfArms/shield1/cross_red.png", UriKind.Relative));
             form2.Source = new BitmapImage(new Uri("/Pictures/CoatOfArms/shield1/circle_red.png", UriKind.Relative));
-            
-            
-            
-            
         }
 
        

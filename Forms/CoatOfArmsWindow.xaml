@@ -61,7 +61,15 @@
                 <ImageBrush ImageSource="/Pictures/CoatOfArms/workplace.png" Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Canvas x:Name="CoatOfArmsCanvas"  Background="Aqua" Drop="Canvas_Drop" Margin="50,76,0,0" Height="207" VerticalAlignment="Top" HorizontalAlignment="Left" Width="197"/>
+        <Canvas x:Name="CoatOfArmsCanvas"  Background="Aqua" Drop="Canvas_Drop" Margin="50,76,0,0" Height="207" VerticalAlignment="Top" HorizontalAlignment="Left" Width="197">
+            <Canvas.OpacityMask>
+                <VisualBrush Stretch="None" >
+                    <VisualBrush.Visual>
+                        <Image Source="/Pictures/CoatOfArms/shield1_mask.png"/>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </Canvas.OpacityMask>
+        </Canvas>
         <Button Content="Save" x:Name="saveButton" HorizontalAlignment="Left" Margin="103,333,0,0" VerticalAlignment="Top" Width="75" Click="saveButton_Click"/>
         <Button Content="Удалить" x:Name="deleteButton" HorizontalAlignment="Left" Margin="659,343,0,0" VerticalAlignment="Top" Width="85" Click="deleteButton_Click"/>
 
