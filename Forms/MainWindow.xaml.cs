@@ -193,7 +193,7 @@ namespace LandConquest.Forms
         private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new LandWindow(player);
+            openedWindow = new LandWindow(user, player);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
