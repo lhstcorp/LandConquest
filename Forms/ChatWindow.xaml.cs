@@ -14,6 +14,7 @@ namespace LandConquest.Forms
         private List<ChatMessages> messages;
         CancellationTokenSource cancelTokenSource;
         CancellationToken token;
+        private string playerTargetId;
 
         public ChatWindow(Player _player)
         {
@@ -23,7 +24,10 @@ namespace LandConquest.Forms
 
         private void ButtonSendMessage_Click(object sender, RoutedEventArgs e)
         {
-            ChatModel.SendMessage(textBoxNewMessage.Text, player.PlayerName);
+            if (playerTargetId == null)
+            {
+                ChatModel.SendMessage(textBoxNewMessage.Text, player.PlayerId, "[all]");
+            }
         }
 
         public async void CallUpdateChatAsync()
@@ -37,8 +41,8 @@ namespace LandConquest.Forms
         {
             while (!token.IsCancellationRequested)
             {         
-                await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { messages = ChatModel.GetMessages(); listViewChat.ItemsSource = messages; listViewChat.Items.Refresh();}));
-                await Task.Delay(3000);
+                await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { messages = ChatModel.GetMessages(player.PlayerId); listViewChat.ItemsSource = messages; listViewChat.Items.Refresh();}));
+                await Task.Delay(2000);
             }
         }
 
