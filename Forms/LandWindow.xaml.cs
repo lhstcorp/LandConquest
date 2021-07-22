@@ -95,6 +95,22 @@ namespace LandConquest.Forms
             openedWindow.Show();
         }
 
-      
+        private void UpgradeCastleImg_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void UpgradeCastleImg_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Arrow;
+        }
+
+        private void UpgradeCastleImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CastleUpdateDialog openedWindow = new CastleUpdateDialog(land);
+            openedWindow.Owner = Application.Current.MainWindow;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+        }
     }
 }

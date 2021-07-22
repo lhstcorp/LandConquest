@@ -10,13 +10,6 @@ namespace LandConquestDB.Models
 {
     public class CastleModel
     {
-        public static void InsertOrUpdateCastle(int landId)
-        {
-            // это пример, нужно дописать
-
-            string manufactureQuery = "IF EXISTS (SELECT * FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id AND manufacture_id = @manufacture_id) BEGIN UPDATE dbo.PlayerLandManufactureData SET manufacture_peasant_work = @manufacture_peasant_work, manufacture_products_hour = @manufacture_products_hour, manufacture_prod_start_time=@manufacture_prod_start_time WHERE manufacture_id=@manufacture_id AND player_id=@player_id END ELSE BEGIN INSERT INTO dbo.PlayerLandManufactureData (player_id,manufacture_id,manufacture_type,manufacture_peasant_work,manufacture_products_hour,manufacture_prod_start_time) VALUES (@player_id, @manufacture_id, @manufacture_type, @manufacture_peasant_work, @manufacture_products_hour, @manufacture_prod_start_time) END";
-        }
-
         public static Castle GetCastleInfo(int landId)
         {
             Castle castle = new Castle();
@@ -43,6 +36,21 @@ namespace LandConquestDB.Models
             command.Dispose();
 
             return castle;
+        }
+
+        public static void UpdateCastle(Castle _castle)
+        {
+            string Query = "UPDATE dbo.CastleData SET castle_lvl  = @castle_lvl, castle_slot_count = @castle_slot_count WHERE land_id = @land_id ";
+
+            var Command = new SqlCommand(Query, DbContext.GetSqlConnection());
+
+            Command.Parameters.AddWithValue("@land_id", _castle.LandId);
+            Command.Parameters.AddWithValue("@castle_lvl", _castle.CastleLvl);
+            Command.Parameters.AddWithValue("@castle_slot_count", _castle.SlotsCount);
+
+            Command.ExecuteNonQuery();
+
+            Command.Dispose();
         }
 
     }
