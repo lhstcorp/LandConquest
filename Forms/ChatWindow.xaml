@@ -25,9 +25,10 @@
                     <ListView x:Name="listViewChat" Foreground="#DD000000"  Background="Wheat" OpacityMask="White" FontSize="12" Margin="0,0,-0.8,-0.8" BorderBrush="{x:Null}" >
                         <ListView.View>
                             <GridView>
+                                <GridViewColumn Header=" " DisplayMemberBinding="{Binding PlayerTargetName}" Width="65"></GridViewColumn>
                                 <GridViewColumn Header="{lex:Loc LocLabelPlayer_Content}" DisplayMemberBinding="{Binding PlayerName}" Width="65"></GridViewColumn>
                                 <GridViewColumn Header="{lex:Loc LocLabelMessage_Content}" DisplayMemberBinding="{Binding PlayerMessage}" Width="570"></GridViewColumn>
-                                <GridViewColumn Header="{lex:Loc LocLabelDate_Content}" DisplayMemberBinding="{Binding MessageTime}" Width="135"></GridViewColumn>
+                                <GridViewColumn Header="{lex:Loc LocLabelDate_Content}" DisplayMemberBinding="{Binding MessageSentTime}" Width="135"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -36,7 +37,7 @@
                     </Grid.Background>
                 </Grid>
             </Border>
-            <Button x:Name="buttonSendMessage" Content="Send" HorizontalAlignment="Left" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="73" Height="36" Click="ButtonSendMessage_Click" BorderBrush="{x:Null}" Margin="754,404,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua">
+            <Button x:Name="buttonSendMessage" Content="Send" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="73" Height="36" Click="ButtonSendMessage_Click" BorderBrush="{x:Null}" Margin="754,404,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
