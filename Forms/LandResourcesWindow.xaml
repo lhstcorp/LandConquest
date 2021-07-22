@@ -49,11 +49,15 @@
             </Button>
 
             <Label Content="{lex:Loc LocLabelGold_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,194,0,0" VerticalAlignment="Top" Height="30" Width="59"/>
+            <Label Content="{lex:Loc LocLabelMoney_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,367,0,0" VerticalAlignment="Top" Height="30" Width="59"/>
+
             <Label Content="{lex:Loc LocLabelCopper_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,194,0,0" VerticalAlignment="Top" Height="36" Width="75" Background="{x:Null}"/>
             <Image HorizontalAlignment="Left" Height="36" Margin="43,228,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/gold_ore.png"/>
             <Image HorizontalAlignment="Left" Height="36" Margin="148,228,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/Copper.png"/>
             <Label x:Name="labelGoldAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,264,0,0" VerticalAlignment="Top" Width="72" Height="30"/>
             <Label x:Name="labelCopperAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,264,0,0" VerticalAlignment="Top" Width="75" Height="36"/>
+            <Label x:Name="labelMoneyAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="109,368,0,0" VerticalAlignment="Top" Width="75" Height="36"/>
+
             <Label Content="{lex:Loc LocLabelGems_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,194,169,0" VerticalAlignment="Top" Height="30" Width="57" Background="{x:Null}"/>
             <Image HorizontalAlignment="Left" Height="36" Margin="252,228,0,0" VerticalAlignment="Top" Width="42" Source="/Pictures/gems.png" RenderTransformOrigin="-1.55,0.548"/>
             <Label x:Name="labelGemsAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="249,264,0,0" VerticalAlignment="Top" Width="69" Height="36"/>
@@ -81,6 +85,7 @@
             <TextBox x:Name="DonateCopperTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="250,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
             <TextBox x:Name="DonateGemsTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="144,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
             <TextBox x:Name="DonateLeatherTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="39,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="DonateMoneyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="39,396,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
 
 
             <Button x:Name="DonateWoodButton" HorizontalAlignment="Left" Margin="39,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
@@ -147,7 +152,14 @@
                     <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" />
                 </Viewbox>
             </Button>
-
+            <Button x:Name="DonateMoneyButton" HorizontalAlignment="Left" Margin="39,421,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
+                </Button.Background>
+                <Viewbox>
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" />
+                </Viewbox>
+            </Button>
 
         </Grid>
     </Border>

@@ -23,14 +23,16 @@ namespace LandConquest.Forms
     public partial class LandResourcesWindow : Window
     {
         private Player player;
+        private User user;
         private PlayerStorage storage;
         private LandStorage landStorage;
         private Land land;
 
-        public LandResourcesWindow(Player _player, PlayerStorage _storage, LandStorage _landstorage, Land _land)
+        public LandResourcesWindow(User _user, Player _player, PlayerStorage _storage, LandStorage _landstorage, Land _land)
         {
             InitializeComponent();
             player = _player;
+            user = _user;
             storage = _storage;
             landStorage = _landstorage;
             land = _land;
@@ -39,11 +41,14 @@ namespace LandConquest.Forms
 
         private void LandResourcesWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            storage = new PlayerStorage();
-            landStorage = new LandStorage();
-
-            storage = StorageModel.GetPlayerStorage(player);
-            landStorage = LandStorageModel.GetLandStorage(land, landStorage);
+            //storage = new PlayerStorage();
+            //landStorage = new LandStorage();
+            //player = new Player();
+            //user = new User();
+            //user = UserModel.GetUserInfo(user.UserId);
+            //player = PlayerModel.GetPlayerInfo(user, player);
+            //storage = StorageModel.GetPlayerStorage(player);
+            //landStorage = LandStorageModel.GetLandStorage(land, landStorage);
 
             labelWoodAmount.Content = landStorage.LandWood.ToString();
             labelCopperAmount.Content = landStorage.LandCopper.ToString();
@@ -53,6 +58,7 @@ namespace LandConquest.Forms
             labelIronAmount.Content = landStorage.LandIron.ToString();
             labelLeatherAmount.Content = landStorage.LandLeather.ToString();
             labelStoneAmount.Content = landStorage.LandStone.ToString();
+            labelMoneyAmount.Content = landStorage.LandMoney.ToString();
 
 
 
@@ -157,9 +163,21 @@ namespace LandConquest.Forms
                         WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
                     }
                     break;
+                case "DonateMoneyButton":
+                    if (player.PlayerMoney >= Convert.ToInt32(DonateMoneyTextBox.Text))
+                    {
+                        landStorage.LandMoney += Convert.ToInt32(DonateMoneyTextBox.Text);
+                        player.PlayerMoney -= Convert.ToInt32(DonateMoneyTextBox.Text);
+                    }
+                    else
+                    {
+                        WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
+                    }
+                    break;
 
             }
             StorageModel.UpdateStorage(player, storage);
+            PlayerModel.UpdatePlayerMoney(player);
             LandStorageModel.UpdateLandStorage(land, landStorage);
             LandResourcesWindow_Loaded(sender, e);
         }

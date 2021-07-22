@@ -511,6 +511,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelMoney_Text.
+        /// </summary>
+        public static string LocLabelMoney_Text {
+            get {
+                return ResourceManager.GetString("LocLabelMoney_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelMusic_Text.
         /// </summary>
         public static string LocLabelMusic_Text {
