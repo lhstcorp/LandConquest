@@ -940,8 +940,13 @@ namespace LandConquest.Forms
 
                     WAR = new War();
                     WAR.WarId = wars[j].WarId;
-                    //DeclareWar(null, e);
-                    WarLogic.EnterInWar(WAR, player);
+
+                    WarPreviewDialogWindow dialogWindow = new WarPreviewDialogWindow();
+                    dialogWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    dialogWindow.Owner = this;
+                    dialogWindow.Show();
+
+                    //WarLogic.EnterInWar(WAR, player);
                 }
             }
         }
