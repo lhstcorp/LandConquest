@@ -267,6 +267,9 @@
   <data name="LocLabelMessage_Content" xml:space="preserve">
     <value>Message</value>
   </data>
+  <data name="LocLabelMoney_Text" xml:space="preserve">
+    <value>Money</value>
+  </data>
   <data name="LocLabelMusic_Text" xml:space="preserve">
     <value>Music</value>
   </data>

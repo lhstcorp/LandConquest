@@ -28,6 +28,7 @@ namespace LandConquestDB.Models
                 var landCopper = reader.GetOrdinal("copper");
                 var landGems = reader.GetOrdinal("gems");
                 var landLeather = reader.GetOrdinal("leather");
+                var landMoney = reader.GetOrdinal("money");
                 while (reader.Read())
                 {
                     landStorage.LandId = reader.GetString(landId);
@@ -39,6 +40,7 @@ namespace LandConquestDB.Models
                     landStorage.LandCopper = reader.GetInt32(landCopper);
                     landStorage.LandGems = reader.GetInt32(landGems);
                     landStorage.LandLeather = reader.GetInt32(landLeather);
+                    landStorage.LandMoney = reader.GetInt32(landMoney);
                 }
                 reader.Close();
             }
@@ -49,7 +51,7 @@ namespace LandConquestDB.Models
 
         public static void UpdateLandStorage(Land land, LandStorage _landStorage)
         {
-            string storageQuery = "UPDATE dbo.LandStorage SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather WHERE land_id = @land_id ";
+            string storageQuery = "UPDATE dbo.LandStorage SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather, money = @money WHERE land_id = @land_id ";
 
             var countryStorageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             // int datetimeResult;
@@ -61,6 +63,7 @@ namespace LandConquestDB.Models
             countryStorageCommand.Parameters.AddWithValue("@gems", _landStorage.LandGems);
             countryStorageCommand.Parameters.AddWithValue("@gold_ore", _landStorage.LandGoldOre);
             countryStorageCommand.Parameters.AddWithValue("@leather", _landStorage.LandLeather);
+            countryStorageCommand.Parameters.AddWithValue("@money", _landStorage.LandMoney);
             countryStorageCommand.Parameters.AddWithValue("@land_id", land.LandId);
 
             /*

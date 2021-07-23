@@ -4,70 +4,78 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
-        mc:Ignorable="d"
-        Title="CoatOfArmsWindow" Height="450" Width="800">
-    <Grid x:Name="CoatOfArmsGrid">
+        mc:Ignorable="d" WindowStyle="none"
+        Title="CoatOfArmsWindow" Height="450" Width="800"
+        ShowInTaskbar="False" ResizeMode="NoResize">
 
+    <Border BorderBrush="#FF392018" BorderThickness="2" Height="Auto" Width="Auto">
+        <Grid x:Name="CoatOfArmsGrid">
+            <Button x:Name="buttonExit"  HorizontalContentAlignment="Left"  VerticalContentAlignment="Top"  BorderBrush="{x:Null}" Foreground="{x:Null}" Click="ButtonExit_Click" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="25" Margin="0,0,-0.4,395"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+                </Button.Background>
+            </Button>
 
+            <Button x:Name="buttonForm" Content="Форма" HorizontalAlignment="Left" Margin="300,72,0,0" VerticalAlignment="Top" Width="75" Click="buttonForm_Click"/>
+            <Button x:Name="buttonPattern" Content= "Рисунок" HorizontalAlignment="Left" Margin="405,72,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.469,0.488" Click="buttonPattern_Click"/>
+            <Button x:Name="buttonAtrs" Content="Предметы" HorizontalAlignment="Left" Margin="524,72,0,0" VerticalAlignment="Top" Width="103" Click="buttonAtrs_Click"/>
+            <TextBox x:Name="logBox" HorizontalAlignment="Left" Height="23" Margin="300,23,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="427" FontWeight="Bold"/>
 
-        <Button x:Name="buttonExit"  HorizontalContentAlignment="Left"  VerticalContentAlignment="Top"  BorderBrush="{x:Null}" Foreground="{x:Null}" Click="ButtonExit_Click" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="25" Margin="0,0,-0.4,395"  >
-            <Button.Background>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
-            </Button.Background>
-        </Button>
+            <Grid x:Name="FormsGrid" ShowGridLines="True" Height="198" Margin="300,130,194.6,0" VerticalAlignment="Top" Width="299" MouseDown="FormsGrid_MouseDown">
+                <Grid.Background>
+                    <SolidColorBrush Color="#FF6B6B61" Opacity="0.5"/>
+                </Grid.Background>
 
-        <Button x:Name="buttonForm" Content="Форма" HorizontalAlignment="Left" Margin="300,72,0,0" VerticalAlignment="Top" Width="75" Click="buttonForm_Click"/>
-        <Button x:Name="buttonPattern" Content= "Рисунок" HorizontalAlignment="Left" Margin="405,72,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.469,0.488" Click="buttonPattern_Click"/>
-        <Button x:Name="buttonAtrs" Content="Предметы" HorizontalAlignment="Left" Margin="524,72,0,0" VerticalAlignment="Top" Width="103" Click="buttonAtrs_Click"/>
-        <TextBox x:Name="logBox" HorizontalAlignment="Left" Height="23" Margin="300,23,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="427" FontWeight="Bold"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
 
-        <Grid x:Name="FormsGrid" ShowGridLines="True" Height="198" Margin="300,130,194.6,0" VerticalAlignment="Top" Width="299" MouseDown="FormsGrid_MouseDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image x:Name="form1"  Grid.Row="0" Grid.Column="0" MouseDown="Img_MouseDown" />
+                <Image x:Name="form2"  Grid.Row="0" Grid.Column="1" MouseDown="Img_MouseDown"></Image>
+                <Image x:Name="form3"  Grid.Row="0" Grid.Column="2" MouseDown="Img_MouseDown"></Image>
+            </Grid>
+            <ListBox x:Name="CoatOfArmsLayersList" HorizontalAlignment="Left" Height="252" Margin="632,76,0,0" VerticalAlignment="Top" Width="136" MouseUp="CoatOfArmsLayersList_MouseUp">
+                <ListBox.Background>
+                    <SolidColorBrush Color="#FF6B6B61" Opacity="0.5"/>
+                </ListBox.Background>
+            </ListBox>
+
+            <Canvas  HorizontalAlignment="Left" Height="416" Margin="42,4,0,0" VerticalAlignment="Top" Width="197"/>
+            <Rectangle Margin="15,-11,512.6,-137" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/Pictures/CoatOfArms/workplace.png" Stretch="UniformToFill"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <ItemsControl x:Name="CanvasContainer" Margin="24,62,0,0" Height="250" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250">
+                <Canvas x:Name="CoatOfArmsCanvas"
+                                Drop="Canvas_Drop"
+                                Height="250"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left"
+                                Width="250"
+                                ClipToBounds="True"/>
+            </ItemsControl>
+            <Button Content="Save" x:Name="saveButton" HorizontalAlignment="Left" Margin="103,333,0,0" VerticalAlignment="Top" Width="75" Click="saveButton_Click"/>
+            <Button Content="Удалить" x:Name="deleteButton" HorizontalAlignment="Left" Margin="659,343,0,0" VerticalAlignment="Top" Width="85" Click="deleteButton_Click"/>
+
             <Grid.Background>
-                <SolidColorBrush Color="#FF6B6B61" Opacity="0.5"/>
+                <ImageBrush ImageSource="/Pictures/CoatOfArms/background_workplace.png" Stretch="UniformToFill"/>
             </Grid.Background>
-
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <Image x:Name="form1"  Grid.Row="0" Grid.Column="0" MouseDown="Img_MouseDown" />
-            <Image x:Name="form2"  Grid.Row="0" Grid.Column="1" MouseDown="Img_MouseDown"></Image>
-            <Image x:Name="form3"  Grid.Row="0" Grid.Column="2" MouseDown="Img_MouseDown"></Image>
         </Grid>
-        <ListBox x:Name="CoatOfArmsLayersList" HorizontalAlignment="Left" Height="252" Margin="632,76,0,0" VerticalAlignment="Top" Width="136" MouseUp="CoatOfArmsLayersList_MouseUp">
-            <ListBox.Background>
-                <SolidColorBrush Color="#FF6B6B61" Opacity="0.5"/>
-            </ListBox.Background>
-        </ListBox>
-
-        <Canvas  HorizontalAlignment="Left" Height="416" Margin="42,4,0,0" VerticalAlignment="Top" Width="197"/>
-        <Rectangle Margin="15,-11,512.6,-137" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/Pictures/CoatOfArms/workplace.png" Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Canvas x:Name="CoatOfArmsCanvas"  Background="Aqua" Drop="Canvas_Drop" Margin="50,76,0,0" Height="207" VerticalAlignment="Top" HorizontalAlignment="Left" Width="197"/>
-        <Button Content="Save" x:Name="saveButton" HorizontalAlignment="Left" Margin="103,333,0,0" VerticalAlignment="Top" Width="75" Click="saveButton_Click"/>
-        <Button Content="Удалить" x:Name="deleteButton" HorizontalAlignment="Left" Margin="659,343,0,0" VerticalAlignment="Top" Width="85" Click="deleteButton_Click"/>
-
-        <Grid.Background>
-            <ImageBrush ImageSource="/Pictures/CoatOfArms/background_workplace.png" Stretch="UniformToFill"/>
-        </Grid.Background>
-    </Grid>
-
+    </Border>
 </Window>

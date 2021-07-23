@@ -21,45 +21,38 @@ namespace LandConquest.Forms
     /// </summary>
     public partial class CoatOfArmsWindow : Window
     {   
-       
-        int layerCounter = 1;
         Player player;
-        Image img;
-        Image shield = new Image();
+        Image shield;
         Image pattern = new Image();
-        Image atribute=new Image();
-        Image shieldMask= new Image();
+        Image atribute = new Image();
+        Image shieldMask = new Image();
         Image selectedImage;
-        int currentMenu=0;
+        int currentMenu = 0;
 
         public CoatOfArmsWindow(Player _player)
         {
             player = _player;
             InitializeComponent();
         }
-
-     
-
-
         private void Img_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
             if (currentMenu == 1) //shield form
             {
-
-                
                 if (!CoatOfArmsCanvas.Children.Contains(shield))
                 {
+                    shield = new Image();
                     Image buffer = (Image)sender;
                     shield.Source = buffer.Source.Clone();
-                    
-                    shield.Width = 200;
-                    shield.Height = 200;
-                    
+                    logBox.Text = Convert.ToString(buffer.Source);
+
+                    shield.Width = 250;
+                    shield.Height = 250;
+
                     selectedImage = shield;
-                    
+
                     CoatOfArmsCanvas.Children.Add(shield);
-                    AllowDrop = true;
+
                     Image shieldLayer = new Image();
                     shieldLayer.Source = buffer.Source.Clone();
                     shieldLayer.Height = 40;
@@ -69,20 +62,8 @@ namespace LandConquest.Forms
                     VisualBrush b = new VisualBrush();
                     b.Visual = shield;
                     b.Stretch = Stretch.None;
-                    CoatOfArmsCanvas.OpacityMask = b;
-                    
-                   // CoatOfArmsCanvas.OpacityMask.Freeze();
-                    
-                    //shield.MouseDown += Img_MouseDown;
-
+                    CanvasContainer.OpacityMask = b;
                 }
-               
-                
-
-                DataObject data = new DataObject(typeof(ImageSource), shield.Source);
-                DragDrop.DoDragDrop(shield, data, DragDropEffects.Move);
-
-
             }
             if (currentMenu == 2) //pattern
             {
@@ -94,8 +75,9 @@ namespace LandConquest.Forms
                     pattern.Source = buffer.Source.Clone();
                     pattern.Width = 160;
                     pattern.Height = 160;
-                    
+
                     CoatOfArmsCanvas.Children.Add(pattern);
+
                     Image patternLayer = new Image();
                     patternLayer.Source = buffer.Source.Clone();
                     patternLayer.Height = 30;
@@ -108,18 +90,16 @@ namespace LandConquest.Forms
                 
                 pattern.AllowDrop = true;
 
-
-
                 DataObject data = new DataObject(typeof(ImageSource), pattern.Source);
                 DragDrop.DoDragDrop(pattern, data, DragDropEffects.Move);
             }
             if (currentMenu == 3) //additional items
             {
-              
                 if ( !CoatOfArmsCanvas.Children.Contains(atribute))
                 {
                     Image buffer = (Image)sender;
                     atribute.Source = buffer.Source.Clone();
+
                     CoatOfArmsCanvas.Children.Add(atribute);
                     atribute.Width = 70;
                     atribute.Height = 70;
@@ -137,13 +117,6 @@ namespace LandConquest.Forms
                 DataObject data = new DataObject(typeof(ImageSource), atribute.Source);
                 DragDrop.DoDragDrop(atribute, data, DragDropEffects.Move);
             }
-
-
-
-
-
-
-
         }
 
      
@@ -163,9 +136,7 @@ namespace LandConquest.Forms
 
                 Canvas.SetLeft(selectedImage, e.GetPosition(CoatOfArmsCanvas).X - selectedImage.Width / 2);
                 Canvas.SetTop(selectedImage, e.GetPosition(CoatOfArmsCanvas).Y - selectedImage.Height / 2);
-                logBox.Text = CoatOfArmsCanvas.ActualHeight + " " + CoatOfArmsCanvas.ActualWidth;
             }
-           
         }
 
 
@@ -181,23 +152,16 @@ namespace LandConquest.Forms
 
             currentMenu = 1;
             
-            form1.Source = new BitmapImage(new Uri("/Pictures/CoatOfArms/shield1.png", UriKind.Relative));
+            form1.Source = new BitmapImage(new Uri("/Pictures/CoatOfArms/333.png", UriKind.Relative));
             form2.Source = new BitmapImage(new Uri("/Pictures/CoatOfArms/shield2.jpg", UriKind.Relative));
-            
-            
-
         }
 
 
         private void buttonPattern_Click(object sender, RoutedEventArgs e)
         {
             currentMenu = 2;
-            form1.Source = new BitmapImage(new Uri("/Pictures/CoatOfArms/shield1/cross_red.png", UriKind.Relative));
+            form1.Source = new BitmapImage(new Uri("/Pictures/CoatOfArms/shield2/cross_red.png", UriKind.Relative));
             form2.Source = new BitmapImage(new Uri("/Pictures/CoatOfArms/shield1/circle_red.png", UriKind.Relative));
-            
-            
-            
-            
         }
 
        

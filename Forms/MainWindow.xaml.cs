@@ -193,7 +193,7 @@ namespace LandConquest.Forms
         private void LandImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new LandWindow(player);
+            openedWindow = new LandWindow(user, player);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
@@ -940,8 +940,13 @@ namespace LandConquest.Forms
 
                     WAR = new War();
                     WAR.WarId = wars[j].WarId;
-                    //DeclareWar(null, e);
-                    WarLogic.EnterInWar(WAR, player);
+
+                    WarPreviewDialogWindow dialogWindow = new WarPreviewDialogWindow();
+                    dialogWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    dialogWindow.Owner = this;
+                    dialogWindow.Show();
+
+                    //WarLogic.EnterInWar(WAR, player);
                 }
             }
         }

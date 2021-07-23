@@ -12,5 +12,6 @@
         public int LandCopper { get; set; }
         public int LandGems { get; set; }
         public int LandLeather { get; set; }
+        public int LandMoney { get; set; }
     }
 }

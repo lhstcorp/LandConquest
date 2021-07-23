@@ -179,6 +179,12 @@
     <Compile Include="DialogWIndows\BuyListingDialog.xaml.cs">
       <DependentUpon>BuyListingDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\CastleUpdateDialog.xaml.cs">
+      <DependentUpon>CastleUpdateDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogWIndows\WarPreviewDialogWindow.xaml.cs">
+      <DependentUpon>WarPreviewDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CoatOfArmsWindow.xaml.cs">
       <DependentUpon>CoatOfArmsWindow.xaml</DependentUpon>
     </Compile>
@@ -281,6 +287,14 @@
       <DependentUpon>StylesDictionary.xaml</DependentUpon>
     </Compile>
     <Page Include="DialogWIndows\BuyListingDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\CastleUpdateDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DialogWIndows\WarPreviewDialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -700,6 +714,22 @@
     <Resource Include="Pictures\Experimental\cityForLandWindow.jpg" />
     <Resource Include="Pictures\LandWindow\castle.png" />
     <Resource Include="Pictures\Buildings\Upgrade.png" />
+    <Resource Include="Pictures\CoatOfArms\atributes\apple.png" />
+    <Resource Include="Pictures\CoatOfArms\atributes\tower.png" />
+    <Resource Include="Pictures\CoatOfArms\background_workplace.png" />
+    <Resource Include="Pictures\CoatOfArms\metal_gray.png" />
+    <Resource Include="Pictures\CoatOfArms\shield1.png" />
+    <Resource Include="Pictures\CoatOfArms\shield1\circle_blue.png" />
+    <Resource Include="Pictures\CoatOfArms\shield1\circle_red.png" />
+    <Resource Include="Pictures\CoatOfArms\shield1\cross_blue.png" />
+    <Resource Include="Pictures\CoatOfArms\shield1\cross_red.png" />
+    <Resource Include="Pictures\CoatOfArms\shield1_mask.png" />
+    <Resource Include="Pictures\CoatOfArms\shield2.jpg" />
+    <Resource Include="Pictures\CoatOfArms\shield2\circle_blue.png" />
+    <Resource Include="Pictures\CoatOfArms\shield2\circle_red.png" />
+    <Resource Include="Pictures\CoatOfArms\shield2\cross_blue.png" />
+    <Resource Include="Pictures\CoatOfArms\shield2\cross_red.png" />
+    <Resource Include="Pictures\CoatOfArms\workplace.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
