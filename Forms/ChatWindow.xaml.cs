@@ -10,11 +10,11 @@ namespace LandConquest.Forms
 {
     public partial class ChatWindow : Window
     {
-        private Player player;
-        private List<ChatMessages> messages;
-        CancellationTokenSource cancelTokenSource;
-        CancellationToken token;
-        private string playerTargetId;
+        private Player              player;
+        private List<ChatMessages>  messages;
+        CancellationTokenSource     cancelTokenSource;
+        CancellationToken           token;
+        private string              playerTargetId;
 
         public ChatWindow(Player _player)
         {
@@ -24,10 +24,17 @@ namespace LandConquest.Forms
 
         private void ButtonSendMessage_Click(object sender, RoutedEventArgs e)
         {
-            if (playerTargetId == null)
+            if (playerTargetId == "")
             {
                 ChatModel.SendMessage(textBoxNewMessage.Text, player.PlayerId, "[all]");
             }
+            else
+            {
+                ChatModel.SendMessage(textBoxNewMessage.Text, player.PlayerId, "["+ playerTargetId+"]");
+            }
+            textBoxNewMessage.Text = "";
+            playerTargetId = "";
+            buttonWhisper.IsEnabled = false;
         }
 
         public async void CallUpdateChatAsync()
@@ -55,6 +62,43 @@ namespace LandConquest.Forms
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CallUpdateChatAsync();
+            buttonWhisper.IsEnabled = false;
+            playerTargetId = "";
+
+        }
+
+        private void listViewChat_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (listViewChat.SelectedItem != null)
+            {
+                ChatMessages message = (ChatMessages)listViewChat.SelectedItem;
+                if (player.PlayerId == message.PlayerId)
+                {
+                    buttonWhisper.IsEnabled = false;
+                }
+                else
+                {
+                    buttonWhisper.IsEnabled = true;
+                }
+            }
+        }
+
+        private void buttonWhisper_Click(object sender, RoutedEventArgs e)
+        {
+            if(listViewChat.SelectedItem != null)
+            {
+                ChatMessages message = (ChatMessages)listViewChat.SelectedItem;
+                if (player.PlayerId != message.PlayerId)
+                {
+                    playerTargetId = message.PlayerId;
+                }
+            }
+        }
+
+        private void buttonToAll_Click(object sender, RoutedEventArgs e)
+        {
+            playerTargetId = "";
+            buttonWhisper.IsEnabled = false;
         }
     }
 }

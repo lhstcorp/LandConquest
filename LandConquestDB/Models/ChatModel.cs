@@ -42,7 +42,7 @@ namespace LandConquestDB.Models
 
             for (int i = 0; i < Message.Count; i++)
             {
-                if (PlayerTargerId[i] == "[all]" || PlayerTargerId[i] == currentPlayerId)
+                if (PlayerTargerId[i] == "[all]" || PlayerTargerId[i] == "["+currentPlayerId+"]" || PlayerId[i] == currentPlayerId)
                 {
                     messages.Add(new ChatMessages());
                     messages[i].PlayerId = PlayerId[i];
