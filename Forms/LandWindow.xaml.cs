@@ -23,14 +23,16 @@ namespace LandConquest.Forms
     public partial class LandWindow : Window
     {
         private Player player;
+        private User user;
         private Land land;
         private LandStorage landStorage;
         private PlayerStorage storage;
-        public LandWindow(Player _player)
+        public LandWindow(User _user, Player _player)
         {
             player = _player;
+            user = _user;
             InitializeComponent();
-
+            
             Loaded += LandWindow_Loaded;
         }
 
@@ -89,7 +91,7 @@ namespace LandConquest.Forms
 
         private void buttonLandResources_Click(object sender, RoutedEventArgs e)
         {
-            LandResourcesWindow openedWindow = new LandResourcesWindow(player, storage, landStorage, land);
+            LandResourcesWindow openedWindow = new LandResourcesWindow(user, player, storage, landStorage, land);
             openedWindow.Owner = Application.Current.MainWindow;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
