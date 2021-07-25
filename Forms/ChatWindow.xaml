@@ -22,7 +22,7 @@
                  Background="White" CaretBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" materialDesign:HintAssist.Hint=" Your message (80 symbols max)"  materialDesign:HintAssist.IsFloating="False" Margin="16,404,0,0" BorderBrush="#FF392018"/>
             <Border BorderBrush="#FF392018" BorderThickness="0" Height="Auto" Width="Auto" Margin="16,20,16.2,44.2">
                 <Grid>
-                    <ListView x:Name="listViewChat" Foreground="#DD000000"  Background="Wheat" OpacityMask="White" FontSize="12" Margin="0,0,-0.8,-0.8" BorderBrush="{x:Null}" >
+                    <ListView x:Name="listViewChat" Foreground="#DD000000"  Background="Wheat" OpacityMask="White" FontSize="12" Margin="0,0,-0.8,-0.8" BorderBrush="{x:Null}" SelectionChanged="listViewChat_SelectionChanged" >
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header=" " DisplayMemberBinding="{Binding PlayerTargetName}" Width="65"></GridViewColumn>
@@ -42,8 +42,18 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
+            <Button x:Name="buttonWhisper" Content="Whisp" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="63" FontSize="10" Height="24" BorderBrush="{x:Null}" Margin="16,20,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua" Click="buttonWhisper_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonToAll" Content="To all" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="63" FontSize="10" Height="24" BorderBrush="{x:Null}" Margin="16,43,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua" Click="buttonToAll_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
 
-            <Button x:Name="buttonClose" HorizontalAlignment="Center"  Margin="823,0,0.2,0" VerticalAlignment="Top" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="ButtonClose_Click" Height="20" RenderTransformOrigin="0.5,0.5" Width="20">
+            <Button x:Name="buttonClose" HorizontalAlignment="Center"  Margin="807,21,16.2,0" VerticalAlignment="Top" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="ButtonClose_Click" Height="20" RenderTransformOrigin="0.5,0.5" Width="20">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
                 </Button.Background>
