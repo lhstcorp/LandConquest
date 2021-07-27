@@ -16,7 +16,13 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-
+            <Label x:Name="warCaptionLbl" Content="War between " FontSize="30"  HorizontalAlignment="Right" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Sitka Display" Foreground="#FFB8362F" FontWeight="Bold" Height="48" Margin="0,10,22.4,0" VerticalAlignment="Top" Width="945"/>
+            <Image x:Name="CountryAttackerImage" Source="/Pictures/profileImage.png" Height="200" Margin="49,95,741.4,0" VerticalAlignment="Top"/>
+            <Image x:Name="CountryDefenderImage" Source="/Pictures/profileImage.png" Height="200" Margin="739,95,51.4,0" VerticalAlignment="Top"/>
+            <Label x:Name="CountryAttackerName" Content="Attacker" FontWeight="Bold" FontSize="30" FontFamily="Sitka Display" Foreground="#FFB8362F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="49,51,0,0" VerticalAlignment="Top" Width="200"/>
+            <Label x:Name="CountryDefenderName" Content="Defender" FontWeight="Bold" FontSize="30" FontFamily="Sitka Display" Foreground="#FFB8362F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="739,51,0,0" VerticalAlignment="Top" Width="200"/>
+            <UniformGrid x:Name="DefenderPlayers" HorizontalAlignment="Left" Height="200" Margin="539,95,0,0" VerticalAlignment="Top" Width="200"/>
+            <UniformGrid x:Name="AttackerPlayers" Columns="5" HorizontalAlignment="Left" Height="200" Margin="249,95,0,0" VerticalAlignment="Top" Width="200"/>
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
