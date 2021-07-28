@@ -13,7 +13,7 @@ namespace LandConquestDB.Models
             List<ChatMessages> messages;
             string query = "SELECT * FROM [LandConquestMessagingDB].[dbo].[ChatMessages]";
             List<string> PlayerId = new List<string>();
-            List<string> PlayerTargerId = new List<string>();
+            List<string> PlayerTargetId = new List<string>();
             List<string> Message = new List<string>();
             List<DateTime> MessageSentTime = new List<DateTime>();
 
@@ -31,7 +31,7 @@ namespace LandConquestDB.Models
                 {
                     PlayerId.Add(reader.GetString(playerId));
                     Message.Add(reader.GetString(message));
-                    PlayerTargerId.Add(reader.GetString(playerTargetId));
+                    PlayerTargetId.Add(reader.GetString(playerTargetId));
                     MessageSentTime.Add(reader.GetDateTime(messageTime));
                 }
                 reader.Close();
@@ -40,24 +40,26 @@ namespace LandConquestDB.Models
 
             messages = new List<ChatMessages>(Message.Count);
 
+            int j = 0;
             for (int i = 0; i < Message.Count; i++)
             {
-                if (PlayerTargerId[i] == "[all]" || PlayerTargerId[i] == "["+currentPlayerId+"]" || PlayerId[i] == currentPlayerId)
+                if (PlayerTargetId[i] == "[all]" || PlayerTargetId[i] == currentPlayerId || PlayerId[i] == currentPlayerId)
                 {
                     messages.Add(new ChatMessages());
-                    messages[i].PlayerId = PlayerId[i];
-                    messages[i].PlayerName = PlayerModel.GetPlayerNameById(messages[i].PlayerId);
-                    messages[i].PlayerTargetId = PlayerTargerId[i];
-                    if (PlayerTargerId[i] == "[all]")
+                    messages[j].PlayerId = PlayerId[i];
+                    messages[j].PlayerName = PlayerModel.GetPlayerNameById(messages[j].PlayerId);
+                    messages[j].PlayerTargetId = PlayerTargetId[i];
+                    if (PlayerTargetId[i] == "[all]")
                     {
-                        messages[i].PlayerTargetName = "[all]";
+                        messages[j].PlayerTargetName = "[all]";
                     }
                     else
                     {
-                        messages[i].PlayerTargetName = PlayerModel.GetPlayerNameById(messages[i].PlayerTargetId);
+                        messages[j].PlayerTargetName = "[" + PlayerModel.GetPlayerNameById(messages[j].PlayerTargetId) + "]";
                     }
-                    messages[i].PlayerMessage = Message[i];
-                    messages[i].MessageSentTime = MessageSentTime[i];
+                    messages[j].PlayerMessage = Message[i];
+                    messages[j].MessageSentTime = MessageSentTime[i];
+                    j++;
                 }
             }
             connection.Close();
