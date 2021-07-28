@@ -18,15 +18,15 @@
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
         <Grid>
-            <TextBox x:Name="textBoxNewMessage" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"  FontSize="16" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap" MaxLength="80"  VerticalAlignment="Top" Width="733" 
-                 Background="White" CaretBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" materialDesign:HintAssist.Hint=" Your message (80 symbols max)"  materialDesign:HintAssist.IsFloating="False" Margin="16,404,0,0" BorderBrush="#FF392018"/>
-            <Border BorderBrush="#FF392018" BorderThickness="0" Height="Auto" Width="Auto" Margin="16,20,16.2,44.2">
+            <TextBox x:Name="textBoxNewMessage" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"  FontSize="16" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap" MaxLength="80"  VerticalAlignment="Top" Width="752" 
+                 Background="White" CaretBrush="{x:Null}" Foreground="Black" SelectionBrush="{x:Null}" materialDesign:HintAssist.Hint=" Your message"  materialDesign:HintAssist.IsFloating="False" Margin="7,404,0,0" BorderBrush="#FF392018"/>
+            <Border BorderBrush="#FF392018" BorderThickness="0" Height="Auto" Width="Auto" Margin="7,14,9.2,44.2">
                 <Grid>
-                    <ListView x:Name="listViewChat" Foreground="#DD000000"  Background="Wheat" OpacityMask="White" FontSize="12" Margin="0,0,-0.8,-0.8" BorderBrush="{x:Null}" SelectionChanged="listViewChat_SelectionChanged" >
+                    <ListView x:Name="listViewChat" Foreground="#DD000000"  Background="Wheat" OpacityMask="White" FontSize="12" BorderBrush="{x:Null}" SelectionChanged="listViewChat_SelectionChanged" >
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header=" " DisplayMemberBinding="{Binding PlayerTargetName}" Width="65"></GridViewColumn>
-                                <GridViewColumn Header="{lex:Loc LocLabelPlayer_Content}" DisplayMemberBinding="{Binding PlayerName}" Width="65"></GridViewColumn>
+                                <GridViewColumn Header="To" DisplayMemberBinding="{Binding PlayerTargetName}" Width="65"></GridViewColumn>
+                                <GridViewColumn Header="From" DisplayMemberBinding="{Binding PlayerName}" Width="65"></GridViewColumn>
                                 <GridViewColumn Header="{lex:Loc LocLabelMessage_Content}" DisplayMemberBinding="{Binding PlayerMessage}" Width="570"></GridViewColumn>
                                 <GridViewColumn Header="{lex:Loc LocLabelDate_Content}" DisplayMemberBinding="{Binding MessageSentTime}" Width="135"></GridViewColumn>
                             </GridView>
@@ -37,27 +37,37 @@
                     </Grid.Background>
                 </Grid>
             </Border>
-            <Button x:Name="buttonSendMessage" Content="Send" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="73" Height="36" Click="ButtonSendMessage_Click" BorderBrush="{x:Null}" Margin="754,404,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua">
+            <Button x:Name="buttonSendMessage" Content="Send" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="73" Height="36" Click="ButtonSendMessage_Click" BorderBrush="{x:Null}" Margin="762,404,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="buttonWhisper" Content="Whisp" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="63" FontSize="10" Height="24" BorderBrush="{x:Null}" Margin="16,20,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua" Click="buttonWhisper_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="buttonToAll" Content="To all" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="63" FontSize="10" Height="24" BorderBrush="{x:Null}" Margin="16,43,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua" Click="buttonToAll_Click">
+            <Button x:Name="buttonToAll" Content="Return" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="100" FontSize="10" Height="35" BorderBrush="{x:Null}" Margin="235,363,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua" Click="buttonToAll_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
 
-            <Button x:Name="buttonClose" HorizontalAlignment="Center"  Margin="807,21,16.2,0" VerticalAlignment="Top" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="ButtonClose_Click" Height="20" RenderTransformOrigin="0.5,0.5" Width="20">
+            <Button x:Name="buttonClose" HorizontalAlignment="Center"  Margin="823,0,0.2,0" VerticalAlignment="Top" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="ButtonClose_Click" Height="20" RenderTransformOrigin="0.5,0.5" Width="20">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
                 </Button.Background>
             </Button>
+            <Button x:Name="viewProfile" Content="View profile" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="100" FontSize="12" Height="35" BorderBrush="{x:Null}" Margin="133,363,0,0" Foreground="#FFE1C993" FontFamily="Book Antiqua" Click="viewProfile_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+
+            <Border x:Name="borderSendTo" BorderBrush="#FF392018" BorderThickness="1" Height="Auto" Width="Auto" Margin="7,364,714.2,44.2">
+                <Grid x:Name="gridSendTo">
+                    <Label HorizontalContentAlignment="Left" Content="To:" FontFamily="Trebuchet MS" Foreground="#FF492F2C" FontSize="14" Height="23" Margin="2,5,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="29" FontWeight="Bold"/>
+                    <Label x:Name="lblSendTo" HorizontalContentAlignment="Left" Content="all" FontFamily="Trebuchet MS" Foreground="#FF492F2C" FontSize="14" Height="24" Margin="31,5,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="83" FontWeight="Bold"/>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+                    </Grid.Background>
+                </Grid>
+            </Border>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
