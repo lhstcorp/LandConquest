@@ -16,6 +16,7 @@ namespace LandConquest.Forms
         CancellationTokenSource cancelTokenSource;
         CancellationToken token;
         private string playerTargetId;
+        private string playerCurrentRoom;
 
         public ChatWindow(Player _player)
         {
@@ -27,11 +28,11 @@ namespace LandConquest.Forms
         {
             if (playerTargetId == "")
             {
-                ChatModel.SendMessage(textBoxNewMessage.Text, player.PlayerId, "[all]");
+                ChatModel.SendMessage(textBoxNewMessage.Text, player.PlayerId, "[all]", playerCurrentRoom);
             }
             else
             {
-                ChatModel.SendMessage(textBoxNewMessage.Text, player.PlayerId, playerTargetId);
+                ChatModel.SendMessage(textBoxNewMessage.Text, player.PlayerId, playerTargetId, playerCurrentRoom);
             }
             textBoxNewMessage.Text = "";
             playerTargetId = "";
@@ -53,7 +54,7 @@ namespace LandConquest.Forms
         {
             while (!token.IsCancellationRequested)
             {
-                await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { messages = ChatModel.GetMessages(player.PlayerId); listViewChat.ItemsSource = messages; listViewChat.Items.Refresh(); }));
+                await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { messages = ChatModel.GetMessages(player.PlayerId, playerCurrentRoom); listViewChat.ItemsSource = messages; listViewChat.Items.Refresh(); }));
                 await Task.Delay(5000);
             }
         }
@@ -68,6 +69,7 @@ namespace LandConquest.Forms
         {
             CallUpdateChatAsync();
             playerTargetId = "";
+            playerCurrentRoom = "0";
             borderSendTo.Visibility = Visibility.Hidden;
             gridSendTo.Visibility = Visibility.Hidden;
             viewProfile.Visibility = Visibility.Hidden;
@@ -110,6 +112,11 @@ namespace LandConquest.Forms
                 profileDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 profileDialog.Show();
             }
+        }
+
+        private void buttonMainGeneral_Click(object sender, RoutedEventArgs e)
+        {
+            Window_Loaded(sender, e);
         }
     }
 }
