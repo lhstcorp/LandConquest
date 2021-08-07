@@ -13,6 +13,7 @@
         public int ManufactureProductsHour { get; set; }
         public DateTime ManufactureProdStartTime { get; set; }
         public int ManufactureBaseProdValue { get; set; }
+        public int WarehouseId { get; set; }
 
 
 
