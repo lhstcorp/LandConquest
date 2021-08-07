@@ -346,6 +346,13 @@ namespace LandConquest.Forms
             playerLandManufactures[0].ManufactureProductsHour = Convert.ToInt32(building1ProdValueHour.Content);
             playerLandManufactures[1].ManufactureProductsHour = Convert.ToInt32(building2ProdValueHour.Content);
 
+            //склады - добавить штуки для выбора на юае
+            manufactures[0].WarehouseId = 1;
+            manufactures[1].WarehouseId = 1;
+            manufactures[2].WarehouseId = 1;
+            playerLandManufactures[0].WarehouseId = 1;
+            playerLandManufactures[1].WarehouseId = 1;
+
             //не забудь убрать лох //убрал кста
             ManufactureModel.InsertOrUpdateLandManufactures(playerLandManufactures, player); //это пользовательская сущность городской мануфактуры
             //возвращаю костыль
