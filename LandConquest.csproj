@@ -182,6 +182,9 @@
     <Compile Include="DialogWIndows\CastleUpdateDialog.xaml.cs">
       <DependentUpon>CastleUpdateDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\PlayerProfileDialog.xaml.cs">
+      <DependentUpon>PlayerProfileDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\WarPreviewDialogWindow.xaml.cs">
       <DependentUpon>WarPreviewDialogWindow.xaml</DependentUpon>
     </Compile>
@@ -257,6 +260,9 @@
     <Compile Include="Forms\SubmitBugWindow.xaml.cs">
       <DependentUpon>SubmitBugWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\WarehouseWindow.xaml.cs">
+      <DependentUpon>WarehouseWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\WarResultWindow.xaml.cs">
       <DependentUpon>WarResultWindow.xaml</DependentUpon>
     </Compile>
@@ -293,6 +299,10 @@
     <Page Include="DialogWIndows\CastleUpdateDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DialogWIndows\PlayerProfileDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\WarPreviewDialogWindow.xaml">
       <SubType>Designer</SubType>
@@ -426,6 +436,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\SubmitBugWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\WarehouseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

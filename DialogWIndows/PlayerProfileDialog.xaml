@@ -1,0 +1,40 @@
+﻿<Window x:Class="LandConquest.DialogWIndows.PlayerProfileDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.DialogWIndows"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="en"
+        mc:Ignorable="d"
+        WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
+        Height="221.733" Width="410" Background="{x:Null}"
+        ShowInTaskbar="False" Loaded="Window_Loaded">
+
+    <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
+        <Grid>
+            <Image x:Name="playerIcon" Source = "/Pictures/profileImage.png" Stretch="UniformToFill" Height="66" VerticalAlignment="Top" HorizontalAlignment="Left" Width="55" />
+            <Label Content="{lex:Loc LocLabelName_Content}" FontSize="18" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="114,16,0,0" VerticalAlignment="Top" Height="29" Width="64"/>
+            <Label Content="{lex:Loc LocLabelTitle_Content}" FontSize="18" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="114,50,0,0" VerticalAlignment="Top" Width="64"/>
+            <Label Content="{lex:Loc LocLabelLand_Content}" FontSize="18" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="114,86,0,0" VerticalAlignment="Top" Width="63" RenderTransformOrigin="0.532,0.948"/>
+            <Label Content="Last seen" FontSize="18" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="114,120,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="0.532,0.948"/>
+
+
+            <Label x:Name="labelName" Content="null" Foreground="#311818" FontWeight="SemiBold" FontSize="18" HorizontalAlignment="Left" Margin="217,16,0,0" VerticalAlignment="Top" Height="30"/>
+            <Label x:Name="labelTitle" Content="null" Foreground="#311818" FontWeight="SemiBold" FontSize="18" HorizontalAlignment="Left" Margin="217,50,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="labelLand" Content="null" Foreground="#311818" FontWeight="SemiBold" FontSize="18" HorizontalAlignment="Left" Margin="217,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+            <Label x:Name="labelDateVisit" Content="null" Foreground="#311818" FontWeight="SemiBold" FontSize="18" HorizontalAlignment="Left" Margin="217,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+
+
+            <Button x:Name="buttonClose" HorizontalAlignment="Right" Margin="0,0,0.2,0" VerticalAlignment="Top" Foreground="{x:Null}" BorderBrush="{x:Null}" Height="15" Width="15" Click="buttonClose_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+                </Button.Background>
+            </Button>
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+        </Grid>
+    </Border>
+</Window>
