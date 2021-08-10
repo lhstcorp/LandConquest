@@ -13,8 +13,12 @@
             </Grid.Background>
             <Label x:Name="CountryNameLbl" FontSize="24"  Content="12345" HorizontalAlignment="Left" Margin="52,6,0,0" VerticalAlignment="Top" Width="294" Height="52" FontFamily="Trebuchet MS"/>
             <Label x:Name="RulerNameLbl" FontSize="24"  Content="RulerName" HorizontalAlignment="Left" Margin="109,57,0,0" VerticalAlignment="Top" Width="233" Height="52" FontFamily="Trebuchet MS"/>
+            <Label x:Name="CapitalNameLbl" FontSize="24"  Content="CapitalName" HorizontalAlignment="Left" Margin="110,104,0,0" VerticalAlignment="Top" Width="233" Height="52" FontFamily="Trebuchet MS"/>
+
             <Image x:Name="RulerImg" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="37" Source="/LandConquest;component/Pictures/profileDefault.png"/>
             <Label FontSize="18"  Content="Leader:" HorizontalAlignment="Left" Margin="40,63,0,0" VerticalAlignment="Top" Width="76" Height="37" FontFamily="Trebuchet MS"/>
+            <Label FontSize="18"  Content="Capital:" HorizontalAlignment="Left" Margin="40,109,0,0" VerticalAlignment="Top" Width="76" Height="37" FontFamily="Trebuchet MS"/>
+
             <ComboBox x:Name="CbAct" HorizontalAlignment="Left" Height="50" Margin="494,110,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbAct_SelectionChanged">
                 <ComboBoxItem Content="Land transfer" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F"/>
                 <ComboBoxItem Content="Declare a war" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F"/>

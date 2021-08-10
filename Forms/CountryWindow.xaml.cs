@@ -36,12 +36,14 @@ namespace LandConquest.Forms
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Country country = CountryModel.GetCountryById(CountryModel.GetCountryIdByLandId(player.PlayerCurrentRegion));
+            
             ruler = new Player();
             User rulerUser = new User();
             rulerUser.UserId = country.CountryRuler;
             ruler = PlayerModel.GetPlayerInfo(rulerUser, ruler);
             RulerNameLbl.Content = ruler.PlayerName;
             CountryNameLbl.Content = country.CountryName;
+            CapitalNameLbl.Content = country.CapitalId;
 
             countryLands = LandModel.GetCountryLands(country);
 
