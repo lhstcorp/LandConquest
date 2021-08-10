@@ -9,6 +9,7 @@
         public string PlayerTargetId { get; set; }
         public string PlayerTargetName { get; set; }
         public DateTime MessageSentTime { get; set; }
+        public string PlayerRoomId { get; set; }
 
     }
 }

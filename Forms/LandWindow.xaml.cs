@@ -56,8 +56,10 @@ namespace LandConquest.Forms
             landGemsToolTip.Content = landStorage.LandGems;
             landLeatherToolTip.Content = landStorage.LandLeather;
 
-
-
+            if (WarehouseModel.GetWarehouseId(player.PlayerId, land.LandId).HasValue)//warehouse exists
+            {
+                buttonWarehouse.Content = "Open warehouse";
+            }
         }
 
         private void LoadCastleContent()
@@ -95,6 +97,23 @@ namespace LandConquest.Forms
             openedWindow.Owner = Application.Current.MainWindow;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
+        }
+
+        private void buttonWarehouse_Click(object sender, RoutedEventArgs e)
+        {
+            var warehouseId = WarehouseModel.GetWarehouseId(player.PlayerId, land.LandId);
+            if (warehouseId.HasValue)
+            {
+                WarehouseWindow openedWindow = new WarehouseWindow(user, player, warehouseId.Value);
+                openedWindow.Owner = Application.Current.MainWindow;
+                openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                openedWindow.Show();
+            }
+            else
+            {
+                WarehouseModel.CreateWarehouse(player.PlayerId, land.LandId);
+                buttonWarehouse.Content = "Open warehouse";
+            }
         }
 
         private void UpgradeCastleImg_MouseEnter(object sender, MouseEventArgs e)
