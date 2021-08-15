@@ -40,6 +40,9 @@
                 <Image x:Name="form1"  Grid.Row="0" Grid.Column="0" MouseDown="Img_MouseDown" />
                 <Image x:Name="form2"  Grid.Row="0" Grid.Column="1" MouseDown="Img_MouseDown"></Image>
                 <Image x:Name="form3"  Grid.Row="0" Grid.Column="2" MouseDown="Img_MouseDown"></Image>
+                <Image x:Name="form4"  Grid.Row="1" Grid.Column="0" MouseDown="Img_MouseDown" />
+                <Image x:Name="form5"  Grid.Row="1" Grid.Column="1" MouseDown="Img_MouseDown" />
+                <Image x:Name="form6"  Grid.Row="1" Grid.Column="2" MouseDown="Img_MouseDown" />
             </Grid>
             <ListBox x:Name="CoatOfArmsLayersList" HorizontalAlignment="Left" Height="252" Margin="632,76,0,0" VerticalAlignment="Top" Width="136" MouseUp="CoatOfArmsLayersList_MouseUp">
                 <ListBox.Background>
@@ -61,7 +64,7 @@
                     <ImageBrush ImageSource="/Pictures/CoatOfArms/workplace.png" Stretch="UniformToFill"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <ItemsControl x:Name="CanvasContainer" Margin="24,62,0,0" Height="250" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250">
+            <ItemsControl x:Name="CanvasContainer" Margin="50,92,0,0" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200">
                 <Canvas x:Name="CoatOfArmsCanvas"
                                 Drop="Canvas_Drop"
                                 Height="250"
@@ -72,6 +75,7 @@
             </ItemsControl>
             <Button Content="Save" x:Name="saveButton" HorizontalAlignment="Left" Margin="103,333,0,0" VerticalAlignment="Top" Width="75" Click="saveButton_Click"/>
             <Button Content="Удалить" x:Name="deleteButton" HorizontalAlignment="Left" Margin="659,343,0,0" VerticalAlignment="Top" Width="85" Click="deleteButton_Click"/>
+            <Slider x:Name="SizeSlider" Value="1" Minimum="0.1" Maximum="2.0" SelectionStart="1" HorizontalAlignment="Left" Margin="377,367,0,0" VerticalAlignment="Top" Height="20" Width="224" Background="#FFA0A090" ValueChanged="SizeSlider_ValueChanged"/>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/CoatOfArms/background_workplace.png" Stretch="UniformToFill"/>
