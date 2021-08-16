@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LandConquest.exe" size="69775360">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LandConquest.exe" size="69779456">
       <assemblyIdentity name="LandConquest" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>H19mfzUcK9FBLSEuX+m3HbpvUOAQ2rx//0U0JS8BCaY=</dsig:DigestValue>
+        <dsig:DigestValue>hyYh1CYai+4uf7JA4mb7Ri7wjuKnVheiged2XqQjDCY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,7 +85,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CTwsRW8IH18yOnZYX4HOSf+K8P5+3ZRsygpoLeqlJfE=</dsig:DigestValue>
+        <dsig:DigestValue>XldRbW/Cs5D+CYBEYmAtASmB+pBpKpIRNWOnKT6YikU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,7 +97,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>A84jtPYMQpGC/QhWaiuIx5thGf24SD2F7d3gp7SZKU8=</dsig:DigestValue>
+        <dsig:DigestValue>RbJJ8ZnvEW65kBYhhXGvMV5BcSLgE2KZtbgfX8wt8yI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
