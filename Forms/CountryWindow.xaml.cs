@@ -20,8 +20,11 @@ namespace LandConquest.Forms
         private Player player;
         private List<Land> countryLands;
         private List<Land> countryLandsToFight;
+        private List<Land> capitalCountry;
+        private List<Country> capitals;
         private List<Country> countries;
         private Land selectedLand;
+        private Country transferCapital;
         private Country transferCountry;
         private Land countryLandDefender;
         private int operation = 0;
@@ -135,6 +138,22 @@ namespace LandConquest.Forms
         {
             selectedLand = new Land();
             selectedLand = countryLands[CbLandToTransfer.SelectedIndex];
+        }
+       
+        private void CbCapitalToTransfer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            transferCapital = new Country();
+            transferCapital = capitals[CbCapitalToTransfer.SelectedIndex];
+            Console.WriteLine(transferCapital.CapitalId);
+            CbCountryWarLand.Items.Clear();
+            countryLandsToFight = LandModel.GetCountryLands(transferCapital);
+            for (int i = 0; i < countryLandsToFight.Count; i++)
+            {
+                CbCountryWarLand.Items.Add(countryLandsToFight[i].LandName);
+                Console.WriteLine(i);
+            }
+
         }
 
         private void CbCountryToTransfer_SelectionChanged(object sender, SelectionChangedEventArgs e)
