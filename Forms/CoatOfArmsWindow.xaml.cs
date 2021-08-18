@@ -15,6 +15,8 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Resources;
 using System.Windows.Shapes;
 
 namespace LandConquest.Forms
@@ -83,18 +85,38 @@ namespace LandConquest.Forms
                     pattern.Width = 500;
                     pattern.Height = 500;
 
-                    VisualBrush colorBrush = new VisualBrush();
+                    StreamResourceInfo x = Application.GetResourceStream(new Uri(BaseUriHelper.GetBaseUri(this), "/Pictures/CoatOfArms/patterns/half_hor.png"));
+                    Uri myUri = new Uri(BaseUriHelper.GetBaseUri(this), "/Pictures/CoatOfArms/patterns/half_hor.png");
+                    BitmapDecoder dec = BitmapDecoder.Create(x.Stream, BitmapCreateOptions.None, BitmapCacheOption.Default); // на выбор.
+                    //var dec = PngBitmapDecoder.Create(myUri, BitmapCreateOptions.None, BitmapCacheOption.Default);         // разницу я не ощутил. мб в качестве, но я слепой.
+                    BitmapFrame image = dec.Frames[0];
+                    byte[] pixels = new byte[image.PixelWidth * image.PixelHeight * 4];
+                    image.CopyPixels(pixels, image.PixelWidth * 4, 0);
 
+                    for (int i = 0; i < pixels.Length / 4; ++i)
+                    {
+                        byte b = pixels[i * 4];
+                        byte g = pixels[i * 4 + 1];
+                        byte r = pixels[i * 4 + 2];
+                        byte a = pixels[i * 4 + 3];
 
+                        if (a == 0)
+                        {
+                            pixels[i * 4] = 0;
+                            pixels[i * 4 + 1] = 0;
+                            pixels[i * 4 + 2] = 0;
+                            pixels[i * 4 + 3] = 0;
+                        }
+                        else
+                        {
+                            pixels[i * 4 + 1] = 100;
+                        }
+                    }
 
-                    //                    Image myImage3 = new Image();
-                    //System.Drawing.Bitmap bmp = (System.Drawing.Bitmap)pattern.Source.Clone();
+                    WriteableBitmap bmp = new WriteableBitmap(image.PixelWidth, image.PixelHeight, image.DpiX, image.DpiY, PixelFormats.Pbgra32, BitmapPalettes.Halftone256Transparent);
+                    bmp.WritePixels(new Int32Rect(0, 0, image.PixelWidth, image.PixelHeight), pixels, image.PixelWidth * 4, 0);
+                    pattern.Source = bmp;
 
-                    //changeElementColor(bmp, System.Drawing.Color.Red);
-                    //pattern.Source = Bitmap2BitmapImage(bmp);
-
-                    //System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(new System.Drawing.Image( ));
-                    //CoatOfArmsCanvas.Background =  new SolidColorBrush(Colors.Blue);
                     CoatOfArmsCanvas.Children.Add(pattern);
                     
                     Image patternLayer = new Image();
