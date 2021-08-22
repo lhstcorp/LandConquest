@@ -20,8 +20,11 @@ namespace LandConquest.Forms
         private Player player;
         private List<Land> countryLands;
         private List<Land> countryLandsToFight;
+        private List<Land> capitalCountry;
+        private List<Country> capitals;
         private List<Country> countries;
         private Land selectedLand;
+        private Country transferCapital;
         private Country transferCountry;
         private Land countryLandDefender;
         private int operation = 0;
@@ -36,12 +39,14 @@ namespace LandConquest.Forms
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Country country = CountryModel.GetCountryById(CountryModel.GetCountryIdByLandId(player.PlayerCurrentRegion));
+            
             ruler = new Player();
             User rulerUser = new User();
             rulerUser.UserId = country.CountryRuler;
             ruler = PlayerModel.GetPlayerInfo(rulerUser, ruler);
             RulerNameLbl.Content = ruler.PlayerName;
             CountryNameLbl.Content = country.CountryName;
+            CapitalNameLbl.Content = country.CapitalId;
 
             countryLands = LandModel.GetCountryLands(country);
 
@@ -133,6 +138,22 @@ namespace LandConquest.Forms
         {
             selectedLand = new Land();
             selectedLand = countryLands[CbLandToTransfer.SelectedIndex];
+        }
+       
+        private void CbCapitalToTransfer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            transferCapital = new Country();
+            transferCapital = capitals[CbCapitalToTransfer.SelectedIndex];
+            Console.WriteLine(transferCapital.CapitalId);
+            CbCountryWarLand.Items.Clear();
+            countryLandsToFight = LandModel.GetCountryLands(transferCapital);
+            for (int i = 0; i < countryLandsToFight.Count; i++)
+            {
+                CbCountryWarLand.Items.Add(countryLandsToFight[i].LandName);
+                Console.WriteLine(i);
+            }
+
         }
 
         private void CbCountryToTransfer_SelectionChanged(object sender, SelectionChangedEventArgs e)
