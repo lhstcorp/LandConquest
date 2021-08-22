@@ -3,6 +3,16 @@
     using System.Drawing;
     public class Player
     {
+        public string PlayerId { get; set; }
+        public string PlayerName { get; set; }
+        public long PlayerExp { get; set; }
+        public int PlayerLvl { get; set; }
+        public long PlayerMoney { get; set; }
+        public long PlayerDonation { get; set; }
+        public Image PlayerImage { get; set; }
+        public int PlayerTitle { get; set; }
+        public int PlayerCurrentRegion { get; set; }
+
         public Player(string _playerId, string _playerName)
         {
             PlayerId = _playerId;
@@ -18,15 +28,5 @@
 
         public Player()
         { }
-
-        public string PlayerId { get; set; }
-        public string PlayerName { get; set; }
-        public long PlayerExp { get; set; }
-        public int PlayerLvl { get; set; }
-        public long PlayerMoney { get; set; }
-        public long PlayerDonation { get; set; }
-        public Image PlayerImage { get; set; }
-        public int PlayerTitle { get; set; }
-        public int PlayerCurrentRegion { get; set; }
     }
 }
