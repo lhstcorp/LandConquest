@@ -74,9 +74,11 @@
     <Compile Include="Entities\PlayerEquipment.cs" />
     <Compile Include="Entities\PlayersRating.cs" />
     <Compile Include="Entities\PlayerStorage.cs" />
+    <Compile Include="Entities\StoredItem.cs" />
     <Compile Include="Entities\Taxes.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\War.cs" />
+    <Compile Include="Entities\Warehouse.cs" />
     <Compile Include="Enums\ForcesEnum.cs" />
     <Compile Include="Models\ArmyModel.cs" />
     <Compile Include="Models\AuctionModel.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="Models\StorageModel.cs" />
     <Compile Include="Models\TaxesModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\WarehouseModel.cs" />
     <Compile Include="Models\WarModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

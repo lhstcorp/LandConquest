@@ -260,6 +260,9 @@
     <Compile Include="Forms\SubmitBugWindow.xaml.cs">
       <DependentUpon>SubmitBugWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\WarehouseWindow.xaml.cs">
+      <DependentUpon>WarehouseWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\WarResultWindow.xaml.cs">
       <DependentUpon>WarResultWindow.xaml</DependentUpon>
     </Compile>
@@ -433,6 +436,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\SubmitBugWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\WarehouseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -737,6 +744,22 @@
     <Resource Include="Pictures\CoatOfArms\shield2\cross_blue.png" />
     <Resource Include="Pictures\CoatOfArms\shield2\cross_red.png" />
     <Resource Include="Pictures\CoatOfArms\workplace.png" />
+    <Resource Include="Pictures\CoatOfArms\atributes\eagle.png" />
+    <Resource Include="Pictures\CoatOfArms\atributes\lion.png" />
+    <Resource Include="Pictures\CoatOfArms\atributes\scales.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\circle.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\shield1.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\shield2.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\shield3.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\shield4.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\teeest.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\test.png" />
+    <Resource Include="Pictures\CoatOfArms\patterns\cross.png" />
+    <Resource Include="Pictures\CoatOfArms\patterns\cross_ang.png" />
+    <Resource Include="Pictures\CoatOfArms\patterns\half.png" />
+    <Resource Include="Pictures\CoatOfArms\patterns\half_ang.png" />
+    <Resource Include="Pictures\CoatOfArms\patterns\half_hor.png" />
+    <Resource Include="Pictures\CoatOfArms\patterns\half_hor1.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -42,6 +42,11 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
+            <Button x:Name="buttonWarehouse" Content="Create warehouse" FontSize="16" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="32" Margin="203,386,0,0" VerticalAlignment="Top" Width="168" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua" Click="buttonWarehouse_Click" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
             <Border BorderBrush="Transparent" BorderThickness="2" HorizontalAlignment="Left" Height="88" Margin="23,301,0,0" VerticalAlignment="Top" Width="168">
                 <Grid>
                     <Grid.RowDefinitions>
