@@ -119,14 +119,14 @@ namespace LandConquest
                     {
                         LandConquestDB.Models.PlayerModel.CreatePlayerResources(userId, registeredUser);
                         LandConquestDB.Models.TaxesModel.CreateTaxesData(userId);
-                        /*
+
                         MainWindow mainWindow = new MainWindow(registeredUser);
                         mainWindow.Show();
-                        this.Close();*/
-
-                        CreatePersonDialogWindow window = new CreatePersonDialogWindow(registeredUser);
-                        window.Show();
                         this.Close();
+
+                        //CreatePersonDialogWindow window = new CreatePersonDialogWindow(registeredUser);
+                        //window.Show();
+                        //this.Close();  Помещайте плиз в комменты недопиленный функционал, чтобы ошибок не выскакивало 
                     }
                     LandConquestDB.Entities.Army army = new LandConquestDB.Entities.Army();
                     army.PlayerId = userId;
