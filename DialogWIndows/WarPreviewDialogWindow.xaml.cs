@@ -75,6 +75,8 @@ namespace LandConquest.DialogWIndows
                 }
             }
 
+            populateTroopsData(armiesA, armiesD);
+
             armiesD = armiesD.GroupBy(x => x.PlayerId).Select(x => x.First()).ToList();
             armiesA = armiesA.GroupBy(x => x.PlayerId).Select(x => x.First()).ToList();
 
@@ -160,6 +162,52 @@ namespace LandConquest.DialogWIndows
         private void playerCoatOfArms_MouseLeave(object sender, MouseEventArgs e)
         {
             Cursor = Cursors.Arrow;
+        }
+
+        private void populateTroopsData(List<ArmyInBattle> _armiesA, List<ArmyInBattle> _armiesD)
+        {
+            ArmyInBattle armyAttacker = new ArmyInBattle();
+
+            for (int i = 0; i < _armiesA.Count; i++)
+            {
+                armyAttacker.ArmyInfantryCount += _armiesA[i].ArmyInfantryCount;
+                armyAttacker.ArmyArchersCount += _armiesA[i].ArmyArchersCount;
+                armyAttacker.ArmyHorsemanCount += _armiesA[i].ArmyHorsemanCount;
+                armyAttacker.ArmySiegegunCount += _armiesA[i].ArmySiegegunCount;
+                armyAttacker.ArmySizeCurrent += _armiesA[i].ArmySizeCurrent;
+            }
+
+            ArmyInBattle armyDefender = new ArmyInBattle();
+
+            for (int i = 0; i < _armiesD.Count; i++)
+            {
+                armyDefender.ArmyInfantryCount += _armiesD[i].ArmyInfantryCount;
+                armyDefender.ArmyArchersCount += _armiesD[i].ArmyArchersCount;
+                armyDefender.ArmyHorsemanCount += _armiesD[i].ArmyHorsemanCount;
+                armyDefender.ArmySiegegunCount += _armiesD[i].ArmySiegegunCount;
+                armyDefender.ArmySizeCurrent += _armiesD[i].ArmySizeCurrent;
+            }
+
+            InfAtt.Content = armyAttacker.ArmyInfantryCount;
+            ArAtt.Content = armyAttacker.ArmyArchersCount;
+            KntAtt.Content = armyAttacker.ArmyHorsemanCount;
+            SieAtt.Content = armyAttacker.ArmySiegegunCount;
+
+            InfDef.Content = armyAttacker.ArmyInfantryCount;
+            ArDef.Content = armyAttacker.ArmyArchersCount;
+            KntDef.Content = armyAttacker.ArmyHorsemanCount;
+            SieDef.Content = armyAttacker.ArmySiegegunCount;
+        }
+
+        private void TroopsTextbox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
+        }
+
+        public static bool IsValid(string str)
+        {
+            int i;
+            return int.TryParse(str, out i) && i >= 1 && i <= 9999;
         }
     }
 }
