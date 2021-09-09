@@ -22,7 +22,88 @@
             <Label x:Name="CountryAttackerName" Content="Attacker" FontWeight="Bold" FontSize="30" FontFamily="Sitka Display" Foreground="#FFB8362F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="49,51,0,0" VerticalAlignment="Top" Width="200"/>
             <Label x:Name="CountryDefenderName" Content="Defender" FontWeight="Bold" FontSize="30" FontFamily="Sitka Display" Foreground="#FFB8362F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="739,51,0,0" VerticalAlignment="Top" Width="200"/>
             <UniformGrid x:Name="DefenderPlayers" HorizontalAlignment="Left" Height="200" Margin="539,95,0,0" VerticalAlignment="Top" Width="200"/>
-            <UniformGrid x:Name="AttackerPlayers" Columns="5" HorizontalAlignment="Left" Height="200" Margin="249,95,0,0" VerticalAlignment="Top" Width="200"/>
+            <UniformGrid x:Name="AttackerPlayers" HorizontalAlignment="Left" Height="200" Margin="249,95,0,0" VerticalAlignment="Top" Width="200"/>
+
+            <Rectangle Fill="#d7b8ae" HorizontalAlignment="Left" Height="254" Margin="39,311,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="221"/>
+
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="49,320,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="49,378,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="49,436,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="49,494,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="49,320,0,0" VerticalAlignment="Top" Width="60" Source="/Pictures/Armies/INF-1.png"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="49,378,0,0" VerticalAlignment="Top" Width="60" Source="/Pictures/Armies/AR-1.png"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="49,437,0,0" VerticalAlignment="Top" Width="60" Source="/Pictures/Armies/KNT-1.png"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="49,495,0,0" VerticalAlignment="Top" Width="60" Source="/Pictures/Armies/SIE-1.png"/>
+
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="107,320,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="107,378,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="107,436,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="107,494,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+
+            <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center" Height="57" Margin="107,321,741.4,212.4" Width="142">
+                <Label x:Name="InfAtt" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center" Height="57" Margin="107,378,741.4,155.4" Width="142">
+                <Label x:Name="ArAtt" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center" Height="57" Margin="107,436,741.4,97.4" Width="142">
+                <Label x:Name="KntAtt" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center" Height="57" Margin="107,495,741.4,38.4" Width="142">
+                <Label x:Name="SieAtt" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Rectangle Fill="#d7b8ae" HorizontalAlignment="Left" Height="254" Margin="729,310,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="221"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="739,319,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="739,377,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="739,435,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="739,493,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="739,319,0,0" VerticalAlignment="Top" Width="60" Source="/LandConquest;component/Pictures/Armies/INF-0.png"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="739,377,0,0" VerticalAlignment="Top" Width="60" Source="/LandConquest;component/Pictures/Armies/AR-0.png"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="739,436,0,0" VerticalAlignment="Top" Width="60" Source="/LandConquest;component/Pictures/Armies/KNT-0.png"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="739,494,0,0" VerticalAlignment="Top" Width="60" Source="/LandConquest;component/Pictures/Armies/SIE-0.png"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="797,319,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="797,377,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="797,435,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="797,493,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Viewbox StretchDirection="Both" Margin="0,0,51.4,221.4" HorizontalAlignment="Right" Width="142" Height="57" VerticalAlignment="Bottom">
+                <Label x:Name="InfDef" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Viewbox StretchDirection="Both" VerticalAlignment="Bottom" Height="57" Margin="0,0,51.4,163.4" HorizontalAlignment="Right" Width="142">
+                <Label x:Name="ArDef" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Viewbox StretchDirection="Both" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="57" Margin="0,0,51.4,106.4" Width="142">
+                <Label x:Name="KntDef" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Viewbox StretchDirection="Both" HorizontalAlignment="Right" Margin="0,0,51.4,45.4" Width="142" Height="57" VerticalAlignment="Bottom">
+                <Label x:Name="SieDef" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+
+            <Rectangle Fill="#d7b8ae" HorizontalAlignment="Left" Height="186" Margin="272,380,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="448"/>
+
+            <Image Margin="0,0,603.4,96.4" Source="/LandConquest;component/Pictures/Icons/Army/IconInfantry.png" HorizontalAlignment="Right" Width="105" Height="107" VerticalAlignment="Bottom" />
+            <Image Margin="0,0,497.4,96.4" Source="/LandConquest;component/Pictures/Icons/Army/IconArcher.PNG" HorizontalAlignment="Right" Width="104" Height="107" VerticalAlignment="Bottom" />
+            <Image Margin="0,0,386.4,95.4" Source="/LandConquest;component/Pictures/Icons/Army/IconKnight.png" HorizontalAlignment="Right" Width="105" Height="108" VerticalAlignment="Bottom" />
+            <Image Margin="0,0,278.4,95.4" Source="/LandConquest;component/Pictures/Icons/Army/IconSiegeMachine.png" HorizontalAlignment="Right" Width="104" Height="108" VerticalAlignment="Bottom" />
+
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="280,387,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="389,387,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="498,387,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="606,387,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="280,387,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="389,387,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="498,387,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="606,387,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="33" Margin="280,494,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <TextBox x:Name="InfInput" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="26" Margin="284,497,0,0"  VerticalAlignment="Top" Width="99" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="TroopsTextbox_PreviewTextInput" />
+            <Rectangle HorizontalAlignment="Left" Height="33" Margin="389,494,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <TextBox x:Name="ArInput" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="26" Margin="393,497,0,0"  VerticalAlignment="Top" Width="99" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="TroopsTextbox_PreviewTextInput" />
+            <Rectangle HorizontalAlignment="Left" Height="33" Margin="498,494,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <TextBox x:Name="KntInput" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="26" Margin="502,497,0,0"  VerticalAlignment="Top" Width="99" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="TroopsTextbox_PreviewTextInput" />
+            <Rectangle HorizontalAlignment="Left" Height="33" Margin="606,494,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <TextBox x:Name="SieInput" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="26" Margin="610,497,0,0"  VerticalAlignment="Top" Width="99" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="TroopsTextbox_PreviewTextInput" />
+
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
