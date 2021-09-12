@@ -21,8 +21,8 @@
             <Image x:Name="CountryDefenderImage" Source="/Pictures/profileImage.png" Height="200" Margin="739,95,51.4,0" VerticalAlignment="Top"/>
             <Label x:Name="CountryAttackerName" Content="Attacker" FontWeight="Bold" FontSize="30" FontFamily="Sitka Display" Foreground="#FFB8362F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="49,51,0,0" VerticalAlignment="Top" Width="200"/>
             <Label x:Name="CountryDefenderName" Content="Defender" FontWeight="Bold" FontSize="30" FontFamily="Sitka Display" Foreground="#FFB8362F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="739,51,0,0" VerticalAlignment="Top" Width="200"/>
-            <UniformGrid x:Name="DefenderPlayers" HorizontalAlignment="Left" Height="200" Margin="539,95,0,0" VerticalAlignment="Top" Width="200"/>
-            <UniformGrid x:Name="AttackerPlayers" HorizontalAlignment="Left" Height="200" Margin="249,95,0,0" VerticalAlignment="Top" Width="200"/>
+            <UniformGrid x:Name="DefenderPlayers" Columns="5" HorizontalAlignment="Left" Height="200" Margin="539,95,0,0" VerticalAlignment="Top" Width="200"/>
+            <UniformGrid x:Name="AttackerPlayers" Columns="5" HorizontalAlignment="Left" Height="200" Margin="249,95,0,0" VerticalAlignment="Top" Width="200"/>
 
             <Rectangle Fill="#d7b8ae" HorizontalAlignment="Left" Height="254" Margin="39,311,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="221"/>
 
@@ -103,6 +103,8 @@
             <TextBox x:Name="KntInput" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="26" Margin="502,497,0,0"  VerticalAlignment="Top" Width="99" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="TroopsTextbox_PreviewTextInput" />
             <Rectangle HorizontalAlignment="Left" Height="33" Margin="606,494,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
             <TextBox x:Name="SieInput" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="26" Margin="610,497,0,0"  VerticalAlignment="Top" Width="99" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="TroopsTextbox_PreviewTextInput" />
+            <Button x:Name="JoinWarBtn" Content="Join war" FontSize="16" FontFamily="Sitka Display" Background="#311818" BorderBrush="Goldenrod" BorderThickness="2" Foreground="Goldenrod" HorizontalAlignment="Left" Height="26" Margin="422,532,0,0" VerticalAlignment="Top" Width="147" Click="JoinWarBtn_Click"/>
+            <Label x:Name="TotalScore" Content="Total score" FontWeight="Bold" FontSize="30" FontFamily="Sitka Display" Foreground="#FFB8362F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="49" Margin="272,310,0,0" Width="437"/>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>

@@ -16,48 +16,36 @@ namespace LandConquest.Logic
         }
 
         // WAR ENTER BLOCK                              -- January/07/2021 -- greendend
-        public static void EnterInWar(War _war, Player player)
+        public static void EnterInWar(War _war, Player player, ArmyInBattle _armyInBattle)
         {
-            ArmyModel armyModel = new ArmyModel();
-            Army army = new Army();
-            BattleModel battleModel = new BattleModel();
-            ArmyInBattle armyInBattle = new ArmyInBattle();
             War war = new War();
-
-
-            army = ArmyModel.GetArmyInfo(player, army);
 
             war = WarModel.GetWarById(_war);
 
-            int count = BattleModel.CheckPlayerParticipation(player, war);
-
-            armyInBattle = CheckFreeArmies(army, player);
-
-            if ((count == 0) && (armyInBattle.ArmySizeCurrent > 0)) // если игрок не участвует в войне
-            {                                                       // и у него есть чем воивать (см. CheckFreeArmies())
-                Random random = new Random();
+            if (_armyInBattle.ArmySizeCurrent > 0) 
+            {                                  
                 WarWindow window;
 
                 if (player.PlayerCurrentRegion == war.LandAttackerId)
                 {
-                    armyInBattle.LocalLandId = ReturnNumberOfCell(20, random.Next(1, 30));
-                    armyInBattle.ArmySide = 1;
+                    _armyInBattle.LocalLandId = 270;
+                    _armyInBattle.ArmySide = 1;
 
-                    BattleModel.InsertArmyIntoBattleTable(armyInBattle, war);
+                    BattleModel.InsertArmyIntoBattleTable(_armyInBattle, war);
 
                     List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
 
                     armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
 
-                    window = new WarWindow(player, 1, armyInBattle, armiesInBattle, war);
+                    window = new WarWindow(player, 1, _armyInBattle, armiesInBattle, war);
                     window.Show();
                 }
                 else if (player.PlayerCurrentRegion == war.LandDefenderId)
                 {
-                    armyInBattle.LocalLandId = ReturnNumberOfCell(1, random.Next(1, 30));
-                    armyInBattle.ArmySide = 0; // hueta
+                    _armyInBattle.LocalLandId = 299;
+                    _armyInBattle.ArmySide = 0; // hueta
 
-                    BattleModel.InsertArmyIntoBattleTable(armyInBattle, war);
+                    BattleModel.InsertArmyIntoBattleTable(_armyInBattle, war);
 
                     List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
                     for (int i = 0; i < BattleModel.SelectLastIdOfArmies(war); i++)
@@ -68,7 +56,7 @@ namespace LandConquest.Logic
                     armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
 
 
-                    window = new WarWindow(player, 0, armyInBattle, armiesInBattle, war);
+                    window = new WarWindow(player, 0, _armyInBattle, armiesInBattle, war);
                     window.Show();
                 }
                 else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
@@ -86,7 +74,7 @@ namespace LandConquest.Logic
 
                     armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
 
-                    WarWindow window = new WarWindow(player, armyInBattle.ArmySide, armyInBattle, armiesInBattle, war);
+                    WarWindow window = new WarWindow(player, _armyInBattle.ArmySide, _armyInBattle, armiesInBattle, war);
                     window.Show();
                 }
                 else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
