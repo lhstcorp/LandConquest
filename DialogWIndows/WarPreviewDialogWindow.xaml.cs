@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using LandConquest.Logic;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
@@ -193,10 +194,12 @@ namespace LandConquest.DialogWIndows
             KntAtt.Content = armyAttacker.ArmyHorsemanCount;
             SieAtt.Content = armyAttacker.ArmySiegegunCount;
 
-            InfDef.Content = armyAttacker.ArmyInfantryCount;
-            ArDef.Content = armyAttacker.ArmyArchersCount;
-            KntDef.Content = armyAttacker.ArmyHorsemanCount;
-            SieDef.Content = armyAttacker.ArmySiegegunCount;
+            InfDef.Content = armyDefender.ArmyInfantryCount;
+            ArDef.Content = armyDefender.ArmyArchersCount;
+            KntDef.Content = armyDefender.ArmyHorsemanCount;
+            SieDef.Content = armyDefender.ArmySiegegunCount;
+
+            TotalScore.Content = Convert.ToString(armyAttacker.ArmySizeCurrent) + " : " + Convert.ToString(armyDefender.ArmySizeCurrent);
         }
 
         private void TroopsTextbox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
@@ -208,6 +211,48 @@ namespace LandConquest.DialogWIndows
         {
             int i;
             return int.TryParse(str, out i) && i >= 1 && i <= 9999;
+        }
+
+        private void JoinWarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ArmyInBattle armyInBattle = new ArmyInBattle();
+
+            setDefaultValuesIntoBlankFields();
+
+            armyInBattle.ArmyInfantryCount = Convert.ToInt32(InfInput.Text);
+            armyInBattle.ArmyArchersCount = Convert.ToInt32(ArInput.Text);
+            armyInBattle.ArmyHorsemanCount = Convert.ToInt32(KntInput.Text);
+            armyInBattle.ArmySiegegunCount = Convert.ToInt32(SieInput.Text);
+            armyInBattle.calculateSizeCurrent();
+            armyInBattle.ArmyType = ArmyModel.ReturnTypeOfArmy(armyInBattle);
+
+            armyInBattle.PlayerId = player.PlayerId;
+            armyInBattle.ArmyId = UserModel.GenerateId();
+
+            WarLogic.EnterInWar(war, player, armyInBattle);
+        }
+
+        private void setDefaultValuesIntoBlankFields()
+        {
+            if (InfInput.Text == "")
+            {
+                InfInput.Text = "0";
+            }
+
+            if (ArInput.Text == "")
+            {
+                ArInput.Text = "0";
+            }
+
+            if (KntInput.Text == "")
+            {
+                KntInput.Text = "0";
+            }
+
+            if (SieInput.Text == "")
+            {
+                SieInput.Text = "0";
+            }
         }
     }
 }

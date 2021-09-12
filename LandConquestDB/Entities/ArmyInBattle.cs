@@ -24,5 +24,10 @@
             this.ArmyHorsemanCount = army.ArmyHorsemanCount;
             this.ArmySiegegunCount = army.ArmySiegegunCount;
         }
+
+        public void calculateSizeCurrent()
+        {
+            this.ArmySizeCurrent = this.ArmyInfantryCount + this.ArmyArchersCount + this.ArmyHorsemanCount + this.ArmySiegegunCount;
+        }
     }
 }
