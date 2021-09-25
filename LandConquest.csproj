@@ -191,6 +191,9 @@
     <Compile Include="DialogWIndows\WarPreviewDialogWindow.xaml.cs">
       <DependentUpon>WarPreviewDialogWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\WarResultsDialogWindow.xaml.cs">
+      <DependentUpon>WarResultsDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CoatOfArmsWindow.xaml.cs">
       <DependentUpon>CoatOfArmsWindow.xaml</DependentUpon>
     </Compile>
@@ -314,6 +317,10 @@
     <Page Include="DialogWIndows\WarPreviewDialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\WarResultsDialogWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Forms\CoatOfArmsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

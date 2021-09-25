@@ -103,8 +103,20 @@
             <TextBox x:Name="KntInput" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="26" Margin="502,497,0,0"  VerticalAlignment="Top" Width="99" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="TroopsTextbox_PreviewTextInput" />
             <Rectangle HorizontalAlignment="Left" Height="33" Margin="606,494,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
             <TextBox x:Name="SieInput" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="26" Margin="610,497,0,0"  VerticalAlignment="Top" Width="99" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="TroopsTextbox_PreviewTextInput" />
-            <Button x:Name="JoinWarBtn" Content="Join war" FontSize="16" FontFamily="Sitka Display" Background="#311818" BorderBrush="Goldenrod" BorderThickness="2" Foreground="Goldenrod" HorizontalAlignment="Left" Height="26" Margin="422,532,0,0" VerticalAlignment="Top" Width="147" Click="JoinWarBtn_Click"/>
+            <Button x:Name="JoinWarBtn" Content="Join war" FontSize="16" FontFamily="Sitka Display" Background="#311818" BorderBrush="Goldenrod" BorderThickness="2" Foreground="Goldenrod" HorizontalAlignment="Left" Height="26" Margin="284,532,0,0" VerticalAlignment="Top" Width="147" Click="JoinWarBtn_Click"/>
             <Label x:Name="TotalScore" Content="Total score" FontWeight="Bold" FontSize="30" FontFamily="Sitka Display" Foreground="#FFB8362F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="49" Margin="272,310,0,0" Width="437"/>
+            <Rectangle Fill="#fff187" HorizontalAlignment="Left" Height="19" Margin="322,474,0,0" Stroke="#311818" VerticalAlignment="Top" Width="59"/>
+            <Label x:Name="FreeInf" Content="0000000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="23" Margin="322,471,0,0" VerticalAlignment="Top" Width="59"/>
+
+            <Rectangle Fill="#fff187" HorizontalAlignment="Left" Height="19" Margin="429,474,0,0" Stroke="#311818" VerticalAlignment="Top" Width="59"/>
+            <Label x:Name="FreeAr" Content="0000000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="23" Margin="429,472,0,0" VerticalAlignment="Top" Width="59"/>
+            
+            <Rectangle Fill="#fff187" HorizontalAlignment="Left" Height="19" Margin="538,473,0,0" Stroke="#311818" VerticalAlignment="Top" Width="59"/>
+            <Label x:Name="FreeKnt" Content="0000000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="23" Margin="538,471,0,0" VerticalAlignment="Top" Width="59"/>
+
+            <Rectangle Fill="#fff187" HorizontalAlignment="Left" Height="19" Margin="648,473,0,0" Stroke="#311818" VerticalAlignment="Top" Width="59"/>
+            <Label x:Name="FreeSie" Content="0000000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="23" Margin="648,470,0,0" VerticalAlignment="Top" Width="59"/>
+            <Button x:Name="ViewWarBtn" Content="Watch the battle" FontSize="16" FontFamily="Sitka Display" Background="#311818" BorderBrush="Goldenrod" BorderThickness="2" Foreground="Goldenrod" HorizontalAlignment="Left" Height="26" Margin="436,532,0,0" VerticalAlignment="Top" Width="147" Click="ViewWarBtn_Click"/>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
