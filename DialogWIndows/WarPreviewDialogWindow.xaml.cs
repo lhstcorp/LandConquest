@@ -1,4 +1,5 @@
-﻿using LandConquest.Logic;
+﻿using LandConquest.Forms;
+using LandConquest.Logic;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
@@ -33,6 +34,7 @@ namespace LandConquest.DialogWIndows
             initWar();
             initWarCaption();
             initPlayerGrids();
+            initFreePlayerArmy();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -215,21 +217,24 @@ namespace LandConquest.DialogWIndows
 
         private void JoinWarBtn_Click(object sender, RoutedEventArgs e)
         {
-            ArmyInBattle armyInBattle = new ArmyInBattle();
+            if (validateAvailableTroops())
+            {
+                ArmyInBattle armyInBattle = new ArmyInBattle();
 
-            setDefaultValuesIntoBlankFields();
+                setDefaultValuesIntoBlankFields();
 
-            armyInBattle.ArmyInfantryCount = Convert.ToInt32(InfInput.Text);
-            armyInBattle.ArmyArchersCount = Convert.ToInt32(ArInput.Text);
-            armyInBattle.ArmyHorsemanCount = Convert.ToInt32(KntInput.Text);
-            armyInBattle.ArmySiegegunCount = Convert.ToInt32(SieInput.Text);
-            armyInBattle.calculateSizeCurrent();
-            armyInBattle.ArmyType = ArmyModel.ReturnTypeOfArmy(armyInBattle);
+                armyInBattle.ArmyInfantryCount = Convert.ToInt32(InfInput.Text);
+                armyInBattle.ArmyArchersCount = Convert.ToInt32(ArInput.Text);
+                armyInBattle.ArmyHorsemanCount = Convert.ToInt32(KntInput.Text);
+                armyInBattle.ArmySiegegunCount = Convert.ToInt32(SieInput.Text);
+                armyInBattle.calculateSizeCurrent();
+                armyInBattle.ArmyType = ArmyModel.ReturnTypeOfArmy(armyInBattle);
 
-            armyInBattle.PlayerId = player.PlayerId;
-            armyInBattle.ArmyId = UserModel.GenerateId();
+                armyInBattle.PlayerId = player.PlayerId;
+                armyInBattle.ArmyId = UserModel.GenerateId();
 
-            WarLogic.EnterInWar(war, player, armyInBattle);
+                WarLogic.EnterInWar(war, player, armyInBattle);
+            }
         }
 
         private void setDefaultValuesIntoBlankFields()
@@ -253,6 +258,59 @@ namespace LandConquest.DialogWIndows
             {
                 SieInput.Text = "0";
             }
+        }
+
+        private void initFreePlayerArmy()
+        {
+            Army army = new Army();
+            army = ArmyModel.GetArmyInfo(player, army);
+
+            ArmyInBattle armyInBattle = WarLogic.CheckFreeArmies(army, player);
+
+            FreeAr.Content = armyInBattle.ArmyArchersCount;
+            FreeInf.Content = armyInBattle.ArmyInfantryCount;
+            FreeKnt.Content = armyInBattle.ArmyHorsemanCount;
+            FreeSie.Content = armyInBattle.ArmySiegegunCount;
+
+            InfInput.Text = armyInBattle.ArmyInfantryCount.ToString();
+            ArInput.Text = armyInBattle.ArmyArchersCount.ToString();
+            KntInput.Text = armyInBattle.ArmyHorsemanCount.ToString();
+            SieInput.Text = armyInBattle.ArmySiegegunCount.ToString();
+        }
+
+        private void ViewWarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            WarWindow window;
+            List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
+            armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
+
+            if (player.PlayerCurrentRegion == war.LandAttackerId)
+            {
+                window = new WarWindow(player, 1, null, armiesInBattle, war);
+                window.Show();
+            }
+            else if (player.PlayerCurrentRegion == war.LandDefenderId)
+            {
+                window = new WarWindow(player, 0, null, armiesInBattle, war);
+                window.Show();
+            }
+            else WarningDialogWindow.CallWarningDialogNoResult("You are not in any lands of war.\nPlease change your position!");
+        }
+
+        private bool validateAvailableTroops()
+        {
+            bool ret = true;
+
+            if (Convert.ToInt32(InfInput.Text) > Convert.ToInt32(FreeInf.Content)
+             || Convert.ToInt32(ArInput.Text) > Convert.ToInt32(FreeAr.Content)
+             || Convert.ToInt32(KntInput.Text) > Convert.ToInt32(FreeKnt.Content)
+             || Convert.ToInt32(SieInput.Text) > Convert.ToInt32(FreeSie.Content))
+            {
+                ret = false;
+                WarningDialogWindow.CallWarningDialogNoResult("You can't send more troops than available.");
+            }
+
+            return ret;
         }
     }
 }

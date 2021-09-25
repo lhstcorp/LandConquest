@@ -1,4 +1,5 @@
-﻿using LandConquest.Forms;
+﻿using LandConquest.DialogWIndows;
+using LandConquest.Forms;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
@@ -59,7 +60,7 @@ namespace LandConquest.Logic
                     window = new WarWindow(player, 0, _armyInBattle, armiesInBattle, war);
                     window.Show();
                 }
-                else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
+                else WarningDialogWindow.CallWarningDialogNoResult("You are not in any lands of war.\nPlease change your position!");
 
             }
             else
