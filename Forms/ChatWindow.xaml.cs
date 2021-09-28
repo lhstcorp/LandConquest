@@ -118,5 +118,24 @@ namespace LandConquest.Forms
         {
             Window_Loaded(sender, e);
         }
+
+        private void buttonNewPersonalChat_Click(object sender, RoutedEventArgs e)
+        {
+            CreateNewPersonalDialog inputDialog = new CreateNewPersonalDialog();
+            if (inputDialog.ShowDialog() == true)
+            {
+                if (inputDialog.ValueText != null)
+                {
+                    string[] data = inputDialog.ValueText.Split(null, 2);
+
+                    string playerId = data[0];
+                    string welcomeText;
+                    if (data.Length > 1)
+                    {
+                        welcomeText = data[1];
+                    }
+                }
+            }
+        }
     }
 }

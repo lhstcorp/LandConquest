@@ -182,11 +182,17 @@
     <Compile Include="DialogWIndows\CastleUpdateDialog.xaml.cs">
       <DependentUpon>CastleUpdateDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\CreateNewPersonalDialog.xaml.cs">
+      <DependentUpon>CreateNewPersonalDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\PlayerProfileDialog.xaml.cs">
       <DependentUpon>PlayerProfileDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="DialogWIndows\WarPreviewDialogWindow.xaml.cs">
       <DependentUpon>WarPreviewDialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogWIndows\WarResultsDialogWindow.xaml.cs">
+      <DependentUpon>WarResultsDialogWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\CoatOfArmsWindow.xaml.cs">
       <DependentUpon>CoatOfArmsWindow.xaml</DependentUpon>
@@ -300,6 +306,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DialogWIndows\CreateNewPersonalDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DialogWIndows\PlayerProfileDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -307,6 +317,10 @@
     <Page Include="DialogWIndows\WarPreviewDialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\WarResultsDialogWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Forms\CoatOfArmsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -759,7 +773,7 @@
     <Resource Include="Pictures\CoatOfArms\patterns\half.png" />
     <Resource Include="Pictures\CoatOfArms\patterns\half_ang.png" />
     <Resource Include="Pictures\CoatOfArms\patterns\half_hor.png" />
-    <Resource Include="Pictures\CoatOfArms\patterns\half_hor1.png" />
+    <Resource Include="Pictures\crown.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
