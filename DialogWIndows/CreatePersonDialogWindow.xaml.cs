@@ -25,6 +25,7 @@ namespace LandConquest.DialogWIndows
     {
         User user;
         Person person;
+        
         public CreatePersonDialogWindow(User _user)
         {
             user = _user;
@@ -44,12 +45,12 @@ namespace LandConquest.DialogWIndows
             person.PlayerId = user.UserId;
             person.PersonId = AuthorisationWindow.GenerateUserId();
             person.Name = personName.Text;
-            person.Surname = personSurname.Text;
+            person.Surname = Dynasty.Text;
             person.MaleFemale = false;
-
-            PersonModel.CreatePerson(person);
-            PersonConstructor personConstructor = new PersonConstructor();
-            personConstructor.Show();
+            person.Agility = 1;
+            person.Intellect = 1;
+            person.Health = 1;
+            person.Power = 1;
 
             MainWindow mainWindow = new MainWindow(user);
             mainWindow.Show();
@@ -65,6 +66,9 @@ namespace LandConquest.DialogWIndows
             person.MaleFemale = false;
         }
 
-       
+        private void personName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
