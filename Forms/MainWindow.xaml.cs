@@ -958,8 +958,6 @@ namespace LandConquest.Forms
                     dialogWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     dialogWindow.Owner = this;
                     dialogWindow.Show();
-                    
-                    //WarLogic.EnterInWar(WAR, player);
                 }
             }
         }

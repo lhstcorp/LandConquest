@@ -66,7 +66,7 @@
                 <Image Margin="6,125,0,0" Source="/Pictures/Armies/SIE-0.png" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="25"/>
                 <Label x:Name="warriorsSiege" Content="0"  Margin="37,129,0,0" HorizontalAlignment="Left" Width="78" Height="24" VerticalAlignment="Top"/>
 
-                <Button x:Name="btnSplit" Content="S" FontSize="8" FontWeight="Bold"  Foreground="Wheat" Margin="126,0,0,0" BorderBrush="{x:Null}" Click="btnSplit_Click" HorizontalAlignment="Left" Width="34" Height="34" VerticalAlignment="Top" HorizontalContentAlignment="Center">
+                <Button x:Name="btnSplit" Content="S" FontSize="8" FontWeight="Bold"  Foreground="Wheat" Margin="126,0,0,0" BorderBrush="{x:Null}" Click="btnSplit_Click" HorizontalAlignment="Left" Width="34" Height="34" VerticalAlignment="Top" HorizontalContentAlignment="Center" BorderThickness="0">
                     <Button.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
                     </Button.Background>
