@@ -9,7 +9,7 @@ namespace LandConquest.Logic
 {
     public static class ConsumptionLogic
     {
-        private enum Consumption : int
+        public enum Consumption : int
         {
             Infantry = 2,
             Archers = 2,

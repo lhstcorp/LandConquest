@@ -1,4 +1,5 @@
 ﻿using LandConquest.DialogWIndows;
+using LandConquest.Logic;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
@@ -36,7 +37,14 @@ namespace LandConquest.Forms
             TotalRecruitKnights.Content = army.ArmyHorsemanCount.ToString();
             TotalRecruitSiege.Content = army.ArmySiegegunCount.ToString();
 
+            archerConsumption.Content = (int)ConsumptionLogic.Consumption.Archers;
+            infanrtyConsumption.Content = (int)ConsumptionLogic.Consumption.Infantry;
+            knightsConsumption.Content = (int)ConsumptionLogic.Consumption.Knights;
+            siegeConsumption.Content = (int)ConsumptionLogic.Consumption.Siege;
+
             AvailableRecruitPeasants.Content = (peasants.PeasantsMax - peasants.PeasantsCount).ToString();
+
+
         }
 
         private void HirePeasants_Click(object sender, RoutedEventArgs e)
