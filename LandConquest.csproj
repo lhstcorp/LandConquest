@@ -788,6 +788,7 @@
     <Resource Include="Pictures\CoatOfArms\patterns\half_ang.png" />
     <Resource Include="Pictures\CoatOfArms\patterns\half_hor.png" />
     <Resource Include="Pictures\crown.png" />
+    <Resource Include="Pictures\Icons\Resource\Food.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
