@@ -182,11 +182,20 @@
     <Compile Include="DialogWIndows\CastleUpdateDialog.xaml.cs">
       <DependentUpon>CastleUpdateDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\CreateNewPersonalDialog.xaml.cs">
+      <DependentUpon>CreateNewPersonalDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogWIndows\CreatePersonDialogWindow.xaml.cs">
+      <DependentUpon>CreatePersonDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\PlayerProfileDialog.xaml.cs">
       <DependentUpon>PlayerProfileDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="DialogWIndows\WarPreviewDialogWindow.xaml.cs">
       <DependentUpon>WarPreviewDialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogWIndows\WarResultsDialogWindow.xaml.cs">
+      <DependentUpon>WarResultsDialogWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\CoatOfArmsWindow.xaml.cs">
       <DependentUpon>CoatOfArmsWindow.xaml</DependentUpon>
@@ -248,6 +257,9 @@
     <Compile Include="Forms\MembershipWindow.xaml.cs">
       <DependentUpon>MembershipWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PersonWindow.xaml.cs">
+      <DependentUpon>PersonWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
     </Compile>
@@ -300,6 +312,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DialogWIndows\CreateNewPersonalDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\CreatePersonDialogWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DialogWIndows\PlayerProfileDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -307,6 +327,10 @@
     <Page Include="DialogWIndows\WarPreviewDialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\WarResultsDialogWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Forms\CoatOfArmsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -414,6 +438,10 @@
     <Page Include="Forms\MembershipWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\PersonWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Forms\ProfileWindow.xaml">
       <SubType>Designer</SubType>
@@ -744,6 +772,23 @@
     <Resource Include="Pictures\CoatOfArms\shield2\cross_blue.png" />
     <Resource Include="Pictures\CoatOfArms\shield2\cross_red.png" />
     <Resource Include="Pictures\CoatOfArms\workplace.png" />
+    <Resource Include="Pictures\CoatOfArms\atributes\eagle.png" />
+    <Resource Include="Pictures\CoatOfArms\atributes\lion.png" />
+    <Resource Include="Pictures\CoatOfArms\atributes\scales.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\circle.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\shield1.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\shield2.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\shield3.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\shield4.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\teeest.png" />
+    <Resource Include="Pictures\CoatOfArms\forms\test.png" />
+    <Resource Include="Pictures\CoatOfArms\patterns\cross.png" />
+    <Resource Include="Pictures\CoatOfArms\patterns\cross_ang.png" />
+    <Resource Include="Pictures\CoatOfArms\patterns\half.png" />
+    <Resource Include="Pictures\CoatOfArms\patterns\half_ang.png" />
+    <Resource Include="Pictures\CoatOfArms\patterns\half_hor.png" />
+    <Resource Include="Pictures\crown.png" />
+    <Resource Include="Pictures\Icons\Resource\Food.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

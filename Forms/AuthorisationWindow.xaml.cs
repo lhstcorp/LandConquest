@@ -120,9 +120,17 @@ namespace LandConquest
                         LandConquestDB.Models.PlayerModel.CreatePlayerResources(userId, registeredUser);
                         LandConquestDB.Models.TaxesModel.CreateTaxesData(userId);
 
-                        MainWindow mainWindow = new MainWindow(registeredUser);
+                        /*MainWindow mainWindow = new MainWindow(registeredUser);
                         mainWindow.Show();
+                        this.Close();*/
+
+                        CreatePersonDialogWindow dialogWindow = new CreatePersonDialogWindow(registeredUser);
+                        dialogWindow.Show();
                         this.Close();
+
+                        //CreatePersonDialogWindow window = new CreatePersonDialogWindow(registeredUser);
+                        //window.Show();
+                        //this.Close();  Помещайте плиз в комменты недопиленный функционал, чтобы ошибок не выскакивало 
                     }
                     LandConquestDB.Entities.Army army = new LandConquestDB.Entities.Army();
                     army.PlayerId = userId;
@@ -135,6 +143,7 @@ namespace LandConquest
                 confirmNewPass = "";
                 WarningDialogWindow.CallWarningDialogNoResult("Password and login should contain letters, not match and be at least 6 characters long.");
             }
+            ///метод для открытия нового окна
         }
 
         private static Random random;
