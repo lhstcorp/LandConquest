@@ -32,37 +32,37 @@ namespace LandConquest.Forms
 
             labelWoodMarket.Content = market.MarketWood.ToString();
             labelWoodAmount.Content = storage.PlayerWood.ToString();
-            labelWoodPrice.Content = 2 * Math.Round(50000 / Convert.ToDouble(labelWoodMarket.Content), 2);
+            labelWoodPrice.Content = Math.Round(2 * 50000 / Convert.ToDouble(labelWoodMarket.Content), 2);
 
 
             labelFoodAmount.Content = storage.PlayerFood.ToString();
             labelFoodMarket.Content = market.MarketFood.ToString();
-            labelFoodPrice.Content = 3 * Math.Round(50000 / Convert.ToDouble(labelFoodMarket.Content), 3);
+            labelFoodPrice.Content = Math.Round(3 * 50000 / Convert.ToDouble(labelFoodMarket.Content), 2);
 
             labelStoneMarket.Content = market.MarketStone.ToString();
             labelStoneAmount.Content = storage.PlayerStone.ToString();
-            labelStonePrice.Content = 2 * Math.Round(50000 / Convert.ToDouble(labelStoneMarket.Content), 2);
+            labelStonePrice.Content = Math.Round(2 * 50000 / Convert.ToDouble(labelStoneMarket.Content), 2);
 
 
             labelIronMarket.Content = market.MarketIron.ToString();
             labelIronAmount.Content = storage.PlayerIron.ToString();
-            labelIronPrice.Content = 3 * Math.Round(50000 / Convert.ToDouble(labelIronMarket.Content), 2);
+            labelIronPrice.Content = Math.Round(3 * 50000 / Convert.ToDouble(labelIronMarket.Content), 2);
 
             labelGoldMarket.Content = market.MarketGoldOre.ToString();
             labelGoldAmount.Content = storage.PlayerGoldOre.ToString();
-            labelGoldPrice.Content = 7 * Math.Round(50000 / Convert.ToDouble(labelGoldMarket.Content), 2);
+            labelGoldPrice.Content = Math.Round(7 * 50000 / Convert.ToDouble(labelGoldMarket.Content), 2);
 
             labelCopperMarket.Content = market.MarketCopper.ToString();
             labelCopperAmount.Content = storage.PlayerCopper.ToString();
-            labelCopperPrice.Content = 4 * Math.Round(50000 / Convert.ToDouble(labelCopperMarket.Content), 2);
+            labelCopperPrice.Content = Math.Round(4 * 50000 / Convert.ToDouble(labelCopperMarket.Content), 2);
 
             labelGemsMarket.Content = market.MarketGems.ToString();
             labelGemsAmount.Content = storage.PlayerGems.ToString();
-            labelGemsPrice.Content = 10 * Math.Round(50000 / Convert.ToDouble(labelGemsMarket.Content), 2);
+            labelGemsPrice.Content = Math.Round(10 * 50000 / Convert.ToDouble(labelGemsMarket.Content), 2);
 
             labelLeatherMarket.Content = market.MarketLeather.ToString();
             labelLeatherAmount.Content = storage.PlayerLeather.ToString();
-            labelLeatherPrice.Content = 5 * Math.Round(50000 / Convert.ToDouble(labelLeatherMarket.Content), 2);
+            labelLeatherPrice.Content = Math.Round(5 * 50000 / Convert.ToDouble(labelLeatherMarket.Content), 2);
 
 
             //labelHarnessAmount.Content = equipment.PlayerHarness.ToString();
