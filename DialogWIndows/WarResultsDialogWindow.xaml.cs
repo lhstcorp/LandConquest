@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LandConquestDB.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,19 @@ namespace LandConquest.DialogWIndows
     /// </summary>
     public partial class WarResultsDialogWindow : Window
     {
-        public WarResultsDialogWindow()
+        Player player;
+        War war;
+
+        public WarResultsDialogWindow(Player _player, War _war)
         {
+            player = _player;
+            war = _war;
             InitializeComponent();
+        }
+        
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

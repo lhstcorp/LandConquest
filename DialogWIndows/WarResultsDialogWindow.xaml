@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
         mc:Ignorable="d"
-        Title="WarResultsDialogWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="WarResultsDialogWindow" Height="390" Width="800"
+        WindowStyle="None" ResizeMode="NoResize">
+    <Border BorderBrush="#FF392018" BorderThickness="5" Height="Auto" Width="Auto">
+        <Grid>
+
+            <Image Source="/Pictures/War/siegePanorama.jpg" Margin="9,10,7.4,4.8"/>
+            <Rectangle Stroke="#FF392018" StrokeThickness="5" Margin="4,5,6.4,4.8" Height="Auto" Width="Auto"/>
+
+            <Ellipse Fill="Bisque" Opacity="0.5" StrokeThickness="5" Margin="236,132,400.4,92.8" Height="Auto" Width="Auto"/>
+            <Ellipse Stroke="#FF392018" StrokeThickness="5" Margin="236,132,400.4,92.8" Height="Auto" Width="Auto"/>
+            <Image Source="/Pictures/Common/exp.png" Margin="237,127,399.4,97.8"/>
+
+            <Ellipse Fill="Bisque" Opacity="0.5" StrokeThickness="5" Margin="395,129,241.4,95.8" Height="Auto" Width="Auto"/>
+            <Ellipse Stroke="#FF392018" StrokeThickness="5" Margin="395,129,241.4,95.8" Height="Auto" Width="Auto"/>
+            <Image Source="/Pictures/Common/crown.png" Margin="406,132,251.4,100.8"/>
+
+            <Button x:Name="btnClose" Height="20" VerticalAlignment="Top" Width="20" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Margin="0,10,11.4,0" Click="btnClose_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+
+            <Label x:Name="ResultLabel" Content="Victory" FontSize="80" Foreground="#76143c" FontWeight="Bold" HorizontalContentAlignment="Center" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="769"/>
+            <Label Content="YOU GOT" FontSize="24" Foreground="#76143c" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Width="769"/>
+
+
+            <Rectangle Fill="Yellow" Stroke="#FF392018" Opacity="0.9"  StrokeThickness="1" Margin="327,137,395.4,203.8" Height="Auto" Width="Auto"/>
+            <Label x:Name="expLabel" Foreground="#76143c" Content="100000" FontSize="16" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="40" Margin="327,137,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="Yellow" Stroke="#FF392018" Opacity="0.9"  StrokeThickness="1" Margin="395,240,327.4,100.8" Height="Auto" Width="Auto"/>
+            <Label x:Name="prestigeLabel" Foreground="#76143c" Content="100000" FontSize="16" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="40" Margin="396,240,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="68"/>
+
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+        </Grid>
+    </Border>
 </Window>

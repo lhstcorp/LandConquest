@@ -981,6 +981,8 @@ namespace LandConquest.Forms
                 k++;
             }
 
+            label.Content = Convert.ToString(Math.Round(Convert.ToDouble(label.Content), 2));
+
             for (int i = 0; i < k; i++)
             {
                 label.Content += "k";

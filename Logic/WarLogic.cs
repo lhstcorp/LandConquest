@@ -1,4 +1,4 @@
-﻿using LandConquest.DialogWIndows;
+using LandConquest.DialogWIndows;
 using LandConquest.Forms;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
@@ -23,8 +23,8 @@ namespace LandConquest.Logic
 
             war = WarModel.GetWarById(_war);
 
-            if (_armyInBattle.ArmySizeCurrent > 0) 
-            {                                  
+            if (_armyInBattle.ArmySizeCurrent > 0)
+            {   // PARTICIPATION                            
                 WarWindow window;
 
                 if (player.PlayerCurrentRegion == war.LandAttackerId)
@@ -37,6 +37,8 @@ namespace LandConquest.Logic
                     List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
 
                     armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
+
+                    WarModel.addPlayerArmyToWarScoreHistory(_armyInBattle, war);
 
                     window = new WarWindow(player, 1, _armyInBattle, armiesInBattle, war);
                     window.Show();
@@ -56,6 +58,7 @@ namespace LandConquest.Logic
 
                     armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
 
+                    WarModel.addPlayerArmyToWarScoreHistory(_armyInBattle, war);
 
                     window = new WarWindow(player, 0, _armyInBattle, armiesInBattle, war);
                     window.Show();
@@ -64,7 +67,7 @@ namespace LandConquest.Logic
 
             }
             else
-            {
+            {   // VIEW
                 if ((player.PlayerCurrentRegion == war.LandDefenderId) || (player.PlayerCurrentRegion == war.LandAttackerId))
                 {
                     List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
