@@ -154,3 +154,11 @@ C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\LandConquest.application
 C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\LandConquest.csproj.CopyComplete
 C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\LandConquest.exe
 C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\LandConquest.pdb
+C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\DialogWIndows\CreateNewPersonalDialog.g.cs
+C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\DialogWIndows\CreatePersonDialogWindow.g.cs
+C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\DialogWIndows\WarResultsDialogWindow.g.cs
+C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\Forms\PersonWindow.g.cs
+C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\DialogWIndows\CreateNewPersonalDialog.baml
+C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\DialogWIndows\CreatePersonDialogWindow.baml
+C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\DialogWIndows\WarResultsDialogWindow.baml
+C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\Forms\PersonWindow.baml

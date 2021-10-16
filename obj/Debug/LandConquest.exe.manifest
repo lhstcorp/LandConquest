@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LandConquest.exe" size="69779456">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LandConquest.exe" size="70936064">
       <assemblyIdentity name="LandConquest" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hyYh1CYai+4uf7JA4mb7Ri7wjuKnVheiged2XqQjDCY=</dsig:DigestValue>
+        <dsig:DigestValue>lgFy3Cb11tfyG0swBGBUyj55T/0NiZ8Kt8vRV6Ye3yw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,7 +85,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XldRbW/Cs5D+CYBEYmAtASmB+pBpKpIRNWOnKT6YikU=</dsig:DigestValue>
+        <dsig:DigestValue>wOmZmHt+tEyf/WUgqmice0NAq8c35oGxjZBf2u41ET4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,19 +97,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RbJJ8ZnvEW65kBYhhXGvMV5BcSLgE2KZtbgfX8wt8yI=</dsig:DigestValue>
+        <dsig:DigestValue>5SR/vuO4OQRILXHoLhucWzxZLBF8rI+fxouP3mCj7iA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LandConquestDB.dll" size="114688">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LandConquestDB.dll" size="118784">
       <assemblyIdentity name="LandConquestDB" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FUENIYbxaX04wKzyOwOCeDgFhuW+/n5GGPocHsq63DQ=</dsig:DigestValue>
+        <dsig:DigestValue>dAikoqOaAwas0ysZreZ6dnfEfebsjHLpKtak8LxKXPA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
