@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                 
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
-        lex:LocalizeDictionary.DesignCulture="en"
+        lex:LocalizeDictionary.DesignCulture="ru"
         lex:LocalizeDictionary.IncludeInvariantCulture="False"
         lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
         lex:ResxLocalizationProvider.DefaultDictionary="Resources"   
@@ -46,7 +46,7 @@
 
         <CheckBox x:Name="CheckboxRemember"  HorizontalAlignment="Left" Margin="703,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="15" BorderBrush="Black" IsChecked="True" BorderThickness="1" Background="#FFB4A500" Height="15" Cursor="Hand"/>
 
-        <Button x:Name="buttonShowRegistration" Content="Button" HorizontalAlignment="Left" Margin="53,18,0,0" VerticalAlignment="Top" Width="167" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="46" Click="ButtonShowRegistration_Click" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="buttonShowRegistration" Content="{lex:Loc LocLabelRegister}" HorizontalAlignment="Left" Margin="53,18,0,0" VerticalAlignment="Top" Width="167" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="46" Click="ButtonShowRegistration_Click" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

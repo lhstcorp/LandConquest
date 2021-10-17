@@ -30,10 +30,10 @@
 
             <Image HorizontalAlignment="Left" Height="68" Margin="10,27,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="52" Margin="15,33,0,0" VerticalAlignment="Top" Width="55" Source="/Pictures/food.png"/>
-            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,32,0,0" Stroke="Goldenrod" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,32,0,0" Stroke="Goldenrod" VerticalAlignment="Top" Width="90"/>
             <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,27,0,0" VerticalAlignment="Top"/>
             <Label x:Name="labelFoodPrice" Content="3" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="113,27,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="FoodToBuyTextBox" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewTextInput="FoodToBuyTextBox_PreviewTextInput"   />
+            <TextBox x:Name="FoodToBuyTextBox" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90" PreviewTextInput="FoodToBuyTextBox_PreviewTextInput"   />
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,100,0,0" Stroke="Goldenrod" VerticalAlignment="Top" Width="65"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,124,0,0" Stroke="Goldenrod" VerticalAlignment="Top" Width="65"/>
             <Label x:Name="labelFoodAmount" Foreground="#e3cd9b" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="24,95,0,0" VerticalAlignment="Top" Width="65"/>
@@ -54,10 +54,10 @@
 
             <Image HorizontalAlignment="Left" Height="68" Margin="241,27,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="51" Margin="248,34,0,0" VerticalAlignment="Top" Width="53" Source="/LandConquest;component/Pictures/wood.png"/>
-            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="310,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="310,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="90"/>
             <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="310,27,0,0" VerticalAlignment="Top"/>
             <Label x:Name="labelWoodPrice" Content="2" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="343,27,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="WoodToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="310,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" />
+            <TextBox x:Name="WoodToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="310,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90" />
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="241,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="241,124,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
             <Label x:Name="labelWoodAmount" Foreground="#e3cd9b" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="255,95,0,0" VerticalAlignment="Top" Width="66"/>
@@ -87,11 +87,11 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="542,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="542,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="90"/>
             <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="542,27,0,0" VerticalAlignment="Top"/>
 
             <Label x:Name="labelStonePrice" Content="2" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="575,27,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="StoneToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="542,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="StoneToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="542,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="472,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="472,124,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
             <Label x:Name="labelStoneAmount" Foreground="#e3cd9b" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="486,95,0,0" VerticalAlignment="Top" Width="64" Height="24"/>
@@ -112,10 +112,10 @@
 
             <Image HorizontalAlignment="Left" Height="68" Margin="10,167,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="53" Margin="15,173,0,0" VerticalAlignment="Top" Width="55" Source="/LandConquest;component/Pictures/iron.png"/>
-            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,172,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,172,0,0" Stroke="Black" VerticalAlignment="Top" Width="90"/>
             <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,167,0,0" VerticalAlignment="Top"/>
             <Label x:Name="labelIronPrice" Content="3" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="113,167,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="IronToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,196,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="IronToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="80,196,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,264,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
             <Label x:Name="labelIronAmount" Foreground="#e3cd9b" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="24,235,0,0" VerticalAlignment="Top" Width="65"/>
@@ -136,10 +136,10 @@
 
             <Image HorizontalAlignment="Left" Height="68" Margin="241,167,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="53" Margin="247,174,0,0" VerticalAlignment="Top" Width="54" Source="/LandConquest;component/Pictures/gold_ore.png"/>
-            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="310,172,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="310,172,0,0" Stroke="Black" VerticalAlignment="Top" Width="90"/>
             <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="310,167,0,0" VerticalAlignment="Top"/>
             <Label x:Name="labelGoldPrice" Content="7" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="343,167,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="GoldToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="310,196,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="GoldToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="310,196,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="241,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="241,264,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
             <Label x:Name="labelGoldAmount" Foreground="#e3cd9b" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="255,235,0,0" VerticalAlignment="Top" Width="64"/>
@@ -160,10 +160,10 @@
 
             <Image HorizontalAlignment="Left" Height="68" Margin="472,167,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="53" Margin="478,173,0,0" VerticalAlignment="Top" Width="58" Source="/LandConquest;component/Pictures/copper.png"/>
-            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="541,172,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="541,172,0,0" Stroke="Black" VerticalAlignment="Top" Width="90"/>
             <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="541,167,0,0" VerticalAlignment="Top"/>
             <Label x:Name="labelCopperPrice" Content="4" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="574,167,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="CopperToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="541,196,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="CopperToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="541,196,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="472,240,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="472,264,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
             <Label x:Name="labelCopperAmount" Content="0" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="486,235,0,0" VerticalAlignment="Top" Width="64"/>
@@ -184,10 +184,10 @@
 
             <Image HorizontalAlignment="Left" Height="68" Margin="10,306,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="62" Margin="10,306,0,0" VerticalAlignment="Top" Width="65" Source="/LandConquest;component/Pictures/gems.png"/>
-            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,310,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="80,310,0,0" Stroke="Black" VerticalAlignment="Top" Width="90"/>
             <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="80,306,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="labelGemsPrice" Foreground="#e3cd9b" Content="10" FontWeight="Bold" HorizontalAlignment="Left" Margin="110,306,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="GemsToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="24" Margin="80,334,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <Label x:Name="labelGemsPrice" Foreground="#e3cd9b" Content="10" FontWeight="Bold" HorizontalAlignment="Left" Margin="112,306,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="GemsToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="24" Margin="80,334,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,402,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="10,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="65"/>
             <Label x:Name="labelGemsAmount" Content="0" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="24,374,0,0" VerticalAlignment="Top" Width="65"/>
@@ -208,10 +208,10 @@
 
             <Image HorizontalAlignment="Left" Height="68" Margin="241,306,0,0" VerticalAlignment="Top" Width="65" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="58" Margin="247,310,0,0" VerticalAlignment="Top" Width="54" Source="/LandConquest;component/Pictures/leather.png"/>
-            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="310,310,0,0" Stroke="Black" VerticalAlignment="Top" Width="68"/>
+            <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="18" Margin="310,310,0,0" Stroke="Black" VerticalAlignment="Top" Width="90"/>
             <Label Content="{lex:Loc LocLabelPrice_Content}" FontWeight="Bold" Foreground="#e3cd9b" HorizontalAlignment="Left" Margin="310,306,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="labelLeatherPrice" Content="5" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="342,306,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="LeatherToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="24" Margin="310,334,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <Label x:Name="labelLeatherPrice" Content="5" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="345,306,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="LeatherToBuyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="24" Margin="310,334,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="241,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"/>
             <Rectangle Fill="#311818" HorizontalAlignment="Left"  Height="16" Margin="241,402,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"/>
             <Label x:Name="labelLeatherAmount" Content="0" Foreground="#e3cd9b" FontWeight="Bold" HorizontalAlignment="Left" Margin="255,374,0,0" VerticalAlignment="Top" Width="64"/>

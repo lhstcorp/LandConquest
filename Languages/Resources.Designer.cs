@@ -97,6 +97,33 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocButtonCreateListing.
+        /// </summary>
+        public static string LocButtonCreateListing {
+            get {
+                return ResourceManager.GetString("LocButtonCreateListing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocButtonDelete.
+        /// </summary>
+        public static string LocButtonDelete {
+            get {
+                return ResourceManager.GetString("LocButtonDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocButtonFind.
+        /// </summary>
+        public static string LocButtonFind {
+            get {
+                return ResourceManager.GetString("LocButtonFind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocButtonMailbox_Content.
         /// </summary>
         public static string LocButtonMailbox_Content {
@@ -124,6 +151,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocButtonRefreshListings.
+        /// </summary>
+        public static string LocButtonRefreshListings {
+            get {
+                return ResourceManager.GetString("LocButtonRefreshListings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocButtonSave_Content.
         /// </summary>
         public static string LocButtonSave_Content {
@@ -147,6 +183,15 @@ namespace LandConquest.Languages {
         public static string LocButtonSettingsMain_Content {
             get {
                 return ResourceManager.GetString("LocButtonSettingsMain_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocButtonShowMyListings.
+        /// </summary>
+        public static string LocButtonShowMyListings {
+            get {
+                return ResourceManager.GetString("LocButtonShowMyListings", resourceCulture);
             }
         }
         
@@ -633,6 +678,15 @@ namespace LandConquest.Languages {
         public static string LocLabelRegionMain_Content {
             get {
                 return ResourceManager.GetString("LocLabelRegionMain_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelRegister.
+        /// </summary>
+        public static string LocLabelRegister {
+            get {
+                return ResourceManager.GetString("LocLabelRegister", resourceCulture);
             }
         }
         
