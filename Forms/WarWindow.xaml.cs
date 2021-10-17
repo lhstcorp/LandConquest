@@ -21,6 +21,7 @@ namespace LandConquest.Forms
         private const int syncTick = 30; //sec
         private const int castleAttackerLocalLandId = 270; //red castle
         private const int castleDefenderLocalLandId = 299; //blue castle
+        private const int turnCount = 720;
         // <--
 
         private System.Windows.Controls.Primitives.UniformGrid localWarMap;

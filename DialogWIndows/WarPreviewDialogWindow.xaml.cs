@@ -1,4 +1,4 @@
-п»їusing LandConquest.Forms;
+using LandConquest.Forms;
 using LandConquest.Logic;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
@@ -19,7 +19,7 @@ using System.Windows.Shapes;
 namespace LandConquest.DialogWIndows
 {
     /// <summary>
-    /// Р›РѕРіРёРєР° РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ РґР»СЏ WarPreviewDialogWindow.xaml
+    /// Логика взаимодействия для WarPreviewDialogWindow.xaml
     /// </summary>
     public partial class WarPreviewDialogWindow : Window
     {
@@ -217,11 +217,11 @@ namespace LandConquest.DialogWIndows
 
         private void JoinWarBtn_Click(object sender, RoutedEventArgs e)
         {
+            setDefaultValuesIntoBlankFields();
+
             if (validateAvailableTroops())
             {
                 ArmyInBattle armyInBattle = new ArmyInBattle();
-
-                setDefaultValuesIntoBlankFields();
 
                 armyInBattle.ArmyInfantryCount = Convert.ToInt32(InfInput.Text);
                 armyInBattle.ArmyArchersCount = Convert.ToInt32(ArInput.Text);
