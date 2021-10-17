@@ -12,9 +12,6 @@ using System.Windows.Controls;
 
 namespace LandConquest.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для CountryWindow.xaml
-    /// </summary>
     public partial class CountryWindow : Window
     {
         private Player player;
@@ -30,6 +27,14 @@ namespace LandConquest.Forms
         private int operation = 0;
         private bool f = true;
         private Player ruler;
+
+        //////////////////
+        private Country currentCountry;
+        private string currentChosenCapitalName;
+        private List<string> potentialCapitalsNamesListing;
+        //////////////////
+
+
         public CountryWindow(Player _player)
         {
             player = _player;
@@ -38,6 +43,11 @@ namespace LandConquest.Forms
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            ///////////////////////////////
+            currentCountry = CountryModel.GetCountryById(CountryModel.GetCountryIdByLandId(player.PlayerCurrentRegion));
+            currentChosenCapitalName = LandModel.GetLandInfo(currentCountry.CapitalId).LandName;
+            //////////////////////////////
+
             Country country = CountryModel.GetCountryById(CountryModel.GetCountryIdByLandId(player.PlayerCurrentRegion));
             
             ruler = new Player();
@@ -58,6 +68,12 @@ namespace LandConquest.Forms
                 countries.Add(new Country());
             }
             countries = CountryModel.GetCountriesInfo(countries);
+
+            ////////////////////
+            potentialCapitalsNamesListing = new List<string>();
+            potentialCapitalsNamesListing = CountryModel.GetCountryLandsNamesNotWarInvolved(currentCountry);
+            CbCapitalToTransfer.ItemsSource = potentialCapitalsNamesListing;
+            /////////////////////
         }
 
         private void CbAct_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -142,18 +158,28 @@ namespace LandConquest.Forms
        
         private void CbCapitalToTransfer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            transferCapital = new Country();
-            transferCapital = capitals[CbCapitalToTransfer.SelectedIndex];
-            Console.WriteLine(transferCapital.CapitalId);
-            CbCountryWarLand.Items.Clear();
-            countryLandsToFight = LandModel.GetCountryLands(transferCapital);
-            for (int i = 0; i < countryLandsToFight.Count; i++)
-            {
-                CbCountryWarLand.Items.Add(countryLandsToFight[i].LandName);
-                Console.WriteLine(i);
-            }
 
+            //transferCapital = new Country();
+            //transferCapital = capitals[CbCapitalToTransfer.SelectedIndex];
+            //Console.WriteLine(transferCapital.CapitalId);
+            //CbCountryWarLand.Items.Clear();
+            //countryLandsToFight = LandModel.GetCountryLands(transferCapital);
+            //for (int i = 0; i < countryLandsToFight.Count; i++)
+            //{
+            //    CbCountryWarLand.Items.Add(countryLandsToFight[i].LandName);
+            //    Console.WriteLine(i);
+            //}
+
+            ///////////////////////////////////
+            currentChosenCapitalName = (string)CbCapitalToTransfer.SelectedItem;
+            ///////////////////////////////////
+        }
+
+        private void buttonChangeCapital_Click(object sender, RoutedEventArgs e)
+        {
+            /////////////////////////////////////////
+            CountryModel.UpdateCountryCapital(currentCountry, LandModel.GetLandInfoByName(currentChosenCapitalName).LandId);
+            //////////////////////////////////////////
         }
 
         private void CbCountryToTransfer_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -198,6 +224,5 @@ namespace LandConquest.Forms
         {
             this.Close();
         }
-
     }
 }
