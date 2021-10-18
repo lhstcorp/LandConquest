@@ -7,30 +7,32 @@ namespace LandConquestDB.Models
 {
     public class CountryModel
     {
-        public static Country EstablishaState(Player player, Land land, System.Windows.Media.Color color)
+        public static Country EstablishState(Player player, Land land, System.Windows.Media.Color color)
         {
             Color newColor = Color.FromArgb(color.A, color.R, color.G, color.B);
             string colorHex = ColorTranslator.ToHtml(newColor);
             string coffers = "10000";
             int capitalId = land.LandId;
-            string countryQuery = "INSERT INTO dbo.CountryData (country_name,country_ruler,country_color,country_coffers, capital_id) VALUES (@country_name,@country_ruler,@country_color,@country_coffers, @capital_id)";
+            string countryQuery = "INSERT INTO dbo.CountryData (country_id,country_name,country_ruler,country_color,country_coffers, capital_id) VALUES (@country_id,@country_name,@country_ruler,@country_color,@country_coffers, @capital_id)";
             var countryCommand = new SqlCommand(countryQuery, DbContext.GetSqlConnection());
 
-            countryCommand.Parameters.AddWithValue("@country_name", land.LandName + " state");
-            countryCommand.Parameters.AddWithValue("@country_ruler", player.PlayerId);
-            countryCommand.Parameters.AddWithValue("@country_color", colorHex);
-            countryCommand.Parameters.AddWithValue("@country_coffers", coffers);
-            countryCommand.Parameters.AddWithValue("@capital_id", capitalId);
-
-            countryCommand.ExecuteNonQuery();
-            countryCommand.Dispose();
-
             Country country = new Country();
+            country.CountryId = SelectLastIdOfStates() + 1;
             country.CountryName = land.LandName + " state";
             country.CountryRuler = player.PlayerId;
             country.CountryColor = colorHex;
             country.CountryCoffers = coffers;
             country.CapitalId = capitalId;
+
+            countryCommand.Parameters.AddWithValue("@country_id", country.CountryId);
+            countryCommand.Parameters.AddWithValue("@country_name", country.CountryName);
+            countryCommand.Parameters.AddWithValue("@country_ruler", country.CountryRuler);
+            countryCommand.Parameters.AddWithValue("@country_color", country.CountryColor);
+            countryCommand.Parameters.AddWithValue("@country_coffers", country.CountryCoffers);
+            countryCommand.Parameters.AddWithValue("@capital_id", country.CapitalId);
+
+            countryCommand.ExecuteNonQuery();
+            countryCommand.Dispose();
 
             return country;
         }
@@ -107,6 +109,30 @@ namespace LandConquestDB.Models
             countriesCapitalId = null;
 
             return countries;
+        }
+
+        public static List<string> GetCountryLandsNamesNotWarInvolved(Country _country)
+        {
+            string query = "SELECT LandData.land_name FROM dbo.LandData INNER JOIN dbo.WarData ON WarData.land_attacker_id != LandData.land_id AND WarData.land_defender_id != LandData.land_id WHERE LandData.country_id = @country_id";
+            List<string> landsLandNames = new List<string>();
+
+            var command = new SqlCommand(query, DbContext.GetSqlConnection());
+            command.Parameters.AddWithValue("@country_id", _country.CountryId);
+
+            using (var reader = command.ExecuteReader())
+            {
+                var landName = reader.GetOrdinal("land_name");
+
+                while (reader.Read())
+                {
+                    landsLandNames.Add(reader.GetString(landName));
+                }
+                reader.Close();
+            }
+
+            command.Dispose();
+
+            return landsLandNames;
         }
 
         public static int GetCountryIdByLandId(int _landId)
@@ -192,6 +218,19 @@ namespace LandConquestDB.Models
             command.Dispose();
 
             return country;
+        }
+
+        public static void UpdateCountryCapital(Country country, int landCapitalId)
+        {
+            string countryQuery = "UPDATE dbo.CountryData SET capital_id = @capital_id WHERE country_id = @country_id ";
+
+            var landCommand = new SqlCommand(countryQuery, DbContext.GetSqlConnection());
+            landCommand.Parameters.AddWithValue("@country_id", country.CountryId);
+            landCommand.Parameters.AddWithValue("@capital_id", landCapitalId);
+
+            landCommand.ExecuteNonQuery();
+
+            landCommand.Dispose();
         }
 
 
