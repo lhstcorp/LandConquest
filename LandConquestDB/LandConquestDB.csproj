@@ -68,6 +68,7 @@
     <Compile Include="Entities\Law.cs" />
     <Compile Include="Entities\Manufacture.cs" />
     <Compile Include="Entities\Market.cs" />
+    <Compile Include="Entities\Names.cs" />
     <Compile Include="Entities\Peasants.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Player.cs" />
