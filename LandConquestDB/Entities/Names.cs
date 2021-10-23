@@ -20,7 +20,18 @@ namespace LandConquestDB.Entities
                                       "Dominic", "Richard", "Antonio", "Jesse", "Blake", "Sebastian", "Miguel", "Jake", "Alejandro", "Patrick",
                                       "Jean", "Michel", "Philippe", "Alain", "Patrick", "Pierre", "Nicolas", "Daniel", "Bernard", "Frederic",
                                       "José", "Antonio", "Juan", "Manuel", "Francisco", "Luis", "Miguel", "Javier", "Ángel", "Carlos",
-                                      "Laurent", "Olivier"
+                                      "Andrea", "Luca", "Marco", "Francesco", "Matteo", "Alessandro", "Davide", "Simone", "Federico", "Lorenzo",
+                                      "Laurent", "Olivier", "Stefano", "Giuseppe", "Mattia", "Daniele", "Leon", "Lucas", "Maximillian", "Moritz",
+                                      "Tom", "Tim", "Eric", "Jannik", "Alexander", "Aaron", "Paul", "Finn", "Max", "Felix", "Peter", "Michael", 
+                                      "Wolfgang", "Jurgen", "Andreas", "Stephan", "Christian", "Uwe", "Werner", "Hans", "Mathias", "Helmut", 
+                                      "Jorg", "Jens", "Bogdan", "Boris", "Vladimir", "Gavrilo", "Gannadiy", "Gayorgy", "Gleb", "Grigoriy", 
+                                      "Dmitriy", "Dobrynya", "Antip", "Bakai", "Boyan", "Vladislav", "Vseslav", "Andrei", "Arhip", "Askold",
+                                      "Elisei", "Zahar", "Igor", "Izyaslav", "Ilia", "Kirill", "Kliment", "Konstantin", "Kondrat", "Kuzma",
+                                      "Makar", "Mark", "Matvey", "Miron", "Mihail", "Nestor", "Danila", "Daniil", "Peter", "Michael",
+                                      "Dmitriy", "Dobrynya", "Antip", "Bakai", "Boyan", "Vladislav", "Vseslav", "Andrei", "Arhip", "Askold",
+                                      "Nikita", "Nikolay", "Oleg", "Aliaksei", "Pavel", "Petr", "Pimen", "Roman", "Ruslan", "Saveliy",
+                                      "Semen", "Sergey", "Stepan", "Taras", "Timofey", "Ustin", "Fedor", "Filipp", "Yuriy", "Yaroslav",
+
 
                                     };
 
@@ -35,7 +46,15 @@ namespace LandConquestDB.Entities
                                         "Audrey", "Jada", "Autumn", "Evelyn", "Jocelyn", "Arianna", "Isabel", "Amber", "Melanie", "Diana",
                                         "Danielle", "Sierra", "Leslie", "Aaliyah", "Erin", "Amelia", "Molly", "Claire", "Bailey", "Melissa",
                                         "Marie", "Nathalie", "Francoise", "Christine", "Monique", "Nicole", "Celine", "Brigitte", "Anne", "Catherine",
-                                        "María", "Carmen", "Ana", "Isabel", "Dolores", "Pilar", "Josefa", "Teresa", "Rosa", "Antonia"
+                                        "María", "Carmen", "Ana", "Isabel", "Dolores", "Pilar", "Josefa", "Teresa", "Rosa", "Antonia",
+                                        "Giulia", "Chiara", "Francesca", "Federica", "Sara", "Martina", "Valentina", "Alessia", "Silvia", "Elisa",
+                                        "Ilaria", "Eleonora", "Giorgia", "Elena", "Laura", "Sofia", "Anna", "Emilia", "Marie", "Lena", "Lea", "Amelie", 
+                                        "Emily", "Lilly", "Clara", "Lara", "Nele", "Pia", "Paula", "Alina", "Sarah", "Luisa", "Ursula", "Sabine", 
+                                        "Monica", "Susanne", "Petra", "Birgit", "Andrea", "Anna", "Brigitte", "Claudia", "Angelika", "Heike",
+                                        "Anastasiya", "Anna", "Antonina", "Varvara", "Vasilisa", "Vera", "Vladislava", "Darya", "Irina", "Ksenia", "Lada", "Ludmila",
+                                        "Marina", "Marfa", "Milena", "Nadezhda", "Natalia", "Olga", "Pelagea", "Polina", "Rogneda", "Tatiana", "Yulia",
+                                        "Gabriele", "Cathrin", "Anja", "Barbara"
+      
 
 
 
@@ -69,7 +88,24 @@ namespace LandConquestDB.Entities
                                         "Walter", "Ward", "Warren", "Watson", "Wayne", "Webster", "Wesley", "White", "WifKinson", "Winter",
                                         "Wood", "Youmans", "Young", "Durand", "Leroy", "Duroy", "Robert", "Thomas", "Dupont", "Duval",
                                         "García", "Fernández", "González", "Rodríguez", "López", "Martínez", "Sánchez", "Pérez", "Martín", "Gómez",
-                                        "Dubois", "Bernard", "Bertrand", "Leroux", "Fournier", "Girard"
+                                        "Rossi", "Russo", "Ferrari", "Esposito", "Bianchi", "Romano", "Colombo", "Ricci", "Marino", "Greco",
+                                        "Bruno", "Gallo", "Conti", "De Luca", "Mancini", "Costa", "Giordano", "Rizzo", "Lombardi", "Moretti",
+                                        "Barbieri", "Fontana", "Santoro", "Mariani", "Rinaldi", "Caruso", "Ferrara", "Galli", "Martini", "Leone",
+                                        "Longo", "Gentile", "Martinelli", "Vitale", "Lombardo", "Serra", "Coppola", "De Santis", "D'Angelo", "Marchetti",
+                                        "Parisi", "Villa", "Conte", "Ferraro", "Ferri", "Fabbri", "Bianco", "Marini", "Grasso", "Valentini",
+                                        "Messina", "Sala", "De Angelis", "Gatti", "Mazza", "Testa", "Grassi", "Carbone", "Giuliani", "Benedetti",
+                                        "Barone", "Rossetti", "Caputo", "Guerra", "Palmieri", "Bernardi", "Martino", "Flore", "De Rosa", "Ferretti",
+                                        "Bellini", "Basile", "Riva", "Donati", "Piras", "Vitali", "Battaglia", "Sartori", "Neri", "Costantini",
+                                        "Milani", "Pagano", "Ruggiero", "Sorrentino", "D'Amico", "Orlando", "Damico", "Negri", "Bonucci", "Chiellini",
+                                        "Dubois", "Bernard", "Bertrand", "Leroux", "Fournier", "Girard", "Walter", "Hermann", "Werner", "Hartmann",
+                                        "Klein", "Braun", "Neumann", "Krause", "Lange", "Jung", "Schwarz", "Stolz", "Bart",
+                                        "Müller", "Schmidt", "Fischer", "Schneider", "Wagner", "Meyer", "Weber", "Hoffman", "Koch", "Becker",
+                                        "Schäfer", "Schulz", "Richter", "Bauer", "Schröder", "Zimmermann", "Lehmann", "Schuhmacher", "Krüger",
+                                        "Sapega", "Tyshkevich", "Pac", "Hodkevich", "Glebovich", "Nemiro", "Iodko", "Ilinich", "Gornostay", "Gromyko",
+                                        "Smirnoff", "Lazun", "Valueu", "Voinilovich", "Fedorovich", "Volk", "Kazlou", "Ivanou", "Aleinikau",
+                                        "Ilin", "Nikitin", "Senkevich", "Ivashkevich", "Mickevich", "Tyamchyk", "Martinovich", "Borisevich", "Akinshin", "Panchenko",
+                                        "Zubau", "Pismenny", "Spesiucau", "Hardzeika", "Gorevaya", "Petuh", "Kozel", "Timoshenko", "Putin",
+
 
 
                                    };
