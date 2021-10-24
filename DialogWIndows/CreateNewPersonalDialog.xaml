@@ -13,7 +13,7 @@
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
             <Label FontFamily="Verdana" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Center" Margin="10,58,128.4,65.2" Content="Say something:"  Height="24" Width="108"/>
-            <TextBox x:Name="TextBoxMessageValue" Text="Hello" MaxLength="300" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="23" Margin="10,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" BorderBrush="#FF391C18" />
+            <TextBox x:Name="TextBoxMessageValue" Text="Hello" MaxLength="300" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="23" Margin="10,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" BorderBrush="#FF391C18"/>
             <Button x:Name="ButtonEnter" Content="Enter" HorizontalAlignment="Left" FontFamily="Book Antiqua" Margin="81,114,0,0" VerticalAlignment="Top" Width="86" Height="31" BorderBrush="{x:Null}" Foreground="#FFE0CA99">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
