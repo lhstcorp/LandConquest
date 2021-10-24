@@ -68,7 +68,7 @@ namespace LandConquest.DialogWIndows
 
         private void personName_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //person.Name=File.ReadLines(fileName)
         }
     }
 }
