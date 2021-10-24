@@ -30,7 +30,7 @@ namespace LandConquest.Logic
         }
 
         public static void ConsumptionCount(Player player, PlayerStorage storage)
-        {
+        { 
             var lastEntrance = PlayerEntranceModel.GetLastEntrance(player);
             if (lastEntrance == DateTime.MinValue)
             {
