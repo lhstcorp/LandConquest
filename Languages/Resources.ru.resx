@@ -129,6 +129,15 @@
   <data name="LocButtonClaim_Content" xml:space="preserve">
     <value>Собрать</value>
   </data>
+  <data name="LocButtonCreateListing" xml:space="preserve">
+    <value>Выставить товары</value>
+  </data>
+  <data name="LocButtonDelete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="LocButtonFind" xml:space="preserve">
+    <value>Найти</value>
+  </data>
   <data name="LocButtonMailbox_Content" xml:space="preserve">
     <value>Личные сообщения</value>
   </data>
@@ -138,6 +147,9 @@
   <data name="LocButtonRankingsMain_Content" xml:space="preserve">
     <value>Рейтинг</value>
   </data>
+  <data name="LocButtonRefreshListings" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
   <data name="LocButtonSave_Content" xml:space="preserve">
     <value>Сохранить</value>
   </data>
@@ -146,6 +158,9 @@
   </data>
   <data name="LocButtonSettingsMain_Content" xml:space="preserve">
     <value>Настройки</value>
+  </data>
+  <data name="LocButtonShowMyListings" xml:space="preserve">
+    <value>Мои товары</value>
   </data>
   <data name="LocButtonSupportUs_Content" xml:space="preserve">
     <value>Поддержать нас</value>
@@ -308,6 +323,9 @@
   </data>
   <data name="LocLabelRegionMain_Content" xml:space="preserve">
     <value>Земля</value>
+  </data>
+  <data name="LocLabelRegister" xml:space="preserve">
+    <value>Регистрация</value>
   </data>
   <data name="LocLabelRegistration_Content" xml:space="preserve">
     <value>Регистрация</value>

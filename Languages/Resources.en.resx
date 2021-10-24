@@ -129,6 +129,15 @@
   <data name="LocButtonClaim_Content" xml:space="preserve">
     <value>Claim</value>
   </data>
+  <data name="LocButtonCreateListing" xml:space="preserve">
+    <value>Create Listing</value>
+  </data>
+  <data name="LocButtonDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="LocButtonFind" xml:space="preserve">
+    <value>Find</value>
+  </data>
   <data name="LocButtonMailbox_Content" xml:space="preserve">
     <value>Mailbox</value>
   </data>
@@ -138,6 +147,9 @@
   <data name="LocButtonRankingsMain_Content" xml:space="preserve">
     <value>Rankings</value>
   </data>
+  <data name="LocButtonRefreshListings" xml:space="preserve">
+    <value>Refresh Listings</value>
+  </data>
   <data name="LocButtonSave_Content" xml:space="preserve">
     <value>Save</value>
   </data>
@@ -146,6 +158,9 @@
   </data>
   <data name="LocButtonSettingsMain_Content" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="LocButtonShowMyListings" xml:space="preserve">
+    <value>Show My Listings</value>
   </data>
   <data name="LocButtonSupportUs_Content" xml:space="preserve">
     <value>Support us</value>
@@ -308,6 +323,9 @@
   </data>
   <data name="LocLabelRegionMain_Content" xml:space="preserve">
     <value>Land</value>
+  </data>
+  <data name="LocLabelRegister" xml:space="preserve">
+    <value>Register</value>
   </data>
   <data name="LocLabelRegistration_Content" xml:space="preserve">
     <value>Reg</value>
