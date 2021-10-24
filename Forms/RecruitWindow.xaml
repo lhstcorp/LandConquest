@@ -106,6 +106,37 @@
                     <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
                 </Grid.Background>
             </Grid>
+
+            <Grid HorizontalAlignment="Left" Height="21" Margin="217,102,0,0" VerticalAlignment="Top" Width="33">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+                </Grid.Background>
+                <Label x:Name="archerConsumption" Content="1" FontSize="10" FontWeight="Bold" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Top" Width="14" Height="20"/>
+                <Image HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="18" Source="/LandConquest;component/Pictures/Icons/Resource/Food.png" Margin="1,3,0,0"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="21" Margin="340,101,0,0" VerticalAlignment="Top" Width="33">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+                </Grid.Background>
+                <Label x:Name="infanrtyConsumption" Content="1" FontSize="10" FontWeight="Bold" HorizontalAlignment="Left" Margin="18,0,0,0" VerticalAlignment="Top" Width="15" Height="21"/>
+                <Image HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="18" Source="/LandConquest;component/Pictures/Icons/Resource/Food.png" Margin="1,3,0,0"/>
+
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="20" Margin="463,100,0,0" VerticalAlignment="Top" Width="33">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+                </Grid.Background>
+                <Label x:Name="knightsConsumption" Content="1" FontSize="10" FontWeight="Bold" HorizontalAlignment="Left" Margin="18,0,0,0" VerticalAlignment="Top" Width="15" Height="20"/>
+                <Image HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="18" Source="/LandConquest;component/Pictures/Icons/Resource/Food.png" Margin="1,3,0,0"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="20" Margin="588,99,0,0" VerticalAlignment="Top" Width="32">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+                </Grid.Background>
+                <Label x:Name="siegeConsumption" Content="1" FontSize="10" FontWeight="Bold" HorizontalAlignment="Left" Margin="18,0,0,0" VerticalAlignment="Top" Width="14" Height="20"/>
+                <Image HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="18" Source="/LandConquest;component/Pictures/Icons/Resource/Food.png" Margin="1,3,0,0"/>
+            </Grid>
+
             <Image HorizontalAlignment="Left" Height="14" Margin="152,78,0,0" VerticalAlignment="Top" Width="7" Source="/Pictures/new_bow.png"/>
             <Image HorizontalAlignment="Left" Height="14" Margin="148,93,0,0" VerticalAlignment="Top" Width="11" Source="/Pictures/new_armor.png"/>
             <Image HorizontalAlignment="Left" Height="14" Margin="148,109,0,0" VerticalAlignment="Top" Width="12" Source="/Pictures/coin.png"/>

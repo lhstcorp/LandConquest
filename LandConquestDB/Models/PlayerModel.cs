@@ -1,6 +1,7 @@
 ﻿using LandConquestDB.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading;
@@ -290,29 +291,35 @@ namespace LandConquestDB.Models
 
         public static List<Player> GetXpInfo(List<Player> players, User user)
         {
-            string query = "SELECT * FROM dbo.PlayerData ORDER BY player_exp desc";
+            //string query = "SELECT * FROM dbo.PlayerData ORDER BY player_exp desc";
 
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
+            //var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
-            using (var reader = command.ExecuteReader())
+            //using (var reader = command.ExecuteReader())
+            //{
+
+            //    var playerId = reader.GetOrdinal("player_id");
+            //    var playerExp = reader.GetOrdinal("player_exp");
+            //    var playerName = reader.GetOrdinal("player_name");
+
+            //    while (reader.Read())
+            //    {
+            //        Player player = new Player();
+            //        player.PlayerId = reader.GetString(playerId);
+            //        player.PlayerExp = reader.GetInt64(playerExp);
+            //        player.PlayerName = reader.GetString(playerName);
+            //        players.Add(player);
+            //    }
+            //    reader.Close();
+            //}
+            //command.Dispose();
+
+            DataContext db = new DataContext(DbContext.GetSqlConnection());
+            Table<Player> playersData = db.GetTable<Player>();
+            foreach (var player in playersData)
             {
-
-                var playerId = reader.GetOrdinal("player_id");
-                var playerExp = reader.GetOrdinal("player_exp");
-                var playerName = reader.GetOrdinal("player_name");
-
-                while (reader.Read())
-                {
-                    Player player = new Player();
-                    player.PlayerId = reader.GetString(playerId);
-                    player.PlayerExp = reader.GetInt64(playerExp);
-                    player.PlayerName = reader.GetString(playerName);
-                    players.Add(player);
-                }
-                reader.Close();
-            }
-            command.Dispose();
-
+                players.Add(player);
+            }          
             return players;
         }
 

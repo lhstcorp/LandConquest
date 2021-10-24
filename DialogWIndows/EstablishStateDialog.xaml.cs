@@ -22,10 +22,9 @@ namespace LandConquest.DialogWIndows
 
         private void EstablishState_Click(object sender, RoutedEventArgs e)
         {
-            Country country = CountryModel.EstablishaState(player, land, StateColor.Color);
-            country.CountryId = CountryModel.SelectLastIdOfStates();
-            country.CapitalId = land.LandId;
+            Country country = CountryModel.EstablishState(player, land, StateColor.Color);
             LandModel.UpdateLandInfo(land, country);
+            CountryModel.UpdateCountryCapital(country, land.LandId);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

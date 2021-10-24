@@ -41,6 +41,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows" />
@@ -68,8 +69,11 @@
     <Compile Include="Entities\Law.cs" />
     <Compile Include="Entities\Manufacture.cs" />
     <Compile Include="Entities\Market.cs" />
+    <Compile Include="Entities\Names.cs" />
     <Compile Include="Entities\Peasants.cs" />
+    <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Player.cs" />
+    <Compile Include="Entities\PlayerArmyInWar.cs" />
     <Compile Include="Entities\PlayerEntrance.cs" />
     <Compile Include="Entities\PlayerEquipment.cs" />
     <Compile Include="Entities\PlayersRating.cs" />
@@ -95,6 +99,7 @@
     <Compile Include="Models\MapModel.cs" />
     <Compile Include="Models\MarketModel.cs" />
     <Compile Include="Models\PeasantModel.cs" />
+    <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\PlayerEntranceModel.cs" />
     <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Models\StorageModel.cs" />

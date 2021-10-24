@@ -5,6 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:LandConquest.Forms"
+        xmlns:ctrls="clr-namespace:LandConquest.Resources"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="ru"
+        lex:LocalizeDictionary.IncludeInvariantCulture="False"
+        lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources"  
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
         Title="MarketWindow" Height="450" Width="670" ShowInTaskbar="False" Loaded="Window_Loaded">
@@ -46,12 +52,12 @@
                 </DataGrid.ColumnHeaderStyle>
             </DataGrid>
 
-            <Button x:Name="buttonShowMyListings" Content="Show My Listings" HorizontalAlignment="Left" Margin="510,84,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Width="150" Height="30" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Click="buttonShowMyListings_Click">
+            <Button x:Name="buttonShowMyListings" Content="{lex:Loc LocButtonShowMyListings}" HorizontalAlignment="Left" Margin="510,84,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Width="150" Height="30" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Click="buttonShowMyListings_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="buttonCreateListing" Content="Create Listing" HorizontalAlignment="Left" Margin="510,47,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Click="buttonCreateListing_Click">
+            <Button x:Name="buttonCreateListing" Content="{lex:Loc LocButtonCreateListing}" HorizontalAlignment="Left" Margin="510,47,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Click="buttonCreateListing_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -61,25 +67,25 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="buttonBuy" IsEnabled="True" Content="Buy" HorizontalAlignment="Left" Margin="510,121,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Height="30" Width="150" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonBuy_Click">
+            <Button x:Name="buttonBuy" IsEnabled="True" Content="{lex:Loc LocLabelBuy_Content}" HorizontalAlignment="Left" Margin="510,121,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Height="30" Width="150" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonBuy_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
 
 
-            <Button x:Name="buttonFindListing" Content="Find" HorizontalAlignment="Left" Margin="386,10,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="84" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32" Click="buttonFindListing_Click" >
+            <Button x:Name="buttonFindListing" Content="{lex:Loc LocButtonFind}" HorizontalAlignment="Left" Margin="386,10,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="84" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32" Click="buttonFindListing_Click" >
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="buttonUpdateListings" IsEnabled="True" Content="Refresh listings" HorizontalAlignment="Left" FontFamily="Book Antiqua" Margin="10,10,0,0" VerticalAlignment="Top" Width="129" Height="32" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonUpdateListings_Click">
+            <Button x:Name="buttonUpdateListings" IsEnabled="True" Content="{lex:Loc LocButtonRefreshListings}" HorizontalAlignment="Left" FontFamily="Book Antiqua" Margin="10,10,0,0" VerticalAlignment="Top" Width="129" Height="32" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonUpdateListings_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
             <TextBox x:Name="textBoxItemSearchName" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.Hint=" Resource" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="32" Margin="264,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#7F966B52" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF391C18"/>
-            <Button x:Name="buttonDelete" IsEnabled="True" Content="Delete" HorizontalAlignment="Left" Margin="510,159,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonDelete_Click">
+            <Button x:Name="buttonDelete" IsEnabled="True" Content="{lex:Loc LocButtonDelete}" HorizontalAlignment="Left" Margin="510,159,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonDelete_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>

@@ -120,8 +120,12 @@ namespace LandConquest
                         LandConquestDB.Models.PlayerModel.CreatePlayerResources(userId, registeredUser);
                         LandConquestDB.Models.TaxesModel.CreateTaxesData(userId);
 
-                        MainWindow mainWindow = new MainWindow(registeredUser);
+                        /*MainWindow mainWindow = new MainWindow(registeredUser);
                         mainWindow.Show();
+                        this.Close();*/
+
+                        CreatePersonDialogWindow dialogWindow = new CreatePersonDialogWindow(registeredUser);
+                        dialogWindow.Show();
                         this.Close();
 
                         //CreatePersonDialogWindow window = new CreatePersonDialogWindow(registeredUser);

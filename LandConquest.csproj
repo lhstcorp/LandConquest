@@ -148,6 +148,9 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Data.Linq">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.SqlClient, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Data.SqlClient.4.3.0\lib\net46\System.Data.SqlClient.dll</HintPath>
     </Reference>
@@ -184,6 +187,9 @@
     </Compile>
     <Compile Include="DialogWIndows\CreateNewPersonalDialog.xaml.cs">
       <DependentUpon>CreateNewPersonalDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogWIndows\CreatePersonDialogWindow.xaml.cs">
+      <DependentUpon>CreatePersonDialogWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DialogWIndows\PlayerProfileDialog.xaml.cs">
       <DependentUpon>PlayerProfileDialog.xaml</DependentUpon>
@@ -254,6 +260,9 @@
     <Compile Include="Forms\MembershipWindow.xaml.cs">
       <DependentUpon>MembershipWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PersonWindow.xaml.cs">
+      <DependentUpon>PersonWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
     </Compile>
@@ -309,6 +318,10 @@
     <Page Include="DialogWIndows\CreateNewPersonalDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\CreatePersonDialogWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DialogWIndows\PlayerProfileDialog.xaml">
       <SubType>Designer</SubType>
@@ -428,6 +441,10 @@
     <Page Include="Forms\MembershipWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\PersonWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Forms\ProfileWindow.xaml">
       <SubType>Designer</SubType>
@@ -773,7 +790,10 @@
     <Resource Include="Pictures\CoatOfArms\patterns\half.png" />
     <Resource Include="Pictures\CoatOfArms\patterns\half_ang.png" />
     <Resource Include="Pictures\CoatOfArms\patterns\half_hor.png" />
-    <Resource Include="Pictures\crown.png" />
+    <Resource Include="Pictures\Icons\Resource\Food.png" />
+    <Resource Include="Pictures\War\siegePanorama.jpg" />
+    <Resource Include="Pictures\Common\exp.png" />
+    <Resource Include="Pictures\Common\crown.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
