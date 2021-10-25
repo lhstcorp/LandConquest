@@ -19,7 +19,7 @@ namespace LandConquest.Forms
         {
             if (TextBoxMessage.Text.Length != 0)
             {
-                if (TextBoxReceiver.Text != PlayerName && !LandConquestDB.Models.UserModel.ValidateUserByLogin(TextBoxReceiver.Text))
+                if (TextBoxReceiver.Text != PlayerName && !LandConquestDB.Models.UserModel.CheckLoginExistence(TextBoxReceiver.Text))
                 {
                     var result = LandConquestYD.YDMessaging.CreateAndSendMessage(TextBoxMessage.Text, PlayerName, TextBoxReceiver.Text);
                     if (result)

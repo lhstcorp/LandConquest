@@ -10,8 +10,6 @@
 //------------------------------------------------------------------------------
 
 using LandConquest.Forms;
-using LandConquest.Resources;
-using LiveCharts.Wpf;
 using MaterialDesignThemes.Wpf;
 using MaterialDesignThemes.Wpf.Converters;
 using MaterialDesignThemes.Wpf.Transitions;

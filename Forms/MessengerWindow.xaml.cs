@@ -33,7 +33,7 @@ namespace LandConquest.Forms
             {
                 if(inputDialog.ValueText != null)
                 {
-                    if (!LandConquestDB.Models.UserModel.ValidateUserByLogin(inputDialog.ValueText))
+                    if (!LandConquestDB.Models.UserModel.CheckLoginExistence(inputDialog.ValueText))
                     {
                         YDMessaging.CreateDialog(player.PlayerName, inputDialog.ValueText);
                     }
