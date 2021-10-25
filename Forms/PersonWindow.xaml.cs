@@ -43,7 +43,7 @@ namespace LandConquest.Forms
             Power.Content = person.Power;
             Agility.Content = person.Agility;
             Intelligence.Content = person.Intellect;
-            Level.Content = person.Level;
+            Level.Content = person.Lvl;
             Health.Content = person.Health;
             Experience.Content = person.Exp;
             NameSurname.Content = person.Name +" "+ person.Surname;

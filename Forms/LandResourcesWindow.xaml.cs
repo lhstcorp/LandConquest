@@ -50,15 +50,15 @@ namespace LandConquest.Forms
             //storage = StorageModel.GetPlayerStorage(player);
             //landStorage = LandStorageModel.GetLandStorage(land, landStorage);
 
-            labelWoodAmount.Content = landStorage.LandWood.ToString();
-            labelCopperAmount.Content = landStorage.LandCopper.ToString();
-            labelFoodAmount.Content = landStorage.LandFood.ToString();
-            labelGemsAmount.Content = landStorage.LandGems.ToString();
-            labelGoldAmount.Content = landStorage.LandGoldOre.ToString();
-            labelIronAmount.Content = landStorage.LandIron.ToString();
-            labelLeatherAmount.Content = landStorage.LandLeather.ToString();
-            labelStoneAmount.Content = landStorage.LandStone.ToString();
-            labelMoneyAmount.Content = landStorage.LandMoney.ToString();
+            labelWoodAmount.Content = landStorage.Wood.ToString();
+            labelCopperAmount.Content = landStorage.Copper.ToString();
+            labelFoodAmount.Content = landStorage.Food.ToString();
+            labelGemsAmount.Content = landStorage.Gems.ToString();
+            labelGoldAmount.Content = landStorage.GoldOre.ToString();
+            labelIronAmount.Content = landStorage.Iron.ToString();
+            labelLeatherAmount.Content = landStorage.Leather.ToString();
+            labelStoneAmount.Content = landStorage.Stone.ToString();
+            labelMoneyAmount.Content = landStorage.Money.ToString();
 
 
 
@@ -75,10 +75,10 @@ namespace LandConquest.Forms
             switch(button.Name)
             {
                 case "DonateWoodButton":
-                    if (storage.PlayerWood >= Convert.ToInt32(DonateWoodTextBox.Text))
+                    if (storage.Wood >= Convert.ToInt32(DonateWoodTextBox.Text))
                     {
-                        landStorage.LandWood += Convert.ToInt32(DonateWoodTextBox.Text);
-                        storage.PlayerWood -= Convert.ToInt32(DonateWoodTextBox.Text);
+                        landStorage.Wood += Convert.ToInt32(DonateWoodTextBox.Text);
+                        storage.Wood -= Convert.ToInt32(DonateWoodTextBox.Text);
                     }
                     else
                     {
@@ -87,10 +87,10 @@ namespace LandConquest.Forms
 
                     break;
                 case "DonateFoodButton":
-                    if (storage.PlayerFood >= Convert.ToInt32(DonateFoodTextBox.Text))
+                    if (storage.Food >= Convert.ToInt32(DonateFoodTextBox.Text))
                     {
-                        landStorage.LandFood += Convert.ToInt32(DonateFoodTextBox.Text);
-                        storage.PlayerFood -= Convert.ToInt32(DonateFoodTextBox.Text);
+                        landStorage.Food += Convert.ToInt32(DonateFoodTextBox.Text);
+                        storage.Food -= Convert.ToInt32(DonateFoodTextBox.Text);
                     }
                     else
                     {
@@ -98,10 +98,10 @@ namespace LandConquest.Forms
                     }
                     break;
                 case "DonateIronButton":
-                    if (storage.PlayerIron >= Convert.ToInt32(DonateIronTextBox.Text))
+                    if (storage.Iron >= Convert.ToInt32(DonateIronTextBox.Text))
                     {
-                        landStorage.LandIron += Convert.ToInt32(DonateIronTextBox.Text);
-                        storage.PlayerIron -= Convert.ToInt32(DonateIronTextBox.Text);
+                        landStorage.Iron += Convert.ToInt32(DonateIronTextBox.Text);
+                        storage.Iron -= Convert.ToInt32(DonateIronTextBox.Text);
                     }
                     else
                     {
@@ -109,10 +109,10 @@ namespace LandConquest.Forms
                     }
                     break;
                 case "DonateStoneButton":
-                    if (storage.PlayerStone >= Convert.ToInt32(DonateStoneTextBox.Text))
+                    if (storage.Stone >= Convert.ToInt32(DonateStoneTextBox.Text))
                     {
-                        landStorage.LandStone += Convert.ToInt32(DonateStoneTextBox.Text);
-                        storage.PlayerStone -= Convert.ToInt32(DonateStoneTextBox.Text);
+                        landStorage.Stone += Convert.ToInt32(DonateStoneTextBox.Text);
+                        storage.Stone -= Convert.ToInt32(DonateStoneTextBox.Text);
                     }
                     else
                     {
@@ -120,10 +120,10 @@ namespace LandConquest.Forms
                     }
                     break;
                 case "DonateLeatherButton":
-                    if (storage.PlayerLeather >= Convert.ToInt32(DonateLeatherTextBox.Text))
+                    if (storage.Leather >= Convert.ToInt32(DonateLeatherTextBox.Text))
                     {
-                        landStorage.LandLeather += Convert.ToInt32(DonateLeatherTextBox.Text);
-                        storage.PlayerLeather -= Convert.ToInt32(DonateLeatherTextBox.Text);
+                        landStorage.Leather += Convert.ToInt32(DonateLeatherTextBox.Text);
+                        storage.Leather -= Convert.ToInt32(DonateLeatherTextBox.Text);
                     }
                     else
                     {
@@ -131,10 +131,10 @@ namespace LandConquest.Forms
                     }
                     break;
                 case "DonateGoldButton":
-                    if (storage.PlayerGoldOre >= Convert.ToInt32(DonateGoldTextBox.Text))
+                    if (storage.GoldOre >= Convert.ToInt32(DonateGoldTextBox.Text))
                     {
-                        landStorage.LandGoldOre += Convert.ToInt32(DonateGoldTextBox.Text);
-                        storage.PlayerGoldOre -= Convert.ToInt32(DonateGoldTextBox.Text);
+                        landStorage.GoldOre += Convert.ToInt32(DonateGoldTextBox.Text);
+                        storage.GoldOre -= Convert.ToInt32(DonateGoldTextBox.Text);
                     }
                     else
                     {
@@ -142,10 +142,10 @@ namespace LandConquest.Forms
                     }
                     break;
                 case "DonateGemsButton":
-                    if (storage.PlayerGems >= Convert.ToInt32(DonateGemsTextBox.Text))
+                    if (storage.Gems >= Convert.ToInt32(DonateGemsTextBox.Text))
                     {
-                        landStorage.LandGems += Convert.ToInt32(DonateGemsTextBox.Text);
-                        storage.PlayerGems -= Convert.ToInt32(DonateGemsTextBox.Text);
+                        landStorage.Gems += Convert.ToInt32(DonateGemsTextBox.Text);
+                        storage.Gems -= Convert.ToInt32(DonateGemsTextBox.Text);
                     }
                     else
                     {
@@ -153,10 +153,10 @@ namespace LandConquest.Forms
                     }
                     break;
                 case "DonateCopperButton":
-                    if (storage.PlayerCopper >= Convert.ToInt32(DonateCopperTextBox.Text))
+                    if (storage.Copper >= Convert.ToInt32(DonateCopperTextBox.Text))
                     {
-                        landStorage.LandCopper += Convert.ToInt32(DonateCopperTextBox.Text);
-                        storage.PlayerCopper -= Convert.ToInt32(DonateCopperTextBox.Text);
+                        landStorage.Copper += Convert.ToInt32(DonateCopperTextBox.Text);
+                        storage.Copper -= Convert.ToInt32(DonateCopperTextBox.Text);
                     }
                     else
                     {
@@ -166,7 +166,7 @@ namespace LandConquest.Forms
                 case "DonateMoneyButton":
                     if (player.PlayerMoney >= Convert.ToInt32(DonateMoneyTextBox.Text))
                     {
-                        landStorage.LandMoney += Convert.ToInt32(DonateMoneyTextBox.Text);
+                        landStorage.Money += Convert.ToInt32(DonateMoneyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(DonateMoneyTextBox.Text);
                     }
                     else

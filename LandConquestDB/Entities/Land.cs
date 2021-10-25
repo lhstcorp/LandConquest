@@ -8,5 +8,6 @@
         public int CountryId { get; set; }
         public int ResourceType1 { get; set; }
         public int ResourceType2 { get; set; }
+        public string GovernorId { get; set; }
     }
 }

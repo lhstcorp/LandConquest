@@ -3,15 +3,15 @@
     public class LandStorage
     {
         public string LandId { get; set; }
+        public int Wood { get; set; }
+        public int Stone { get; set; }
+        public int Food { get; set; }
+        public int Iron { get; set; }
+        public int GoldOre { get; set; }
+        public int Copper { get; set; }
+        public int Gems { get; set; }
+        public int Leather { get; set; }
+        public int Money { get; set; } 
         public string CountryRuler { get; set; }
-        public int LandWood { get; set; }
-        public int LandStone { get; set; }
-        public int LandFood { get; set; }
-        public int LandIron { get; set; }
-        public int LandGoldOre { get; set; }
-        public int LandCopper { get; set; }
-        public int LandGems { get; set; }
-        public int LandLeather { get; set; }
-        public int LandMoney { get; set; }
     }
 }

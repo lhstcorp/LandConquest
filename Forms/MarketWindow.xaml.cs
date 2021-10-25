@@ -30,38 +30,38 @@ namespace LandConquest.Forms
             storage = StorageModel.GetPlayerStorage(player);
             market = MarketModel.GetMarketInfo(player, market);
 
-            labelWoodMarket.Content = market.MarketWood.ToString();
-            labelWoodAmount.Content = storage.PlayerWood.ToString();
+            labelWoodMarket.Content = market.Wood.ToString();
+            labelWoodAmount.Content = storage.Wood.ToString();
             labelWoodPrice.Content = Math.Round(2 * 50000 / Convert.ToDouble(labelWoodMarket.Content), 2);
 
 
-            labelFoodAmount.Content = storage.PlayerFood.ToString();
-            labelFoodMarket.Content = market.MarketFood.ToString();
+            labelFoodAmount.Content = storage.Food.ToString();
+            labelFoodMarket.Content = market.Food.ToString();
             labelFoodPrice.Content = Math.Round(3 * 50000 / Convert.ToDouble(labelFoodMarket.Content), 2);
 
-            labelStoneMarket.Content = market.MarketStone.ToString();
-            labelStoneAmount.Content = storage.PlayerStone.ToString();
+            labelStoneMarket.Content = market.Stone.ToString();
+            labelStoneAmount.Content = storage.Stone.ToString();
             labelStonePrice.Content = Math.Round(2 * 50000 / Convert.ToDouble(labelStoneMarket.Content), 2);
 
 
-            labelIronMarket.Content = market.MarketIron.ToString();
-            labelIronAmount.Content = storage.PlayerIron.ToString();
+            labelIronMarket.Content = market.Iron.ToString();
+            labelIronAmount.Content = storage.Iron.ToString();
             labelIronPrice.Content = Math.Round(3 * 50000 / Convert.ToDouble(labelIronMarket.Content), 2);
 
-            labelGoldMarket.Content = market.MarketGoldOre.ToString();
-            labelGoldAmount.Content = storage.PlayerGoldOre.ToString();
+            labelGoldMarket.Content = market.GoldOre.ToString();
+            labelGoldAmount.Content = storage.GoldOre.ToString();
             labelGoldPrice.Content = Math.Round(7 * 50000 / Convert.ToDouble(labelGoldMarket.Content), 2);
 
-            labelCopperMarket.Content = market.MarketCopper.ToString();
-            labelCopperAmount.Content = storage.PlayerCopper.ToString();
+            labelCopperMarket.Content = market.Copper.ToString();
+            labelCopperAmount.Content = storage.Copper.ToString();
             labelCopperPrice.Content = Math.Round(4 * 50000 / Convert.ToDouble(labelCopperMarket.Content), 2);
 
-            labelGemsMarket.Content = market.MarketGems.ToString();
-            labelGemsAmount.Content = storage.PlayerGems.ToString();
+            labelGemsMarket.Content = market.Gems.ToString();
+            labelGemsAmount.Content = storage.Gems.ToString();
             labelGemsPrice.Content = Math.Round(10 * 50000 / Convert.ToDouble(labelGemsMarket.Content), 2);
 
-            labelLeatherMarket.Content = market.MarketLeather.ToString();
-            labelLeatherAmount.Content = storage.PlayerLeather.ToString();
+            labelLeatherMarket.Content = market.Leather.ToString();
+            labelLeatherAmount.Content = storage.Leather.ToString();
             labelLeatherPrice.Content = Math.Round(5 * 50000 / Convert.ToDouble(labelLeatherMarket.Content), 2);
 
 
@@ -132,9 +132,9 @@ namespace LandConquest.Forms
                     }
                     else if (player.PlayerMoney >= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content) && Convert.ToInt32(labelFoodMarket.Content) >= Convert.ToInt32(FoodToBuyTextBox.Text))
                     {
-                        storage.PlayerFood += Convert.ToInt32(FoodToBuyTextBox.Text);
+                        storage.Food += Convert.ToInt32(FoodToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
-                        market.MarketFood -= Convert.ToInt32(FoodToBuyTextBox.Text);
+                        market.Food -= Convert.ToInt32(FoodToBuyTextBox.Text);
 
                         labelFoodMarket.Content = Convert.ToInt32(labelFoodMarket.Content) - Convert.ToInt32(FoodToBuyTextBox.Text);
                         labelFoodAmount.Content = Convert.ToInt32(labelFoodAmount.Content) + Convert.ToInt32(FoodToBuyTextBox.Text);
@@ -155,9 +155,9 @@ namespace LandConquest.Forms
                     else if (player.PlayerMoney >= Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelWoodPrice.Content) && Convert.ToInt32(labelWoodMarket.Content) >= Convert.ToInt32(WoodToBuyTextBox.Text))
                     {
 
-                        storage.PlayerWood += Convert.ToInt32(WoodToBuyTextBox.Text);
+                        storage.Wood += Convert.ToInt32(WoodToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelWoodPrice.Content);
-                        market.MarketWood -= Convert.ToInt32(WoodToBuyTextBox.Text);
+                        market.Wood -= Convert.ToInt32(WoodToBuyTextBox.Text);
 
                         labelWoodMarket.Content = Convert.ToInt32(labelWoodMarket.Content) - Convert.ToInt32(WoodToBuyTextBox.Text);
 
@@ -176,9 +176,9 @@ namespace LandConquest.Forms
                     }
                     else if (player.PlayerMoney >= Convert.ToInt32(StoneToBuyTextBox.Text) * Convert.ToInt32(labelStonePrice.Content) && Convert.ToInt32(labelStoneMarket.Content) >= Convert.ToInt32(StoneToBuyTextBox.Text))
                     {
-                        storage.PlayerStone += Convert.ToInt32(StoneToBuyTextBox.Text);
+                        storage.Stone += Convert.ToInt32(StoneToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(StoneToBuyTextBox.Text) * Convert.ToInt32(labelStonePrice.Content);
-                        market.MarketStone -= Convert.ToInt32(StoneToBuyTextBox.Text);
+                        market.Stone -= Convert.ToInt32(StoneToBuyTextBox.Text);
 
                         labelStoneMarket.Content = Convert.ToInt32(labelStoneMarket.Content) - Convert.ToInt32(StoneToBuyTextBox.Text);
 
@@ -197,9 +197,9 @@ namespace LandConquest.Forms
                     }
                     else if (player.PlayerMoney >= Convert.ToInt32(IronToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content) && Convert.ToInt32(labelIronMarket.Content) >= Convert.ToInt32(IronToBuyTextBox.Text))
                     {
-                        storage.PlayerIron += Convert.ToInt32(IronToBuyTextBox.Text);
+                        storage.Iron += Convert.ToInt32(IronToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(IronToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content);
-                        market.MarketIron -= Convert.ToInt32(IronToBuyTextBox.Text);
+                        market.Iron -= Convert.ToInt32(IronToBuyTextBox.Text);
 
                         labelIronMarket.Content = Convert.ToInt32(labelIronMarket.Content) - Convert.ToInt32(IronToBuyTextBox.Text);
 
@@ -218,9 +218,9 @@ namespace LandConquest.Forms
                     }
                     else if (player.PlayerMoney >= Convert.ToInt32(GoldToBuyTextBox.Text) * Convert.ToInt32(labelGoldPrice.Content) && Convert.ToInt32(labelGoldMarket.Content) >= Convert.ToInt32(GoldToBuyTextBox.Text))
                     {
-                        storage.PlayerGoldOre += Convert.ToInt32(GoldToBuyTextBox.Text);
+                        storage.GoldOre += Convert.ToInt32(GoldToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(GoldToBuyTextBox.Text) * Convert.ToInt32(labelGoldPrice.Content);
-                        market.MarketGoldOre -= Convert.ToInt32(GoldToBuyTextBox.Text);
+                        market.GoldOre -= Convert.ToInt32(GoldToBuyTextBox.Text);
 
                         labelGoldMarket.Content = Convert.ToInt32(labelGoldMarket.Content) - Convert.ToInt32(GoldToBuyTextBox.Text);
 
@@ -239,9 +239,9 @@ namespace LandConquest.Forms
                     }
                     else if (player.PlayerMoney >= Convert.ToInt32(CopperToBuyTextBox.Text) * Convert.ToInt32(labelCopperPrice.Content) && Convert.ToInt32(labelCopperMarket.Content) >= Convert.ToInt32(CopperToBuyTextBox.Text))
                     {
-                        storage.PlayerCopper += Convert.ToInt32(CopperToBuyTextBox.Text);
+                        storage.Copper += Convert.ToInt32(CopperToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(CopperToBuyTextBox.Text) * Convert.ToInt32(labelCopperPrice.Content);
-                        market.MarketCopper -= Convert.ToInt32(CopperToBuyTextBox.Text);
+                        market.Copper -= Convert.ToInt32(CopperToBuyTextBox.Text);
 
                         labelCopperMarket.Content = Convert.ToInt32(labelCopperMarket.Content) - Convert.ToInt32(CopperToBuyTextBox.Text);
 
@@ -260,9 +260,9 @@ namespace LandConquest.Forms
                     }
                     else if (player.PlayerMoney >= Convert.ToInt32(GemsToBuyTextBox.Text) * Convert.ToInt32(labelGemsPrice.Content) && Convert.ToInt32(labelGemsMarket.Content) >= Convert.ToInt32(GemsToBuyTextBox.Text))
                     {
-                        storage.PlayerGems += Convert.ToInt32(GemsToBuyTextBox.Text);
+                        storage.Gems += Convert.ToInt32(GemsToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(GemsToBuyTextBox.Text) * Convert.ToInt32(labelGemsPrice.Content);
-                        market.MarketGems -= Convert.ToInt32(GemsToBuyTextBox.Text);
+                        market.Gems -= Convert.ToInt32(GemsToBuyTextBox.Text);
 
                         labelGemsMarket.Content = Convert.ToInt32(labelGemsMarket.Content) - Convert.ToInt32(GemsToBuyTextBox.Text);
 
@@ -281,9 +281,9 @@ namespace LandConquest.Forms
                     }
                     else if (player.PlayerMoney >= Convert.ToInt32(LeatherToBuyTextBox.Text) * Convert.ToInt32(labelLeatherPrice.Content) && Convert.ToInt32(labelLeatherMarket.Content) >= Convert.ToInt32(LeatherToBuyTextBox.Text))
                     {
-                        storage.PlayerLeather += Convert.ToInt32(LeatherToBuyTextBox.Text);
+                        storage.Leather += Convert.ToInt32(LeatherToBuyTextBox.Text);
                         player.PlayerMoney -= Convert.ToInt32(LeatherToBuyTextBox.Text) * Convert.ToInt32(labelLeatherPrice.Content);
-                        market.MarketLeather -= Convert.ToInt32(LeatherToBuyTextBox.Text);
+                        market.Leather -= Convert.ToInt32(LeatherToBuyTextBox.Text);
 
                         labelLeatherMarket.Content = Convert.ToInt32(labelLeatherMarket.Content) - Convert.ToInt32(LeatherToBuyTextBox.Text);
 
@@ -318,11 +318,11 @@ namespace LandConquest.Forms
                     {
                         WarningDialogWindow.CallWarningDialogNoResult("No data!");
                     }
-                    else if (storage.PlayerFood >= Convert.ToInt32(FoodToBuyTextBox.Text))
+                    else if (storage.Food >= Convert.ToInt32(FoodToBuyTextBox.Text))
                     {
-                        storage.PlayerFood -= Convert.ToInt32(FoodToBuyTextBox.Text);
+                        storage.Food -= Convert.ToInt32(FoodToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(FoodToBuyTextBox.Text) * Convert.ToInt32(labelFoodPrice.Content);
-                        market.MarketFood += Convert.ToInt32(FoodToBuyTextBox.Text);
+                        market.Food += Convert.ToInt32(FoodToBuyTextBox.Text);
 
                         labelFoodMarket.Content = Convert.ToInt32(labelFoodMarket.Content) + Convert.ToInt32(FoodToBuyTextBox.Text);
 
@@ -339,11 +339,11 @@ namespace LandConquest.Forms
                     {
                         WarningDialogWindow.CallWarningDialogNoResult("No data!");
                     }
-                    else if (storage.PlayerWood >= Convert.ToInt32(WoodToBuyTextBox.Text) && Convert.ToInt32(WoodToBuyTextBox.Text) > 0)
+                    else if (storage.Wood >= Convert.ToInt32(WoodToBuyTextBox.Text) && Convert.ToInt32(WoodToBuyTextBox.Text) > 0)
                     {
-                        storage.PlayerWood -= Convert.ToInt32(WoodToBuyTextBox.Text);
+                        storage.Wood -= Convert.ToInt32(WoodToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(WoodToBuyTextBox.Text) * Convert.ToInt32(labelWoodPrice.Content);
-                        market.MarketWood += Convert.ToInt32(WoodToBuyTextBox.Text);
+                        market.Wood += Convert.ToInt32(WoodToBuyTextBox.Text);
 
                         labelWoodMarket.Content = Convert.ToInt32(labelWoodMarket.Content) + Convert.ToInt32(WoodToBuyTextBox.Text);
 
@@ -360,11 +360,11 @@ namespace LandConquest.Forms
                     {
                         WarningDialogWindow.CallWarningDialogNoResult("No data!");
                     }
-                    else if (storage.PlayerStone >= Convert.ToInt32(StoneToBuyTextBox.Text) && Convert.ToInt32(StoneToBuyTextBox.Text) > 0)
+                    else if (storage.Stone >= Convert.ToInt32(StoneToBuyTextBox.Text) && Convert.ToInt32(StoneToBuyTextBox.Text) > 0)
                     {
-                        storage.PlayerStone -= Convert.ToInt32(StoneToBuyTextBox.Text);
+                        storage.Stone -= Convert.ToInt32(StoneToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(StoneToBuyTextBox.Text) * Convert.ToInt32(labelStonePrice.Content);
-                        market.MarketStone += Convert.ToInt32(StoneToBuyTextBox.Text);
+                        market.Stone += Convert.ToInt32(StoneToBuyTextBox.Text);
 
                         labelStoneMarket.Content = Convert.ToInt32(labelStoneMarket.Content) + Convert.ToInt32(StoneToBuyTextBox.Text);
 
@@ -381,11 +381,11 @@ namespace LandConquest.Forms
                     {
                         WarningDialogWindow.CallWarningDialogNoResult("No data!");
                     }
-                    else if (storage.PlayerIron >= Convert.ToInt32(IronToBuyTextBox.Text) && Convert.ToInt32(IronToBuyTextBox.Text) > 0)
+                    else if (storage.Iron >= Convert.ToInt32(IronToBuyTextBox.Text) && Convert.ToInt32(IronToBuyTextBox.Text) > 0)
                     {
-                        storage.PlayerIron -= Convert.ToInt32(IronToBuyTextBox.Text);
+                        storage.Iron -= Convert.ToInt32(IronToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(IronToBuyTextBox.Text) * Convert.ToInt32(labelIronPrice.Content);
-                        market.MarketIron += Convert.ToInt32(IronToBuyTextBox.Text);
+                        market.Iron += Convert.ToInt32(IronToBuyTextBox.Text);
 
                         labelIronMarket.Content = Convert.ToInt32(labelIronMarket.Content) + Convert.ToInt32(IronToBuyTextBox.Text);
 
@@ -402,11 +402,11 @@ namespace LandConquest.Forms
                     {
                         WarningDialogWindow.CallWarningDialogNoResult("No data!");
                     }
-                    else if (storage.PlayerGoldOre >= Convert.ToInt32(GoldToBuyTextBox.Text) && Convert.ToInt32(GoldToBuyTextBox.Text) > 0)
+                    else if (storage.GoldOre >= Convert.ToInt32(GoldToBuyTextBox.Text) && Convert.ToInt32(GoldToBuyTextBox.Text) > 0)
                     {
-                        storage.PlayerGoldOre -= Convert.ToInt32(GoldToBuyTextBox.Text);
+                        storage.GoldOre -= Convert.ToInt32(GoldToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(GoldToBuyTextBox.Text) * Convert.ToInt32(labelGoldPrice.Content);
-                        market.MarketGoldOre += Convert.ToInt32(GoldToBuyTextBox.Text);
+                        market.GoldOre += Convert.ToInt32(GoldToBuyTextBox.Text);
 
                         labelGoldMarket.Content = Convert.ToInt32(labelGoldMarket.Content) + Convert.ToInt32(GoldToBuyTextBox.Text);
 
@@ -423,11 +423,11 @@ namespace LandConquest.Forms
                     {
                         WarningDialogWindow.CallWarningDialogNoResult("No data!");
                     }
-                    else if (storage.PlayerCopper >= Convert.ToInt32(CopperToBuyTextBox.Text) && Convert.ToInt32(CopperToBuyTextBox.Text) > 0)
+                    else if (storage.Copper >= Convert.ToInt32(CopperToBuyTextBox.Text) && Convert.ToInt32(CopperToBuyTextBox.Text) > 0)
                     {
-                        storage.PlayerCopper -= Convert.ToInt32(CopperToBuyTextBox.Text);
+                        storage.Copper -= Convert.ToInt32(CopperToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(CopperToBuyTextBox.Text) * Convert.ToInt32(labelCopperPrice.Content);
-                        market.MarketCopper += Convert.ToInt32(CopperToBuyTextBox.Text);
+                        market.Copper += Convert.ToInt32(CopperToBuyTextBox.Text);
 
                         labelCopperMarket.Content = Convert.ToInt32(labelCopperMarket.Content) + Convert.ToInt32(CopperToBuyTextBox.Text);
 
@@ -444,11 +444,11 @@ namespace LandConquest.Forms
                     {
                         WarningDialogWindow.CallWarningDialogNoResult("No data!");
                     }
-                    else if (storage.PlayerGems >= Convert.ToInt32(GemsToBuyTextBox.Text) && Convert.ToInt32(GemsToBuyTextBox.Text) > 0)
+                    else if (storage.Gems >= Convert.ToInt32(GemsToBuyTextBox.Text) && Convert.ToInt32(GemsToBuyTextBox.Text) > 0)
                     {
-                        storage.PlayerGems -= Convert.ToInt32(GemsToBuyTextBox.Text);
+                        storage.Gems -= Convert.ToInt32(GemsToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(GemsToBuyTextBox.Text) * Convert.ToInt32(labelGemsPrice.Content);
-                        market.MarketGems += Convert.ToInt32(GemsToBuyTextBox.Text);
+                        market.Gems += Convert.ToInt32(GemsToBuyTextBox.Text);
 
                         labelGemsMarket.Content = Convert.ToInt32(labelGemsMarket.Content) + Convert.ToInt32(GemsToBuyTextBox.Text);
 
@@ -465,11 +465,11 @@ namespace LandConquest.Forms
                     {
                         WarningDialogWindow.CallWarningDialogNoResult("No data!");
                     }
-                    else if (storage.PlayerLeather >= Convert.ToInt32(LeatherToBuyTextBox.Text) && Convert.ToInt32(LeatherToBuyTextBox.Text) > 0)
+                    else if (storage.Leather >= Convert.ToInt32(LeatherToBuyTextBox.Text) && Convert.ToInt32(LeatherToBuyTextBox.Text) > 0)
                     {
-                        storage.PlayerGems -= Convert.ToInt32(LeatherToBuyTextBox.Text);
+                        storage.Gems -= Convert.ToInt32(LeatherToBuyTextBox.Text);
                         player.PlayerMoney += Convert.ToInt32(LeatherToBuyTextBox.Text) * Convert.ToInt32(labelLeatherPrice.Content);
-                        market.MarketLeather += Convert.ToInt32(LeatherToBuyTextBox.Text);
+                        market.Leather += Convert.ToInt32(LeatherToBuyTextBox.Text);
 
                         labelLeatherMarket.Content = Convert.ToInt32(labelLeatherMarket.Content) + Convert.ToInt32(LeatherToBuyTextBox.Text);
 

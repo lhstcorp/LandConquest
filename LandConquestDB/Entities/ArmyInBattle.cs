@@ -5,10 +5,11 @@
         public int LocalLandId { get; set; }
 
         public int ArmySide { get; set; }
-
+        public string WarId { get; set; }
         public bool CanMove { get; set; }
 
         public bool CanShoot { get; set; }
+       
 
         public ArmyInBattle() { }
 

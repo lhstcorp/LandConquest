@@ -39,13 +39,13 @@ namespace LandConquest.DialogWIndows
 
             storage = StorageModel.GetPlayerStorage(player);
 
-            labelWoodAmount.Content     = storage.PlayerWood.ToString();
-            labelStoneAmount.Content    = storage.PlayerStone.ToString();
-            labelFoodAmount.Content     = storage.PlayerFood.ToString();
-            labelGemsAmount.Content     = storage.PlayerGems.ToString();
-            labelCopperAmount.Content   = storage.PlayerCopper.ToString();
-            labelIronAmount.Content     = storage.PlayerIron.ToString();
-            labelLeatherAmount.Content  = storage.PlayerLeather.ToString();
+            labelWoodAmount.Content     = storage.Wood.ToString();
+            labelStoneAmount.Content    = storage.Stone.ToString();
+            labelFoodAmount.Content     = storage.Food.ToString();
+            labelGemsAmount.Content     = storage.Gems.ToString();
+            labelCopperAmount.Content   = storage.Copper.ToString();
+            labelIronAmount.Content     = storage.Iron.ToString();
+            labelLeatherAmount.Content  = storage.Leather.ToString();
 
             labelSetPrice.Visibility    = Visibility.Hidden;
             labelSetAmount.Visibility   = Visibility.Hidden;

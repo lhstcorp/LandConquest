@@ -1148,7 +1148,7 @@ namespace LandConquest.Forms
         public void calculateMoveCounter()
         {
             //DateTime warLength = war.WarDateTimeStart;
-            TimeSpan warLength = DateTime.UtcNow.Subtract(war.WarDateTimeStart);
+            TimeSpan warLength = DateTime.UtcNow.Subtract(war.DateTimeStart);
             double currentwarLengthInSeconds = warLength.Hours * 3600 + warLength.Minutes * 60 + warLength.Seconds;
             moveCounter = Convert.ToInt32(Math.Floor(currentwarLengthInSeconds / 30));
             moveCounterLbl.Content = Convert.ToString(moveCounter);

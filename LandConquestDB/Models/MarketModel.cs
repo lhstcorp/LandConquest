@@ -27,14 +27,14 @@ namespace LandConquestDB.Models
                 while (reader.Read())
                 {
                     market.PlayerId = reader.GetString(playerId);
-                    market.MarketWood = reader.GetInt32(marketWood);
-                    market.MarketStone = reader.GetInt32(marketStone);
-                    market.MarketFood = reader.GetInt32(marketFood);
-                    market.MarketIron = reader.GetInt32(marketIron);
-                    market.MarketGoldOre = reader.GetInt32(marketGoldOre);
-                    market.MarketCopper = reader.GetInt32(marketCopper);
-                    market.MarketGems = reader.GetInt32(marketGems);
-                    market.MarketLeather = reader.GetInt32(marketLeather);
+                    market.Wood = reader.GetInt32(marketWood);
+                    market.Stone = reader.GetInt32(marketStone);
+                    market.Food = reader.GetInt32(marketFood);
+                    market.Iron = reader.GetInt32(marketIron);
+                    market.GoldOre = reader.GetInt32(marketGoldOre);
+                    market.Copper = reader.GetInt32(marketCopper);
+                    market.Gems = reader.GetInt32(marketGems);
+                    market.Leather = reader.GetInt32(marketLeather);
                     //market.MarketMoney = reader.GetInt32(money);
                 }
                 reader.Close();
@@ -48,30 +48,30 @@ namespace LandConquestDB.Models
 
             var marketCommand = new SqlCommand(marketQuery, DbContext.GetSqlConnection());
             // int datetimeResult;
-            marketCommand.Parameters.AddWithValue("@wood", _market.MarketWood);
-            marketCommand.Parameters.AddWithValue("@stone", _market.MarketStone);
-            marketCommand.Parameters.AddWithValue("@food", _market.MarketFood);
-            marketCommand.Parameters.AddWithValue("@copper", _market.MarketCopper);
-            marketCommand.Parameters.AddWithValue("@iron", _market.MarketIron);
-            marketCommand.Parameters.AddWithValue("@gems", _market.MarketGems);
-            marketCommand.Parameters.AddWithValue("@gold_ore", _market.MarketGoldOre);
-            marketCommand.Parameters.AddWithValue("@leather", _market.MarketLeather);
-            marketCommand.Parameters.AddWithValue("@money", _market.MarketMoney);
+            marketCommand.Parameters.AddWithValue("@wood", _market.Wood);
+            marketCommand.Parameters.AddWithValue("@stone", _market.Stone);
+            marketCommand.Parameters.AddWithValue("@food", _market.Food);
+            marketCommand.Parameters.AddWithValue("@copper", _market.Copper);
+            marketCommand.Parameters.AddWithValue("@iron", _market.Iron);
+            marketCommand.Parameters.AddWithValue("@gems", _market.Gems);
+            marketCommand.Parameters.AddWithValue("@gold_ore", _market.GoldOre);
+            marketCommand.Parameters.AddWithValue("@leather", _market.Leather);
+            marketCommand.Parameters.AddWithValue("@money", _market.Money);
             marketCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
 
 
             for (int i = 0; i < 9; i++)
             {
 
-                marketCommand.Parameters["@wood"].Value = _market.MarketWood;
-                marketCommand.Parameters["@stone"].Value = _market.MarketStone;
-                marketCommand.Parameters["@food"].Value = _market.MarketFood;
-                marketCommand.Parameters["@copper"].Value = _market.MarketCopper;
-                marketCommand.Parameters["@iron"].Value = _market.MarketIron;
-                marketCommand.Parameters["@gems"].Value = _market.MarketGems;
-                marketCommand.Parameters["@gold_ore"].Value = _market.MarketGoldOre;
-                marketCommand.Parameters["@leather"].Value = _market.MarketLeather;
-                marketCommand.Parameters["@money"].Value = _market.MarketMoney;
+                marketCommand.Parameters["@wood"].Value = _market.Wood;
+                marketCommand.Parameters["@stone"].Value = _market.Stone;
+                marketCommand.Parameters["@food"].Value = _market.Food;
+                marketCommand.Parameters["@copper"].Value = _market.Copper;
+                marketCommand.Parameters["@iron"].Value = _market.Iron;
+                marketCommand.Parameters["@gems"].Value = _market.Gems;
+                marketCommand.Parameters["@gold_ore"].Value = _market.GoldOre;
+                marketCommand.Parameters["@leather"].Value = _market.Leather;
+                marketCommand.Parameters["@money"].Value = _market.Money;
                 marketCommand.Parameters["@player_id"].Value = player.PlayerId;
                 marketCommand.ExecuteNonQuery();
 
