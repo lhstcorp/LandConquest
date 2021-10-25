@@ -1,6 +1,9 @@
-﻿using LandConquestDB.Entities;
+﻿using Dapper;
+using LandConquestDB.Entities;
+using LandConquestYD;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Linq;
@@ -289,7 +292,7 @@ namespace LandConquestDB.Models
         }
 
 
-        public static List<Player> GetXpInfo(List<Player> players, User user)
+        public static List<Player> GetXpInfo()
         {
             //string query = "SELECT * FROM dbo.PlayerData ORDER BY player_exp desc";
 
@@ -314,13 +317,7 @@ namespace LandConquestDB.Models
             //}
             //command.Dispose();
 
-            DataContext db = new DataContext(DbContext.GetSqlConnection());
-            Table<Player> playersData = db.GetTable<Player>();
-            foreach (var player in playersData)
-            {
-                players.Add(player);
-            }          
-            return players;
+            return DbContext.GetSqlConnection().Query<Player>("SELECT * FROM PlayerData ORDER BY player_exp DESC").ToList();
         }
 
         public static List<Player> GetCoinsInfo(List<Player> players, User user)

@@ -55,7 +55,7 @@ namespace LandConquest.Forms
         private void buttonSaveName_Click(object sender, RoutedEventArgs e)
         {
             newNameBox.Text.Replace(" ", "");
-            bool validNameChangeLogin = UserModel.ValidateUserByLogin(newNameBox.Text);
+            bool validNameChangeLogin = UserModel.CheckLoginExistence(newNameBox.Text);
             if (newNameBox.Text.Length > 6 && validNameChangeLogin == true && newNameBox.Text.Any(x => char.IsLetter(x)))
             {
                 PlayerModel.UpdatePlayerName(player.PlayerId, newNameBox.Text);
@@ -73,11 +73,11 @@ namespace LandConquest.Forms
 
         private void buttonSaveEmail_Click(object sender, RoutedEventArgs e)
         {
-            newEmailBox.Text.Replace(" ", "");
-            bool validEmailChangeEmail = UserModel.ValidateUserByEmail(YDCrypto.Encrypt(newEmailBox.Text));
-            if (validEmailChangeEmail == true && EmailValidator.Validate(newEmailBox.Text, true, true))
+            string newEmail = newEmailBox.Text.Replace(" ", "");
+            bool emailExist = UserModel.CheckEmailExistence(newEmail);
+            if (!emailExist && EmailValidator.Validate(newEmail, true, true))
             {
-                UserModel.UpdateUserEmail(user.UserId, YDCrypto.Encrypt(newEmailBox.Text));
+                UserModel.UpdateUserEmail(user.UserId, YDCrypto.Encrypt(newEmail));
                 this.Loaded += Window_Loaded;
                 newEmailBox.Visibility = Visibility.Hidden;
                 buttonSaveEmail.Visibility = Visibility.Hidden;
