@@ -47,17 +47,17 @@ namespace LandConquest.DialogWIndows
 
         private void BtnUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            landStorage.LandWood -= resourcesNeed.PlayerWood;
-            landStorage.LandStone -= resourcesNeed.PlayerStone;
-            landStorage.LandIron -= resourcesNeed.PlayerIron;
-            landStorage.LandGoldOre -= resourcesNeed.PlayerGoldOre;
-            landStorage.LandCopper -= resourcesNeed.PlayerCopper;
+            landStorage.Wood -= resourcesNeed.Wood;
+            landStorage.Stone -= resourcesNeed.Stone;
+            landStorage.Iron -= resourcesNeed.Iron;
+            landStorage.GoldOre -= resourcesNeed.GoldOre;
+            landStorage.Copper -= resourcesNeed.Copper;
 
-            if (landStorage.LandWood >= 0
-             && landStorage.LandStone >= 0
-             && landStorage.LandIron >= 0
-             && landStorage.LandGoldOre >= 0
-             && landStorage.LandCopper >= 0)
+            if (landStorage.Wood >= 0
+             && landStorage.Stone >= 0
+             && landStorage.Iron >= 0
+             && landStorage.GoldOre >= 0
+             && landStorage.Copper >= 0)
             {
                 LandStorageModel.UpdateLandStorage(land, landStorage);
 
@@ -66,7 +66,7 @@ namespace LandConquest.DialogWIndows
                 if (castle.CastleLvl % 100 == 0
                  && castle.CastleLvl < 900)
                 {
-                    castle.SlotsCount++;
+                    castle.CastleSlotCount++;
                 }
 
                 CastleModel.UpdateCastle(castle);
@@ -85,27 +85,27 @@ namespace LandConquest.DialogWIndows
             ManufactureLvl.Content = castle.CastleLvl;
 
             resourcesNeed = new PlayerStorage();
-            resourcesNeed.PlayerWood = Convert.ToInt32(Math.Pow((int)Level.Wood * castle.CastleLvl, 1.25));
-            resourcesNeed.PlayerStone = Convert.ToInt32(Math.Pow((int)Level.Stone * castle.CastleLvl, 1.25));
-            resourcesNeed.PlayerIron = Convert.ToInt32(Math.Pow((int)Level.Iron * castle.CastleLvl, 1.25));
-            resourcesNeed.PlayerGoldOre = Convert.ToInt32(Math.Pow((int)Level.GoldOre * castle.CastleLvl, 1.25));
-            resourcesNeed.PlayerCopper = Convert.ToInt32(Math.Pow((int)Level.Copper * castle.CastleLvl, 1.25));
+            resourcesNeed.Wood = Convert.ToInt32(Math.Pow((int)Level.Wood * castle.CastleLvl, 1.25));
+            resourcesNeed.Stone = Convert.ToInt32(Math.Pow((int)Level.Stone * castle.CastleLvl, 1.25));
+            resourcesNeed.Iron = Convert.ToInt32(Math.Pow((int)Level.Iron * castle.CastleLvl, 1.25));
+            resourcesNeed.GoldOre = Convert.ToInt32(Math.Pow((int)Level.GoldOre * castle.CastleLvl, 1.25));
+            resourcesNeed.Copper = Convert.ToInt32(Math.Pow((int)Level.Copper * castle.CastleLvl, 1.25));
 
-            WoodNeed.Content = resourcesNeed.PlayerWood;
-            StoneNeed.Content = resourcesNeed.PlayerStone;
-            IronNeed.Content = resourcesNeed.PlayerIron;
-            GoldNeed.Content = resourcesNeed.PlayerGoldOre;
-            CopperNeed.Content = resourcesNeed.PlayerCopper;
+            WoodNeed.Content = resourcesNeed.Wood;
+            StoneNeed.Content = resourcesNeed.Stone;
+            IronNeed.Content = resourcesNeed.Iron;
+            GoldNeed.Content = resourcesNeed.GoldOre;
+            CopperNeed.Content = resourcesNeed.Copper;
 
             landStorage = new LandStorage();
 
             landStorage = LandStorageModel.GetLandStorage(land, landStorage);
 
-            WoodHave.Content = landStorage.LandWood.ToString();
-            CopperHave.Content = landStorage.LandCopper.ToString();
-            GoldHave.Content = landStorage.LandGoldOre.ToString();
-            IronHave.Content = landStorage.LandIron.ToString();
-            StoneHave.Content = landStorage.LandStone.ToString();
+            WoodHave.Content = landStorage.Wood.ToString();
+            CopperHave.Content = landStorage.Copper.ToString();
+            GoldHave.Content = landStorage.GoldOre.ToString();
+            IronHave.Content = landStorage.Iron.ToString();
+            StoneHave.Content = landStorage.Stone.ToString();
 
         }
     }

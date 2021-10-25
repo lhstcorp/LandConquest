@@ -6,6 +6,6 @@
         public string WarId { get; set; }
         public int LandAttackerId { get; set; }
         public int LandDefenderId { get; set; }
-        public DateTime WarDateTimeStart { get; set; }
+        public DateTime DateTimeStart { get; set; }
     }
 }

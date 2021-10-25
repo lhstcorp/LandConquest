@@ -29,14 +29,14 @@ namespace LandConquest.Forms
             storage = StorageModel.GetPlayerStorage(player);
             equipment = EquipmentModel.GetPlayerEquipment(player, equipment);
 
-            labelWoodAmount.Content = storage.PlayerWood.ToString();
-            labelStoneAmount.Content = storage.PlayerStone.ToString();
-            labelFoodAmount.Content = storage.PlayerFood.ToString();
-            labelGemsAmount.Content = storage.PlayerGems.ToString();
-            labelCopperAmount.Content = storage.PlayerCopper.ToString();
-            labelGoldAmount.Content = storage.PlayerGoldOre.ToString();
-            labelIronAmount.Content = storage.PlayerIron.ToString();
-            labelLeatherAmount.Content = storage.PlayerLeather.ToString();
+            labelWoodAmount.Content = storage.Wood.ToString();
+            labelStoneAmount.Content = storage.Stone.ToString();
+            labelFoodAmount.Content = storage.Food.ToString();
+            labelGemsAmount.Content = storage.Gems.ToString();
+            labelCopperAmount.Content = storage.Copper.ToString();
+            labelGoldAmount.Content = storage.GoldOre.ToString();
+            labelIronAmount.Content = storage.Iron.ToString();
+            labelLeatherAmount.Content = storage.Leather.ToString();
 
             labelHarnessAmount.Content = equipment.PlayerHarness.ToString();
             labelGearAmount.Content = equipment.PlayerGear.ToString();
@@ -59,10 +59,10 @@ namespace LandConquest.Forms
             {
                 WarningDialogWindow.CallWarningDialogNoResult("No data!");
             }
-            else if ((Convert.ToInt32(labelSwordAmount1.Content) * (Convert.ToInt32(SwordsToCraft.Text)) <= storage.PlayerCopper) && (Convert.ToInt32(labelSwordAmount2.Content) * (Convert.ToInt32(SwordsToCraft.Text)) <= storage.PlayerIron))
+            else if ((Convert.ToInt32(labelSwordAmount1.Content) * (Convert.ToInt32(SwordsToCraft.Text)) <= storage.Copper) && (Convert.ToInt32(labelSwordAmount2.Content) * (Convert.ToInt32(SwordsToCraft.Text)) <= storage.Iron))
             {
-                storage.PlayerCopper -= (Convert.ToInt32(labelSwordAmount1.Content) * (Convert.ToInt32(SwordsToCraft.Text)));
-                storage.PlayerIron -= (Convert.ToInt32(labelSwordAmount2.Content) * (Convert.ToInt32(SwordsToCraft.Text)));
+                storage.Copper -= (Convert.ToInt32(labelSwordAmount1.Content) * (Convert.ToInt32(SwordsToCraft.Text)));
+                storage.Iron -= (Convert.ToInt32(labelSwordAmount2.Content) * (Convert.ToInt32(SwordsToCraft.Text)));
 
                 equipment.PlayerSpear += Convert.ToInt32(SwordsToCraft.Text);
                 StorageModel.UpdateStorage(player, storage);
@@ -85,10 +85,10 @@ namespace LandConquest.Forms
             {
                 WarningDialogWindow.CallWarningDialogNoResult("No data!");
             }
-            else if ((Convert.ToInt32(labelArmorAmount1.Content) * (Convert.ToInt32(ArmorToCraft.Text)) <= storage.PlayerLeather) && (Convert.ToInt32(labelArmorAmount2.Content) * (Convert.ToInt32(ArmorToCraft.Text)) <= storage.PlayerIron))
+            else if ((Convert.ToInt32(labelArmorAmount1.Content) * (Convert.ToInt32(ArmorToCraft.Text)) <= storage.Leather) && (Convert.ToInt32(labelArmorAmount2.Content) * (Convert.ToInt32(ArmorToCraft.Text)) <= storage.Iron))
             {
-                storage.PlayerLeather -= (Convert.ToInt32(labelArmorAmount1.Content) * (Convert.ToInt32(ArmorToCraft.Text)));
-                storage.PlayerIron -= (Convert.ToInt32(labelArmorAmount2.Content) * (Convert.ToInt32(ArmorToCraft.Text)));
+                storage.Leather -= (Convert.ToInt32(labelArmorAmount1.Content) * (Convert.ToInt32(ArmorToCraft.Text)));
+                storage.Iron -= (Convert.ToInt32(labelArmorAmount2.Content) * (Convert.ToInt32(ArmorToCraft.Text)));
 
                 equipment.PlayerArmor += Convert.ToInt32(ArmorToCraft.Text);
                 StorageModel.UpdateStorage(player, storage);
@@ -110,10 +110,10 @@ namespace LandConquest.Forms
             {
                 WarningDialogWindow.CallWarningDialogNoResult("No data!");
             }
-            else if ((Convert.ToInt32(labelHarnessAmount1.Content) * (Convert.ToInt32(HarnessToCraft.Text)) <= storage.PlayerLeather) && (Convert.ToInt32(labelHarnessAmount2.Content) * (Convert.ToInt32(HarnessToCraft.Text)) <= storage.PlayerCopper))
+            else if ((Convert.ToInt32(labelHarnessAmount1.Content) * (Convert.ToInt32(HarnessToCraft.Text)) <= storage.Leather) && (Convert.ToInt32(labelHarnessAmount2.Content) * (Convert.ToInt32(HarnessToCraft.Text)) <= storage.Copper))
             {
-                storage.PlayerLeather -= (Convert.ToInt32(labelHarnessAmount1.Content) * (Convert.ToInt32(HarnessToCraft.Text)));
-                storage.PlayerCopper -= (Convert.ToInt32(labelHarnessAmount2.Content) * (Convert.ToInt32(HarnessToCraft.Text)));
+                storage.Leather -= (Convert.ToInt32(labelHarnessAmount1.Content) * (Convert.ToInt32(HarnessToCraft.Text)));
+                storage.Copper -= (Convert.ToInt32(labelHarnessAmount2.Content) * (Convert.ToInt32(HarnessToCraft.Text)));
 
                 equipment.PlayerHarness += Convert.ToInt32(HarnessToCraft.Text);
                 StorageModel.UpdateStorage(player, storage);
@@ -135,10 +135,10 @@ namespace LandConquest.Forms
             {
                 WarningDialogWindow.CallWarningDialogNoResult("No data!");
             }
-            else if ((Convert.ToInt32(labelSpearAmount1.Content) * (Convert.ToInt32(SpearToCraft.Text)) <= storage.PlayerWood) && (Convert.ToInt32(labelSpearAmount2.Content) * (Convert.ToInt32(SpearToCraft.Text)) <= storage.PlayerIron))
+            else if ((Convert.ToInt32(labelSpearAmount1.Content) * (Convert.ToInt32(SpearToCraft.Text)) <= storage.Wood) && (Convert.ToInt32(labelSpearAmount2.Content) * (Convert.ToInt32(SpearToCraft.Text)) <= storage.Iron))
             {
-                storage.PlayerWood -= (Convert.ToInt32(labelSpearAmount1.Content) * (Convert.ToInt32(SpearToCraft.Text)));
-                storage.PlayerIron -= (Convert.ToInt32(labelSpearAmount2.Content) * (Convert.ToInt32(SpearToCraft.Text)));
+                storage.Wood -= (Convert.ToInt32(labelSpearAmount1.Content) * (Convert.ToInt32(SpearToCraft.Text)));
+                storage.Iron -= (Convert.ToInt32(labelSpearAmount2.Content) * (Convert.ToInt32(SpearToCraft.Text)));
 
                 equipment.PlayerSword += Convert.ToInt32(SpearToCraft.Text);
                 StorageModel.UpdateStorage(player, storage);
@@ -160,10 +160,10 @@ namespace LandConquest.Forms
             {
                 WarningDialogWindow.CallWarningDialogNoResult("No data!");
             }
-            else if ((Convert.ToInt32(labelBowAmount1.Content) * (Convert.ToInt32(BowToCraft.Text)) <= storage.PlayerWood) && (Convert.ToInt32(labelBowAmount2.Content) * (Convert.ToInt32(BowToCraft.Text)) <= storage.PlayerLeather))
+            else if ((Convert.ToInt32(labelBowAmount1.Content) * (Convert.ToInt32(BowToCraft.Text)) <= storage.Wood) && (Convert.ToInt32(labelBowAmount2.Content) * (Convert.ToInt32(BowToCraft.Text)) <= storage.Leather))
             {
-                storage.PlayerWood -= (Convert.ToInt32(labelBowAmount1.Content) * (Convert.ToInt32(BowToCraft.Text)));
-                storage.PlayerLeather -= (Convert.ToInt32(labelBowAmount2.Content) * (Convert.ToInt32(BowToCraft.Text)));
+                storage.Wood -= (Convert.ToInt32(labelBowAmount1.Content) * (Convert.ToInt32(BowToCraft.Text)));
+                storage.Leather -= (Convert.ToInt32(labelBowAmount2.Content) * (Convert.ToInt32(BowToCraft.Text)));
 
                 equipment.PlayerBow += Convert.ToInt32(BowToCraft.Text);
                 StorageModel.UpdateStorage(player, storage);
@@ -185,10 +185,10 @@ namespace LandConquest.Forms
             {
                 WarningDialogWindow.CallWarningDialogNoResult("No data!");
             }
-            else if ((Convert.ToInt32(labelGearAmount1.Content) * (Convert.ToInt32(GearToCraft.Text)) <= storage.PlayerWood) && (Convert.ToInt32(labelGearAmount2.Content) * (Convert.ToInt32(GearToCraft.Text)) <= storage.PlayerIron))
+            else if ((Convert.ToInt32(labelGearAmount1.Content) * (Convert.ToInt32(GearToCraft.Text)) <= storage.Wood) && (Convert.ToInt32(labelGearAmount2.Content) * (Convert.ToInt32(GearToCraft.Text)) <= storage.Iron))
             {
-                storage.PlayerWood -= (Convert.ToInt32(labelSpearAmount1.Content) * (Convert.ToInt32(GearToCraft.Text)));
-                storage.PlayerIron -= (Convert.ToInt32(labelSpearAmount2.Content) * (Convert.ToInt32(GearToCraft.Text)));
+                storage.Wood -= (Convert.ToInt32(labelSpearAmount1.Content) * (Convert.ToInt32(GearToCraft.Text)));
+                storage.Iron -= (Convert.ToInt32(labelSpearAmount2.Content) * (Convert.ToInt32(GearToCraft.Text)));
 
                 equipment.PlayerGear += Convert.ToInt32(GearToCraft.Text);
                 StorageModel.UpdateStorage(player, storage);

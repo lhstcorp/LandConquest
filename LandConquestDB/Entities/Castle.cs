@@ -10,7 +10,7 @@ namespace LandConquestDB.Entities
     {
         public int LandId { get; set; }
         public int CastleLvl { get; set; }
-        public int SlotsCount { get; set; }
+        public int CastleSlotCount { get; set; }
 
         public int returnMaxTroopsInSlot()
         {

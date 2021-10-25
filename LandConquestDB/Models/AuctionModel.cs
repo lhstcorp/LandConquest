@@ -55,9 +55,9 @@ namespace LandConquestDB.Models
                 listingCommand.ExecuteNonQuery();
                 listingCommand.Dispose();
 
-                string storageQuery = "UPDATE dbo.StorageData SET " + listing.Subject + " = " + listing.Subject + " + @item_amount WHERE player_id = @player_id ";  //нужна доп валидация
+                string storageQuery = "UPDATE dbo.StorageData SET " + listing.ItemName + " = " + listing.ItemName + " + @item_amount WHERE player_id = @player_id ";  //нужна доп валидация
                 var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
-                storageCommand.Parameters.AddWithValue("@item_name", listing.Subject);
+                storageCommand.Parameters.AddWithValue("@item_name", listing.ItemName);
                 storageCommand.Parameters.AddWithValue("@item_amount", itemQty);
                 storageCommand.Parameters.AddWithValue("@player_id", playerCustomer.PlayerId);
                 storageCommand.ExecuteNonQuery();
@@ -130,10 +130,10 @@ namespace LandConquestDB.Models
             {
                 listings[i].ListingId = ListingId[i];
                 listings[i].Qty = Qty[i];
-                listings[i].Subject = ItemName[i];
-                listings[i].SubjectGroup = ItemGroup[i];
-                listings[i].SubjectSubgroup = ItemSubgroup[i];
-                listings[i].ListingSetTime = ItemSetTime[i];
+                listings[i].ItemName = ItemName[i];
+                listings[i].ItemGroup = ItemGroup[i];
+                listings[i].ItemSubgroup = ItemSubgroup[i];
+                listings[i].ItemSetTime = ItemSetTime[i];
                 listings[i].Price = Price[i];
                 listings[i].SellerName = SellerName[i];
                 listings[i].SellerId = SellerId[i];

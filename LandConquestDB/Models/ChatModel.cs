@@ -62,14 +62,14 @@ namespace LandConquestDB.Models
                     }
                     messages[j].PlayerMessage = Message[i];
                     messages[j].MessageSentTime = MessageSentTime[i];
-                    messages[j].PlayerRoomId = PlayerRoomId[i];
+                    messages[j].RoomId = PlayerRoomId[i];
                     if (PlayerRoomId[i] == "0")
                     {
-                        messages[j].PlayerRoomId = "0";
+                        messages[j].RoomId = "0";
                     }
                     else
                     {
-                        messages[j].PlayerRoomId = "[" + PlayerModel.GetPlayerNameById(messages[j].PlayerRoomId) + "]";
+                        messages[j].RoomId = "[" + PlayerModel.GetPlayerNameById(messages[j].RoomId) + "]";
                     }
                     j++;
                 }

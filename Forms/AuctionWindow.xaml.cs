@@ -48,7 +48,7 @@ namespace LandConquest.Forms
         private void buttonFindListing_Click(object sender, RoutedEventArgs e)
         {
             Window_Loaded(sender, e);
-            listings = listings.FindAll(x => x.Subject.Contains(textBoxItemSearchName.Text.ToLower()));
+            listings = listings.FindAll(x => x.ItemName.Contains(textBoxItemSearchName.Text.ToLower()));
             auctionDataGrid.ItemsSource = listings;
         }
 
