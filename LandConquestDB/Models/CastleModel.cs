@@ -28,7 +28,7 @@ namespace LandConquestDB.Models
                 {
                     castle.LandId = reader.GetInt32(castleLandId);
                     castle.CastleLvl = reader.GetInt32(castleLvl);
-                    castle.SlotsCount = reader.GetInt32(landSlotCount);
+                    castle.CastleSlotCount = reader.GetInt32(landSlotCount);
                 }
                 reader.Close();
             }
@@ -46,7 +46,7 @@ namespace LandConquestDB.Models
 
             Command.Parameters.AddWithValue("@land_id", _castle.LandId);
             Command.Parameters.AddWithValue("@castle_lvl", _castle.CastleLvl);
-            Command.Parameters.AddWithValue("@castle_slot_count", _castle.SlotsCount);
+            Command.Parameters.AddWithValue("@castle_slot_count", _castle.CastleSlotCount);
 
             Command.ExecuteNonQuery();
 

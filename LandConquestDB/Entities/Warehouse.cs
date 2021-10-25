@@ -8,7 +8,7 @@ namespace LandConquestDB.Entities
 {
     public class Warehouse
     {
-        public int Id { get; set; }
+        public int WarehouseId { get; set; }
         public int LandId { get; set; }
         public string PlayerId { get; set; }
 

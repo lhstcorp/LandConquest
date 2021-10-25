@@ -156,7 +156,7 @@ namespace LandConquest.Forms
             //////////////////
             ConsumptionLogic.ConsumptionCount(player, storage);
             lblConsumption.Content = ConsumptionLogic.CountFunction(player, 1);
-            lblFoodLeft.Content = storage.PlayerFood;
+            lblFoodLeft.Content = storage.Food;
             //ConsumptionLogic.ConsumptionCountAsync(player, storage);
             //////////////////           
             DailyBonusCount(player);

@@ -66,71 +66,71 @@ namespace LandConquest.DialogWIndows
             //}
             manufacture_image.Source = new BitmapImage(new Uri("/Pictures/Buildings/UpgradeHouse.png", UriKind.Relative));
 
-            WoodHave.Content = storage.PlayerWood;
-            StoneHave.Content = storage.PlayerStone;
-            IronHave.Content = storage.PlayerIron;
-            CopperHave.Content = storage.PlayerCopper;
-            GoldHave.Content = storage.PlayerGoldOre;
+            WoodHave.Content = storage.Wood;
+            StoneHave.Content = storage.Stone;
+            IronHave.Content = storage.Iron;
+            CopperHave.Content = storage.Copper;
+            GoldHave.Content = storage.GoldOre;
 
             resourcesNeed = new PlayerStorage();
-            resourcesNeed.PlayerWood = Convert.ToInt32(((int)Level.Wood) * Math.Pow(1.25, manufacture.ManufactureLevel));
-            resourcesNeed.PlayerStone = Convert.ToInt32(((int)Level.Stone) * Math.Pow(1.25, manufacture.ManufactureLevel));
-            resourcesNeed.PlayerIron = Convert.ToInt32(((int)Level.Iron) * Math.Pow(1.25, manufacture.ManufactureLevel));
-            resourcesNeed.PlayerGoldOre = Convert.ToInt32(((int)Level.GoldOre) * Math.Pow(1.25, manufacture.ManufactureLevel));
-            resourcesNeed.PlayerCopper = Convert.ToInt32(((int)Level.Copper) * Math.Pow(1.25, manufacture.ManufactureLevel));
+            resourcesNeed.Wood = Convert.ToInt32(((int)Level.Wood) * Math.Pow(1.25, manufacture.ManufactureLvl));
+            resourcesNeed.Stone = Convert.ToInt32(((int)Level.Stone) * Math.Pow(1.25, manufacture.ManufactureLvl));
+            resourcesNeed.Iron = Convert.ToInt32(((int)Level.Iron) * Math.Pow(1.25, manufacture.ManufactureLvl));
+            resourcesNeed.GoldOre = Convert.ToInt32(((int)Level.GoldOre) * Math.Pow(1.25, manufacture.ManufactureLvl));
+            resourcesNeed.Copper = Convert.ToInt32(((int)Level.Copper) * Math.Pow(1.25, manufacture.ManufactureLvl));
 
 
 
-            WoodNeed.Content = resourcesNeed.PlayerWood;
-            StoneNeed.Content = resourcesNeed.PlayerStone;
-            IronNeed.Content = resourcesNeed.PlayerIron;
-            GoldNeed.Content = resourcesNeed.PlayerGoldOre;
-            CopperNeed.Content = resourcesNeed.PlayerCopper;
+            WoodNeed.Content = resourcesNeed.Wood;
+            StoneNeed.Content = resourcesNeed.Stone;
+            IronNeed.Content = resourcesNeed.Iron;
+            GoldNeed.Content = resourcesNeed.GoldOre;
+            CopperNeed.Content = resourcesNeed.Copper;
 
 
 
-            ManufactureLvl.Content = manufacture.ManufactureLevel;
+            ManufactureLvl.Content = manufacture.ManufactureLvl;
         }
 
         private void BtnUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            if (storage.PlayerWood >= resourcesNeed.PlayerWood && storage.PlayerStone >= resourcesNeed.PlayerStone && storage.PlayerIron >= resourcesNeed.PlayerIron && storage.PlayerGoldOre >= resourcesNeed.PlayerGoldOre && storage.PlayerCopper >= resourcesNeed.PlayerCopper)
+            if (storage.Wood >= resourcesNeed.Wood && storage.Stone >= resourcesNeed.Stone && storage.Iron >= resourcesNeed.Iron && storage.GoldOre >= resourcesNeed.GoldOre && storage.Copper >= resourcesNeed.Copper)
             {
 
                 ManufactureModel.UpgradeManufacture(manufacture);
-                storage.PlayerWood -= resourcesNeed.PlayerWood;
-                storage.PlayerStone -= resourcesNeed.PlayerStone;
-                storage.PlayerIron -= resourcesNeed.PlayerIron;
-                storage.PlayerGoldOre -= resourcesNeed.PlayerGoldOre;
-                storage.PlayerCopper -= resourcesNeed.PlayerCopper;
+                storage.Wood -= resourcesNeed.Wood;
+                storage.Stone -= resourcesNeed.Stone;
+                storage.Iron -= resourcesNeed.Iron;
+                storage.GoldOre -= resourcesNeed.GoldOre;
+                storage.Copper -= resourcesNeed.Copper;
 
 
 
                 StorageModel.UpdateStorage(player, storage);
                 storage = StorageModel.GetPlayerStorage(player);
 
-                WoodHave.Content = storage.PlayerWood;
-                StoneHave.Content = storage.PlayerStone;
-                IronHave.Content = storage.PlayerIron;
-                GoldHave.Content = storage.PlayerGoldOre;
-                CopperHave.Content = storage.PlayerCopper;
+                WoodHave.Content = storage.Wood;
+                StoneHave.Content = storage.Stone;
+                IronHave.Content = storage.Iron;
+                GoldHave.Content = storage.GoldOre;
+                CopperHave.Content = storage.Copper;
 
 
-                resourcesNeed.PlayerWood = Convert.ToInt32(((int)Level.Wood) * Math.Pow(1.25, manufacture.ManufactureLevel));
-                resourcesNeed.PlayerStone = Convert.ToInt32(((int)Level.Stone) * Math.Pow(1.25, manufacture.ManufactureLevel));
-                resourcesNeed.PlayerIron = Convert.ToInt32(((int)Level.Iron) * Math.Pow(1.25, manufacture.ManufactureLevel));
-                resourcesNeed.PlayerGoldOre = Convert.ToInt32(((int)Level.GoldOre) * Math.Pow(1.25, manufacture.ManufactureLevel));
-                resourcesNeed.PlayerCopper = Convert.ToInt32(((int)Level.Copper) * Math.Pow(1.25, manufacture.ManufactureLevel));
+                resourcesNeed.Wood = Convert.ToInt32(((int)Level.Wood) * Math.Pow(1.25, manufacture.ManufactureLvl));
+                resourcesNeed.Stone = Convert.ToInt32(((int)Level.Stone) * Math.Pow(1.25, manufacture.ManufactureLvl));
+                resourcesNeed.Iron = Convert.ToInt32(((int)Level.Iron) * Math.Pow(1.25, manufacture.ManufactureLvl));
+                resourcesNeed.GoldOre = Convert.ToInt32(((int)Level.GoldOre) * Math.Pow(1.25, manufacture.ManufactureLvl));
+                resourcesNeed.Copper = Convert.ToInt32(((int)Level.Copper) * Math.Pow(1.25, manufacture.ManufactureLvl));
 
-                WoodNeed.Content = resourcesNeed.PlayerWood;
-                StoneNeed.Content = resourcesNeed.PlayerStone;
-                IronNeed.Content = resourcesNeed.PlayerIron;
-                GoldNeed.Content = resourcesNeed.PlayerGoldOre;
-                CopperNeed.Content = resourcesNeed.PlayerCopper;
+                WoodNeed.Content = resourcesNeed.Wood;
+                StoneNeed.Content = resourcesNeed.Stone;
+                IronNeed.Content = resourcesNeed.Iron;
+                GoldNeed.Content = resourcesNeed.GoldOre;
+                CopperNeed.Content = resourcesNeed.Copper;
 
                 manufacture = ManufactureModel.GetManufactureById(manufacture);
 
-                ManufactureLvl.Content = manufacture.ManufactureLevel;
+                ManufactureLvl.Content = manufacture.ManufactureLvl;
             }
             else
             {
