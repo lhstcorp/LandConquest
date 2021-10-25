@@ -74,7 +74,7 @@ namespace LandConquest.Forms
         private void buttonXP_Click(object sender, RoutedEventArgs e)
         {
             playersXp = new List<Player>();
-            playersXp = PlayerModel.GetXpInfo(playersXp, user);
+            playersXp = PlayerModel.GetXpInfo();
             ratings = new List<PlayersRating>();
 
             for (int i = 0; i < playersXp.Count; i++)
