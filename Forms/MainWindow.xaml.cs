@@ -68,7 +68,7 @@ namespace LandConquest.Forms
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            player = PlayerModel.GetPlayerInfo(user, player);
+            player = PlayerModel.GetPlayerById(user.UserId);
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
             PbExp.Value = player.PlayerExp;
             Level.Content = player.PlayerLvl;
@@ -393,7 +393,7 @@ namespace LandConquest.Forms
                     taxes = TaxesModel.GetTaxesInfo(taxes, connection);
                     player.PlayerMoney += Convert.ToInt32((DateTime.UtcNow.Subtract(taxes.TaxSaveDateTime).TotalSeconds / 3600) * taxes.TaxMoneyHour);
 
-                    player = PlayerModel.UpdatePlayerMoney(player, connection);
+                    player = PlayerModel.UpdatePlayerMoney(player);
                     TaxesModel.SaveTaxes(taxes, connection);
                     lands = LandModel.GetLandsInfo(lands, connection);
                     await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); RedrawGlobalMap(); LoadWarsOnMap();}));
