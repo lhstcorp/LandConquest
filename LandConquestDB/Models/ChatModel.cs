@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using Dapper;
+using LandConquestDB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -80,18 +81,7 @@ namespace LandConquestDB.Models
 
         public static void SendMessage(string message, string playerId, string playerTargetId, string currentRoomId)
         {
-            string query = "INSERT INTO [LandConquestMessagingDB].[dbo].[ChatMessages] (player_id, player_message, player_target_id, message_sent_time, room_id) VALUES (@player_id, @player_message, @player_target_id, @message_sent_time, @room_id)";
-            
-            var userCommand = new SqlCommand(query, DbContext.GetSqlConnection());
-
-            userCommand.Parameters.AddWithValue("@player_id", playerId);
-            userCommand.Parameters.AddWithValue("@player_message", message);
-            userCommand.Parameters.AddWithValue("@player_target_id", playerTargetId);
-            userCommand.Parameters.AddWithValue("@message_sent_time", DateTime.UtcNow);
-            userCommand.Parameters.AddWithValue("@room_id", currentRoomId);
-
-            userCommand.ExecuteNonQuery();
-            userCommand.Dispose();
+            DbContext.GetSqlConnection().Execute("INSERT INTO [LandConquestMessagingDB].[dbo].[ChatMessages] (player_id, player_message, player_target_id, message_sent_time, room_id) VALUES (@player_id, @player_message, @player_target_id, @message_sent_time, @room_id)", new { player_id = playerId, player_message = message, player_target_id = playerTargetId, message_sent_time = DateTime.UtcNow, room_id = currentRoomId });
         }
     }
 }
