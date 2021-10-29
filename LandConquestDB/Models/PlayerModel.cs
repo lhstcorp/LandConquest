@@ -248,11 +248,13 @@ namespace LandConquestDB.Models
             listPeasantsWork = DbContext.GetSqlConnection().Query<int>("SELECT manufacture_peasant_work FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id", new { player_id = player.PlayerId }).ToList();
             if (listPeasantsWork.Count == 2)
             {
-                foreach (var peasant in listPeasantsWork)
+                for (int i = 0; i < listPeasantsWork.Count; i++)
                 {
-                    list.Add(peasant);
-                    peasants.PeasantsWork -= peasant;
+                    list.Add(new int());
+                    list[i] = listPeasantsWork[i];
+                    peasants.PeasantsWork -= listPeasantsWork[i];
                 }
+
             }
             else
             {
