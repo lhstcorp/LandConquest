@@ -16,23 +16,23 @@ namespace LandConquest.Forms
         private Player player;
         private User user;
         private Window openedWindow;
+        public event Action<string> NameChanged;
 
         public ProfileWindow(Player _player, User _user)
         {
             InitializeComponent();
             player = _player;
             user = _user;
-            Loaded += Window_Loaded;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            user = new User();
-            user = UserModel.GetUserInfo(player.PlayerId);
+            //user = new User();
+            //user = UserModel.GetUserInfo(player.PlayerId);
 
-            player = new Player();
-            player = PlayerModel.GetPlayerById(user.UserId);
+            //player = new Player();
+            //player = PlayerModel.GetPlayerById(user.UserId);
 
 
             labelName.Content = player.PlayerName.ToString();
@@ -54,16 +54,17 @@ namespace LandConquest.Forms
 
         private void buttonSaveName_Click(object sender, RoutedEventArgs e)
         {
-            newNameBox.Text.Replace(" ", "");
+            string newName = newNameBox.Text.Replace(" ", "");
             bool validNameChangeLogin = UserModel.CheckLoginExistence(newNameBox.Text);
-            if (newNameBox.Text.Length > 6 && validNameChangeLogin == true && newNameBox.Text.Any(x => char.IsLetter(x)))
+            if (newName.Length >= 6 && validNameChangeLogin == true && newNameBox.Text.Any(x => char.IsLetter(x)))
             {
                 PlayerModel.UpdatePlayerName(player.PlayerId, newNameBox.Text);
                 player.PlayerName = newNameBox.Text;
-                this.Loaded += Window_Loaded;
                 newNameBox.Visibility = Visibility.Hidden;
                 buttonSaveName.Visibility = Visibility.Hidden;
                 buttonChangeName.Visibility = Visibility.Visible;
+                labelName.Content = newName;
+                NameChanged(newName);
             }
             else
             {
@@ -78,10 +79,10 @@ namespace LandConquest.Forms
             if (!emailExist && EmailValidator.Validate(newEmail, true, true))
             {
                 UserModel.UpdateUserEmail(user.UserId, YDCrypto.Encrypt(newEmail));
-                this.Loaded += Window_Loaded;
                 newEmailBox.Visibility = Visibility.Hidden;
                 buttonSaveEmail.Visibility = Visibility.Hidden;
                 buttonChangeEmail.Visibility = Visibility.Visible;
+                labelEmail.Content = newEmail;
             }
             else
             {
@@ -95,7 +96,6 @@ namespace LandConquest.Forms
             if (newPassBox.Text.Length >= 6 && newNameBox.Text.Any(x => char.IsLetter(x)))
             {
                 UserModel.UpdateUserPass(user.UserId, YDCrypto.SHA512(newPassBox.Text));
-                this.Loaded += Window_Loaded;
                 newPassBox.Visibility = Visibility.Hidden;
                 buttonSavePass.Visibility = Visibility.Hidden;
                 buttonChangePass.Visibility = Visibility.Visible;

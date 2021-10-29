@@ -334,7 +334,7 @@
                 </Button.Background>
             </Button>
             <Button x:Name="test2" IsEnabled="False" HorizontalAlignment="Left" Height="37" Margin="351,651,0,0" VerticalAlignment="Top" Width="164" Click="test2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="#FFE1A35E"/>
-            <Button x:Name="buttonChat" Content="{lex:Loc LocButtonChat_Content}" Margin="20,0,0,7.8" Click="buttonChat_Click" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="109" Foreground="#FFDFC58F" Height="31" VerticalAlignment="Bottom" FontFamily="Book Antiqua" FontSize="14">
+            <Button x:Name="buttonChat" Content="{lex:Loc LocButtonChat_Content}" Margin="20,0,0,7.8" Click="buttonChat_Click" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="105" Foreground="#FFDFC58F" Height="31" VerticalAlignment="Bottom" FontFamily="Book Antiqua" FontSize="14">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -368,7 +368,7 @@
 
             <Border Margin="134,700,1080,7">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center"  HorizontalAlignment="Center">
-                    <Button x:Name="ButtonMailbox" Content="{lex:Loc LocButtonMailbox_Content}" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Left" FontFamily="Book Antiqua" FontSize="14" Click="ButtonMailbox_Click" Height="46">
+                    <Button x:Name="ButtonMailbox" Content="{lex:Loc LocButtonMailbox_Content}" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Left" FontFamily="Book Antiqua" FontSize="14" Click="ButtonMailbox_Click" Height="46" Width="158">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                         </Button.Background>
