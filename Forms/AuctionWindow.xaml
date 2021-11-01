@@ -25,11 +25,13 @@
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF392018"/>
             </Grid.Resources>
 
-            <DataGrid AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontFamily="Book Antiqua" FontStyle="Oblique" Height="393" Width="460" HorizontalAlignment="Left" ItemsSource="{Binding listings}" Margin="10,47,0,0" x:Name="auctionDataGrid" VerticalAlignment="Top" Foreground="#FF392018" SelectionChanged="auctionDataGrid_SelectionChanged" BorderBrush="#FF391C18" SelectionMode="Single" CanUserResizeColumns="False">
+            <DataGrid AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontFamily="Book Antiqua" 
+                      FontStyle="Oblique" Height="393" Width="460" HorizontalAlignment="Left" 
+                      ItemsSource="{Binding AuctionListings}" SelectedItem="{Binding SelectedListing}" Margin="10,47,0,0" x:Name="auctionDataGrid" VerticalAlignment="Top" Foreground="#FF392018" SelectionChanged="auctionDataGrid_SelectionChanged" BorderBrush="#FF391C18" SelectionMode="Single" CanUserResizeColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="resourceQty" Binding="{Binding Qty}" Header=" Qty" Width="60" CanUserSort="True" />
-                    <DataGridTextColumn x:Name="itemName" Binding="{Binding Subject}" Header="Resource" Width="80" CanUserSort="True"/>
-                    <DataGridTextColumn x:Name="timeLeft" Binding="{Binding ListingSetTime}" Header="Time" Width="140" CanUserSort="True" FontSize="10"/>
+                    <DataGridTextColumn x:Name="itemName" Binding="{Binding ItemName}" Header="Resource" Width="80" CanUserSort="True"/>
+                    <DataGridTextColumn x:Name="timeLeft" Binding="{Binding ItemSetTime}" Header="Time" Width="140" CanUserSort="True" FontSize="10"/>
                     <DataGridTextColumn x:Name="sellersName" Binding="{Binding SellerName}" Header="Seller" Width="70" CanUserSort="True"/>
                     <DataGridTextColumn x:Name="totalPrice" Binding="{Binding Price}" Header="Price (each)" CanUserSort="True"/>
                 </DataGrid.Columns>
@@ -67,7 +69,7 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="buttonBuy" IsEnabled="True" Content="{lex:Loc LocLabelBuy_Content}" HorizontalAlignment="Left" Margin="510,121,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Height="30" Width="150" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonBuy_Click">
+            <Button x:Name="buttonBuy" IsEnabled="{Binding BtnBuyIsEnabled}" Content="{lex:Loc LocLabelBuy_Content}" HorizontalAlignment="Left" Margin="510,121,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Height="30" Width="150" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonBuy_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -84,8 +86,8 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <TextBox x:Name="textBoxItemSearchName" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.Hint=" Resource" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="32" Margin="264,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#7F966B52" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF391C18"/>
-            <Button x:Name="buttonDelete" IsEnabled="True" Content="{lex:Loc LocButtonDelete}" HorizontalAlignment="Left" Margin="510,159,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonDelete_Click">
+            <TextBox x:Name="textBoxItemSearchName" Text="{Binding SearchName, UpdateSourceTrigger=PropertyChanged}"  materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.Hint=" Resource" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="32" Margin="264,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#7F966B52" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF391C18"/>
+            <Button x:Name="buttonDelete" IsEnabled="{Binding BtnDelIsEnabled}" Content="{lex:Loc LocButtonDelete}" HorizontalAlignment="Left" Margin="510,159,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonDelete_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>

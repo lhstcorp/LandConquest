@@ -39,7 +39,7 @@ namespace LandConquest.Forms
             user = UserModel.GetUserInfo(player.PlayerId);
 
             player = new Player();
-            player = PlayerModel.GetPlayerInfo(user, player);
+            player = PlayerModel.GetPlayerById(user.UserId);
 
             army = new Army();
             army = ArmyModel.GetArmyInfo(player, army);
