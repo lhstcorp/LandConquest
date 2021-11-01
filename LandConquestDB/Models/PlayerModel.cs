@@ -183,8 +183,13 @@ namespace LandConquestDB.Models
             return DbContext.GetSqlConnection().Query<Player>("SELECT * FROM PlayerData ORDER BY player_exp DESC").ToList();
         }
 
+        public static string GetPlayerExp(string playerId)
+        {
+            return DbContext.GetSqlConnection().Query<string>("SELECT player_exp FROM dbo.PlayerData WHERE player_id = @player_id", new { player_id = playerId }).FirstOrDefault().ToString();
+        }
+
         //string query = "SELECT * FROM dbo.PlayerData ORDER BY player_money desc";
-        
+
         public static void UpdatePlayerExpAndLvl(Player player)
         {
             DbContext.GetSqlConnection().Execute("UPDATE dbo.PlayerData SET player_exp = @player_exp, player_lvl = @player_lvl WHERE player_id = @player_id", new { player_exp = player.PlayerExp, player_lvl = player.PlayerLvl, player_id = player.PlayerId});

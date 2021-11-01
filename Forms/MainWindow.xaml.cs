@@ -69,6 +69,8 @@ namespace LandConquest.Forms
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             player = PlayerModel.GetPlayerById(user.UserId);
+
+            ShowReportDialog();
             PbExp.Maximum = Math.Pow(player.PlayerLvl, 2) * 500;
             PbExp.Value = player.PlayerExp;
             Level.Content = player.PlayerLvl;
@@ -173,6 +175,15 @@ namespace LandConquest.Forms
 
             GetWorldLeader();
 
+        }
+
+        private void ShowReportDialog()
+        {
+            WelcomeBackReportDialogWindow reportDialog = new WelcomeBackReportDialogWindow(player);
+            reportDialog.Owner = this;
+            reportDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            reportDialog.Show();
+            reportDialog.Closed += FreeData;
         }
 
         public async void UpdateMainWindowInfoAsync()

@@ -141,7 +141,7 @@ namespace LandConquest.Logic
             return player;
         }
 
-        public long CountPlayerExp(Player _player)
+        public static long CountPlayerExp(Player _player)
         {
 
             Taxes taxes = new Taxes();
