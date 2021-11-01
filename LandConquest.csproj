@@ -311,6 +311,7 @@
     <Compile Include="Resources\StylesDictionary.xaml.cs">
       <DependentUpon>StylesDictionary.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowViewModels\AuctionWindowViewModel.cs" />
     <Page Include="DialogWIndows\BuyListingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

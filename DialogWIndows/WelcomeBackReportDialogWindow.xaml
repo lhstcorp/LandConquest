@@ -13,8 +13,8 @@
 
         <Grid>
             <Image Source = "/LandConquest;component/Pictures/Icons/Other/Book.png" Stretch="UniformToFill" Height="46" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46" Margin="9,140,0,0" />
-            <Image Source = "/LandConquest;component/Pictures/Icons/Other/Book.png" Stretch="UniformToFill" Height="46" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46" Margin="238,140,0,0" />
-            <Image Source = "/LandConquest;component/Pictures/Icons/Other/Arrow_blue.png" Stretch="UniformToFill" Height="53" VerticalAlignment="Top" HorizontalAlignment="Left" Width="61" Margin="118,135,0,0" />
+            <Image Source = "/LandConquest;component/Pictures/Icons/Other/Book.png" Stretch="UniformToFill" Height="46" FlowDirection="RightToLeft" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46" Margin="238,140,0,0" />
+            <Image Source = "/LandConquest;component/Pictures/Icons/Other/Arrow_blue.png" Stretch="UniformToFill" Height="53" VerticalAlignment="Top" HorizontalAlignment="Left" Width="61" Margin="124,135,0,0" />
 
 
             <Label Content="Report" FontSize="14" FontWeight="Bold" Foreground="#311818" HorizontalAlignment="Left" Margin="113,-4,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="0.532,0.948"/>
@@ -33,7 +33,12 @@
                 </Button.Background>
             </Button>
 
-            <Button x:Name="buttonOk" Content="OK" HorizontalAlignment="Left" FontFamily="Book Antiqua" Margin="102,359,0,0" VerticalAlignment="Top" Width="86" Height="31" BorderBrush="{x:Null}" Foreground="#FFE0CA99" Click="buttonClose_Click">
+            <Button x:Name="buttonOk" Content="Later in storage" HorizontalAlignment="Left" FontFamily="Book Antiqua" Margin="157,362,0,0" VerticalAlignment="Top" Width="134" Height="31" BorderBrush="{x:Null}" Foreground="#FFE0CA99" Click="buttonClose_Click" Opacity="0.7">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonGrabRes" Content="Grab them now!" HorizontalAlignment="Left" FontFamily="Book Antiqua" Margin="5,362,0,0" VerticalAlignment="Top" Width="134" Height="31" BorderBrush="{x:Null}" Foreground="#FFE0CA99" Click="buttonGrabRes_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
