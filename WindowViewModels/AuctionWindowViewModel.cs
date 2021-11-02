@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace LandConquest.Forms
 {
@@ -89,7 +90,7 @@ namespace LandConquest.Forms
             player = _player;
         }
 
-        public void AuctionWindowLoaded()
+        public void WindowLoaded()
         {
             AuctionListings = new List<AuctionListings>();
             AuctionListings = AuctionModel.GetListings(AuctionListings);
@@ -97,9 +98,17 @@ namespace LandConquest.Forms
             BtnDelIsEnabled = false;
         }
 
+        public void CreateListing()
+        {
+            CreateListingDialog createListingDialog = new CreateListingDialog(player);
+            createListingDialog.Owner = Application.Current.MainWindow;
+            createListingDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            createListingDialog.Show();
+        }
+
         public void FindListing()
         {
-            AuctionWindowLoaded();
+            WindowLoaded();
             if (!String.IsNullOrWhiteSpace(SearchName))
             {
                 AuctionListings = AuctionListings.FindAll(x => x.ItemName.Contains(SearchName));
@@ -112,7 +121,7 @@ namespace LandConquest.Forms
 
         public void ShowMyListings()
         {
-            AuctionWindowLoaded();
+            WindowLoaded();
             AuctionListings = AuctionListings.FindAll(x => x.SellerName.Contains(player.PlayerName));
         }
 
@@ -140,7 +149,7 @@ namespace LandConquest.Forms
                     WarningDialogWindow.CallWarningDialogNoResult("Value should be more than 0!");
                 }
             }
-            AuctionWindowLoaded();
+            WindowLoaded();
 
         }
 
@@ -150,10 +159,10 @@ namespace LandConquest.Forms
             {
                 AuctionModel.DeleteListing(SelectedListing.ListingId);
             }
-            AuctionWindowLoaded();
+            WindowLoaded();
         }
 
-        public void AuctionDataGridSelectionChanged()
+        public void DataGridSelectionChanged()
         {
             if (SelectedListing != null)
             {
@@ -172,7 +181,7 @@ namespace LandConquest.Forms
 
         public void UpdateListings()
         {
-            AuctionWindowLoaded();
+            WindowLoaded();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
