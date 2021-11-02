@@ -1,20 +1,14 @@
-﻿using LandConquest.DialogWIndows;
-using LandConquestDB.Entities;
-using LandConquestDB.Models;
-using System;
-using System.Collections.Generic;
+﻿using LandConquestDB.Entities;
 using System.Windows;
 
 namespace LandConquest.Forms
 {
     public partial class AuctionWindow : Window
     {
-        private Player player;
         public AuctionWindow(Player _player)
         {
             InitializeComponent();
             DataContext = new AuctionWindowViewModel(_player);
-            player = _player;
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
@@ -24,15 +18,12 @@ namespace LandConquest.Forms
 
         private void buttonCreateListing_Click(object sender, RoutedEventArgs e)
         {
-            CreateListingDialog createListingDialog = new CreateListingDialog(player);
-            createListingDialog.Owner = Application.Current.MainWindow;
-            createListingDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            createListingDialog.Show();
+            ((AuctionWindowViewModel)DataContext).CreateListing();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ((AuctionWindowViewModel)DataContext).AuctionWindowLoaded();
+            ((AuctionWindowViewModel)DataContext).WindowLoaded();
         }
 
         private void buttonFindListing_Click(object sender, RoutedEventArgs e)
@@ -58,7 +49,7 @@ namespace LandConquest.Forms
 
         private void auctionDataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            ((AuctionWindowViewModel)DataContext).AuctionDataGridSelectionChanged();
+            ((AuctionWindowViewModel)DataContext).DataGridSelectionChanged();
         }
 
         private void buttonUpdateListings_Click(object sender, RoutedEventArgs e)
