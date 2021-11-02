@@ -15,12 +15,12 @@ namespace LandConquestDB.Entities
         public bool MaleFemale { get; set; }
         public int Prestige { get; set; }
         public string Title { get; set; }
-        public int Level { get; set; }
+        public int Lvl { get; set; }
         public int Exp { get; set; }
         public int Power { get; set; }
-        public int Agility { get; set; }
         public int Health { get; set; }
         public int Intellect { get; set; }
+        public int Agility { get; set; }
         public Person() { }
     }
 }

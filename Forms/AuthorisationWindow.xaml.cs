@@ -10,7 +10,6 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
-using WPFLocalizeExtension.Engine;
 
 namespace LandConquest
 {
@@ -27,7 +26,7 @@ namespace LandConquest
         private void AuthorisationWindow_Loaded(object sender, RoutedEventArgs e)
         {
             YDContext.OpenYD();
-            LauncherLogic.DisableActiveCheatsAsync();
+            //LauncherLogic.DisableActiveCheatsAsync();
             LauncherLogic.CheckLocalUtcDateTime();
             LandConquestDB.DbContext.OpenConnectionPool();
             CheckVersion();
@@ -77,15 +76,15 @@ namespace LandConquest
 
             string confirmNewPass   = textBoxConfirmNewPass.Text.Replace(" ", "");
 
-            bool validNewUserLogin  = LandConquestDB.Models.UserModel.ValidateUserByLogin(newLogin);
+            bool validNewUserLogin  = LandConquestDB.Models.UserModel.CheckLoginExistence(newLogin);
             if (!validNewUserLogin)
             {
                 WarningDialogWindow.CallWarningDialogNoResult("User with this login already registered!");
                 textBoxNewLogin.Text = "";
                 return;
             }
-            bool validNewUserEmail  = LandConquestDB.Models.UserModel.ValidateUserByEmail(YDCrypto.Encrypt(newEmail));
-            if (!validNewUserEmail)
+            bool validNewUserEmail  = LandConquestDB.Models.UserModel.CheckEmailExistence(YDCrypto.Encrypt(newEmail));
+            if (validNewUserEmail)
             {
                 WarningDialogWindow.CallWarningDialogNoResult("User with this email already registered!");
                 textBoxNewEmail.Text = "";

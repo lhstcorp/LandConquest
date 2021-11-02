@@ -40,7 +40,7 @@ namespace LandConquestDB.Models
                     war.WarId = (reader.GetString(warId));
                     war.LandAttackerId = (reader.GetInt32(landAttackerId));
                     war.LandDefenderId = (reader.GetInt32(landDefenderId));
-                    war.WarDateTimeStart = (reader.GetDateTime(warDateTimeStart));
+                    war.DateTimeStart = (reader.GetDateTime(warDateTimeStart));
                 }
                 reader.Close();
             }
@@ -104,7 +104,7 @@ namespace LandConquestDB.Models
                 wars[i].WarId = warssWarId[i];
                 wars[i].LandAttackerId = warsLandAttackerId[i];
                 wars[i].LandDefenderId = warsLandDefenderId[i];
-                wars[i].WarDateTimeStart = warsWarDateTimeStart[i];
+                wars[i].DateTimeStart = warsWarDateTimeStart[i];
             }
 
             warssWarId = null;

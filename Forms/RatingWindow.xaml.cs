@@ -39,7 +39,7 @@ namespace LandConquest.Forms
             user = UserModel.GetUserInfo(player.PlayerId);
 
             player = new Player();
-            player = PlayerModel.GetPlayerInfo(user, player);
+            player = PlayerModel.GetPlayerById(user.UserId);
 
             army = new Army();
             army = ArmyModel.GetArmyInfo(player, army);
@@ -74,7 +74,7 @@ namespace LandConquest.Forms
         private void buttonXP_Click(object sender, RoutedEventArgs e)
         {
             playersXp = new List<Player>();
-            playersXp = PlayerModel.GetXpInfo(playersXp, user);
+            playersXp = PlayerModel.GetXpInfo();
             ratings = new List<PlayersRating>();
 
             for (int i = 0; i < playersXp.Count; i++)

@@ -23,9 +23,9 @@
         <Image x:Name="registerGui" HorizontalAlignment="Left" Height="414" Margin="19,3,0,0" VerticalAlignment="Top" Width="252" Source="/LandConquest;component/Pictures/register_gui.png" />
 
 
-        <TextBox x:Name="textBoxLogin" Margin="587,105,53.6,0" TextWrapping="Wrap" Text="" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+        <TextBox x:Name="textBoxLogin" Margin="587,105,53.6,0" TextWrapping="Wrap" Text="{Binding LoginText}" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                  materialDesign:HintAssist.Hint=" Login"  materialDesign:HintAssist.IsFloating="False" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" CaretBrush="Black" Height="25" VerticalAlignment="Top" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
-        <PasswordBox x:Name="textBoxPass" Margin="587,157,53.6,0" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+        <PasswordBox x:Name="textBoxPass" Margin="587,157,53.6,0" Background="{x:Null}"   materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                      materialDesign:HintAssist.Hint=" Password"  materialDesign:HintAssist.IsFloating="False" Height="27" VerticalAlignment="Top" CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
 
 

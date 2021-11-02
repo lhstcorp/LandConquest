@@ -10,12 +10,7 @@
 //------------------------------------------------------------------------------
 
 using LandConquest.Forms;
-using LandConquest.Resources;
-using MaterialDesignThemes.Wpf;
-using MaterialDesignThemes.Wpf.Converters;
-using MaterialDesignThemes.Wpf.Transitions;
 using System;
-using System.Collections;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Automation;

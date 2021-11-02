@@ -64,7 +64,7 @@ namespace LandConquestDB.Models
                         ManufactureId = reader.GetString(manufactureId),
                         ManufactureName = reader.GetString(manufactureName),
                         ManufactureType = reader.GetInt32(manufactureType),
-                        ManufactureLevel = reader.GetInt32(manufactureLevel),
+                        ManufactureLvl = reader.GetInt32(manufactureLevel),
                         ManufacturePeasantMax = reader.GetInt32(manufacturePeasantsMax),
                         ManufacturePeasantWork = reader.GetInt32(manufacturePeasantsWork),
                         ManufactureProductsHour = reader.GetInt32(manufactureProductsHour),
@@ -144,7 +144,7 @@ namespace LandConquestDB.Models
                 manufactures[i].ManufactureName = manufacturesManufactureName[i];
                 Console.WriteLine(i);
                 manufactures[i].ManufactureType = manufacturesManufactureType[i];
-                manufactures[i].ManufactureLevel = manufacturesManufactureLevel[i];
+                manufactures[i].ManufactureLvl = manufacturesManufactureLevel[i];
                 manufactures[i].ManufacturePeasantMax = manufacturesManufacturePeasantsMax[i];
                 manufactures[i].ManufacturePeasantWork = manufacturesManufacturePeasantsWork[i];
                 manufactures[i].ManufactureProductsHour = manufacturesManufactureProductsHour[i];
@@ -227,12 +227,12 @@ namespace LandConquestDB.Models
         {
             PlayerStorage resourcesNeed = new PlayerStorage();
             resourcesNeed.PlayerId = null;
-            resourcesNeed.PlayerFood = 0;
+            resourcesNeed.Food = 0;
 
             string query = "SELECT * FROM dbo.ManufactureLvlData WHERE lvl = @manufacture_lvl";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@manufacture_lvl", manufacture.ManufactureLevel);
+            command.Parameters.AddWithValue("@manufacture_lvl", manufacture.ManufactureLvl);
 
             using (var reader = command.ExecuteReader())
             {
@@ -242,8 +242,8 @@ namespace LandConquestDB.Models
 
                 while (reader.Read())
                 {
-                    resourcesNeed.PlayerWood = reader.GetInt32(woodNeeded);
-                    resourcesNeed.PlayerStone = reader.GetInt32(stoneNeeded);
+                    resourcesNeed.Wood = reader.GetInt32(woodNeeded);
+                    resourcesNeed.Stone = reader.GetInt32(stoneNeeded);
                 }
                 reader.Close();
             }
@@ -257,7 +257,7 @@ namespace LandConquestDB.Models
 
             var manufactureUpgradeCommand = new SqlCommand(manufactureUpgradeQuery, DbContext.GetSqlConnection());
 
-            if (manufacture.ManufactureLevel % 2 == 0)
+            if (manufacture.ManufactureLvl % 2 == 0)
             {
                 manufacture.ManufactureBaseProdValue -= 1;
             }
@@ -266,7 +266,7 @@ namespace LandConquestDB.Models
                 manufacture.ManufacturePeasantMax -= 200;
             }
 
-            manufactureUpgradeCommand.Parameters.AddWithValue("@manufacture_lvl", manufacture.ManufactureLevel + 1);
+            manufactureUpgradeCommand.Parameters.AddWithValue("@manufacture_lvl", manufacture.ManufactureLvl + 1);
             manufactureUpgradeCommand.Parameters.AddWithValue("@manufacture_peasant_max", manufacture.ManufacturePeasantMax + 200);
             manufactureUpgradeCommand.Parameters.AddWithValue("@manufacture_products_hour", (manufacture.ManufactureBaseProdValue + 1) * manufacture.ManufacturePeasantWork);
             manufactureUpgradeCommand.Parameters.AddWithValue("@manufacture_base_prod_value", manufacture.ManufactureBaseProdValue + 1);
@@ -283,7 +283,7 @@ namespace LandConquestDB.Models
            
             var build1Command = new SqlCommand(manufactureQuery, DbContext.GetSqlConnection());
 
-            if (manufacture.ManufactureLevel % 2 == 0)
+            if (manufacture.ManufactureLvl % 2 == 0)
             {
                 manufacture.ManufactureBaseProdValue -= 1;
             }
@@ -295,7 +295,7 @@ namespace LandConquestDB.Models
             
             
             build1Command.Parameters.AddWithValue("@manufacture_peasant_max", manufacture.ManufacturePeasantMax+200);
-            build1Command.Parameters.AddWithValue("@manufacture_lvl", manufacture.ManufactureLevel + 1);
+            build1Command.Parameters.AddWithValue("@manufacture_lvl", manufacture.ManufactureLvl + 1);
             build1Command.Parameters.AddWithValue("@manufacture_base_prod_value", manufacture.ManufactureBaseProdValue + 1);
             build1Command.Parameters.AddWithValue("@manufacture_products_hour", (manufacture.ManufactureBaseProdValue + 1) * manufacture.ManufacturePeasantWork);            
             build1Command.Parameters.AddWithValue("@manufacture_id", manufacture.ManufactureId);
@@ -330,7 +330,7 @@ namespace LandConquestDB.Models
                     manufacture.PlayerId = reader.GetString(playerId);
                     manufacture.ManufactureName = reader.GetString(manufactureName);
                     manufacture.ManufactureType = reader.GetInt32(manufactureType);
-                    manufacture.ManufactureLevel = reader.GetInt32(manufactureLevel);
+                    manufacture.ManufactureLvl = reader.GetInt32(manufactureLevel);
                     manufacture.ManufacturePeasantMax = reader.GetInt32(manufacturePeasantsMax);
                     manufacture.ManufacturePeasantWork = reader.GetInt32(manufacturePeasantsWork);
                     manufacture.ManufactureProductsHour = reader.GetInt32(manufactureProductsHour);
@@ -371,7 +371,7 @@ namespace LandConquestDB.Models
                     manufacture.PlayerId = Convert.ToString(reader.GetInt32(landId));
                     manufacture.ManufactureName = reader.GetString(manufactureName);
                     manufacture.ManufactureType = reader.GetInt32(manufactureType);
-                    manufacture.ManufactureLevel = reader.GetInt32(manufactureLevel);
+                    manufacture.ManufactureLvl = reader.GetInt32(manufactureLevel);
                     manufacture.ManufacturePeasantMax = reader.GetInt32(manufacturePeasantsMax);
                     manufacture.ManufacturePeasantWork = reader.GetInt32(manufacturePeasantsWork);
                     manufacture.ManufactureProductsHour = reader.GetInt32(manufactureProductsHour);

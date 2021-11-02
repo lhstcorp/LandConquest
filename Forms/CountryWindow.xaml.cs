@@ -53,7 +53,7 @@ namespace LandConquest.Forms
             ruler = new Player();
             User rulerUser = new User();
             rulerUser.UserId = country.CountryRuler;
-            ruler = PlayerModel.GetPlayerInfo(rulerUser, ruler);
+            ruler = PlayerModel.GetPlayerById(rulerUser.UserId);
             RulerNameLbl.Content = ruler.PlayerName;
             CountryNameLbl.Content = country.CountryName;
             CapitalNameLbl.Content = country.CapitalId;

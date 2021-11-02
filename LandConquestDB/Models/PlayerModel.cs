@@ -1,6 +1,10 @@
-﻿using LandConquestDB.Entities;
+﻿using Dapper;
+using LandConquestDB.Entities;
+using LandConquestYD;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading;
@@ -106,343 +110,169 @@ namespace LandConquestDB.Models
             peasantsCommand.Dispose();
         }
 
-        public static Player GetPlayerInfo(User user, Player player)
-        {
-            string query = "SELECT * FROM dbo.PlayerData WHERE player_id = @player_id";
-
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@player_id", user.UserId);
-
-            using (var reader = command.ExecuteReader())
-            {
-                var playerId = reader.GetOrdinal("player_id");
-                var playerName = reader.GetOrdinal("player_name");
-                var playerExp = reader.GetOrdinal("player_exp");
-                var playerLvl = reader.GetOrdinal("player_lvl");
-                var playerMoney = reader.GetOrdinal("player_money");
-                var playerDonation = reader.GetOrdinal("player_donation");
-                var playerImage = reader.GetOrdinal("player_image");
-                var playerTitle = reader.GetOrdinal("player_title");
-                var playerCurrentRegion = reader.GetOrdinal("player_current_region");
-
-                while (reader.Read())
-                {
-                    player.PlayerId = reader.GetString(playerId);
-                    player.PlayerName = reader.GetString(playerName);
-                    player.PlayerExp = reader.GetInt64(playerExp);
-                    player.PlayerLvl = reader.GetInt32(playerLvl);
-                    player.PlayerMoney = reader.GetInt64(playerMoney);
-                    player.PlayerDonation = reader.GetInt64(playerDonation);
-                    // player.PlayerImage = reader.GetSqlBytes(playerId);
-                    player.PlayerImage = null;
-                    player.PlayerTitle = reader.GetInt32(playerTitle);
-                    player.PlayerCurrentRegion = reader.GetInt32(playerCurrentRegion);
-                }
-                reader.Close();
-            }
-            command.Dispose();
-
-            return player;
-        }
-
         public static Player GetPlayerById(string _playerId)
         {
-            Player player = new Player();
-            string query = "SELECT * FROM dbo.PlayerData WHERE player_id = @player_id";
+            //Player player = new Player();
+            //string query = "SELECT * FROM dbo.PlayerData WHERE player_id = @player_id";
 
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@player_id", _playerId);
+            //var command = new SqlCommand(query, DbContext.GetSqlConnection());
+            //command.Parameters.AddWithValue("@player_id", _playerId);
 
-            using (var reader = command.ExecuteReader())
-            {
-                var playerId = reader.GetOrdinal("player_id");
-                var playerName = reader.GetOrdinal("player_name");
-                var playerExp = reader.GetOrdinal("player_exp");
-                var playerLvl = reader.GetOrdinal("player_lvl");
-                var playerMoney = reader.GetOrdinal("player_money");
-                var playerDonation = reader.GetOrdinal("player_donation");
-                var playerImage = reader.GetOrdinal("player_image");
-                var playerTitle = reader.GetOrdinal("player_title");
-                var playerCurrentRegion = reader.GetOrdinal("player_current_region");
+            //using (var reader = command.ExecuteReader())
+            //{
+            //    var playerId = reader.GetOrdinal("player_id");
+            //    var playerName = reader.GetOrdinal("player_name");
+            //    var playerExp = reader.GetOrdinal("player_exp");
+            //    var playerLvl = reader.GetOrdinal("player_lvl");
+            //    var playerMoney = reader.GetOrdinal("player_money");
+            //    var playerDonation = reader.GetOrdinal("player_donation");
+            //    var playerImage = reader.GetOrdinal("player_image");
+            //    var playerTitle = reader.GetOrdinal("player_title");
+            //    var playerCurrentRegion = reader.GetOrdinal("player_current_region");
 
-                while (reader.Read())
-                {
-                    player.PlayerId = reader.GetString(playerId);
-                    player.PlayerName = reader.GetString(playerName);
-                    player.PlayerExp = reader.GetInt64(playerExp);
-                    player.PlayerLvl = reader.GetInt32(playerLvl);
-                    player.PlayerMoney = reader.GetInt64(playerMoney);
-                    player.PlayerDonation = reader.GetInt64(playerDonation);
-                    player.PlayerImage = null;
-                    player.PlayerTitle = reader.GetInt32(playerTitle);
-                    player.PlayerCurrentRegion = reader.GetInt32(playerCurrentRegion);
-                }
-                reader.Close();
-            }
-            command.Dispose();
-            return player;
+            //    while (reader.Read())
+            //    {
+            //        player.PlayerId = reader.GetString(playerId);
+            //        player.PlayerName = reader.GetString(playerName);
+            //        player.PlayerExp = reader.GetInt64(playerExp);
+            //        player.PlayerLvl = reader.GetInt32(playerLvl);
+            //        player.PlayerMoney = reader.GetInt64(playerMoney);
+            //        player.PlayerDonation = reader.GetInt64(playerDonation);
+            //        player.PlayerImage = null;
+            //        player.PlayerTitle = reader.GetInt32(playerTitle);
+            //        player.PlayerCurrentRegion = reader.GetInt32(playerCurrentRegion);
+            //    }
+            //    reader.Close();
+            //}
+            //command.Dispose();
+
+            return DbContext.GetSqlConnection().Query<Player>("SELECT * FROM dbo.PlayerData WHERE player_id = @player_id", new { player_id = _playerId }).ToList().FirstOrDefault();
         }
 
         public static string GetPlayerNameById(string id)
         {
-            string playerName = "";
-            string query = "SELECT player_name FROM dbo.PlayerData WHERE player_id = @player_id ";
-
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@player_id", id);
-
-            using (var reader = command.ExecuteReader())
-            {
-                var _playerName = reader.GetOrdinal("player_name");
-
-                while (reader.Read())
-                {
-                    playerName = reader.GetString(_playerName);
-                }
-                reader.Close();
-            }
-            command.Dispose();
-            return playerName;
+            return DbContext.GetSqlConnection().Query<string>("SELECT player_name FROM dbo.PlayerData WHERE player_id = @player_id", new { player_id = id }).FirstOrDefault().ToString();
         }
 
-        public static string ValidatePlayerByName(string playerName)
+        public static string CheckPlayerExistenceByName(string playerName)
         {
-            string playerId = "";
-            string query = "SELECT player_id FROM dbo.PlayerData WHERE player_name = @player_name ";
-
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@player_name", playerName);
-
-            using (var reader = command.ExecuteReader())
-            {
-                var _playerId = reader.GetOrdinal("player_id");
-
-                while (reader.Read())
-                {
-                    playerId = reader.GetString(_playerId);
-                }
-                reader.Close();
-            }
-            command.Dispose();
-            return playerId;
+            return DbContext.GetSqlConnection().Query<string>("SELECT player_id FROM dbo.PlayerData WHERE player_name = @player_name", new { player_name = playerName }).FirstOrDefault().ToString();
         }
 
         public static Player UpdatePlayerMoney(Player player)
         {
-            string taxesQuery = "UPDATE dbo.PlayerData SET player_money = @player_money WHERE player_id = @player_id ";
-
-            var taxesCommand = new SqlCommand(taxesQuery, DbContext.GetSqlConnection());
-            taxesCommand.Parameters.AddWithValue("@player_money", player.PlayerMoney);
-            taxesCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
-
-            taxesCommand.ExecuteNonQuery();
-
-            taxesCommand.Dispose();
-
-            return player;
-        }
-
-        public static Player UpdatePlayerMoney(Player player, SqlConnection connection)
-        {
-            string taxesQuery = "UPDATE dbo.PlayerData SET player_money = @player_money WHERE player_id = @player_id ";
-
-            var taxesCommand = new SqlCommand(taxesQuery, connection);
-            taxesCommand.Parameters.AddWithValue("@player_money", player.PlayerMoney);
-            taxesCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
-
-            taxesCommand.ExecuteNonQuery();
-
-            taxesCommand.Dispose();
-
+            DbContext.GetSqlConnection().ExecuteAsync("UPDATE dbo.PlayerData SET player_money = @player_money WHERE player_id = @player_id", new { player_money = player.PlayerMoney, player_id = player.PlayerId });
             return player;
         }
 
         public static Player UpdatePlayerLand(Player player, Land land)
         {
-            string taxesQuery = "UPDATE dbo.PlayerData SET player_current_region = @player_current_region WHERE player_id = @player_id ";
-
-            var taxesCommand = new SqlCommand(taxesQuery, DbContext.GetSqlConnection());
-            taxesCommand.Parameters.AddWithValue("@player_current_region", land.LandId);
-            taxesCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
-
             player.PlayerCurrentRegion = land.LandId;
-
-            taxesCommand.ExecuteNonQuery();
-
-            taxesCommand.Dispose();
-
+            DbContext.GetSqlConnection().Execute("UPDATE dbo.PlayerData SET player_current_region = @player_current_region WHERE player_id = @player_id", new { player_current_region = land.LandId, player_id = player.PlayerId});
             return player;
         }
 
-        public static void UpdatePlayerName(string playerId, string newPlayerName)
+        public static void UpdatePlayerName(string playerId, string playerName)
         {
-            string userQuery = "UPDATE dbo.PlayerData SET player_name = @player_name WHERE player_id = @player_id";
-            var userCommand = new SqlCommand(userQuery, DbContext.GetSqlConnection());
-
-
-            userCommand.Parameters.AddWithValue("@player_id", playerId);
-            userCommand.Parameters.AddWithValue("@player_name", newPlayerName);
-
-            userCommand.ExecuteNonQuery();
-            userCommand.Dispose();
+            DbContext.GetSqlConnection().Execute("UPDATE dbo.PlayerData SET player_name = @player_name WHERE player_id = @player_id", new { player_name = playerName, player_id = playerId });
         }
 
 
-        public static List<Player> GetXpInfo(List<Player> players, User user)
+        public static List<Player> GetXpInfo()
         {
-            string query = "SELECT * FROM dbo.PlayerData ORDER BY player_exp desc";
-
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
-
-            using (var reader = command.ExecuteReader())
-            {
-
-                var playerId = reader.GetOrdinal("player_id");
-                var playerExp = reader.GetOrdinal("player_exp");
-                var playerName = reader.GetOrdinal("player_name");
-
-                while (reader.Read())
-                {
-                    Player player = new Player();
-                    player.PlayerId = reader.GetString(playerId);
-                    player.PlayerExp = reader.GetInt64(playerExp);
-                    player.PlayerName = reader.GetString(playerName);
-                    players.Add(player);
-                }
-                reader.Close();
-            }
-            command.Dispose();
-
-            return players;
+            return DbContext.GetSqlConnection().Query<Player>("SELECT * FROM PlayerData ORDER BY player_exp DESC").ToList();
         }
 
-        public static List<Player> GetCoinsInfo(List<Player> players, User user)
+        public static string GetPlayerExp(string playerId)
         {
-            string query = "SELECT * FROM dbo.PlayerData ORDER BY player_money desc";
-
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
-
-            using (var reader = command.ExecuteReader())
-            {
-
-                var playerId = reader.GetOrdinal("player_id");
-                var playerMoney = reader.GetOrdinal("player_money");
-                var playerName = reader.GetOrdinal("player_name");
-
-                while (reader.Read())
-                {
-                    Player player = new Player();
-                    player.PlayerId = reader.GetString(playerId);
-                    player.PlayerMoney = reader.GetInt64(playerMoney);
-                    player.PlayerName = reader.GetString(playerName);
-                    players.Add(player);
-                }
-                reader.Close();
-            }
-            command.Dispose();
-
-            return players;
+            return DbContext.GetSqlConnection().Query<string>("SELECT player_exp FROM dbo.PlayerData WHERE player_id = @player_id", new { player_id = playerId }).FirstOrDefault().ToString();
         }
+
+        //string query = "SELECT * FROM dbo.PlayerData ORDER BY player_money desc";
 
         public static void UpdatePlayerExpAndLvl(Player player)
         {
-            string Query = "UPDATE dbo.PlayerData SET player_exp = @player_exp, player_lvl = @player_lvl WHERE player_id = @player_id ";
-
-            var Command = new SqlCommand(Query, DbContext.GetSqlConnection());
-            Command.Parameters.AddWithValue("@player_exp", player.PlayerExp);
-            Command.Parameters.AddWithValue("@player_lvl", player.PlayerLvl);
-            Command.Parameters.AddWithValue("@player_id", player.PlayerId);
-
-            Command.ExecuteNonQuery();
-
-            Command.Dispose();
+            DbContext.GetSqlConnection().Execute("UPDATE dbo.PlayerData SET player_exp = @player_exp, player_lvl = @player_lvl WHERE player_id = @player_id", new { player_exp = player.PlayerExp, player_lvl = player.PlayerLvl, player_id = player.PlayerId});
         }
 
         public static List<int> DeletePlayerManufactureLandData(Peasants peasants, Player player)
         {
-            string Query = "SELECT manufacture_peasant_work FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id";
+            //string Query = "SELECT manufacture_peasant_work FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id";
+
+            //List<int> listPeasantsWork = new List<int>();
+
+            //var command = new SqlCommand(Query, DbContext.GetSqlConnection());
+            //command.Parameters.AddWithValue("@player_id", player.PlayerId);
+
+            //using (var reader = command.ExecuteReader())
+            //{
+
+            //    var manufacturePeasantsWork = reader.GetOrdinal("manufacture_peasant_work");
+
+            //    while (reader.Read())
+            //    {
+            //        listPeasantsWork.Add(reader.GetInt32(manufacturePeasantsWork));
+            //    }
+            //    reader.Close();
+            //}
+            //command.Dispose();
+
+            //List<int> list = new List<int>();
+            //if (listPeasantsWork.Count == 2)
+            //{
+            //    for (int i = 0; i < listPeasantsWork.Count; i++)
+            //    {
+            //        list.Add(new int());
+            //    }
+
+            //    for (int i = 0; i < listPeasantsWork.Count; i++)
+            //    {
+            //        list[i] = listPeasantsWork[i];
+            //        peasants.PeasantsWork -= listPeasantsWork[i];
+            //    }
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < 2; i++)
+            //    {
+            //        list.Add(0);
+            //    }
+            //}
+
+
+            //string QueryDelete = "DELETE FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id ";
+            //var Command = new SqlCommand(QueryDelete, DbContext.GetSqlConnection());
+            //Command.Parameters.AddWithValue("@player_id", player.PlayerId);
+            //Command.ExecuteNonQuery();
+            //Command.Dispose();
+            //Console.WriteLine(peasants.PeasantsWork);
 
             List<int> listPeasantsWork = new List<int>();
-
-            var command = new SqlCommand(Query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@player_id", player.PlayerId);
-
-            using (var reader = command.ExecuteReader())
-            {
-
-                var manufacturePeasantsWork = reader.GetOrdinal("manufacture_peasant_work");
-
-                while (reader.Read())
-                {
-                    listPeasantsWork.Add(reader.GetInt32(manufacturePeasantsWork));
-                }
-                reader.Close();
-            }
-            command.Dispose();
-
             List<int> list = new List<int>();
+
+            listPeasantsWork = DbContext.GetSqlConnection().Query<int>("SELECT manufacture_peasant_work FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id", new { player_id = player.PlayerId }).ToList();
             if (listPeasantsWork.Count == 2)
             {
                 for (int i = 0; i < listPeasantsWork.Count; i++)
                 {
                     list.Add(new int());
-                }
-
-                for (int i = 0; i < listPeasantsWork.Count; i++)
-                {
                     list[i] = listPeasantsWork[i];
                     peasants.PeasantsWork -= listPeasantsWork[i];
                 }
+
             }
             else
             {
-                for (int i = 0; i < 2; i++)
-                {
-                    list.Add(0);
-                }
+                list.Add(0); list.Add(0);
             }
-
-
-            string QueryDelete = "DELETE FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id ";
-
-            var Command = new SqlCommand(QueryDelete, DbContext.GetSqlConnection());
-
-            Command.Parameters.AddWithValue("@player_id", player.PlayerId);
-
-            Command.ExecuteNonQuery();
-
-            Command.Dispose();
-
-            //String QueryLandManufactures = "UPDATE dbo.LandManufacturesData SET manufacture_peasant_work = @manufacture_peasant_work WHERE land_id = @land_id ";
-
-            //var CommandLandManufactures = new SqlCommand(QueryLandManufactures, connection);
-
-            //for (int i = 0; i < 2; i++)
-            //{
-            //    CommandLandManufactures.Parameters.AddWithValue("@manufacture_peasant_work", );
-            //    CommandLandManufactures.Parameters.AddWithValue("@player_id", player.PlayerId);
-
-            //    CommandLandManufactures.ExecuteNonQuery();
-            //}
-            //CommandLandManufactures.Dispose();
+            DbContext.GetSqlConnection().Execute("DELETE FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id", new { player_id = player.PlayerId });
             Console.WriteLine(peasants.PeasantsWork);
-
             return list;
         }
 
-        public static Player UpdatePlayerDonationMoney(Player player)
+        public static int GetPlayerResourceAmount(Player _player, string resourceName)
         {
-            string taxesQuery = "UPDATE dbo.PlayerData SET player_donation = @player_donation WHERE player_id = @player_id ";
-
-            var taxesCommand = new SqlCommand(taxesQuery, DbContext.GetSqlConnection());
-            taxesCommand.Parameters.AddWithValue("@player_donation", player.PlayerDonation);
-            taxesCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
-
-            taxesCommand.ExecuteNonQuery();
-
-            taxesCommand.Dispose();
-
-            return player;
+            return Convert.ToInt32(DbContext.GetSqlConnection().Query<int>("SELECT " + resourceName + " FROM dbo.StorageData WHERE player_id = @player_id", new { player_id = _player.PlayerId }).FirstOrDefault());
         }
 
         private static Random random;
@@ -455,42 +285,5 @@ namespace LandConquestDB.Models
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-        //public static Player UpdatePlayerImage(Player player)
-        //{
-        //    String taxesQuery = "UPDATE dbo.PlayerData SET player_image = @player_image WHERE player_id = @player_id ";
-
-        //    var taxesCommand = new SqlCommand(taxesQuery, DbContext.GetConnection());
-        //    taxesCommand.Parameters.AddWithValue("@player_image", player.PlayerImage);
-        //    taxesCommand.Parameters.AddWithValue("@player_id", player.PlayerId);
-
-        //    taxesCommand.ExecuteNonQuery();
-
-        //    taxesCommand.Dispose();
-
-        //    return player;
-        //}
-
-        public static int GetPlayerResourceAmount(Player _player, string resourceName)
-        {
-            string Query = "SELECT " + resourceName + " FROM dbo.StorageData WHERE player_id = @player_id";
-        
-            var command = new SqlCommand(Query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@player_id", _player.PlayerId);
-
-            int resourceAmount = 0;
-            using (var reader = command.ExecuteReader())
-            {
-
-                var resourceAmountFromDb = reader.GetOrdinal(resourceName);
-
-                while (reader.Read())
-                {
-                    resourceAmount = reader.GetInt32(resourceAmountFromDb);
-                }
-                reader.Close();
-            }
-            command.Dispose();
-            return resourceAmount;
-        }
     }
 }

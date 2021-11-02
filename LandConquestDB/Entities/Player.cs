@@ -11,7 +11,8 @@
         public long PlayerDonation { get; set; }
         public Image PlayerImage { get; set; }
         public int PlayerTitle { get; set; }
-        public int PlayerCurrentRegion { get; set; }
+        public int PlayerCurrentRegion { get; set;}
+        public int PlayerPrestige { get; set; }
 
         public Player(string _playerId, string _playerName)
         {
@@ -24,6 +25,7 @@
             PlayerMoney = 1;
             PlayerDonation = 2;
             PlayerTitle = 1;
+            PlayerPrestige = 0;
         }
 
         public Player()

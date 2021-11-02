@@ -148,6 +148,9 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Data.Linq">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.SqlClient, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Data.SqlClient.4.3.0\lib\net46\System.Data.SqlClient.dll</HintPath>
     </Reference>
@@ -196,6 +199,9 @@
     </Compile>
     <Compile Include="DialogWIndows\WarResultsDialogWindow.xaml.cs">
       <DependentUpon>WarResultsDialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogWIndows\WelcomeBackReportDialogWindow.xaml.cs">
+      <DependentUpon>WelcomeBackReportDialogWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\CoatOfArmsWindow.xaml.cs">
       <DependentUpon>CoatOfArmsWindow.xaml</DependentUpon>
@@ -287,6 +293,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Logic\ConsumptionLogic.cs" />
+    <Compile Include="Logic\IncomeCalculationLogic.cs" />
     <Compile Include="Logic\LauncherLogic.cs" />
     <Compile Include="Logic\RewardLogic.cs" />
     <Compile Include="Logic\WarLogic.cs" />
@@ -304,6 +311,8 @@
     <Compile Include="Resources\StylesDictionary.xaml.cs">
       <DependentUpon>StylesDictionary.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowViewModels\AuctionWindowViewModel.cs" />
+    <Compile Include="WindowViewModels\AuthorisationWindowViewModel.cs" />
     <Page Include="DialogWIndows\BuyListingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -331,6 +340,10 @@
     <Page Include="DialogWIndows\WarResultsDialogWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DialogWIndows\WelcomeBackReportDialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\CoatOfArmsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -791,6 +804,8 @@
     <Resource Include="Pictures\War\siegePanorama.jpg" />
     <Resource Include="Pictures\Common\exp.png" />
     <Resource Include="Pictures\Common\crown.png" />
+    <Resource Include="Pictures\Icons\Other\Book.png" />
+    <Resource Include="Pictures\Icons\Other\Arrow_blue.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
