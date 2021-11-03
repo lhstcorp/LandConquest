@@ -193,6 +193,7 @@ namespace LandConquest.Forms
             goodsLeatherButton.IsEnabled = false;
             goodsLeatherButton.Opacity = 100;
             goodsColor_Grid.Visibility = Visibility.Hidden;
+            
         }
         private void ShowReportDialog()
         {

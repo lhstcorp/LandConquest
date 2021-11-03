@@ -24,7 +24,7 @@ namespace LandConquestDB.Models
             country.CountryCoffers = coffers;
             country.CapitalId = capitalId;
 
-           //
+           
             countryCommand.Parameters.AddWithValue("@country_name", country.CountryName);
             countryCommand.Parameters.AddWithValue("@country_ruler", country.CountryRuler);
             countryCommand.Parameters.AddWithValue("@country_color", country.CountryColor);
