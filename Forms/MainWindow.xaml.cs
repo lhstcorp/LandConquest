@@ -146,8 +146,6 @@ namespace LandConquest.Forms
 
             lands = LandModel.GetLandsInfo(lands);
             countries = CountryModel.GetCountriesInfo(countries);
-
-
             
 
             LoadWarsOnMap();
@@ -163,7 +161,7 @@ namespace LandConquest.Forms
             //////////////////           
             DailyBonusCount(player);
             ServerDispatcherTimer();
-
+            InitializeResourceTable();
 
             settingsGrid.Visibility = Visibility.Hidden;
             settingsGridBorder.Visibility = Visibility.Hidden;
@@ -177,6 +175,26 @@ namespace LandConquest.Forms
 
         }
 
+        private void InitializeResourceTable()
+        {
+            goodsIronButton.Background = new SolidColorBrush(Color.FromRgb(132, 151, 176));
+            goodsIronButton.IsEnabled = false;
+            goodsIronButton.Opacity = 100;
+            goodsCopperButton.Background = new SolidColorBrush(Color.FromRgb(255, 217, 102));
+            goodsCopperButton.IsEnabled = false;
+            goodsCopperButton.Opacity = 100;
+            goodsGoldOreButton.Background = new SolidColorBrush(Color.FromRgb(255, 255, 101));
+            goodsGoldOreButton.IsEnabled = false;
+            goodsGoldOreButton.Opacity = 100;
+            goodsGemsButton.Background = new SolidColorBrush(Color.FromRgb(157, 195, 230));
+            goodsGemsButton.IsEnabled = false;
+            goodsGemsButton.Opacity = 100;
+            goodsLeatherButton.Background = new SolidColorBrush(Color.FromRgb(139, 69, 19));
+            goodsLeatherButton.IsEnabled = false;
+            goodsLeatherButton.Opacity = 100;
+            goodsColor_Grid.Visibility = Visibility.Hidden;
+            
+        }
         private void ShowReportDialog()
         {
             WelcomeBackReportDialogWindow reportDialog = new WelcomeBackReportDialogWindow(player);
@@ -829,22 +847,27 @@ namespace LandConquest.Forms
 
         private void ChangeMapType(object sender, RoutedEventArgs e)
         {
-            if(GlobalMap.Visibility == Visibility.Visible)
+            if (GlobalMap.Visibility == Visibility.Visible)
             {
                 GlobalMap.Visibility = Visibility.Hidden;
                 GlobalMapBtn.Visibility = Visibility.Hidden;
                 ResourceMap.Visibility = Visibility.Visible;
                 ResourceMapBtn.Visibility = Visibility.Visible;
+                goodsColor_Grid.Visibility = Visibility.Visible;
             }
             else
             {
+                goodsColor_Grid.Visibility = Visibility.Hidden;
                 ResourceMap.Visibility = Visibility.Hidden;
                 ResourceMapBtn.Visibility = Visibility.Hidden;
                 GlobalMap.Visibility = Visibility.Visible;
                 GlobalMapBtn.Visibility = Visibility.Visible;
+
             }
-                    
+
+
         }
+
 
         private void btnGoToLand_Click(object sender, RoutedEventArgs e)
         {
