@@ -85,6 +85,20 @@ namespace LandConquest.Forms
             }
         }
 
+        private object _windowTag;
+        public object WindowTag
+        {
+            get
+            {
+                return _windowTag;
+            }
+            set
+            {
+                _windowTag = value;
+                OnPropertyChanged("WindowTag");
+            }
+        }
+
         public AuctionWindowViewModel(Player _player)
         {
             player = _player;
@@ -177,6 +191,11 @@ namespace LandConquest.Forms
                     BtnDelIsEnabled = false;
                 }
             }
+        }
+
+        public void CloseWindow()
+        {
+            Logic.AssistantLogic.CloseWindowByTag(WindowTag = 1);
         }
 
         public void UpdateListings()
