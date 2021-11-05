@@ -180,7 +180,7 @@ namespace LandConquest.Forms
             goodsIronButton.Background = new SolidColorBrush(Color.FromRgb(132, 151, 176));
             goodsIronButton.IsEnabled = false;
             goodsIronButton.Opacity = 100;
-            goodsCopperButton.Background = new SolidColorBrush(Color.FromRgb(255, 217, 102));
+            goodsCopperButton.Background = new SolidColorBrush(Color.FromRgb(139, 69, 19));
             goodsCopperButton.IsEnabled = false;
             goodsCopperButton.Opacity = 100;
             goodsGoldOreButton.Background = new SolidColorBrush(Color.FromRgb(255, 255, 101));
@@ -189,10 +189,12 @@ namespace LandConquest.Forms
             goodsGemsButton.Background = new SolidColorBrush(Color.FromRgb(157, 195, 230));
             goodsGemsButton.IsEnabled = false;
             goodsGemsButton.Opacity = 100;
-            goodsLeatherButton.Background = new SolidColorBrush(Color.FromRgb(139, 69, 19));
+            goodsLeatherButton.Background = new SolidColorBrush(Color.FromRgb(255, 217, 102)); 
             goodsLeatherButton.IsEnabled = false;
             goodsLeatherButton.Opacity = 100;
             goodsColor_Grid.Visibility = Visibility.Hidden;
+            goodsColorsHelpImg.Visibility = Visibility.Hidden;
+            
             
         }
         private void ShowReportDialog()
@@ -844,24 +846,28 @@ namespace LandConquest.Forms
             }
         }
 
-
+        bool goodsColor = false;
         private void ChangeMapType(object sender, RoutedEventArgs e)
         {
+            goodsColor = false;
             if (GlobalMap.Visibility == Visibility.Visible)
             {
                 GlobalMap.Visibility = Visibility.Hidden;
                 GlobalMapBtn.Visibility = Visibility.Hidden;
                 ResourceMap.Visibility = Visibility.Visible;
                 ResourceMapBtn.Visibility = Visibility.Visible;
-                goodsColor_Grid.Visibility = Visibility.Visible;
+                //goodsColor_Grid.Visibility = Visibility.Visible;
+                goodsColorsHelpImg.Visibility = Visibility.Visible;
             }
             else
             {
-                goodsColor_Grid.Visibility = Visibility.Hidden;
+                goodsColorsHelpImg.Visibility = Visibility.Hidden;
+                //goodsColor_Grid.Visibility = Visibility.Hidden;
                 ResourceMap.Visibility = Visibility.Hidden;
                 ResourceMapBtn.Visibility = Visibility.Hidden;
                 GlobalMap.Visibility = Visibility.Visible;
                 GlobalMapBtn.Visibility = Visibility.Visible;
+                goodsColor_Grid.Visibility = Visibility.Hidden;
 
             }
 
@@ -1260,5 +1266,21 @@ namespace LandConquest.Forms
             LabelServerTime.Content = DateTime.UtcNow.ToLongTimeString();
         }
 
+       
+        private void goodsColorsHelpImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            goodsColor = !goodsColor;
+            if (goodsColor == true)
+            {
+                goodsColor_Grid.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                goodsColor_Grid.Visibility = Visibility.Hidden;
+            }
+
+        }
+
+        
     }
 }
