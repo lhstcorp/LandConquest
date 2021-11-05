@@ -358,7 +358,7 @@
             <Image HorizontalAlignment="Left" Height="28" Margin="97,54,0,0" VerticalAlignment="Top" Width="94" Source="/Pictures/wood_desk_with_circle.png" Stretch="Fill"/>
             <Image HorizontalAlignment="Left" Height="28" Margin="97,82,0,0" VerticalAlignment="Top" Width="94" Source="/Pictures/wood_desk_with_circle.png" Stretch="Fill"/>
             <Image HorizontalAlignment="Left" Height="28" Margin="97,110,0,0" VerticalAlignment="Top" Width="94" Source="/Pictures/wood_desk_with_circle.png" Stretch="Fill"/>
-            
+
             <Image HorizontalAlignment="Left" Height="22" Margin="101,84,0,0" VerticalAlignment="Top" Width="22" Source="/Pictures/coin_donate.png"/>
             <Image HorizontalAlignment="Left" Height="23" Margin="101,56,0,0" VerticalAlignment="Top" Width="22" Source="/Pictures/coins.png"/>
             <Image HorizontalAlignment="Left" Height="22" Margin="100,112,0,0" VerticalAlignment="Top" Width="22" Source="/Pictures/Common/crown.png"/>
@@ -430,7 +430,7 @@
 
             <Label x:Name="LabelServerTime" Content="00:00:00" FontSize="24" Margin="0,0,25,10" VerticalAlignment="Bottom" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" Height="40" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="151"/>
 
-            <Grid x:Name="goodsColor_Grid" ShowGridLines="True" Height="300" Margin="1145,394,75,0" VerticalAlignment="Top" Width="109">
+            <Grid x:Name="goodsColor_Grid" ShowGridLines="True" Height="200" Margin="274,255,966,0" VerticalAlignment="Top" Width="80">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -442,11 +442,11 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Grid.Row="0" Source="/Pictures/Goods/iron.png" />
-                <Image Grid.Column="0" Grid.Row="1" Source="/Pictures/Goods/gold_ore.png" />
-                <Image Grid.Column="0" Grid.Row="2" Source="/Pictures/Goods/copper.png" />
-                <Image Grid.Column="0" Grid.Row="2" Source="/Pictures/Goods/gems.png" Margin="-9,54,8,7" Grid.RowSpan="2" />
-                <Image Grid.Column="0" Grid.Row="4" Source="/Pictures/Goods/leather.png" />
+                <Image Grid.Column="0" Grid.Row="0" Source="/Pictures/iron.png" />
+                <Image Grid.Column="0" Grid.Row="1" Source="/Pictures/gold_ore.png" />
+                <Image Grid.Column="0" Grid.Row="2" Source="/Pictures/copper.png" />
+                <Image Grid.Column="0" Grid.Row="3" Source="/Pictures/gems.png" />
+                <Image Grid.Column="0" Grid.Row="4" Source="/Pictures/leather.png" />
                 <Button x:Name="goodsIronButton" Grid.Column="1" Grid.Row="0" Height="Auto" Width="Auto"/>
                 <Button x:Name="goodsGoldOreButton" Grid.Column="1" Grid.Row="1" Height="Auto" Width="Auto"/>
                 <Button x:Name="goodsCopperButton" Grid.Column="1" Grid.Row="2" Height="Auto" Width="Auto"/>
@@ -454,6 +454,7 @@
                 <Button x:Name="goodsLeatherButton" Grid.Column="1" Grid.Row="4" Height="Auto" Width="Auto"/>
 
             </Grid>
+            <Image x:Name="goodsColorsHelpImg" HorizontalAlignment="Left" Height="38" Margin="325,155,0,0" Source="/LandConquest;component/Pictures/reload_button.png" VerticalAlignment="Top" Width="40" Cursor="Hand" MouseDown="goodsColorsHelpImg_MouseDown"/>
 
 
             <Grid.Background>
