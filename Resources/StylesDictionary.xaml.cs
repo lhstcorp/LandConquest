@@ -48,22 +48,22 @@ namespace LandConquest.Resources
                 {
                     case 4:
                         {
-                            colorOfResource1 = Color.FromRgb(216, 191, 216);
+                            colorOfResource1 = Color.FromRgb(132, 151, 176);
                             break;
                         }
                     case 5:
                         {
-                            colorOfResource1 = Color.FromRgb(255, 215, 0);
+                            colorOfResource1 = Color.FromRgb(255, 255, 101);
                             break;
                         }
                     case 6:
                         {
-                            colorOfResource1 = Color.FromRgb(255, 140, 0);
+                            colorOfResource1 = Color.FromRgb(255, 217, 102);
                             break;
                         }
                     case 7:
                         {
-                            colorOfResource1 = Color.FromRgb(127, 255, 212);
+                            colorOfResource1 = Color.FromRgb(157, 195, 230);
                             break;
                         }
                     case 8:
@@ -77,22 +77,22 @@ namespace LandConquest.Resources
                 {
                     case 4:
                         {
-                            colorOfResource2 = Color.FromRgb(216, 191, 216);
+                            colorOfResource2 = Color.FromRgb(132, 151, 176);
                             break;
                         }
                     case 5:
                         {
-                            colorOfResource2 = Color.FromRgb(255, 215, 0);
+                            colorOfResource2 = Color.FromRgb(255, 255, 101);
                             break;
                         }
                     case 6:
                         {
-                            colorOfResource2 = Color.FromRgb(255, 140, 0);
+                            colorOfResource2 = Color.FromRgb(255, 217, 102);
                             break;
                         }
                     case 7:
                         {
-                            colorOfResource2 = Color.FromRgb(127, 255, 212);
+                            colorOfResource2 = Color.FromRgb(157, 195, 230);
                             break;
                         }
                     case 8:
