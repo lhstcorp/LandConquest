@@ -1153,6 +1153,12 @@ namespace LandConquest.Forms
             moveCounter = Convert.ToInt32(Math.Floor(currentwarLengthInSeconds / 30));
             moveCounterLbl.Content = Convert.ToString(moveCounter);
             setCurrentMoveColor();
+
+            if (moveCounter > 720)
+            {
+                WarResultsDialogWindow window = new WarResultsDialogWindow(player, war);
+                window.Show();
+            }
         }
 
         public void lockSelectedArmy()
