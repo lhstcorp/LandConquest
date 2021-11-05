@@ -141,9 +141,9 @@ namespace LandConquest.Logic
                 return;
             }
 
-            (from Window w in Application.Current.Windows
-                          where w.Tag == tag
-                          select w)?.FirstOrDefault()?.Close();
+            (from Window w in App.Current.Windows
+             where w.Tag == tag
+             select w)?.FirstOrDefault()?.Close();
         }
     }
 }
