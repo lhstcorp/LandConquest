@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LandConquestServer.Entities
+namespace LandConquest.Entities
 {
     public class WarScore
     {
