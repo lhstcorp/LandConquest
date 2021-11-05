@@ -1,6 +1,6 @@
-﻿using LandConquestDB.Entities;
+﻿using LandConquest.Entities;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
-using LandConquestServer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
