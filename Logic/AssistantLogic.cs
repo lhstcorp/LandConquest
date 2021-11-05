@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace LandConquest.Logic
 {
-    public static class LauncherLogic
+    public static class AssistantLogic
     {
         public static async void CheckLocalUtcDateTime()
         {
@@ -132,6 +132,18 @@ namespace LandConquest.Logic
         {
             var splashScreen = new SplashScreen("Pictures/splashscreen.png");
             splashScreen.Show(true, true);
+        }
+
+        public static void CloseWindowByTag(object tag)
+        {
+            if (tag is null)
+            {
+                return;
+            }
+
+            (from Window w in Application.Current.Windows
+                          where w.Tag == tag
+                          select w)?.Single()?.Close();
         }
     }
 }

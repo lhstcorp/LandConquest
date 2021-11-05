@@ -58,7 +58,7 @@ namespace LandConquest
 
         private void CheckVersion()
         {
-            if (LauncherLogic.CheckGameVersion().SequenceEqual(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion))
+            if (AssistantLogic.CheckGameVersion().SequenceEqual(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion))
             {
                 labelGameFiles.Content      = "Game is up to date";
                 labelGameFiles.Foreground   = System.Windows.Media.Brushes.GreenYellow;

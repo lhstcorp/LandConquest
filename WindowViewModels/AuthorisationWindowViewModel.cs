@@ -280,7 +280,7 @@ namespace LandConquest.WindowViewModels
         {
             YDContext.OpenYD();
             //LauncherLogic.DisableActiveCheatsAsync();
-            LauncherLogic.CheckLocalUtcDateTime();
+            AssistantLogic.CheckLocalUtcDateTime();
             LandConquestDB.DbContext.OpenConnectionPool();
             //CheckVersion();
             CurrentOnlineContent        = YDContext.CountConnections().ToString();
@@ -297,7 +297,7 @@ namespace LandConquest.WindowViewModels
 
             if (user.UserLogin == LoginText && user.UserPass == YDCrypto.SHA512(PassText))
             {
-                LauncherLogic.CallSplashScreen();
+                AssistantLogic.CallSplashScreen();
 
                 MainWindow mainWindow = new MainWindow(user);
                 mainWindow.Show();
@@ -314,7 +314,7 @@ namespace LandConquest.WindowViewModels
                     Properties.Settings.Default.UserPassword = "";
                     Properties.Settings.Default.Save();
                 }
-                WindowCloserLogic.CloseCurrentWindow(WindowTag = 1);
+                AssistantLogic.CloseWindowByTag(WindowTag = 1);
             }
             else
             {
@@ -383,7 +383,7 @@ namespace LandConquest.WindowViewModels
                         CreatePersonDialogWindow dialogWindow = new CreatePersonDialogWindow(registeredUser);
                         dialogWindow.Show();
 
-                        WindowCloserLogic.CloseCurrentWindow(WindowTag = 1);
+                        AssistantLogic.CloseWindowByTag(WindowTag = 1);
 
                     }
                     Army army = new Army();
@@ -455,7 +455,7 @@ namespace LandConquest.WindowViewModels
 
         public void Download()
         {
-            LauncherLogic.DownloadGame();
+            AssistantLogic.DownloadGame();
         }
 
         public void ShowAgreement()

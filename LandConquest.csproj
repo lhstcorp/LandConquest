@@ -294,10 +294,9 @@
     </Compile>
     <Compile Include="Logic\ConsumptionLogic.cs" />
     <Compile Include="Logic\IncomeCalculationLogic.cs" />
-    <Compile Include="Logic\LauncherLogic.cs" />
+    <Compile Include="Logic\AssistantLogic.cs" />
     <Compile Include="Logic\RewardLogic.cs" />
     <Compile Include="Logic\WarLogic.cs" />
-    <Compile Include="Logic\WindowCloserLogic.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
