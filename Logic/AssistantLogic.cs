@@ -143,7 +143,7 @@ namespace LandConquest.Logic
 
             (from Window w in Application.Current.Windows
                           where w.Tag == tag
-                          select w)?.Single()?.Close();
+                          select w)?.FirstOrDefault()?.Close();
         }
     }
 }
