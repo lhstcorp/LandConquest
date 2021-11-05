@@ -13,7 +13,7 @@ namespace LandConquest.Forms
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void buttonCreateListing_Click(object sender, RoutedEventArgs e)

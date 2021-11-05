@@ -297,6 +297,7 @@
     <Compile Include="Logic\LauncherLogic.cs" />
     <Compile Include="Logic\RewardLogic.cs" />
     <Compile Include="Logic\WarLogic.cs" />
+    <Compile Include="Logic\WindowCloserLogic.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
