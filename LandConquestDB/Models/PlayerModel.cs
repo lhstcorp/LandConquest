@@ -263,7 +263,11 @@ namespace LandConquestDB.Models
             }
             else
             {
-                list.Add(0); list.Add(0);
+                list.AddRange(new List<int>
+                {
+                    new int(),
+                    new int()
+                }); 
             }
             DbContext.GetSqlConnection().Execute("DELETE FROM dbo.PlayerLandManufactureData WHERE player_id = @player_id", new { player_id = player.PlayerId });
             Console.WriteLine(peasants.PeasantsWork);
