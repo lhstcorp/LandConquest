@@ -13,7 +13,7 @@
         lex:ResxLocalizationProvider.DefaultDictionary="Resources"  
         mc:Ignorable="d"
         WindowStyle="None" ResizeMode="NoResize"
-        Title="MarketWindow" Height="450" Width="670" ShowInTaskbar="False" Loaded="Window_Loaded">
+        Title="MarketWindow" Tag="{Binding WindowTag}" Height="450" Width="670" ShowInTaskbar="False" Loaded="Window_Loaded">
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="670">
         <Grid>
