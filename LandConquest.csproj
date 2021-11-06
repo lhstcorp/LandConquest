@@ -311,6 +311,8 @@
     <Compile Include="Resources\StylesDictionary.xaml.cs">
       <DependentUpon>StylesDictionary.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowDialogViewModels\WarPreviewDialogWindowViewModel.cs" />
+    <Compile Include="WindowDialogViewModels\WarResultsDialogWindowViewModel.cs" />
     <Compile Include="WindowViewModels\AuctionWindowViewModel.cs" />
     <Compile Include="WindowViewModels\AuthorisationWindowViewModel.cs" />
     <Page Include="DialogWIndows\BuyListingDialog.xaml">

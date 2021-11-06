@@ -1,4 +1,5 @@
 ﻿using LandConquest.Entities;
+using LandConquest.WindowDialogViewModels;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
@@ -30,12 +31,13 @@ namespace LandConquest.DialogWIndows
             player = _player;
             war = _war;
             InitializeComponent();
+            DataContext = new WarResultsDialogWindowViewModel();
             initializeResultValues();
         }
         
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            ((WarResultsDialogWindowViewModel)DataContext).CloseWindow();
         }
 
         private void initializeResultValues()
