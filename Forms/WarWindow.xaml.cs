@@ -1359,20 +1359,22 @@ namespace LandConquest.Forms
 
         private void changeSiegeBtnEnable()
         {
-            if (selectedArmy.PlayerId == player.PlayerId
-             && (selectedArmy.LocalLandId == castleAttackerLocalLandId
-              || selectedArmy.LocalLandId == castleDefenderLocalLandId)
-             && selectedArmy.ArmySide == TURN)
+            if (selectedArmy != null)
             {
-                btnStartSiege.IsEnabled = true;
-                siegeImageBtn.IsEnabled = true;
+                if (selectedArmy.PlayerId == player.PlayerId
+                 && (selectedArmy.LocalLandId == castleAttackerLocalLandId
+                  || selectedArmy.LocalLandId == castleDefenderLocalLandId)
+                 && selectedArmy.ArmySide == TURN)
+                {
+                    btnStartSiege.IsEnabled = true;
+                    siegeImageBtn.IsEnabled = true;
+                }
+                else
+                {
+                    btnStartSiege.IsEnabled = false;
+                    siegeImageBtn.IsEnabled = false;
+                }
             }
-            else
-            {
-                btnStartSiege.IsEnabled = false;
-                siegeImageBtn.IsEnabled = false;
-            }
-
         }
 
         private void lockControls()
