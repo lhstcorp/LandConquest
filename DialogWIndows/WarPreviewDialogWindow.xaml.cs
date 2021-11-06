@@ -149,7 +149,7 @@ namespace LandConquest.DialogWIndows
 
                 ToolTip toolTip = new ToolTip();
                 ToolTipService.SetInitialShowDelay(toolTip, 100);
-                toolTip.Content = PlayerModel.GetPlayerNameById(_armiesA[i].PlayerId);
+                toolTip.Content = PlayerModel.GetPlayerNameById(_armiesD[i].PlayerId);
 
                 playerCoatOfArms.ToolTip = toolTip;
 
@@ -231,7 +231,7 @@ namespace LandConquest.DialogWIndows
                 armyInBattle.ArmyType = ArmyModel.ReturnTypeOfArmy(armyInBattle);
 
                 armyInBattle.PlayerId = player.PlayerId;
-                armyInBattle.ArmyId = UserModel.GenerateId();
+                armyInBattle.ArmyId = AssistantLogic.GenerateId();
 
                 WarLogic.EnterInWar(war, player, armyInBattle);
             }
