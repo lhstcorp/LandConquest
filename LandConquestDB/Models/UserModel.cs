@@ -155,15 +155,5 @@ namespace LandConquestDB.Models
                 }
             }
         }
-
-        public static string GenerateId()
-        {
-            Random random = new Random();
-            Thread.Sleep(15);
-            random = new Random();
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvmxyz0123456789";
-            return new string(Enumerable.Repeat(chars, 16)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
     }
 }

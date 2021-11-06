@@ -1117,6 +1117,7 @@ namespace LandConquest.Forms
         private void FreeData(object data, EventArgs e)
         {
             openedWindow = null;
+            Activate();
             GC.Collect();
         }
 
