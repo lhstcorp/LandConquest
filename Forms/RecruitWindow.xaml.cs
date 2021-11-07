@@ -5,6 +5,7 @@ using LandConquestDB.Models;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using LandConquestDB.Forces;
 
 namespace LandConquest.Forms
 {
@@ -14,6 +15,8 @@ namespace LandConquest.Forms
         private PlayerEquipment equipment;
         private Peasants peasants;
         private Army army;
+        //private ForcesEnum forcesEnum;
+       
 
         public RecruitWindow(Player _player, PlayerEquipment _equipment)
         {
@@ -27,9 +30,12 @@ namespace LandConquest.Forms
         {
             army = new Army();
             peasants = new Peasants();
+            //forcesEnum = new ForcesEnum();
+            
 
             peasants = PeasantModel.GetPeasantsInfo(player, peasants);
             army = ArmyModel.GetArmyInfo(player, army);
+            //forcesEnum = ForcesEnum.Archers.
 
             TotalRecruitPeasants.Content = peasants.PeasantsCount.ToString();
             TotalRecruitArchers.Content = army.ArmyArchersCount.ToString();
@@ -43,6 +49,31 @@ namespace LandConquest.Forms
             siegeConsumption.Content = (int)ConsumptionLogic.Consumption.Siege;
 
             AvailableRecruitPeasants.Content = (peasants.PeasantsMax - peasants.PeasantsCount).ToString();
+
+
+            healthArchersLabel.Content = ForcesEnum.Archers.Health.ToString();
+            forceArchersLabel.Content = ForcesEnum.Archers.Damage.ToString();
+            defenceArchersLabel.Content = ForcesEnum.Archers.Defence.ToString();
+            rangeArchersLabel.Content = ForcesEnum.Archers.Range.ToString();
+            movementArchersLabel.Content = ForcesEnum.Archers.Movement.ToString();
+
+            healthInfantryLabel.Content = ForcesEnum.Infantry.Health.ToString();
+            forceInfantryLabel.Content = ForcesEnum.Infantry.Damage.ToString();
+            defenceInfantryLabel.Content = ForcesEnum.Infantry.Defence.ToString();
+            rangeInfantryLabel.Content = ForcesEnum.Infantry.Range.ToString();
+            movementInfantryLabel.Content = ForcesEnum.Infantry.Movement.ToString();
+
+            healthKnightsLabel.Content = ForcesEnum.Knights.Health.ToString();
+            forceKnightsLabel.Content = ForcesEnum.Knights.Damage.ToString();
+            defenceKnightsLabel.Content = ForcesEnum.Knights.Defence.ToString();
+            rangeKnightsLabel.Content = ForcesEnum.Knights.Range.ToString();
+            movementKnightsLabel.Content = ForcesEnum.Knights.Movement.ToString();
+
+            healthSiegeLabel.Content = ForcesEnum.Siege.Health.ToString();
+            forceSiegeLabel.Content = ForcesEnum.Siege.Damage.ToString();
+            defenceSiegeLabel.Content = ForcesEnum.Siege.Defence.ToString();
+            rangeSiegeLabel.Content = ForcesEnum.Siege.Range.ToString();
+            movementSiegeLabel.Content = ForcesEnum.Siege.Movement.ToString();
 
 
         }
@@ -62,12 +93,12 @@ namespace LandConquest.Forms
                 AvailableRecruitPeasants.Content = (peasants.PeasantsMax - peasants.PeasantsCount).ToString();
                 player.PlayerMoney -= Convert.ToInt32(PeasantsAmount.Text);
                 player = PlayerModel.UpdatePlayerMoney(player);
-                
+
             }
             else
             {
                 WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
-                
+
             }
         }
 
@@ -96,12 +127,12 @@ namespace LandConquest.Forms
                 army.ArmyType = ArmyModel.ReturnTypeOfArmy(army);
                 army = ArmyModel.UpdateArmy(army);
 
-                
+
             }
             else
             {
                 WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
-                
+
             }
         }
 
@@ -125,12 +156,12 @@ namespace LandConquest.Forms
                 army.ArmyType = ArmyModel.ReturnTypeOfArmy(army);
                 army = ArmyModel.UpdateArmy(army);
 
-                
+
             }
             else
             {
                 WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
-                
+
             }
         }
 
@@ -155,12 +186,12 @@ namespace LandConquest.Forms
                 army.ArmyType = ArmyModel.ReturnTypeOfArmy(army);
                 army = ArmyModel.UpdateArmy(army);
 
-                
+
             }
             else
             {
                 WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
-                
+
             }
         }
 
@@ -183,12 +214,12 @@ namespace LandConquest.Forms
                 army.ArmyType = ArmyModel.ReturnTypeOfArmy(army);
                 army = ArmyModel.UpdateArmy(army);
 
-                
+
             }
             else
             {
                 WarningDialogWindow.CallWarningDialogNoResult("Not enough resources!");
-                
+
             }
         }
 
@@ -202,5 +233,6 @@ namespace LandConquest.Forms
             int i;
             return int.TryParse(str, out i) && i >= 1 && i <= 9999;
         }
+      
     }
 }

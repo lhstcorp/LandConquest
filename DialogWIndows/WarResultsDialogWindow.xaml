@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="WarResultsDialogWindow" Height="390" Width="800"
         WindowStartupLocation="CenterScreen"
-        WindowStyle="None" ResizeMode="NoResize">
+        WindowStyle="None" ResizeMode="NoResize"
+        Tag="{Binding WindowTag}">
     <Border BorderBrush="#FF392018" BorderThickness="5" Height="Auto" Width="Auto">
         <Grid>
 

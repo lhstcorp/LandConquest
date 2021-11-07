@@ -311,6 +311,8 @@
     <Compile Include="Resources\StylesDictionary.xaml.cs">
       <DependentUpon>StylesDictionary.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowDialogViewModels\WarPreviewDialogWindowViewModel.cs" />
+    <Compile Include="WindowDialogViewModels\WarResultsDialogWindowViewModel.cs" />
     <Compile Include="WindowViewModels\AuctionWindowViewModel.cs" />
     <Compile Include="WindowViewModels\AuthorisationWindowViewModel.cs" />
     <Page Include="DialogWIndows\BuyListingDialog.xaml">
@@ -806,6 +808,10 @@
     <Resource Include="Pictures\Common\crown.png" />
     <Resource Include="Pictures\Icons\Other\Book.png" />
     <Resource Include="Pictures\Icons\Other\Arrow_blue.png" />
+    <Resource Include="Pictures\boots.png" />
+    <Resource Include="Pictures\swords.png" />
+    <Resource Include="Pictures\heart.png" />
+    <Resource Include="Pictures\target.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
