@@ -31,8 +31,38 @@ namespace LandConquest.DialogWIndows
             user = _user;
             person = new Person();
             InitializeComponent();
+            generateMaleName();
+            //generateSurname()!
         }
-      
+
+        private void generateSurname()
+        {
+            Random random = new Random();
+            int namePosition = random.Next(0, Names.Surnames.Length);
+            Person person;// = PersonModel.NotExistsBySurname();
+            if (true)// TODO
+            {
+
+            }
+            else
+            {
+                generateSurname();
+            }
+            Dynasty.Text = Names.Surnames[namePosition];
+        }
+        private void generateMaleName()
+        {
+            Random random = new Random();
+            int namePosition = random.Next(0, Names.MaleNames.Length);
+            personName.Text = Names.MaleNames[namePosition];
+        }
+        private void generateFemaleName()
+        {
+            Random random = new Random();
+            int namePosition = random.Next(0, Names.FemaleNames.Length);
+            personName.Text = Names.FemaleNames[namePosition];
+        }
+
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
             AuthorisationWindow window = new AuthorisationWindow();
@@ -60,15 +90,32 @@ namespace LandConquest.DialogWIndows
         private void Male_Checked(object sender, RoutedEventArgs e)
         {
             person.MaleFemale = true;
+            generateMaleName();
         }
         private void Female_Checked(object sender, RoutedEventArgs e)
         {
             person.MaleFemale = false;
+            generateFemaleName();
         }
 
         private void personName_TextChanged(object sender, TextChangedEventArgs e)
         {
             //person.Name=File.ReadLines(fileName)
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (person.MaleFemale == true)
+            {
+                generateMaleName();
+                //generateSurname();
+            }
+
+            if (person.MaleFemale == false)
+            {
+                generateFemaleName();
+                //generateSurname();
+            }
         }
     }
 }
