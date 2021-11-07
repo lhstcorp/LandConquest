@@ -13,18 +13,18 @@ namespace LandConquestDB.Models
             string colorHex = ColorTranslator.ToHtml(newColor);
             string coffers = "10000";
             int capitalId = land.LandId;
-            string countryQuery = "INSERT INTO dbo.CountryData (country_id,country_name,country_ruler,country_color,country_coffers, capital_id) VALUES (@country_id,@country_name,@country_ruler,@country_color,@country_coffers, @capital_id)";
+            string countryQuery = "INSERT INTO dbo.CountryData (country_name,country_ruler,country_color,country_coffers, capital_id) VALUES (@country_name,@country_ruler,@country_color,@country_coffers, @capital_id)";
             var countryCommand = new SqlCommand(countryQuery, DbContext.GetSqlConnection());
 
             Country country = new Country();
-            country.CountryId = SelectLastIdOfStates() + 1;
+            country.CountryId = SelectLastIdOfStates();
             country.CountryName = land.LandName + " state";
             country.CountryRuler = player.PlayerId;
             country.CountryColor = colorHex;
             country.CountryCoffers = coffers;
             country.CapitalId = capitalId;
 
-            countryCommand.Parameters.AddWithValue("@country_id", country.CountryId);
+           
             countryCommand.Parameters.AddWithValue("@country_name", country.CountryName);
             countryCommand.Parameters.AddWithValue("@country_ruler", country.CountryRuler);
             countryCommand.Parameters.AddWithValue("@country_color", country.CountryColor);

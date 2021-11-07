@@ -47,14 +47,14 @@ namespace LandConquest.Forms
 
             storage = StorageModel.GetPlayerStorage(player);
             landStorage = LandStorageModel.GetLandStorage(land, landStorage);
-            landWoodToolTip.Content = landStorage.LandWood;
-            landFoodToolTip.Content = landStorage.LandFood;
-            landStoneToolTip.Content = landStorage.LandStone;
-            landIronToolTip.Content = landStorage.LandIron;
-            landGoldToolTip.Content = landStorage.LandGoldOre;
-            landCopperToolTip.Content = landStorage.LandCopper;
-            landGemsToolTip.Content = landStorage.LandGems;
-            landLeatherToolTip.Content = landStorage.LandLeather;
+            landWoodToolTip.Content = landStorage.Wood;
+            landFoodToolTip.Content = landStorage.Food;
+            landStoneToolTip.Content = landStorage.Stone;
+            landIronToolTip.Content = landStorage.Iron;
+            landGoldToolTip.Content = landStorage.GoldOre;
+            landCopperToolTip.Content = landStorage.Copper;
+            landGemsToolTip.Content = landStorage.Gems;
+            landLeatherToolTip.Content = landStorage.Leather;
 
             if (WarehouseModel.GetWarehouseId(player.PlayerId, land.LandId).HasValue)//warehouse exists
             {

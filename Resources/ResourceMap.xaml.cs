@@ -10,6 +10,7 @@ namespace LandConquest.Resources
         public ResourceMap()
         {
             InitializeComponent();
+            
         }
     }
 }

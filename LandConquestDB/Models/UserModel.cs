@@ -1,5 +1,6 @@
 ﻿using LandConquestDB.Entities;
 using System;
+using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading;
@@ -111,7 +112,7 @@ namespace LandConquestDB.Models
             userCommand.Dispose();
         }
 
-        public static bool ValidateUserByLogin(string user_login)
+        public static bool CheckLoginExistence(string user_login)
         {
             string query = "SELECT * FROM dbo.UserData WHERE user_login = @user_login";
 
@@ -133,7 +134,7 @@ namespace LandConquestDB.Models
             }
         }
 
-        public static bool ValidateUserByEmail(string user_email)
+        public static bool CheckEmailExistence(string user_email)
         {
             string query = "SELECT * FROM dbo.UserData WHERE user_email = @user_email";
 
@@ -142,27 +143,17 @@ namespace LandConquestDB.Models
 
             using (var reader = command.ExecuteReader())
             {
-                if (reader.HasRows)
+                bool exists = reader.HasRows;
+                reader.Close();
+                if (exists)
                 {
-                    reader.Close();
-                    return false;
+                    return true;
                 }
                 else
                 {
-                    reader.Close();
-                    return true;
+                    return false;
                 }
             }
-        }
-
-        public static string GenerateId()
-        {
-            Random random = new Random();
-            Thread.Sleep(15);
-            random = new Random();
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvmxyz0123456789";
-            return new string(Enumerable.Repeat(chars, 16)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }

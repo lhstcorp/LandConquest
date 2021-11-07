@@ -139,7 +139,7 @@ namespace LandConquestDB.Models
                 {
                     list.Add(new Warehouse
                     {
-                        Id = reader.GetInt32(warehouseId),
+                        WarehouseId = reader.GetInt32(warehouseId),
                         LandId = reader.GetInt32(landId),
                         PlayerId = playerId,
                         LandName = reader.GetString(landName)

@@ -1148,11 +1148,17 @@ namespace LandConquest.Forms
         public void calculateMoveCounter()
         {
             //DateTime warLength = war.WarDateTimeStart;
-            TimeSpan warLength = DateTime.UtcNow.Subtract(war.WarDateTimeStart);
+            TimeSpan warLength = DateTime.UtcNow.Subtract(war.DateTimeStart);
             double currentwarLengthInSeconds = warLength.Hours * 3600 + warLength.Minutes * 60 + warLength.Seconds;
             moveCounter = Convert.ToInt32(Math.Floor(currentwarLengthInSeconds / 30));
             moveCounterLbl.Content = Convert.ToString(moveCounter);
             setCurrentMoveColor();
+
+            if (moveCounter > 720)
+            {
+                WarResultsDialogWindow window = new WarResultsDialogWindow(player, war);
+                window.Show();
+            }
         }
 
         public void lockSelectedArmy()
@@ -1353,20 +1359,22 @@ namespace LandConquest.Forms
 
         private void changeSiegeBtnEnable()
         {
-            if (selectedArmy.PlayerId == player.PlayerId
-             && (selectedArmy.LocalLandId == castleAttackerLocalLandId
-              || selectedArmy.LocalLandId == castleDefenderLocalLandId)
-             && selectedArmy.ArmySide == TURN)
+            if (selectedArmy != null)
             {
-                btnStartSiege.IsEnabled = true;
-                siegeImageBtn.IsEnabled = true;
+                if (selectedArmy.PlayerId == player.PlayerId
+                 && (selectedArmy.LocalLandId == castleAttackerLocalLandId
+                  || selectedArmy.LocalLandId == castleDefenderLocalLandId)
+                 && selectedArmy.ArmySide == TURN)
+                {
+                    btnStartSiege.IsEnabled = true;
+                    siegeImageBtn.IsEnabled = true;
+                }
+                else
+                {
+                    btnStartSiege.IsEnabled = false;
+                    siegeImageBtn.IsEnabled = false;
+                }
             }
-            else
-            {
-                btnStartSiege.IsEnabled = false;
-                siegeImageBtn.IsEnabled = false;
-            }
-
         }
 
         private void lockControls()

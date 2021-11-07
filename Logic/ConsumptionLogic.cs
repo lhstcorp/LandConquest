@@ -43,25 +43,25 @@ namespace LandConquest.Logic
                 {
                     PlayerEntranceModel.UpdateLastEntrance(player);
                     int consumption = CountFunction(player, entranceDifference);
-                    var consumptionDifference = storage.PlayerFood - consumption;
+                    var consumptionDifference = storage.Food - consumption;
                     if (consumptionDifference > 0)
                     {
-                        storage.PlayerFood = consumptionDifference;
+                        storage.Food = consumptionDifference;
                         StorageModel.UpdateStorage(player, storage);
                     }
                     else
                     {
                         Army playerArmy = new Army();
                         playerArmy = ArmyModel.GetArmyInfo(player, playerArmy);
-                        if (storage.PlayerFood > 0)
+                        if (storage.Food > 0)
                         {
-                            ArmyDesert(player, consumption / storage.PlayerFood, playerArmy);
+                            ArmyDesert(player, consumption / storage.Food, playerArmy);
                         }
                         else
                         {
                             ArmyDesert(player, playerArmy.ArmySizeCurrent * 10 , playerArmy);
                         }
-                        storage.PlayerFood = 0;
+                        storage.Food = 0;
                         StorageModel.UpdateStorage(player, storage);
                         WarningDialogWindow.CallWarningDialogNoResult("Milord, part of your army deserted due to lack of provisions. Please, check your storage.");
                     }

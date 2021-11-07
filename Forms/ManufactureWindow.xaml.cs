@@ -79,7 +79,7 @@ namespace LandConquest.Forms
             peasantsWorkingOnB1 = landManufactures[0].ManufacturePeasantWork;
             peasantsWorkingOnB2 = landManufactures[1].ManufacturePeasantWork;
 
-            Quarrylvl.Content = manufactures[1].ManufactureLevel;
+            Quarrylvl.Content = manufactures[1].ManufactureLvl;
             PbQuarry.Maximum = manufactures[1].ManufacturePeasantMax;
             sliderQuarry.Value = manufactures[1].ManufacturePeasantWork;
             sliderQuarry.Maximum = manufactures[1].ManufacturePeasantMax;
@@ -88,12 +88,12 @@ namespace LandConquest.Forms
             ManufactureStatucCheck();
             ProductionStatusButton();
 
-            Sawmilllvl.Content = manufactures[0].ManufactureLevel;
+            Sawmilllvl.Content = manufactures[0].ManufactureLvl;
             PbSawmill.Maximum = manufactures[0].ManufacturePeasantMax;
             sliderSawmill.Value = manufactures[0].ManufacturePeasantWork;
             sliderSawmill.Maximum = manufactures[0].ManufacturePeasantMax;
 
-            Windmilllvl.Content = manufactures[2].ManufactureLevel;
+            Windmilllvl.Content = manufactures[2].ManufactureLvl;
             PbWindmill.Maximum = manufactures[2].ManufacturePeasantMax;
             sliderWindmill.Value = manufactures[2].ManufacturePeasantWork;
             sliderWindmill.Maximum = manufactures[2].ManufacturePeasantMax;
@@ -142,14 +142,14 @@ namespace LandConquest.Forms
             //building 1
 
             buildingName1.Content = landManufactures[0].ManufactureName;
-            building1LvlAmount.Content = landManufactures[0].ManufactureLevel;
+            building1LvlAmount.Content = landManufactures[0].ManufactureLvl;
             PbBuilding1.Maximum = landManufactures[0].ManufacturePeasantMax - landManufactures[0].ManufacturePeasantWork + playerLandManufactures[0].ManufacturePeasantWork;
             sliderBuilding1.Value = playerLandManufactures[0].ManufacturePeasantWork;
             sliderBuilding1.Maximum = landManufactures[0].ManufacturePeasantMax - landManufactures[0].ManufacturePeasantWork + playerLandManufactures[0].ManufacturePeasantWork; //+ playerlm.pw;
             WorkingNowB1.Content = landManufactures[0].ManufacturePeasantWork;
             //building 2
             buildingName2.Content = landManufactures[1].ManufactureName;
-            building2lvlAmount.Content = landManufactures[1].ManufactureLevel;
+            building2lvlAmount.Content = landManufactures[1].ManufactureLvl;
             PbBuilding2.Maximum = landManufactures[1].ManufacturePeasantMax - landManufactures[1].ManufacturePeasantWork + playerLandManufactures[1].ManufacturePeasantWork;
             sliderBuilding2.Value = playerLandManufactures[1].ManufacturePeasantWork;
             sliderBuilding2.Maximum = landManufactures[1].ManufacturePeasantMax - landManufactures[1].ManufacturePeasantWork + playerLandManufactures[1].ManufacturePeasantWork;

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LandConquest.Forms"
         xmlns:ctrls="clr-namespace:LandConquest.Resources"
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
-        lex:LocalizeDictionary.DesignCulture="ru"
+        lex:LocalizeDictionary.DesignCulture="en"
         lex:LocalizeDictionary.IncludeInvariantCulture="False"
         lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
         lex:ResxLocalizationProvider.DefaultDictionary="Resources"  
@@ -168,17 +168,17 @@
                     <Grid.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"  />
                     </Grid.Background>
-                    <TextBlock x:Name="LocLabelMusic" Margin="4,14,35.4,42.6" FontSize="16" TextWrapping="Wrap" Text="{lex:Loc LocLabelMusic_Text}" FontFamily="Trebuchet MS"/>
-                    <CheckBox x:Name="checkBoxMusic" Margin="86,13,3,0" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxMusic_Click" Height="22" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="LocLabelMusic" Margin="5,5,35,70.8" FontSize="16" TextWrapping="Wrap" Text="{lex:Loc LocLabelMusic_Text}" FontFamily="Trebuchet MS"/>
+                    <CheckBox x:Name="checkBoxMusic" Margin="86,4,3,0" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxMusic_Click" Height="22" VerticalAlignment="Top"/>
 
-                    <Border Margin="1,35,21.4,45.6">
+                    <Border Margin="4,30,18,50.8">
                         <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <TextBlock x:Name="LocLabelFullScreen" FontSize="16" TextWrapping="Wrap" Text="{lex:Loc LocLabelFullScreen_Text}" FontFamily="Trebuchet MS" Width="107"/>
                         </Viewbox>
                     </Border>
 
-                    <CheckBox x:Name="checkBoxFs" Margin="86,35,3,0" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxFs_Click" Height="18" VerticalAlignment="Top" />
-                    <TextBlock x:Name="SubmitBugTextBlock" Margin="4,55,10.4,-0.4" FontSize="16" TextWrapping="Wrap" Text="{lex:Loc LocLabelSubmitBag_Text}" TextDecorations="Underline" FontFamily="Trebuchet MS" Cursor="Hand" MouseDown="SubmitBugTextBlock_MouseDown" />
+                    <CheckBox x:Name="checkBoxFs" Margin="86,29,3,0" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxFs_Click" Height="18" VerticalAlignment="Top" />
+                    <TextBlock x:Name="SubmitBugTextBlock" Margin="4,55,3,13.8" FontSize="16" TextWrapping="Wrap" Text="{lex:Loc LocLabelSubmitBag_Text}" TextDecorations="Underline" FontFamily="Trebuchet MS" Cursor="Hand" MouseDown="SubmitBugTextBlock_MouseDown" />
                 </Grid>
             </Border>
 
@@ -334,7 +334,7 @@
                 </Button.Background>
             </Button>
             <Button x:Name="test2" IsEnabled="False" HorizontalAlignment="Left" Height="37" Margin="351,651,0,0" VerticalAlignment="Top" Width="164" Click="test2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="#FFE1A35E"/>
-            <Button x:Name="buttonChat" Content="{lex:Loc LocButtonChat_Content}" Margin="20,0,0,7.8" Click="buttonChat_Click" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="109" Foreground="#FFDFC58F" Height="31" VerticalAlignment="Bottom" FontFamily="Book Antiqua" FontSize="14">
+            <Button x:Name="buttonChat" Content="{lex:Loc LocButtonChat_Content}" Margin="20,0,0,7.8" Click="buttonChat_Click" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="105" Foreground="#FFDFC58F" Height="31" VerticalAlignment="Bottom" FontFamily="Book Antiqua" FontSize="14">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -344,7 +344,7 @@
             <Image x:Name="CountryImage"  HorizontalAlignment="Left" Height="43" Margin="498,13,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/Icons/Menu/IconCountry.png" Width="45" Cursor="Hand" MouseDown="CountryImage_MouseDown"/>
             <Image x:Name="LandImage" HorizontalAlignment="Left" Height="39" Margin="544,13,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/Icons/Menu/IconRegion.png" Width="48" Cursor="Hand" MouseDown="LandImage_MouseDown" Stretch="UniformToFill"/>
 
-            <Border Margin="1159,49,69,653.8">
+            <Border Margin="1151,409,77,293.8">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <Button x:Name="buyMembership" Content="{lex:Loc LocButtonSupportUs_Content}" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="51" IsEnabled="True" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buyMembership_Click" FontFamily="Book Antiqua" FontSize="11">
                         <Button.Background>
@@ -358,7 +358,7 @@
             <Image HorizontalAlignment="Left" Height="28" Margin="97,54,0,0" VerticalAlignment="Top" Width="94" Source="/Pictures/wood_desk_with_circle.png" Stretch="Fill"/>
             <Image HorizontalAlignment="Left" Height="28" Margin="97,82,0,0" VerticalAlignment="Top" Width="94" Source="/Pictures/wood_desk_with_circle.png" Stretch="Fill"/>
             <Image HorizontalAlignment="Left" Height="28" Margin="97,110,0,0" VerticalAlignment="Top" Width="94" Source="/Pictures/wood_desk_with_circle.png" Stretch="Fill"/>
-            
+
             <Image HorizontalAlignment="Left" Height="22" Margin="101,84,0,0" VerticalAlignment="Top" Width="22" Source="/Pictures/coin_donate.png"/>
             <Image HorizontalAlignment="Left" Height="23" Margin="101,56,0,0" VerticalAlignment="Top" Width="22" Source="/Pictures/coins.png"/>
             <Image HorizontalAlignment="Left" Height="22" Margin="100,112,0,0" VerticalAlignment="Top" Width="22" Source="/Pictures/Common/crown.png"/>
@@ -368,7 +368,7 @@
 
             <Border Margin="134,700,1080,7">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center"  HorizontalAlignment="Center">
-                    <Button x:Name="ButtonMailbox" Content="{lex:Loc LocButtonMailbox_Content}" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Left" FontFamily="Book Antiqua" FontSize="14" Click="ButtonMailbox_Click" Height="46">
+                    <Button x:Name="ButtonMailbox" Content="{lex:Loc LocButtonMailbox_Content}" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Left" FontFamily="Book Antiqua" FontSize="14" Click="ButtonMailbox_Click" Height="46" Width="158">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                         </Button.Background>
@@ -429,7 +429,34 @@
             </Border>
 
             <Label x:Name="LabelServerTime" Content="00:00:00" FontSize="24" Margin="0,0,25,10" VerticalAlignment="Bottom" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" Height="40" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="151"/>
-            
+
+            <Grid x:Name="goodsColor_Grid" ShowGridLines="True" Height="200" Margin="274,255,966,0" VerticalAlignment="Top" Width="80">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Grid.Row="0" Source="/Pictures/iron.png" />
+                <Image Grid.Column="0" Grid.Row="1" Source="/Pictures/gold_ore.png" />
+                <Image Grid.Column="0" Grid.Row="2" Source="/Pictures/copper.png" />
+                <Image Grid.Column="0" Grid.Row="3" Source="/Pictures/gems.png" />
+                <Image Grid.Column="0" Grid.Row="4" Source="/Pictures/leather.png" />
+                <Button x:Name="goodsIronButton" Grid.Column="1" Grid.Row="0" Height="Auto" Width="Auto"/>
+                <Button x:Name="goodsGoldOreButton" Grid.Column="1" Grid.Row="1" Height="Auto" Width="Auto"/>
+                <Button x:Name="goodsCopperButton" Grid.Column="1" Grid.Row="2" Height="Auto" Width="Auto"/>
+                <Button x:Name="goodsGemsButton" Grid.Column="1" Grid.Row="3" Height="Auto" Width="Auto"/>
+                <Button x:Name="goodsLeatherButton" Grid.Column="1" Grid.Row="4" Height="Auto" Width="Auto"/>
+
+            </Grid>
+            <Image x:Name="goodsColorsHelpImg" HorizontalAlignment="Left" Height="38" Margin="325,155,0,0" Source="/LandConquest;component/Pictures/reload_button.png" VerticalAlignment="Top" Width="40" Cursor="Hand" MouseDown="goodsColorsHelpImg_MouseDown"/>
+
+
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>

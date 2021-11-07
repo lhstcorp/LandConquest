@@ -333,7 +333,7 @@ namespace LandConquest.DialogWIndows
                     garrisonNew.ArmyHorsemanCount = Convert.ToInt32(sliderKnights.Value);
                     garrisonNew.ArmySiegegunCount = Convert.ToInt32(sliderSiege.Value);
                     garrisonNew.ArmySizeCurrent = garrisonNew.ArmyInfantryCount + garrisonNew.ArmyArchersCount + garrisonNew.ArmyHorsemanCount + garrisonNew.ArmySiegegunCount;
-                    garrisonNew.ArmyId = UserModel.GenerateId();
+                    garrisonNew.ArmyId = Logic.AssistantLogic.GenerateId();
                     garrisonNew.SlotId = Convert.ToInt32(selectedSlot.Name.Replace("slot", ""));
 
                     if (garrisonNew.ArmySizeCurrent > 0)

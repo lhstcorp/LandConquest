@@ -1,4 +1,7 @@
-﻿using LandConquestDB.Entities;
+﻿using LandConquest.Entities;
+using LandConquest.WindowDialogViewModels;
+using LandConquestDB.Entities;
+using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,11 +31,24 @@ namespace LandConquest.DialogWIndows
             player = _player;
             war = _war;
             InitializeComponent();
+            DataContext = new WarResultsDialogWindowViewModel();
+            initializeResultValues();
         }
         
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            ((WarResultsDialogWindowViewModel)DataContext).CloseWindow();
+        }
+
+        private void initializeResultValues()
+        {
+            WarScore warScore = WarScoreModel.getPlayerWarScoreInWar(player.PlayerId, war.WarId);
+
+            if (warScore != null)
+            {
+                expLabel.Content = warScore.Score;
+                prestigeLabel.Content = warScore.Prestige;
+            }
         }
     }
 }

@@ -7,7 +7,7 @@
         public string ManufactureId { get; set; }
         public string ManufactureName { get; set; }
         public int ManufactureType { get; set; }
-        public int ManufactureLevel { get; set; }
+        public int ManufactureLvl { get; set; }
         public int ManufacturePeasantMax { get; set; }
         public int ManufacturePeasantWork { get; set; }
         public int ManufactureProductsHour { get; set; }

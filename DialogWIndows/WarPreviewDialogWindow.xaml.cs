@@ -1,5 +1,6 @@
 using LandConquest.Forms;
 using LandConquest.Logic;
+using LandConquest.WindowDialogViewModels;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
@@ -31,6 +32,7 @@ namespace LandConquest.DialogWIndows
             war = _war;
 
             InitializeComponent();
+            DataContext = new WarPreviewDialogWindowViewModel();
             initWar();
             initWarCaption();
             initPlayerGrids();
@@ -39,7 +41,7 @@ namespace LandConquest.DialogWIndows
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            closeWindow();
         }
 
         private void initWar()
@@ -149,7 +151,7 @@ namespace LandConquest.DialogWIndows
 
                 ToolTip toolTip = new ToolTip();
                 ToolTipService.SetInitialShowDelay(toolTip, 100);
-                toolTip.Content = PlayerModel.GetPlayerNameById(_armiesA[i].PlayerId);
+                toolTip.Content = PlayerModel.GetPlayerNameById(_armiesD[i].PlayerId);
 
                 playerCoatOfArms.ToolTip = toolTip;
 
@@ -231,9 +233,10 @@ namespace LandConquest.DialogWIndows
                 armyInBattle.ArmyType = ArmyModel.ReturnTypeOfArmy(armyInBattle);
 
                 armyInBattle.PlayerId = player.PlayerId;
-                armyInBattle.ArmyId = UserModel.GenerateId();
+                armyInBattle.ArmyId = AssistantLogic.GenerateId();
 
                 WarLogic.EnterInWar(war, player, armyInBattle);
+                closeWindow();
             }
         }
 
@@ -288,13 +291,20 @@ namespace LandConquest.DialogWIndows
             {
                 window = new WarWindow(player, 1, null, armiesInBattle, war);
                 window.Show();
+                closeWindow();
             }
             else if (player.PlayerCurrentRegion == war.LandDefenderId)
             {
                 window = new WarWindow(player, 0, null, armiesInBattle, war);
                 window.Show();
+                closeWindow();
             }
             else WarningDialogWindow.CallWarningDialogNoResult("You are not in any lands of war.\nPlease change your position!");
+        }
+
+        private void closeWindow()
+        {
+            ((WarPreviewDialogWindowViewModel)DataContext).CloseWindow();
         }
 
         private bool validateAvailableTroops()

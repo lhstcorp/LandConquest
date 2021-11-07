@@ -21,7 +21,7 @@ namespace LandConquest.DialogWIndows
         {
             if (TextBoxMessageValue.Text != null && TextBoxPlayerName.Text != null)
             {
-                playerReceiverId = PlayerModel.ValidatePlayerByName(TextBoxPlayerName.Text);
+                playerReceiverId = PlayerModel.CheckPlayerExistenceByName(TextBoxPlayerName.Text);
                 if (playerReceiverId != null)
                 {
                     this.DialogResult = true;

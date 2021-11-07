@@ -32,15 +32,15 @@ namespace LandConquestDB.Models
                 while (reader.Read())
                 {
                     landStorage.LandId = reader.GetString(landId);
-                    landStorage.LandWood = reader.GetInt32(landWood);
-                    landStorage.LandStone = reader.GetInt32(landStone);
-                    landStorage.LandFood = reader.GetInt32(landFood);
-                    landStorage.LandIron = reader.GetInt32(landIron);
-                    landStorage.LandGoldOre = reader.GetInt32(landGoldOre);
-                    landStorage.LandCopper = reader.GetInt32(landCopper);
-                    landStorage.LandGems = reader.GetInt32(landGems);
-                    landStorage.LandLeather = reader.GetInt32(landLeather);
-                    landStorage.LandMoney = reader.GetInt32(landMoney);
+                    landStorage.Wood = reader.GetInt32(landWood);
+                    landStorage.Stone = reader.GetInt32(landStone);
+                    landStorage.Food = reader.GetInt32(landFood);
+                    landStorage.Iron = reader.GetInt32(landIron);
+                    landStorage.GoldOre = reader.GetInt32(landGoldOre);
+                    landStorage.Copper = reader.GetInt32(landCopper);
+                    landStorage.Gems = reader.GetInt32(landGems);
+                    landStorage.Leather = reader.GetInt32(landLeather);
+                    landStorage.Money = reader.GetInt32(landMoney);
                 }
                 reader.Close();
             }
@@ -55,15 +55,15 @@ namespace LandConquestDB.Models
 
             var countryStorageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             // int datetimeResult;
-            countryStorageCommand.Parameters.AddWithValue("@wood", _landStorage.LandWood);
-            countryStorageCommand.Parameters.AddWithValue("@stone", _landStorage.LandStone);
-            countryStorageCommand.Parameters.AddWithValue("@food", _landStorage.LandFood);
-            countryStorageCommand.Parameters.AddWithValue("@copper", _landStorage.LandCopper);
-            countryStorageCommand.Parameters.AddWithValue("@iron", _landStorage.LandIron);
-            countryStorageCommand.Parameters.AddWithValue("@gems", _landStorage.LandGems);
-            countryStorageCommand.Parameters.AddWithValue("@gold_ore", _landStorage.LandGoldOre);
-            countryStorageCommand.Parameters.AddWithValue("@leather", _landStorage.LandLeather);
-            countryStorageCommand.Parameters.AddWithValue("@money", _landStorage.LandMoney);
+            countryStorageCommand.Parameters.AddWithValue("@wood", _landStorage.Wood);
+            countryStorageCommand.Parameters.AddWithValue("@stone", _landStorage.Stone);
+            countryStorageCommand.Parameters.AddWithValue("@food", _landStorage.Food);
+            countryStorageCommand.Parameters.AddWithValue("@copper", _landStorage.Copper);
+            countryStorageCommand.Parameters.AddWithValue("@iron", _landStorage.Iron);
+            countryStorageCommand.Parameters.AddWithValue("@gems", _landStorage.Gems);
+            countryStorageCommand.Parameters.AddWithValue("@gold_ore", _landStorage.GoldOre);
+            countryStorageCommand.Parameters.AddWithValue("@leather", _landStorage.Leather);
+            countryStorageCommand.Parameters.AddWithValue("@money", _landStorage.Money);
             countryStorageCommand.Parameters.AddWithValue("@land_id", land.LandId);
 
             /*
