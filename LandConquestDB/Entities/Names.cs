@@ -8,7 +8,7 @@ namespace LandConquestDB.Entities
 {
     public static class Names
     {
-        static string[] MaleNames = { "Jacob", "Michael", "Joshua", "Matthew", "Ethan", "Andrew", "Daniel", "William", "Joseph", "Christopher",
+        public static string[] MaleNames = { "Jacob", "Michael", "Joshua", "Matthew", "Ethan", "Andrew", "Daniel", "William", "Joseph", "Christopher",
                                       "Anthony", "Ryan", "Nicholas", "David", "Alexander", "Tyler", "James", "John", "Dylan", "Nathan",
                                       "Jonathan", "Brandon", "Samuel", "Christian", "Benjamin", "Zachary", "Logan", "Jose", "Noah", "Justin",
                                       "Elijah", "Gabriel", "Caleb", "Kevin", "Austin", "Robert", "Thomas", "Connor", "Evan", "Aidan",
@@ -22,9 +22,9 @@ namespace LandConquestDB.Entities
                                       "José", "Antonio", "Juan", "Manuel", "Francisco", "Luis", "Miguel", "Javier", "Ángel", "Carlos",
                                       "Andrea", "Luca", "Marco", "Francesco", "Matteo", "Alessandro", "Davide", "Simone", "Federico", "Lorenzo",
                                       "Laurent", "Olivier", "Stefano", "Giuseppe", "Mattia", "Daniele", "Leon", "Lucas", "Maximillian", "Moritz",
-                                      "Tom", "Tim", "Eric", "Jannik", "Alexander", "Aaron", "Paul", "Finn", "Max", "Felix", "Peter", "Michael", 
-                                      "Wolfgang", "Jurgen", "Andreas", "Stephan", "Christian", "Uwe", "Werner", "Hans", "Mathias", "Helmut", 
-                                      "Jorg", "Jens", "Bogdan", "Boris", "Vladimir", "Gavrilo", "Gannadiy", "Gayorgy", "Gleb", "Grigoriy", 
+                                      "Tom", "Tim", "Eric", "Jannik", "Alexander", "Aaron", "Paul", "Finn", "Max", "Felix", "Peter", "Michael",
+                                      "Wolfgang", "Jurgen", "Andreas", "Stephan", "Christian", "Uwe", "Werner", "Hans", "Mathias", "Helmut",
+                                      "Jorg", "Jens", "Bogdan", "Boris", "Vladimir", "Gavrilo", "Gannadiy", "Gayorgy", "Gleb", "Grigoriy",
                                       "Dmitriy", "Dobrynya", "Antip", "Bakai", "Boyan", "Vladislav", "Vseslav", "Andrei", "Arhip", "Askold",
                                       "Elisei", "Zahar", "Igor", "Izyaslav", "Ilia", "Kirill", "Kliment", "Konstantin", "Kondrat", "Kuzma",
                                       "Makar", "Mark", "Matvey", "Miron", "Mihail", "Nestor", "Danila", "Daniil", "Peter", "Michael",
@@ -33,9 +33,10 @@ namespace LandConquestDB.Entities
                                       "Semen", "Sergey", "Stepan", "Taras", "Timofey", "Ustin", "Fedor", "Filipp", "Yuriy", "Yaroslav",
 
 
-                                    };
+                                    }; 
 
-        static string[] FemaleNames = { "Emily", "Emma", "Madison", "Olivia", "Hannah", "Abigail", "Isabella", "Ashley", "Samantha", "Elizabeth",
+
+        public static string[] FemaleNames = { "Emily", "Emma", "Madison", "Olivia", "Hannah", "Abigail", "Isabella", "Ashley", "Samantha", "Elizabeth",
                                         "Alexis", "Sarah", "Grace", "Alyssa", "Sophia", "Lauren", "Brianna", "Kayla", "Natalie", "Anna",
                                         "Jessica", "Taylor", "Chloe", "Hailey", "Ava", "Jasmine", "Sydney", "Victoria", "Ella", "Mia",
                                         "Morgan", "Julia", "Kaitlyn", "Rachel", "Katherine", "Megan", "Alexandra", "Jennifer", "Destiny", "Allison",
@@ -61,7 +62,7 @@ namespace LandConquestDB.Entities
 
                                       };
 
-        static string[] Surnames = {    "Abramson", "Adamson", "Adderliy", "Addington", "Adrian", "Albertson", "Aldridge", "Allford", "Alsopp", "Anderson",
+        public static string[] Surnames = {    "Abramson", "Adamson", "Adderliy", "Addington", "Adrian", "Albertson", "Aldridge", "Allford", "Alsopp", "Anderson",
                                         "Andrews", "Archibald", "Arnold", "Arthurs", "Atcheson", "Attwood", "Audley", "Austin", "Ayrton", "Babcock",
                                         "Backer", "Baldwin", "Bargeman", "Barnes", "Barrington", "Bawerman", "Becker", "Benson", "Berrington", "Birch",
                                         "Bishop", "Black", "Blare", "Blomfield", "Boolman", "Bootman", "Bosworth", "Bradberry", "Bradshaw", "Brickman",
