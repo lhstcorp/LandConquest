@@ -8,7 +8,8 @@
         Title="WarPreviewDialogWindow"
         Height="600" Width="1000"
         WindowStyle="None" ResizeMode="NoResize"
-        ShowInTaskbar="False">
+        ShowInTaskbar="False"
+        Tag="{Binding WindowTag}">
     <Border BorderBrush="#FF392018" BorderThickness="5" Height="Auto" Width="Auto">
         <Grid>
             <Button x:Name="btnClose" Height="20" VerticalAlignment="Top" Width="20" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Margin="0,2,2,0" Click="btnClose_Click">

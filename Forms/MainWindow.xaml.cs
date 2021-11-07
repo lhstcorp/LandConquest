@@ -89,14 +89,13 @@ namespace LandConquest.Forms
             LocalizeDictionary.Instance.SetCurrentThreadCulture = true;
             LocalizeDictionary.Instance.Culture = newCulture;
 
-            if (player.PlayerId == user.UserId)
-            {
-                labelName.Content = player.PlayerName;
-                labelMoney.Content = player.PlayerMoney;
-                convertMoneyToMoneyCode(labelMoney);
-                labelDonation.Content = player.PlayerDonation;
-                convertMoneyToMoneyCode(labelDonation);
-            }
+            labelName.Content = player.PlayerName;
+            labelMoney.Content = player.PlayerMoney;
+            convertMoneyToMoneyCode(labelMoney);
+            labelDonation.Content = player.PlayerDonation;
+            labelPrestige.Content = player.PlayerPrestige;
+            convertMoneyToMoneyCode(labelDonation);
+            
 
             taxes = new Taxes();
             taxes.PlayerId = player.PlayerId;
@@ -1117,6 +1116,7 @@ namespace LandConquest.Forms
         private void FreeData(object data, EventArgs e)
         {
             openedWindow = null;
+            Activate();
             GC.Collect();
         }
 
