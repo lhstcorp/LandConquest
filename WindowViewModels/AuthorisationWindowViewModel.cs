@@ -275,6 +275,62 @@ namespace LandConquest.WindowViewModels
             }
         }
 
+        private Brush _labelGameFilesForeground;
+        public Brush GameFilesForeground
+        {
+            get
+            {
+                return _labelGameFilesForeground;
+            }
+            set
+            {
+                _labelGameFilesForeground = value;
+                OnPropertyChanged("GameFilesForeground");
+            }
+        }
+
+        public Visibility _iconDownloadVisibility;
+        public Visibility IconDownloadVisibility
+        {
+            get
+            {
+                return _iconDownloadVisibility;
+            }
+            set
+            {
+                _iconDownloadVisibility = value;
+                OnPropertyChanged("IconDownloadVisibility");
+            }
+        }
+
+        public Visibility _buttonShowRegistrationVisibility;
+        public Visibility ShowRegistrationVisibility
+        {
+            get
+            {
+                return _buttonShowRegistrationVisibility;
+            }
+            set
+            {
+                _buttonShowRegistrationVisibility = value;
+                OnPropertyChanged("ShowRegistrationVisibility");
+            }
+        }
+
+        public Visibility _registrationGridVisibility;
+        public Visibility RegistrationGridVisibility
+        {
+            get
+            {
+                return _registrationGridVisibility;
+            }
+            set
+            {
+                _registrationGridVisibility = value;
+                OnPropertyChanged("RegistrationGridVisibility");
+            }
+        }
+
 
         public void WindowLoaded()
         {
@@ -282,7 +338,7 @@ namespace LandConquest.WindowViewModels
             //LauncherLogic.DisableActiveCheatsAsync();
             AssistantLogic.CheckLocalUtcDateTime();
             LandConquestDB.DbContext.OpenConnectionPool();
-            //CheckVersion();
+            CheckVersion();
             CurrentOnlineContent        = YDContext.CountConnections().ToString();
             LoginText                   = Properties.Settings.Default.UserLogin;
             PassText                    = Properties.Settings.Default.UserPassword;
@@ -576,6 +632,45 @@ namespace LandConquest.WindowViewModels
             PassValidContent        = "";
             ConfirmPassValidContent = "";
         }
+
+        public void CheckVersion()
+        {
+            if (AssistantLogic.CheckGameVersion().SequenceEqual(System.Diagnostics.FileVersionInfo.GetVersionInfo(
+                System.Reflection.Assembly.GetExecutingAssembly().Location).FileVersion))
+            {
+                GameFilesContent = "Game is up to date";
+                GameFilesForeground = Brushes.GreenYellow;
+                IconDownloadVisibility = Visibility.Hidden;
+            }
+            else
+            {
+                GameFilesContent = "Update required";
+                GameFilesForeground = Brushes.Red;
+                IconDownloadVisibility = Visibility.Visible;
+            }
+        }
+
+        public void ShowRegistration()
+        {
+            ShowRegistrationFields(Visibility.Visible);
+            ShowRegistrationVisibility = Visibility.Hidden;
+        }
+
+        public void CancelRegistration()
+        {
+            ShowRegistrationFields(Visibility.Hidden);
+            ShowRegistrationVisibility = Visibility.Visible;
+            ClearAllValidationNotifications();
+            NewLoginText        = "";
+            NewEmailText        = "";
+            NewPassText         = "";
+            ConfirmNewPassText  = "";
+        }
+        private void ShowRegistrationFields(Visibility visibility)
+        {
+            RegistrationGridVisibility = visibility;
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
