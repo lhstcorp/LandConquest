@@ -51,29 +51,29 @@ namespace LandConquest.Forms
             AvailableRecruitPeasants.Content = (peasants.PeasantsMax - peasants.PeasantsCount).ToString();
 
 
-            healthArchersLabel.Content = ForcesEnum.Archers.Health.ToString();
-            forceArchersLabel.Content = ForcesEnum.Archers.Damage.ToString();
-            defenceArchersLabel.Content = ForcesEnum.Archers.Defence.ToString();
-            rangeArchersLabel.Content = ForcesEnum.Archers.Range.ToString();
-            movementArchersLabel.Content = ForcesEnum.Archers.Movement.ToString();
+            healthArchersLabel.Content = (int)ForcesEnum.Archers.Health;
+            forceArchersLabel.Content = (int)ForcesEnum.Archers.Damage;
+            defenceArchersLabel.Content = (int)ForcesEnum.Archers.Defence;
+            rangeArchersLabel.Content = (int)ForcesEnum.Archers.Range;
+            movementArchersLabel.Content = (int)ForcesEnum.Archers.Movement;
 
-            healthInfantryLabel.Content = ForcesEnum.Infantry.Health.ToString();
-            forceInfantryLabel.Content = ForcesEnum.Infantry.Damage.ToString();
-            defenceInfantryLabel.Content = ForcesEnum.Infantry.Defence.ToString();
-            rangeInfantryLabel.Content = ForcesEnum.Infantry.Range.ToString();
-            movementInfantryLabel.Content = ForcesEnum.Infantry.Movement.ToString();
+            healthInfantryLabel.Content = (int)ForcesEnum.Infantry.Health;
+            forceInfantryLabel.Content = (int)ForcesEnum.Infantry.Damage;
+            defenceInfantryLabel.Content = (int)ForcesEnum.Infantry.Defence;
+            rangeInfantryLabel.Content = (int)ForcesEnum.Infantry.Range;
+            movementInfantryLabel.Content = (int)ForcesEnum.Infantry.Movement;
 
-            healthKnightsLabel.Content = ForcesEnum.Knights.Health.ToString();
-            forceKnightsLabel.Content = ForcesEnum.Knights.Damage.ToString();
-            defenceKnightsLabel.Content = ForcesEnum.Knights.Defence.ToString();
-            rangeKnightsLabel.Content = ForcesEnum.Knights.Range.ToString();
-            movementKnightsLabel.Content = ForcesEnum.Knights.Movement.ToString();
+            healthKnightsLabel.Content = (int)ForcesEnum.Knights.Health;
+            forceKnightsLabel.Content = (int)ForcesEnum.Knights.Damage;
+            defenceKnightsLabel.Content = (int)ForcesEnum.Knights.Defence;
+            rangeKnightsLabel.Content = (int)ForcesEnum.Knights.Range;
+            movementKnightsLabel.Content = (int)ForcesEnum.Knights.Movement;
 
-            healthSiegeLabel.Content = ForcesEnum.Siege.Health.ToString();
-            forceSiegeLabel.Content = ForcesEnum.Siege.Damage.ToString();
-            defenceSiegeLabel.Content = ForcesEnum.Siege.Defence.ToString();
-            rangeSiegeLabel.Content = ForcesEnum.Siege.Range.ToString();
-            movementSiegeLabel.Content = ForcesEnum.Siege.Movement.ToString();
+            healthSiegeLabel.Content = (int)ForcesEnum.Siege.Health;
+            forceSiegeLabel.Content = (int)ForcesEnum.Siege.Damage;
+            defenceSiegeLabel.Content = (int)ForcesEnum.Siege.Defence;
+            rangeSiegeLabel.Content = (int)ForcesEnum.Siege.Range;
+            movementSiegeLabel.Content = (int)ForcesEnum.Siege.Movement;
 
 
         }
