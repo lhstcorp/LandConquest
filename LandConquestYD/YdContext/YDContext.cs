@@ -6,6 +6,9 @@ using System.Reflection;
 using System.Text;
 using YandexDiskNET;
 using DeviceId;
+using System.Net;
+using System.Net.Http.Handlers;
+using System.Threading.Tasks;
 
 namespace LandConquestYD
 {
@@ -33,14 +36,6 @@ namespace LandConquestYD
         public static YandexDiskRest GetYD()
         {
             return disk;
-        }
-
-        public static string ReadResource(string sourceFileName)
-        {
-            var parameter = default(Param);
-            parameter.Path = sourceFileName;
-            string result = ReadFile((string)JObject.Parse(CommandDisk(oauth, parameter)).SelectToken("href"));
-            return result;
         }
 
         public static int CountConnections()
@@ -148,6 +143,13 @@ namespace LandConquestYD
             }
         }
 
+        public static string ReadResource(string sourceFileName)
+        {
+            var parameter = default(Param);
+            parameter.Path = sourceFileName;
+            string result = ReadFile((string)JObject.Parse(CommandDisk(oauth, parameter)).SelectToken("href"));
+            return result;
+        }
         private static string ReadFile(string url)
         {
             HttpClient httpClient = HttpClientFactory.Create();
@@ -163,6 +165,49 @@ namespace LandConquestYD
 
             }
             catch (Exception) { return null; }
+        }
+
+        public static async void UploadStringToResource(string destFileName, string fileText, bool overwrite = false)
+        {
+            Param param = default(Param);
+            param.Path = destFileName;
+            param.Overwrite = true;
+            string text = CommandDisk(oauth, param);
+            if (text != null)
+            {
+                await UploadStringToFileAsync((string)JObject.Parse(text).SelectToken("href"), fileText);
+            }
+        }
+
+        private static async Task UploadStringToFileAsync(string url, string fileText)
+        {
+            HttpClient httpClient = HttpClientFactory.Create();
+
+            byte[] byteArray = Encoding.ASCII.GetBytes(fileText);
+
+            using (StreamContent content = new StreamContent(new MemoryStream(byteArray)))
+            {
+                //if ((await httpClient.PutAsync(url, streamContent)).StatusCode == HttpStatusCode.Created)
+                //{
+                //    success = true;
+                //}
+                var result = await httpClient.PutAsync(url, content);
+
+                //var result = httpClient.PutAsync(url, content).Result;
+                Console.WriteLine(result.Content);
+                Console.WriteLine(result.RequestMessage);
+
+            }
+
+            //using (var stream = new MemoryStream(byteArray))
+            //{
+            //    stream.Flush();
+            //    stream.Position = 0;
+            //    using (StreamContent content = new StreamContent(new MemoryStream(byteArray)))
+            //    {
+            //        httpClient.PutAsync(url, content);
+            //    }
+            //}
         }
     }
 }
