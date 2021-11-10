@@ -120,12 +120,23 @@ namespace LandConquestYD
         }
 
 
-        private static string CommandDisk(string oauth, Param param)
+        private static string CommandDisk(string oauth, Param param, bool download = true)
         {
             HttpMethod method = HttpMethod.Get;
             HttpClient httpClient = new HttpClient();
             UrlBuilder urlBuilder = new UrlBuilder(param);
-            var requestUri = "https://cloud-api.yandex.net/v1/disk/resources/download?" + urlBuilder.Path;
+
+            string requestUri;
+
+            if (download)
+            {
+                requestUri = "https://cloud-api.yandex.net/v1/disk/resources/download?" + urlBuilder.Path;
+            } 
+            else
+            {
+                requestUri = "https://cloud-api.yandex.net/v1/disk/resources/upload?" + urlBuilder.Path + urlBuilder.Overwrite;
+            }
+
             try
             {
                 HttpRequestMessage httpRequestMessage = new HttpRequestMessage(method, requestUri);
@@ -167,19 +178,19 @@ namespace LandConquestYD
             catch (Exception) { return null; }
         }
 
-        public static async void UploadStringToResource(string destFileName, string fileText, bool overwrite = false)
+        public static void UploadStringToResource(string destFileName, string fileText, bool overwrite = true)
         {
             Param param = default(Param);
             param.Path = destFileName;
-            param.Overwrite = true;
-            string text = CommandDisk(oauth, param);
+            param.Overwrite = overwrite;
+            string text = CommandDisk(oauth, param, false);
             if (text != null)
             {
-                await UploadStringToFileAsync((string)JObject.Parse(text).SelectToken("href"), fileText);
+                UploadStringToFileAsync((string)JObject.Parse(text).SelectToken("href"), fileText);
             }
         }
 
-        private static async Task UploadStringToFileAsync(string url, string fileText)
+        private static void UploadStringToFileAsync(string url, string fileText)
         {
             HttpClient httpClient = HttpClientFactory.Create();
 
@@ -187,27 +198,8 @@ namespace LandConquestYD
 
             using (StreamContent content = new StreamContent(new MemoryStream(byteArray)))
             {
-                //if ((await httpClient.PutAsync(url, streamContent)).StatusCode == HttpStatusCode.Created)
-                //{
-                //    success = true;
-                //}
-                var result = await httpClient.PutAsync(url, content);
-
-                //var result = httpClient.PutAsync(url, content).Result;
-                Console.WriteLine(result.Content);
-                Console.WriteLine(result.RequestMessage);
-
+                var result = httpClient.PutAsync(url, content).Result;
             }
-
-            //using (var stream = new MemoryStream(byteArray))
-            //{
-            //    stream.Flush();
-            //    stream.Position = 0;
-            //    using (StreamContent content = new StreamContent(new MemoryStream(byteArray)))
-            //    {
-            //        httpClient.PutAsync(url, content);
-            //    }
-            //}
         }
     }
 }
