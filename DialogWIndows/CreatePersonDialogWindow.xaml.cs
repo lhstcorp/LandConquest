@@ -23,6 +23,7 @@ namespace LandConquest.DialogWIndows
     {
         User user;
         Person person;
+        private int dynastyLineNum;
         
         public CreatePersonDialogWindow(User _user)
         {
@@ -49,10 +50,13 @@ namespace LandConquest.DialogWIndows
             //Dynasty.Text = Names.Surnames[namePosition];
 
             var dynasties = YDContext.ReadResource("Dynasty.txt");
-            string[] dynastiesLines = dynasties.Split('\n');
-            Random random = new Random();
-            int dynastyLineNum = random.Next(0, dynastiesLines.Length);
-            Dynasty.Text = dynastiesLines[dynastyLineNum];
+            if (!String.IsNullOrWhiteSpace(dynasties))
+            {
+                string[] dynastiesLines = dynasties.Split('\n');
+                Random random = new Random();
+                dynastyLineNum = random.Next(0, dynastiesLines.Length);
+                Dynasty.Text = dynastiesLines[dynastyLineNum];
+            }
         }
         private void generateMaleName()
         {
@@ -76,14 +80,25 @@ namespace LandConquest.DialogWIndows
 
         private void createPersonBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (PersonModel.CheckPersonDynastyExistence(Dynasty.Text))
+            var dynasty = Dynasty.Text.Replace("\r", "");
+            if (PersonModel.CheckPersonDynastyExistence(dynasty))
             {
                 WarningDialogWindow.CallWarningDialogNoResult("Player with this dynasty already exists!");
                 return;
             }
             else
             {
-
+                var dynasties = YDContext.ReadResource("Dynasty.txt");
+                if (!String.IsNullOrWhiteSpace(dynasties))
+                {
+                    string[] dynastiesLines = dynasties.Split('\n');
+                    if (dynastiesLines[dynastyLineNum].Contains(dynasty))
+                    {
+                        dynastiesLines = dynastiesLines.Where(w => w != dynastiesLines[dynastyLineNum]).ToArray();
+                        var newstr = string.Join("\n", dynastiesLines);
+                        YDContext.UploadStringToResource(@"Dynasty.txt", newstr, true);
+                    }
+                }
             }
             person.PlayerId = user.UserId;
             person.PersonId = Logic.AssistantLogic.GenerateId();
