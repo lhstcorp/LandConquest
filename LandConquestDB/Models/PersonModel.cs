@@ -77,7 +77,9 @@ namespace LandConquestDB.Models
 
         public static bool CheckPersonDynastyExistence(string dynasty)
         {
-            var player_id = DbContext.GetSqlConnection().Query<string>("SELECT player_id FROM dbo.PersonData WHERE surname = @surname", new { surname = dynasty}).FirstOrDefault().ToString();
+            var player_id = "";
+            
+            player_id = DbContext.GetSqlConnection().Query<string>("SELECT player_id FROM dbo.PersonData WHERE surname = @surname", new { surname = dynasty}).FirstOrDefault();
             if(String.IsNullOrWhiteSpace(player_id))
             {
                 return false;

@@ -16,20 +16,6 @@ namespace LandConquestDB
         {
             try
             {
-                var dynasties = YDContext.ReadResource("Dynasty.txt");
-                string[] dynastiesLines = dynasties.Split('\n');
-                
-                int dynastyLineNum = 3;
-
-                dynastiesLines = dynastiesLines.Where(w => w != dynastiesLines[dynastyLineNum]).ToArray();
-
-                var newstr = string.Join("\n", dynastiesLines);
-
-                YDContext.UploadStringToResource(@"Dynasty.txt", newstr, true);
-
-                Console.WriteLine(newstr);
-
-
                 Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
                 sqlconnection = new SqlConnection(YDCrypto.Decrypt(YDContext.ReadResource(value)));
             }
