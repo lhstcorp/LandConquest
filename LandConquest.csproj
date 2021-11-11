@@ -818,6 +818,12 @@
     <Resource Include="Pictures\Mageskill_13.png" />
     <Resource Include="Pictures\tranquility_nobg.png" />
     <Resource Include="Pictures\Assassinskill_37.png" />
+    <Resource Include="Pictures\Archerskill_27.png" />
+    <Resource Include="Pictures\Archerskill_28.png" />
+    <Resource Include="Pictures\Druideskill_44.png" />
+    <Resource Include="Pictures\Sword_26.png" />
+    <Resource Include="Pictures\Bow_13.png" />
+    <Resource Include="Pictures\Chest_58.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
