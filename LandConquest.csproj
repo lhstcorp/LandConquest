@@ -831,6 +831,15 @@
     <Resource Include="Pictures\InWork\strenght.png" />
     <Resource Include="Pictures\Menu items\Rating.png" />
     <Resource Include="Pictures\Menu items\Profile.png" />
+    <Resource Include="Pictures\food_06_t.png" />
+    <Resource Include="Pictures\armor_16.png" />
+    <Resource Include="Pictures\pt_t_16.png" />
+    <Resource Include="Pictures\ar_t_03.png" />
+    <Resource Include="Pictures\st_t_05.png" />
+    <Resource Include="Pictures\sv_t_03.png" />
+    <Resource Include="Pictures\boots_6.png" />
+    <Resource Include="Pictures\boot_t_04.png" />
+    <Resource Include="Pictures\91.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
