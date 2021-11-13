@@ -15,16 +15,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LandConquestYD;
 
 namespace LandConquest.DialogWIndows
 {
-    /// <summary>
-    /// Логика взаимодействия для CreatePersonDialogWindow.xaml
-    /// </summary>
     public partial class CreatePersonDialogWindow : Window
     {
         User user;
         Person person;
+        private int dynastyLineNum;
         
         public CreatePersonDialogWindow(User _user)
         {
@@ -32,23 +31,32 @@ namespace LandConquest.DialogWIndows
             person = new Person();
             InitializeComponent();
             generateMaleName();
-            //generateSurname()!
+            generateSurname();
         }
 
         private void generateSurname()
         {
-            Random random = new Random();
-            int namePosition = random.Next(0, Names.Surnames.Length);
-            Person person;// = PersonModel.NotExistsBySurname();
-            if (true)// TODO
-            {
+            //Random random = new Random();
+            //int namePosition = random.Next(0, Names.Surnames.Length);
+            //Person person;// = PersonModel.NotExistsBySurname();
+            //if (true)// TODO
+            //{
 
-            }
-            else
+            //}
+            //else
+            //{
+            //    generateSurname();
+            //}
+            //Dynasty.Text = Names.Surnames[namePosition];
+
+            var dynasties = YDContext.ReadResource("Dynasty.txt");
+            if (!String.IsNullOrWhiteSpace(dynasties))
             {
-                generateSurname();
+                string[] dynastiesLines = dynasties.Split('\n');
+                Random random = new Random();
+                dynastyLineNum = random.Next(0, dynastiesLines.Length);
+                Dynasty.Text = dynastiesLines[dynastyLineNum];
             }
-            Dynasty.Text = Names.Surnames[namePosition];
         }
         private void generateMaleName()
         {
@@ -72,8 +80,28 @@ namespace LandConquest.DialogWIndows
 
         private void createPersonBtn_Click(object sender, RoutedEventArgs e)
         {
+            var dynasty = Dynasty.Text.Replace("\r", "");
+            if (PersonModel.CheckPersonDynastyExistence(dynasty))
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("Player with this dynasty already exists!");
+                return;
+            }
+            else
+            {
+                var dynasties = YDContext.ReadResource("Dynasty.txt");
+                if (!String.IsNullOrWhiteSpace(dynasties))
+                {
+                    string[] dynastiesLines = dynasties.Split('\n');
+                    if (dynastiesLines[dynastyLineNum].Contains(dynasty))
+                    {
+                        dynastiesLines = dynastiesLines.Where(w => w != dynastiesLines[dynastyLineNum]).ToArray();
+                        var newstr = string.Join("\n", dynastiesLines);
+                        YDContext.UploadStringToResource(@"Dynasty.txt", newstr, true);
+                    }
+                }
+            }
             person.PlayerId = user.UserId;
-            person.PersonId = AuthorisationWindow.GenerateUserId();
+            person.PersonId = Logic.AssistantLogic.GenerateId();
             person.Name = personName.Text;
             person.Surname = Dynasty.Text;
             person.MaleFemale = false;
@@ -108,13 +136,13 @@ namespace LandConquest.DialogWIndows
             if (person.MaleFemale == true)
             {
                 generateMaleName();
-                //generateSurname();
+                generateSurname();
             }
 
             if (person.MaleFemale == false)
             {
                 generateFemaleName();
-                //generateSurname();
+                generateSurname();
             }
         }
     }

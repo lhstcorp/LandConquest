@@ -808,10 +808,22 @@
     <Resource Include="Pictures\Common\crown.png" />
     <Resource Include="Pictures\Icons\Other\Book.png" />
     <Resource Include="Pictures\Icons\Other\Arrow_blue.png" />
-    <Resource Include="Pictures\boots.png" />
     <Resource Include="Pictures\swords.png" />
     <Resource Include="Pictures\heart.png" />
     <Resource Include="Pictures\target.png" />
+    <Resource Include="Pictures\shield_16.png" />
+    <Resource Include="Pictures\two_swords.png" />
+    <Resource Include="Pictures\boots1.png" />
+    <Resource Include="Pictures\Archerskill_50.png" />
+    <Resource Include="Pictures\Mageskill_13.png" />
+    <Resource Include="Pictures\tranquility_nobg.png" />
+    <Resource Include="Pictures\Assassinskill_37.png" />
+    <Resource Include="Pictures\Archerskill_27.png" />
+    <Resource Include="Pictures\Archerskill_28.png" />
+    <Resource Include="Pictures\Druideskill_44.png" />
+    <Resource Include="Pictures\Sword_26.png" />
+    <Resource Include="Pictures\Bow_13.png" />
+    <Resource Include="Pictures\Chest_58.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
