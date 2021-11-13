@@ -271,16 +271,6 @@ namespace LandConquest.Forms
             openedWindow.Closed += FreeData;
         }
 
-        private void buttonTop_Click(object sender, RoutedEventArgs e)
-        {
-            CloseUnusedWindows();
-            openedWindow = new RatingWindow(this, player, playerEntrance, user, army);
-            openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            openedWindow.Show();
-            openedWindow.Closed += FreeData;
-        }
-
         private void buttonChat_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
@@ -340,20 +330,6 @@ namespace LandConquest.Forms
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
-        }
-
-
-
-        private void buttonProfile_Click(object sender, RoutedEventArgs e)
-        {
-            CloseUnusedWindows();
-            openedWindow = new ProfileWindow(player, user);
-            openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            ProfileWindow window = openedWindow as ProfileWindow;
-            window.NameChanged += ProfileWindow_NameChanged;
-            window.Show();
-            window.Closed += FreeData;
         }
 
         void ProfileWindow_NameChanged(string name)
@@ -1281,6 +1257,36 @@ namespace LandConquest.Forms
 
         }
 
-        
+        private void DynastyImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new PersonWindow(player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void RankingImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new RatingWindow(this, player, playerEntrance, user, army);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
+        }
+
+        private void ProfileImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new ProfileWindow(player, user);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            ProfileWindow window = openedWindow as ProfileWindow;
+            window.NameChanged += ProfileWindow_NameChanged;
+            window.Show();
+            window.Closed += FreeData;
+        }
     }
 }
