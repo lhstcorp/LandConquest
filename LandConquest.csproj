@@ -824,6 +824,13 @@
     <Resource Include="Pictures\Sword_26.png" />
     <Resource Include="Pictures\Bow_13.png" />
     <Resource Include="Pictures\Chest_58.png" />
+    <Resource Include="Pictures\InWork\Health.png" />
+    <Resource Include="Pictures\InWork\Intelligence.png" />
+    <Resource Include="Pictures\InWork\knight.png" />
+    <Resource Include="Pictures\InWork\person1.png" />
+    <Resource Include="Pictures\InWork\strenght.png" />
+    <Resource Include="Pictures\Menu items\Rating.png" />
+    <Resource Include="Pictures\Menu items\Profile.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
