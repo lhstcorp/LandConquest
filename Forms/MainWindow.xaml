@@ -63,7 +63,7 @@
 
             <Image HorizontalAlignment="Left" Height="31" Margin="252,18,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/Icons/Menu/IconStorage.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill">
             </Image>
-            <Image HorizontalAlignment="Left" Height="37" Margin="353,16,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/Icons/Menu/IconIndustry.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
+            <Image HorizontalAlignment="Left" Height="37" Margin="353,16,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/Icons/Menu/IconIndustryNew.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
 
             <Button x:Name="reload_button" Content="Refresh" MaxHeight="30" MaxWidth="80" IsEnabled="False" Margin="615,0,625,7.8" BorderBrush="{x:Null}" Foreground="#FFE1CD9B" Width="80" Click="reload_button_Click" FontFamily="Book Antiqua" Height="30" VerticalAlignment="Bottom">
                 <Button.Background>
@@ -72,7 +72,7 @@
             </Button>
 
 
-            <Image x:Name="recruitImage"  HorizontalAlignment="Left" Height="42" Margin="299,13,0,0" VerticalAlignment="Top" Source="/LandConquest;component/Pictures/Icons/Menu/IconRecruit.png" Width="49" MouseDown="recruitImage_MouseDown" RenderTransformOrigin="0.5,0.5" Cursor="Hand"/>
+            <Image x:Name="recruitImage"  HorizontalAlignment="Left" Height="40" Margin="301,15,0,0" VerticalAlignment="Top" Source="/LandConquest;component/Pictures/Icons/Menu/recruit_shield.png" Width="37" MouseDown="recruitImage_MouseDown" RenderTransformOrigin="0.5,0.5" Cursor="Hand"/>
 
             <Button x:Name="btnHideLandGrid" Height="20" Width="20" HorizontalAlignment="Left" Margin="23,408,0,0" VerticalAlignment="Top"  Panel.ZIndex="2" Click="btnHideLandGrid_Click" BorderBrush="{x:Null}" Foreground="{x:Null}">
                 <Button.Background>
@@ -332,8 +332,8 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="35" Margin="402,14,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/Icons/Menu/IconMarket.PNG" Width="36" Cursor="Hand" MouseDown="marketImage_MouseDown" Stretch="UniformToFill"/>
-            <Image x:Name="AuctionImage"  HorizontalAlignment="Left" Height="38" Margin="450,13,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/Icons/Menu/IconAuction.png" Width="39" Cursor="Hand" MouseDown="OpenAuction_Click"/>
+            <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="33" Margin="403,17,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/Icons/Menu/IconMarkerNew.PNG" Width="33" Cursor="Hand" MouseDown="marketImage_MouseDown" Stretch="UniformToFill"/>
+            <Image x:Name="AuctionImage"  HorizontalAlignment="Left" Height="33" Margin="451,14,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/Icons/Menu/IconAuctionNew.png" Width="34" Cursor="Hand" MouseDown="OpenAuction_Click"/>
             <Image x:Name="CountryImage"  HorizontalAlignment="Left" Height="43" Margin="498,13,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/Icons/Menu/IconCountry.png" Width="45" Cursor="Hand" MouseDown="CountryImage_MouseDown"/>
             <Image x:Name="LandImage" HorizontalAlignment="Left" Height="39" Margin="544,13,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/Icons/Menu/IconRegion.png" Width="48" Cursor="Hand" MouseDown="LandImage_MouseDown" Stretch="UniformToFill"/>
             <Image x:Name="DynastyImage" HorizontalAlignment="Left" Height="34" Margin="600,14,0,0" VerticalAlignment="Top"  Source="/Pictures/Common/crown.png" Width="39" Cursor="Hand" MouseDown="DynastyImage_MouseDown" Stretch="UniformToFill"/>
@@ -386,7 +386,7 @@
                 </Viewbox>
             </Border>
 
-            <Border Margin="294,58,985,665">
+            <Border Margin="297,58,984,665">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock Text="{lex:Loc LocLabelRecruitMain_Content}" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="#FF392018" />
                 </Viewbox>

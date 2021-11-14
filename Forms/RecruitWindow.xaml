@@ -91,7 +91,7 @@
                 <Label x:Name="archerCraft2" Content="1" FontSize="8" FontWeight="Bold" Margin="18,16,0,9"/>
                 <Label x:Name="archerCraft3" Content="5" FontSize="8" FontWeight="Bold" Margin="18,30,0,-5"/>
             </Grid>
-            <Grid Margin="389,69,240,194">
+            <Grid Margin="389,51,240,194">
                 <Grid.Background>
                     <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
                 </Grid.Background>
@@ -140,12 +140,14 @@
             <Image Margin="270,90,379,210" Source="/Pictures/armor_16.png" RenderTransformOrigin="0.536,0.464"/>
             <Image Margin="270,105,379,194" Source="/Pictures/pt_t_16.png"/>
             <Image Margin="393,73,256,227" Source="/LandConquest;component/Pictures/sv_t_03.png"/>
+            <Image Margin="392,55,254,241" Source="/LandConquest;component/Pictures/saddle.png"/>
             <Image Margin="393,89,256,211" Source="/LandConquest;component/Pictures/armor_16.png"/>
             <Image Margin="394,105,255,194" Source="/LandConquest;component/Pictures/pt_t_16.png"/>
             <Label x:Name="knightsCraft5" Content="25" FontSize="8" FontWeight="Bold" Margin="405,102,239,190"/>
-            <Label x:Name="knightsCraft3" Content="1" FontSize="8" FontWeight="Bold" Margin="406,86,241,205"/>
-            <Label x:Name="knightsCraft1" Content="1" FontSize="8" FontWeight="Bold" Margin="405,70,242,221"/>
-            <Image Margin="516,92,133,208" Source="/LandConquest;component/Pictures/gear.png"/>
+            <Label x:Name="knightsCraft3" Content="1" FontSize="8" FontWeight="Bold" Margin="407,86,240,205"/>
+            <Label x:Name="knightsCraft1" Content="1" FontSize="8" FontWeight="Bold" Margin="407,70,240,221"/>
+            <Label x:Name="knightsCraft2" Content="1" FontSize="8" FontWeight="Bold" Margin="407,51,240,240"/>
+            <Image Margin="516,91,133,207" Source="/LandConquest;component/Pictures/Armies/SIE-0.png"/>
             <Label x:Name="siegeCraft1" Content="5" FontSize="8" FontWeight="Bold" Margin="530,89,116,205"/>
             <Image Margin="516,103,133,194" Source="/LandConquest;component/Pictures/pt_t_16.png"/>
             <Label x:Name="siegeCraft2" Content="500" FontSize="8" FontWeight="Bold" Margin="527,102,107,192"/>
