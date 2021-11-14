@@ -840,6 +840,11 @@
     <Resource Include="Pictures\boots_6.png" />
     <Resource Include="Pictures\boot_t_04.png" />
     <Resource Include="Pictures\91.png" />
+    <Resource Include="Pictures\saddle.png" />
+    <Resource Include="Pictures\Icons\Menu\recruit_shield.png" />
+    <Resource Include="Pictures\Icons\Menu\IconIndustryNew.png" />
+    <Resource Include="Pictures\Icons\Menu\IconMarkerNew.png" />
+    <Resource Include="Pictures\Icons\Menu\IconAuctionNew.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
