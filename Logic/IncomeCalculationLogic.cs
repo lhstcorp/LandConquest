@@ -146,7 +146,7 @@ namespace LandConquest.Logic
 
             Taxes taxes = new Taxes();
             taxes.PlayerId = _player.PlayerId;
-            taxes = TaxesModel.GetTaxesInfo(taxes);
+            taxes = TaxesModel.GetTaxesInfo(_player.PlayerId);
 
             List<Manufacture> manufactures = ManufactureModel.GetManufactureInfo(_player);
             List<Manufacture> playerLandManufactures = ManufactureModel.GetPlayerLandManufactureInfo(_player);

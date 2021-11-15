@@ -106,7 +106,7 @@ namespace LandConquest.Forms
             peasants = PeasantModel.GetPeasantsInfo(player, peasants);
             sliderTaxes.IsSnapToTickEnabled = true;
 
-            taxes = TaxesModel.GetTaxesInfo(taxes);
+            taxes = TaxesModel.GetTaxesInfo(player.PlayerId);
             sliderTaxes.Value = taxes.TaxValue;
 
             List<Manufacture> manufactures = ManufactureModel.GetManufactureInfo(player);

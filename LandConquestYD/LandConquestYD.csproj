@@ -67,6 +67,7 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="YdContext\APIHelper.cs" />
     <Compile Include="YdContext\YDContext.cs" />
     <Compile Include="YdContext\YDCrypto.cs" />
     <Compile Include="YdContext\YDMessaging.cs" />
