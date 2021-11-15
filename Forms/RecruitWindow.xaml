@@ -10,7 +10,7 @@
         lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
         lex:ResxLocalizationProvider.DefaultDictionary="Resources"  
         mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize"
-        Title="RecruitWindow" Height="320" Width="670" Loaded="Window_Loaded"
+        Title="RecruitWindow" Height="517" Width="850" Loaded="Window_Loaded"
         ShowInTaskbar="False">
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
@@ -30,17 +30,17 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="button_close" Margin="628,1,15,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click" RenderTransformOrigin="0.017,0.817">
+            <Button x:Name="button_close" Margin="820,1,4,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click" RenderTransformOrigin="0.017,0.817">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <Image Margin="142,13,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconArcher.PNG" HorizontalAlignment="Left" Width="109" Height="112" VerticalAlignment="Top" />
-            <Label Content="{lex:Loc LocLabelArchers_Text}"  FontWeight="Bold" Foreground="#311818" Margin="152,121,451,169"/>
-            <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="147,143,482,150"/>
-            <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="196,143,411,150"/>
-            <Label x:Name="TotalRecruitArchers" FontSize="10" Content="0" Foreground="#311818" Margin="147,163,469,126"/>
-            <Label x:Name="AvailableRecruitArchers" Content="0" FontSize="10" Foreground="#311818" Margin="199,163,417,126"/>
+            <Label Content="{lex:Loc LocLabelArchers_Text}"  FontWeight="Bold" Foreground="#311818" Margin="152,121,622,362"/>
+            <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="147,143,657,345"/>
+            <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="196,143,594,344"/>
+            <Label x:Name="TotalRecruitArchers" FontSize="10" Content="0" Foreground="#311818" Margin="147,163,661,324"/>
+            <Label x:Name="AvailableRecruitArchers" Content="0" FontSize="10" Foreground="#311818" Margin="199,163,599,323"/>
             <TextBox x:Name="ArchersAmount"  VerticalContentAlignment="Center" Margin="147,242,0,0" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="PeasantsAmount_PreviewTextInput" HorizontalAlignment="Left" Width="101" Height="25" VerticalAlignment="Top"/>
             <Button x:Name="HireArchers" Content="{lex:Loc LocLabelHire_Text}" Foreground="#e3cd9b" Margin="147,273,0,0" Click="HireArchers_Click" BorderBrush="{x:Null}" Height="25" HorizontalAlignment="Left" Width="101" VerticalAlignment="Top">
                 <Button.Background>
@@ -60,11 +60,11 @@
                 </Button.Background>
             </Button>
             <Image Margin="389,12,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconKnight.png" HorizontalAlignment="Left" Width="109" Height="110" VerticalAlignment="Top" />
-            <Label Content="{lex:Loc LocLabelKnights_Text}"  FontWeight="Bold" Foreground="#311818" Margin="399,122,210,168"/>
-            <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="392,143,237,150"/>
-            <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="444,143,166,150"/>
-            <Label x:Name="TotalRecruitKnights" FontSize="10" Content="0" Foreground="#311818" Margin="392,163,224,126"/>
-            <Label x:Name="AvailableRecruitKnights" Content="0" FontSize="10" Foreground="#311818" Margin="444,163,172,126"/>
+            <Label Content="{lex:Loc LocLabelKnights_Text}"  FontWeight="Bold" Foreground="#311818" Margin="399,122,364,363"/>
+            <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="392,143,408,345"/>
+            <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="444,143,346,345"/>
+            <Label x:Name="TotalRecruitKnights" FontSize="10" Content="0" Foreground="#311818" Margin="392,163,403,324"/>
+            <Label x:Name="AvailableRecruitKnights" Content="0" FontSize="10" Foreground="#311818" Margin="444,163,349,323"/>
             <TextBox x:Name="KnightsAmount" VerticalContentAlignment="Center" Margin="391,242,0,0" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="PeasantsAmount_PreviewTextInput" HorizontalAlignment="Left" Width="101" Height="25" VerticalAlignment="Top"/>
             <Button x:Name="HireKnights" Content="{lex:Loc LocLabelHire_Text}" Foreground="#e3cd9b" Margin="392,273,0,0" Click="HireKnights_Click" BorderBrush="{x:Null}" Height="25" HorizontalAlignment="Left" Width="101" VerticalAlignment="Top">
                 <Button.Background>
@@ -72,11 +72,11 @@
                 </Button.Background>
             </Button>
             <Image Margin="514,13,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconSiegeMachine.png" HorizontalAlignment="Left" Width="111" Height="108" VerticalAlignment="Top" />
-            <Label Content="{lex:Loc LocLabelSiegeMachines_Text}"  FontWeight="Bold" Foreground="#311818" Margin="517,121,45,169"/>
-            <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="518,143,111,150"/>
-            <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="570,143,40,150"/>
-            <Label x:Name="TotalRecruitSiege" FontSize="10" Content="0" Foreground="#311818" Margin="518,163,98,126"/>
-            <Label x:Name="AvailableRecruitSiege" Content="0" FontSize="10" Foreground="#311818" Margin="570,163,46,126"/>
+            <Label Content="{lex:Loc LocLabelSiegeMachines_Text}"  FontWeight="Bold" Foreground="#311818" Margin="517,121,244,367"/>
+            <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="518,143,278,346"/>
+            <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="570,143,218,343"/>
+            <Label x:Name="TotalRecruitSiege" FontSize="10" Content="0" Foreground="#311818" Margin="518,163,278,326"/>
+            <Label x:Name="AvailableRecruitSiege" Content="0" FontSize="10" Foreground="#311818" Margin="570,163,229,325"/>
             <TextBox x:Name="SiegeAmount" Margin="518,242,0,0" VerticalContentAlignment="Center" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="PeasantsAmount_PreviewTextInput" HorizontalAlignment="Left" Width="101" Height="25" VerticalAlignment="Top"/>
             <Button x:Name="HireSiege" Content="{lex:Loc LocLabelHire_Text}" Foreground="#e3cd9b" Margin="518,273,0,0" Click="HireSiege_Click" BorderBrush="{x:Null}" Height="25" HorizontalAlignment="Left" Width="101" VerticalAlignment="Top">
                 <Button.Background>
@@ -122,9 +122,9 @@
             <Image Margin="146,91,0,0" Source="/Pictures/armor_16.png" HorizontalAlignment="Left" Width="15" Height="14" VerticalAlignment="Top"/>
             <Image Margin="146,105,0,0" Source="/Pictures/pt_t_16.png" HorizontalAlignment="Left" Width="15" Height="16" VerticalAlignment="Top"/>
 
-            <Label x:Name="infantryCraft1" Content="1" FontSize="8" FontWeight="Bold" Margin="283,73,364,222"/>
-            <Label x:Name="infantryCraft2" Content="1" FontSize="8" FontWeight="Bold" Margin="283,88,364,203"/>
-            <Label x:Name="infantryCraft3" Content="5" FontSize="8" FontWeight="Bold" Margin="283,103,364,184"/>
+            <Label x:Name="infantryCraft1" Content="1" FontSize="8" FontWeight="Bold" Margin="283,73,546,419"/>
+            <Label x:Name="infantryCraft2" Content="1" FontSize="8" FontWeight="Bold" Margin="283,88,549,405"/>
+            <Label x:Name="infantryCraft3" Content="5" FontSize="8" FontWeight="Bold" Margin="283,103,544,385"/>
             <Image Margin="271,74,0,0" Source="/Pictures/ar_t_03.png" HorizontalAlignment="Left" Width="15" Height="14" VerticalAlignment="Top"/>
             <Image Margin="270,90,0,0" Source="/Pictures/armor_16.png" RenderTransformOrigin="0.536,0.464" HorizontalAlignment="Left" Width="15" Height="14" VerticalAlignment="Top"/>
             <Image Margin="270,105,0,0" Source="/Pictures/pt_t_16.png" HorizontalAlignment="Left" Width="15" Height="15" VerticalAlignment="Top"/>
@@ -132,14 +132,14 @@
             <Image Margin="392,55,0,0" Source="/LandConquest;component/Pictures/saddle.png" HorizontalAlignment="Left" Width="18" Height="18" VerticalAlignment="Top"/>
             <Image Margin="393,89,0,0" Source="/LandConquest;component/Pictures/armor_16.png" HorizontalAlignment="Left" Width="15" Height="14" VerticalAlignment="Top"/>
             <Image Margin="394,105,0,0" Source="/LandConquest;component/Pictures/pt_t_16.png" HorizontalAlignment="Left" Width="15" Height="15" VerticalAlignment="Top"/>
-            <Label x:Name="knightsCraft5" Content="25" FontSize="8" FontWeight="Bold" Margin="405,102,239,190"/>
-            <Label x:Name="knightsCraft3" Content="1" FontSize="8" FontWeight="Bold" Margin="407,86,240,205"/>
-            <Label x:Name="knightsCraft1" Content="1" FontSize="8" FontWeight="Bold" Margin="407,70,240,221"/>
-            <Label x:Name="knightsCraft2" Content="1" FontSize="8" FontWeight="Bold" Margin="407,51,240,240"/>
+            <Label x:Name="knightsCraft5" Content="25" FontSize="8" FontWeight="Bold" Margin="405,102,419,385"/>
+            <Label x:Name="knightsCraft3" Content="1" FontSize="8" FontWeight="Bold" Margin="407,86,423,398"/>
+            <Label x:Name="knightsCraft1" Content="1" FontSize="8" FontWeight="Bold" Margin="407,70,420,422"/>
+            <Label x:Name="knightsCraft2" Content="1" FontSize="8" FontWeight="Bold" Margin="407,51,412,440"/>
             <Image Margin="516,91,0,0" Source="/LandConquest;component/Pictures/Armies/SIE-0.png" HorizontalAlignment="Left" Width="15" Height="16" VerticalAlignment="Top"/>
-            <Label x:Name="siegeCraft1" Content="5" FontSize="8" FontWeight="Bold" Margin="530,89,116,205"/>
+            <Label x:Name="siegeCraft1" Content="5" FontSize="8" FontWeight="Bold" Margin="530,89,297,405"/>
             <Image Margin="516,103,0,0" Source="/LandConquest;component/Pictures/pt_t_16.png" HorizontalAlignment="Left" Width="15" Height="17" VerticalAlignment="Top"/>
-            <Label x:Name="siegeCraft2" Content="500" FontSize="8" FontWeight="Bold" Margin="527,102,107,192"/>
+            <Label x:Name="siegeCraft2" Content="500" FontSize="8" FontWeight="Bold" Margin="527,102,294,389"/>
             <Rectangle Fill="Wheat" Panel.ZIndex="-1" Margin="16,10,0,0" Stroke="#311818" StrokeThickness="3" HorizontalAlignment="Left" Width="114" Height="297" VerticalAlignment="Top" />
 
             <Rectangle Fill="Wheat" Panel.ZIndex="-1" Margin="139,10,0,0" Stroke="#311818" StrokeThickness="3" HorizontalAlignment="Left" Width="115" Height="297" VerticalAlignment="Top" />
