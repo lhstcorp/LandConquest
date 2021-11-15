@@ -15,7 +15,7 @@ namespace LandConquestDB
         public static void OpenConnectionPool()
         {
             try
-            {
+            {               
                 Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
                 sqlconnection = new SqlConnection(YDCrypto.Decrypt(YDContext.ReadResource(value)));
             }
