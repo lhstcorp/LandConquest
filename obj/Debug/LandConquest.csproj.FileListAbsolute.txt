@@ -1,3 +1,0 @@
-C:\Users\green\Documents\GitHub\LandConquest\bin\Debug\LiveCharts.pdb
-C:\Users\green\Documents\GitHub\LandConquest\bin\Debug\MaterialDesignColors.pdb
-C:\Users\green\Documents\GitHub\LandConquest\bin\Debug\Newtonsoft.Json.xml
