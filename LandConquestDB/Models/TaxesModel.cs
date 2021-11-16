@@ -1,6 +1,8 @@
-﻿using LandConquestDB.Entities;
+﻿using Dapper;
+using LandConquestDB.Entities;
 using System;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace LandConquestDB.Models
 {
@@ -100,6 +102,11 @@ namespace LandConquestDB.Models
             taxcommand.Dispose();
 
             return tax;
+        }
+
+        public static Taxes GetTaxesInfo(string playerId)
+        {
+            return DbContext.GetSqlConnection().Query<Taxes>("SELECT * FROM dbo.TaxesData WHERE player_id = @player_id", new { player_id = playerId }).ToList().FirstOrDefault();
         }
     }
 }

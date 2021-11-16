@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using LandConquest.Logic;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace LandConquest.DialogWIndows
 {
     public partial class WelcomeBackReportDialogWindow : Window
     {
-        private Player player { get; set; }
+        private Player player;
         public WelcomeBackReportDialogWindow(Player _player)
         {
             InitializeComponent();
@@ -21,8 +22,9 @@ namespace LandConquest.DialogWIndows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.labelExpOld.Content = player.PlayerExp;
-            this.labelExpNew.Content = Logic.IncomeCalculationLogic.CountPlayerExp(player);
+            this.labelExpOld.Content    = player.PlayerExp;
+            this.labelExpNew.Content    = IncomeCalculationLogic.CountPlayerExp(player);
+            this.labelHours.Content     = $"{(DateTime.UtcNow - PlayerEntranceModel.GetLastEntrance(player)).Hours} hr(s)" ;
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
@@ -32,6 +34,12 @@ namespace LandConquest.DialogWIndows
 
         private void buttonGrabRes_Click(object sender, RoutedEventArgs e)
         {
+            PlayerStorage storage =  StorageModel.GetPlayerStorage(player);
+            Taxes taxes = TaxesModel.GetTaxesInfo(player.PlayerId);
+
+            string playerLvl;
+            IncomeCalculationLogic.CountResources(player, storage, taxes, out player, out storage, out taxes, out playerLvl);
+
             this.Close();
         }
     }
