@@ -10,7 +10,7 @@
         lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
         lex:ResxLocalizationProvider.DefaultDictionary="Resources"  
         mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize"
-        Title="RecruitWindow" Height="517" Width="850" Loaded="Window_Loaded"
+        Title="RecruitWindow" Height="517" Width="860" Loaded="Window_Loaded"
         ShowInTaskbar="False">
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
@@ -30,7 +30,7 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="button_close" Margin="820,1,4,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click" RenderTransformOrigin="0.017,0.817">
+            <Button x:Name="button_close" Margin="834,0,-0.4,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="button_close_Click" RenderTransformOrigin="0.017,0.817">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
                 </Button.Background>
@@ -72,7 +72,7 @@
                 </Button.Background>
             </Button>
             <Image Margin="514,13,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconSiegeMachine.png" HorizontalAlignment="Left" Width="111" Height="108" VerticalAlignment="Top" />
-            <Label Content="{lex:Loc LocLabelSiegeMachines_Text}"  FontWeight="Bold" Foreground="#311818" Margin="517,121,244,367"/>
+
             <Label Content="{lex:Loc LocLabelTotal_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="518,143,278,346"/>
             <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="10" FontWeight="SemiBold" Foreground="#311818" Margin="570,143,218,343"/>
             <Label x:Name="TotalRecruitSiege" FontSize="10" Content="0" Foreground="#311818" Margin="518,163,278,326"/>
@@ -114,9 +114,6 @@
 
             <Label x:Name="knightsConsumption" Content="1" FontSize="10" Panel.ZIndex="1" FontWeight="Bold" Margin="392,12,0,0" HorizontalAlignment="Left" Width="17" Height="20" VerticalAlignment="Top"/>
             <Image Source="/LandConquest;component/Pictures/food_06_t.png" Margin="388,13,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="22"/>
-
-            <Label x:Name="siegeConsumption" Content="1" FontSize="10" Panel.ZIndex="1" FontWeight="Bold" Margin="517,12,0,0" HorizontalAlignment="Left" Width="20" Height="20" VerticalAlignment="Top"/>
-            <Image Source="/LandConquest;component/Pictures/food_06_t.png" Margin="514,13,0,0" HorizontalAlignment="Left" Width="20" Height="20" VerticalAlignment="Top"/>
 
             <Image Margin="146,76,0,0" Source="/Pictures/st_t_05.png" HorizontalAlignment="Left" Width="15" Height="14" VerticalAlignment="Top"/>
             <Image Margin="146,91,0,0" Source="/Pictures/armor_16.png" HorizontalAlignment="Left" Width="15" Height="14" VerticalAlignment="Top"/>
@@ -188,8 +185,20 @@
             <Label x:Name="rangeSiegeLabel" Content="0" FontWeight="Bold"  FontSize="16" Foreground="White" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="587,191,0,0" HorizontalAlignment="Left" Width="33" VerticalAlignment="Top" />
             <Image Source="/LandConquest;component/Pictures/Mageskill_13.png" Margin="552,191,0,0" Width="34" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" />
             <Label x:Name="defenceSiegeLabel" Content="0" FontWeight="Bold"  FontSize="16" Foreground="Black" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="552,191,0,0" HorizontalAlignment="Left" Width="33" VerticalAlignment="Top" />
-            <Image Source="/LandConquest;component/Pictures/boot_t_04.png" Margin="598,95,0,0" HorizontalAlignment="Left" Width="24" Height="24" VerticalAlignment="Top" />
-            <Label x:Name="movementSiegeLabel" Foreground="White" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="607,98,0,0" HorizontalAlignment="Left" Width="17" Height="21" VerticalAlignment="Top" />
+
+
+            <Border BorderBrush="#FF392018" BorderThickness="3" Margin="667,14,26.6,96.4" Height="Auto" Width="Auto">
+                <Grid Background="Wheat" HorizontalAlignment="Left"  Height="400" VerticalAlignment="Top" Width="160">
+                    <Image Source="/LandConquest;component/Pictures/Icons/Army/IconSiegeMachine.png" HorizontalAlignment="Left" Width="169" Height="154" VerticalAlignment="Top" Margin="0,0,-9,0" />
+                    <Label Content="{lex:Loc LocLabelSiegeMachines_Text}" HorizontalContentAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="#311818" Margin="0,153,0,214"/>
+                    <Label x:Name="siegeConsumption" Content="1" FontSize="16" Panel.ZIndex="1" FontWeight="Bold" HorizontalAlignment="Left" Width="20" Height="30" VerticalAlignment="Top" Margin="11,3,0,0"/>
+                    <Image Source="/LandConquest;component/Pictures/food_06_t.png" HorizontalAlignment="Left" Width="40" Height="40" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                    <Image Source="/LandConquest;component/Pictures/boot_t_04.png"  HorizontalAlignment="Left" Width="40" Height="40" VerticalAlignment="Top" Margin="113,112,0,0" />
+                    <Label x:Name="movementSiegeLabel" Foreground="White" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" HorizontalAlignment="Left" Width="33" Height="30" VerticalAlignment="Top" Margin="126,118,0,0" />
+
+                </Grid>
+            </Border>
+
 
 
         </Grid>
