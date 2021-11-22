@@ -9,17 +9,23 @@
         lex:LocalizeDictionary.DesignCulture="ru"
         lex:LocalizeDictionary.IncludeInvariantCulture="False"
         lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
-        lex:ResxLocalizationProvider.DefaultDictionary="Resources"   
-        
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources"        
         mc:Ignorable="d"
         
         Tag="{Binding WindowTag}"  Title="Land Conquest" Height="500" Width="800" MaxHeight="500" MaxWidth="800" MinHeight="500" MinWidth="800" FontFamily="Palatino Linotype">
 
+    <Window.Resources>
+        <Style x:Key="TextBoxHint">
+            <Setter Property="TextBox.TextWrapping" Value="Wrap"/>
+            <Setter Property="TextBox.Height" Value="25"/>
+            <Setter Property="TextBox.VerticalAlignment" Value="Top"/>
+            <Setter Property="TextBox.CaretBrush" Value="Black"/>
+        </Style>
+    </Window.Resources>
+
     <Grid>
-
         <Image x:Name="loginGui" HorizontalAlignment="Left" Height="285" Margin="555,6,0,0"  VerticalAlignment="Top" Width="215" Source="/LandConquest;component/Pictures/login_gui.png" />
-
-        <TextBox x:Name="textBoxLogin" Text="{Binding LoginText, UpdateSourceTrigger=PropertyChanged}" Margin="587,105,53.6,0" TextWrapping="Wrap" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+        <TextBox x:Name="textBoxLogin" Text="{Binding LoginText, UpdateSourceTrigger=PropertyChanged}"  Margin="587,105,53.6,0" TextWrapping="Wrap" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                  materialDesign:HintAssist.Hint=" Login"  materialDesign:HintAssist.IsFloating="False" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" CaretBrush="Black" Height="25" VerticalAlignment="Top" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
         <TextBox x:Name="textBoxPass" Text="{Binding PassText, UpdateSourceTrigger=PropertyChanged}" Margin="587,157,53.6,0" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                      materialDesign:HintAssist.Hint=" Password"  materialDesign:HintAssist.IsFloating="False" Height="27" VerticalAlignment="Top" CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" TextChanged="textBoxPass_TextChanged"/>
@@ -29,7 +35,7 @@
 
         <Grid x:Name="RegistrationGrid" Visibility="{Binding RegistrationGridVisibility, UpdateSourceTrigger=PropertyChanged}">
         <Image x:Name="registerGui" HorizontalAlignment="Left" Height="414" Margin="19,3,0,0" VerticalAlignment="Top" Width="252" Source="/LandConquest;component/Pictures/register_gui.png" />
-        <TextBox x:Name="textBoxNewLogin"  Text="{Binding NewLoginText, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="50,112,0,320.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+        <TextBox x:Name="textBoxNewLogin"   Text="{Binding NewLoginText, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="50,112,0,320.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                       materialDesign:HintAssist.Hint=" New login" CaretBrush="Black" HorizontalAlignment="Left" Width="175" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" LostKeyboardFocus="textBoxNewLogin_LostKeyboardFocus" />
         <TextBox x:Name="textBoxNewEmail" Text="{Binding NewEmailText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" TextWrapping="Wrap" Width="175" Margin="50,172,0,262.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                       materialDesign:HintAssist.Hint=" Email"   CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"  BorderThickness="0" SelectionOpacity="0" LostKeyboardFocus="textBoxNewEmail_LostKeyboardFocus" />
@@ -47,14 +53,6 @@
 
 
         <Button x:Name="buttonShowRegistration" Content="{lex:Loc LocLabelRegister}" Visibility="{Binding ShowRegistrationVisibility, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="53,18,0,0" VerticalAlignment="Top" Width="167" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="46" Click="ButtonShowRegistration_Click" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.083"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0.124"/>
-                </TransformGroup>
-            </Button.RenderTransform>
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/register_btn.png"/>
             </Button.Background>

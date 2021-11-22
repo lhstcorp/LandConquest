@@ -12,6 +12,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace LandConquest.WindowViewModels

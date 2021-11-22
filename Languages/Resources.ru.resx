@@ -139,7 +139,7 @@
     <value>Найти</value>
   </data>
   <data name="LocButtonMailbox_Content" xml:space="preserve">
-    <value>Личные сообщения</value>
+    <value>Почта</value>
   </data>
   <data name="LocButtonProfileMain_Content" xml:space="preserve">
     <value>Профиль</value>
