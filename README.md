@@ -12,8 +12,8 @@ On the agenda:
 - Huge work on validations and bug fixes.
 
 Co-owners:
-- Alexey Smirnov (https://github.com/greendend)
-- Savely Latun (https://github.com/user-pass)
-- Alexey Valuev (https://github.com/Glandeil)
+- Alexey Smirnov [@greendend](https://github.com/greendend)
+- Savely Latun [@user-pass](https://github.com/user-pass)
+- Alexey Valuev [@Glandeil](https://github.com/Glandeil)
 
 The entire list of developers is available in the Contributions tab. Feel free to open an issue or PR, and we'll eventually take a look.
