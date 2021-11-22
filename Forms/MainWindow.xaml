@@ -15,7 +15,7 @@
         Title="Land Conquest"  Height="750" Width="1330" WindowState="Normal" >
 
     <Window.Resources>
-        <ctrls:GlobalMap x:Key="GlobalMap"></ctrls:GlobalMap>
+        <ctrls:GlobalMap x:Key="GlobalMap"/>
         <Style TargetType="{x:Type Path}">
             <EventSetter Event="MouseEnter" Handler="PathEnterHandler"/>
             <EventSetter Event="MouseLeave" Handler="PathLeaveHandler"/>
@@ -23,6 +23,39 @@
             <EventSetter Event="Loaded" Handler="PathLoadedHandler"/>
         </Style>
         <ctrls:ResourceMap x:Key="ResourceMap"></ctrls:ResourceMap>
+
+        <Style x:Key="RoundImage">
+            <Setter Property="Image.Source" Value="/Pictures/Design elements v1.0/circleMainMenu.png"/>
+            <Setter Property="Image.HorizontalAlignment" Value="Left"/>
+            <Setter Property="Image.Height" Value="50"/>
+            <Setter Property="Image.VerticalAlignment" Value="Top"/>
+            <Setter Property="Image.Width" Value="50"/>
+            <Setter Property="Image.Cursor" Value="Hand"/>
+        </Style>
+
+        <Style x:Key="LabelTabs">
+            <Setter Property="Label.HorizontalAlignment" Value="Center"/>
+            <Setter Property="Label.FontFamily" Value="Trebuchet MS"/>
+            <Setter Property="Label.VerticalAlignment" Value="Center"/>
+            <Setter Property="Label.Foreground" Value="#FF392018"/>
+            <Setter Property="Label.FontSize" Value="12"/>
+        </Style>
+
+        <Style x:Key="ButtonPlus">
+            <Setter Property="Button.Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonPlus.jpg"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ButtonMinus">
+            <Setter Property="Button.Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonMinus.jpg"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
     </Window.Resources>
 
@@ -34,7 +67,6 @@
 
             <Canvas x:Name="SymbalLayer" Margin="351,83,0,0" Panel.ZIndex="4" HorizontalAlignment="Left" Width="297" Height="320" VerticalAlignment="Top">
                 <Image x:Name="flag" Source="/Pictures/flag.png" Height="38" Width="33" Panel.ZIndex="4"/>
-                <!--<Line X1="157" Y1="45" X2="35" Y2="67" Stroke="Black"></Line>-->
             </Canvas>
 
             <Viewbox x:Name="GlobalMap" Width="300" Height="300" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand" Margin="351,83,0,0" Panel.ZIndex="3">
@@ -49,17 +81,16 @@
             <Image x:Name="image" Margin="6,0,0,0" Source = "/Pictures/profileImage.png" Stretch="UniformToFill" Height="103" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" />
             <Label x:Name="labelName" Content="Name" Foreground="#FFD7464B" FontSize="28" FontWeight="Bold" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="97,-5,0,0" VerticalAlignment="Top" Width="175" Height="46"/>
 
-            <!--menu header design-->
-            <Image HorizontalAlignment="Left" Height="50" Margin="245,9,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand"/>
-            <Image HorizontalAlignment="Left" Height="50" Margin="295,9,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="recruitImage_MouseDown" Cursor="Hand"/>
-            <Image HorizontalAlignment="Left" Height="50" Margin="345,9,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
-            <Image HorizontalAlignment="Left" Height="50" Margin="395,9,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="marketImage_MouseDown" Cursor="Hand"/>
-            <Image HorizontalAlignment="Left" Height="50" Margin="445,9,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" Cursor="Hand" MouseDown="LandImage_MouseDown"/>
-            <Image HorizontalAlignment="Left" Height="50" Margin="495,9,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" MouseDown="CountryImage_MouseDown" Cursor="Hand"/>
-            <Image HorizontalAlignment="Left" Height="50" Margin="545,9,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" Cursor="Hand" MouseDown="LandImage_MouseDown"/>
-            <Image HorizontalAlignment="Left" Height="50" Margin="595,9,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" Cursor="Hand" MouseDown="DynastyImage_MouseDown"/>
-            <Image HorizontalAlignment="Left" Height="50" Margin="645,9,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" Cursor="Hand" MouseDown="RankingImage_MouseDown"/>
-            <Image HorizontalAlignment="Left" Height="50" Margin="695,9,0,0" VerticalAlignment="Top" Width="50" Source="/Pictures/Design elements v1.0/circleMainMenu.png" Cursor="Hand" MouseDown="ProfileImage_MouseDown"/>
+            <Image Style="{StaticResource RoundImage}" Margin="245,9,0,0" MouseDown="ImageStorage_MouseDown"/>
+            <Image Style="{StaticResource RoundImage}" Margin="295,9,0,0" MouseDown="recruitImage_MouseDown"/>
+            <Image Style="{StaticResource RoundImage}" Margin="345,9,0,0" MouseDown="ImageManufacture_MouseDown"/>
+            <Image Style="{StaticResource RoundImage}" Margin="395,9,0,0" MouseDown="marketImage_MouseDown"/>
+            <Image Style="{StaticResource RoundImage}" Margin="445,9,0,0" MouseDown="LandImage_MouseDown"/>
+            <Image Style="{StaticResource RoundImage}" Margin="495,9,0,0" MouseDown="CountryImage_MouseDown"/>
+            <Image Style="{StaticResource RoundImage}" Margin="545,9,0,0" MouseDown="LandImage_MouseDown"/>
+            <Image Style="{StaticResource RoundImage}" Margin="595,9,0,0" MouseDown="DynastyImage_MouseDown"/>
+            <Image Style="{StaticResource RoundImage}" Margin="645,9,0,0" MouseDown="RankingImage_MouseDown"/>
+            <Image Style="{StaticResource RoundImage}" Margin="695,9,0,0" MouseDown="ProfileImage_MouseDown"/>
 
             <Image HorizontalAlignment="Left" Height="31" Margin="252,18,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/Icons/Menu/IconStorage.png" MouseDown="ImageStorage_MouseDown" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill">
             </Image>
@@ -80,10 +111,7 @@
                 </Button.Background>
             </Button>
 
-            <Button x:Name="btnShowLandGrid"  HorizontalAlignment="Left" Height="20" Width="20" Margin="23,408,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Click="btnShowLandGrid_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonPlus.jpg"/>
-                </Button.Background>
+            <Button x:Name="btnShowLandGrid" Style="{StaticResource ButtonPlus}" HorizontalAlignment="Left" Height="20" Width="20" Margin="23,408,0,0" VerticalAlignment="Top" Panel.ZIndex="2" Click="btnShowLandGrid_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" >
             </Button>
 
             <Border x:Name="Border_Country_characters" BorderBrush="#FF48291F" BorderThickness="3" Height="286" Width="Auto" Margin="20,405,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -97,24 +125,14 @@
                     <Image Margin="129,184,0,0" HorizontalAlignment="Left"  Height="60" Width="60"  VerticalAlignment="Top" Source="/Pictures/epic_brown_square.png"/>
 
                     <Label x:Name="lblLandNameOnGrid" HorizontalContentAlignment="Center" Content="Territory name" FontFamily="Trebuchet MS" Foreground="#FF492F2C" FontSize="16" Margin="10,54,0,0" Background="{x:Null}" HorizontalAlignment="Left" Width="194" FontWeight="Bold" Height="30" VerticalAlignment="Top"/>
-                    <Button x:Name="btnGoToLand" Content="{lex:Loc LocLabelGoTo_Text}" Margin="25,94,25,0" Click="btnGoToLand_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D" FontSize="14" FontFamily="Book Antiqua" Height="38" VerticalAlignment="Top">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                        </Button.Background>
+                    <Button x:Name="btnGoToLand" Style="{StaticResource RectangularButton}" Content="{lex:Loc LocLabelGoTo_Text}" Margin="25,94,25,0" Click="btnGoToLand_Click" FontSize="14" Height="38" VerticalAlignment="Top">
                     </Button>
                     <Label x:Name="lblLandResource1NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF392018"  HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="26,244,0,0" Width="59" Background="{x:Null}" RenderTransformOrigin="0.5,0.5" Height="21" VerticalAlignment="Top" FontFamily="Trebuchet MS"/>
                     <Image x:Name="imgLandResource2ImgOnGrid"  HorizontalAlignment="Left" Height="50" Margin="134,188,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.291,0.465"/>
                     <Label x:Name="lblLandResource2NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF392018" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="129,244,0,0" Width="60" Height="21" VerticalAlignment="Top" Background="{x:Null}" FontFamily="Trebuchet MS"/>
 
-                    <Border Margin="19,137,19,108">
-                        <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Button x:Name="buttonEstablishaState" IsEnabled="True" Content="{lex:Loc LocLabelEstablishAState_Text}" Click="buttonEstablishaState_Click" BorderBrush="{x:Null}" RenderTransformOrigin="0.512,0.524" Foreground="#FFE5D09D" FontSize="14" FontFamily="Book Antiqua" Height="37" VerticalAlignment="Top">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                                </Button.Background>
-                            </Button>
-                        </Viewbox>
-                    </Border>
+                    <Button x:Name="buttonEstablishaState" IsEnabled="True" Content="{lex:Loc LocLabelEstablishAState_Text}" Style="{StaticResource RectangularButton}" Click="buttonEstablishaState_Click" BorderBrush="{x:Null}" RenderTransformOrigin="0.512,0.524" FontSize="14" Height="37" VerticalAlignment="Top" Margin="24,138,25,0">
+                    </Button>
 
                     <Label x:Name="lblCountryNameOnGrid" HorizontalContentAlignment="Center" Content="Land name"  FontFamily="/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="28" FontWeight="Bold" Background="{x:Null}" HorizontalAlignment="Left" Width="194" Margin="10,8,0,0" Height="53" VerticalAlignment="Top"/>
 
@@ -148,22 +166,13 @@
                 </Button.Background>
             </Button>
 
-            <Button x:Name="buttonSettings" Content="{lex:Loc LocButtonSettingsMain_Content}" Margin="0,15,69,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonSettings_Click" HorizontalAlignment="Right" Width="112" FontFamily="Book Antiqua" FontSize="14" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                </Button.Background>
+            <Button x:Name="buttonSettings" Style="{StaticResource RectangularButton}" Content="{lex:Loc LocButtonSettingsMain_Content}" Margin="0,15,69,0" VerticalAlignment="Top" Height="31" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buttonSettings_Click" HorizontalAlignment="Right" Width="112" FontFamily="Book Antiqua" FontSize="14" >
             </Button>
 
-            <Button x:Name="buttonExit"  HorizontalContentAlignment="Left"  VerticalContentAlignment="Top"  BorderBrush="{x:Null}" Foreground="{x:Null}" Click="ButtonExit_Click" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25"  >
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
-                </Button.Background>
+            <Button x:Name="buttonExit" Style="{StaticResource ButtonCross}" HorizontalContentAlignment="Left"  VerticalContentAlignment="Top"  BorderBrush="{x:Null}" Foreground="{x:Null}" Click="ButtonExit_Click" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="25"  >
             </Button>
 
-            <Button x:Name="buttonCollapse" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,25,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCollapse_Click" Height="25" HorizontalAlignment="Right" Width="25" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonMinus.jpg"/>
-                </Button.Background>
+            <Button x:Name="buttonCollapse" Style="{StaticResource ButtonMinus}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,25,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="buttonCollapse_Click" Height="25" HorizontalAlignment="Right" Width="25" >
             </Button>
 
             <Border x:Name="settingsGridBorder" BorderBrush="#FF48291F" BorderThickness="2" Height="102" VerticalAlignment="Top" Margin="0,45,70,0" HorizontalAlignment="Right" Width="109">
@@ -181,7 +190,7 @@
                     </Border>
 
                     <CheckBox x:Name="checkBoxFs" Margin="86,29,3,0" RenderTransformOrigin="0.88,0.455" Cursor="Hand" Background="#FFE2CB9F" BorderBrush="Black" Click="checkBoxFs_Click" Height="18" VerticalAlignment="Top" />
-                    <TextBlock x:Name="SubmitBugTextBlock" Margin="4,55,3,13.8" FontSize="16" TextWrapping="Wrap" Text="{lex:Loc LocLabelSubmitBag_Text}" TextDecorations="Underline" FontFamily="Trebuchet MS" Cursor="Hand" MouseDown="SubmitBugTextBlock_MouseDown" />
+                    <TextBlock x:Name="SubmitBugTextBlock" Margin="4,55,3,13.8" FontSize="11" TextWrapping="Wrap" Text="{lex:Loc LocLabelSubmitBag_Text}" TextDecorations="Underline" FontFamily="Trebuchet MS" Cursor="Hand" MouseDown="SubmitBugTextBlock_MouseDown" />
                 </Grid>
             </Border>
 
@@ -190,11 +199,9 @@
                     <Label HorizontalContentAlignment="Center" Content="{lex:Loc LocLabelWorldLeader_Text}"  FontFamily="/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="24" Height="41" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="214" FontWeight="Bold" Margin="0,6,0,0"/>
                     <Label x:Name="lblWorldLeader" HorizontalContentAlignment="Center" Content="No leader" FontFamily="Trebuchet MS" Foreground="#FF492F2C" FontSize="16" Height="30" Margin="0,38,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="214" FontWeight="Bold"/>
 
-                    <Button x:Name="btnHideLeaderGrid" Height="20" Margin="0,0,194.4,0" Width="20" VerticalAlignment="Top"  Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="btnHideLeaderGrid_Click">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonMinus.jpg"/>
-                        </Button.Background>
+                    <Button x:Name="btnHideLeaderGrid" Style="{StaticResource ButtonMinus}" Height="20" Margin="0,0,194.4,0" Width="20" VerticalAlignment="Top"  Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="btnHideLeaderGrid_Click">
                     </Button>
+
                     <Grid.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"  />
                     </Grid.Background>
@@ -226,10 +233,7 @@
                     </Grid.Background>
                 </Grid>
             </Border>
-            <Button x:Name="BtnShowConsumptionGrid" Margin="0,306,72,0" Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Width="15" Height="15" VerticalAlignment="Top" Click="BtnShowConsumptionGrid_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonPlus.jpg"/>
-                </Button.Background>
+            <Button x:Name="BtnShowConsumptionGrid" Style="{StaticResource ButtonPlus}" Margin="0,306,72,0" Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Width="15" Height="15" VerticalAlignment="Top" Click="BtnShowConsumptionGrid_Click">
             </Button>
 
 
@@ -242,10 +246,7 @@
 
                     <Slider x:Name="sliderTaxes" HorizontalAlignment="Left" Height="21" VerticalAlignment="Bottom" Width="106" Minimum="0" Maximum="10" Value="5" PreviewMouseLeftButtonUp="sliderTaxes_PreviewMouseLeftButtonUp" Foreground="#FF541E0B" Margin="30,0,0,63.4"/>
                     <Label Content="{Binding Value, ElementName=sliderTaxes, StringFormat=\{0:0\}}" FontSize="10" VerticalAlignment="Bottom" Foreground="#FF531E08" FontFamily="Trebuchet MS" Height="19" Background="{x:Null}" Margin="75,0,55,78.6" />
-                    <Button x:Name="SaveTaxes" Content="{lex:Loc LocButtonSave_Content}" Click="SaveTaxes_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D" FontFamily="Book Antiqua" FontSize="14" Margin="30,0,0,5.4" HorizontalAlignment="Left" Width="106" Height="36" VerticalAlignment="Bottom">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                        </Button.Background>
+                    <Button x:Name="SaveTaxes" Style="{StaticResource RectangularButton}" Content="{lex:Loc LocButtonSave_Content}" Click="SaveTaxes_Click" BorderBrush="{x:Null}" FontSize="14" Margin="30,0,0,5.4" HorizontalAlignment="Left" Width="106" Height="36" VerticalAlignment="Bottom">
                     </Button>
 
                     <Border Margin="26,66,54.6,43.4">
@@ -256,10 +257,7 @@
 
                     <Label x:Name="prodRatioValue" Content="0" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF311818" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Trebuchet MS" Width="29" Margin="107,0,0,41.4"  />
 
-                    <Button x:Name="BtnHideTaxesGrid" Height="20" Width="20" VerticalAlignment="Top"  Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Click="BtnHideTaxesGrid_Click" Margin="0,0,145.6,0">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonMinus.jpg"/>
-                        </Button.Background>
+                    <Button x:Name="BtnHideTaxesGrid" Style="{StaticResource ButtonMinus}" Height="20" Width="20" VerticalAlignment="Top"  Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Click="BtnHideTaxesGrid_Click" Margin="0,0,145.6,0">
                     </Button>
                     <Grid.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"  />
@@ -273,10 +271,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="BtnHideDailyBonusGrid" Height="15" Width="15" VerticalAlignment="Top"  Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Margin="0,0,-0.4,0" Click="BtnHideDailyBonusGrid_Click">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonMinus.jpg"/>
-                        </Button.Background>
+                    <Button x:Name="BtnHideDailyBonusGrid" Style="{StaticResource ButtonMinus}" Height="15" Width="15" VerticalAlignment="Top"  Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Margin="0,0,-0.4,0" Click="BtnHideDailyBonusGrid_Click">
                     </Button>
 
                     <Border Margin="14,75,11,29">
@@ -287,10 +282,7 @@
 
                     <Label x:Name="lblNextDaily"  Content="{lex:Loc LocLabelAvailable_Content}" FontFamily="Trebuchet MS" Foreground="#FF392018" FontSize="8" Margin="3,99,3.2,1.6" Background="{x:Null}" HorizontalContentAlignment="Center" FontWeight="Bold"/>
 
-                    <Button x:Name="DailyButton" Content="{lex:Loc LocButtonClaim_Content}" BorderBrush="{x:Null}" Foreground="#FFE5D09D" FontFamily="Book Antiqua" FontSize="10" Margin="17,0,0,48.6" HorizontalAlignment="Left" Width="71" Height="30" VerticalAlignment="Bottom" Click="DailyButton_Click">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                        </Button.Background>
+                    <Button x:Name="DailyButton" Style="{StaticResource RectangularButton}" Content="{lex:Loc LocButtonClaim_Content}" BorderBrush="{x:Null}" Foreground="#FFE5D09D" FontFamily="Book Antiqua" FontSize="10" Margin="17,0,0,48.6" HorizontalAlignment="Left" Width="71" Height="30" VerticalAlignment="Bottom" Click="DailyButton_Click">
                     </Button>
 
                     <Border Margin="0,13,0,79">
@@ -306,31 +298,19 @@
                 </Grid>
             </Border>
 
-            <Button x:Name="BtnShowDailyBonusGrid" Margin="0,155,70,0" Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Width="15" Height="15" VerticalAlignment="Top" Click="BtnShowDailyBonusGrid_Click" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonPlus.jpg"/>
-                </Button.Background>
+            <Button x:Name="BtnShowDailyBonusGrid" Style="{StaticResource ButtonPlus}" Margin="0,155,70,0" Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Width="15" Height="15" VerticalAlignment="Top" Click="BtnShowDailyBonusGrid_Click" >
             </Button>
 
-            <Button x:Name="BtnShowTaxesGrid" Height="20" Margin="23,157,0,0" VerticalAlignment="Top" Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Left" Width="20" Click="BtnShowTaxesGrid_Click" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonPlus.jpg"/>
-                </Button.Background>
+            <Button x:Name="BtnShowTaxesGrid" Style="{StaticResource ButtonPlus}" Height="20" Margin="23,157,0,0" VerticalAlignment="Top" Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Left" Width="20" Click="BtnShowTaxesGrid_Click" >
             </Button>
 
-            <Button x:Name="btnShowLeaderGrid" Height="20" Margin="23,307,0,0" VerticalAlignment="Top" Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Left" Width="20" Click="btnShowLeaderGrid_Click" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonPlus.jpg"/>
-                </Button.Background>
+            <Button x:Name="btnShowLeaderGrid" Style="{StaticResource ButtonPlus}" Height="20" Margin="23,307,0,0" VerticalAlignment="Top" Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Left" Width="20" Click="btnShowLeaderGrid_Click" >
             </Button>
 
             <ProgressBar x:Name="PbExp" HorizontalAlignment="Left" Height="18" Margin="97,35,0,0" VerticalAlignment="Top" Width="92" Foreground="#FFD7464B" BorderBrush="#FFD7464B" Background="{x:Null}"/>
             <Label x:Name="Level"  FontSize="12" HorizontalContentAlignment="Center" Content="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" Foreground="#FFE1C793" Width="89" Height="31" Background="#FFD7464B"/>
             <Button x:Name="test2" IsEnabled="False" HorizontalAlignment="Left" Height="37" Margin="351,651,0,0" VerticalAlignment="Top" Width="164" Click="test2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="#FFE1A35E"/>
-            <Button x:Name="buttonChat" Content="{lex:Loc LocButtonChat_Content}" Margin="20,0,0,7.8" Click="buttonChat_Click" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="105" Foreground="#FFDFC58F" Height="31" VerticalAlignment="Bottom" FontFamily="Book Antiqua" FontSize="14">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                </Button.Background>
+            <Button x:Name="buttonChat" Style="{StaticResource RectangularButton}" Content="{lex:Loc LocButtonChat_Content}" Margin="20,0,0,7.8"  Click="buttonChat_Click" HorizontalAlignment="Left" Width="105" Height="31" VerticalAlignment="Bottom" FontSize="14">
             </Button>
             <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="33" Margin="403,17,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/Icons/Menu/IconMarkerNew.PNG" Width="33" Cursor="Hand" MouseDown="marketImage_MouseDown" Stretch="UniformToFill"/>
             <Image x:Name="AuctionImage"  HorizontalAlignment="Left" Height="33" Margin="451,14,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/Icons/Menu/IconAuctionNew.png" Width="34" Cursor="Hand" MouseDown="OpenAuction_Click"/>
@@ -340,15 +320,9 @@
             <Image x:Name="RankingImage" HorizontalAlignment="Left" Height="33" Margin="653,14,0,0" VerticalAlignment="Top"  Source="/Pictures/Menu items/Rating.png" Width="34" Cursor="Hand" MouseDown="RankingImage_MouseDown" Stretch="UniformToFill"/>
             <Image x:Name="ProfileImage" HorizontalAlignment="Left" Height="25" Margin="706.5,19,0,0" VerticalAlignment="Top"  Source="/Pictures/Menu items/Profile.png" Width="26" Cursor="Hand" MouseDown="ProfileImage_MouseDown" Stretch="UniformToFill"/>
 
-            <Border Margin="1151,409,77,293.8">
-                <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <Button x:Name="buyMembership" Content="{lex:Loc LocButtonSupportUs_Content}" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="51" IsEnabled="True" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buyMembership_Click" FontFamily="Book Antiqua" FontSize="11">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                        </Button.Background>
-                    </Button>
-                </Viewbox>
-            </Border>
+
+            <Button x:Name="buyMembership" Style="{StaticResource RectangularButton}" Content="{lex:Loc LocButtonSupportUs_Content}" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="36" IsEnabled="True" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buyMembership_Click" FontFamily="Book Antiqua" FontSize="11" Margin="1143,430,0,0">
+            </Button>
 
 
             <Image HorizontalAlignment="Left" Height="28" Margin="97,54,0,0" VerticalAlignment="Top" Width="94" Source="/Pictures/wood_desk_with_circle.png" Stretch="Fill"/>
@@ -362,76 +336,69 @@
             <Label x:Name="labelDonation" Content="0" Foreground="Goldenrod" FontSize="16" HorizontalAlignment="Left" Margin="123,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.15,0.5" Width="66" Height="31"/>
             <Label x:Name="labelPrestige" Content="0" Foreground="Gold" FontSize="16" HorizontalAlignment="Left" Margin="123,108,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.15,0.5" Width="66" Height="31"/>
 
-            <Border Margin="134,700,1080,7">
-                <Viewbox StretchDirection="Both" VerticalAlignment="Center"  HorizontalAlignment="Center">
-                    <Button x:Name="ButtonMailbox" Content="{lex:Loc LocButtonMailbox_Content}" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Left" FontFamily="Book Antiqua" FontSize="14" Click="ButtonMailbox_Click" Height="46" Width="158">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                        </Button.Background>
-                    </Button>
-                </Viewbox>
-            </Border>
+            <Button x:Name="ButtonMailbox" Content="{lex:Loc LocButtonMailbox_Content}" Style="{StaticResource RectangularButton}" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Left" FontFamily="Book Antiqua" FontSize="14" Click="ButtonMailbox_Click" Height="32" Width="115" Margin="127,0,0,7.8">
+            </Button>
 
             <Image HorizontalAlignment="Left" Height="441" Margin="325,113,0,0" Source="/LandConquest;component/Pictures/undiscovered-map.png" VerticalAlignment="Top" Width="705" RenderTransformOrigin="0.5,0.5"/>
 
             <Border Margin="249,55,1032,663">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <Label Content="{lex:Loc LocLabelStorageMain_Content}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="#FF392018"/>
+                    <Label Content="{lex:Loc LocLabelStorageMain_Content}" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
             <Border Margin="337,56,918,662">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelIndustryMain_Content}"  HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="#FF392018" />
+                    <Label Content="{lex:Loc LocLabelIndustryMain_Content}"  Style="{StaticResource LabelTabs}" />
                 </Viewbox>
             </Border>
 
             <Border Margin="297,58,984,665">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBlock Text="{lex:Loc LocLabelRecruitMain_Content}" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Trebuchet MS" Foreground="#FF392018" />
+                    <TextBlock Text="{lex:Loc LocLabelRecruitMain_Content}" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
             <Border Margin="399,57,874,663">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelMarketMain_Content}" FontSize="11" HorizontalAlignment="Left" VerticalAlignment="Top" Width="47" FontFamily="Trebuchet MS" Foreground="#FF392018" />
+                    <Label Content="{lex:Loc LocLabelMarketMain_Content}" Style="{StaticResource LabelTabs}" />
                 </Viewbox>
             </Border>
 
             <Border Margin="497,57,780,663">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelCountryMain_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Trebuchet MS" Foreground="#FF392018"/>
+                    <Label Content="{lex:Loc LocLabelCountryMain_Content}" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
             <Border Margin="542,56,726,663">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelRegionMain_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Trebuchet MS" Foreground="#FF392018"/>
+                    <Label Content="{lex:Loc LocLabelRegionMain_Content}" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
             <Border Margin="594,58,674,664.8">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelDinastyMain_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Trebuchet MS" Foreground="#FF392018"/>
+                    <Label Content="{lex:Loc LocLabelDinastyMain_Content}" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
             <Border Margin="643,58,625,664.8">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelRankingMain_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Trebuchet MS" Foreground="#FF392018"/>
+                    <Label Content="{lex:Loc LocLabelRankingMain_Content}" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
             <Border Margin="695,58,573,664.8">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocButtonProfileMain_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Trebuchet MS" Foreground="#FF392018"/>
+                    <Label Content="{lex:Loc LocButtonProfileMain_Content}" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
 
             <Border Margin="442,56,824,663">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelAuctionMain_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Trebuchet MS" Foreground="#FF392018" />
+                    <Label Content="{lex:Loc LocLabelAuctionMain_Content}" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
