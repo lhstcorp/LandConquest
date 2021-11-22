@@ -16,7 +16,6 @@ namespace LandConquest.Logic
             return index;
         }
 
-        /*
         // WAR ENTER BLOCK                              -- January/07/2021 -- greendend
         public static void EnterInWar(War _war, Player player, ArmyInBattle _armyInBattle)
         {
@@ -47,7 +46,7 @@ namespace LandConquest.Logic
                 else if (player.PlayerCurrentRegion == war.LandDefenderId)
                 {
                     _armyInBattle.LocalLandId = 299;
-                    _armyInBattle.ArmySide = 0;
+                    _armyInBattle.ArmySide = 0; // hueta
 
                     BattleModel.InsertArmyIntoBattleTable(_armyInBattle, war);
 
@@ -84,34 +83,6 @@ namespace LandConquest.Logic
                 }
                 else MessageBox.Show("You are not in any lands of war.\nPlease change your position!");
             }
-        }
-        */
-
-        public static void EnterInWar(War _war, Player player, ArmyInBattle _armyInBattle, int _localLandId)
-        {
-            War war = WarModel.GetWarById(_war);
-
-            if (_armyInBattle.ArmySizeCurrent > 0)
-            {
-                if (player.PlayerCurrentRegion == war.LandAttackerId)
-                {
-                    _armyInBattle.LocalLandId = _localLandId;
-                    _armyInBattle.ArmySide = 1;
-
-                    BattleModel.InsertArmyIntoBattleTable(_armyInBattle, war);
-                    WarModel.addPlayerArmyToWarScoreHistory(_armyInBattle, war);
-                }
-                else if (player.PlayerCurrentRegion == war.LandDefenderId)
-                {
-                    _armyInBattle.LocalLandId = _localLandId;
-                    _armyInBattle.ArmySide = 0;
-
-                    BattleModel.InsertArmyIntoBattleTable(_armyInBattle, war);
-                    WarModel.addPlayerArmyToWarScoreHistory(_armyInBattle, war);
-                }
-                else WarningDialogWindow.CallWarningDialogNoResult("You are not in any lands of war.\nPlease change your position!");
-            }
-            else WarningDialogWindow.CallWarningDialogNoResult("It seems you forgot to send troops, my lord :)");
         }
 
         public static ArmyInBattle CheckFreeArmies(Army army, Player player)
