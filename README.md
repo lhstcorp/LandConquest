@@ -12,7 +12,8 @@ On the agenda:
 - Huge work on validations and bug fixes.
 
 Co-owners:
-Alexey Smirnov (@lengstrom)
-Savely Latun (@garrettdreyfus)
-Alexey Valuev (@nmoroze)
+- Alexey Smirnov (@greendend)
+- Savely Latun (@user-pass)
+- Alexey Valuev (@Glandeil)
 
+The entire list of developers is available in the Contributions tab. Feel free to open an issue or PR, and we'll eventually take a look.
