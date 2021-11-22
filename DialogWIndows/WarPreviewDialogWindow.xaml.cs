@@ -26,6 +26,7 @@ namespace LandConquest.DialogWIndows
     {
         Player player;
         War war;
+        int selectedTile = 0;
         public WarPreviewDialogWindow(Player _player, War _war)
         {
             player = _player;
@@ -217,6 +218,7 @@ namespace LandConquest.DialogWIndows
             return int.TryParse(str, out i) && i >= 1 && i <= 9999;
         }
 
+        /* OLD WAR
         private void JoinWarBtn_Click(object sender, RoutedEventArgs e)
         {
             setDefaultValuesIntoBlankFields();
@@ -237,6 +239,30 @@ namespace LandConquest.DialogWIndows
 
                 WarLogic.EnterInWar(war, player, armyInBattle);
                 closeWindow();
+            }
+        } */ 
+
+        private void JoinWarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            setDefaultValuesIntoBlankFields();
+
+            if (validateAvailableTroops()
+             && checkSelectedTile())
+            {
+                ArmyInBattle armyInBattle = new ArmyInBattle();
+
+                armyInBattle.ArmyInfantryCount = Convert.ToInt32(InfInput.Text);
+                armyInBattle.ArmyArchersCount = Convert.ToInt32(ArInput.Text);
+                armyInBattle.ArmyHorsemanCount = Convert.ToInt32(KntInput.Text);
+                armyInBattle.ArmySiegegunCount = Convert.ToInt32(SieInput.Text);
+                armyInBattle.calculateSizeCurrent();
+
+                armyInBattle.PlayerId = player.PlayerId;
+                armyInBattle.ArmyId = AssistantLogic.GenerateId();
+
+                WarLogic.EnterInWar(war, player, armyInBattle, selectedTile);
+
+                updateArmiesDataGrid();
             }
         }
 
@@ -281,27 +307,6 @@ namespace LandConquest.DialogWIndows
             SieInput.Text = armyInBattle.ArmySiegegunCount.ToString();
         }
 
-        private void ViewWarBtn_Click(object sender, RoutedEventArgs e)
-        {
-            WarWindow window;
-            List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-            armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
-
-            if (player.PlayerCurrentRegion == war.LandAttackerId)
-            {
-                window = new WarWindow(player, 1, null, armiesInBattle, war);
-                window.Show();
-                closeWindow();
-            }
-            else if (player.PlayerCurrentRegion == war.LandDefenderId)
-            {
-                window = new WarWindow(player, 0, null, armiesInBattle, war);
-                window.Show();
-                closeWindow();
-            }
-            else WarningDialogWindow.CallWarningDialogNoResult("You are not in any lands of war.\nPlease change your position!");
-        }
-
         private void closeWindow()
         {
             ((WarPreviewDialogWindowViewModel)DataContext).CloseWindow();
@@ -322,5 +327,33 @@ namespace LandConquest.DialogWIndows
 
             return ret;
         }
+
+        private bool checkSelectedTile()
+        {
+            bool ret = true;
+
+            if (selectedTile == 0)
+            {
+                ret = false;
+                WarningDialogWindow.CallWarningDialogNoResult("Please, select a tile where you want to send troops.");
+            }
+
+            return ret;
+        }
+
+        private void TileMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Rectangle rectangle = (Rectangle)sender;
+            selectedTile = Convert.ToInt32(rectangle.Tag);
+        }
+
+        private void updateArmiesDataGrid()
+        {
+            List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
+            armiesInBattle = BattleModel.GetArmiesInfoInCurrentTile(war, selectedTile);
+
+            armiesDataGrid.ItemsSource = armiesInBattle;
+        }
+
     }
 }
