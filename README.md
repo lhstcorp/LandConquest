@@ -11,7 +11,7 @@ On the agenda:
 - Switching to MVVM; 
 - Switching from ADO to Dapper ORM;
 - Changing war and battle logic;
-- Huge work on validations and bug fixes.
+- Huge work on validations, bug fixes and code refactoring.
 
 Co-owners:
 - Alexey Smirnov [@greendend](https://github.com/greendend)
