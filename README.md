@@ -2,7 +2,7 @@
 
 MMORTS inspired by games like Rival Regions, Europe Universalis, Age of Civilizations, etc. 
 
-![image](https://user-images.githubusercontent.com/68186730/142872378-1488aa0a-dca7-46ab-9b0b-101886efe096.png)
+![image](https://user-images.githubusercontent.com/68186730/142873478-e1830f6a-a0d6-4196-a19b-a47c9cfac0c0.png)
 
 This project demonstrates the basic working elements of RTS game in WPF. No commercial use is intended.
 Development is still in progress.
