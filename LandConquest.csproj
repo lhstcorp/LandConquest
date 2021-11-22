@@ -284,9 +284,6 @@
     <Compile Include="Forms\WarResultWindow.xaml.cs">
       <DependentUpon>WarResultWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\WarWindow.xaml.cs">
-      <DependentUpon>WarWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Languages\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -490,10 +487,6 @@
     <Page Include="Forms\WarResultWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Forms\WarWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\GlobalMap.xaml">
       <SubType>Designer</SubType>
@@ -846,6 +839,7 @@
     <Resource Include="Pictures\Icons\Menu\IconIndustryNew.png" />
     <Resource Include="Pictures\Icons\Menu\IconMarkerNew.png" />
     <Resource Include="Pictures\Icons\Menu\IconAuctionNew.png" />
+    <Resource Include="Pictures\War\map.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
