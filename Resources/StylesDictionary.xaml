@@ -1,7 +1,9 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    x:Class="LandConquest.Resources.StylesDictionary"
-                    xmlns:local="clr-namespace:LandConquest">
+﻿<ResourceDictionary 
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     x:Class="LandConquest.Resources.StylesDictionary"
+     xmlns:local="clr-namespace:LandConquest">
+    
     <Style x:Key="ResourceStyle" TargetType="{x:Type Path}">
         <EventSetter Event="Loaded" Handler="PathLoadedHandler"/>
         <EventSetter Event="MouseEnter" Handler="PathEnterHandler"/>
@@ -10,4 +12,23 @@
     <Style x:Key="ResourceStyleViewBox" TargetType="{x:Type Viewbox}">
         <EventSetter Event="Loaded" Handler="ViewboxLoadedHandler"/>
     </Style>
+
+    <Style x:Key="RectangularButton">
+        <Setter Property="Button.FontFamily" Value="Book Antiqua"/>
+        <Setter Property="Button.Foreground" Value="#FFE5D09D" />
+        <Setter Property="Button.Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonCross">
+        <Setter Property="Button.Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

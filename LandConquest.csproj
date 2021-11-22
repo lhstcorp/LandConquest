@@ -315,6 +315,7 @@
     <Compile Include="WindowDialogViewModels\WarResultsDialogWindowViewModel.cs" />
     <Compile Include="WindowViewModels\AuctionWindowViewModel.cs" />
     <Compile Include="WindowViewModels\AuthorisationWindowViewModel.cs" />
+    <Compile Include="WindowViewModels\Commands\AuctionWindowCommand.cs" />
     <Page Include="DialogWIndows\BuyListingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -859,6 +860,9 @@
   <ItemGroup>
     <PackageReference Include="EmailValidation">
       <Version>1.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Expression.Blend.Sdk.WPF">
+      <Version>1.0.1</Version>
     </PackageReference>
     <PackageReference Include="LiveCharts.Wpf">
       <Version>0.9.7</Version>
