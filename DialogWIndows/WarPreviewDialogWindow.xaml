@@ -117,30 +117,30 @@
 
             <Rectangle Fill="#fff187" HorizontalAlignment="Left" Height="19" Margin="849,630,0,0" Stroke="#311818" VerticalAlignment="Top" Width="59"/>
             <Label x:Name="FreeSie" Content="0000000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="23" Margin="849,627,0,0" VerticalAlignment="Top" Width="59"/>
-            
+
             <!-- War map -->
             <Image HorizontalAlignment="Left" Source="/Pictures/War/map.png" Height="400" Margin="240,58,0,0" VerticalAlignment="Top" Width="621"/>
-            <Rectangle Tag="1" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="145" Margin="241,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="99" MouseDown="TileMouseDown" />
-            <Rectangle Tag="2" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="145" Margin="340,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="3" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="145" Margin="443,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="4" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="145" Margin="546,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="5" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="145" Margin="651,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="6" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="145" Margin="756,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="7" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="131" Margin="241,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="99" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="8" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="131" Margin="340,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="9" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="131" Margin="443,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="10" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="131" Margin="546,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="11" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="131" Margin="651,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="12" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="131" Margin="756,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="13" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="124" Margin="241,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="99" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="14" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="124" Margin="338,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="15" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="124" Margin="444,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="102" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="16" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="124" Margin="546,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="17" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="124" Margin="652,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown"/>
-            <Rectangle Tag="18" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="124" Margin="756,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown"/>
+            <Rectangle Tag="1" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="145" Margin="241,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="99" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="2" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="145" Margin="340,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="3" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="145" Margin="443,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="4" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="145" Margin="546,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="5" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="145" Margin="651,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="6" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="145" Margin="756,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="7" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="131" Margin="241,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="99" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="8" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="131" Margin="340,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="9" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="131" Margin="443,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="10" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="131" Margin="546,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="11" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="131" Margin="651,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="12" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="131" Margin="756,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="13" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="124" Margin="241,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="99" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="14" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="124" Margin="338,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="15" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="124" Margin="444,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="102" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="16" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="124" Margin="546,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="17" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="124" Margin="652,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle Tag="18" Fill="Transparent" Opacity="0.3" HorizontalAlignment="Left" Height="124" Margin="756,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
             <!-- War map ends. -->
 
-            <DataGrid x:Name="armiesDataGrid" ItemsSource="{Binding armiesInBattle}" BorderThickness="2" SelectionMode="Single" CanUserResizeColumns="False" Foreground="#FF392018" BorderBrush="#FF391C18" AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontFamily="Book Antiqua" FontStyle="Oblique" HorizontalAlignment="Left" Height="400" Margin="861,58,0,0" VerticalAlignment="Top" Width="286">
+            <DataGrid x:Name="armiesDataGrid" ItemsSource="{Binding armiesInBattle}" BorderThickness="2" SelectionMode="Single" CanUserResizeColumns="False" Foreground="Black" BorderBrush="Black" AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontFamily="Book Antiqua" FontStyle="Oblique" HorizontalAlignment="Left" Height="339" Margin="861,58,0,0" VerticalAlignment="Top" Width="286">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="personNameCol" Binding="{Binding PlayerId}" Width="80" CanUserSort="True">
                         <DataGridTextColumn.Header>
@@ -150,7 +150,6 @@
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
 
-                    <!-- /Pictures/Icons/Army/IconArcher.PNG" -->
                     <DataGridTextColumn x:Name="infCol" Binding="{Binding ArmyInfantryCount}" Width="40" CanUserSort="True">
                         <DataGridTextColumn.Header>
                             <Grid>
@@ -159,7 +158,7 @@
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn x:Name="arCol" Binding="{Binding ArmyArchersCount}" Width="40" CanUserSort="True" FontSize="10">
+                    <DataGridTextColumn x:Name="arCol" Binding="{Binding ArmyArchersCount}" Width="40" CanUserSort="True">
                         <DataGridTextColumn.Header>
                             <Grid>
                                 <Image Source="/Pictures/Icons/Army/IconArcher.png" Width="40" Height="40"/>
@@ -183,7 +182,7 @@
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn x:Name="totalCol" Binding="{Binding Total}" Width="40" CanUserSort="True">
+                    <DataGridTextColumn x:Name="totalCol" Binding="{Binding ArmySizeCurrent}" Width="40" CanUserSort="True">
                         <DataGridTextColumn.Header>
                             <Grid>
                                 <Image Source="/Pictures/Armies/TRO-0.png" Width="40" Height="40"/>
@@ -199,22 +198,38 @@
 
                 <DataGrid.CellStyle>
                     <Style TargetType="DataGridCell">
-                        <Setter Property="BorderThickness" Value="1"/>
-                        <Setter Property="BorderBrush" Value="#FF392018"/>
+                        <Setter Property="BorderThickness" Value="0.5"/>
+                        <Setter Property="BorderBrush" Value="#FFE3CC98"/>
                         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
                     </Style>
                 </DataGrid.CellStyle>
 
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="#FF392018"/>
+                        <Setter Property="Background" Value="Black"/>
                         <Setter Property="FontStyle" Value="Normal"/>
                         <Setter Property="FontSize" Value="15"/>
-                        <Setter Property="Foreground" Value="#FFE3CC98"/>
+                        <Setter Property="BorderBrush" Value="#5b5f63"/>
+                        <Setter Property="BorderThickness" Value="0.5"/>
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
+
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ArmySide}" Value="0">
+                                <Setter Property="Background" Value="#191970"></Setter>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding ArmySide}" Value="1">
+                                <Setter Property="Background" Value="#B22222"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
             </DataGrid>
 
+            <Button x:Name="removeArmyBtn" Content="Remove X" Foreground="White" Background="#B22222" BorderBrush="Black" BorderThickness="1" FontSize="19" HorizontalAlignment="Left" Height="61" Margin="1028,397,0,0" VerticalAlignment="Top" Width="119" Click="removeArmyBtn_Click"/>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>

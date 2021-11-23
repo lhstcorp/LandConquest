@@ -24,9 +24,14 @@ namespace LandConquest.DialogWIndows
     /// </summary>
     public partial class WarPreviewDialogWindow : Window
     {
-        Player player;
-        War war;
-        int selectedTile = 0;
+        // GLOBALS -->
+        Player  player;
+        War     war;
+
+        int         selectedTile = 0;
+        Rectangle   selectedArea;
+        // <--
+
         public WarPreviewDialogWindow(Player _player, War _war)
         {
             player = _player;
@@ -125,6 +130,9 @@ namespace LandConquest.DialogWIndows
 
         private void populatePlayerGrids(List<ArmyInBattle> _armiesA, List<ArmyInBattle> _armiesD)
         {
+            AttackerPlayers.Children.Clear();
+            DefenderPlayers.Children.Clear();
+
             for (int i = 0; i < _armiesA.Count; i++)
             {
                 Image playerCoatOfArms = new Image();
@@ -218,30 +226,6 @@ namespace LandConquest.DialogWIndows
             return int.TryParse(str, out i) && i >= 1 && i <= 9999;
         }
 
-        /* OLD WAR
-        private void JoinWarBtn_Click(object sender, RoutedEventArgs e)
-        {
-            setDefaultValuesIntoBlankFields();
-
-            if (validateAvailableTroops())
-            {
-                ArmyInBattle armyInBattle = new ArmyInBattle();
-
-                armyInBattle.ArmyInfantryCount = Convert.ToInt32(InfInput.Text);
-                armyInBattle.ArmyArchersCount = Convert.ToInt32(ArInput.Text);
-                armyInBattle.ArmyHorsemanCount = Convert.ToInt32(KntInput.Text);
-                armyInBattle.ArmySiegegunCount = Convert.ToInt32(SieInput.Text);
-                armyInBattle.calculateSizeCurrent();
-                armyInBattle.ArmyType = ArmyModel.ReturnTypeOfArmy(armyInBattle);
-
-                armyInBattle.PlayerId = player.PlayerId;
-                armyInBattle.ArmyId = AssistantLogic.GenerateId();
-
-                WarLogic.EnterInWar(war, player, armyInBattle);
-                closeWindow();
-            }
-        } */ 
-
         private void JoinWarBtn_Click(object sender, RoutedEventArgs e)
         {
             setDefaultValuesIntoBlankFields();
@@ -263,6 +247,8 @@ namespace LandConquest.DialogWIndows
                 WarLogic.EnterInWar(war, player, armyInBattle, selectedTile);
 
                 updateArmiesDataGrid();
+                initFreePlayerArmy();
+                initPlayerGrids();
             }
         }
 
@@ -343,8 +329,26 @@ namespace LandConquest.DialogWIndows
 
         private void TileMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Rectangle rectangle = (Rectangle)sender;
-            selectedTile = Convert.ToInt32(rectangle.Tag);
+            cancelFrameHighlight();
+            selectedArea = (Rectangle)sender;
+            selectedTile = Convert.ToInt32(selectedArea.Tag);
+            highlightSelectedFrame();
+            updateArmiesDataGrid();
+        }
+
+        private void highlightSelectedFrame()
+        {
+            selectedArea.Stroke = new SolidColorBrush((Color.FromRgb(199, 176, 8)));
+            selectedArea.StrokeThickness = 3;
+        }
+
+        private void cancelFrameHighlight()
+        {
+            if (selectedArea != null)
+            {
+                selectedArea.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                selectedArea.StrokeThickness = 1;
+            }
         }
 
         private void updateArmiesDataGrid()
@@ -355,5 +359,28 @@ namespace LandConquest.DialogWIndows
             armiesDataGrid.ItemsSource = armiesInBattle;
         }
 
+        private void TileMouseEnter(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void TileMouseLeave(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Arrow;
+        }
+
+        private void removeArmyBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ArmyInBattle armyInBattle = (ArmyInBattle)armiesDataGrid.SelectedItem;
+
+            if (armyInBattle != null)
+            {
+                BattleModel.DeleteArmyById(armyInBattle);
+
+                updateArmiesDataGrid();
+                initFreePlayerArmy();
+                initPlayerGrids();
+            }
+        }
     }
 }
