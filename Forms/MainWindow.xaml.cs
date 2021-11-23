@@ -14,9 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using System.Collections;
 using System.Globalization;
 using WPFLocalizeExtension.Engine;
+using System.Threading;
 
 namespace LandConquest.Forms
 {
@@ -40,7 +40,7 @@ namespace LandConquest.Forms
         private Land land;
         private Army army;
         private Country country;
-        private War WAR; //GLOBAL
+        private War WAR; 
         private Thickness[] marginsOfWarButtons;
         private int[] flagXY;
         private const int landsCount = 11;
@@ -49,7 +49,6 @@ namespace LandConquest.Forms
         public MainWindow(User _user)
         {
             InitializeComponent();
-            //this.Resources.Add("buttonGradientBrush", gradientBrush);
             user = _user;
             equipment = new PlayerEquipment();
             player = new Player();
@@ -124,8 +123,6 @@ namespace LandConquest.Forms
             convertMoneyToMoneyCode(labelMoney);
 
 
-            //Thread myThread = new Thread(new ThreadStart(UpdateInfo));
-            //myThread.Start(); // запускаем поток
             UpdateMainWindowInfoAsync(); 
 
             lands = new List<Land>();
@@ -396,7 +393,7 @@ namespace LandConquest.Forms
         //        labelMoney.Content = player.PlayerMoney;
         //    }
         //}
-        private async Task UpdateInfoAsync()
+        private async void UpdateInfoAsync()
         {
             var connection = LandConquestDB.DbContext.GetTempSqlConnection();
             while (true)
@@ -411,7 +408,15 @@ namespace LandConquest.Forms
                     player = PlayerModel.UpdatePlayerMoney(player);
                     TaxesModel.SaveTaxes(taxes, connection);
                     lands = LandModel.GetLandsInfo(lands, connection);
-                    await Dispatcher.BeginInvoke(new CrossAppDomainDelegate(delegate { labelMoney.Content = player.PlayerMoney; convertMoneyToMoneyCode(labelMoney); RedrawGlobalMap(); LoadWarsOnMap();}));
+
+                    Dispatcher.Invoke(new ThreadStart(delegate 
+                    { 
+                        labelMoney.Content = player.PlayerMoney; 
+                        convertMoneyToMoneyCode(labelMoney); 
+                        RedrawGlobalMap(); 
+                        LoadWarsOnMap();
+                    }));
+
                     Console.WriteLine("End of loop");
                     connection.Close();
                 }
