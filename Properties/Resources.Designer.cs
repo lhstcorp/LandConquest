@@ -61,6 +61,15 @@ namespace LandConquest.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;iframe src=&quot;https://discord.com/widget?id=912836748558618654&amp;theme=dark&quot; width=&quot;350&quot; height=&quot;500&quot; allowtransparency=&quot;true&quot; frameborder=&quot;0&quot; sandbox=&quot;allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts&quot;&gt;&lt;/iframe&gt;.
+        /// </summary>
+        public static string DiscordWidget {
+            get {
+                return ResourceManager.GetString("DiscordWidget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
         /// </summary>
         public static System.IO.UnmanagedMemoryStream MainTheme {
