@@ -271,7 +271,8 @@ namespace LandConquest.Forms
         private void buttonChat_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new ChatWindow(player);
+            //openedWindow = new ChatWindow(player);
+            openedWindow = new DiscordChatWindow();
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();

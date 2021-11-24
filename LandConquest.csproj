@@ -246,6 +246,9 @@
     <Compile Include="Forms\CountryWindow.xaml.cs">
       <DependentUpon>CountryWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DiscordChatWindow.xaml.cs">
+      <DependentUpon>DiscordChatWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LandResourcesWindow.xaml.cs">
       <DependentUpon>LandResourcesWindow.xaml</DependentUpon>
     </Compile>
@@ -418,6 +421,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\CountryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DiscordChatWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -853,6 +860,9 @@
     <Resource Include="Pictures\craft.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CefSharp.Wpf">
+      <Version>95.7.141</Version>
+    </PackageReference>
     <PackageReference Include="EmailValidation">
       <Version>1.0.4</Version>
     </PackageReference>
