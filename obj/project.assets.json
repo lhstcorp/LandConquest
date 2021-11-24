@@ -2728,20 +2728,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
+    "C:\\Users\\sma\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
+      "projectUniqueName": "D:\\LandConquest\\LandConquest\\LandConquest.csproj",
       "projectName": "LandConquest",
-      "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
-      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\obj\\",
+      "projectPath": "D:\\LandConquest\\LandConquest\\LandConquest.csproj",
+      "packagesPath": "C:\\Users\\sma\\.nuget\\packages\\",
+      "outputPath": "D:\\LandConquest\\LandConquest\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2754,11 +2754,11 @@
       "frameworks": {
         "net472": {
           "projectReferences": {
-            "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
-              "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
+            "D:\\LandConquest\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
+              "projectPath": "D:\\LandConquest\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
             },
-            "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj": {
-              "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj"
+            "D:\\LandConquest\\LandConquest\\LandConquestYD\\LandConquestYD.csproj": {
+              "projectPath": "D:\\LandConquest\\LandConquest\\LandConquestYD\\LandConquestYD.csproj"
             }
           }
         }
