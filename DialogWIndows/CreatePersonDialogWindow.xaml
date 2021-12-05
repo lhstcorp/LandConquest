@@ -15,7 +15,7 @@
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
 
-            <TextBox x:Name="personName" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="25" Margin="109,47,0,0"  VerticalAlignment="Top" Width="100" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" TextChanged="personName_TextChanged" />
+            <TextBox x:Name="personName" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="25" Margin="109,47,0,0"  VerticalAlignment="Top" Width="100" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" TextChanged="personName_TextChanged" PreviewTextInput="personName_PreviewTextInput" />
             <Button x:Name="createPersonBtn" Content="Create" Foreground="#FFFFFF" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="16" Height="39" Margin="81,188,0,0" VerticalAlignment="Top" Width="95" FontWeight="ExtraBlack" Click="createPersonBtn_Click" Background="#FF3D1913"/>
             <Label Content="Name" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="16" Foreground="#901212" FontWeight="ExtraBlack" HorizontalAlignment="Left" Margin="38,48,0,0" VerticalAlignment="Top" Cursor="None"/>
             <Button x:Name="buttonClose" Margin="0,0,0.4,0" Height="20" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="buttonClose_Click" HorizontalAlignment="Right" Width="20" RenderTransformOrigin="14.782,0.448" VerticalAlignment="Top">
@@ -29,7 +29,13 @@
             <Label Content="Dynasty" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="16" Foreground="#901212" FontWeight="ExtraBlack" HorizontalAlignment="Left" Margin="38,91,0,0" VerticalAlignment="Top" Height="24"/>
             <TextBox x:Name="Dynasty" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="25" Margin="109,90,0,0"  VerticalAlignment="Top" Width="100" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" RenderTransformOrigin="0.468,2.096" />
             <Image HorizontalAlignment="Left" Height="24" Margin="214,48,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="0.495,0.475"/>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="218,68,0,0" VerticalAlignment="Top" Width="33" Click="Button_Click" BorderThickness="0">
+            <Button Content="Button" HorizontalAlignment="Left" Margin="218,51,0,0" VerticalAlignment="Top" Width="17" Click="Button_Click" BorderThickness="0" Height="18">
+
+                <Button.Background>
+                    <ImageBrush ImageSource="reload_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="DynastyChange" Content="DynastyChange" HorizontalAlignment="Left" Margin="218,94,0,0" VerticalAlignment="Top" Width="17" Height="18" Opacity="0.965" BorderThickness="0" Click="DynastyChange_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="reload_button.png"/>
                 </Button.Background>

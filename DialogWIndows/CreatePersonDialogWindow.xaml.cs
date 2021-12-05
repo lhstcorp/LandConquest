@@ -46,7 +46,7 @@ namespace LandConquest.DialogWIndows
             }
             else
             {
-                generateSurname();
+                //generateSurname();
             }
             Dynasty.Text = Names.Surnames[namePosition];
         }
@@ -108,14 +108,29 @@ namespace LandConquest.DialogWIndows
             if (person.MaleFemale == true)
             {
                 generateMaleName();
-                //generateSurname();
             }
 
             if (person.MaleFemale == false)
             {
                 generateFemaleName();
-                //generateSurname();
             }
+        }
+
+        private void DynastyChange_Click(object sender, RoutedEventArgs e)
+        {
+            //generateSurname();
+        }
+    
+
+        public static bool IsValid(string str)
+        {
+            int i;
+            return int.TryParse(str, out i) &&  i < 'A' || i > 'Z';
+        }
+
+        private void personName_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {    
+           e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
         }
     }
 }

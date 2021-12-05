@@ -35,7 +35,7 @@
             <Label x:Name="Level" Content="0" HorizontalAlignment="Left" Margin="325,314.65,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.375,0.783" Grid.Row="1"/>
             <Label x:Name="Health" Content="0" HorizontalAlignment="Left" Margin="325,344.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
             <Label x:Name="Experience" Content="0" HorizontalAlignment="Left" Margin="325,379.2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.236,5.142" Grid.Row="1"/>
-            <Image Source="/Pictures/InWork/personAvTest.png" HorizontalAlignment="Left" Height="209" Margin="123,63.65,0,0" VerticalAlignment="Top" Width="159" Grid.Row="1"/>
+            <Image Source="/Pictures/InWork/person1.png" HorizontalAlignment="Left" Height="209" Margin="123,63.65,0,0" VerticalAlignment="Top" Width="159" Grid.Row="1"/>
             <Label x:Name="NameSurname" Content="Person Name" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="30" Foreground="#901212" FontWeight="ExtraBlack" Margin="108,0.65,0,0" VerticalAlignment="Top" Width="181" Grid.Row="1"/>
             <Image Source="/Pictures/InWork/frame1.png" HorizontalAlignment="Left" Height="234" Margin="113,38.65,0,0" VerticalAlignment="Top" Width="176" Grid.Row="1"/>
 
