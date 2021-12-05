@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LandConquest\\LandConquest\\LandConquest.csproj": {}
+    "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquest.csproj": {}
   },
   "projects": {
-    "D:\\LandConquest\\LandConquest\\LandConquest.csproj": {
+    "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LandConquest\\LandConquest\\LandConquest.csproj",
+        "projectUniqueName": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
         "projectName": "LandConquest",
-        "projectPath": "D:\\LandConquest\\LandConquest\\LandConquest.csproj",
-        "packagesPath": "C:\\Users\\sma\\.nuget\\packages\\",
-        "outputPath": "D:\\LandConquest\\LandConquest\\obj\\",
+        "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
+        "packagesPath": "C:\\Users\\green\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\sma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\green\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "D:\\LandConquest\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
-                "projectPath": "D:\\LandConquest\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
+              "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
+                "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
               },
-              "D:\\LandConquest\\LandConquest\\LandConquestYD\\LandConquestYD.csproj": {
-                "projectPath": "D:\\LandConquest\\LandConquest\\LandConquestYD\\LandConquestYD.csproj"
+              "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj": {
+                "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj"
               }
             }
           }
@@ -97,16 +97,16 @@
         }
       }
     },
-    "D:\\LandConquest\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
+    "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
       "restore": {
-        "projectUniqueName": "D:\\LandConquest\\LandConquest\\LandConquestDB\\LandConquestDB.csproj",
+        "projectUniqueName": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj",
         "projectName": "LandConquestDB",
-        "projectPath": "D:\\LandConquest\\LandConquest\\LandConquestDB\\LandConquestDB.csproj",
+        "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "D:\\LandConquest\\LandConquest\\LandConquestYD\\LandConquestYD.csproj": {
-                "projectPath": "D:\\LandConquest\\LandConquest\\LandConquestYD\\LandConquestYD.csproj"
+              "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj": {
+                "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj"
               }
             }
           }
@@ -116,11 +116,11 @@
         "net472": {}
       }
     },
-    "D:\\LandConquest\\LandConquest\\LandConquestYD\\LandConquestYD.csproj": {
+    "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj": {
       "restore": {
-        "projectUniqueName": "D:\\LandConquest\\LandConquest\\LandConquestYD\\LandConquestYD.csproj",
+        "projectUniqueName": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj",
         "projectName": "LandConquestYD",
-        "projectPath": "D:\\LandConquest\\LandConquest\\LandConquestYD\\LandConquestYD.csproj"
+        "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj"
       },
       "frameworks": {
         "net472": {}
