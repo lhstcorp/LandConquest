@@ -210,6 +210,9 @@
   <data name="LocLabelDate_Content" xml:space="preserve">
     <value>LocLabelDate_Content</value>
   </data>
+  <data name="LocLabelDinastyMain_Content" xml:space="preserve">
+    <value>LocLabelDinastyMain_Content</value>
+  </data>
   <data name="LocLabelEmail_Content" xml:space="preserve">
     <value>LocLabelEmail_Content</value>
   </data>
@@ -314,6 +317,9 @@
   </data>
   <data name="LocLabelQuarry_Text" xml:space="preserve">
     <value>LocLabelQuarry_Text</value>
+  </data>
+  <data name="LocLabelRankingMain_Content" xml:space="preserve">
+    <value>LocLabelRankingMain_Content</value>
   </data>
   <data name="LocLabelRecipientName_Text" xml:space="preserve">
     <value>LocLabelRecipientName_Text</value>

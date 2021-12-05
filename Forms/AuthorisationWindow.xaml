@@ -9,51 +9,50 @@
         lex:LocalizeDictionary.DesignCulture="ru"
         lex:LocalizeDictionary.IncludeInvariantCulture="False"
         lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
-        lex:ResxLocalizationProvider.DefaultDictionary="Resources"   
-        
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources"        
         mc:Ignorable="d"
         
         Tag="{Binding WindowTag}"  Title="Land Conquest" Height="500" Width="800" MaxHeight="500" MaxWidth="800" MinHeight="500" MinWidth="800" FontFamily="Palatino Linotype">
 
+    <Window.Resources>
+        <Style x:Key="TextBoxHint">
+            <Setter Property="TextBox.TextWrapping" Value="Wrap"/>
+            <Setter Property="TextBox.Height" Value="25"/>
+            <Setter Property="TextBox.VerticalAlignment" Value="Top"/>
+            <Setter Property="TextBox.CaretBrush" Value="Black"/>
+        </Style>
+    </Window.Resources>
+
     <Grid>
-
         <Image x:Name="loginGui" HorizontalAlignment="Left" Height="285" Margin="555,6,0,0"  VerticalAlignment="Top" Width="215" Source="/LandConquest;component/Pictures/login_gui.png" />
-
-        <Image x:Name="registerGui" HorizontalAlignment="Left" Height="414" Margin="19,3,0,0" VerticalAlignment="Top" Width="252" Source="/LandConquest;component/Pictures/register_gui.png" />
-
-
-        <TextBox x:Name="textBoxLogin" Text="{Binding LoginText, UpdateSourceTrigger=PropertyChanged}" Margin="587,105,53.6,0" TextWrapping="Wrap" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+        <TextBox x:Name="textBoxLogin" Text="{Binding LoginText, UpdateSourceTrigger=PropertyChanged}"  Margin="587,105,53.6,0" TextWrapping="Wrap" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                  materialDesign:HintAssist.Hint=" Login"  materialDesign:HintAssist.IsFloating="False" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" CaretBrush="Black" Height="25" VerticalAlignment="Top" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
-        <TextBox x:Name="textBoxPass" Text="{Binding PassText, UpdateSourceTrigger=PropertyChanged}" Margin="587,157,53.6,0" Background="{x:Null}"   materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-                     materialDesign:HintAssist.Hint=" Password"  materialDesign:HintAssist.IsFloating="False" Height="27" VerticalAlignment="Top" CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
-
+        <TextBox x:Name="textBoxPass" Text="{Binding PassText, UpdateSourceTrigger=PropertyChanged}" Margin="587,157,53.6,0" Background="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                     materialDesign:HintAssist.Hint=" Password"  materialDesign:HintAssist.IsFloating="False" Height="27" VerticalAlignment="Top" CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" TextChanged="textBoxPass_TextChanged"/>
+        <CheckBox x:Name="CheckboxRemember"  HorizontalAlignment="Left" Margin="703,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="15" BorderBrush="Black" IsChecked="{Binding CheckboxRememberIsChecked, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Background="#FFB4A500" Height="15" Cursor="Hand"/>
 
         <Button x:Name="buttonLogin"  Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="628,241,96.6,192.4" VerticalAlignment="Center" Click="ButtonLogin_Click" Height="37" BorderThickness="0" BorderBrush="White" Background="{x:Null}" RenderTransformOrigin="0.501,0.5"/>
 
-        <TextBox x:Name="textBoxNewLogin"  Text="{Binding NewLoginText, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="50,112,0,320.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+        <Grid x:Name="RegistrationGrid" Visibility="{Binding RegistrationGridVisibility, UpdateSourceTrigger=PropertyChanged}">
+        <Image x:Name="registerGui" HorizontalAlignment="Left" Height="414" Margin="19,3,0,0" VerticalAlignment="Top" Width="252" Source="/LandConquest;component/Pictures/register_gui.png" />
+        <TextBox x:Name="textBoxNewLogin"   Text="{Binding NewLoginText, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="50,112,0,320.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                       materialDesign:HintAssist.Hint=" New login" CaretBrush="Black" HorizontalAlignment="Left" Width="175" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" LostKeyboardFocus="textBoxNewLogin_LostKeyboardFocus" />
         <TextBox x:Name="textBoxNewEmail" Text="{Binding NewEmailText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" TextWrapping="Wrap" Width="175" Margin="50,172,0,262.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                       materialDesign:HintAssist.Hint=" Email"   CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"  BorderThickness="0" SelectionOpacity="0" LostKeyboardFocus="textBoxNewEmail_LostKeyboardFocus" />
         <TextBox x:Name="textBoxNewPass"  Text="{Binding NewPassText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" TextWrapping="Wrap" Width="175" Margin="50,237,0,198.4" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                       materialDesign:HintAssist.Hint=" New password"  CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" LostKeyboardFocus="textBoxNewPass_LostKeyboardFocus" />
-        <TextBox x:Name="textBoxConfirmNewPass" Text="{Binding NewConfirmPassText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="33" Margin="50,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+        <TextBox x:Name="textBoxConfirmNewPass" Text="{Binding ConfirmNewPassText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="33" Margin="50,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                       materialDesign:HintAssist.Hint=" Confirm password"  CaretBrush="Black" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" SelectionOpacity="0" LostKeyboardFocus="textBoxConfirmNewPass_LostKeyboardFocus" />
 
         <Button x:Name="buttonRegistrate" Content="" FontWeight="Thin" FontSize="24" Foreground="Goldenrod" FontFamily="Harrington" Margin="63,376,657.6,52.4" Height="Auto" Click="ButtonRegistrate_Click" BorderThickness="0" Background="{x:Null}"/>
         <Button x:Name="buttonCancelRegistrate" Content="" HorizontalAlignment="Left" Margin="154,376,0,0" VerticalAlignment="Top" Width="71" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="ButtonCancelRegistrate_Click"/>
+        <Label x:Name="labelAgreement" HorizontalContentAlignment="Center" Foreground="#FFE5DE0A" FontSize="14" FontFamily="Tahoma" HorizontalAlignment="Left" Margin="50,334,0,0" VerticalAlignment="Top" Width="175" Cursor="Hand" MouseLeftButtonDown="LabelAgreement_MouseLeftButtonDown">
+            <TextBlock TextDecorations="Underline" HorizontalAlignment="Center" FontFamily="Trebuchet MS">User agreement</TextBlock>
+        </Label>
+        </Grid>
 
 
-        <CheckBox x:Name="CheckboxRemember"  HorizontalAlignment="Left" Margin="703,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="15" BorderBrush="Black" IsChecked="{Binding CheckboxRememberIsChecked, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Background="#FFB4A500" Height="15" Cursor="Hand"/>
-
-        <Button x:Name="buttonShowRegistration" Content="{lex:Loc LocLabelRegister}" HorizontalAlignment="Left" Margin="53,18,0,0" VerticalAlignment="Top" Width="167" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="46" Click="ButtonShowRegistration_Click" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.083"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0.124"/>
-                </TransformGroup>
-            </Button.RenderTransform>
+        <Button x:Name="buttonShowRegistration" Content="{lex:Loc LocLabelRegister}" Visibility="{Binding ShowRegistrationVisibility, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="53,18,0,0" VerticalAlignment="Top" Width="167" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="46" Click="ButtonShowRegistration_Click" RenderTransformOrigin="0.5,0.5">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/register_btn.png"/>
             </Button.Background>
@@ -70,9 +69,9 @@
                 <Label x:Name="currentOnlineLabel" Content="{Binding CurrentOnlineContent, UpdateSourceTrigger=PropertyChanged}" FontFamily="Trebuchet MS" FontSize="20" FontWeight="SemiBold"  Foreground="#FF7B3501"/>
             </Viewbox> 
         </Border>
-        
-        <Label x:Name="labelGameFiles" Content="Checking game files..." FontFamily="Trebuchet MS" FontSize="22" FontWeight="SemiBold" Margin="515,416,9.6,10.4" Foreground="#FFCA691E"/>
-        <Image Source="/Pictures/downloadicon.png" x:Name="iconDownload" Cursor="Hand" MouseDown="IconDownload_MouseDown" Margin="469,410,274.6,10.4"/>
+
+        <Label x:Name="labelGameFiles" Content="{Binding GameFilesContent, UpdateSourceTrigger=PropertyChanged}" FontFamily="Trebuchet MS" FontSize="22" FontWeight="SemiBold" Margin="515,416,9.6,10.4" Foreground="{Binding GameFilesForeground, UpdateSourceTrigger=PropertyChanged}"/>
+        <Image Source="/Pictures/downloadicon.png" x:Name="iconDownload" Cursor="Hand" MouseDown="IconDownload_MouseDown" Margin="469,410,274.6,10.4" Visibility="{Binding IconDownloadVisibility, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Content="Please send us any comment, suggestion or correction you may have!" Foreground="AntiqueWhite" FontFamily="Trebuchet MS" HorizontalAlignment="Left" Margin="19,417,0,0" VerticalAlignment="Top" Width="390"/>
 
         <Label x:Name="labelNameValid" Content="{Binding NameValidContent, UpdateSourceTrigger=PropertyChanged}" FontFamily="Book Antiqua" FontSize="16" FontWeight="SemiBold" Margin="260,114,243.6,320.4" Foreground="{Binding NameValidForeground, UpdateSourceTrigger=PropertyChanged}"/>
@@ -80,9 +79,6 @@
         <Label x:Name="labelPassValid" Content="{Binding PassValidContent, UpdateSourceTrigger=PropertyChanged}" FontFamily="Book Antiqua" FontSize="16" FontWeight="SemiBold" Margin="260,241,243.6,192.4" Foreground="{Binding PassValidForeground, UpdateSourceTrigger=PropertyChanged}"/>
         <Label x:Name="labelConfirmPassValid" Content="{Binding ConfirmPassValidContent, UpdateSourceTrigger=PropertyChanged}" FontFamily="Book Antiqua" FontSize="16" FontWeight="SemiBold" Margin="260,304,241.6,133.4" Foreground="{Binding ConfirmPassValidForeground, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label x:Name="labelAgreement" HorizontalContentAlignment="Center" Foreground="#FFE5DE0A" FontSize="14" FontFamily="Tahoma" HorizontalAlignment="Left" Margin="50,334,0,0" VerticalAlignment="Top" Width="175" Cursor="Hand" MouseLeftButtonDown="LabelAgreement_MouseLeftButtonDown">
-            <TextBlock TextDecorations="Underline" HorizontalAlignment="Center" FontFamily="Trebuchet MS">User agreement</TextBlock>
-        </Label>
 
         <TextBox Text="landconquestofficial@gmail.com" Foreground="AntiqueWhite" FontFamily="Trebuchet MS" Margin="22,442,568.6,-0.6" Background="{x:Null}">
             <TextBox.Style>

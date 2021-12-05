@@ -139,7 +139,7 @@
     <value>Найти</value>
   </data>
   <data name="LocButtonMailbox_Content" xml:space="preserve">
-    <value>Личные сообщения</value>
+    <value>Почта</value>
   </data>
   <data name="LocButtonProfileMain_Content" xml:space="preserve">
     <value>Профиль</value>
@@ -209,6 +209,9 @@
   </data>
   <data name="LocLabelDate_Content" xml:space="preserve">
     <value>Время</value>
+  </data>
+  <data name="LocLabelDinastyMain_Content" xml:space="preserve">
+    <value>Династия</value>
   </data>
   <data name="LocLabelEmail_Content" xml:space="preserve">
     <value>Почта</value>
@@ -314,6 +317,9 @@
   </data>
   <data name="LocLabelQuarry_Text" xml:space="preserve">
     <value>Каменоломня</value>
+  </data>
+  <data name="LocLabelRankingMain_Content" xml:space="preserve">
+    <value>Рейтинг</value>
   </data>
   <data name="LocLabelRecipientName_Text" xml:space="preserve">
     <value>Получатель</value>

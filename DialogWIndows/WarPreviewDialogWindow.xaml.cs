@@ -24,8 +24,14 @@ namespace LandConquest.DialogWIndows
     /// </summary>
     public partial class WarPreviewDialogWindow : Window
     {
-        Player player;
-        War war;
+        // GLOBALS -->
+        Player  player;
+        War     war;
+
+        int         selectedTile = 0;
+        Rectangle   selectedArea;
+        // <--
+
         public WarPreviewDialogWindow(Player _player, War _war)
         {
             player = _player;
@@ -124,6 +130,9 @@ namespace LandConquest.DialogWIndows
 
         private void populatePlayerGrids(List<ArmyInBattle> _armiesA, List<ArmyInBattle> _armiesD)
         {
+            AttackerPlayers.Children.Clear();
+            DefenderPlayers.Children.Clear();
+
             for (int i = 0; i < _armiesA.Count; i++)
             {
                 Image playerCoatOfArms = new Image();
@@ -221,7 +230,8 @@ namespace LandConquest.DialogWIndows
         {
             setDefaultValuesIntoBlankFields();
 
-            if (validateAvailableTroops())
+            if (validateAvailableTroops()
+             && checkSelectedTile())
             {
                 ArmyInBattle armyInBattle = new ArmyInBattle();
 
@@ -230,13 +240,15 @@ namespace LandConquest.DialogWIndows
                 armyInBattle.ArmyHorsemanCount = Convert.ToInt32(KntInput.Text);
                 armyInBattle.ArmySiegegunCount = Convert.ToInt32(SieInput.Text);
                 armyInBattle.calculateSizeCurrent();
-                armyInBattle.ArmyType = ArmyModel.ReturnTypeOfArmy(armyInBattle);
 
                 armyInBattle.PlayerId = player.PlayerId;
                 armyInBattle.ArmyId = AssistantLogic.GenerateId();
 
-                WarLogic.EnterInWar(war, player, armyInBattle);
-                closeWindow();
+                WarLogic.EnterInWar(war, player, armyInBattle, selectedTile);
+
+                updateArmiesDataGrid();
+                initFreePlayerArmy();
+                initPlayerGrids();
             }
         }
 
@@ -281,27 +293,6 @@ namespace LandConquest.DialogWIndows
             SieInput.Text = armyInBattle.ArmySiegegunCount.ToString();
         }
 
-        private void ViewWarBtn_Click(object sender, RoutedEventArgs e)
-        {
-            WarWindow window;
-            List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
-            armiesInBattle = BattleModel.GetArmiesInfo(armiesInBattle, war);
-
-            if (player.PlayerCurrentRegion == war.LandAttackerId)
-            {
-                window = new WarWindow(player, 1, null, armiesInBattle, war);
-                window.Show();
-                closeWindow();
-            }
-            else if (player.PlayerCurrentRegion == war.LandDefenderId)
-            {
-                window = new WarWindow(player, 0, null, armiesInBattle, war);
-                window.Show();
-                closeWindow();
-            }
-            else WarningDialogWindow.CallWarningDialogNoResult("You are not in any lands of war.\nPlease change your position!");
-        }
-
         private void closeWindow()
         {
             ((WarPreviewDialogWindowViewModel)DataContext).CloseWindow();
@@ -321,6 +312,75 @@ namespace LandConquest.DialogWIndows
             }
 
             return ret;
+        }
+
+        private bool checkSelectedTile()
+        {
+            bool ret = true;
+
+            if (selectedTile == 0)
+            {
+                ret = false;
+                WarningDialogWindow.CallWarningDialogNoResult("Please, select a tile where you want to send troops.");
+            }
+
+            return ret;
+        }
+
+        private void TileMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            cancelFrameHighlight();
+            selectedArea = (Rectangle)sender;
+            selectedTile = Convert.ToInt32(selectedArea.Tag);
+            highlightSelectedFrame();
+            updateArmiesDataGrid();
+        }
+
+        private void highlightSelectedFrame()
+        {
+            selectedArea.Stroke = new SolidColorBrush((Color.FromRgb(199, 176, 8)));
+            selectedArea.StrokeThickness = 3;
+        }
+
+        private void cancelFrameHighlight()
+        {
+            if (selectedArea != null)
+            {
+                selectedArea.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                selectedArea.StrokeThickness = 1;
+            }
+        }
+
+        private void updateArmiesDataGrid()
+        {
+            List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
+            armiesInBattle = BattleModel.GetArmiesInfoInCurrentTile(war, selectedTile);
+
+            armiesDataGrid.ItemsSource = armiesInBattle;
+        }
+
+        private void TileMouseEnter(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void TileMouseLeave(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Arrow;
+        }
+
+        private void removeArmyBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ArmyInBattle armyInBattle = (ArmyInBattle)armiesDataGrid.SelectedItem;
+
+            if (armyInBattle != null)
+            {
+                BattleModel.DeleteArmyById(armyInBattle);
+
+                updateArmiesDataGrid();
+                initFreePlayerArmy();
+                initPlayerGrids();
+            }
         }
     }
 }

@@ -220,9 +220,9 @@ namespace LandConquest.DialogWIndows
 
                 BattleModel.InsertArmyIntoBattleTable(newArmyInBattle, war);
 
-                List<ArmyInBattle> playerArmies = WarWindow.GetPlayerArmies();
-                playerArmies.Add(newArmyInBattle);
-                WarWindow.SetPlayerArmies(playerArmies);
+                //List<ArmyInBattle> playerArmies = WarWindow.GetPlayerArmies(); greendend::refactor
+                //playerArmies.Add(newArmyInBattle);
+                //WarWindow.SetPlayerArmies(playerArmies);
 
             }
 

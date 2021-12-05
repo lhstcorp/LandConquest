@@ -37,7 +37,7 @@
             </Button>
             <Button x:Name="DynastyChange" Content="DynastyChange" HorizontalAlignment="Left" Margin="218,94,0,0" VerticalAlignment="Top" Width="17" Height="18" Opacity="0.965" BorderThickness="0" Click="DynastyChange_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="reload_button.png"/>
+                    <ImageBrush ImageSource="/Pictures/reload_button.png"/>
                 </Button.Background>
             </Button>
         </Grid>

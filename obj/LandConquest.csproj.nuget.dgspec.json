@@ -41,9 +41,17 @@
       "frameworks": {
         "net472": {
           "dependencies": {
+            "CefSharp.Wpf": {
+              "target": "Package",
+              "version": "[95.7.141, )"
+            },
             "EmailValidation": {
               "target": "Package",
               "version": "[1.0.4, )"
+            },
+            "Expression.Blend.Sdk.WPF": {
+              "target": "Package",
+              "version": "[1.0.1, )"
             },
             "LiveCharts.Wpf": {
               "target": "Package",

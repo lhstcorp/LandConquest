@@ -1,4 +1,5 @@
 ﻿using LandConquest.DialogWIndows;
+using LandConquest.WindowViewModels.Commands;
 using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
@@ -7,14 +8,17 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
-namespace LandConquest.Forms
+namespace LandConquest.WindowViewModels
 {
     public class AuctionWindowViewModel : INotifyPropertyChanged
     {
         private Player player;
 
-        private List<AuctionListings> _auctionListings;
+        public AuctionWindowViewModel()
+        {
+        }
 
+        private List<AuctionListings> _auctionListings;
         public List<AuctionListings> AuctionListings
         {
             get
@@ -104,7 +108,26 @@ namespace LandConquest.Forms
             player = _player;
         }
 
-        public void WindowLoaded()
+        private AuctionWindowCommand _windowLoadedCommand;
+        public AuctionWindowCommand WindowLoadedCommand
+        {
+            get
+            {
+                return _windowLoadedCommand ??
+                       (_windowLoadedCommand = new AuctionWindowCommand(obj =>
+                       {
+                           try
+                           {
+                               WindowLoaded();
+                           }
+                           catch (Exception ex)
+                           {
+                               WarningDialogWindow.CallWarningDialogNoResult(ex.Message);
+                           }
+                       }));
+            }
+        }
+        private void WindowLoaded()
         {
             AuctionListings = new List<AuctionListings>();
             AuctionListings = AuctionModel.GetListings(AuctionListings);
@@ -112,7 +135,27 @@ namespace LandConquest.Forms
             BtnDelIsEnabled = false;
         }
 
-        public void CreateListing()
+        private AuctionWindowCommand _createListingCommand;
+        public AuctionWindowCommand CreateListingCommand
+        {
+            get
+            {
+                return _createListingCommand ??
+                       (_createListingCommand = new AuctionWindowCommand(obj =>
+                       {
+                           try
+                           {
+                               CreateListing();
+                           }
+                           catch (Exception ex)
+                           {
+                               WarningDialogWindow.CallWarningDialogNoResult(ex.Message);
+                           }
+                       }));
+            }
+        }
+
+        private void CreateListing()
         {
             CreateListingDialog createListingDialog = new CreateListingDialog(player);
             createListingDialog.Owner = Application.Current.MainWindow;
@@ -120,7 +163,27 @@ namespace LandConquest.Forms
             createListingDialog.Show();
         }
 
-        public void FindListing()
+        private AuctionWindowCommand _findListingCommand;
+        public AuctionWindowCommand FindListingCommand
+        {
+            get
+            {
+                return _findListingCommand ??
+                       (_findListingCommand = new AuctionWindowCommand(obj =>
+                       {
+                           try
+                           {
+                               FindListing();
+                           }
+                           catch (Exception ex)
+                           {
+                               WarningDialogWindow.CallWarningDialogNoResult(ex.Message);
+                           }
+                       }));
+            }
+        }
+
+        private void FindListing()
         {
             WindowLoaded();
             if (!String.IsNullOrWhiteSpace(SearchName))
@@ -133,13 +196,53 @@ namespace LandConquest.Forms
             }
         }
 
-        public void ShowMyListings()
+        private AuctionWindowCommand _showMyListingsCommand;
+        public AuctionWindowCommand ShowMyListingsCommand
+        {
+            get
+            {
+                return _showMyListingsCommand ??
+                       (_showMyListingsCommand = new AuctionWindowCommand(obj =>
+                       {
+                           try
+                           {
+                               ShowMyListings();
+                           }
+                           catch (Exception ex)
+                           {
+                               WarningDialogWindow.CallWarningDialogNoResult(ex.Message);
+                           }
+                       }));
+            }
+        }
+
+        private void ShowMyListings()
         {
             WindowLoaded();
             AuctionListings = AuctionListings.FindAll(x => x.SellerName.Contains(player.PlayerName));
         }
 
-        public void Buy()
+        private AuctionWindowCommand _buyCommand;
+        public AuctionWindowCommand BuyCommand
+        {
+            get
+            {
+                return _buyCommand ??
+                       (_buyCommand = new AuctionWindowCommand(obj =>
+                       {
+                           try
+                           {
+                               Buy();
+                           }
+                           catch (Exception ex)
+                           {
+                               WarningDialogWindow.CallWarningDialogNoResult(ex.Message);
+                           }
+                       }));
+            }
+        }
+
+        private void Buy()
         {
             BuyListingDialog inputDialog = new BuyListingDialog();
             int itemAmount;
@@ -167,7 +270,27 @@ namespace LandConquest.Forms
 
         }
 
-        public void ButtonDeleteClick()
+        private AuctionWindowCommand _deleteClickCommand;
+        public AuctionWindowCommand DeleteClickCommand
+        {
+            get
+            {
+                return _deleteClickCommand ??
+                       (_deleteClickCommand = new AuctionWindowCommand(obj =>
+                       {
+                           try
+                           {
+                               ButtonDeleteClick();
+                           }
+                           catch (Exception ex)
+                           {
+                               WarningDialogWindow.CallWarningDialogNoResult(ex.Message);
+                           }
+                       }));
+            }
+        }
+
+        private void ButtonDeleteClick()
         {
             if (player.PlayerId == SelectedListing.SellerId)
             {
@@ -176,7 +299,27 @@ namespace LandConquest.Forms
             WindowLoaded();
         }
 
-        public void DataGridSelectionChanged()
+        private AuctionWindowCommand _dataGridSelectionChangedCommand;
+        public AuctionWindowCommand DataGridSelectionChangedCommand
+        {
+            get
+            {
+                return _dataGridSelectionChangedCommand ??
+                       (_dataGridSelectionChangedCommand = new AuctionWindowCommand(obj =>
+                       {
+                           try
+                           {
+                               DataGridSelectionChanged();
+                           }
+                           catch (Exception ex)
+                           {
+                               WarningDialogWindow.CallWarningDialogNoResult(ex.Message);
+                           }
+                       }));
+            }
+        }
+
+        private void DataGridSelectionChanged()
         {
             if (SelectedListing != null)
             {
@@ -193,12 +336,52 @@ namespace LandConquest.Forms
             }
         }
 
-        public void CloseWindow()
+        private AuctionWindowCommand _closeWindowCommand;
+        public AuctionWindowCommand CloseWindowCommand
+        {
+            get
+            {
+                return _closeWindowCommand ??
+                       (_closeWindowCommand = new AuctionWindowCommand(obj =>
+                       {
+                           try
+                           {
+                               CloseWindow();
+                           }
+                           catch (Exception ex)
+                           {
+                               WarningDialogWindow.CallWarningDialogNoResult(ex.Message);
+                           }
+                       }));
+            }
+        }
+
+        private void CloseWindow()
         {
             Logic.AssistantLogic.CloseWindowByTag(WindowTag = 1);
         }
 
-        public void UpdateListings()
+        private AuctionWindowCommand _updateListingsCommand;
+        public AuctionWindowCommand UpdateListingsCommand
+        {
+            get
+            {
+                return _updateListingsCommand ??
+                       (_updateListingsCommand = new AuctionWindowCommand(obj =>
+                       {
+                           try
+                           {
+                               UpdateListings();
+                           }
+                           catch (Exception ex)
+                           {
+                               WarningDialogWindow.CallWarningDialogNoResult(ex.Message);
+                           }
+                       }));
+            }
+        }
+
+        private void UpdateListings()
         {
             WindowLoaded();
         }

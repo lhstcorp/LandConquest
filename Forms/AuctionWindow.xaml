@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:LandConquest.Forms"
         xmlns:ctrls="clr-namespace:LandConquest.Resources"
@@ -12,8 +13,15 @@
         lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
         lex:ResxLocalizationProvider.DefaultDictionary="Resources"  
         mc:Ignorable="d"
+        
         WindowStyle="None" ResizeMode="NoResize"
-        Title="MarketWindow" Tag="{Binding WindowTag}" Height="450" Width="670" ShowInTaskbar="False" Loaded="Window_Loaded">
+        Title="MarketWindow" Tag="{Binding WindowTag}" Height="450" Width="670" ShowInTaskbar="False">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding WindowLoadedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="450" Width="670">
         <Grid>
@@ -27,7 +35,12 @@
 
             <DataGrid AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontFamily="Book Antiqua" 
                       FontStyle="Oblique" Height="393" Width="460" HorizontalAlignment="Left" 
-                      ItemsSource="{Binding AuctionListings}" SelectedItem="{Binding SelectedListing}" Margin="10,47,0,0" x:Name="auctionDataGrid" VerticalAlignment="Top" Foreground="#FF392018" SelectionChanged="auctionDataGrid_SelectionChanged" BorderBrush="#FF391C18" SelectionMode="Single" CanUserResizeColumns="False">
+                      ItemsSource="{Binding AuctionListings}" SelectedItem="{Binding SelectedListing}" Margin="10,47,0,0" x:Name="auctionDataGrid" VerticalAlignment="Top" Foreground="#FF392018" BorderBrush="#FF391C18" SelectionMode="Single" CanUserResizeColumns="False">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding DataGridSelectionChangedCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="resourceQty" Binding="{Binding Qty}" Header=" Qty" Width="60" CanUserSort="True" />
                     <DataGridTextColumn x:Name="itemName" Binding="{Binding ItemName}" Header="Resource" Width="80" CanUserSort="True"/>
@@ -54,43 +67,23 @@
                 </DataGrid.ColumnHeaderStyle>
             </DataGrid>
 
-            <Button x:Name="buttonShowMyListings" Content="{lex:Loc LocButtonShowMyListings}" HorizontalAlignment="Left" Margin="510,84,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Width="150" Height="30" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Click="buttonShowMyListings_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="buttonCreateListing" Content="{lex:Loc LocButtonCreateListing}" HorizontalAlignment="Left" Margin="510,47,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Click="buttonCreateListing_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="buttonClose" HorizontalAlignment="Left" Margin="644,0,0,0" VerticalAlignment="Top" Width="20" Height="20" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="buttonClose_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="buttonBuy" IsEnabled="{Binding BtnBuyIsEnabled}" Content="{lex:Loc LocLabelBuy_Content}" HorizontalAlignment="Left" Margin="510,121,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Height="30" Width="150" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonBuy_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                </Button.Background>
+            <Button x:Name="buttonShowMyListings" Style="{StaticResource RectangularButton}" Content="{lex:Loc LocButtonShowMyListings}" Command="{Binding ShowMyListingsCommand}" HorizontalAlignment="Left" Margin="510,84,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Width="150" Height="30" BorderBrush="{x:Null}" Foreground="#FFE4CC95">
             </Button>
 
-
-            <Button x:Name="buttonFindListing" Content="{lex:Loc LocButtonFind}" HorizontalAlignment="Left" Margin="386,10,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="84" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32" Click="buttonFindListing_Click" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                </Button.Background>
+            <Button x:Name="buttonCreateListing" Style="{StaticResource RectangularButton}" Content="{lex:Loc LocButtonCreateListing}" Command="{Binding CreateListingCommand}" HorizontalAlignment="Left" Margin="510,47,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" BorderBrush="{x:Null}" Foreground="#FFE4CC95">
             </Button>
-            <Button x:Name="buttonUpdateListings" IsEnabled="True" Content="{lex:Loc LocButtonRefreshListings}" HorizontalAlignment="Left" FontFamily="Book Antiqua" Margin="10,10,0,0" VerticalAlignment="Top" Width="129" Height="32" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonUpdateListings_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                </Button.Background>
+            <Button x:Name="buttonClose" Style="{StaticResource ButtonCross}" Command="{Binding CloseWindowCommand}" HorizontalAlignment="Left" Margin="644,0,0,0" VerticalAlignment="Top" Width="20" Height="20" Foreground="{x:Null}" BorderBrush="{x:Null}">
+            </Button>
+            <Button x:Name="buttonBuy" Style="{StaticResource RectangularButton}" IsEnabled="{Binding BtnBuyIsEnabled}" Content="{lex:Loc LocLabelBuy_Content}" Command="{Binding BuyCommand}" HorizontalAlignment="Left" Margin="510,121,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Height="30" Width="150" Foreground="#FFE4CC95" BorderBrush="{x:Null}">
+            </Button>
+
+            <Button x:Name="buttonFindListing" Style="{StaticResource RectangularButton}" Content="{lex:Loc LocButtonFind}" Command="{Binding FindListingCommand}" HorizontalAlignment="Left" Margin="386,10,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="84" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32">
+            </Button>
+
+            <Button x:Name="buttonUpdateListings" Style="{StaticResource RectangularButton}" IsEnabled="True" Content="{lex:Loc LocButtonRefreshListings}" HorizontalAlignment="Left" FontFamily="Book Antiqua" Margin="10,10,0,0" VerticalAlignment="Top" Width="129" Height="32" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Command="{Binding UpdateListingsCommand}">
             </Button>
             <TextBox x:Name="textBoxItemSearchName" Text="{Binding SearchName, UpdateSourceTrigger=PropertyChanged}"  materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.Hint=" Resource" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="32" Margin="264,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#7F966B52" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF391C18"/>
-            <Button x:Name="buttonDelete" IsEnabled="{Binding BtnDelIsEnabled}" Content="{lex:Loc LocButtonDelete}" HorizontalAlignment="Left" Margin="510,159,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Click="buttonDelete_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
-                </Button.Background>
+            <Button x:Name="buttonDelete" Style="{StaticResource RectangularButton}" IsEnabled="{Binding BtnDelIsEnabled}" Content="{lex:Loc LocButtonDelete}" Command="{Binding DeleteClickCommand}" HorizontalAlignment="Left" Margin="510,159,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" Foreground="#FFE4CC95" BorderBrush="{x:Null}">
             </Button>
         </Grid>
     </Border>

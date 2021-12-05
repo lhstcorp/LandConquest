@@ -340,6 +340,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelDinastyMain_Content.
+        /// </summary>
+        public static string LocLabelDinastyMain_Content {
+            get {
+                return ResourceManager.GetString("LocLabelDinastyMain_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelEmail_Content.
         /// </summary>
         public static string LocLabelEmail_Content {
@@ -651,6 +660,15 @@ namespace LandConquest.Languages {
         public static string LocLabelQuarry_Text {
             get {
                 return ResourceManager.GetString("LocLabelQuarry_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelRankingMain_Content.
+        /// </summary>
+        public static string LocLabelRankingMain_Content {
+            get {
+                return ResourceManager.GetString("LocLabelRankingMain_Content", resourceCulture);
             }
         }
         

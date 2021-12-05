@@ -1,10 +1,5 @@
 ﻿using LandConquest.Logic;
 using LandConquest.WindowViewModels;
-using System;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
 using System.Windows;
 
 namespace LandConquest
@@ -15,7 +10,6 @@ namespace LandConquest
         {
             InitializeComponent();
             DataContext = new AuthorisationWindowViewModel();
-            CheckVersion();
         }
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
@@ -30,46 +24,12 @@ namespace LandConquest
 
         private void ButtonShowRegistration_Click(object sender, RoutedEventArgs e)
         {
-            ShowRegistrationFields(Visibility.Visible);
-            buttonShowRegistration.Visibility = Visibility.Hidden;
+            ((AuthorisationWindowViewModel)DataContext).ShowRegistration();
         }
 
         private void ButtonCancelRegistrate_Click(object sender, RoutedEventArgs e)
         {
-            ShowRegistrationFields(Visibility.Hidden);
-            buttonShowRegistration.Visibility = Visibility.Visible;
-            ClearAllValidationNotifications();
-            textBoxNewLogin.Text        = "";
-            textBoxNewEmail.Text        = "";
-            textBoxNewPass.Text         = "";
-            textBoxConfirmNewPass.Text  = "";
-        }
-        private void ShowRegistrationFields(Visibility visibility)
-        {
-            textBoxNewLogin.Visibility          = visibility;
-            textBoxNewEmail.Visibility          = visibility;
-            textBoxNewPass.Visibility           = visibility;
-            textBoxConfirmNewPass.Visibility    = visibility;
-            registerGui.Visibility              = visibility;
-            buttonRegistrate.Visibility         = visibility;
-            buttonCancelRegistrate.Visibility   = visibility;
-            labelAgreement.Visibility           = visibility;
-        }
-
-        private void CheckVersion()
-        {
-            if (AssistantLogic.CheckGameVersion().SequenceEqual(FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion))
-            {
-                labelGameFiles.Content      = "Game is up to date";
-                labelGameFiles.Foreground   = System.Windows.Media.Brushes.GreenYellow;
-                iconDownload.Visibility     = Visibility.Hidden;
-            }
-            else
-            {
-                labelGameFiles.Content      = "Update required";
-                labelGameFiles.Foreground   = System.Windows.Media.Brushes.Red;
-                iconDownload.Visibility     = Visibility.Visible;
-            }
+            ((AuthorisationWindowViewModel)DataContext).CancelRegistration();
         }
 
         private void IconDownload_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -103,18 +63,27 @@ namespace LandConquest
             ((AuthorisationWindowViewModel)DataContext).ConfirmNewPassFocus();
         }
 
-        private void ClearAllValidationNotifications()
+        public static string GenerateUserId() //this method moved to AssistantLogic. 
         {
-            ((AuthorisationWindowViewModel)DataContext).ClearAllValidationNotifications();
+            return AssistantLogic.GenerateId();
         }
 
-        public static string GenerateUserId() //this method moved to AuthorisationWindowViewModel. 
+        private void textBoxPass_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            System.Threading.Thread.Sleep(15);
-            Random random = new Random();
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvmxyz0123456789";
-            return new string(Enumerable.Repeat(chars, 16)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
+            //var tb = (System.Windows.Controls.TextBox)sender;
+            //using (tb.DeclareChangeBlock())
+            //{
+            //    foreach (var c in e.Changes)
+            //    {
+            //        if (c.AddedLength == 0) continue;
+            //        tb.Select(c.Offset, c.AddedLength);
+            //        if (tb.SelectedText.Contains("(?s)."))
+            //        {
+            //            tb.SelectedText = tb.SelectedText.Replace(System.Char.IsLetter, '*');
+            //        }
+            //        tb.Select(c.Offset + c.AddedLength, 0);
+            //    }
+            //}
         }
     }
 }

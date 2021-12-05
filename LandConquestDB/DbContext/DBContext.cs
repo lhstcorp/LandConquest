@@ -2,6 +2,8 @@
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.IO;
+using System.Linq;
 using LandConquestYD;
 
 namespace LandConquestDB
@@ -13,11 +15,14 @@ namespace LandConquestDB
         public static void OpenConnectionPool()
         {
             try
-            {
+            {               
                 Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
                 sqlconnection = new SqlConnection(YDCrypto.Decrypt(YDContext.ReadResource(value)));
             }
-            catch (Exception) { }
+            catch (Exception e) 
+            {
+                Console.WriteLine(e.Message);
+            }
             sqlconnection.Open();
         }
 

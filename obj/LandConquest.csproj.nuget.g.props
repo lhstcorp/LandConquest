@@ -17,6 +17,9 @@
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)obfuscar\2.2.29\build\obfuscar.props" Condition="Exists('$(NuGetPackageRoot)obfuscar\2.2.29\build\obfuscar.props')" />
+    <Import Project="$(NuGetPackageRoot)cef.redist.x86\95.7.14\buildTransitive\cef.redist.x86.props" Condition="Exists('$(NuGetPackageRoot)cef.redist.x86\95.7.14\buildTransitive\cef.redist.x86.props')" />
+    <Import Project="$(NuGetPackageRoot)cef.redist.x64\95.7.14\buildTransitive\cef.redist.x64.props" Condition="Exists('$(NuGetPackageRoot)cef.redist.x64\95.7.14\buildTransitive\cef.redist.x64.props')" />
+    <Import Project="$(NuGetPackageRoot)cefsharp.common\95.7.141\buildTransitive\CefSharp.Common.props" Condition="Exists('$(NuGetPackageRoot)cefsharp.common\95.7.141\buildTransitive\CefSharp.Common.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgObfuscar Condition=" '$(PkgObfuscar)' == '' ">C:\Users\sma\.nuget\packages\obfuscar\2.2.29</PkgObfuscar>

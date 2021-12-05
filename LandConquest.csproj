@@ -42,10 +42,10 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;ANYCPU</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -158,6 +158,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -245,6 +246,9 @@
     <Compile Include="Forms\CountryWindow.xaml.cs">
       <DependentUpon>CountryWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DiscordChatWindow.xaml.cs">
+      <DependentUpon>DiscordChatWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LandResourcesWindow.xaml.cs">
       <DependentUpon>LandResourcesWindow.xaml</DependentUpon>
     </Compile>
@@ -284,9 +288,6 @@
     <Compile Include="Forms\WarResultWindow.xaml.cs">
       <DependentUpon>WarResultWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\WarWindow.xaml.cs">
-      <DependentUpon>WarWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Languages\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -315,6 +316,7 @@
     <Compile Include="WindowDialogViewModels\WarResultsDialogWindowViewModel.cs" />
     <Compile Include="WindowViewModels\AuctionWindowViewModel.cs" />
     <Compile Include="WindowViewModels\AuthorisationWindowViewModel.cs" />
+    <Compile Include="WindowViewModels\Commands\AuctionWindowCommand.cs" />
     <Page Include="DialogWIndows\BuyListingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -422,6 +424,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Forms\DiscordChatWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\LandResourcesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -489,10 +495,6 @@
     <Page Include="Forms\WarResultWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Forms\WarWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\GlobalMap.xaml">
       <SubType>Designer</SubType>
@@ -808,6 +810,44 @@
     <Resource Include="Pictures\Common\crown.png" />
     <Resource Include="Pictures\Icons\Other\Book.png" />
     <Resource Include="Pictures\Icons\Other\Arrow_blue.png" />
+    <Resource Include="Pictures\swords.png" />
+    <Resource Include="Pictures\heart.png" />
+    <Resource Include="Pictures\target.png" />
+    <Resource Include="Pictures\shield_16.png" />
+    <Resource Include="Pictures\two_swords.png" />
+    <Resource Include="Pictures\boots1.png" />
+    <Resource Include="Pictures\Archerskill_50.png" />
+    <Resource Include="Pictures\Mageskill_13.png" />
+    <Resource Include="Pictures\tranquility_nobg.png" />
+    <Resource Include="Pictures\Assassinskill_37.png" />
+    <Resource Include="Pictures\Archerskill_27.png" />
+    <Resource Include="Pictures\Archerskill_28.png" />
+    <Resource Include="Pictures\Druideskill_44.png" />
+    <Resource Include="Pictures\Sword_26.png" />
+    <Resource Include="Pictures\Bow_13.png" />
+    <Resource Include="Pictures\Chest_58.png" />
+    <Resource Include="Pictures\InWork\Health.png" />
+    <Resource Include="Pictures\InWork\Intelligence.png" />
+    <Resource Include="Pictures\InWork\knight.png" />
+    <Resource Include="Pictures\InWork\person1.png" />
+    <Resource Include="Pictures\InWork\strenght.png" />
+    <Resource Include="Pictures\Menu items\Rating.png" />
+    <Resource Include="Pictures\Menu items\Profile.png" />
+    <Resource Include="Pictures\food_06_t.png" />
+    <Resource Include="Pictures\armor_16.png" />
+    <Resource Include="Pictures\pt_t_16.png" />
+    <Resource Include="Pictures\ar_t_03.png" />
+    <Resource Include="Pictures\st_t_05.png" />
+    <Resource Include="Pictures\sv_t_03.png" />
+    <Resource Include="Pictures\boots_6.png" />
+    <Resource Include="Pictures\boot_t_04.png" />
+    <Resource Include="Pictures\91.png" />
+    <Resource Include="Pictures\saddle.png" />
+    <Resource Include="Pictures\Icons\Menu\recruit_shield.png" />
+    <Resource Include="Pictures\Icons\Menu\IconIndustryNew.png" />
+    <Resource Include="Pictures\Icons\Menu\IconMarkerNew.png" />
+    <Resource Include="Pictures\Icons\Menu\IconAuctionNew.png" />
+    <Resource Include="Pictures\War\map.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -820,8 +860,14 @@
     <Resource Include="Pictures\craft.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CefSharp.Wpf">
+      <Version>95.7.141</Version>
+    </PackageReference>
     <PackageReference Include="EmailValidation">
       <Version>1.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Expression.Blend.Sdk.WPF">
+      <Version>1.0.1</Version>
     </PackageReference>
     <PackageReference Include="LiveCharts.Wpf">
       <Version>0.9.7</Version>

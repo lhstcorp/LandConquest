@@ -6,6 +6,9 @@ using System.Reflection;
 using System.Text;
 using YandexDiskNET;
 using DeviceId;
+using System.Net;
+using System.Net.Http.Handlers;
+using System.Threading.Tasks;
 
 namespace LandConquestYD
 {
@@ -33,14 +36,6 @@ namespace LandConquestYD
         public static YandexDiskRest GetYD()
         {
             return disk;
-        }
-
-        public static string ReadResource(string sourceFileName)
-        {
-            var parameter = default(Param);
-            parameter.Path = sourceFileName;
-            string result = ReadFile((string)JObject.Parse(CommandDisk(oauth, parameter)).SelectToken("href"));
-            return result;
         }
 
         public static int CountConnections()
@@ -125,12 +120,23 @@ namespace LandConquestYD
         }
 
 
-        private static string CommandDisk(string oauth, Param param)
+        private static string CommandDisk(string oauth, Param param, bool download = true)
         {
             HttpMethod method = HttpMethod.Get;
             HttpClient httpClient = new HttpClient();
             UrlBuilder urlBuilder = new UrlBuilder(param);
-            var requestUri = "https://cloud-api.yandex.net/v1/disk/resources/download?" + urlBuilder.Path;
+
+            string requestUri;
+
+            if (download)
+            {
+                requestUri = "https://cloud-api.yandex.net/v1/disk/resources/download?" + urlBuilder.Path;
+            } 
+            else
+            {
+                requestUri = "https://cloud-api.yandex.net/v1/disk/resources/upload?" + urlBuilder.Path + urlBuilder.Overwrite;
+            }
+
             try
             {
                 HttpRequestMessage httpRequestMessage = new HttpRequestMessage(method, requestUri);
@@ -148,6 +154,13 @@ namespace LandConquestYD
             }
         }
 
+        public static string ReadResource(string sourceFileName)
+        {
+            var parameter = default(Param);
+            parameter.Path = sourceFileName;
+            string result = ReadFile((string)JObject.Parse(CommandDisk(oauth, parameter)).SelectToken("href"));
+            return result;
+        }
         private static string ReadFile(string url)
         {
             HttpClient httpClient = HttpClientFactory.Create();
@@ -163,6 +176,30 @@ namespace LandConquestYD
 
             }
             catch (Exception) { return null; }
+        }
+
+        public static void UploadStringToResource(string destFileName, string fileText, bool overwrite = true)
+        {
+            Param param = default(Param);
+            param.Path = destFileName;
+            param.Overwrite = overwrite;
+            string text = CommandDisk(oauth, param, false);
+            if (text != null)
+            {
+                UploadStringToFileAsync((string)JObject.Parse(text).SelectToken("href"), fileText);
+            }
+        }
+
+        private static void UploadStringToFileAsync(string url, string fileText)
+        {
+            HttpClient httpClient = HttpClientFactory.Create();
+
+            byte[] byteArray = Encoding.ASCII.GetBytes(fileText);
+
+            using (StreamContent content = new StreamContent(new MemoryStream(byteArray)))
+            {
+                var result = httpClient.PutAsync(url, content).Result;
+            }
         }
     }
 }

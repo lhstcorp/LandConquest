@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using Dapper;
+using LandConquestDB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -72,6 +73,21 @@ namespace LandConquestDB.Models
             command.Dispose();
 
             return person;
+        }
+
+        public static bool CheckPersonDynastyExistence(string dynasty)
+        {
+            var player_id = "";
+            
+            player_id = DbContext.GetSqlConnection().Query<string>("SELECT player_id FROM dbo.PersonData WHERE surname = @surname", new { surname = dynasty}).FirstOrDefault();
+            if(String.IsNullOrWhiteSpace(player_id))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
