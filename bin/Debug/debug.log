@@ -166,3 +166,148 @@ color: purple;
 [1124/031024.479:ERROR:gpu_init.cc(453)] Passthrough is not supported, GL is disabled, ANGLE is 
 [1124/031145.371:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
 [1124/031345.782:ERROR:gpu_init.cc(453)] Passthrough is not supported, GL is disabled, ANGLE is 
+[1124/143420.464:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+[1124/143427.167:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+[1124/143428.108:INFO:CONSOLE(130)] "%c[Logger.tsx] 
+font-weight: bold;
+color: purple;
+ Logger has loaded", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143428.483:INFO:CONSOLE(130)] "%c[default] 
+font-weight: bold;
+color: purple;
+ [BUILD INFO] Release Channel: stable, Build Number: 105691, Version Hash: 039634f8b06bf40775fb1a0b570057abbd74d56f", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143428.484:INFO:CONSOLE(130)] "AppCrashedFatalReport: getLastCrash not supported.", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143450.761:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[1124/143450.920:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[1124/143450.922:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[1124/143450.922:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[1124/143450.922:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[1124/143450.923:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803784 [6,8]
+[1124/143450.924:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803784 [6,8]
+[1124/143450.924:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803784 [6,8]
+[1124/143450.924:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803784 [6,8]
+[1124/143458.003:INFO:CONSOLE(130)] "%c[AuthenticationStore] 
+font-weight: bold;
+color: purple;
+ removeAuthToken called. [object Object]", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143458.006:INFO:CONSOLE(130)] "%c[Routing/Utils] 
+font-weight: bold;
+color: purple;
+ transitionTo - Transitioning to /invite/tvGpGg4j/login", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143458.040:INFO:CONSOLE(130)] "%c[LoginQRSocket] 
+font-weight: bold;
+color: purple;
+ [0ms] connecting to wss://remote-auth-gateway.discord.gg/?v=1", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143458.273:INFO:CONSOLE(130)] "%c[AuthenticationStore] 
+font-weight: bold;
+color: purple;
+ setAuthToken called. [object Object]", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143458.284:INFO:CONSOLE(130)] "%c[LoginQRSocket] 
+font-weight: bold;
+color: purple;
+ [243ms] cleaning up", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143458.702:INFO:CONSOLE(130)] "%c[Routing/Utils] 
+font-weight: bold;
+color: purple;
+ transitionTo - Transitioning to /channels/912836748558618654/912836748558618657", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143458.759:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+[1124/143458.814:INFO:CONSOLE(49)] "[FAST CONNECT] connecting to: wss://gateway.discord.gg/?encoding=json&v=9&compress=zlib-stream", source: https://discord.com/channels/912836748558618654/912836748558618657 (49)
+[1124/143459.139:INFO:CONSOLE(130)] "[FAST CONNECT] connected in 323ms", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143459.387:INFO:CONSOLE(130)] "%c[Logger.tsx] 
+font-weight: bold;
+color: purple;
+ Logger has loaded", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143459.745:INFO:CONSOLE(130)] "%c[default] 
+font-weight: bold;
+color: purple;
+ [BUILD INFO] Release Channel: stable, Build Number: 105691, Version Hash: 039634f8b06bf40775fb1a0b570057abbd74d56f", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143459.747:INFO:CONSOLE(130)] "AppCrashedFatalReport: getLastCrash not supported.", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143501.516:INFO:CONSOLE(130)] "%c[GatewaySocket] 
+font-weight: bold;
+color: purple;
+ [CONNECT] wss://gateway.discord.gg, encoding: json, version: 9, compression: zlib-stream", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143501.516:INFO:CONSOLE(130)] "[FAST CONNECT] successfully took over websocket, state: [object Object]", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143501.516:INFO:CONSOLE(130)] "%c[GatewaySocket] 
+font-weight: bold;
+color: purple;
+ [CONNECTED] wss://gateway.discord.gg/?encoding=json&v=9&compress=zlib-stream in 1 ms", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143501.516:INFO:CONSOLE(130)] "%c[ConnectionStore] 
+font-weight: bold;
+color: purple;
+ handleIdentify called [object Object]", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143501.517:INFO:CONSOLE(130)] "%c[GatewaySocket] 
+font-weight: bold;
+color: purple;
+ [IDENTIFY]", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143501.529:INFO:CONSOLE(130)] "%c[GatewaySocket] 
+font-weight: bold;
+color: purple;
+ [HELLO] via ["gateway-prd-main-whn0",{"micros":0.0}], heartbeat interval: 41250, took 14 ms", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143501.806:INFO:CONSOLE(130)] "%c[GatewaySocket] 
+font-weight: bold;
+color: purple;
+ [READY] took 289ms, via ["gateway-prd-main-whn0",{"micros":118347,"calls":["discord-sessions-blue-prd-2-146",{"micros":117321,"calls":["start_session",{"micros":102065,"calls":["api-prd-main-z0w9",{"micros":96452,"calls":["get_user",{"micros":4112},"add_authorized_ip",{"micros":11225},"get_guilds",{"micros":49977},"private_channels",{"micros":1614},"read_states",{"micros":2131},"coros_wait",{"micros":52},"aliases",{"micros":2607},"affine_user_ids",{"micros":14760},"experiments",{"micros":3568}]}]},"guilds_connect",{"micros":1178,"calls":[]},"presence_connect",{"micros":13428,"calls":[]}]}]}] as df8db4334664e8aac14b7f72ef40b080", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143501.807:INFO:CONSOLE(130)] "%c[AuthenticationStore] 
+font-weight: bold;
+color: purple;
+ handleConnectionOpen called [object Object]", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143501.834:WARNING:http_cache_transaction.cc(2390)] Multiple or malformed validation headers found.
+[1124/143501.834:INFO:CONSOLE(130)] "%c[MessageActionCreators] 
+font-weight: bold;
+color: purple;
+ Fetching messages for 912836748558618657 between undefined and undefined. jump=undefined", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143501.840:INFO:CONSOLE(130)] "%c[discord_protos.discord_users.v1.PreloadedUserSettings] 
+font-weight: bold;
+color: purple;
+ Marking dirty due to migrates", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143502.131:INFO:CONSOLE(130)] "%c[Flux] 
+font-weight: bold;
+color: purple;
+ Slow batch emitChanges took 286ms recentActions: EXPERIMENT_TRIGGER -> TRACK -> EXPERIMENT_TRIGGER -> TUTORIAL_INDICATOR_HIDE -> TRACK -> TRACK -> EXPERIMENT_TRIGGER -> UPDATE_CHANNEL_LIST_DIMENSIONS -> TUTORIAL_INDICATOR_DISMISS -> TUTORIAL_INDICATOR_SHOW", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143502.222:INFO:CONSOLE(130)] "%c[GatewaySocket] 
+font-weight: bold;
+color: purple;
+ [READY_SUPPLEMENTAL] took 707ms", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143502.344:INFO:CONSOLE(130)] "%c[MessageActionCreators] 
+font-weight: bold;
+color: purple;
+ Fetched 2 messages for 912836748558618657 isBefore:false isAfter:false", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143522.680:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+[1124/143522.787:INFO:CONSOLE(44)] "[FAST CONNECT] connecting to: wss://gateway.discord.gg/?encoding=json&v=9&compress=zlib-stream", source: https://discord.com/invite/tvGpGg4j?utm_source=Discord%20Widget&utm_medium=Connect (44)
+[1124/143523.098:INFO:CONSOLE(130)] "%c[Logger.tsx] 
+font-weight: bold;
+color: purple;
+ Logger has loaded", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143523.474:INFO:CONSOLE(130)] "%c[default] 
+font-weight: bold;
+color: purple;
+ [BUILD INFO] Release Channel: stable, Build Number: 105691, Version Hash: 039634f8b06bf40775fb1a0b570057abbd74d56f", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143523.476:INFO:CONSOLE(130)] "AppCrashedFatalReport: getLastCrash not supported.", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143523.526:INFO:CONSOLE(130)] "[FAST CONNECT] connected in 738ms", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143529.896:ERROR:browser_info_manager.cc(547)] Timeout of new browser info response for frame 42949672964 [10,4]
+[1124/143552.832:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+[1124/143552.955:INFO:CONSOLE(44)] "[FAST CONNECT] connecting to: wss://gateway.discord.gg/?encoding=json&v=9&compress=zlib-stream", source: https://discord.com/invite/tvGpGg4j?utm_source=Discord%20Widget&utm_medium=Connect (44)
+[1124/143553.255:INFO:CONSOLE(130)] "%c[Logger.tsx] 
+font-weight: bold;
+color: purple;
+ Logger has loaded", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143553.633:INFO:CONSOLE(130)] "%c[default] 
+font-weight: bold;
+color: purple;
+ [BUILD INFO] Release Channel: stable, Build Number: 105691, Version Hash: 039634f8b06bf40775fb1a0b570057abbd74d56f", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143553.634:INFO:CONSOLE(130)] "AppCrashedFatalReport: getLastCrash not supported.", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143553.683:INFO:CONSOLE(130)] "[FAST CONNECT] connected in 728ms", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143620.542:ERROR:gpu_init.cc(453)] Passthrough is not supported, GL is disabled, ANGLE is 
+[1124/143710.204:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+[1124/143716.918:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.", source:  (0)
+[1124/143717.032:INFO:CONSOLE(44)] "[FAST CONNECT] connecting to: wss://gateway.discord.gg/?encoding=json&v=9&compress=zlib-stream", source: https://discord.com/invite/tvGpGg4j?utm_source=Discord%20Widget&utm_medium=Connect (44)
+[1124/143717.325:INFO:CONSOLE(130)] "%c[Logger.tsx] 
+font-weight: bold;
+color: purple;
+ Logger has loaded", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143717.757:INFO:CONSOLE(130)] "%c[default] 
+font-weight: bold;
+color: purple;
+ [BUILD INFO] Release Channel: stable, Build Number: 105691, Version Hash: 039634f8b06bf40775fb1a0b570057abbd74d56f", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143717.760:INFO:CONSOLE(130)] "AppCrashedFatalReport: getLastCrash not supported.", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)
+[1124/143717.812:INFO:CONSOLE(130)] "[FAST CONNECT] connected in 779ms", source: https://discord.com/assets/3cf77b996e1fcc8c8896.js (130)

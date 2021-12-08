@@ -330,7 +330,7 @@ namespace LandConquest.DialogWIndows
         private void TileMouseDown(object sender, MouseButtonEventArgs e)
         {
             cancelFrameHighlight();
-            selectedArea = (Rectangle)sender;
+            selectedArea = this.FindName("Area" + ((Label)sender).Tag) as Rectangle;
             selectedTile = Convert.ToInt32(selectedArea.Tag);
             highlightSelectedFrame();
             updateArmiesDataGrid();

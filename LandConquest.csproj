@@ -42,10 +42,10 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;ANYCPU</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -848,6 +848,13 @@
     <Resource Include="Pictures\Icons\Menu\IconMarkerNew.png" />
     <Resource Include="Pictures\Icons\Menu\IconAuctionNew.png" />
     <Resource Include="Pictures\War\map.png" />
+    <Resource Include="Pictures\Update_08.png" />
+    <Resource Include="Pictures\Priestskill_23.png" />
+    <Resource Include="Pictures\Warriorskill_44.png" />
+    <Resource Include="Pictures\Archerskill_16.png" />
+    <Resource Include="Pictures\Engineerskill_15.png" />
+    <Resource Include="Pictures\Engineerskill_18.png" />
+    <Resource Include="Pictures\Mageskill_23.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
