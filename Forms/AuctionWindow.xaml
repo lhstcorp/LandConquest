@@ -67,23 +67,26 @@
                 </DataGrid.ColumnHeaderStyle>
             </DataGrid>
 
-            <Button x:Name="buttonShowMyListings" Style="{StaticResource RectangularButton}" Content="{lex:Loc LocButtonShowMyListings}" Command="{Binding ShowMyListingsCommand}" HorizontalAlignment="Left" Margin="510,84,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Width="150" Height="30" BorderBrush="{x:Null}" Foreground="#FFE4CC95">
+            <Button x:Name="buttonShowMyListings" Content="{lex:Loc LocButtonShowMyListings}" Command="{Binding ShowMyListingsCommand}" HorizontalAlignment="Left" Margin="510,84,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Width="150" Height="30" BorderBrush="{x:Null}" Foreground="#FFE4CC95">
             </Button>
 
-            <Button x:Name="buttonCreateListing" Style="{StaticResource RectangularButton}" Content="{lex:Loc LocButtonCreateListing}" Command="{Binding CreateListingCommand}" HorizontalAlignment="Left" Margin="510,47,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" BorderBrush="{x:Null}" Foreground="#FFE4CC95">
+            <Button x:Name="buttonCreateListing" Content="{lex:Loc LocButtonCreateListing}" Command="{Binding CreateListingCommand}" HorizontalAlignment="Left" Margin="510,47,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" BorderBrush="{x:Null}" Foreground="#FFE4CC95">
             </Button>
-            <Button x:Name="buttonClose" Style="{StaticResource ButtonCross}" Command="{Binding CloseWindowCommand}" HorizontalAlignment="Left" Margin="644,0,0,0" VerticalAlignment="Top" Width="20" Height="20" Foreground="{x:Null}" BorderBrush="{x:Null}">
+            <Button x:Name="buttonClose" Command="{Binding CloseWindowCommand}" HorizontalAlignment="Left" Margin="644,0,0,0" VerticalAlignment="Top" Width="20" Height="20" Foreground="{x:Null}" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+                </Button.Background>
             </Button>
-            <Button x:Name="buttonBuy" Style="{StaticResource RectangularButton}" IsEnabled="{Binding BtnBuyIsEnabled}" Content="{lex:Loc LocLabelBuy_Content}" Command="{Binding BuyCommand}" HorizontalAlignment="Left" Margin="510,121,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Height="30" Width="150" Foreground="#FFE4CC95" BorderBrush="{x:Null}">
+            <Button x:Name="buttonBuy" IsEnabled="{Binding BtnBuyIsEnabled}" Content="{lex:Loc LocLabelBuy_Content}" Command="{Binding BuyCommand}" HorizontalAlignment="Left" Margin="510,121,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" Height="30" Width="150" Foreground="#FFE4CC95" BorderBrush="{x:Null}">
             </Button>
 
-            <Button x:Name="buttonFindListing" Style="{StaticResource RectangularButton}" Content="{lex:Loc LocButtonFind}" Command="{Binding FindListingCommand}" HorizontalAlignment="Left" Margin="386,10,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="84" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32">
+            <Button x:Name="buttonFindListing" Content="{lex:Loc LocButtonFind}" Command="{Binding FindListingCommand}" HorizontalAlignment="Left" Margin="386,10,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="84" BorderBrush="{x:Null}" Foreground="#FFE4CC95" Height="32">
             </Button>
 
-            <Button x:Name="buttonUpdateListings" Style="{StaticResource RectangularButton}" IsEnabled="True" Content="{lex:Loc LocButtonRefreshListings}" HorizontalAlignment="Left" FontFamily="Book Antiqua" Margin="10,10,0,0" VerticalAlignment="Top" Width="129" Height="32" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Command="{Binding UpdateListingsCommand}">
+            <Button x:Name="buttonUpdateListings" IsEnabled="True" Content="{lex:Loc LocButtonRefreshListings}" HorizontalAlignment="Left" FontFamily="Book Antiqua" Margin="10,10,0,0" VerticalAlignment="Top" Width="129" Height="32" Foreground="#FFE4CC95" BorderBrush="{x:Null}" Command="{Binding UpdateListingsCommand}">
             </Button>
             <TextBox x:Name="textBoxItemSearchName" Text="{Binding SearchName, UpdateSourceTrigger=PropertyChanged}"  materialDesign:TextFieldAssist.DecorationVisibility="Hidden" materialDesign:HintAssist.Hint=" Resource" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="32" Margin="264,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" Background="#7F966B52" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF391C18"/>
-            <Button x:Name="buttonDelete" Style="{StaticResource RectangularButton}" IsEnabled="{Binding BtnDelIsEnabled}" Content="{lex:Loc LocButtonDelete}" Command="{Binding DeleteClickCommand}" HorizontalAlignment="Left" Margin="510,159,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" Foreground="#FFE4CC95" BorderBrush="{x:Null}">
+            <Button x:Name="buttonDelete" IsEnabled="{Binding BtnDelIsEnabled}" Content="{lex:Loc LocButtonDelete}" Command="{Binding DeleteClickCommand}" HorizontalAlignment="Left" Margin="510,159,0,0" FontFamily="Book Antiqua" VerticalAlignment="Top" Width="150" Height="30" Foreground="#FFE4CC95" BorderBrush="{x:Null}">
             </Button>
         </Grid>
     </Border>
