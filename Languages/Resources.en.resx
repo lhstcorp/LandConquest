@@ -165,6 +165,9 @@
   <data name="LocButtonSupportUs_Content" xml:space="preserve">
     <value>Support us</value>
   </data>
+  <data name="LocLabelAgility" xml:space="preserve">
+    <value>Agility</value>
+  </data>
   <data name="LocLabelArchers_Text" xml:space="preserve">
     <value>Archers</value>
   </data>
@@ -188,6 +191,9 @@
   </data>
   <data name="LocLabelBuy_Content" xml:space="preserve">
     <value>Buy</value>
+  </data>
+  <data name="LocLabelCharacteristics" xml:space="preserve">
+    <value>Characteristics</value>
   </data>
   <data name="LocLabelConsumption_Content" xml:space="preserve">
     <value>Consumption</value>
@@ -219,6 +225,9 @@
   <data name="LocLabelEstablishAState_Text" xml:space="preserve">
     <value>Establish a state</value>
   </data>
+  <data name="LocLabelExperience" xml:space="preserve">
+    <value>Experience</value>
+  </data>
   <data name="LocLabelExp_Content" xml:space="preserve">
     <value>Xp</value>
   </data>
@@ -249,6 +258,9 @@
   <data name="LocLabelHarness_Text" xml:space="preserve">
     <value>Harness</value>
   </data>
+  <data name="LocLabelHealth" xml:space="preserve">
+    <value>Health</value>
+  </data>
   <data name="LocLabelHire_Text" xml:space="preserve">
     <value>Hire</value>
   </data>
@@ -257,6 +269,9 @@
   </data>
   <data name="LocLabelInfantry_Text" xml:space="preserve">
     <value>Infantry</value>
+  </data>
+  <data name="LocLabelIntelligence" xml:space="preserve">
+    <value>Intelligence</value>
   </data>
   <data name="LocLabelIronFactory_Content" xml:space="preserve">
     <value>Iron factory</value>
@@ -272,6 +287,9 @@
   </data>
   <data name="LocLabelLeather_Text" xml:space="preserve">
     <value>Leather</value>
+  </data>
+  <data name="LocLabelLevel" xml:space="preserve">
+    <value>Level</value>
   </data>
   <data name="LocLabelLevel_Content" xml:space="preserve">
     <value>lvl:</value>
@@ -308,6 +326,9 @@
   </data>
   <data name="LocLabelPlayer_Content" xml:space="preserve">
     <value>Player</value>
+  </data>
+  <data name="LocLabelPower" xml:space="preserve">
+    <value>Power</value>
   </data>
   <data name="LocLabelPrice_Content" xml:space="preserve">
     <value>Price</value>

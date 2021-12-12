@@ -4,6 +4,11 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LandConquest.Forms"
+      xmlns:lex="http://wpflocalizeextension.codeplex.com"
+      lex:LocalizeDictionary.DesignCulture="ru"
+      lex:LocalizeDictionary.IncludeInvariantCulture="False"
+      lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
+      lex:ResxLocalizationProvider.DefaultDictionary="Resources" 
       mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize" HorizontalAlignment="Center" VerticalAlignment="Center"
         Title="PersonWindow" Height="450" Width="400">
 
@@ -22,22 +27,27 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Label Content="Характеристики" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="25" Foreground="#901212" FontWeight="ExtraBlack" Margin="91,272.65,0,0" VerticalAlignment="Top" Width="213" Grid.Row="1"/>
-            <Label Content="Сила" HorizontalAlignment="Left" Margin="29,311.65,0,0" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label Content="Ловкость " HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="29,344.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label Content="Интеллект " HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="29,376.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label Content="Уровень" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="230,311.65,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.139,0.526" Grid.Row="1"/>
-            <Label Content="Здоровье" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="230,344.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label Content="Опыт" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="230,376.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+            <Label Content="{lex:Loc LocLabelCharacteristics}" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="92,267,0,0" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Width="214"/>
+            <Label Content="{lex:Loc LocLabelPower}"  HorizontalAlignment="Left" Margin="29,311.65,0,0" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" VerticalAlignment="Top" Grid.Row="1"/>
+            <Label Content="{lex:Loc LocLabelAgility}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="29,344.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+            <Label Content="{lex:Loc LocLabelIntelligence}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="29,376.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+            <Label Content="{lex:Loc LocLabelLevel}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="230,311.65,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.139,0.526" Grid.Row="1"/>
+            <Label Content="{lex:Loc LocLabelHealth}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="230,344.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+            <Label Content="{lex:Loc LocLabelExperience}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="230,376.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
             <Label x:Name="Power" Content="0" HorizontalAlignment="Left" Margin="130,314.65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1"/>
-            <Label x:Name="Agility" Content="0" HorizontalAlignment="Left" Margin="130,347.2,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.125,0.517" Grid.Row="1"/>
-            <Label x:Name="Intelligence" Content="0" HorizontalAlignment="Left" Margin="130,379.65,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.958,2.442" Grid.Row="1"/>
-            <Label x:Name="Level" Content="0" HorizontalAlignment="Left" Margin="325,314.65,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.375,0.783" Grid.Row="1"/>
-            <Label x:Name="Health" Content="0" HorizontalAlignment="Left" Margin="325,344.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label x:Name="Experience" Content="0" HorizontalAlignment="Left" Margin="325,379.2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.236,5.142" Grid.Row="1"/>
-            <Image Source="/Pictures/InWork/person1.png" HorizontalAlignment="Left" Height="209" Margin="123,63.65,0,0" VerticalAlignment="Top" Width="159" Grid.Row="1"/>
+            <Label x:Name="Agility" Content="0" HorizontalAlignment="Left" Margin="130,348,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.125,0.517" Grid.Row="1"/>
+            <Label x:Name="Intelligence" Content="0" HorizontalAlignment="Left" Margin="130,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.958,2.442" Grid.Row="1"/>
+            <Label x:Name="Level" Content="0" HorizontalAlignment="Left" Margin="325,315,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.375,0.783" Grid.Row="1"/>
+            <Label x:Name="Health" Content="0" HorizontalAlignment="Left" Margin="325,348,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+            <Label x:Name="Experience" Content="0" HorizontalAlignment="Left" Margin="325,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.236,5.142" Grid.Row="1"/>
+            <Image Source="/Pictures/InWork/person1.png" HorizontalAlignment="Left" Height="159" Margin="132,68,0,0" VerticalAlignment="Top" Width="139" Grid.Row="1"/>
             <Label x:Name="NameSurname" Content="Person Name" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="30" Foreground="#901212" FontWeight="ExtraBlack" Margin="108,0.65,0,0" VerticalAlignment="Top" Width="181" Grid.Row="1"/>
-            <Image Source="/Pictures/InWork/frame1.png" HorizontalAlignment="Left" Height="234" Margin="113,38.65,0,0" VerticalAlignment="Top" Width="176" Grid.Row="1"/>
+            <Image Source="/Pictures/Priestskill_23.png" HorizontalAlignment="Left" Height="24" Margin="202,349,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
+            <Image Source="/Pictures/WarriorSkill_44.png" HorizontalAlignment="Left" Height="24" Margin="5,316,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
+            <Image Source="/Pictures/Archerskill_16.png" HorizontalAlignment="Left" Height="24" Margin="5,348,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
+            <Image Source="/Pictures/Engineerskill_15.png" HorizontalAlignment="Left" Height="24" Margin="5,381,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
+            <Image Source="/Pictures/Engineerskill_18.png" HorizontalAlignment="Left" Height="24" Margin="202,316,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
+            <Image Source="/Pictures/Mageskill_23.png" HorizontalAlignment="Left" Height="24" Margin="202,380,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
