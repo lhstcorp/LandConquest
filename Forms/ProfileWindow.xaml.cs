@@ -34,7 +34,7 @@ namespace LandConquest.Forms
             //player = new Player();
             //player = PlayerModel.GetPlayerById(user.UserId);
 
-
+            
             labelName.Content = player.PlayerName.ToString();
             labelTitle.Content = player.PlayerTitle.ToString();
             labelLand.Content = player.PlayerCurrentRegion.ToString();

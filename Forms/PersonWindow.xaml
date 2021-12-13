@@ -46,7 +46,11 @@
             <Image Source="/Pictures/WarriorSkill_44.png" HorizontalAlignment="Left" Height="24" Margin="5,316,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
             <Image Source="/Pictures/Archerskill_16.png" HorizontalAlignment="Left" Height="24" Margin="5,348,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
             <Image Source="/Pictures/Engineerskill_15.png" HorizontalAlignment="Left" Height="24" Margin="5,381,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
-            <Image Source="/Pictures/Engineerskill_18.png" HorizontalAlignment="Left" Height="24" Margin="202,316,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
+            <Button x:Name="BtnUpgradePersonLevel"  HorizontalAlignment="Left" Height="24" Margin="202,316,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24" Click="BtnUpgradePersonLevel_Click" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pictures/Engineerskill_18.png"/>
+                </Button.Background>
+            </Button>
             <Image Source="/Pictures/Mageskill_23.png" HorizontalAlignment="Left" Height="24" Margin="202,380,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
 
             <Grid.Background>

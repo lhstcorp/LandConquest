@@ -50,6 +50,7 @@ namespace LandConquestDB.Models
                 var personId = reader.GetOrdinal("person_id");
                 var name = reader.GetOrdinal("name");
                 var surname = reader.GetOrdinal("surname");
+                var lvl = reader.GetOrdinal("lvl");
                 //var maleFemale = reader.GetOrdinal("maleFemale");
                 var power = reader.GetOrdinal("power");
                 var agility = reader.GetOrdinal("agility");
@@ -62,6 +63,7 @@ namespace LandConquestDB.Models
                     person.PersonId = reader.GetString(personId);
                     person.Name = reader.GetString(name);
                     person.Surname = reader.GetString(surname);
+                    person.Lvl = reader.GetInt32(lvl);
                     //person.MaleFemale = reader.GetInt32(maleFemale)>0;
                     person.Power = reader.GetInt32(power);
                     person.Agility = reader.GetInt32(agility);
@@ -73,6 +75,12 @@ namespace LandConquestDB.Models
             command.Dispose();
 
             return person;
+        }
+
+        public static void UpdatePersonLvl(Player player, Person person)
+        {
+            DbContext.GetSqlConnection().Execute("UPDATE dbo.PersonData SET lvl = @lvl WHERE player_id = @player_id", new { lvl = person.Lvl, player_id = player.PlayerId });
+
         }
 
         public static bool CheckPersonDynastyExistence(string dynasty)

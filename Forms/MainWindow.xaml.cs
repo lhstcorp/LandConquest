@@ -335,6 +335,11 @@ namespace LandConquest.Forms
             labelName.Content = name;
         }
 
+        void PersonWindow_PrestigeChanged(int prestige)
+        {
+            labelPrestige.Content = prestige;
+        }
+
         private void OpenAuction_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
@@ -1263,16 +1268,7 @@ namespace LandConquest.Forms
 
         }
 
-        private void DynastyImage_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            CloseUnusedWindows();
-            openedWindow = new PersonWindow(player);
-            openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            openedWindow.Show();
-            openedWindow.Closed += FreeData;
-        }
-
+       
         private void RankingImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CloseUnusedWindows();
@@ -1291,6 +1287,18 @@ namespace LandConquest.Forms
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             ProfileWindow window = openedWindow as ProfileWindow;
             window.NameChanged += ProfileWindow_NameChanged;
+            window.Show();
+            window.Closed += FreeData;
+        }
+
+        private void DynastyImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new PersonWindow(player);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            PersonWindow window = openedWindow as PersonWindow;
+            window.PrestigeChanged += PersonWindow_PrestigeChanged;
             window.Show();
             window.Closed += FreeData;
         }
