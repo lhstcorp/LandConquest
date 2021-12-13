@@ -194,6 +194,10 @@ namespace LandConquestDB.Models
         {
             DbContext.GetSqlConnection().Execute("UPDATE dbo.PlayerData SET player_exp = @player_exp, player_lvl = @player_lvl WHERE player_id = @player_id", new { player_exp = player.PlayerExp, player_lvl = player.PlayerLvl, player_id = player.PlayerId});
         }
+        public static void UpdatePlayerPrestige(Player player)
+        {
+            DbContext.GetSqlConnection().Execute("UPDATE dbo.PlayerData SET player_prestige = @player_prestige WHERE player_id = @player_id", new { player_prestige = player.PlayerPrestige, player_id = player.PlayerId });
+        }
 
         public static List<int> DeletePlayerManufactureLandData(Peasants peasants, Player player)
         {
