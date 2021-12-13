@@ -37,12 +37,12 @@ namespace LandConquestDB.Models
             command.ExecuteNonQuery();
             command.Dispose();
         }
-        public static Person GetPersonInfo(Player player, Person person)
+        public static Person GetPersonInfo(Player player, Person person) // TODO
         {
-            string query = "SELECT * FROM dbo.PersonData WHERE person_id = @person_id";
+            string query = "SELECT * FROM dbo.PersonData WHERE player_id = @player_id";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@person_id", player.PlayerId);
+            command.Parameters.AddWithValue("@player_id", player.PlayerId);
 
             using (var reader = command.ExecuteReader())
             {
@@ -50,7 +50,7 @@ namespace LandConquestDB.Models
                 var personId = reader.GetOrdinal("person_id");
                 var name = reader.GetOrdinal("name");
                 var surname = reader.GetOrdinal("surname");
-                var maleFemale = reader.GetOrdinal("maleFemale");
+                //var maleFemale = reader.GetOrdinal("maleFemale");
                 var power = reader.GetOrdinal("power");
                 var agility = reader.GetOrdinal("agility");
                 var health = reader.GetOrdinal("health");
@@ -61,8 +61,8 @@ namespace LandConquestDB.Models
                     player.PlayerId = reader.GetString(playerId);
                     person.PersonId = reader.GetString(personId);
                     person.Name = reader.GetString(name);
-                    //person.Surname = reader.GetString(surname);
-                    person.MaleFemale = reader.GetInt32(maleFemale)>0;
+                    person.Surname = reader.GetString(surname);
+                    //person.MaleFemale = reader.GetInt32(maleFemale)>0;
                     person.Power = reader.GetInt32(power);
                     person.Agility = reader.GetInt32(agility);
                     person.Health = reader.GetInt32(health);

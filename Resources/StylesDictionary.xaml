@@ -3,7 +3,7 @@
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      x:Class="LandConquest.Resources.StylesDictionary"
      xmlns:local="clr-namespace:LandConquest">
-    
+
     <Style x:Key="ResourceStyle" TargetType="{x:Type Path}">
         <EventSetter Event="Loaded" Handler="PathLoadedHandler"/>
         <EventSetter Event="MouseEnter" Handler="PathEnterHandler"/>
@@ -13,22 +13,60 @@
         <EventSetter Event="Loaded" Handler="ViewboxLoadedHandler"/>
     </Style>
 
-    <Style x:Key="RectangularButton">
+    <SolidColorBrush x:Key="ButtonBlackForeground" Color="Black" />
+    <SolidColorBrush x:Key="ButtonLightForeground" Color="#FFE5D09D" />
+
+    <Style TargetType="Button">
         <Setter Property="Button.FontFamily" Value="Book Antiqua"/>
+        <Setter Property="Button.FontSize" Value="18"/>
+        <Setter Property="Button.BorderThickness" Value="2"/>
+        <Setter Property="Button.BorderBrush" Value="Transparent"/>
+        <Setter Property="Button.VerticalAlignment" Value="Top"/>
+        <Setter Property="Button.HorizontalAlignment" Value="Right"/>
+        <Setter Property="Button.Height" Value="45"/>
+        <Setter Property="Button.Width" Value="150"/>
+        <Setter Property="Button.Cursor" Value="Hand"/>
         <Setter Property="Button.Foreground" Value="#FFE5D09D" />
         <Setter Property="Button.Background">
             <Setter.Value>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
             </Setter.Value>
         </Setter>
-    </Style>
 
-    <Style x:Key="ButtonCross">
-        <Setter Property="Button.Background">
-            <Setter.Value>
-                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
-            </Setter.Value>
-        </Setter>
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="5"/>
+            </Style>
+        </Style.Resources>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="False">
+                <Setter Property="Opacity" Value="1.0" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.3" />
+            </Trigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.4" To="1"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource ButtonLightForeground}" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.2" To="0.4"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource ButtonBlackForeground}" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

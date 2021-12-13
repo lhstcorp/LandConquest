@@ -216,5 +216,25 @@ namespace LandConquestDB.Models
             }
         }
 
+        public static ArmyInBattle calculateArmy(List<ArmyInBattle> _armies, int _side)
+        {
+            ArmyInBattle army = new ArmyInBattle();
+
+            for (int i = 0; i < _armies.Count; i++)
+            {
+                if (_armies[i].ArmySide == _side)
+                {
+                    army.ArmyArchersCount += _armies[i].ArmyArchersCount;
+                    army.ArmyInfantryCount += _armies[i].ArmyInfantryCount;
+                    army.ArmyHorsemanCount += _armies[i].ArmyHorsemanCount;
+                    army.ArmySiegegunCount += _armies[i].ArmySiegegunCount;
+                    army.ArmySizeCurrent += _armies[i].ArmySizeCurrent;
+                }
+            }
+
+            return army;
+
+        }
+
     }
 }

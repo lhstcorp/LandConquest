@@ -32,6 +32,10 @@ namespace LandConquest.DialogWIndows
         Rectangle   selectedArea;
         // <--
 
+        // CONST -->
+        const int AREA_COUNT = 18;
+        // <--
+
         public WarPreviewDialogWindow(Player _player, War _war)
         {
             player = _player;
@@ -43,6 +47,7 @@ namespace LandConquest.DialogWIndows
             initWarCaption();
             initPlayerGrids();
             initFreePlayerArmy();
+            initWarAreas();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -382,5 +387,51 @@ namespace LandConquest.DialogWIndows
                 initPlayerGrids();
             }
         }
+
+        private void initWarAreas()
+        {
+            for (int i = 0; i < AREA_COUNT; i++)
+            {
+                List<ArmyInBattle> armiesInBattle = new List<ArmyInBattle>();
+                armiesInBattle = BattleModel.GetArmiesInfoInCurrentTile(war, i + 1);
+
+                ArmyInBattle defenderArmy = WarModel.calculateArmy(armiesInBattle, 0);
+                ArmyInBattle attackerArmy = WarModel.calculateArmy(armiesInBattle, 1);
+
+                Label areaLabel = this.FindName("Area" + (i + 1) + "Label") as Label;
+                Rectangle areaRect = this.FindName("Area" + areaLabel.Tag) as Rectangle;
+
+                if (attackerArmy.ArmySizeCurrent == 0
+                 && defenderArmy.ArmySizeCurrent == 0)
+                {
+                    areaLabel.Content = "0.5";
+                }
+                else if (attackerArmy.ArmySizeCurrent == 0)
+                {
+                    areaLabel.Content = "1";
+                    areaRect.Fill = new SolidColorBrush(Color.FromRgb(62, 93, 179));
+                }
+                else if (defenderArmy.ArmySizeCurrent == 0)
+                {
+                    areaLabel.Content = "1";
+                    areaRect.Fill = new SolidColorBrush(Color.FromRgb(179, 62, 62));
+                }
+                else
+                {
+                    if (defenderArmy.ArmySizeCurrent > attackerArmy.ArmySizeCurrent)
+                    {
+                        areaLabel.Content = Math.Round((decimal)defenderArmy.ArmySizeCurrent / (decimal)(defenderArmy.ArmySizeCurrent + attackerArmy.ArmySizeCurrent), 2);
+                        areaRect.Fill = new SolidColorBrush(Color.FromRgb(62, 93, 179));
+                    }
+                    else
+                    {
+                        areaLabel.Content = Math.Round((decimal)attackerArmy.ArmySizeCurrent / (decimal)(defenderArmy.ArmySizeCurrent + attackerArmy.ArmySizeCurrent), 2);
+                        areaRect.Fill = new SolidColorBrush(Color.FromRgb(179, 62, 62));
+                    }
+                    
+                }
+            }
+        }
+
     }
 }
