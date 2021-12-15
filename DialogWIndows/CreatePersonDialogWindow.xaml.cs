@@ -80,7 +80,7 @@ namespace LandConquest.DialogWIndows
             person.MaleFemale = false;
             person.Agility = 1;
             person.Intellect = 1;
-            person.Health = 10;
+            person.Health = 30;
             person.Power = 1;
 
             PersonModel.CreatePerson(person);
