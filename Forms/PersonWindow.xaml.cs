@@ -25,20 +25,23 @@ namespace LandConquest.Forms
     /// </summary>
     public partial class PersonWindow : Window
     {
+        private User user;
         private Player player;
         private Person person;
         public event Action<int> PrestigeChanged;
         int skillPoints;
+        private Window openedWindow;
 
 
 
 
         public PersonWindow(Player _player)
-        {           
+        {
             InitializeComponent();
             player = _player;
             InitPersonCharacteristics();
             CalculateSkillPoints();
+            openedWindow = this;
         }
        
         private void buttonClose_Click(object sender, RoutedEventArgs e)
@@ -187,6 +190,31 @@ namespace LandConquest.Forms
             }
 
             
+        }
+        private void CloseUnusedWindows()
+        {
+            foreach (Window window in App.Current.Windows)
+            {
+                if (window != this)
+                    window.Close();
+            }
+        }
+
+        private void FreeData(object data, EventArgs e)
+        {
+            openedWindow = null;
+            Activate();
+            GC.Collect();
+        }
+
+        private void ButtonCreatePerson_Click(object sender, RoutedEventArgs e)
+        {
+            CloseUnusedWindows();
+            openedWindow = new CreatePersonDialogWindow(user);
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
         }
     }
 }
