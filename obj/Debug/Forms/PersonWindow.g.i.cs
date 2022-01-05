@@ -192,6 +192,38 @@ namespace LandConquest.Forms {
         #line default
         #line hidden
         
+        
+        #line 95 "..\..\..\Forms\PersonWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label Power1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 96 "..\..\..\Forms\PersonWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label Agility1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 97 "..\..\..\Forms\PersonWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label Intelligence1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 98 "..\..\..\Forms\PersonWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label Health1;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -299,6 +331,18 @@ namespace LandConquest.Forms {
             return;
             case 18:
             this.PbMaxHealthLabel = ((System.Windows.Controls.Label)(target));
+            return;
+            case 19:
+            this.Power1 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 20:
+            this.Agility1 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 21:
+            this.Intelligence1 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 22:
+            this.Health1 = ((System.Windows.Controls.Label)(target));
             return;
             }
             this._contentLoaded = true;
