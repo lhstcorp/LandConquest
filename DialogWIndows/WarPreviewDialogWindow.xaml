@@ -140,7 +140,7 @@
             <Rectangle x:Name="Area18" Tag="18" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="121" Margin="756,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
             <!-- War map ends. -->
 
-            <DataGrid x:Name="armiesDataGrid" ItemsSource="{Binding armiesInBattle}" BorderThickness="2" SelectionMode="Single" CanUserResizeColumns="False" Foreground="Black" BorderBrush="Black" AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontFamily="Book Antiqua" FontStyle="Oblique" HorizontalAlignment="Left" Height="339" Margin="861,58,0,0" VerticalAlignment="Top" Width="286">
+            <DataGrid x:Name="armiesDataGrid" ItemsSource="{Binding armiesInBattle}" BorderThickness="2" SelectionMode="Single" CanUserResizeColumns="False" Foreground="White" BorderBrush="Black" AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontFamily="Book Antiqua" FontStyle="Oblique" HorizontalAlignment="Left" Height="339" Margin="861,58,0,0" VerticalAlignment="Top" Width="286">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="personNameCol" Binding="{Binding PlayerId}" Width="80" CanUserSort="True">
                         <DataGridTextColumn.Header>
