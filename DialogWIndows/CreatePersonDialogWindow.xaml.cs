@@ -76,12 +76,14 @@ namespace LandConquest.DialogWIndows
             person.PersonId = AuthorisationWindow.GenerateUserId();
             person.Name = personName.Text;
             person.Surname = Dynasty.Text;
+            person.Lvl = 1;
             person.MaleFemale = false;
             person.Agility = 1;
             person.Intellect = 1;
-            person.Health = 1;
+            person.Health = 30;
             person.Power = 1;
 
+            PersonModel.CreatePerson(person);
             MainWindow mainWindow = new MainWindow(user);
             mainWindow.Show();
             this.Close();

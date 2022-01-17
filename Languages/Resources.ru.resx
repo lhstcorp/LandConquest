@@ -369,6 +369,9 @@
   <data name="LocLabelSiegeMachines_Text" xml:space="preserve">
     <value>Катапульты</value>
   </data>
+  <data name="LocLabelSkillPoints" xml:space="preserve">
+    <value>Очки развития</value>
+  </data>
   <data name="LocLabelSpear_Text" xml:space="preserve">
     <value>Копье</value>
   </data>

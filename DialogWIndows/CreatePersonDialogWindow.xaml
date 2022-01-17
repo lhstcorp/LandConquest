@@ -30,9 +30,8 @@
             <TextBox x:Name="Dynasty" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="25" Margin="109,90,0,0"  VerticalAlignment="Top" Width="100" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" RenderTransformOrigin="0.468,2.096" />
             <Image HorizontalAlignment="Left" Height="24" Margin="214,48,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="0.495,0.475"/>
             <Button Content="Button" HorizontalAlignment="Left" Margin="218,51,0,0" VerticalAlignment="Top" Width="17" Click="Button_Click" BorderThickness="0" Height="18">
-
                 <Button.Background>
-                    <ImageBrush ImageSource="reload_button.png"/>
+                    <ImageBrush ImageSource="/Pictures/reload_button.png"/>
                 </Button.Background>
             </Button>
             <Button x:Name="DynastyChange" Content="DynastyChange" HorizontalAlignment="Left" Margin="218,94,0,0" VerticalAlignment="Top" Width="17" Height="18" Opacity="0.965" BorderThickness="0" Click="DynastyChange_Click">

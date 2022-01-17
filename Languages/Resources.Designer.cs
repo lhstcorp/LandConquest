@@ -817,6 +817,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelSkillPoints.
+        /// </summary>
+        public static string LocLabelSkillPoints {
+            get {
+                return ResourceManager.GetString("LocLabelSkillPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelSpear_Text.
         /// </summary>
         public static string LocLabelSpear_Text {

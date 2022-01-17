@@ -369,6 +369,9 @@
   <data name="LocLabelSiegeMachines_Text" xml:space="preserve">
     <value>LocLabelSiegeMachines_Text</value>
   </data>
+  <data name="LocLabelSkillPoints" xml:space="preserve">
+    <value>LocLabelSkillPoints</value>
+  </data>
   <data name="LocLabelSpear_Text" xml:space="preserve">
     <value>LocLabelSpear_Text</value>
   </data>

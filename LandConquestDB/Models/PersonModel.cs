@@ -13,9 +13,9 @@ namespace LandConquestDB.Models
     {
         public static void CreatePerson(Person _person)
         {
-            string query = "INSERT INTO dbo.PersonData (player_id, person_id, name, surname, maleFemale, power, agility," +
+            string query = "INSERT INTO dbo.PersonData (player_id, person_id, name, surname, maleFemale, lvl, exp, power, agility," +
                                                        "health, intellect) " +
-                           "VALUES (@player_id, @person_id, @name, @surname, @maleFemale, @power, @agility, @health," +
+                           "VALUES (@player_id, @person_id, @name, @surname, @maleFemale, @lvl, @exp, @power, @agility, @health," +
                                    "@intellect)";
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
@@ -25,8 +25,8 @@ namespace LandConquestDB.Models
             command.Parameters.AddWithValue("@surname", _person.Surname);
             command.Parameters.AddWithValue("@maleFemale", _person.MaleFemale);
             //command.Parameters.AddWithValue("@prestige", _person.Prestige);
-            //command.Parameters.AddWithValue("@lvl", _person.Level);
-            //command.Parameters.AddWithValue("@exp", _person.Exp);
+            command.Parameters.AddWithValue("@lvl", _person.Lvl);
+            command.Parameters.AddWithValue("@exp", _person.Exp);
             command.Parameters.AddWithValue("@power", _person.Power);
             command.Parameters.AddWithValue("@agility", _person.Agility);
             command.Parameters.AddWithValue("@health", _person.Health);
@@ -37,12 +37,12 @@ namespace LandConquestDB.Models
             command.ExecuteNonQuery();
             command.Dispose();
         }
-        public static Person GetPersonInfo(Player player, Person person)
+        public static Person GetPersonInfo(Player player, Person person) // TODO
         {
-            string query = "SELECT * FROM dbo.PersonData WHERE person_id = @person_id";
+            string query = "SELECT * FROM dbo.PersonData WHERE player_id = @player_id";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@person_id", player.PlayerId);
+            command.Parameters.AddWithValue("@player_id", player.PlayerId);
 
             using (var reader = command.ExecuteReader())
             {
@@ -50,7 +50,9 @@ namespace LandConquestDB.Models
                 var personId = reader.GetOrdinal("person_id");
                 var name = reader.GetOrdinal("name");
                 var surname = reader.GetOrdinal("surname");
-                var maleFemale = reader.GetOrdinal("maleFemale");
+                var lvl = reader.GetOrdinal("lvl");
+                var exp = reader.GetOrdinal("exp");
+                //var maleFemale = reader.GetOrdinal("maleFemale");
                 var power = reader.GetOrdinal("power");
                 var agility = reader.GetOrdinal("agility");
                 var health = reader.GetOrdinal("health");
@@ -61,8 +63,10 @@ namespace LandConquestDB.Models
                     player.PlayerId = reader.GetString(playerId);
                     person.PersonId = reader.GetString(personId);
                     person.Name = reader.GetString(name);
-                    //person.Surname = reader.GetString(surname);
-                    person.MaleFemale = reader.GetInt32(maleFemale)>0;
+                    person.Surname = reader.GetString(surname);
+                    person.Lvl = reader.GetInt32(lvl);
+                    person.Exp = reader.GetInt32(exp);
+                    //person.MaleFemale = reader.GetInt32(maleFemale)>0;
                     person.Power = reader.GetInt32(power);
                     person.Agility = reader.GetInt32(agility);
                     person.Health = reader.GetInt32(health);
@@ -73,6 +77,41 @@ namespace LandConquestDB.Models
             command.Dispose();
 
             return person;
+        }
+
+        public static void UpdatePersonLvl(Player player, Person person)
+        {
+            DbContext.GetSqlConnection().Execute("UPDATE dbo.PersonData SET lvl = @lvl WHERE player_id = @player_id", new { lvl = person.Lvl, player_id = player.PlayerId });
+
+        }
+
+        public static void UpdatePersonPower(Player player, Person person)
+        {
+            DbContext.GetSqlConnection().Execute("UPDATE dbo.PersonData SET power = @power WHERE player_id = @player_id", new { power = person.Power, player_id = player.PlayerId });
+
+        }
+
+        public static void UpdatePersonAgility(Player player, Person person)
+        {
+            DbContext.GetSqlConnection().Execute("UPDATE dbo.PersonData SET agility = @agility WHERE player_id = @player_id", new { agility = person.Agility, player_id = player.PlayerId });
+
+        }
+
+        public static void UpdatePersonIntellect(Player player, Person person)
+        {
+            DbContext.GetSqlConnection().Execute("UPDATE dbo.PersonData SET intellect = @intellect WHERE player_id = @player_id", new { intellect = person.Intellect, player_id = player.PlayerId });
+
+        }
+
+        public static void UpdatePersonHealth(Player player, Person person)
+        {
+            DbContext.GetSqlConnection().Execute("UPDATE dbo.PersonData SET health = @health WHERE player_id = @player_id", new { health = person.Health, player_id = player.PlayerId });
+
+        }
+        public static void UpdatePersonExp(Player player, Person person)
+        {
+            DbContext.GetSqlConnection().Execute("UPDATE dbo.PersonData SET exp = @exp WHERE player_id = @player_id", new { exp = person.Exp, player_id = player.PlayerId });
+
         }
 
         public static bool CheckPersonDynastyExistence(string dynasty)
