@@ -855,6 +855,9 @@
     <Resource Include="Pictures\Engineerskill_15.png" />
     <Resource Include="Pictures\Engineerskill_18.png" />
     <Resource Include="Pictures\Mageskill_23.png" />
+    <Content Include="Resources\DIscordChat.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

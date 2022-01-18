@@ -13,8 +13,12 @@
             <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0,1">
                 <wpf:ChromiumWebBrowser x:Name="Browser" IsBrowserInitializedChanged="Browser_IsBrowserInitializedChanged"/>
             </Border>
-            
-            <Button x:Name="ButtonClose" Style="{StaticResource ButtonCross}" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Margin="0,0,-0.4,0"/>
+
+            <Button x:Name="ButtonClose" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Margin="0,0,-0.4,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+                </Button.Background>
+            </Button>
 
             <!--<Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>

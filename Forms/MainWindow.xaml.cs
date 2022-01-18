@@ -1302,5 +1302,11 @@ namespace LandConquest.Forms
             window.Show();
             window.Closed += FreeData;
         }
+
+        private void Browser_IsBrowserInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            Panel.SetZIndex(DiscordBorder, 2);
+            this.DiscordBrowser.Address = AppDomain.CurrentDomain.BaseDirectory + @"Resources/DiscordChat.html";
+        }
     }
 }

@@ -56,7 +56,9 @@ namespace LandConquest.Forms
             //this.Browser.LoadHtml(page);
             //this.Browser.LoadHtml("<html><body><iframe width = '350' height = '500' sandbox = 'allow - popups allow - popups - to - escape - sandbox allow - same - origin allow - scripts'></iframe></body></html>", "https://discord.com/widget?id=912836748558618654&theme=dark");
 
-            this.Browser.Load("https://discord.com/widget?id=912836748558618654&theme=dark");
+            //this.Browser.Load("https://discord.com/widget?id=912836748558618654&theme=dark");
+            //this.Browser.Address = AppDomain.CurrentDomain.BaseDirectory + @"Resources/DiscordChat.html";
+            //this.Browser.LoadHtml("<script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer> new Crate({ server: '912836748558618654', // LandConquestChat channel: '912836748558618657' // #chat }) </script> ");
 
             //this.Browser.LoadHtml("<html><body><iframe width = '350' height = '500' allowtransparency = 'true' frameborder = '0' sandbox = 'allow - popups allow - popups - to - escape - sandbox allow - same - origin allow - scripts'></iframe></body></html>", "https://discord.com/widget?id=912836748558618654&theme=dark");
             //this.Browser.LoadUrl("https://discord.com/api/guilds/912836748558618654/widget.json");
