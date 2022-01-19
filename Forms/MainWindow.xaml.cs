@@ -17,6 +17,7 @@ using System.Windows.Threading;
 using System.Globalization;
 using WPFLocalizeExtension.Engine;
 using System.Threading;
+using CefSharp.Wpf;
 
 namespace LandConquest.Forms
 {
@@ -48,7 +49,9 @@ namespace LandConquest.Forms
 
         public MainWindow(User _user)
         {
+            ChatCacheInitialization();
             InitializeComponent();
+
             user = _user;
             equipment = new PlayerEquipment();
             player = new Player();
@@ -1307,6 +1310,18 @@ namespace LandConquest.Forms
         {
             Panel.SetZIndex(DiscordBorder, 2);
             this.DiscordBrowser.Address = AppDomain.CurrentDomain.BaseDirectory + @"Resources/DiscordChat.html";
+        }
+
+        private void ChatCacheInitialization()
+        {
+            CefSettings settings = new CefSettings();
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"Resources/";
+            if (!System.IO.Directory.Exists(path))
+            {
+                System.IO.Directory.CreateDirectory(path);
+            }
+            settings.CachePath = path;
+            CefSharp.Cef.Initialize(settings);
         }
     }
 }
