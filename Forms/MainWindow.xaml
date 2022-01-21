@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LandConquest.Forms"
         xmlns:ctrls="clr-namespace:LandConquest.Resources"
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
-        xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        xmlns:Wpf="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
         lex:LocalizeDictionary.DesignCulture="en"
         lex:LocalizeDictionary.IncludeInvariantCulture="False"
         lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
@@ -334,7 +334,7 @@
             <ProgressBar x:Name="PbExp" HorizontalAlignment="Left" Height="18" Margin="97,35,0,0" VerticalAlignment="Top" Width="92" Foreground="#FFD7464B" BorderBrush="#FFD7464B" Background="{x:Null}"/>
             <Label x:Name="Level"  FontSize="12" HorizontalContentAlignment="Center" Content="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" Foreground="#FFE1C793" Width="89" Height="31" Background="#FFD7464B"/>
             <Button x:Name="test2" IsEnabled="False" HorizontalAlignment="Left" Height="37" Margin="1087,568,0,0" VerticalAlignment="Top" Width="164" Click="test2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="#FFE1A35E"/>
-            <Button x:Name="buttonChat" Content="{lex:Loc LocButtonChat_Content}" Margin="1143,0,0,211.8"  Click="buttonChat_Click" HorizontalAlignment="Left" Width="105" Height="31" VerticalAlignment="Bottom" FontSize="14" IsEnabled="False">
+            <Button x:Name="buttonChat" Content="{lex:Loc LocButtonChat_Content}" Margin="1136,0,0,214.8"  Click="buttonChat_Click" HorizontalAlignment="Left" Width="105" Height="31" VerticalAlignment="Bottom" FontSize="14" IsEnabled="false">
 
             </Button>
             <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="33" Margin="403,17,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/Icons/Menu/IconMarkerNew.PNG" Width="33" Cursor="Hand" MouseDown="marketImage_MouseDown" Stretch="UniformToFill"/>
@@ -463,8 +463,8 @@
             </Grid>
             <Image x:Name="goodsColorsHelpImg" HorizontalAlignment="Left" Height="38" Margin="325,155,0,0" Source="/LandConquest;component/Pictures/reload_button.png" VerticalAlignment="Top" Width="40" Cursor="Hand" MouseDown="goodsColorsHelpImg_MouseDown"/>
 
-            <Border x:Name="DiscordBorder" Panel.ZIndex="-1" Margin="761,321,0,-0.2" >
-                <wpf:ChromiumWebBrowser x:Name="DiscordBrowser" IsBrowserInitializedChanged="Browser_IsBrowserInitializedChanged" Margin="0,0,40,30"/>
+            <Border x:Name="DiscordBorder" Margin="0,321,0,-0.2" HorizontalAlignment="Right" Width="510" Panel.ZIndex="-1" Height="420" VerticalAlignment="Top" >
+                <Wpf:WebView2 x:Name="DiscordBrowser" DefaultBackgroundColor="Transparent" Initialized="DiscordBrowser_Initialized" IsEnabled="False"/>
             </Border>
 
 
