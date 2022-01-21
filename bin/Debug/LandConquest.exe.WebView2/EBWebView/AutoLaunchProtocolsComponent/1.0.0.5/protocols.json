@@ -1,0 +1,28 @@
+{
+  "allow": [
+    {
+      "origins": [
+        "https://get.microsoft.com",
+        "https://apps.microsoft.com",
+        "https://bing.com"
+      ],
+      "protocol": "ms-windows-store"
+    }
+  ],
+  "warn": [
+    {
+      "origins": [
+        "*"
+      ],
+      "protocol": "ms-test-warn"
+    }
+  ],
+  "block": [
+    {
+      "origins": [
+        "*"
+      ],
+      "protocol": "ms-test-block"
+    }
+  ]
+}

@@ -870,9 +870,6 @@
     <Resource Include="Pictures\craft.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CefSharp.Wpf">
-      <Version>95.7.141</Version>
-    </PackageReference>
     <PackageReference Include="EmailValidation">
       <Version>1.0.4</Version>
     </PackageReference>
@@ -881,6 +878,9 @@
     </PackageReference>
     <PackageReference Include="LiveCharts.Wpf">
       <Version>0.9.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Web.WebView2">
+      <Version>1.0.1072.54</Version>
     </PackageReference>
     <PackageReference Include="MSBuild.Obfuscar">
       <Version>2.2.29.1</Version>
