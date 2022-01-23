@@ -61,11 +61,23 @@ namespace LandConquest.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на &lt;iframe src=&quot;https://discord.com/widget?id=912836748558618654&amp;theme=dark&quot; width=&quot;350&quot; height=&quot;500&quot; allowtransparency=&quot;true&quot; frameborder=&quot;0&quot; sandbox=&quot;allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts&quot;&gt;&lt;/iframe&gt;.
+        ///   Ищет локализованную строку, похожую на &lt;!DOCTYPE html&gt;
+        ///
+        ///&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;body&gt;
+        ///    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@widgetbot/crate@3&quot; async defer&gt;
+        ///        new Crate({
+        ///            server: &apos;912836748558618654&apos;,
+        ///            channel: &apos;912836748558618657&apos;,
+        ///            color: &apos;#654321&apos;,
+        ///        })
+        ///    &lt;/script&gt;
+        ///&lt;/body&gt;
+        ///&lt;/html&gt;.
         /// </summary>
-        public static string DiscordWidget {
+        public static string DIscordChat {
             get {
-                return ResourceManager.GetString("DiscordWidget", resourceCulture);
+                return ResourceManager.GetString("DIscordChat", resourceCulture);
             }
         }
         
