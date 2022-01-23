@@ -17,6 +17,8 @@ using System.Windows.Threading;
 using System.Globalization;
 using WPFLocalizeExtension.Engine;
 using System.Threading;
+using CefSharp.Wpf;
+using System.Diagnostics;
 
 namespace LandConquest.Forms
 {
@@ -45,10 +47,14 @@ namespace LandConquest.Forms
         private int[] flagXY;
         private const int landsCount = 11;
         private Window openedWindow;
+        private Microsoft.Web.WebView2.Core.CoreWebView2Deferral Deferral;
+        private Microsoft.Web.WebView2.Core.CoreWebView2NewWindowRequestedEventArgs Args;
 
         public MainWindow(User _user)
         {
+            //ChatCacheInitialization();
             InitializeComponent();
+
             user = _user;
             equipment = new PlayerEquipment();
             player = new Player();
@@ -63,6 +69,7 @@ namespace LandConquest.Forms
             openedWindow = this;
 
             Loaded += MainWindow_Loaded;
+            this.DiscordBrowser.CoreWebView2InitializationCompleted += DiscordBrowser_CoreWebView2InitializationCompleted;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -271,10 +278,8 @@ namespace LandConquest.Forms
         private void buttonChat_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
-            //openedWindow = new ChatWindow(player);
             openedWindow = new DiscordChatWindow();
-            openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.AllowDrop = true;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -1302,5 +1307,39 @@ namespace LandConquest.Forms
             window.Show();
             window.Closed += FreeData;
         }
+
+        private void DiscordBrowser_Initialized(object sender, EventArgs e)
+        {
+            this.DiscordBrowser.Source = new Uri(AppDomain.CurrentDomain.BaseDirectory + @"Resources/DiscordChat.html");
+        }
+
+        private void DiscordBrowser_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
+        {
+            if (!e.IsSuccess) { MessageBox.Show($"{e.InitializationException}"); }
+
+            if (Deferral != null)
+            {
+                Args.NewWindow = this.DiscordBrowser.CoreWebView2;
+                Deferral.Complete();
+            }
+
+            this.DiscordBrowser.CoreWebView2.NewWindowRequested += DiscordBrowser_NewWindowRequested;
+        }
+
+        private void DiscordBrowser_NewWindowRequested(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NewWindowRequestedEventArgs e)
+        {
+            var link = new Uri(e.Uri);
+            var psi = new ProcessStartInfo
+            {
+                FileName = "cmd",
+                WindowStyle = ProcessWindowStyle.Hidden,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                Arguments = $"/c start {link.AbsoluteUri}"
+            };
+            Process.Start(psi);
+        }
+
+
     }
 }

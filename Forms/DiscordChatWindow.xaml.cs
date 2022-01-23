@@ -1,6 +1,12 @@
 ﻿using CefSharp;
+using CefSharp.Wpf;
+using EO.WebBrowser;
+using MvvmCross;
+using MvvmCross.Plugin.WebBrowser;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,49 +23,55 @@ namespace LandConquest.Forms
 {
     public partial class DiscordChatWindow : Window
     {
+        public Microsoft.Web.WebView2.Core.CoreWebView2Deferral Deferral;
+        public Microsoft.Web.WebView2.Core.CoreWebView2NewWindowRequestedEventArgs Args;
+
         public DiscordChatWindow()
         {
             InitializeComponent();
+            this.DiscordBrowser.CoreWebView2InitializationCompleted += DiscordBrowser_CoreWebView2InitializationCompleted;
+            //this.DiscordBrowser.Ht
+
+
+
         }
+
+        private void DiscordBrowser_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
+        {
+            if (!e.IsSuccess) { MessageBox.Show($"{e.InitializationException}"); }
+
+            if (Deferral != null)
+            {
+                Args.NewWindow = this.DiscordBrowser.CoreWebView2;
+                Deferral.Complete();
+            }
+
+            this.DiscordBrowser.CoreWebView2.NewWindowRequested += CoreWebView2_NewWindowRequested;
+        }
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //Uri discordUri = new Uri("https://discord.com/api/guilds/912836748558618654/widget.json");
-            //this.DiscordBrowser.Source = discordUri;
 
-            //this.DiscordBrowser.NavigateToString(Properties.Resources.DiscordWidget);
-
-            //var page = @"
-            //<html>
-            //    <body>
-            //        <iframe width='350' height='500' allowtransparency='true' frameborder='0' sandbox='allow - popups allow - popups - to - escape - sandbox allow - same - origin allow - scripts'
-            //            src ='https://discord.com/widget?id=912836748558618654&theme=dark'>
-            //        </iframe>
-            //    </body>
-            //</html>";
-
-            //this.Browser.LoadHtml("<html><body><iframe width = '350' height = '500' allowtransparency = 'true' frameborder = '0' sandbox = 'allow - popups allow - popups - to - escape - sandbox allow - same - origin allow - scripts'></iframe></body></html>", "https://discord.com/widget?id=912836748558618654&theme=dark");
-            //DiscordBrowser.ScriptErrorsSuppressed = true;
         }
 
-        private void Browser_IsBrowserInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void DiscordBrowser_Initialized(object sender, EventArgs e)
         {
-            // the browser control is initialized, now load the html
-            //var page = @"
-            //<html>
-            //    <body>
-            //        <iframe width='350' height='500' allowtransparency='true' frameborder='0' sandbox='allow - popups allow - popups - to - escape - sandbox allow - same - origin allow - scripts'
-            //            src ='https://discord.com/widget?id=912836748558618654&theme=dark'>
-            //        </iframe>
-            //    </body>
-            //</html>";
-            //this.Browser.LoadHtml(page);
-            //this.Browser.LoadHtml("<html><body><iframe width = '350' height = '500' sandbox = 'allow - popups allow - popups - to - escape - sandbox allow - same - origin allow - scripts'></iframe></body></html>", "https://discord.com/widget?id=912836748558618654&theme=dark");
+            this.DiscordBrowser.Source = new Uri(AppDomain.CurrentDomain.BaseDirectory + @"Resources/DiscordChat.html");
+        }
 
-            this.Browser.Load("https://discord.com/widget?id=912836748558618654&theme=dark");
-
-            //this.Browser.LoadHtml("<html><body><iframe width = '350' height = '500' allowtransparency = 'true' frameborder = '0' sandbox = 'allow - popups allow - popups - to - escape - sandbox allow - same - origin allow - scripts'></iframe></body></html>", "https://discord.com/widget?id=912836748558618654&theme=dark");
-            //this.Browser.LoadUrl("https://discord.com/api/guilds/912836748558618654/widget.json");
+        private void CoreWebView2_NewWindowRequested(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NewWindowRequestedEventArgs e)
+        {
+            var link = new Uri(e.Uri);
+            var psi = new ProcessStartInfo
+            {
+                FileName = "cmd",
+                WindowStyle = ProcessWindowStyle.Hidden,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                Arguments = $"/c start {link.AbsoluteUri}"
+            };
+            Process.Start(psi);
         }
     }
 }
