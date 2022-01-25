@@ -17,8 +17,8 @@ using System.Windows.Threading;
 using System.Globalization;
 using WPFLocalizeExtension.Engine;
 using System.Threading;
-using CefSharp.Wpf;
 using System.Diagnostics;
+using Microsoft.Web.WebView2.Core;
 
 namespace LandConquest.Forms
 {
@@ -70,6 +70,7 @@ namespace LandConquest.Forms
 
             Loaded += MainWindow_Loaded;
             this.DiscordBrowser.CoreWebView2InitializationCompleted += DiscordBrowser_CoreWebView2InitializationCompleted;
+            //this.DiscordBrowser.Core += DiscordBrowser_EnsureCoreWebView2Async;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -278,10 +279,6 @@ namespace LandConquest.Forms
         private void buttonChat_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new DiscordChatWindow();
-            openedWindow.AllowDrop = true;
-            openedWindow.Show();
-            openedWindow.Closed += FreeData;
         }
 
         private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
@@ -1310,7 +1307,14 @@ namespace LandConquest.Forms
 
         private void DiscordBrowser_Initialized(object sender, EventArgs e)
         {
-            this.DiscordBrowser.Source = new Uri(AppDomain.CurrentDomain.BaseDirectory + @"Resources/DiscordChat.html");
+            DiscordChatInitializeAsync();
+        }
+
+        private async void DiscordChatInitializeAsync()
+        {
+            var webView2Environment = await CoreWebView2Environment.CreateAsync(null, System.IO.Path.Combine(System.IO.Path.GetTempPath(), @"DiscordChat"));
+            await this.DiscordBrowser.EnsureCoreWebView2Async(webView2Environment);
+            this.DiscordBrowser.Source = new Uri(AppDomain.CurrentDomain.BaseDirectory + @"/Resources/DiscordChat.html");
         }
 
         private void DiscordBrowser_CoreWebView2InitializationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs e)
@@ -1338,8 +1342,8 @@ namespace LandConquest.Forms
                 Arguments = $"/c start {link.AbsoluteUri}"
             };
             Process.Start(psi);
+
+            e.Handled = true;
         }
-
-
     }
 }
