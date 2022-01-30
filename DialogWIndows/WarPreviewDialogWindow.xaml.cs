@@ -254,6 +254,7 @@ namespace LandConquest.DialogWIndows
                 updateArmiesDataGrid();
                 initFreePlayerArmy();
                 initPlayerGrids();
+                initWarAreas();
             }
         }
 
@@ -385,6 +386,7 @@ namespace LandConquest.DialogWIndows
                 updateArmiesDataGrid();
                 initFreePlayerArmy();
                 initPlayerGrids();
+                initWarAreas();
             }
         }
 
@@ -401,10 +403,10 @@ namespace LandConquest.DialogWIndows
                 Label areaLabel = this.FindName("Area" + (i + 1) + "Label") as Label;
                 Rectangle areaRect = this.FindName("Area" + areaLabel.Tag) as Rectangle;
 
-                if (attackerArmy.ArmySizeCurrent == 0
-                 && defenderArmy.ArmySizeCurrent == 0)
+                if (attackerArmy.ArmySizeCurrent == defenderArmy.ArmySizeCurrent)
                 {
                     areaLabel.Content = "0.5";
+                    areaRect.Fill = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
                 }
                 else if (attackerArmy.ArmySizeCurrent == 0)
                 {
@@ -433,5 +435,52 @@ namespace LandConquest.DialogWIndows
             }
         }
 
+        private void infImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Convert.ToInt32(InfInput.Text) > 0)
+            {
+                InfInput.Text = "0";
+            }
+            else
+            {
+                InfInput.Text = Convert.ToString(FreeInf.Content);
+            }
+        }
+
+        private void arImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Convert.ToInt32(ArInput.Text) > 0)
+            {
+                ArInput.Text = "0";
+            }
+            else
+            {
+                ArInput.Text = Convert.ToString(FreeAr.Content);
+            }
+        }
+
+        private void kntImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Convert.ToInt32(KntInput.Text) > 0)
+            {
+                KntInput.Text = "0";
+            }
+            else
+            {
+                KntInput.Text = Convert.ToString(FreeKnt.Content);
+            }
+        }
+
+        private void sieImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Convert.ToInt32(SieInput.Text) > 0)
+            {
+                SieInput.Text = "0";
+            }
+            else
+            {
+                SieInput.Text = Convert.ToString(FreeSie.Content);
+            }
+        }
     }
 }

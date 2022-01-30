@@ -81,10 +81,10 @@
 
             <Rectangle Fill="#d7b8ae" HorizontalAlignment="Left" Height="186" Margin="473,537,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="448"/>
 
-            <Image Margin="483,544,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconInfantry.png" Height="107" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" />
-            <Image Margin="590,544,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconArcher.PNG" Height="107" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" />
-            <Image Margin="700,544,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconKnight.png" Height="108" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" />
-            <Image Margin="809,544,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconSiegeMachine.png" HorizontalAlignment="Left" Width="104" Height="108" VerticalAlignment="Top" />
+            <Image x:Name="infImg" Margin="483,544,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconInfantry.png" Height="107" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" MouseDown="infImg_MouseDown"  />
+            <Image x:Name="arImg" Margin="590,544,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconArcher.PNG" Height="107" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" MouseDown="arImg_MouseDown" />
+            <Image x:Name="kntImg" Margin="700,544,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconKnight.png" Height="108" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" MouseDown="kntImg_MouseDown" />
+            <Image x:Name="sieImg" Margin="809,544,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconSiegeMachine.png" HorizontalAlignment="Left" Width="104" Height="108" VerticalAlignment="Top" MouseDown="sieImg_MouseDown" />
 
             <Rectangle HorizontalAlignment="Left" Height="110" Margin="481,544,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
             <Rectangle HorizontalAlignment="Left" Height="110" Margin="590,544,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
