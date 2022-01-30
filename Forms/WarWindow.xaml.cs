@@ -1,3 +1,4 @@
+using LandConquest.DialogWIndows;
 using LandConquest.Forms;
 using LandConquest.Logic;
 using LandConquest.WindowDialogViewModels;
@@ -17,12 +18,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace LandConquest.DialogWIndows
+namespace LandConquest.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для WarPreviewDialogWindow.xaml
-    /// </summary>
-    public partial class WarPreviewDialogWindow : Window
+    public partial class WarWindow : Window
     {
         // GLOBALS -->
         Player  player;
@@ -36,13 +34,13 @@ namespace LandConquest.DialogWIndows
         const int AREA_COUNT = 18;
         // <--
 
-        public WarPreviewDialogWindow(Player _player, War _war)
+        public WarWindow(Player _player, War _war)
         {
             player = _player;
             war = _war;
 
             InitializeComponent();
-            DataContext = new WarPreviewDialogWindowViewModel();
+            DataContext = new WarWindowViewModel();
             initWar();
             initWarCaption();
             initPlayerGrids();
@@ -301,7 +299,7 @@ namespace LandConquest.DialogWIndows
 
         private void closeWindow()
         {
-            ((WarPreviewDialogWindowViewModel)DataContext).CloseWindow();
+            ((WarWindowViewModel)DataContext).CloseWindow();
         }
 
         private bool validateAvailableTroops()

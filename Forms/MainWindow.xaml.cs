@@ -1061,7 +1061,7 @@ namespace LandConquest.Forms
                     WAR = new War();
                     WAR.WarId = wars[j].WarId;
                     
-                    WarPreviewDialogWindow dialogWindow = new WarPreviewDialogWindow(player, WAR);
+                    WarWindow dialogWindow = new WarWindow(player, WAR);
                     dialogWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     dialogWindow.Owner = this;
                     dialogWindow.Show();
@@ -1307,7 +1307,7 @@ namespace LandConquest.Forms
 
         private void DiscordBrowser_Initialized(object sender, EventArgs e)
         {
-            DiscordChatInitializeAsync();
+            //DiscordChatInitializeAsync();
         }
 
         private async void DiscordChatInitializeAsync()
