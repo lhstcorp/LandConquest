@@ -293,6 +293,7 @@
     <Compile Include="Logic\ConsumptionLogic.cs" />
     <Compile Include="Logic\IncomeCalculationLogic.cs" />
     <Compile Include="Logic\AssistantLogic.cs" />
+    <Compile Include="Logic\LifeSpanHandler.cs" />
     <Compile Include="Logic\RewardLogic.cs" />
     <Compile Include="Logic\WarLogic.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -863,6 +864,12 @@
     <Resource Include="Pictures\craft.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CefSharp.Common">
+      <Version>97.1.61</Version>
+    </PackageReference>
+    <PackageReference Include="CefSharp.Wpf">
+      <Version>97.1.61</Version>
+    </PackageReference>
     <PackageReference Include="EmailValidation">
       <Version>1.0.4</Version>
     </PackageReference>
@@ -871,9 +878,6 @@
     </PackageReference>
     <PackageReference Include="LiveCharts.Wpf">
       <Version>0.9.7</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Web.WebView2">
-      <Version>1.0.1072.54</Version>
     </PackageReference>
     <PackageReference Include="MSBuild.Obfuscar">
       <Version>2.2.29.1</Version>
