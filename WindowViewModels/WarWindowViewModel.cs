@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LandConquest.WindowDialogViewModels
 {
-    public class WarPreviewDialogWindowViewModel : INotifyPropertyChanged
+    public class WarWindowViewModel : INotifyPropertyChanged
     {
         private object _windowTag;
         public object WindowTag

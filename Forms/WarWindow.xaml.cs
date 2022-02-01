@@ -1,3 +1,4 @@
+using LandConquest.DialogWIndows;
 using LandConquest.Forms;
 using LandConquest.Logic;
 using LandConquest.WindowDialogViewModels;
@@ -17,12 +18,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace LandConquest.DialogWIndows
+namespace LandConquest.Forms
 {
-    /// <summary>
-    /// Логика взаимодействия для WarPreviewDialogWindow.xaml
-    /// </summary>
-    public partial class WarPreviewDialogWindow : Window
+    public partial class WarWindow : Window
     {
         // GLOBALS -->
         Player  player;
@@ -36,13 +34,13 @@ namespace LandConquest.DialogWIndows
         const int AREA_COUNT = 18;
         // <--
 
-        public WarPreviewDialogWindow(Player _player, War _war)
+        public WarWindow(Player _player, War _war)
         {
             player = _player;
             war = _war;
 
             InitializeComponent();
-            DataContext = new WarPreviewDialogWindowViewModel();
+            DataContext = new WarWindowViewModel();
             initWar();
             initWarCaption();
             initPlayerGrids();
@@ -254,6 +252,7 @@ namespace LandConquest.DialogWIndows
                 updateArmiesDataGrid();
                 initFreePlayerArmy();
                 initPlayerGrids();
+                initWarAreas();
             }
         }
 
@@ -300,7 +299,7 @@ namespace LandConquest.DialogWIndows
 
         private void closeWindow()
         {
-            ((WarPreviewDialogWindowViewModel)DataContext).CloseWindow();
+            ((WarWindowViewModel)DataContext).CloseWindow();
         }
 
         private bool validateAvailableTroops()
@@ -385,6 +384,7 @@ namespace LandConquest.DialogWIndows
                 updateArmiesDataGrid();
                 initFreePlayerArmy();
                 initPlayerGrids();
+                initWarAreas();
             }
         }
 
@@ -401,10 +401,10 @@ namespace LandConquest.DialogWIndows
                 Label areaLabel = this.FindName("Area" + (i + 1) + "Label") as Label;
                 Rectangle areaRect = this.FindName("Area" + areaLabel.Tag) as Rectangle;
 
-                if (attackerArmy.ArmySizeCurrent == 0
-                 && defenderArmy.ArmySizeCurrent == 0)
+                if (attackerArmy.ArmySizeCurrent == defenderArmy.ArmySizeCurrent)
                 {
                     areaLabel.Content = "0.5";
+                    areaRect.Fill = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
                 }
                 else if (attackerArmy.ArmySizeCurrent == 0)
                 {
@@ -433,5 +433,52 @@ namespace LandConquest.DialogWIndows
             }
         }
 
+        private void infImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Convert.ToInt32(InfInput.Text) > 0)
+            {
+                InfInput.Text = "0";
+            }
+            else
+            {
+                InfInput.Text = Convert.ToString(FreeInf.Content);
+            }
+        }
+
+        private void arImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Convert.ToInt32(ArInput.Text) > 0)
+            {
+                ArInput.Text = "0";
+            }
+            else
+            {
+                ArInput.Text = Convert.ToString(FreeAr.Content);
+            }
+        }
+
+        private void kntImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Convert.ToInt32(KntInput.Text) > 0)
+            {
+                KntInput.Text = "0";
+            }
+            else
+            {
+                KntInput.Text = Convert.ToString(FreeKnt.Content);
+            }
+        }
+
+        private void sieImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Convert.ToInt32(SieInput.Text) > 0)
+            {
+                SieInput.Text = "0";
+            }
+            else
+            {
+                SieInput.Text = Convert.ToString(FreeSie.Content);
+            }
+        }
     }
 }

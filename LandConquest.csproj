@@ -195,8 +195,8 @@
     <Compile Include="DialogWIndows\PlayerProfileDialog.xaml.cs">
       <DependentUpon>PlayerProfileDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DialogWIndows\WarPreviewDialogWindow.xaml.cs">
-      <DependentUpon>WarPreviewDialogWindow.xaml</DependentUpon>
+    <Compile Include="Forms\WarWindow.xaml.cs">
+      <DependentUpon>WarWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DialogWIndows\WarResultsDialogWindow.xaml.cs">
       <DependentUpon>WarResultsDialogWindow.xaml</DependentUpon>
@@ -309,7 +309,7 @@
     <Compile Include="Resources\StylesDictionary.xaml.cs">
       <DependentUpon>StylesDictionary.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowDialogViewModels\WarPreviewDialogWindowViewModel.cs" />
+    <Compile Include="WindowViewModels\WarWindowViewModel.cs" />
     <Compile Include="WindowDialogViewModels\WarResultsDialogWindowViewModel.cs" />
     <Compile Include="WindowViewModels\AuctionWindowViewModel.cs" />
     <Compile Include="WindowViewModels\AuthorisationWindowViewModel.cs" />
@@ -334,7 +334,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DialogWIndows\WarPreviewDialogWindow.xaml">
+    <Page Include="Forms\WarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
