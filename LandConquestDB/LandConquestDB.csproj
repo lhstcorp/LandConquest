@@ -70,6 +70,7 @@
     <Compile Include="Entities\DistanceBattle.cs" />
     <Compile Include="Entities\Land.cs" />
     <Compile Include="Entities\Law.cs" />
+    <Compile Include="Entities\LogWar.cs" />
     <Compile Include="Entities\Manufacture.cs" />
     <Compile Include="Entities\Market.cs" />
     <Compile Include="Entities\Names.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Models\LandStorageModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />
     <Compile Include="Models\LandModel.cs" />
+    <Compile Include="Models\LogWarModel.cs" />
     <Compile Include="Models\ManufactureModel.cs" />
     <Compile Include="Models\MapModel.cs" />
     <Compile Include="Models\MarketModel.cs" />

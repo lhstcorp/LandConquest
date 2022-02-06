@@ -480,5 +480,15 @@ namespace LandConquest.Forms
                 SieInput.Text = Convert.ToString(FreeSie.Content);
             }
         }
+
+        private void armyImg_MouseEnter(object sender, MouseEventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void armyImg_MouseLeave(object sender, MouseEventArgs e)
+        {
+            this.Cursor = Cursors.Arrow;
+        }
     }
 }
