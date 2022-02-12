@@ -379,12 +379,15 @@ namespace LandConquest.Forms
 
             if (armyInBattle != null)
             {
-                BattleModel.DeleteArmyById(armyInBattle);
+                if (armyInBattle.PlayerId == player.PlayerId)
+                {
+                    BattleModel.DeleteArmyById(armyInBattle);
 
-                updateArmiesDataGrid();
-                initFreePlayerArmy();
-                initPlayerGrids();
-                initWarAreas();
+                    updateArmiesDataGrid();
+                    initFreePlayerArmy();
+                    initPlayerGrids();
+                    initWarAreas();
+                }
             }
         }
 
