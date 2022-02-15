@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:LandConquest.Forms"
         xmlns:ctrls="clr-namespace:LandConquest.Resources"
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        xmlns:cef="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         lex:LocalizeDictionary.DesignCulture="en"
         lex:LocalizeDictionary.IncludeInvariantCulture="False"
         lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
@@ -80,7 +81,7 @@
             </Image>
             <Image HorizontalAlignment="Left" Height="37" Margin="353,16,0,0" VerticalAlignment="Top" Width="35" Source="/LandConquest;component/Pictures/Icons/Menu/IconIndustryNew.png" MouseDown="ImageManufacture_MouseDown" Cursor="Hand"/>
 
-            <Button x:Name="reload_button" Content="Refresh" MaxHeight="30" MaxWidth="80" IsEnabled="False" Margin="615,0,625,7.8" BorderBrush="{x:Null}" Foreground="#FFE1CD9B" Width="80" Click="reload_button_Click" FontFamily="Book Antiqua" Height="30" VerticalAlignment="Bottom">
+            <Button x:Name="reload_button" Content="Refresh" MaxHeight="30" MaxWidth="80" IsEnabled="False" Margin="0,0,69,103.8" BorderBrush="{x:Null}" Foreground="#FFE1CD9B" Width="80" Click="reload_button_Click" FontFamily="Book Antiqua" Height="30" VerticalAlignment="Bottom">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
                 </Button.Background>
@@ -133,7 +134,7 @@
                 </Grid>
             </Border>
 
-            <Button x:Name="buttonStartBattle" IsEnabled="False" Content="Start test battle" HorizontalAlignment="Left" Margin="351,703,0,0" VerticalAlignment="Top" Width="164" Height="30" Click="buttonStartBattle_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D" FontFamily="Book Antiqua">
+            <Button x:Name="buttonStartBattle" IsEnabled="False" Content="Start test battle" HorizontalAlignment="Left" Margin="1089,642,0,0" VerticalAlignment="Top" Width="164" Height="30" Click="buttonStartBattle_Click" BorderBrush="{x:Null}" Foreground="#FFE5D09D" FontFamily="Book Antiqua">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -332,8 +333,8 @@
 
             <ProgressBar x:Name="PbExp" HorizontalAlignment="Left" Height="18" Margin="97,35,0,0" VerticalAlignment="Top" Width="92" Foreground="#FFD7464B" BorderBrush="#FFD7464B" Background="{x:Null}"/>
             <Label x:Name="Level"  FontSize="12" HorizontalContentAlignment="Center" Content="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" Foreground="#FFE1C793" Width="89" Height="31" Background="#FFD7464B"/>
-            <Button x:Name="test2" IsEnabled="False" HorizontalAlignment="Left" Height="37" Margin="351,651,0,0" VerticalAlignment="Top" Width="164" Click="test2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="#FFE1A35E"/>
-            <Button x:Name="buttonChat" Content="{lex:Loc LocButtonChat_Content}" Margin="20,0,0,7.8"  Click="buttonChat_Click" HorizontalAlignment="Left" Width="105" Height="31" VerticalAlignment="Bottom" FontSize="14">
+            <Button x:Name="test2" IsEnabled="False" HorizontalAlignment="Left" Height="37" Margin="1087,568,0,0" VerticalAlignment="Top" Width="164" Click="test2_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="#FFE1A35E"/>
+            <Button x:Name="buttonChat" Content="{lex:Loc LocButtonChat_Content}" Margin="1136,0,0,214.8"  Click="buttonChat_Click" HorizontalAlignment="Left" Width="105" Height="31" VerticalAlignment="Bottom" FontSize="14" IsEnabled="false">
 
             </Button>
             <Image x:Name="marketImage"  HorizontalAlignment="Left" Height="33" Margin="403,17,0,0" VerticalAlignment="Top"  Source="/LandConquest;component/Pictures/Icons/Menu/IconMarkerNew.PNG" Width="33" Cursor="Hand" MouseDown="marketImage_MouseDown" Stretch="UniformToFill"/>
@@ -345,7 +346,7 @@
             <Image x:Name="ProfileImage" HorizontalAlignment="Left" Height="25" Margin="706.5,19,0,0" VerticalAlignment="Top"  Source="/Pictures/Menu items/Profile.png" Width="26" Cursor="Hand" MouseDown="ProfileImage_MouseDown" Stretch="UniformToFill"/>
 
 
-            <Button x:Name="buyMembership" Content="{lex:Loc LocButtonSupportUs_Content}" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="36" IsEnabled="True" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buyMembership_Click" FontFamily="Book Antiqua" FontSize="11" Margin="1143,430,0,0">
+            <Button x:Name="buyMembership" Content="{lex:Loc LocButtonSupportUs_Content}" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="36" IsEnabled="True" BorderBrush="{x:Null}" Foreground="#FFE5D09D" Click="buyMembership_Click" FontFamily="Book Antiqua" FontSize="11" Margin="1025,12,0,0">
             </Button>
 
 
@@ -360,7 +361,7 @@
             <Label x:Name="labelDonation" Content="0" Foreground="Goldenrod" FontSize="16" HorizontalAlignment="Left" Margin="123,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.15,0.5" Width="66" Height="31"/>
             <Label x:Name="labelPrestige" Content="0" Foreground="Gold" FontSize="16" HorizontalAlignment="Left" Margin="123,108,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.15,0.5" Width="66" Height="31"/>
 
-            <Button x:Name="ButtonMailbox" Content="{lex:Loc LocButtonMailbox_Content}" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Left" FontFamily="Book Antiqua" FontSize="14" Click="ButtonMailbox_Click" Height="32" Width="115" Margin="127,0,0,7.8">
+            <Button x:Name="ButtonMailbox" Content="{lex:Loc LocButtonMailbox_Content}" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="#FFE5D09D" HorizontalAlignment="Left" FontFamily="Book Antiqua" FontSize="14" Click="ButtonMailbox_Click" Height="32" Width="115" IsEnabled="False" Margin="1134,0,0,175.8">
             </Button>
 
             <Image HorizontalAlignment="Left" Height="441" Margin="325,113,0,0" Source="/LandConquest;component/Pictures/undiscovered-map.png" VerticalAlignment="Top" Width="705" RenderTransformOrigin="0.5,0.5"/>
@@ -427,13 +428,14 @@
             </Border>
 
 
-            <Border Margin="977,684,167,8">
+            <Border Margin="22,692,1122,-0.2">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Label Content="{lex:Loc LocLabelServerTime_Content}" FontFamily="/Fonts/#Harrington" FontSize="24" Foreground="#FF392018" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
                 </Viewbox>
             </Border>
 
-            <Label x:Name="LabelServerTime" Content="00:00:00" FontSize="24" Margin="0,0,25,10" VerticalAlignment="Bottom" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" Height="40" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="151"/>
+
+            <Label x:Name="LabelServerTime" Content="00:00:00" FontSize="24" Margin="0,0,981,-0.2" VerticalAlignment="Bottom" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" Height="40" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="151"/>
 
             <Grid x:Name="goodsColor_Grid" ShowGridLines="True" Height="200" Margin="274,255,966,0" VerticalAlignment="Top" Width="80">
                 <Grid.RowDefinitions>
@@ -461,6 +463,11 @@
             </Grid>
             <Image x:Name="goodsColorsHelpImg" HorizontalAlignment="Left" Height="38" Margin="325,155,0,0" Source="/LandConquest;component/Pictures/reload_button.png" VerticalAlignment="Top" Width="40" Cursor="Hand" MouseDown="goodsColorsHelpImg_MouseDown"/>
 
+            <Border x:Name="DiscordBorder" Margin="0,321,0,-0.2" HorizontalAlignment="Right" Width="510" Height="420" VerticalAlignment="Top" >
+                <cef:ChromiumWebBrowser Grid.Row="0" x:Name="DiscordBrowser" IsBrowserInitializedChanged="DiscordBrowser_IsBrowserInitializedChanged"/>
+            </Border>
+
+            <Image x:Name="DiscordReloadButton" HorizontalAlignment="Left" Height="28" Margin="967,290,0,0" Source="/LandConquest;component/Pictures/reload_button.png" VerticalAlignment="Top" Width="27" Cursor="Hand"/>
 
 
             <Grid.Background>

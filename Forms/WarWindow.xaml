@@ -1,0 +1,257 @@
+﻿<Window x:Class="LandConquest.Forms.WarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.DialogWIndows"
+        mc:Ignorable="d"
+        Title="WarWindow"
+        Height="750" Width="1400"
+        WindowStyle="None" ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Tag="{Binding WindowTag}">
+    <Border BorderBrush="#FF392018" BorderThickness="5" Height="Auto" Width="Auto">
+        <Grid Margin="0.2,0.2,-5.2,-0.4">
+            <Button x:Name="btnClose" Height="20" VerticalAlignment="Top" Width="20" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Margin="0,2,2,0" Click="btnClose_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Label x:Name="warCaptionLbl" Content="War between " FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Sitka Display" Foreground="#FFB8362F" FontWeight="Bold" Height="48" Margin="23,10,22.4,0" VerticalAlignment="Top"/>
+            <Image x:Name="CountryAttackerImage" Source="/Pictures/profileImage.png" Height="200" Width="200" Margin="4,94,1191.4,0" VerticalAlignment="Top"/>
+            <Image x:Name="CountryDefenderImage" Source="/Pictures/profileImage.png" Height="200" Width="200" Margin="1185,94,10.4,0" VerticalAlignment="Top"/>
+            <Label x:Name="CountryAttackerName" Content="Attacker" FontWeight="Bold" FontSize="30" FontFamily="Sitka Display" Foreground="#FFB8362F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="4,51,0,0" VerticalAlignment="Top" Width="200"/>
+            <Label x:Name="CountryDefenderName" Content="Defender" FontWeight="Bold" FontSize="30" FontFamily="Sitka Display" Foreground="#FFB8362F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Height="38" Margin="0,0,10.4,652" VerticalAlignment="Bottom" Width="200"/>
+            <UniformGrid x:Name="DefenderPlayers" Columns="5" HorizontalAlignment="Left" Height="200" Margin="4,272,0,0" VerticalAlignment="Top" Width="200"/>
+            <UniformGrid x:Name="AttackerPlayers" Columns="5" HorizontalAlignment="Left" Height="200" Margin="1185,272,0,0" VerticalAlignment="Top" Width="200"/>
+
+            <Rectangle Fill="#d7b8ae" HorizontalAlignment="Left" Height="254" Margin="10,477,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="221"/>
+
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="20,486,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="20,544,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="20,602,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="20,660,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="20,486,0,0" VerticalAlignment="Top" Width="60" Source="/Pictures/Armies/INF-1.png"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="20,544,0,0" VerticalAlignment="Top" Width="60" Source="/Pictures/Armies/AR-1.png"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="20,603,0,0" VerticalAlignment="Top" Width="60" Source="/Pictures/Armies/KNT-1.png"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="20,661,0,0" VerticalAlignment="Top" Width="60" Source="/Pictures/Armies/SIE-1.png"/>
+
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="78,486,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="78,544,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="78,602,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Rectangle Fill="#e38882" HorizontalAlignment="Left" Height="60" Margin="78,660,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+
+            <Viewbox StretchDirection="Both" VerticalAlignment="Top" HorizontalAlignment="Left" Height="57" Margin="78,487,0,0" Width="142">
+                <Label x:Name="InfAtt" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Viewbox StretchDirection="Both" VerticalAlignment="Top" HorizontalAlignment="Left" Height="57" Margin="78,544,0,0" Width="142">
+                <Label x:Name="ArAtt" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Viewbox StretchDirection="Both" VerticalAlignment="Top" HorizontalAlignment="Left" Height="57" Margin="78,602,0,0" Width="142">
+                <Label x:Name="KntAtt" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Viewbox StretchDirection="Both" VerticalAlignment="Top" HorizontalAlignment="Left" Height="57" Margin="78,661,0,0" Width="142">
+                <Label x:Name="SieAtt" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Rectangle Fill="#d7b8ae" HorizontalAlignment="Left" Height="254" Margin="1164,477,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="221"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="1174,486,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="1174,544,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="1174,602,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="1174,660,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="60"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="1174,486,0,0" VerticalAlignment="Top" Width="60" Source="/LandConquest;component/Pictures/Armies/INF-0.png"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="1174,544,0,0" VerticalAlignment="Top" Width="60" Source="/LandConquest;component/Pictures/Armies/AR-0.png"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="1174,603,0,0" VerticalAlignment="Top" Width="60" Source="/LandConquest;component/Pictures/Armies/KNT-0.png"/>
+            <Image HorizontalAlignment="Left" Height="60" Margin="1174,661,0,0" VerticalAlignment="Top" Width="60" Source="/LandConquest;component/Pictures/Armies/SIE-0.png"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="1232,486,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="1232,544,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="1232,602,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Rectangle Fill="#87b6c4" HorizontalAlignment="Left" Height="60" Margin="1232,660,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="142"/>
+            <Viewbox StretchDirection="Both" Margin="1232,479,0,0" HorizontalAlignment="Left" Width="142" Height="57" VerticalAlignment="Top">
+                <Label x:Name="InfDef" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Viewbox StretchDirection="Both" VerticalAlignment="Top" Height="57" Margin="1232,537,0,0" HorizontalAlignment="Left" Width="142">
+                <Label x:Name="ArDef" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Viewbox StretchDirection="Both" VerticalAlignment="Top" HorizontalAlignment="Left" Height="57" Margin="1232,594,0,0" Width="142">
+                <Label x:Name="KntDef" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+            <Viewbox StretchDirection="Both" HorizontalAlignment="Left" Margin="1232,655,0,0" Width="142" Height="57" VerticalAlignment="Top">
+                <Label x:Name="SieDef" Content="000000000" FontFamily="/Fonts/#Harrington" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="113"/>
+            </Viewbox>
+
+            <Rectangle Fill="#d7b8ae" HorizontalAlignment="Left" Height="186" Margin="241,544,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="448"/>
+
+            <Image x:Name="infImg" Margin="251,551,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconInfantry.png" Height="107" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" MouseDown="infImg_MouseDown" MouseEnter="armyImg_MouseEnter" MouseLeave="armyImg_MouseLeave" />
+            <Image x:Name="arImg" Margin="358,551,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconArcher.PNG" Height="107" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104" MouseDown="arImg_MouseDown" MouseEnter="armyImg_MouseEnter" MouseLeave="armyImg_MouseLeave"/>
+            <Image x:Name="kntImg" Margin="468,551,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconKnight.png" Height="108" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" MouseDown="kntImg_MouseDown" MouseEnter="armyImg_MouseEnter" MouseLeave="armyImg_MouseLeave"/>
+            <Image x:Name="sieImg" Margin="577,551,0,0" Source="/LandConquest;component/Pictures/Icons/Army/IconSiegeMachine.png" HorizontalAlignment="Left" Width="104" Height="108" VerticalAlignment="Top" MouseDown="sieImg_MouseDown" MouseEnter="armyImg_MouseEnter" MouseLeave="armyImg_MouseLeave"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="249,551,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="358,551,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="467,551,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="575,551,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="249,551,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="358,551,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="467,551,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <Rectangle HorizontalAlignment="Left" Height="110" Margin="575,551,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+
+            <Rectangle HorizontalAlignment="Left" Height="33" Margin="249,658,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <TextBox x:Name="InfInput" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="26" Margin="253,661,0,0"  VerticalAlignment="Top" Width="99" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="TroopsTextbox_PreviewTextInput" />
+            <Rectangle HorizontalAlignment="Left" Height="33" Margin="358,658,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <TextBox x:Name="ArInput" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="26" Margin="362,661,0,0"  VerticalAlignment="Top" Width="99" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="TroopsTextbox_PreviewTextInput" />
+            <Rectangle HorizontalAlignment="Left" Height="33" Margin="467,658,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <TextBox x:Name="KntInput" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="26" Margin="471,661,0,0"  VerticalAlignment="Top" Width="99" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="TroopsTextbox_PreviewTextInput" />
+            <Rectangle HorizontalAlignment="Left" Height="33" Margin="575,658,0,0" Stroke="#311818" StrokeThickness="4" VerticalAlignment="Top" Width="107"/>
+            <TextBox x:Name="SieInput" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="26" Margin="578,661,0,0"  VerticalAlignment="Top" Width="99" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="TroopsTextbox_PreviewTextInput" />
+            <Button x:Name="JoinWarBtn" Content="Join war" FontSize="16" FontFamily="Sitka Display" Background="#311818" BorderBrush="Goldenrod" BorderThickness="2" Foreground="Goldenrod" HorizontalAlignment="Left" Height="26" Margin="253,696,0,0" VerticalAlignment="Top" Width="147" Click="JoinWarBtn_Click"/>
+            <Label x:Name="TotalScore" Content="Total score" FontWeight="Bold" FontSize="30" FontFamily="Sitka Display" Foreground="#FFB8362F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="49" Margin="253,497,0,0" Width="437"/>
+            <Rectangle Fill="#fff187" HorizontalAlignment="Left" Height="19" Margin="291,638,0,0" Stroke="#311818" VerticalAlignment="Top" Width="59"/>
+            <Label x:Name="FreeInf" Content="0000000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="23" Margin="291,635,0,0" VerticalAlignment="Top" Width="59"/>
+
+            <Rectangle Fill="#fff187" HorizontalAlignment="Left" Height="19" Margin="398,638,0,0" Stroke="#311818" VerticalAlignment="Top" Width="59"/>
+            <Label x:Name="FreeAr" Content="0000000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="23" Margin="398,636,0,0" VerticalAlignment="Top" Width="59"/>
+
+            <Rectangle Fill="#fff187" HorizontalAlignment="Left" Height="19" Margin="507,637,0,0" Stroke="#311818" VerticalAlignment="Top" Width="59"/>
+            <Label x:Name="FreeKnt" Content="0000000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="23" Margin="507,635,0,0" VerticalAlignment="Top" Width="59"/>
+
+            <Rectangle Fill="#fff187" HorizontalAlignment="Left" Height="19" Margin="617,637,0,0" Stroke="#311818" VerticalAlignment="Top" Width="59"/>
+            <Label x:Name="FreeSie" Content="0000000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="23" Margin="617,634,0,0" VerticalAlignment="Top" Width="59"/>
+
+            <!-- War map -->
+            <Image HorizontalAlignment="Left" Source="/Pictures/War/map.png" Height="400" Margin="240,58,0,0" VerticalAlignment="Top" Width="621"/>
+            <Rectangle x:Name="Area1" Tag="1" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="145" Margin="241,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="99" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area2" Tag="2" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="145" Margin="340,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area3" Tag="3" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="145" Margin="443,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area4" Tag="4" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="145" Margin="546,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area5" Tag="5" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="145" Margin="651,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area6" Tag="6" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="145" Margin="756,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area7" Tag="7" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="133" Margin="241,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="99" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area8" Tag="8" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="133" Margin="340,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area9" Tag="9" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="133" Margin="443,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area10" Tag="10" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="133" Margin="546,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area11" Tag="11" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="133" Margin="651,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area12" Tag="12" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="133" Margin="756,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="106" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area13" Tag="13" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="121" Margin="241,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="99" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area14" Tag="14" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="121" Margin="338,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area15" Tag="15" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="121" Margin="443,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="103" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area16" Tag="16" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="121" Margin="546,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area17" Tag="17" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="121" Margin="652,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Rectangle x:Name="Area18" Tag="18" Fill="Transparent" Opacity="0.5" HorizontalAlignment="Left" Height="121" Margin="756,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="105" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <!-- War map ends. -->
+
+            <DataGrid x:Name="armiesDataGrid" ItemsSource="{Binding armiesInBattle}" BorderThickness="2" SelectionMode="Single" CanUserResizeColumns="False" Foreground="White" BorderBrush="Black" AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontFamily="Book Antiqua" FontStyle="Oblique" HorizontalAlignment="Left" Height="339" Margin="861,58,0,0" VerticalAlignment="Top" Width="286">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="personNameCol" Binding="{Binding PlayerId}" Width="80" CanUserSort="True">
+                        <DataGridTextColumn.Header>
+                            <Grid>
+                                <Image Source="/Pictures/Menu items/profile.png" Width="40" Height="40"/>
+                            </Grid>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn x:Name="infCol" Binding="{Binding ArmyInfantryCount}" Width="40" CanUserSort="True">
+                        <DataGridTextColumn.Header>
+                            <Grid>
+                                <Image Source="/Pictures/Icons/Army/IconInfantry.png" Width="40" Height="40"/>
+                            </Grid>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn x:Name="arCol" Binding="{Binding ArmyArchersCount}" Width="40" CanUserSort="True">
+                        <DataGridTextColumn.Header>
+                            <Grid>
+                                <Image Source="/Pictures/Icons/Army/IconArcher.png" Width="40" Height="40"/>
+                            </Grid>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn x:Name="knCol" Binding="{Binding ArmyHorsemanCount}" Width="40" CanUserSort="True">
+                        <DataGridTextColumn.Header>
+                            <Grid>
+                                <Image Source="/Pictures/Icons/Army/IconKnight.png" Width="40" Height="40"/>
+                            </Grid>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn x:Name="sieCol" Binding="{Binding ArmySiegegunCount}" Width="40" CanUserSort="True">
+                        <DataGridTextColumn.Header>
+                            <Grid>
+                                <Image Source="/Pictures/Icons/Army/IconSiegeMachine.png" Width="40" Height="40"/>
+                            </Grid>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn x:Name="totalCol" Binding="{Binding ArmySizeCurrent}" Width="40" CanUserSort="True">
+                        <DataGridTextColumn.Header>
+                            <Grid>
+                                <Image Source="/Pictures/Armies/TRO-0.png" Width="40" Height="40"/>
+                            </Grid>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                </DataGrid.Columns>
+
+                <DataGrid.Background>
+                    <SolidColorBrush Color="#d6b7a3"></SolidColorBrush>
+                </DataGrid.Background>
+
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="BorderThickness" Value="0.5"/>
+                        <Setter Property="BorderBrush" Value="#FFE3CC98"/>
+                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    </Style>
+                </DataGrid.CellStyle>
+
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="Black"/>
+                        <Setter Property="FontStyle" Value="Normal"/>
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="BorderBrush" Value="#5b5f63"/>
+                        <Setter Property="BorderThickness" Value="0.5"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ArmySide}" Value="0">
+                                <Setter Property="Background" Value="#191970"></Setter>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding ArmySide}" Value="1">
+                                <Setter Property="Background" Value="#B22222"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+
+            <Button x:Name="removeArmyBtn" Content="Remove X" Foreground="White" Background="#B22222" BorderBrush="Black" BorderThickness="1" FontSize="19" HorizontalAlignment="Left" Height="61" Margin="1028,397,0,0" VerticalAlignment="Top" Width="119" Click="removeArmyBtn_Click"/>
+            <Label x:Name="Area1Label" Tag="1" Content="0.5" HorizontalAlignment="Left" Height="145" Margin="241,58,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="99" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area2Label" Tag="2" Content="0.5" HorizontalAlignment="Left" Height="145" Margin="340,58,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="103" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area3Label" Tag="3" Content="0.5" HorizontalAlignment="Left" Height="145" Margin="443,58,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="103" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area4Label" Tag="4" Content="0.5" HorizontalAlignment="Left" Height="145" Margin="546,58,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="105" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area5Label" Tag="5" Content="0.5" HorizontalAlignment="Left" Height="145" Margin="651,58,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="105" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area6Label" Tag="6" Content="0.5" HorizontalAlignment="Left" Height="145" Margin="756,58,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="105" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area7Label" Tag="7" Content="0.5" HorizontalAlignment="Left" Height="131" Margin="241,203,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="99" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area8Label" Tag="8" Content="0.5" HorizontalAlignment="Left" Height="131" Margin="340,203,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="103" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area9Label" Tag="9" Content="0.5" HorizontalAlignment="Left" Height="131" Margin="444,203,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="102" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area10Label" Tag="10" Content="0.5" HorizontalAlignment="Left" Height="131" Margin="546,203,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="105" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area11Label" Tag="11" Content="0.5" HorizontalAlignment="Left" Height="131" Margin="651,203,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="105" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area12Label" Tag="12" Content="0.5" HorizontalAlignment="Left" Height="131" Margin="756,203,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="105" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area13Label" Tag="13" Content="0.5" HorizontalAlignment="Left" Height="121" Margin="241,334,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="99" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area14Label" Tag="14" Content="0.5" HorizontalAlignment="Left" Height="121" Margin="340,334,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="103" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area15Label" Tag="15" Content="0.5" HorizontalAlignment="Left" Height="121" Margin="443,334,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="103" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area16Label" Tag="16" Content="0.5" HorizontalAlignment="Left" Height="121" Margin="546,334,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="105" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area17Label" Tag="17" Content="0.5" HorizontalAlignment="Left" Height="121" Margin="651,334,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="105" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            <Label x:Name="Area18Label" Tag="18" Content="0.5" HorizontalAlignment="Left" Height="121" Margin="756,334,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="105" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+        </Grid>
+    </Border>
+</Window>

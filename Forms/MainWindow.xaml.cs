@@ -17,6 +17,10 @@ using System.Windows.Threading;
 using System.Globalization;
 using WPFLocalizeExtension.Engine;
 using System.Threading;
+using System.Diagnostics;
+using CefSharp;
+using CefSharp.Wpf;
+using CefSharp.Handler;
 
 namespace LandConquest.Forms
 {
@@ -48,7 +52,10 @@ namespace LandConquest.Forms
 
         public MainWindow(User _user)
         {
+            DiscordBrowserPreInitialize();
+
             InitializeComponent();
+
             user = _user;
             equipment = new PlayerEquipment();
             player = new Player();
@@ -271,12 +278,6 @@ namespace LandConquest.Forms
         private void buttonChat_Click(object sender, RoutedEventArgs e)
         {
             CloseUnusedWindows();
-            //openedWindow = new ChatWindow(player);
-            openedWindow = new DiscordChatWindow();
-            openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            openedWindow.Show();
-            openedWindow.Closed += FreeData;
         }
 
         private void marketImage_MouseDown(object sender, MouseButtonEventArgs e)
@@ -1059,7 +1060,7 @@ namespace LandConquest.Forms
                     WAR = new War();
                     WAR.WarId = wars[j].WarId;
                     
-                    WarPreviewDialogWindow dialogWindow = new WarPreviewDialogWindow(player, WAR);
+                    WarWindow dialogWindow = new WarWindow(player, WAR);
                     dialogWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     dialogWindow.Owner = this;
                     dialogWindow.Show();
@@ -1301,6 +1302,30 @@ namespace LandConquest.Forms
             window.PrestigeChanged += PersonWindow_PrestigeChanged;
             window.Show();
             window.Closed += FreeData;
+        }
+
+        private void DiscordBrowser_IsBrowserInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.DiscordBrowser.CanGoForward)
+                this.DiscordBrowser.Forward();
+            if (this.DiscordBrowser.CanGoBack)
+                this.DiscordBrowser.Back();
+
+            this.DiscordBrowser.LoadHtml(Properties.Resources.DIscordChat);
+            this.DiscordBrowser.Reload();
+        }
+
+        private void DiscordBrowserPreInitialize()
+        {
+            CefSettings settings = new CefSettings();
+            settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
+            Cef.Initialize(settings);
+
+        }
+
+        private void DiscordReloadButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DiscordBrowser.Reload();
         }
     }
 }

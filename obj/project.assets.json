@@ -2,23 +2,23 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.7.2": {
-      "cef.redist.x64/95.7.14": {
+      "cef.redist.x64/97.1.6": {
         "type": "package",
         "build": {
           "buildTransitive/cef.redist.x64.props": {}
         }
       },
-      "cef.redist.x86/95.7.14": {
+      "cef.redist.x86/97.1.6": {
         "type": "package",
         "build": {
           "buildTransitive/cef.redist.x86.props": {}
         }
       },
-      "CefSharp.Common/95.7.141": {
+      "CefSharp.Common/97.1.61": {
         "type": "package",
         "dependencies": {
-          "cef.redist.x64": "[95.7.14]",
-          "cef.redist.x86": "[95.7.14]"
+          "cef.redist.x64": "[97.1.6]",
+          "cef.redist.x86": "[97.1.6]"
         },
         "compile": {
           "lib/net452/CefSharp.Core.dll": {},
@@ -33,10 +33,10 @@
           "buildTransitive/CefSharp.Common.targets": {}
         }
       },
-      "CefSharp.Wpf/95.7.141": {
+      "CefSharp.Wpf/97.1.61": {
         "type": "package",
         "dependencies": {
-          "CefSharp.Common": "[95.7.141]"
+          "CefSharp.Common": "[97.1.61]"
         },
         "compile": {
           "lib/net462/CefSharp.Wpf.dll": {}
@@ -511,23 +511,23 @@
       }
     },
     ".NETFramework,Version=v4.7.2/win": {
-      "cef.redist.x64/95.7.14": {
+      "cef.redist.x64/97.1.6": {
         "type": "package",
         "build": {
           "buildTransitive/cef.redist.x64.props": {}
         }
       },
-      "cef.redist.x86/95.7.14": {
+      "cef.redist.x86/97.1.6": {
         "type": "package",
         "build": {
           "buildTransitive/cef.redist.x86.props": {}
         }
       },
-      "CefSharp.Common/95.7.141": {
+      "CefSharp.Common/97.1.61": {
         "type": "package",
         "dependencies": {
-          "cef.redist.x64": "[95.7.14]",
-          "cef.redist.x86": "[95.7.14]"
+          "cef.redist.x64": "[97.1.6]",
+          "cef.redist.x86": "[97.1.6]"
         },
         "compile": {
           "lib/net452/CefSharp.Core.dll": {},
@@ -542,10 +542,10 @@
           "buildTransitive/CefSharp.Common.targets": {}
         }
       },
-      "CefSharp.Wpf/95.7.141": {
+      "CefSharp.Wpf/97.1.61": {
         "type": "package",
         "dependencies": {
-          "CefSharp.Common": "[95.7.141]"
+          "CefSharp.Common": "[97.1.61]"
         },
         "compile": {
           "lib/net462/CefSharp.Wpf.dll": {}
@@ -818,23 +818,23 @@
       }
     },
     ".NETFramework,Version=v4.7.2/win-x64": {
-      "cef.redist.x64/95.7.14": {
+      "cef.redist.x64/97.1.6": {
         "type": "package",
         "build": {
           "buildTransitive/cef.redist.x64.props": {}
         }
       },
-      "cef.redist.x86/95.7.14": {
+      "cef.redist.x86/97.1.6": {
         "type": "package",
         "build": {
           "buildTransitive/cef.redist.x86.props": {}
         }
       },
-      "CefSharp.Common/95.7.141": {
+      "CefSharp.Common/97.1.61": {
         "type": "package",
         "dependencies": {
-          "cef.redist.x64": "[95.7.14]",
-          "cef.redist.x86": "[95.7.14]"
+          "cef.redist.x64": "[97.1.6]",
+          "cef.redist.x86": "[97.1.6]"
         },
         "compile": {
           "lib/net452/CefSharp.Core.dll": {},
@@ -849,10 +849,10 @@
           "buildTransitive/CefSharp.Common.targets": {}
         }
       },
-      "CefSharp.Wpf/95.7.141": {
+      "CefSharp.Wpf/97.1.61": {
         "type": "package",
         "dependencies": {
-          "CefSharp.Common": "[95.7.141]"
+          "CefSharp.Common": "[97.1.61]"
         },
         "compile": {
           "lib/net462/CefSharp.Wpf.dll": {}
@@ -1125,23 +1125,23 @@
       }
     },
     ".NETFramework,Version=v4.7.2/win-x86": {
-      "cef.redist.x64/95.7.14": {
+      "cef.redist.x64/97.1.6": {
         "type": "package",
         "build": {
           "buildTransitive/cef.redist.x64.props": {}
         }
       },
-      "cef.redist.x86/95.7.14": {
+      "cef.redist.x86/97.1.6": {
         "type": "package",
         "build": {
           "buildTransitive/cef.redist.x86.props": {}
         }
       },
-      "CefSharp.Common/95.7.141": {
+      "CefSharp.Common/97.1.61": {
         "type": "package",
         "dependencies": {
-          "cef.redist.x64": "[95.7.14]",
-          "cef.redist.x86": "[95.7.14]"
+          "cef.redist.x64": "[97.1.6]",
+          "cef.redist.x86": "[97.1.6]"
         },
         "compile": {
           "lib/net452/CefSharp.Core.dll": {},
@@ -1156,10 +1156,10 @@
           "buildTransitive/CefSharp.Common.targets": {}
         }
       },
-      "CefSharp.Wpf/95.7.141": {
+      "CefSharp.Wpf/97.1.61": {
         "type": "package",
         "dependencies": {
-          "CefSharp.Common": "[95.7.141]"
+          "CefSharp.Common": "[97.1.61]"
         },
         "compile": {
           "lib/net462/CefSharp.Wpf.dll": {}
@@ -1433,10 +1433,10 @@
     }
   },
   "libraries": {
-    "cef.redist.x64/95.7.14": {
-      "sha512": "hHIqpqNhzzZ0H1N9eUYXA6s+mDPaepCQXr4Qb8q0aU04Gaf5DIcuzPqqcoXm2MYEbiZcnnEeT1TWu71kslrOYQ==",
+    "cef.redist.x64/97.1.6": {
+      "sha512": "qAxudwB0sK9IpkX+f0yGOusXnPTPfVsNl64z05v66rkf1SQjNJ/ECWkvV3q/fQ+qwjo1BGAiAXbG1bifJ3HFwg==",
       "type": "package",
-      "path": "cef.redist.x64/95.7.14",
+      "path": "cef.redist.x64/97.1.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1514,14 +1514,14 @@
         "LICENSE.txt",
         "build/cef.redist.x64.props",
         "buildTransitive/cef.redist.x64.props",
-        "cef.redist.x64.95.7.14.nupkg.sha512",
+        "cef.redist.x64.97.1.6.nupkg.sha512",
         "cef.redist.x64.nuspec"
       ]
     },
-    "cef.redist.x86/95.7.14": {
-      "sha512": "XGO7AHdMSntqKRcxAOJOf/LlxBPDPIYIJ1umrCfg0d9OdKztTVE8G+Z4NdTQ3oDo813NVT/kYg/Zt0t2KY9pdQ==",
+    "cef.redist.x86/97.1.6": {
+      "sha512": "jGtHKX00gWgTh+BblG1gNzzgWdRVlUJ2R1NCTpgbiTHkYVCbw/WLh2cscE8SXuRndVqhVhNC3y/WJrFgOepYug==",
       "type": "package",
-      "path": "cef.redist.x86/95.7.14",
+      "path": "cef.redist.x86/97.1.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1599,14 +1599,14 @@
         "LICENSE.txt",
         "build/cef.redist.x86.props",
         "buildTransitive/cef.redist.x86.props",
-        "cef.redist.x86.95.7.14.nupkg.sha512",
+        "cef.redist.x86.97.1.6.nupkg.sha512",
         "cef.redist.x86.nuspec"
       ]
     },
-    "CefSharp.Common/95.7.141": {
-      "sha512": "IHJaxoHxp6y0WBLfoTpl/8U7871TQLIUqA1c7x2beQGS3d1HGmgnebuyttRg4qBnC43ENkKpqlurnPHJ7ceEHg==",
+    "CefSharp.Common/97.1.61": {
+      "sha512": "KZ8dvQtNxrws0UMIAEVnUlCKj4n6t7/fczOSyixfnBy9H4AtgismddeCgV1Z9GEK8Ts4Fml0W3w42AjfiwZoNg==",
       "type": "package",
-      "path": "cefsharp.common/95.7.141",
+      "path": "cefsharp.common/97.1.61",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1630,7 +1630,7 @@
         "build/app.config.x86.transform",
         "buildTransitive/CefSharp.Common.props",
         "buildTransitive/CefSharp.Common.targets",
-        "cefsharp.common.95.7.141.nupkg.sha512",
+        "cefsharp.common.97.1.61.nupkg.sha512",
         "cefsharp.common.nuspec",
         "lib/net452/CefSharp.Core.XML",
         "lib/net452/CefSharp.Core.dll",
@@ -1925,7 +1925,6 @@
         "src/CefSharp/Enums/MenuItemType.cs",
         "src/CefSharp/Enums/MouseButtonType.cs",
         "src/CefSharp/Enums/PaintElementType.cs",
-        "src/CefSharp/Enums/PluginPolicy.cs",
         "src/CefSharp/Enums/PointerType.cs",
         "src/CefSharp/Enums/PostDataElementType.cs",
         "src/CefSharp/Enums/ReferrerPolicy.cs",
@@ -1998,6 +1997,7 @@
         "src/CefSharp/IBrowser.cs",
         "src/CefSharp/IBrowserHost.cs",
         "src/CefSharp/IBrowserSettings.cs",
+        "src/CefSharp/IChromiumWebBrowserBase.cs",
         "src/CefSharp/IContextMenuParams.cs",
         "src/CefSharp/ICookieManager.cs",
         "src/CefSharp/IDomNode.cs",
@@ -2148,15 +2148,15 @@
         "src/CefSharp/obj/Release/.NETFramework,Version=v4.5.2.AssemblyAttributes.cs"
       ]
     },
-    "CefSharp.Wpf/95.7.141": {
-      "sha512": "Smfu1echowo9tP8GCzy8bhCrKh282wqzvufoiSH+f3C/eMyHtr8R/2WTGs9FKL0yHT+4Qen4f9J5gV3YHOcJUA==",
+    "CefSharp.Wpf/97.1.61": {
+      "sha512": "Mw9TLL0kQT8m9WztuvkQyENGWLAvhMhPgVInTuU6NJ44UuuAnnobUpZoarvpb5KulH00sUsbNXYhCGtd/8V0GA==",
       "type": "package",
-      "path": "cefsharp.wpf/95.7.141",
+      "path": "cefsharp.wpf/97.1.61",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Readme.txt",
-        "cefsharp.wpf.95.7.141.nupkg.sha512",
+        "cefsharp.wpf.97.1.61.nupkg.sha512",
         "cefsharp.wpf.nuspec",
         "lib/net452/CefSharp.Wpf.XML",
         "lib/net452/CefSharp.Wpf.dll",
@@ -2715,7 +2715,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
-      "CefSharp.Wpf >= 95.7.141",
+      "CefSharp.Common >= 97.1.61",
+      "CefSharp.Wpf >= 97.1.61",
       "EmailValidation >= 1.0.4",
       "Expression.Blend.Sdk.WPF >= 1.0.1",
       "LandConquestDB >= 1.0.0",
@@ -2728,20 +2729,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\green\\.nuget\\packages\\": {}
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
       "projectName": "LandConquest",
-      "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
-      "packagesPath": "C:\\Users\\green\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\obj\\",
+      "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquest.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\green\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2754,11 +2755,11 @@
       "frameworks": {
         "net472": {
           "projectReferences": {
-            "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
-              "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
+            "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj": {
+              "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestDB\\LandConquestDB.csproj"
             },
-            "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj": {
-              "projectPath": "C:\\Users\\green\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj"
+            "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj": {
+              "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\LandConquest\\LandConquestYD\\LandConquestYD.csproj"
             }
           }
         }
@@ -2767,9 +2768,13 @@
     "frameworks": {
       "net472": {
         "dependencies": {
+          "CefSharp.Common": {
+            "target": "Package",
+            "version": "[97.1.61, )"
+          },
           "CefSharp.Wpf": {
             "target": "Package",
-            "version": "[95.7.141, )"
+            "version": "[97.1.61, )"
           },
           "EmailValidation": {
             "target": "Package",

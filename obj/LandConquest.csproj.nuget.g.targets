@@ -6,6 +6,6 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)msbuild.obfuscar\2.2.29.1\build\MSBuild.Obfuscar.targets" Condition="Exists('$(NuGetPackageRoot)msbuild.obfuscar\2.2.29.1\build\MSBuild.Obfuscar.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.vcrtforwarders.140\1.0.6\build\net45\Microsoft.VCRTForwarders.140.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.vcrtforwarders.140\1.0.6\build\net45\Microsoft.VCRTForwarders.140.targets')" />
-    <Import Project="$(NuGetPackageRoot)cefsharp.common\95.7.141\buildTransitive\CefSharp.Common.targets" Condition="Exists('$(NuGetPackageRoot)cefsharp.common\95.7.141\buildTransitive\CefSharp.Common.targets')" />
+    <Import Project="$(NuGetPackageRoot)cefsharp.common\97.1.61\buildTransitive\CefSharp.Common.targets" Condition="Exists('$(NuGetPackageRoot)cefsharp.common\97.1.61\buildTransitive\CefSharp.Common.targets')" />
   </ImportGroup>
 </Project>
