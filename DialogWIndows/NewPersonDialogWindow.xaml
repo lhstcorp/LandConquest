@@ -1,0 +1,46 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.DialogWIndows"
+        xmlns:Resources="clr-namespace:LandConquest.Resources" x:Class="LandConquest.DialogWIndows.NewPersonDialogWindow"
+        mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize" HorizontalAlignment="Center" VerticalAlignment="Center"
+        Title="NewPersonDialogWindow" Height="260" Width="270">
+    <Border BorderBrush="#FF392018" BorderThickness="5" Margin="0,0,0,-0.4">
+        <Grid>
+
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+
+            <TextBox x:Name="personName" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="25" Margin="109,47,0,0"  VerticalAlignment="Top" Width="100" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" TextChanged="personName_TextChanged" PreviewTextInput="personName_PreviewTextInput" />
+            <Button x:Name="createPersonBtn" Content="Create" Foreground="#FFFFFF" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="16" Height="39" Margin="81,188,0,0" VerticalAlignment="Top" Width="95" FontWeight="ExtraBlack" Click="createPersonBtn_Click" Background="#FF3D1913"/>
+            <Label Content="Name" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="16" Foreground="#901212" FontWeight="ExtraBlack" HorizontalAlignment="Left" Margin="38,48,0,0" VerticalAlignment="Top" Cursor="None"/>
+            <Button x:Name="buttonClose" Margin="0,0,0.4,0" Height="20" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="buttonClose_Click" HorizontalAlignment="Right" Width="20" RenderTransformOrigin="14.782,0.448" VerticalAlignment="Top">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <RadioButton x:Name="Male" GroupName="MaleFemale" Content="Man" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="16" Foreground="#901212" FontWeight="ExtraBlack" IsChecked="True" HorizontalAlignment="Left" Margin="48,143,0,0" VerticalAlignment="Top" Checked="Male_Checked" Background="#FF484030" Width="54"/>
+            <RadioButton x:Name="Female" GroupName="MaleFemale" Content="Woman" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="16" Foreground="#901212" FontWeight="ExtraBlack" IsChecked="False" HorizontalAlignment="Left" Margin="136,143,0,0" VerticalAlignment="Top" Checked="Female_Checked"/>
+            <Label Content="Create your first hero" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="20" Foreground="#901212" FontWeight="ExtraBlack" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top"/>
+            <Label Content="Dynasty" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="16" Foreground="#901212" FontWeight="ExtraBlack" HorizontalAlignment="Left" Margin="38,91,0,0" VerticalAlignment="Top" Height="24"/>
+            <Label x:Name="Dynasty" Content="Surname" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="16" Foreground="#901212" FontWeight="ExtraBlack" HorizontalAlignment="Left" Margin="118,91,0,0" VerticalAlignment="Top" Height="24"/>
+
+            <Image HorizontalAlignment="Left" Height="24" Margin="214,48,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="0.495,0.475"/>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="218,51,0,0" VerticalAlignment="Top" Width="17" Click="Button_Click" BorderThickness="0" Height="18">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pictures/reload_button.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="DynastyChange" Content="DynastyChange" HorizontalAlignment="Left" Margin="218,94,0,0" VerticalAlignment="Top" Width="17" Height="18" Opacity="0.965" BorderThickness="0" Click="DynastyChange_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pictures/reload_button.png"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+    </Border>
+</Window>
+
