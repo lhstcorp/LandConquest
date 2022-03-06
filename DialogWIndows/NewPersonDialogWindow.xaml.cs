@@ -24,16 +24,21 @@ namespace LandConquest.DialogWIndows
     {
         User user;
         Person person;
-        public NewPersonDialogWindow(User _user)
+        Person newPerson;
+        Player player;
+        public NewPersonDialogWindow(User _user, Player _player)
         {
             user = _user;
-            person = new Person();
+            newPerson = new Person();
+            player = _player;
             InitializeComponent();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
-            Dynasty.Content = person.Surname;
+            //newPerson = new Person();
+            person = PersonModel.GetPersonInfo(player, person);
+
+            DynastySurname.Content = person.Surname;
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
@@ -44,18 +49,18 @@ namespace LandConquest.DialogWIndows
         }
         private void createPersonBtn_Click(object sender, RoutedEventArgs e)
         {
-            person.PlayerId = user.UserId;
-            person.PersonId = AuthorisationWindow.GenerateUserId();
-            person.Name = personName.Text;
-            person.Surname = person.Surname;
-            person.Lvl = 1;
-            person.MaleFemale = false;
-            person.Agility = 1;
-            person.Intellect = 1;
-            person.Health = 30;
-            person.Power = 1;
+            newPerson.PlayerId = user.UserId;
+            newPerson.PersonId = AuthorisationWindow.GenerateUserId();
+            newPerson.Name = personName.Text;
+            newPerson.Surname =  (string)DynastySurname.Content;
+            newPerson.Lvl = 1;
+            newPerson.MaleFemale = false;
+            newPerson.Agility = 1;
+            newPerson.Intellect = 1;
+            newPerson.Health = 30;
+            newPerson.Power = 1;
 
-            PersonModel.CreatePerson(person);
+            PersonModel.CreatePerson(newPerson);
             MainWindow mainWindow = new MainWindow(user);
             mainWindow.Show();
             this.Close();
@@ -77,12 +82,12 @@ namespace LandConquest.DialogWIndows
 
         private void Male_Checked(object sender, RoutedEventArgs e)
         {
-            person.MaleFemale = true;
+            newPerson.MaleFemale = true;
             generateMaleName();
         }
         private void Female_Checked(object sender, RoutedEventArgs e)
         {
-            person.MaleFemale = false;
+            newPerson.MaleFemale = false;
             generateFemaleName();
         }
 
@@ -93,12 +98,12 @@ namespace LandConquest.DialogWIndows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (person.MaleFemale == true)
+            if (newPerson.MaleFemale == true)
             {
                 generateMaleName();
             }
 
-            if (person.MaleFemale == false)
+            if (newPerson.MaleFemale == false)
             {
                 generateFemaleName();
             }

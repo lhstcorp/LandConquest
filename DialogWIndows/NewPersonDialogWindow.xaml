@@ -27,7 +27,7 @@
             <RadioButton x:Name="Female" GroupName="MaleFemale" Content="Woman" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="16" Foreground="#901212" FontWeight="ExtraBlack" IsChecked="False" HorizontalAlignment="Left" Margin="136,143,0,0" VerticalAlignment="Top" Checked="Female_Checked"/>
             <Label Content="Create your first hero" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="20" Foreground="#901212" FontWeight="ExtraBlack" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top"/>
             <Label Content="Dynasty" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="16" Foreground="#901212" FontWeight="ExtraBlack" HorizontalAlignment="Left" Margin="38,91,0,0" VerticalAlignment="Top" Height="24"/>
-            <Label x:Name="Dynasty" Content="Surname" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="16" Foreground="#901212" FontWeight="ExtraBlack" HorizontalAlignment="Left" Margin="118,91,0,0" VerticalAlignment="Top" Height="24"/>
+            <Label x:Name="DynastySurname" Content="" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="16" Foreground="#901212" FontWeight="ExtraBlack" HorizontalAlignment="Left" Margin="118,91,0,0" VerticalAlignment="Top" Height="24" Width="86"/>
 
             <Image HorizontalAlignment="Left" Height="24" Margin="214,48,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="0.495,0.475"/>
             <Button Content="Button" HorizontalAlignment="Left" Margin="218,51,0,0" VerticalAlignment="Top" Width="17" Click="Button_Click" BorderThickness="0" Height="18">
