@@ -44,7 +44,7 @@ namespace LandConquest.Logic
                     PlayerEntranceModel.UpdateLastEntrance(player);
                     int consumption = CountFunction(player, entranceDifference);
                     var consumptionDifference = storage.Food - consumption;
-                    if (consumptionDifference > 0)
+                    if (consumptionDifference >= 0)
                     {
                         storage.Food = consumptionDifference;
                         StorageModel.UpdateStorage(player, storage);
@@ -53,13 +53,16 @@ namespace LandConquest.Logic
                     {
                         Army playerArmy = new Army();
                         playerArmy = ArmyModel.GetArmyInfo(player, playerArmy);
-                        if (storage.Food > 0)
+                        if (playerArmy.ArmySizeCurrent > 0)
                         {
-                            ArmyDesert(player, consumption / storage.Food, playerArmy);
-                        }
-                        else
-                        {
-                            ArmyDesert(player, playerArmy.ArmySizeCurrent * 10 , playerArmy);
+                            if (storage.Food > 0)
+                            {
+                                ArmyDesert(player, consumption / storage.Food, playerArmy);
+                            }
+                            else
+                            {
+                                ArmyDesert(player, playerArmy.ArmySizeCurrent * 10, playerArmy);
+                            }
                         }
                         storage.Food = 0;
                         StorageModel.UpdateStorage(player, storage);

@@ -209,8 +209,9 @@ namespace LandConquest.Forms
 
         private void ButtonCreatePerson_Click(object sender, RoutedEventArgs e)
         {
-            CloseUnusedWindows();
-            openedWindow = new CreatePersonDialogWindow(user);
+            //CloseUnusedWindows();
+            openedWindow = new NewPersonDialogWindow(user, player);
+
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();

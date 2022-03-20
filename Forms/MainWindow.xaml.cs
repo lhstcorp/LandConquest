@@ -52,7 +52,8 @@ namespace LandConquest.Forms
 
         public MainWindow(User _user)
         {
-            //ChatCacheInitialization();
+            DiscordBrowserPreInitialize();
+
             InitializeComponent();
 
             user = _user;
@@ -1305,26 +1306,26 @@ namespace LandConquest.Forms
 
         private void DiscordBrowser_IsBrowserInitializedChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            Logic.LifeSpanHandler life = new Logic.LifeSpanHandler();
-            this.DiscordBrowser.LifeSpanHandler = life;
-            life.PopupRequest += DiscordBrowser_PopupRequest;
+            if (this.DiscordBrowser.CanGoForward)
+                this.DiscordBrowser.Forward();
+            if (this.DiscordBrowser.CanGoBack)
+                this.DiscordBrowser.Back();
 
             this.DiscordBrowser.LoadHtml(Properties.Resources.DIscordChat);
+            this.DiscordBrowser.Reload();
         }
 
-        private void DiscordBrowser_PopupRequest(string e)
+        private void DiscordBrowserPreInitialize()
         {
-            var link = new Uri(e);
-            var psi = new ProcessStartInfo
-            {
-                FileName = "cmd",
-                WindowStyle = ProcessWindowStyle.Hidden,
-                UseShellExecute = false,
-                CreateNoWindow = true,
-                Arguments = $"/c start {link.AbsoluteUri}"
-            };
-            Process.Start(psi);
+            CefSettings settings = new CefSettings();
+            settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
+            Cef.Initialize(settings);
+
         }
 
+        private void DiscordReloadButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DiscordBrowser.Reload();
+        }
     }
 }

@@ -467,6 +467,8 @@
                 <cef:ChromiumWebBrowser Grid.Row="0" x:Name="DiscordBrowser" IsBrowserInitializedChanged="DiscordBrowser_IsBrowserInitializedChanged"/>
             </Border>
 
+            <Image x:Name="DiscordReloadButton" HorizontalAlignment="Left" Height="28" Margin="967,290,0,0" Source="/LandConquest;component/Pictures/reload_button.png" VerticalAlignment="Top" Width="27" Cursor="Hand"/>
+
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
