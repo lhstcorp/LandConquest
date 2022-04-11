@@ -8,7 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,11 +25,11 @@ namespace LandConquest.Forms
     public partial class WarWindow : Window
     {
         // GLOBALS -->
-        Player  player;
-        War     war;
+        Player player;
+        War war;
 
-        int         selectedTile = 0;
-        Rectangle   selectedArea;
+        int selectedTile = 0;
+        Rectangle selectedArea;
         // <--
 
         // CONST -->
@@ -46,6 +48,31 @@ namespace LandConquest.Forms
             initPlayerGrids();
             initFreePlayerArmy();
             initWarAreas();
+            updateWarWindowInfoAsync();
+        }
+
+        private async void updateWarWindowInfoAsync()
+        {
+            await Task.Run(() => updateInfoAsync());
+        }
+
+        private async void updateInfoAsync()
+        {
+            while (true)
+            {
+                try
+                {
+                    await Task.Delay(10000);
+
+                    Dispatcher.Invoke(new ThreadStart(delegate
+                    {
+                        initPlayerGrids();
+                        initWarAreas();
+                        loadLossesDataGrid();
+                    }));
+                }
+                catch { }
+            }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -338,6 +365,7 @@ namespace LandConquest.Forms
             selectedTile = Convert.ToInt32(selectedArea.Tag);
             highlightSelectedFrame();
             updateArmiesDataGrid();
+            loadLossesDataGrid();
         }
 
         private void highlightSelectedFrame()
@@ -431,7 +459,7 @@ namespace LandConquest.Forms
                         areaLabel.Content = Math.Round((decimal)attackerArmy.ArmySizeCurrent / (decimal)(defenderArmy.ArmySizeCurrent + attackerArmy.ArmySizeCurrent), 2);
                         areaRect.Fill = new SolidColorBrush(Color.FromRgb(179, 62, 62));
                     }
-                    
+
                 }
             }
         }
@@ -492,6 +520,14 @@ namespace LandConquest.Forms
         private void armyImg_MouseLeave(object sender, MouseEventArgs e)
         {
             this.Cursor = Cursors.Arrow;
+        }
+
+        public void loadLossesDataGrid()
+        {
+            List<LogWar> warLogs = new List<LogWar>();
+            warLogs = LogWarModel.GetLogWarListForArea(war.WarId, selectedTile);
+
+            logWarDataGrid.ItemsSource = warLogs;
         }
     }
 }

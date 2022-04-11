@@ -192,6 +192,9 @@
     <Compile Include="DialogWIndows\CreatePersonDialogWindow.xaml.cs">
       <DependentUpon>CreatePersonDialogWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\NewPersonDialogWindow.xaml.cs">
+      <DependentUpon>NewPersonDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogWIndows\PlayerProfileDialog.xaml.cs">
       <DependentUpon>PlayerProfileDialog.xaml</DependentUpon>
     </Compile>
@@ -330,6 +333,10 @@
     <Page Include="DialogWIndows\CreatePersonDialogWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DialogWIndows\NewPersonDialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\PlayerProfileDialog.xaml">
       <SubType>Designer</SubType>

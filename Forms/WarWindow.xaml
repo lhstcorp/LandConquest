@@ -248,6 +248,56 @@
             <Label x:Name="Area16Label" Tag="16" Content="0.5" HorizontalAlignment="Left" Height="121" Margin="546,334,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="105" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
             <Label x:Name="Area17Label" Tag="17" Content="0.5" HorizontalAlignment="Left" Height="121" Margin="651,334,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="105" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
             <Label x:Name="Area18Label" Tag="18" Content="0.5" HorizontalAlignment="Left" Height="121" Margin="756,334,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="Yellow" Width="105" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="/Fonts/#Harrington" MouseDown="TileMouseDown" MouseEnter="TileMouseEnter" MouseLeave="TileMouseLeave"/>
+            
+            <DataGrid x:Name="logWarDataGrid" ItemsSource="{Binding warLogs}" BorderThickness="2" SelectionMode="Single" CanUserResizeColumns="False" Foreground="White" BorderBrush="Black" AutoGenerateColumns="False" IsReadOnly="true" SelectionUnit="FullRow" EnableRowVirtualization="True" FontFamily="Book Antiqua" FontStyle="Oblique" HorizontalAlignment="Left" Height="272" Margin="861,458,0,0" VerticalAlignment="Top" Width="286" Background="#d6b7a3">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="attackersLostCol" Binding="{Binding AttackersLost}" Width="140" CanUserSort="True">
+                        <DataGridTextColumn.Header>
+                            <Grid>
+                                <Image Source="/LandConquest;component/Pictures/Armies/TRO-1.png" Width="40" Height="40"/>
+                            </Grid>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn x:Name="defendersLostCol" Binding="{Binding DefendersLost}" Width="140" CanUserSort="True">
+                        <DataGridTextColumn.Header>
+                            <Grid>
+                                <Image Source="/LandConquest;component/Pictures/Armies/TRO-0.png" Width="40" Height="40"/>
+                            </Grid>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+
+                <DataGrid.CellStyle>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="BorderThickness" Value="0.5"/>
+                        <Setter Property="BorderBrush" Value="#FFE3CC98"/>
+                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    </Style>
+                </DataGrid.CellStyle>
+
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="Black"/>
+                        <Setter Property="FontStyle" Value="Normal"/>
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="BorderBrush" Value="#5b5f63"/>
+                        <Setter Property="BorderThickness" Value="0.5"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="#311818" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#313818"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+                
+            </DataGrid>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
