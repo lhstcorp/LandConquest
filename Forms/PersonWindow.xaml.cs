@@ -25,22 +25,18 @@ namespace LandConquest.Forms
     /// </summary>
     public partial class PersonWindow : Window
     {
-        private User user;
         private Player player;
         private Person person;
         public event Action<int> PrestigeChanged;
         int skillPoints;
         private Window openedWindow;
 
-
-
-
         public PersonWindow(Player _player)
         {
             InitializeComponent();
             player = _player;
             InitPersonCharacteristics();
-            CalculateSkillPoints();
+           //CalculateSkillPoints();
             openedWindow = this;
         }
        
@@ -51,8 +47,7 @@ namespace LandConquest.Forms
 
         public void InitPersonCharacteristics()
         {
-            Person person = new Person();
-            person = PersonModel.GetPersonInfo(player, person);
+            Person person = PersonModel.GetPersonInfo(player);
            
             Power.Content = person.Power;
             Agility.Content = person.Agility;
@@ -74,8 +69,7 @@ namespace LandConquest.Forms
 
         private void BtnUpgradePersonPower_Click(object sender, RoutedEventArgs e)
         {
-            Person person = new Person();
-            person = PersonModel.GetPersonInfo(player, person);
+            Person person = PersonModel.GetPersonInfo(player);
             if (player.PlayerPrestige > person.Power && skillPoints > 0)
             {
                 person.Power += 1;
@@ -108,8 +102,7 @@ namespace LandConquest.Forms
 
         private void BtnUpgradePersonAgility_Click(object sender, RoutedEventArgs e)
         {
-            Person person = new Person();
-            person = PersonModel.GetPersonInfo(player, person);
+            Person person =  PersonModel.GetPersonInfo(player);
             if (player.PlayerPrestige > person.Agility && skillPoints > 0)
             {
                 person.Agility += 1;
@@ -142,8 +135,7 @@ namespace LandConquest.Forms
 
         private void BtnUpgradePersonIntellect_Click(object sender, RoutedEventArgs e)
         {
-            Person person = new Person();
-            person = PersonModel.GetPersonInfo(player, person);
+            Person person = PersonModel.GetPersonInfo(player);
             if (player.PlayerPrestige > person.Intellect && skillPoints>0)
             {
                 person.Intellect += 1;
@@ -177,8 +169,7 @@ namespace LandConquest.Forms
 
         private void CalculateSkillPoints()
         {
-            Person person = new Person();
-            person = PersonModel.GetPersonInfo(player, person);
+            Person person =  PersonModel.GetPersonInfo(player);
             SkillPoints.Content = person.Lvl*3 - person.Power - person.Agility - person.Intellect;
             skillPoints = Convert.ToInt32(SkillPoints.Content);
             if (skillPoints < 1) 
@@ -210,7 +201,7 @@ namespace LandConquest.Forms
         private void ButtonCreatePerson_Click(object sender, RoutedEventArgs e)
         {
             //CloseUnusedWindows();
-            openedWindow = new NewPersonDialogWindow(user, player);
+            openedWindow = new NewPersonDialogWindow(player);
 
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
