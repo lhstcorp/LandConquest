@@ -37,8 +37,10 @@ namespace LandConquestDB.Models
             command.ExecuteNonQuery();
             command.Dispose();
         }
-        public static Person GetPersonInfo(Player player, Person person) // TODO
+        public static Person GetPersonInfo(Player player) // TODO
         {
+            Person person = new Person();
+
             string query = "SELECT * FROM dbo.PersonData WHERE player_id = @player_id";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());

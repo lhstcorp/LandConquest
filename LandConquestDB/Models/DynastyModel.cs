@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using Dapper;
+using LandConquestDB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LandConquestDB.Models
 {
-    class DynastyModel
+    public class DynastyModel
     {
         public static void CreateDynasty(Dynasty _dynasty)
         {
@@ -22,9 +23,14 @@ namespace LandConquestDB.Models
             command.Parameters.AddWithValue("@player_id", _dynasty.PlayerId);
             command.Parameters.AddWithValue("@prestige", _dynasty.Prestige);
             command.Parameters.AddWithValue("@level", _dynasty.Level);
-  
+
             command.ExecuteNonQuery();
             command.Dispose();
+        }
+
+        public static Dynasty GetDynastyByPlayerId(string _playerId)
+        {
+            return DbContext.GetSqlConnection().Query<Dynasty>("SELECT * FROM dbo.DynastyData WHERE player_id = @player_id", new { player_id = _playerId }).ToList().FirstOrDefault();
         }
     }
 }

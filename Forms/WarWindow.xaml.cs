@@ -409,7 +409,7 @@ namespace LandConquest.Forms
             {
                 if (armyInBattle.PlayerId == player.PlayerId)
                 {
-                    BattleModel.DeleteArmyById(armyInBattle);
+                    BattleModel.DeleteArmyById(armyInBattle.ArmyId);
 
                     updateArmiesDataGrid();
                     initFreePlayerArmy();

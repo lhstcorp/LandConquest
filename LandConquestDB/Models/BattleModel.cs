@@ -238,12 +238,12 @@ namespace LandConquestDB.Models
             return armies[0].ArmyType;
         }
 
-        public static void DeleteArmyById(ArmyInBattle army)
+        public static void DeleteArmyById(string _armyId)
         {
             string query = "DELETE FROM dbo.ArmyDataInBattle WHERE army_id = @army_id";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@army_id", army.ArmyId);
+            command.Parameters.AddWithValue("@army_id", _armyId);
 
             command.ExecuteNonQuery();
 
