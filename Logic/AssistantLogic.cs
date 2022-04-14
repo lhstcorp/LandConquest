@@ -133,7 +133,7 @@ namespace LandConquest.Logic
 
         public static void CallSplashScreen()
         {
-            var splashScreen = new SplashScreen("Pictures/splashscreen.png");
+            var splashScreen = new SplashScreen("Pictures/splashscreen2.png");
             splashScreen.Show(true, true);
         }
 

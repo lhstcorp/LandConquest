@@ -95,6 +95,7 @@
     <Compile Include="Models\BattleModel.cs" />
     <Compile Include="Models\CastleModel.cs" />
     <Compile Include="Models\ChatModel.cs" />
+    <Compile Include="Models\CommonModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\DailyBonusModel.cs" />
     <Compile Include="Models\DynastyModel.cs" />

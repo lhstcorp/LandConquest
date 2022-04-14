@@ -2453,3 +2453,159 @@ color: purple;
 [0411/210318.724:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
 [0411/210318.725:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
 [0411/210318.725:INFO:CONSOLE(1)] "%c apollo %csubscription %cMessageUpdated color: gray; font-weight: lighter color: red; color: inherit;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/192700.226:INFO:CONSOLE(7)] "%c+%chttps://widgetbot.io
+%cPopup Discord chat widgets for your website. font-size: 1px; margin-bottom: 5px; margin-left: 40px; padding: 10px 15px; line-height: 12px;background: url("https://i.imgur.com/S7IIIbE.png"); background-repeat: no-repeat; background-size: 30px; color: transparent; padding-left: 2px; font-size: 14px; color: #7289DA; font-family: "Roboto", sans-serif padding-left: 15px; font-size: 11px; font-family: "Roboto", sans-serif; ", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/192700.346:INFO:CONSOLE(7)] "[embed-api] on 'signIn' function(e){t=e.id}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/192700.346:INFO:CONSOLE(7)] "[embed-api] on 'message' function(n){var r=n.message;r.content&&r.author.id!==t&&e.notify({id:r.id,content:r.content,avatar:r.author.avatar})}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/192700.347:INFO:CONSOLE(7)] "[embed-api] on 'messageDelete' function(t){var n=t.id;e.store.dispatch(w.deleteMessage({id:n,decrement:!0}))}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/192705.406:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/192706.266:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/192706.267:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/192706.267:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/192706.267:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/192707.248:INFO:CONSOLE(5)] "Cookies are not authorized, we will not send any data.", source: https://www.datadoghq-browser-agent.com/datadog-rum-us.js (5)
+[0414/192707.561:INFO:CONSOLE(1)] "WidgetBot version: v3.1.4", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192708.666:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 708 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/192708.667:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192708.667:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192708.667:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 708 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/192708.706:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 775 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/192708.706:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192708.707:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192708.707:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 775 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/192716.659:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 8701 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/192716.662:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192716.663:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192716.663:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 8701 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/192901.603:INFO:CONSOLE(7)] "%c+%chttps://widgetbot.io
+%cPopup Discord chat widgets for your website. font-size: 1px; margin-bottom: 5px; margin-left: 40px; padding: 10px 15px; line-height: 12px;background: url("https://i.imgur.com/S7IIIbE.png"); background-repeat: no-repeat; background-size: 30px; color: transparent; padding-left: 2px; font-size: 14px; color: #7289DA; font-family: "Roboto", sans-serif padding-left: 15px; font-size: 11px; font-family: "Roboto", sans-serif; ", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/192901.652:INFO:CONSOLE(7)] "[embed-api] on 'signIn' function(e){t=e.id}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/192901.652:INFO:CONSOLE(7)] "[embed-api] on 'message' function(n){var r=n.message;r.content&&r.author.id!==t&&e.notify({id:r.id,content:r.content,avatar:r.author.avatar})}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/192901.653:INFO:CONSOLE(7)] "[embed-api] on 'messageDelete' function(t){var n=t.id;e.store.dispatch(w.deleteMessage({id:n,decrement:!0}))}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/192906.718:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/192907.378:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/192907.380:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/192907.380:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/192907.380:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/192907.428:INFO:CONSOLE(5)] "Cookies are not authorized, we will not send any data.", source: https://www.datadoghq-browser-agent.com/datadog-rum-us.js (5)
+[0414/192907.957:INFO:CONSOLE(1)] "WidgetBot version: v3.1.4", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192908.653:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 464 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/192908.654:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192908.654:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192908.654:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 464 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/192908.702:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 486 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/192908.702:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192908.702:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192908.702:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 486 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/192918.748:INFO:CONSOLE(1)] "[GraphQL error]: Message: We are currently experiencing issues communicating with discord., Location: [object Object], Path: channel,messages", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192918.749:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 10555 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/192918.749:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192918.749:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/192918.750:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 10555 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/194122.003:INFO:CONSOLE(7)] "%c+%chttps://widgetbot.io
+%cPopup Discord chat widgets for your website. font-size: 1px; margin-bottom: 5px; margin-left: 40px; padding: 10px 15px; line-height: 12px;background: url("https://i.imgur.com/S7IIIbE.png"); background-repeat: no-repeat; background-size: 30px; color: transparent; padding-left: 2px; font-size: 14px; color: #7289DA; font-family: "Roboto", sans-serif padding-left: 15px; font-size: 11px; font-family: "Roboto", sans-serif; ", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194122.049:INFO:CONSOLE(7)] "[embed-api] on 'signIn' function(e){t=e.id}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194122.049:INFO:CONSOLE(7)] "[embed-api] on 'message' function(n){var r=n.message;r.content&&r.author.id!==t&&e.notify({id:r.id,content:r.content,avatar:r.author.avatar})}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194122.049:INFO:CONSOLE(7)] "[embed-api] on 'messageDelete' function(t){var n=t.id;e.store.dispatch(w.deleteMessage({id:n,decrement:!0}))}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194503.060:INFO:CONSOLE(7)] "%c+%chttps://widgetbot.io
+%cPopup Discord chat widgets for your website. font-size: 1px; margin-bottom: 5px; margin-left: 40px; padding: 10px 15px; line-height: 12px;background: url("https://i.imgur.com/S7IIIbE.png"); background-repeat: no-repeat; background-size: 30px; color: transparent; padding-left: 2px; font-size: 14px; color: #7289DA; font-family: "Roboto", sans-serif padding-left: 15px; font-size: 11px; font-family: "Roboto", sans-serif; ", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194503.106:INFO:CONSOLE(7)] "[embed-api] on 'signIn' function(e){t=e.id}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194503.107:INFO:CONSOLE(7)] "[embed-api] on 'message' function(n){var r=n.message;r.content&&r.author.id!==t&&e.notify({id:r.id,content:r.content,avatar:r.author.avatar})}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194503.107:INFO:CONSOLE(7)] "[embed-api] on 'messageDelete' function(t){var n=t.id;e.store.dispatch(w.deleteMessage({id:n,decrement:!0}))}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194508.123:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194508.731:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194508.731:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194508.732:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194508.732:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194508.772:INFO:CONSOLE(5)] "Cookies are not authorized, we will not send any data.", source: https://www.datadoghq-browser-agent.com/datadog-rum-us.js (5)
+[0414/194509.271:INFO:CONSOLE(1)] "WidgetBot version: v3.1.4", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194510.122:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 642 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/194510.122:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194510.122:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194510.123:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 642 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/194510.155:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 663 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/194510.156:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194510.157:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194510.157:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 663 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/194520.182:INFO:CONSOLE(1)] "[GraphQL error]: Message: We are currently experiencing issues communicating with discord., Location: [object Object], Path: channel,messages", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194520.183:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 10700 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/194520.183:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194520.184:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194520.184:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 10700 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/194700.490:INFO:CONSOLE(7)] "%c+%chttps://widgetbot.io
+%cPopup Discord chat widgets for your website. font-size: 1px; margin-bottom: 5px; margin-left: 40px; padding: 10px 15px; line-height: 12px;background: url("https://i.imgur.com/S7IIIbE.png"); background-repeat: no-repeat; background-size: 30px; color: transparent; padding-left: 2px; font-size: 14px; color: #7289DA; font-family: "Roboto", sans-serif padding-left: 15px; font-size: 11px; font-family: "Roboto", sans-serif; ", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194700.534:INFO:CONSOLE(7)] "[embed-api] on 'signIn' function(e){t=e.id}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194700.534:INFO:CONSOLE(7)] "[embed-api] on 'message' function(n){var r=n.message;r.content&&r.author.id!==t&&e.notify({id:r.id,content:r.content,avatar:r.author.avatar})}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194700.534:INFO:CONSOLE(7)] "[embed-api] on 'messageDelete' function(t){var n=t.id;e.store.dispatch(w.deleteMessage({id:n,decrement:!0}))}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194705.607:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194705.968:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194705.969:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194705.970:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194705.970:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194706.050:INFO:CONSOLE(5)] "Cookies are not authorized, we will not send any data.", source: https://www.datadoghq-browser-agent.com/datadog-rum-us.js (5)
+[0414/194706.199:INFO:CONSOLE(1)] "WidgetBot version: v3.1.4", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194725.132:INFO:CONSOLE(7)] "%c+%chttps://widgetbot.io
+%cPopup Discord chat widgets for your website. font-size: 1px; margin-bottom: 5px; margin-left: 40px; padding: 10px 15px; line-height: 12px;background: url("https://i.imgur.com/S7IIIbE.png"); background-repeat: no-repeat; background-size: 30px; color: transparent; padding-left: 2px; font-size: 14px; color: #7289DA; font-family: "Roboto", sans-serif padding-left: 15px; font-size: 11px; font-family: "Roboto", sans-serif; ", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194725.178:INFO:CONSOLE(7)] "[embed-api] on 'signIn' function(e){t=e.id}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194725.178:INFO:CONSOLE(7)] "[embed-api] on 'message' function(n){var r=n.message;r.content&&r.author.id!==t&&e.notify({id:r.id,content:r.content,avatar:r.author.avatar})}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194725.179:INFO:CONSOLE(7)] "[embed-api] on 'messageDelete' function(t){var n=t.id;e.store.dispatch(w.deleteMessage({id:n,decrement:!0}))}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/194730.200:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194730.558:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194730.559:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194730.559:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194730.559:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/194730.598:INFO:CONSOLE(5)] "Cookies are not authorized, we will not send any data.", source: https://www.datadoghq-browser-agent.com/datadog-rum-us.js (5)
+[0414/194730.754:INFO:CONSOLE(1)] "WidgetBot version: v3.1.4", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194731.425:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 469 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/194731.426:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194731.427:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194731.428:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 469 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/194731.457:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 515 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/194731.457:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194731.458:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/194731.458:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 515 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/195443.508:INFO:CONSOLE(7)] "%c+%chttps://widgetbot.io
+%cPopup Discord chat widgets for your website. font-size: 1px; margin-bottom: 5px; margin-left: 40px; padding: 10px 15px; line-height: 12px;background: url("https://i.imgur.com/S7IIIbE.png"); background-repeat: no-repeat; background-size: 30px; color: transparent; padding-left: 2px; font-size: 14px; color: #7289DA; font-family: "Roboto", sans-serif padding-left: 15px; font-size: 11px; font-family: "Roboto", sans-serif; ", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/195443.554:INFO:CONSOLE(7)] "[embed-api] on 'signIn' function(e){t=e.id}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/195443.554:INFO:CONSOLE(7)] "[embed-api] on 'message' function(n){var r=n.message;r.content&&r.author.id!==t&&e.notify({id:r.id,content:r.content,avatar:r.author.avatar})}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/195443.554:INFO:CONSOLE(7)] "[embed-api] on 'messageDelete' function(t){var n=t.id;e.store.dispatch(w.deleteMessage({id:n,decrement:!0}))}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/195448.566:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/195449.086:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/195449.088:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/195449.088:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/195449.088:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/195449.166:INFO:CONSOLE(5)] "Cookies are not authorized, we will not send any data.", source: https://www.datadoghq-browser-agent.com/datadog-rum-us.js (5)
+[0414/195449.297:INFO:CONSOLE(1)] "WidgetBot version: v3.1.4", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/195450.095:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 587 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/195450.096:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/195450.096:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/195450.097:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 587 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/195450.129:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 636 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/195450.129:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/195450.129:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/195450.129:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 636 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/200145.961:INFO:CONSOLE(7)] "%c+%chttps://widgetbot.io
+%cPopup Discord chat widgets for your website. font-size: 1px; margin-bottom: 5px; margin-left: 40px; padding: 10px 15px; line-height: 12px;background: url("https://i.imgur.com/S7IIIbE.png"); background-repeat: no-repeat; background-size: 30px; color: transparent; padding-left: 2px; font-size: 14px; color: #7289DA; font-family: "Roboto", sans-serif padding-left: 15px; font-size: 11px; font-family: "Roboto", sans-serif; ", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/200146.006:INFO:CONSOLE(7)] "[embed-api] on 'signIn' function(e){t=e.id}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/200146.006:INFO:CONSOLE(7)] "[embed-api] on 'message' function(n){var r=n.message;r.content&&r.author.id!==t&&e.notify({id:r.id,content:r.content,avatar:r.author.avatar})}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/200146.006:INFO:CONSOLE(7)] "[embed-api] on 'messageDelete' function(t){var n=t.id;e.store.dispatch(w.deleteMessage({id:n,decrement:!0}))}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0414/200151.029:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/200151.565:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/200151.566:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/200151.566:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/200151.566:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0414/200151.605:INFO:CONSOLE(5)] "Cookies are not authorized, we will not send any data.", source: https://www.datadoghq-browser-agent.com/datadog-rum-us.js (5)
+[0414/200152.069:INFO:CONSOLE(1)] "WidgetBot version: v3.1.4", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/200152.750:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 448 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/200152.750:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/200152.751:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/200152.751:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 448 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/200152.788:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 467 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/200152.788:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/200152.789:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/200152.789:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 467 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/200202.800:INFO:CONSOLE(1)] "[GraphQL error]: Message: We are currently experiencing issues communicating with discord., Location: [object Object], Path: channel,messages", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/200202.801:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 10493 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
+[0414/200202.801:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/200202.801:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.1886bf6b.js (1)
+[0414/200202.801:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 10493 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/0.fb88a35f.chunk.js (1)
