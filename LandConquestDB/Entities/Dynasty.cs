@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LandConquestDB.Entities
 {
-    class Dynasty
+    public class Dynasty
     {
         public string DynastyId { get; set; }
         public string DynastyName { get; set; }

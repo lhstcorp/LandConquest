@@ -93,7 +93,7 @@ namespace LandConquest.Logic
 
                 if (army.ArmySizeCurrent == 0)
                 {
-                    BattleModel.DeleteArmyById(army);
+                    BattleModel.DeleteArmyById(army.ArmyId);
                 }
             }
 
