@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using Dapper;
+using LandConquestDB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -119,38 +120,39 @@ namespace LandConquestDB.Models
             return lands;
         }
 
-        public static Land GetLandInfo(int landId)
+        public static Land GetLandInfo(int _landId)
         {
-            Land land = new Land();
-            string query = "SELECT * FROM dbo.LandData where land_id = @land_id";
-            
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@land_id", landId);
-            
-            using (var reader = command.ExecuteReader())
-            {
-                var landLandId = reader.GetOrdinal("land_id");
-                var landName = reader.GetOrdinal("land_name");
-                var landColor = reader.GetOrdinal("land_color");
-                var landCountryId = reader.GetOrdinal("country_id");
-                var landResourceType1 = reader.GetOrdinal("resource_type_1");
-                var landResourceType2 = reader.GetOrdinal("resource_type_2");
+            //Land land = new Land();
+            //string query = "SELECT * FROM dbo.LandData where land_id = @land_id";
 
-                while (reader.Read())
-                {
-                    land.LandId = reader.GetInt32(landLandId);
-                    land.LandName = reader.GetString(landName);
-                    land.LandColor = reader.GetString(landColor);
-                    land.CountryId = reader.GetInt32(landCountryId);
-                    land.ResourceType1 = reader.GetInt32(landResourceType1);
-                    land.ResourceType2 = reader.GetInt32(landResourceType2);
-                }
-                reader.Close();
-            }
+            //var command = new SqlCommand(query, DbContext.GetSqlConnection());
+            //command.Parameters.AddWithValue("@land_id", landId);
 
-            command.Dispose();
+            //using (var reader = command.ExecuteReader())
+            //{
+            //    var landLandId = reader.GetOrdinal("land_id");
+            //    var landName = reader.GetOrdinal("land_name");
+            //    var landColor = reader.GetOrdinal("land_color");
+            //    var landCountryId = reader.GetOrdinal("country_id");
+            //    var landResourceType1 = reader.GetOrdinal("resource_type_1");
+            //    var landResourceType2 = reader.GetOrdinal("resource_type_2");
 
-            return land;
+            //    while (reader.Read())
+            //    {
+            //        land.LandId = reader.GetInt32(landLandId);
+            //        land.LandName = reader.GetString(landName);
+            //        land.LandColor = reader.GetString(landColor);
+            //        land.CountryId = reader.GetInt32(landCountryId);
+            //        land.ResourceType1 = reader.GetInt32(landResourceType1);
+            //        land.ResourceType2 = reader.GetInt32(landResourceType2);
+            //    }
+            //    reader.Close();
+            //}
+
+            //command.Dispose();
+
+            //return land;
+            return DbContext.GetSqlConnection().Query<Land>("SELECT * FROM dbo.LandData WHERE land_id = @land_id", new { land_id = _landId }).ToList().FirstOrDefault();
         }
 
         public static Land GetLandInfoByName(string _landName)
