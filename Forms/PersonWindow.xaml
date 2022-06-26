@@ -27,77 +27,106 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Label Content="{lex:Loc LocLabelCharacteristics}" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="92,267,0,0" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Width="214"/>
-            <Label Content="{lex:Loc LocLabelPower}"  HorizontalAlignment="Left" Margin="29,311.65,0,0" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label Content="{lex:Loc LocLabelAgility}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="29,344.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label Content="{lex:Loc LocLabelIntelligence}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="29,376.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label Content="{lex:Loc LocLabelLevel}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="230,311.65,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.139,0.526" Grid.Row="1"/>
-            <Label Content="{lex:Loc LocLabelHealth}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="230,344.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label Content="{lex:Loc LocLabelExperience}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="230,376.65,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label x:Name="Power" Content="0" HorizontalAlignment="Left" Margin="130,314.65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1"/>
-            <Label x:Name="Agility" Content="0" HorizontalAlignment="Left" Margin="130,348,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.125,0.517" Grid.Row="1"/>
-            <Label x:Name="Intelligence" Content="0" HorizontalAlignment="Left" Margin="130,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.958,2.442" Grid.Row="1"/>
-            <Label x:Name="Level" Content="0" HorizontalAlignment="Left" Margin="325,315,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.375,0.783" Grid.Row="1"/>
-            <Label x:Name="Health" Content="0" HorizontalAlignment="Left" Margin="325,348,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label x:Name="Experience" Content="0" HorizontalAlignment="Left" Margin="325,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.236,5.142" Grid.Row="1"/>
-            <Image Source="/Pictures/InWork/person1.png" HorizontalAlignment="Left" Height="159" Margin="132,46,0,0" VerticalAlignment="Top" Width="139" Grid.Row="1"/>
-            <Label x:Name="NameSurname" Content="Person Name" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="30" Foreground="#901212" FontWeight="ExtraBlack" Margin="108,0.65,0,0" VerticalAlignment="Top" Width="181" Grid.Row="1"/>
-            <Image Source="/Pictures/Priestskill_23.png" HorizontalAlignment="Left" Height="24" Margin="202,349,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
-            <Button x:Name="BtnUpgradePersonPower"  HorizontalAlignment="Left" Height="27" Margin="3,315,0,0" Grid.Row="1" VerticalAlignment="Top" Width="27" Click="BtnUpgradePersonPower_Click" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/Pictures/WarriorSkill_44.png"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="BtnUpgradePersonAgility"  HorizontalAlignment="Left" Height="27" Margin="3,346,0,0" Grid.Row="1" VerticalAlignment="Top" Width="27" Click="BtnUpgradePersonAgility_Click" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/Pictures/Archerskill_16.png"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="BtnUpgradePersonIntellect"  HorizontalAlignment="Left" Height="27" Margin="3,378,0,0" Grid.Row="1" VerticalAlignment="Top" Width="27" Click="BtnUpgradePersonIntellect_Click" >
-                <Button.Background>
-                    <ImageBrush ImageSource="/Pictures/Engineerskill_15.png"/>
-                </Button.Background>
-            </Button>
-            <Image Source="/Pictures/Mageskill_23.png" HorizontalAlignment="Left" Height="24" Margin="202,380,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
-            <ProgressBar x:Name="PbPersonExp" HorizontalAlignment="Left" Height="18" Margin="143,211,0,0" VerticalAlignment="Top" Width="117" Background="{x:Null}" BorderBrush="#FFD7464B" Grid.Row="1">
-                <ProgressBar.Foreground>
-                    <ImageBrush ImageSource="/Pictures/Mageskill_23.png" Stretch="UniformToFill"/>
-                </ProgressBar.Foreground>
-            </ProgressBar>
-            <Label x:Name="pbLevel" Content="0" HorizontalAlignment="Left" Margin="126,205,0,0" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Top" RenderTransformOrigin="1.375,0.783" Grid.Row="1"/>
-            <Label x:Name="pbLevel1" Content="0" HorizontalAlignment="Left" Margin="259,205,0,0" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Top" RenderTransformOrigin="1.375,0.783" Grid.Row="1"/>
-            <Label Content="{lex:Loc LocLabelSkillPoints}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="105,404,0,-4" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label x:Name="SkillPoints" Content="0" HorizontalAlignment="Left" FontSize="16" FontWeight="SemiBold" Margin="260,403,0,-1" VerticalAlignment="Top" RenderTransformOrigin="0.236,5.142" Grid.Row="1"/>
-            <ProgressBar x:Name="PbPersonHealth" HorizontalAlignment="Left" Height="18" Margin="143,243,0,0" VerticalAlignment="Top" Width="117" Background="{x:Null}" BorderBrush="#FFD7464B" Grid.Row="1">
-                <ProgressBar.Foreground>
-                    <ImageBrush ImageSource="/Pictures/Priestskill_23.png" Stretch="UniformToFill"/>
-                </ProgressBar.Foreground>
-            </ProgressBar>
+
+            <Label Content="{lex:Loc LocLabelLevel}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="450,312,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.139,0.526" Grid.Row="1"/>
+            <Label Content="{lex:Loc LocLabelHealth}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="450,345,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+            <Label Content="{lex:Loc LocLabelExperience}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="450,377,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+            <Label x:Name="Level" Content="0" HorizontalAlignment="Left" Margin="545,315,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.375,0.783" Grid.Row="1"/>
+            <Label x:Name="Health" Content="0" HorizontalAlignment="Left" Margin="545,348,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+            <Label x:Name="Experience" Content="0" HorizontalAlignment="Left" Margin="545,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.236,5.142" Grid.Row="1"/>
+            <Image Source="/Pictures/Priestskill_23.png" HorizontalAlignment="Left" Height="24" Margin="422,349,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
+
+
+
+            <Image Source="/Pictures/Mageskill_23.png" HorizontalAlignment="Left" Height="24" Margin="422,380,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
+
+
             <Label x:Name="PbValueHealthLabel" Content="0" HorizontalAlignment="Left" FontWeight="Bold" Margin="178,240,0,0" Foreground="#FFE5D09D" VerticalAlignment="Top" Grid.Row="1"/>
             <Label x:Name="PbMaxHealthLabel" Content="0" FontWeight="Bold" HorizontalAlignment="Left" Margin="204,240,0,0" Foreground="#FFE5D09D" VerticalAlignment="Top" Grid.Row="1"/>
             <Label Content="/" HorizontalAlignment="Left" Margin="195,239,0,0" FontWeight="Bold" Foreground="#FFE5D09D" VerticalAlignment="Top" Grid.Row="1"/>
 
-                <Grid HorizontalAlignment="Left" Height="66" Margin="366,22,0,0" Grid.Row="1" VerticalAlignment="Top" Width="214" >
-                    
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="9*"/>
-                        <RowDefinition Height="431*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="78*"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Image Source="/Pictures/InWork/person1.png" HorizontalAlignment="Left" Height="67" Margin="0,-1,0,0" VerticalAlignment="Top" Width="59" Grid.RowSpan="2"/>
-                    <Image Source="/Pictures/WarriorSkill_44.png" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" Margin="80,0,0,0" Grid.Row="1"/>
-                    <Image Source="/Pictures/Archerskill_16.png" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" Margin="80,36,0,0" Grid.Row="1"/>
-                    <Image Source="/Pictures/Priestskill_23.png" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" Margin="144,36,0,0" Grid.Row="1"/>
-                    <Image Source="/Pictures/Engineerskill_15.png" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" Margin="144,0,0,0" Grid.Row="1"/>
-                    <Label x:Name="Power1" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1" Margin="117,3,0,0"/>
-                    <Label x:Name="Agility1" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1" Margin="117,38,0,0"/>
-                    <Label x:Name="Intelligence1" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1" Margin="180,3,0,0"/>
-                    <Label x:Name="Health1" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1" Margin="180,38,0,0"/>
-                </Grid>
+            <Grid HorizontalAlignment="Left" Height="66" Margin="366,22,0,0" Grid.Row="1" VerticalAlignment="Top" Width="214" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="9*"/>
+                    <RowDefinition Height="431*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="78*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Pictures/InWork/person1.png" HorizontalAlignment="Left" Height="67" Margin="0,-1,0,0" VerticalAlignment="Top" Width="59" Grid.RowSpan="2"/>
+                <Image Source="/Pictures/WarriorSkill_44.png" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" Margin="80,0,0,0" Grid.Row="1"/>
+                <Image Source="/Pictures/Archerskill_16.png" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" Margin="80,36,0,0" Grid.Row="1"/>
+                <Image Source="/Pictures/Priestskill_23.png" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" Margin="144,36,0,0" Grid.Row="1"/>
+                <Image Source="/Pictures/Engineerskill_15.png" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" Margin="144,0,0,0" Grid.Row="1"/>
+                <Label x:Name="Power1" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1" Margin="117,3,0,0"/>
+                <Label x:Name="Agility1" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1" Margin="117,38,0,0"/>
+                <Label x:Name="Intelligence1" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1" Margin="180,3,0,0"/>
+                <Label x:Name="Health1" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1" Margin="180,38,0,0"/>
+            </Grid>
             <Button Content="Create Person" HorizontalAlignment="Left" Margin="372,227,0,0" Grid.Row="1" VerticalAlignment="Top" Width="191" Height="52" Click="ButtonCreatePerson_Click"/>
+            <Grid HorizontalAlignment="Left" Height="380" Margin="13,2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="319">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
+                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="NameSurname" Grid.Column ="0" Grid.Row="0" Grid.ColumnSpan="3"  Content="Person Name" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="30" Foreground="#901212" FontWeight="ExtraBlack" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                <Image Source="/Pictures/InWork/person1.png" Height="100" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="100" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"/>
+                <ProgressBar x:Name="PbPersonExp" HorizontalAlignment="Center" Height="18" Margin="0,0,0,0" VerticalAlignment="Center" Width="105" Background="{x:Null}" BorderBrush="#FFD7464B" Grid.Row="2" Grid.Column="1">
+                    <ProgressBar.Foreground>
+                        <ImageBrush ImageSource="/Pictures/Mageskill_23.png" Stretch="UniformToFill"/>
+                    </ProgressBar.Foreground>
+                </ProgressBar>
+                <Label x:Name="pbLevel" Content="0" HorizontalAlignment="Right" Margin="0,0,0,0" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+                <Label x:Name="pbLevel1" Content="0" HorizontalAlignment="Left" Margin="0,0,0,0" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+                <ProgressBar x:Name="PbPersonHealth" HorizontalAlignment="Center" Height="18" Margin="0,0,0,0" VerticalAlignment="Center" Width="105" Background="{x:Null}" BorderBrush="#FFD7464B" Grid.Row="3" Grid.Column="1">
+                    <ProgressBar.Foreground>
+                        <ImageBrush ImageSource="/Pictures/Priestskill_23.png" Stretch="UniformToFill"/>
+                    </ProgressBar.Foreground>
+                </ProgressBar>
+                <Label Content="{lex:Loc LocLabelCharacteristics}" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="319"/>
+                <Button x:Name="BtnUpgradePersonPower" HorizontalAlignment="Right" Height="27" Margin="0,0,0,0" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Width="27" Click="BtnUpgradePersonPower_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pictures/WarriorSkill_44.png"/>
+                    </Button.Background>
+                </Button>
+                <Label Content="{lex:Loc LocLabelPower}"  HorizontalAlignment="Center" Margin="0,0,0,0" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1"/>
+                <Label x:Name="Power" Content="0" HorizontalAlignment="Left" Margin="0,0,0,0" FontWeight="SemiBold" VerticalAlignment="Center" Grid.Row="5" Grid.Column="2"/>
+                <Button x:Name="BtnUpgradePersonAgility"  HorizontalAlignment="Right" Height="27" Margin="0,0,0,0" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Width="27" Click="BtnUpgradePersonAgility_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pictures/Archerskill_16.png"/>
+                    </Button.Background>
+                </Button>
+                <Label Content="{lex:Loc LocLabelAgility}" HorizontalAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1"/>
+                <Label x:Name="Agility" Content="0" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="6" Grid.Column="2" FontWeight="SemiBold"/>
+                <Button x:Name="BtnUpgradePersonIntellect"  HorizontalAlignment="Right" Height="27" Margin="0,0,0,0" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" Width="27" Click="BtnUpgradePersonIntellect_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pictures/Engineerskill_15.png"/>
+                    </Button.Background>
+                </Button>
+                <Label Content="{lex:Loc LocLabelIntelligence}" HorizontalAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="7" Grid.Column="1"/>
+                <Label x:Name="Intelligence" Content="0" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="7" Grid.Column="2" FontWeight="SemiBold"/>
+                <Label Content="    Очки &#xA;развития" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="8" Width="105" Height="50" Grid.Column="1" />
+                <Label x:Name="SkillPoints" Content="0" HorizontalAlignment="Left" FontSize="12" FontWeight="SemiBold" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Row="8" Grid.Column="2"/>
+
+
+
+            </Grid>
+
 
 
 
