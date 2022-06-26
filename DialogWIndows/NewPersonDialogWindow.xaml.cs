@@ -22,23 +22,19 @@ namespace LandConquest.DialogWIndows
     /// </summary>
     public partial class NewPersonDialogWindow : Window
     {
-        User user;
-        Person person;
         Person newPerson;
         Player player;
-        public NewPersonDialogWindow(User _user, Player _player)
+        public NewPersonDialogWindow(Player _player)
         {
-            user = _user;
             newPerson = new Person();
             player = _player;
             InitializeComponent();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //newPerson = new Person();
-            person = PersonModel.GetPersonInfo(player, person);
+            Dynasty dynasty = DynastyModel.GetDynastyByPlayerId(player.PlayerId);
 
-            DynastySurname.Content = person.Surname;
+            DynastySurname.Content = dynasty.DynastyName;
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
@@ -49,7 +45,7 @@ namespace LandConquest.DialogWIndows
         }
         private void createPersonBtn_Click(object sender, RoutedEventArgs e)
         {
-            newPerson.PlayerId = user.UserId;
+            newPerson.PlayerId = player.PlayerId;
             newPerson.PersonId = AuthorisationWindow.GenerateUserId();
             newPerson.Name = personName.Text;
             newPerson.Surname =  (string)DynastySurname.Content;
@@ -61,8 +57,6 @@ namespace LandConquest.DialogWIndows
             newPerson.Power = 1;
 
             PersonModel.CreatePerson(newPerson);
-            MainWindow mainWindow = new MainWindow(user);
-            mainWindow.Show();
             this.Close();
         }
 

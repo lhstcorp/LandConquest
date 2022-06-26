@@ -195,6 +195,9 @@
   <data name="LocLabelCharacteristics" xml:space="preserve">
     <value>Characteristics</value>
   </data>
+  <data name="LocLabelChooseColorForTheState_Text" xml:space="preserve">
+    <value>Choose color for the state</value>
+  </data>
   <data name="LocLabelConsumption_Content" xml:space="preserve">
     <value>Consumption</value>
   </data>
@@ -389,6 +392,9 @@
   </data>
   <data name="LocLabelTaxes_Content" xml:space="preserve">
     <value>Taxes</value>
+  </data>
+  <data name="LocLabelThisLandIsIndependentDescription_Text" xml:space="preserve">
+    <value>{0} is an independent land. The government has not yet been formed. You can establish a state here and become the ruler of these lands.</value>
   </data>
   <data name="LocLabelTitle_Content" xml:space="preserve">
     <value>Title</value>

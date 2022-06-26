@@ -64,6 +64,7 @@
     <Compile Include="Entities\Castle.cs" />
     <Compile Include="Entities\ChatMessages.cs" />
     <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\Dynasty.cs" />
     <Compile Include="Entities\Garrison.cs" />
     <Compile Include="Entities\GarrisonListings.cs" />
     <Compile Include="Entities\LandStorage.cs" />
@@ -94,8 +95,10 @@
     <Compile Include="Models\BattleModel.cs" />
     <Compile Include="Models\CastleModel.cs" />
     <Compile Include="Models\ChatModel.cs" />
+    <Compile Include="Models\CommonModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\DailyBonusModel.cs" />
+    <Compile Include="Models\DynastyModel.cs" />
     <Compile Include="Models\GarrisonModel.cs" />
     <Compile Include="Models\LandStorageModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />

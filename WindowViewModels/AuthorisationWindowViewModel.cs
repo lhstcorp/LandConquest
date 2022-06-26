@@ -437,9 +437,12 @@ namespace LandConquest.WindowViewModels
                         PlayerModel.CreatePlayerResources(userId, registeredUser);
                         TaxesModel.CreateTaxesData(userId);
 
-                        CreatePersonDialogWindow dialogWindow = new CreatePersonDialogWindow(registeredUser);
-                        dialogWindow.Show();
+                        DynastyModel.CreateDynasty(registeredUser);
 
+                        AssistantLogic.CallSplashScreen();
+
+                        MainWindow mainWindow = new MainWindow(registeredUser);
+                        mainWindow.Show();
                         AssistantLogic.CloseWindowByTag(WindowTag = 1);
 
                     }

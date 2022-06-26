@@ -295,6 +295,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelChooseColorForTheState_Text.
+        /// </summary>
+        public static string LocLabelChooseColorForTheState_Text {
+            get {
+                return ResourceManager.GetString("LocLabelChooseColorForTheState_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelConsumption_Content.
         /// </summary>
         public static string LocLabelConsumption_Content {
@@ -876,6 +885,15 @@ namespace LandConquest.Languages {
         public static string LocLabelTaxes_Content {
             get {
                 return ResourceManager.GetString("LocLabelTaxes_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelThisLandIsIndependentDescription_Text.
+        /// </summary>
+        public static string LocLabelThisLandIsIndependentDescription_Text {
+            get {
+                return ResourceManager.GetString("LocLabelThisLandIsIndependentDescription_Text", resourceCulture);
             }
         }
         

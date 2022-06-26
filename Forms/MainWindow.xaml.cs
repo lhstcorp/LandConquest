@@ -300,15 +300,16 @@ namespace LandConquest.Forms
             if (land.CountryId != 0)
             {
                 openedWindow = new CountryWindow(player);
-                openedWindow.Owner = this;
-                openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                openedWindow.Show();
-                openedWindow.Closed += FreeData;
             }
             else
             {
-                WarningDialogWindow.CallWarningDialogNoResult("This land is independent. The government has not yet been formed.");
+                openedWindow = new EstablishStateDialog(player, land);
             }
+
+            openedWindow.Owner = this;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
+            openedWindow.Closed += FreeData;
         }
 
         private void buyMembership_Click(object sender, RoutedEventArgs e)
@@ -964,7 +965,10 @@ namespace LandConquest.Forms
                 }
                 if (check_count != 0)
                 {
-                    lblWorldLeader.Content = PlayerModel.GetPlayerNameById(CountryModel.GetCountryRuler(mostCommonNumber));
+                    if (CountryModel.GetCountryRuler(mostCommonNumber) != "")
+                    {
+                        lblWorldLeader.Content = PlayerModel.GetPlayerNameById(CountryModel.GetCountryRuler(mostCommonNumber));
+                    }
                 }
             }
         }

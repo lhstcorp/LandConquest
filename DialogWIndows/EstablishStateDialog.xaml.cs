@@ -1,5 +1,7 @@
 ﻿using LandConquestDB.Entities;
 using LandConquestDB.Models;
+using System;
+using System.Resources;
 using System.Windows;
 
 namespace LandConquest.DialogWIndows
@@ -31,6 +33,8 @@ namespace LandConquest.DialogWIndows
         {
             landModel = new LandModel();
             countryModel = new CountryModel();
+
+            landDescriptionTextBlock.Text = String.Format(Languages.Resources.LocLabelThisLandIsIndependentDescription_Text, land.LandName);
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)

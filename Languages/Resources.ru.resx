@@ -195,6 +195,9 @@
   <data name="LocLabelCharacteristics" xml:space="preserve">
     <value>Характеристики</value>
   </data>
+  <data name="LocLabelChooseColorForTheState_Text" xml:space="preserve">
+    <value>Choose color for the state</value>
+  </data>
   <data name="LocLabelConsumption_Content" xml:space="preserve">
     <value>Потребление</value>
   </data>
@@ -389,6 +392,9 @@
   </data>
   <data name="LocLabelTaxes_Content" xml:space="preserve">
     <value>Налоги</value>
+  </data>
+  <data name="LocLabelThisLandIsIndependentDescription_Text" xml:space="preserve">
+    <value>{0} является независимыми землями. Правительство ещё не сформировано. Вы можете основать здесь своё государство и стать правителем этих земель.</value>
   </data>
   <data name="LocLabelTitle_Content" xml:space="preserve">
     <value>Титул</value>
