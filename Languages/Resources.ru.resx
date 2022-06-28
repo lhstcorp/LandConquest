@@ -330,6 +330,9 @@
   <data name="LocLabelPlayer_Content" xml:space="preserve">
     <value>Игрок</value>
   </data>
+  <data name="LocLabelPointsUpgrade" xml:space="preserve">
+    <value>Очки развития</value>
+  </data>
   <data name="LocLabelPower" xml:space="preserve">
     <value>Сила</value>
   </data>
@@ -410,5 +413,8 @@
   </data>
   <data name="LocLabelWorldLeader_Text" xml:space="preserve">
     <value>Лидер мира</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
 </root>

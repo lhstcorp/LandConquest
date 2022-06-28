@@ -55,10 +55,10 @@ namespace LandConquest.Forms
             Level.Content = person.Lvl;
             Health.Content = person.Health + person.Power * 5 + person.Agility * 2;
             Experience.Content = person.Exp;
-            NameSurname.Content = person.Name +" "+ person.Surname;
+            NameSurname.Text = person.Name +" "+ person.Surname;
             PbPersonExp.Maximum = Math.Pow(person.Lvl, 2) * 500;
             PbPersonExp.Value = person.Exp;
-            pbLevel.Content = person.Lvl;
+            pbLevel.Text = person.Lvl.ToString();
             pbLevel1.Content = person.Lvl + 1;
             PbPersonHealth.Maximum = 30 + person.Power * 5 + person.Agility * 2;
             PbPersonHealth.Value = person.Health + person.Power * 5 + person.Agility * 2;

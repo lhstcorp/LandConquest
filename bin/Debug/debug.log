@@ -2898,3 +2898,90 @@ color: purple;
 [0625/151940.040:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
 [0625/151940.041:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
 [0625/151940.042:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 1033 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/103615.083:INFO:CONSOLE(7)] "%c+%chttps://widgetbot.io
+%cPopup Discord chat widgets for your website. font-size: 1px; margin-bottom: 5px; margin-left: 40px; padding: 10px 15px; line-height: 12px;background: url("https://i.imgur.com/S7IIIbE.png"); background-repeat: no-repeat; background-size: 30px; color: transparent; padding-left: 2px; font-size: 14px; color: #7289DA; font-family: "Roboto", sans-serif padding-left: 15px; font-size: 11px; font-family: "Roboto", sans-serif; ", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0628/103617.872:INFO:CONSOLE(7)] "[embed-api] on 'signIn' function(e){t=e.id}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0628/103617.873:INFO:CONSOLE(7)] "[embed-api] on 'message' function(n){var r=n.message;r.content&&r.author.id!==t&&e.notify({id:r.id,content:r.content,avatar:r.author.avatar})}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0628/103617.873:INFO:CONSOLE(7)] "[embed-api] on 'messageDelete' function(t){var n=t.id;e.store.dispatch(w.deleteMessage({id:n,decrement:!0}))}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0628/103623.476:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/103623.477:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/103623.478:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/103623.479:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/103623.485:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/103625.820:INFO:CONSOLE(5)] "Cookies are not authorized, we will not send any data.", source: https://www.datadoghq-browser-agent.com/datadog-rum-us.js (5)
+[0628/103629.000:INFO:CONSOLE(1)] "WidgetBot version: v3.5.1", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104336.859:INFO:CONSOLE(7)] "%c+%chttps://widgetbot.io
+%cPopup Discord chat widgets for your website. font-size: 1px; margin-bottom: 5px; margin-left: 40px; padding: 10px 15px; line-height: 12px;background: url("https://i.imgur.com/S7IIIbE.png"); background-repeat: no-repeat; background-size: 30px; color: transparent; padding-left: 2px; font-size: 14px; color: #7289DA; font-family: "Roboto", sans-serif padding-left: 15px; font-size: 11px; font-family: "Roboto", sans-serif; ", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0628/104338.812:INFO:CONSOLE(7)] "[embed-api] on 'signIn' function(e){t=e.id}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0628/104338.813:INFO:CONSOLE(7)] "[embed-api] on 'message' function(n){var r=n.message;r.content&&r.author.id!==t&&e.notify({id:r.id,content:r.content,avatar:r.author.avatar})}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0628/104338.814:INFO:CONSOLE(7)] "[embed-api] on 'messageDelete' function(t){var n=t.id;e.store.dispatch(w.deleteMessage({id:n,decrement:!0}))}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0628/104344.669:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/104345.532:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/104345.533:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/104345.534:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/104345.534:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/104347.384:INFO:CONSOLE(5)] "Cookies are not authorized, we will not send any data.", source: https://www.datadoghq-browser-agent.com/datadog-rum-us.js (5)
+[0628/104557.881:INFO:CONSOLE(7)] "%c+%chttps://widgetbot.io
+%cPopup Discord chat widgets for your website. font-size: 1px; margin-bottom: 5px; margin-left: 40px; padding: 10px 15px; line-height: 12px;background: url("https://i.imgur.com/S7IIIbE.png"); background-repeat: no-repeat; background-size: 30px; color: transparent; padding-left: 2px; font-size: 14px; color: #7289DA; font-family: "Roboto", sans-serif padding-left: 15px; font-size: 11px; font-family: "Roboto", sans-serif; ", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0628/104559.568:INFO:CONSOLE(7)] "[embed-api] on 'signIn' function(e){t=e.id}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0628/104559.569:INFO:CONSOLE(7)] "[embed-api] on 'message' function(n){var r=n.message;r.content&&r.author.id!==t&&e.notify({id:r.id,content:r.content,avatar:r.author.avatar})}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0628/104559.570:INFO:CONSOLE(7)] "[embed-api] on 'messageDelete' function(t){var n=t.id;e.store.dispatch(w.deleteMessage({id:n,decrement:!0}))}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0628/104604.647:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/104605.931:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/104605.932:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/104605.933:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/104605.934:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0628/104606.470:INFO:CONSOLE(0)] "[Report Only] Refused to load the script 'https://e.widgetbot.io/cdn-cgi/challenge-platform/h/g/scripts/invisible.js?ts=1656388800' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/channels/912836748558618654/912836748558618657/?preset=crate&api=a16fdf78-4243-4252-b1ff-df4c45c03bdb (0)
+[0628/104606.471:INFO:CONSOLE(0)] "[Report Only] Refused to load the script 'https://e.widgetbot.io/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/channels/912836748558618654/912836748558618657/?preset=crate&api=a16fdf78-4243-4252-b1ff-df4c45c03bdb (0)
+[0628/104606.471:INFO:CONSOLE(1)] "[Report Only] Refused to execute inline script because it violates the following Content Security Policy directive: "script-src 'none'". Either the 'unsafe-inline' keyword, a hash ('sha256-sriOInMeUzMepiqoX7Kq/xQUBYxK0uwEn5Rzj2p+kdY='), or a nonce ('nonce-...') is required to enable inline execution.
+", source: https://e.widgetbot.io/channels/912836748558618654/912836748558618657/?preset=crate&api=a16fdf78-4243-4252-b1ff-df4c45c03bdb (1)
+[0628/104606.484:INFO:CONSOLE(0)] "[Report Only] Refused to load the script 'https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/channels/912836748558618654/912836748558618657/?preset=crate&api=a16fdf78-4243-4252-b1ff-df4c45c03bdb (0)
+[0628/104606.486:INFO:CONSOLE(1)] "[Report Only] Refused to create a worker from 'https://e.widgetbot.io/cdn-cgi/challenge-platform/h/g/scripts/pica.js' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'worker-src' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/cdn-cgi/challenge-platform/h/g/scripts/invisible.js?ts=1656388800 (1)
+[0628/104606.596:INFO:CONSOLE(0)] "[Report Only] Refused to create a worker from 'https://e.widgetbot.io/cdn-cgi/challenge-platform/h/g/scripts/pica.js' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'worker-src' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/channels/912836748558618654/912836748558618657/?preset=crate&api=a16fdf78-4243-4252-b1ff-df4c45c03bdb (0)
+[0628/104606.687:INFO:CONSOLE(1)] "[Report Only] Refused to load the script 'https://e.widgetbot.io/static/js/main.f573b196.js' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js (1)
+[0628/104606.690:INFO:CONSOLE(1)] "[Report Only] Refused to load the script 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js (1)
+[0628/104606.692:INFO:CONSOLE(1)] "[Report Only] Refused to load the script 'https://cdn.ravenjs.com/3.25.1/raven.min.js' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js (1)
+[0628/104606.695:INFO:CONSOLE(1)] "[Report Only] Refused to load the script 'https://www.datadoghq-browser-agent.com/datadog-rum-us.js' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js (1)
+[0628/104607.071:INFO:CONSOLE(1)] "[Report Only] Refused to load the script 'https://www.datadoghq-browser-agent.com/datadog-rum-us.js' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js (1)
+[0628/104607.267:INFO:CONSOLE(1)] "[Report Only] Refused to execute inline script because it violates the following Content Security Policy directive: "script-src 'none'". Either the 'unsafe-inline' keyword, a hash ('sha256-WsRzp/Q8wOjjxCiOGXWJNn7K2l7xJh1pq7oCLoUn8RE='), or a nonce ('nonce-...') is required to enable inline execution.
+", source: https://e.widgetbot.io/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js (1)
+[0628/104607.358:INFO:CONSOLE(5)] "Cookies are not authorized, we will not send any data.", source: https://www.datadoghq-browser-agent.com/datadog-rum-us.js (5)
+[0628/104607.361:INFO:CONSOLE(1)] "[Report Only] Refused to load the script 'https://cdn.ravenjs.com/3.25.1/raven.min.js' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js (1)
+[0628/104607.367:INFO:CONSOLE(1)] "[Report Only] Refused to load the script 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js (1)
+[0628/104607.510:INFO:CONSOLE(1)] "[Report Only] Refused to load the script 'https://e.widgetbot.io/static/js/main.f573b196.js' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js (1)
+[0628/104608.763:INFO:CONSOLE(1)] "WidgetBot version: v3.5.1", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104609.795:INFO:CONSOLE(1)] "[Report Only] Refused to load the script 'https://e.widgetbot.io/static/js/10.dd9b2ac4.chunk.js' because it violates the following Content Security Policy directive: "script-src 'none'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104615.286:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 3072 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104615.289:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104615.290:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104615.291:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 3072 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104615.706:INFO:CONSOLE(1)] "%c apollo %cquery %cChannels %c(in 3355 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104615.708:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104615.708:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104615.709:INFO:CONSOLE(1)] "%c apollo %cquery %cChannels %c(in 3355 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104615.710:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 3352 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104615.712:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104615.713:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104615.714:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 3352 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104617.501:INFO:CONSOLE(1)] "%c apollo %cquery %cChannelName %c(in 5106 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104617.505:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104617.506:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104617.507:INFO:CONSOLE(1)] "%c apollo %cquery %cChannelName %c(in 5106 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104617.547:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 5143 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104617.560:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104617.592:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0628/104617.608:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 5143 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
