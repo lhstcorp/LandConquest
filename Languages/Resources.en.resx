@@ -330,6 +330,9 @@
   <data name="LocLabelPlayer_Content" xml:space="preserve">
     <value>Player</value>
   </data>
+  <data name="LocLabelPointsUpgrade" xml:space="preserve">
+    <value>Upgrade Points</value>
+  </data>
   <data name="LocLabelPower" xml:space="preserve">
     <value>Power</value>
   </data>
