@@ -330,6 +330,9 @@
   <data name="LocLabelPlayer_Content" xml:space="preserve">
     <value>LocLabelPlayer_Content</value>
   </data>
+  <data name="LocLabelPointsUpgrade" xml:space="preserve">
+    <value>LocLabelPointsUpgrade</value>
+  </data>
   <data name="LocLabelPower" xml:space="preserve">
     <value>LocLabelPower</value>
   </data>

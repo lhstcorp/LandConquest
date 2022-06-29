@@ -700,6 +700,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelPointsUpgrade.
+        /// </summary>
+        public static string LocLabelPointsUpgrade {
+            get {
+                return ResourceManager.GetString("LocLabelPointsUpgrade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelPower.
         /// </summary>
         public static string LocLabelPower {
