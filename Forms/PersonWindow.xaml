@@ -81,7 +81,7 @@
                         <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="NameSurname" Width="174" Height="34"  Background="#FF392018" Grid.Column ="0" Grid.Row="0" Grid.ColumnSpan="3" Text="Person Name" HorizontalAlignment="Center" FontFamily="Algerian" FontSize="22" Foreground="#dfc899" FontWeight="ExtraBlack" Panel.ZIndex="2" Margin="0,0,-4,0" VerticalAlignment="Top"/>
-                    <Image Source="/Pictures/SGI_78.png" Height="174" Margin="0,34,-11,26" VerticalAlignment="Center" HorizontalAlignment="Left" Width="181" Grid.RowSpan="4" Grid.ColumnSpan="3"  />
+                    <Image Source="/Pictures/Hero.png" Height="174" Margin="0,34,-11,26" VerticalAlignment="Center" HorizontalAlignment="Left" Width="181" Grid.RowSpan="4" Grid.ColumnSpan="3"  />
                     <ProgressBar x:Name="PbPersonExp" HorizontalAlignment="Center" Height="18" Margin="0,0,0,0" VerticalAlignment="Center" Width="105" Background="{x:Null}" BorderBrush="#5b2f16" Grid.Row="2" Grid.Column="1">
                         <ProgressBar.Foreground>
                             <ImageBrush ImageSource="/Pictures/Mageskill_23.png" Stretch="UniformToFill"/>
