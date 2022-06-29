@@ -20,17 +20,13 @@
                 </Button.Background>
             </Button>
 
-            <Label Content="{lex:Loc LocLabelLevel}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="450,312,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.139,0.526" Grid.Row="1"/>
             <Label Content="{lex:Loc LocLabelHealth}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="450,345,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label Content="{lex:Loc LocLabelExperience}" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="18" Foreground="#901212" FontWeight="ExtraBlack" Margin="450,377,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label x:Name="Level" Content="0" HorizontalAlignment="Left" Margin="545,315,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.375,0.783" Grid.Row="1"/>
             <Label x:Name="Health" Content="0" HorizontalAlignment="Left" Margin="545,348,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-            <Label x:Name="Experience" Content="0" HorizontalAlignment="Left" Margin="545,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.236,5.142" Grid.Row="1"/>
+
             <Image Source="/Pictures/Priestskill_23.png" HorizontalAlignment="Left" Height="24" Margin="422,349,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
 
 
 
-            <Image Source="/Pictures/Mageskill_23.png" HorizontalAlignment="Left" Height="24" Margin="422,380,0,0" Grid.Row="1" VerticalAlignment="Top" Width="24"/>
 
 
             <Label x:Name="PbValueHealthLabel" Content="0" HorizontalAlignment="Left" FontWeight="Bold" Margin="178,240,0,0" Foreground="#FFE5D09D" VerticalAlignment="Top" Grid.Row="1"/>
@@ -82,16 +78,16 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="NameSurname" Width="174" Height="34"  Background="#FF392018" Grid.Column ="0" Grid.Row="0" Grid.ColumnSpan="3" Text="Person Name" HorizontalAlignment="Center" FontFamily="Algerian" FontSize="22" Foreground="#dfc899" FontWeight="ExtraBlack" Panel.ZIndex="2" Margin="0,0,-4,0" VerticalAlignment="Top"/>
                     <Image Source="/Pictures/Hero.png" Height="174" Margin="0,34,-11,26" VerticalAlignment="Center" HorizontalAlignment="Left" Width="181" Grid.RowSpan="4" Grid.ColumnSpan="3"  />
-                    <ProgressBar x:Name="PbPersonExp" HorizontalAlignment="Center" Height="18" Margin="0,0,0,0" VerticalAlignment="Center" Width="105" Background="{x:Null}" BorderBrush="#5b2f16" Grid.Row="2" Grid.Column="1">
-                        <ProgressBar.Foreground>
-                            <ImageBrush ImageSource="/Pictures/Mageskill_23.png" Stretch="UniformToFill"/>
-                        </ProgressBar.Foreground>
-                    </ProgressBar>
+                    <ProgressBar x:Name="PbPersonExp" BorderThickness="3" HorizontalAlignment="Center" Height="18" Margin="2,18,2,26" VerticalAlignment="Center" Width="106" Background="#dfc899" Foreground="#FF392018" BorderBrush="#FF392018" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2"/>
+
+
+                    <Label x:Name="Experience" Content="0"   HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="10" VerticalContentAlignment="Top" FontFamily="Algerian" Foreground="#dfc899" Margin="7,2,0,7" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Height="22" Width="43" />
+                    <Label x:Name="MaxExperience" Content="0" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" FontSize="10" VerticalContentAlignment="Top" FontFamily="Algerian" Foreground="#dfc899" Margin="55,2,0,7" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Width="51" Height="22"/>
+
                     <Ellipse Fill="#dfc899" HorizontalAlignment="Left" Height="40" StrokeThickness="4"  Margin="100,39,0,93" Stroke="#FF392018" VerticalAlignment="Center" Width="40" Grid.ColumnSpan="2" Grid.Column="1" Grid.RowSpan="2"/>
 
-                    <TextBlock x:Name="pbLevel" Foreground="#5b2f16" TextWrapping="Wrap" TextAlignment="Center" FontFamily="Algerian" Text="0" HorizontalAlignment="Center" Margin="104,47,4,95" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Grid.Column="1" Grid.RowSpan="2" Height="30" Width="32" Grid.ColumnSpan="2"/>
-                    <Label x:Name="pbLevel1" Content="0" HorizontalAlignment="Left" Margin="0,0,0,0" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2"/>
-                    <ProgressBar x:Name="PbPersonHealth" HorizontalAlignment="Center" Height="18" Margin="0,0,0,0" VerticalAlignment="Center" Width="105" Background="{x:Null}" BorderBrush="#5b2f16" Grid.Row="3" Grid.Column="1">
+                    <TextBlock x:Name="pbLevel" Foreground="#FF392018" TextWrapping="Wrap" TextAlignment="Center" FontFamily="Algerian" Text="0" HorizontalAlignment="Center" Margin="104,48,4,94" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Grid.Column="1" Grid.RowSpan="2" Height="30" Width="32" Grid.ColumnSpan="2"/>
+                    <ProgressBar x:Name="PbPersonHealth" BorderThickness="3" Width="106" BorderBrush="#FF392018" HorizontalAlignment="Center" Height="18" Margin="2,7,2,6" VerticalAlignment="Center" Background="#dfc899" Grid.Row="3" Grid.Column="1">
                         <ProgressBar.Foreground>
                             <ImageBrush ImageSource="/Pictures/Priestskill_23.png" Stretch="UniformToFill"/>
                         </ProgressBar.Foreground>
@@ -117,8 +113,9 @@
                     </Button>
                     <Label Content="{lex:Loc LocLabelIntelligence}" HorizontalAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="#5b2f16" FontWeight="ExtraBlack" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1"/>
                     <Label x:Name="Intelligence" FontFamily="Algerian" Foreground="#5b2f16" Content="0" HorizontalAlignment="Left" Margin="0,4,0,3" VerticalAlignment="Center" Grid.Row="6" Grid.Column="2" FontWeight="SemiBold" Width="30"/>
-                    <Label Content="{lex:Loc LocLabelPointsUpgrade}" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="#5b2f16" FontWeight="ExtraBlack" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="8" Width="105" Height="50" Grid.Column="1" />
-                    <Label x:Name="SkillPoints" Content="0" HorizontalAlignment="Left" FontSize="12" FontWeight="SemiBold" Margin="0,13,0,14" FontFamily="Algerian" VerticalAlignment="Center" Foreground="#5b2f16" Grid.Row="7" Grid.Column="2" Width="30"/>
+                    <Label Content="{lex:Loc LocLabelPointsUpgrade}" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="14" Foreground="#5b2f16" FontWeight="ExtraBlack" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Row="8" Width="105" Height="50" Grid.Column="1" />
+                    <Label x:Name="SkillPoints" Content="0" HorizontalAlignment="Left" FontSize="12" FontWeight="SemiBold" FontFamily="Algerian" VerticalAlignment="Top" Foreground="#5b2f16" Grid.Row="7" Grid.Column="2" Width="30"/>
+                    <Label Content="/" Grid.Column="1" HorizontalAlignment="Left" FontSize="10" FontFamily="Algerian" Foreground="#dfc899" Margin="46,2,0,0" Grid.Row="2" VerticalAlignment="Top" Height="24" Width="13"/>
 
                 </Grid>
             </Border>
