@@ -52,7 +52,6 @@ namespace LandConquest.Forms
             Power.Content = person.Power;
             Agility.Content = person.Agility;
             Intelligence.Content = person.Intellect;
-            Health.Content = person.Health + person.Power * 5 + person.Agility * 2;
             Experience.Content = person.Exp;
             MaxExperience.Content = Math.Pow(person.Lvl, 2) * 500;
             NameSurname.Text = person.Name +" "+ person.Surname;
