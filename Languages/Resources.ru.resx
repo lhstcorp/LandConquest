@@ -196,7 +196,10 @@
     <value>Характеристики</value>
   </data>
   <data name="LocLabelChooseColorForTheState_Text" xml:space="preserve">
-    <value>Choose color for the state</value>
+    <value>Выберите цвет для страны</value>
+  </data>
+  <data name="LocLabelChooseStateRuler_Text" xml:space="preserve">
+    <value>Выберите правителя</value>
   </data>
   <data name="LocLabelConsumption_Content" xml:space="preserve">
     <value>Потребление</value>
@@ -413,8 +416,5 @@
   </data>
   <data name="LocLabelWorldLeader_Text" xml:space="preserve">
     <value>Лидер мира</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value />
   </data>
 </root>

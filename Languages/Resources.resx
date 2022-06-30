@@ -198,6 +198,9 @@
   <data name="LocLabelChooseColorForTheState_Text" xml:space="preserve">
     <value>LocLabelChooseColorForTheState_Text</value>
   </data>
+  <data name="LocLabelChooseStateRuler_Text" xml:space="preserve">
+    <value>LocLabelChooseStateRuler_Text</value>
+  </data>
   <data name="LocLabelConsumption_Content" xml:space="preserve">
     <value>LocLabelConsumption_Content</value>
   </data>
