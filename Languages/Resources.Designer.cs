@@ -304,6 +304,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelChooseStateRuler_Text.
+        /// </summary>
+        public static string LocLabelChooseStateRuler_Text {
+            get {
+                return ResourceManager.GetString("LocLabelChooseStateRuler_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelConsumption_Content.
         /// </summary>
         public static string LocLabelConsumption_Content {
