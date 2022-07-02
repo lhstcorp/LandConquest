@@ -44,7 +44,14 @@
 
             <Button Content="Create Person" HorizontalAlignment="Left" Margin="390,358,0,0" VerticalAlignment="Top" Width="191" Height="52" Click="ButtonCreatePerson_Click"/>
 
-            <Border BorderBrush="#FF392018" BorderThickness="3" Height="400" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,8,0,0">
+            <Border BorderThickness="3" Height="400" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,8,0,0">
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF392018" Offset="0.6"/>
+                        <GradientStop Color="Wheat" Offset="0"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
                 <Border.Background>
                     <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                         <GradientStop Color="#dfc899" Offset="0.6"/>
@@ -81,7 +88,7 @@
                             <TextBlock.Background>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                     <GradientStop Color="#FF392018" Offset="0.5"/>
-                                    <GradientStop Color="#dfc899" Offset="1"/>
+                                    <GradientStop Color="Wheat" Offset="1"/>
                                 </LinearGradientBrush>
                             </TextBlock.Background>
                         </TextBlock>
@@ -94,13 +101,13 @@
                         <Border.BorderBrush>
                             <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                                 <GradientStop Color="#FF392018" Offset="0.5"/>
-                                <GradientStop Color="#dfc899" Offset="1"/>
+                                <GradientStop Color="Wheat" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.BorderBrush>
                         <Border.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FF392018" Offset="0.5"/>
-                                <GradientStop Color="#dfc899" Offset="1"/>
+                                <GradientStop Color="Wheat" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.Background>
                     </Border>
@@ -108,13 +115,13 @@
                         <Border.BorderBrush>
                             <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                                 <GradientStop Color="#FF392018" Offset="0.5"/>
-                                <GradientStop Color="#dfc899" Offset="1"/>
+                                <GradientStop Color="Wheat" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.BorderBrush>
                         <Border.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FF392018" Offset="0.5"/>
-                                <GradientStop Color="#dfc899" Offset="1"/>
+                                <GradientStop Color="Wheat" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.Background>
                     </Border>
@@ -122,13 +129,13 @@
                         <Border.BorderBrush>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FF392018" Offset="0.5"/>
-                                <GradientStop Color="#dfc899" Offset="1"/>
+                                <GradientStop Color="Wheat" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.BorderBrush>
                         <Border.Background>
                             <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                                 <GradientStop Color="#FF392018" Offset="0.5"/>
-                                <GradientStop Color="#dfc899" Offset="1"/>
+                                <GradientStop Color="Wheat" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.Background>
                     </Border>
@@ -141,11 +148,11 @@
 
 
 
-                    <Ellipse HorizontalAlignment="Left" Height="40" StrokeThickness="1" Panel.ZIndex="1" Margin="94,39,0,88" Stroke="#dfc899" VerticalAlignment="Center" Width="40" Grid.ColumnSpan="2" Grid.Column="1" Grid.RowSpan="2">
+                    <Ellipse HorizontalAlignment="Left" Height="40" StrokeThickness="1" Panel.ZIndex="1" Margin="94,39,0,88" Stroke="Wheat" VerticalAlignment="Center" Width="40" Grid.ColumnSpan="2" Grid.Column="1" Grid.RowSpan="2">
                         <Ellipse.Fill>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FF392018" Offset="0.5"/>
-                                <GradientStop Color="#dfc899" Offset="1"/>
+                                <GradientStop Color="Wheat" Offset="1"/>
                             </LinearGradientBrush>
                         </Ellipse.Fill>
                     </Ellipse>
@@ -154,21 +161,21 @@
                     <ProgressBar x:Name="PbPersonHealth" BorderThickness="3" Width="181" BorderBrush="#FF392018" HorizontalAlignment="Center" Height="18" Margin="-3,24,-5,9" VerticalAlignment="Center" Background="{x:Null}" Foreground="#aa393d" Grid.Row="3" Grid.ColumnSpan="3"/>
 
 
-                    <Button x:Name="BtnUpgradePersonPower" HorizontalAlignment="Right" Height="27" Margin="0,0,0,0" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Width="27" Click="BtnUpgradePersonPower_Click" >
+                    <Button x:Name="BtnUpgradePersonPower" HorizontalAlignment="Right" Height="28" Margin="0,4,110,4" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Width="27" Click="BtnUpgradePersonPower_Click" Grid.ColumnSpan="2" >
                         <Button.Background>
                             <ImageBrush ImageSource="/Pictures/WarriorSkill_44.png"/>
                         </Button.Background>
                     </Button>
                     <Label Content="{lex:Loc LocLabelPower}"  HorizontalAlignment="Center" Margin="0,0,0,0" FontFamily="Sitka Display" FontSize="18" Foreground="WhiteSmoke" FontWeight="ExtraBlack" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1"/>
                     <Label x:Name="Power" Content="0"  Foreground="WhiteSmoke" HorizontalAlignment="Left" Margin="0,4,0,3" FontFamily="Algerian" FontWeight="SemiBold" VerticalAlignment="Center" Grid.Row="6" Grid.Column="2" Width="30"/>
-                    <Button x:Name="BtnUpgradePersonAgility"  HorizontalAlignment="Right" Height="27" Margin="0,0,0,0" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Width="27" Click="BtnUpgradePersonAgility_Click" >
+                    <Button x:Name="BtnUpgradePersonAgility"  HorizontalAlignment="Right" Height="28" Margin="0,4,110,4" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Width="27" Click="BtnUpgradePersonAgility_Click" Grid.ColumnSpan="2" >
                         <Button.Background>
                             <ImageBrush ImageSource="/Pictures/Archerskill_16.png"/>
                         </Button.Background>
                     </Button>
                     <Label Content="{lex:Loc LocLabelAgility}" HorizontalAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="WhiteSmoke" FontWeight="ExtraBlack" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"/>
                     <Label x:Name="Agility" Content="0"  Foreground="WhiteSmoke" FontFamily="Algerian" HorizontalAlignment="Left" Margin="0,3,0,4" VerticalAlignment="Center" Grid.Row="4" Grid.Column="2" FontWeight="SemiBold" Width="29"/>
-                    <Button x:Name="BtnUpgradePersonIntellect"  HorizontalAlignment="Right" Height="27" Margin="0,0,0,0" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Width="27" Click="BtnUpgradePersonIntellect_Click" >
+                    <Button x:Name="BtnUpgradePersonIntellect"  HorizontalAlignment="Right" Height="28" Margin="0,4,110,4" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Width="27" Click="BtnUpgradePersonIntellect_Click" Grid.ColumnSpan="2" >
                         <Button.Background>
                             <ImageBrush ImageSource="/Pictures/Engineerskill_15.png"/>
                         </Button.Background>
