@@ -368,62 +368,62 @@
 
             <Border Margin="249,55,1032,663">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <Label Content="{lex:Loc LocLabelStorageMain_Content}" Style="{StaticResource LabelTabs}"/>
+                    <Label Content="{lex:Loc LocLabelStorageMain_Content}" Style="{StaticResource LabelTabs}" Foreground="#FF311818"/>
                 </Viewbox>
             </Border>
 
             <Border Margin="337,56,918,662">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelIndustryMain_Content}"  Style="{StaticResource LabelTabs}" />
+                    <Label Content="{lex:Loc LocLabelIndustryMain_Content}" Foreground="#FF311818"  Style="{StaticResource LabelTabs}" />
                 </Viewbox>
             </Border>
 
             <Border Margin="297,58,984,665">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBlock Text="{lex:Loc LocLabelRecruitMain_Content}" Style="{StaticResource LabelTabs}"/>
+                    <TextBlock Text="{lex:Loc LocLabelRecruitMain_Content}" Style="{StaticResource LabelTabs}" Foreground="#FF311818"/>
                 </Viewbox>
             </Border>
 
             <Border Margin="399,57,874,663">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelMarketMain_Content}" Style="{StaticResource LabelTabs}" />
+                    <Label Content="{lex:Loc LocLabelMarketMain_Content}" Foreground="#FF311818" Style="{StaticResource LabelTabs}" />
                 </Viewbox>
             </Border>
 
             <Border Margin="497,57,780,663">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelCountryMain_Content}" Style="{StaticResource LabelTabs}"/>
+                    <Label Content="{lex:Loc LocLabelCountryMain_Content}" Foreground="#FF311818" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
             <Border Margin="542,56,726,663">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelRegionMain_Content}" Style="{StaticResource LabelTabs}"/>
+                    <Label Content="{lex:Loc LocLabelRegionMain_Content}" Foreground="#FF311818" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
             <Border Margin="594,58,674,664.8">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelDinastyMain_Content}" Style="{StaticResource LabelTabs}"/>
+                    <Label Content="{lex:Loc LocLabelDinastyMain_Content}" Foreground="#FF311818" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
             <Border Margin="643,58,625,664.8">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelRankingMain_Content}" Style="{StaticResource LabelTabs}"/>
+                    <Label Content="{lex:Loc LocLabelRankingMain_Content}" Foreground="#FF311818" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
             <Border Margin="695,58,573,664.8">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocButtonProfileMain_Content}" Style="{StaticResource LabelTabs}"/>
+                    <Label Content="{lex:Loc LocButtonProfileMain_Content}" Foreground="#FF311818" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 
 
             <Border Margin="442,56,824,663">
                 <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelAuctionMain_Content}" Style="{StaticResource LabelTabs}"/>
+                    <Label Content="{lex:Loc LocLabelAuctionMain_Content}" Foreground="#FF311818" Style="{StaticResource LabelTabs}"/>
                 </Viewbox>
             </Border>
 

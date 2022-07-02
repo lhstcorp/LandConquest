@@ -75,9 +75,9 @@
             </Button>
 
 
-            <TextBox x:Name="newEmailBox" HorizontalAlignment="Left" Height="32" Margin="467,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="#FFEDE8DF" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"/>
-            <TextBox x:Name="newPassBox"  HorizontalAlignment="Left" Height="32" Margin="467,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="#FFEDE8DF" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"/>
-            <TextBox x:Name="newNameBox"  HorizontalAlignment="Left" Height="32" Margin="467,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" SelectionBrush="{x:Null}" Foreground="Black" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Background="#FFEDE8DF" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"/>
+            <TextBox x:Name="newEmailBox" HorizontalAlignment="Left" Height="32" Margin="467,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" SelectionBrush="{x:Null}" CaretBrush="{x:Null}" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"/>
+            <TextBox x:Name="newPassBox"  HorizontalAlignment="Left" Height="32" Margin="467,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" SelectionBrush="{x:Null}" CaretBrush="{x:Null}" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"/>
+            <TextBox x:Name="newNameBox"  HorizontalAlignment="Left" Height="32" Margin="467,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" SelectionBrush="{x:Null}" CaretBrush="{x:Null}" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1"   materialDesign:TextFieldAssist.DecorationVisibility="Hidden"/>
             <Label x:Name="ChangeAvatarLabel" HorizontalAlignment="Left" Margin="49,99,0,0" VerticalAlignment="Top" MouseDown="ChangeAvatarLabel_MouseDown" MouseEnter="ChangeAvatarLabel_MouseEnter" MouseLeave="ChangeAvatarLabel_MouseLeave">
                 <TextBlock Text="Change" TextDecorations="Underline" FontSize="8"/>
             </Label>
