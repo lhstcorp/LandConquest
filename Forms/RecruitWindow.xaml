@@ -25,8 +25,21 @@
                 </Button.Background>
             </Button>
 
-            <Border BorderBrush="#FF392018" BorderThickness="3" Panel.ZIndex="-1" Margin="10,25,684,86" Height="400" Width="160">
-                <Grid Background="Wheat" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="160">
+            <Border BorderThickness="3" Panel.ZIndex="-1" Margin="10,25,684,86" Height="400" Width="160">
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                        <GradientStop Color="#FF392018" Offset="0.4"/>
+                        <GradientStop Color="Wheat" Offset="0"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Grid HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="160">
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF392018" Offset="1"/>
+                            <GradientStop Color="Wheat" Offset="0.7"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="79*"/>
                         <RowDefinition/>
@@ -56,8 +69,21 @@
 
 
 
-            <Border BorderBrush="#FF392018" BorderThickness="3" Margin="686,25,8,86" Height="Auto" Width="Auto">
-                <Grid Background="Wheat" HorizontalAlignment="Left"  Height="400" VerticalAlignment="Top" Width="160">
+            <Border BorderThickness="3" Margin="686,25,8,86" Height="Auto" Width="Auto">
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF392018" Offset="0.4"/>
+                        <GradientStop Color="Wheat" Offset="0"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Grid HorizontalAlignment="Left"  Height="400" VerticalAlignment="Top" Width="160">
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF392018" Offset="1"/>
+                            <GradientStop Color="Wheat" Offset="0.7"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <Image Source="/LandConquest;component/Pictures/91.png" Height="32" HorizontalAlignment="Left" Width="32" VerticalAlignment="Top" Panel.ZIndex="1" Margin="124,0,0,0" />
                     <Label x:Name="healthSiegeLabel" Content="0" Foreground="White" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Panel.ZIndex="1" HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top" Margin="127,0,0,0" />
                     <Grid HorizontalAlignment="Left" Panel.ZIndex="1" Width="43" Height="50" VerticalAlignment="Top" Margin="0,104,0,0">
@@ -96,8 +122,21 @@
                 </Grid>
             </Border>
 
-            <Border BorderBrush="#FF392018" BorderThickness="3" Panel.ZIndex="-1" Margin="517,25,177,86" Height="400" Width="160">
-                <Grid Background="Wheat" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="160">
+            <Border BorderThickness="3" Panel.ZIndex="-1" Margin="517,25,177,86" Height="400" Width="160">
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF392018" Offset="0.4"/>
+                        <GradientStop Color="Wheat" Offset="0"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Grid HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="160">
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF392018" Offset="1"/>
+                            <GradientStop Color="Wheat" Offset="0.7"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <Image Source="/LandConquest;component/Pictures/Icons/Army/IconKnight.png" HorizontalAlignment="Left" Width="164" Height="155" VerticalAlignment="Top" Margin="0,0,-4,0" />
                     <Label x:Name="knightsConsumption" Content="1" FontSize="16" Panel.ZIndex="1" FontWeight="Bold" Margin="12,3,0,0" HorizontalAlignment="Left" Width="17" Height="32" VerticalAlignment="Top"/>
                     <Image Source="/LandConquest;component/Pictures/food_06_t.png" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
@@ -120,12 +159,17 @@
                         <Label Content="{lex:Loc LocLabelAvailable_Text}" FontSize="12" FontWeight="SemiBold" Foreground="#311818" Margin="81,0,-112,-66" Height="29" VerticalAlignment="Bottom"/>
                         <Label x:Name="TotalRecruitKnights" FontSize="12" Content="0" Foreground="#311818" Margin="20,0,-1,-83" Height="23" VerticalAlignment="Bottom"/>
                         <Label x:Name="AvailableRecruitKnights" Content="0" FontSize="12" Foreground="#311818" Margin="94,0,-75,-83" Height="23" VerticalAlignment="Bottom"/>
-
-                        <Image Source="/LandConquest;component/Pictures/two_swords.png" HorizontalAlignment="Left" Width="45" Margin="6,0,-16,-134" Height="45" VerticalAlignment="Bottom" />
+                        <Border BorderThickness="2" BorderBrush="Goldenrod" HorizontalAlignment="Left" Width="45" Margin="6,0,-16,-134" Height="45" VerticalAlignment="Bottom">
+                            <Image Source="/LandConquest;component/Pictures/two_swords.png"  />
+                        </Border>
                         <Label x:Name="forceKnightsLabel" Content="0"  FontSize="20" FontWeight="Bold" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="32" Height="33" VerticalAlignment="Bottom" Margin="13,0,-10,-125" />
-                        <Image Source="/LandConquest;component/Pictures/Archerskill_50.png" HorizontalAlignment="Left" Width="45" Margin="106,0,-116,-134" Height="45" VerticalAlignment="Bottom" />
+                        <Border BorderThickness="2" BorderBrush="Goldenrod" HorizontalAlignment="Left" Width="45" Margin="106,0,-116,-134" Height="45" VerticalAlignment="Bottom">
+                            <Image Source="/LandConquest;component/Pictures/Archerskill_50.png"  />
+                        </Border>
                         <Label x:Name="rangeKnightsLabel" Content="0"  FontSize="20" FontWeight="Bold" Foreground="White" Height="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="33" VerticalAlignment="Bottom" Margin="111,0,-109,-127" />
-                        <Image Source="/LandConquest;component/Pictures/Mageskill_13.png" HorizontalAlignment="Left" Width="45" Margin="56,0,-66,-134" Height="45" VerticalAlignment="Bottom" />
+                        <Border BorderThickness="2" BorderBrush="Goldenrod" HorizontalAlignment="Left" Width="45" Margin="56,0,-66,-134" Height="45" VerticalAlignment="Bottom" >
+                            <Image Source="/LandConquest;component/Pictures/Mageskill_13.png" />
+                        </Border>
                         <Label x:Name="defenceKnightsLabel" Content="0"  FontSize="20" FontWeight="Bold" Foreground="Black" Height="33" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="33" VerticalAlignment="Bottom" Margin="63,0,-61,-125" />
 
                         <TextBox x:Name="KnightsAmount" VerticalContentAlignment="Center" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="PeasantsAmount_PreviewTextInput" HorizontalAlignment="Left" Width="154" Height="33" VerticalAlignment="Bottom" Margin="1,0,-120,-183"/>
@@ -141,8 +185,21 @@
 
                 </Grid>
             </Border>
-            <Border BorderBrush="#FF392018" BorderThickness="3" Panel.ZIndex="-1" Margin="348,25,346,86" Height="400" Width="160">
-                <Grid Background="Wheat" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="160">
+            <Border BorderThickness="3" Panel.ZIndex="-1" Margin="348,25,346,86" Height="400" Width="160">
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF392018" Offset="0.4"/>
+                        <GradientStop Color="Wheat" Offset="0"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Grid HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="160">
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF392018" Offset="1"/>
+                            <GradientStop Color="Wheat" Offset="0.7"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <TextBox x:Name="InfantryAmount"  VerticalContentAlignment="Center" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" PreviewTextInput="PeasantsAmount_PreviewTextInput" HorizontalAlignment="Left" Width="154" Height="33" VerticalAlignment="Top" Margin="0,305,0,0"/>
                     <Button x:Name="HireInfantry" Content="{lex:Loc LocLabelHire_Text}" Foreground="#e3cd9b" Click="HireInfantry_Click" BorderBrush="{x:Null}" Height="33" HorizontalAlignment="Left" Width="156" VerticalAlignment="Top" Margin="-1,350,0,0">
                         <Button.Background>
@@ -151,11 +208,17 @@
                     </Button>
                     <Image Source="/LandConquest;component/Pictures/91.png" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="32" Margin="124,0,0,0"/>
                     <Label x:Name="healthInfantryLabel" Foreground="White" FontSize="16" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="26" Margin="126,0,0,0" />
-                    <Image Source="/LandConquest;component/Pictures/two_swords.png" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left" Width="45" Margin="5,245,0,0" />
+                    <Border BorderThickness="2" BorderBrush="Goldenrod" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left" Width="45" Margin="5,245,0,0">
+                        <Image Source="/LandConquest;component/Pictures/two_swords.png"  />
+                    </Border>
                     <Label x:Name="forceInfantryLabel"  FontSize="20" FontWeight="Bold" Foreground="White" Content="0" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="33" VerticalAlignment="Top" Margin="12,247,0,0" />
-                    <Image Source="/LandConquest;component/Pictures/Archerskill_50.png" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left" Width="45" Margin="105,245,0,0" />
+                    <Border BorderThickness="2" BorderBrush="Goldenrod" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left" Width="45" Margin="105,245,0,0" >
+                        <Image Source="/LandConquest;component/Pictures/Archerskill_50.png" />
+                    </Border>
                     <Label x:Name="rangeInfantryLabel"  FontSize="20" FontWeight="Bold" Foreground="White" Content="0" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="33" VerticalAlignment="Top" Margin="110,248,0,0" />
-                    <Image Source="/LandConquest;component/Pictures/Mageskill_13.png" Width="45" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="55,245,0,0" />
+                    <Border BorderThickness="2" BorderBrush="Goldenrod" Width="45" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="55,245,0,0" >
+                        <Image Source="/LandConquest;component/Pictures/Mageskill_13.png" />
+                    </Border>
                     <Label x:Name="defenceInfantryLabel" Content="0"  FontSize="20" Foreground="Black" FontWeight="Bold" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="33" VerticalAlignment="Top" Margin="62,248,0,0" />
                     <Image Source="/LandConquest;component/Pictures/boot_t_04.png"  HorizontalAlignment="Left" Width="40" Height="40" VerticalAlignment="Top" Margin="113,113,0,0" />
                     <Label x:Name="movementInfantryLabel" Foreground="White" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="33" Height="30" FontSize="16" VerticalAlignment="Top" Margin="127,123,0,0" />
@@ -181,8 +244,21 @@
 
                 </Grid>
             </Border>
-            <Border BorderBrush="#FF392018" BorderThickness="3" Panel.ZIndex="-1" Margin="179,25,515,86" Height="400" Width="160">
-                <Grid Background="Wheat" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="160">
+            <Border BorderThickness="3" Panel.ZIndex="-1" Margin="179,25,515,86" Height="400" Width="160">
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF392018" Offset="0.4"/>
+                        <GradientStop Color="Wheat" Offset="0"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Grid HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="160">
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF392018" Offset="1"/>
+                            <GradientStop Color="Wheat" Offset="0.7"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="149*"/>
                         <RowDefinition Height="251*"/>
@@ -198,11 +274,18 @@
                     <Image Source="/LandConquest;component/Pictures/food_06_t.png" HorizontalAlignment="Left" Width="40" Height="40" VerticalAlignment="Top"/>
                     <Image Source="/LandConquest;component/Pictures/91.png" Margin="124,0,0,0"  Height="32" HorizontalAlignment="Left" Width="32" VerticalAlignment="Top" />
                     <Label x:Name="healthArchersLabel" Foreground="White" FontSize="16" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Width="26" Height="26" VerticalAlignment="Top" Margin="126,0,0,0" />
-                    <Image Source="/LandConquest;component/Pictures/two_swords.png" HorizontalAlignment="Left" Width="45" Height="45" VerticalAlignment="Top" Margin="5,96,0,0" Grid.Row="1" />
+                    <Border BorderThickness="2" BorderBrush="Goldenrod"  Margin="5,96,0,0" Width="45" Height="45" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Top">
+                        <Image Source="/LandConquest;component/Pictures/two_swords.png"   />
+                    </Border>
                     <Label x:Name="forceArchersLabel" FontSize="20" FontWeight="Bold" Foreground="White" Content="0" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="33" VerticalAlignment="Top" Margin="12,98,0,0" Grid.Row="1" />
-                    <Image Source="/LandConquest;component/Pictures/Archerskill_50.png"  HorizontalAlignment="Left" Width="45" Height="45" VerticalAlignment="Top" Margin="105,96,0,0" Grid.Row="1" />
+                    <Border HorizontalAlignment="Left" BorderThickness="2" BorderBrush="Goldenrod" Width="45" Height="45" VerticalAlignment="Top" Margin="105,96,0,0" Grid.Row="1" >
+                        <Image Source="/LandConquest;component/Pictures/Archerskill_50.png"  />
+                    </Border>
                     <Label x:Name="rangeArchersLabel"  FontSize="20" Foreground="White" FontWeight="Bold" Content="0" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="33" VerticalAlignment="Top" Margin="110,99,0,0" Grid.Row="1" />
-                    <Image Source="/LandConquest;component/Pictures/Mageskill_13.png" HorizontalAlignment="Left" Width="45" Height="45" VerticalAlignment="Top" Margin="55,96,0,0" Grid.Row="1" />
+                    <Border BorderThickness="2" BorderBrush="Goldenrod"  HorizontalAlignment="Left" Width="45" Height="45" VerticalAlignment="Top" Margin="55,96,0,0" Grid.Row="1">
+
+                        <Image Source="/LandConquest;component/Pictures/Mageskill_13.png"  />
+                    </Border>
                     <Label x:Name="defenceArchersLabel"  FontSize="20" Foreground="Black" FontWeight="Bold" Content="0" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Width="33" VerticalAlignment="Top" Margin="62,99,0,0" Grid.Row="1" />
                     <Image Source="/LandConquest;component/Pictures/boot_t_04.png" HorizontalAlignment="Left" Width="40" Height="40" VerticalAlignment="Top" Margin="113,113,0,0" Grid.RowSpan="2" />
                     <Label x:Name="movementArchersLabel"  Foreground="White" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="33" Height="30" FontSize="16" VerticalAlignment="Top" Margin="127,124,0,0" Grid.RowSpan="2" />

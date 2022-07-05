@@ -68,14 +68,118 @@
             <Label Content="{lex:Loc LocLabelLeather_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,194,33,0" VerticalAlignment="Top" Height="30" Width="88" Background="{x:Null}"/>
             <Image HorizontalAlignment="Left" Height="36" Margin="358,228,0,0" VerticalAlignment="Top" Width="36" Source="/Pictures/Leather.png" RenderTransformOrigin="-1.55,0.548"/>
             <Label x:Name="labelLeatherAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="354,264,0,0" VerticalAlignment="Top" Width="68" Height="30"/>
-            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="32,14,0,284" Stroke="#311818" Width="84" StrokeThickness="3" />
-            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="137,14,0,284" Stroke="#311818" Width="84" StrokeThickness="3" />
-            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="242,198,0,100" Stroke="#311818" Width="84" StrokeThickness="3" />
-            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="347,198,0,100" Stroke="#311818" Width="84" StrokeThickness="3" />
-            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="347,14,0,284" Stroke="#311818" Width="84" StrokeThickness="3" />
-            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="242,14,0,284" Stroke="#311818" Width="84" StrokeThickness="3" />
-            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="137,198,0,100" Stroke="#311818" Width="84" StrokeThickness="3" />
-            <Rectangle Fill="Wheat" HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="32,198,0,100" Stroke="#311818" Width="84" StrokeThickness="3" />
+            <Rectangle HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="32,14,0,284" Width="84" StrokeThickness="3" >
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="0.7"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="1"/>
+                        <GradientStop Color="Wheat" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="137,14,0,284" Width="84" StrokeThickness="3" >
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="0.7"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="1"/>
+                        <GradientStop Color="Wheat" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="242,198,0,100" Width="84" StrokeThickness="3" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="1"/>
+                        <GradientStop Color="Wheat" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="0.7"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="347,198,0,100" Width="84" StrokeThickness="3" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="1"/>
+                        <GradientStop Color="Wheat" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="0.7"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="347,14,0,284" Width="84" StrokeThickness="3" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="1"/>
+                        <GradientStop Color="Wheat" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="0.7"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="242,14,0,284" Width="84" StrokeThickness="3" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="1"/>
+                        <GradientStop Color="Wheat" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="0.7"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="137,198,0,100" Width="84" StrokeThickness="3" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="1"/>
+                        <GradientStop Color="Wheat" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="0.7"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Panel.ZIndex="-1" Margin="32,198,0,100" Width="84" StrokeThickness="3" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="1"/>
+                        <GradientStop Color="Wheat" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#311818" Offset="0.7"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
 
 
             <TextBox x:Name="DonateStoneTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="144,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
@@ -93,7 +197,7 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
                 <Viewbox>
-                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" /> 
+                    <TextBlock Text="Donate" Foreground="#e3cd9b" FontSize="10" />
                 </Viewbox>
             </Button>
             <Button x:Name="DonateStoneButton" HorizontalAlignment="Left" Margin="144,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >
