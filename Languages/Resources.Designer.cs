@@ -394,6 +394,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelEstablichAState_Text.
+        /// </summary>
+        public static string LocLabelEstablichAState_Text {
+            get {
+                return ResourceManager.GetString("LocLabelEstablichAState_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelEstablishAState_Text.
         /// </summary>
         public static string LocLabelEstablishAState_Text {

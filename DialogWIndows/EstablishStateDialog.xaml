@@ -15,9 +15,9 @@
         ShowInTaskbar="False" Loaded="Window_Loaded" AllowsTransparency="True" Background="Transparent">
 
     <Grid >
-        <materialDesign:ColorPicker x:Name="StateColor" HorizontalAlignment="Right" Margin="0,0,345.4,242" VerticalAlignment="Bottom" Height="242" Width="228"/>
+        <materialDesign:ColorPicker x:Name="StateColor" HorizontalAlignment="Right" Margin="0,0,345.4,283" VerticalAlignment="Bottom" Height="201" Width="228"/>
         <Label Content="{lex:Loc LocLabelChooseColorForTheState_Text}" FontSize="16" FontWeight="Bold" Margin="0,181,345.4,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="228"/>
-        <Button x:Name="EstablishState" Content="OK" HorizontalAlignment="Left" Height="69" Margin="367,508,0,0" VerticalAlignment="Top" Width="65" Click="EstablishState_Click" BorderBrush="{x:Null}">
+        <Button x:Name="EstablishState" Content="OK" HorizontalAlignment="Left" Height="69" Margin="584,520,0,0" VerticalAlignment="Top" Width="65" Click="EstablishState_Click" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_brown_square.png"/>
             </Button.Background>
@@ -27,26 +27,32 @@
                 <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <TextBlock x:Name="landDescriptionTextBlock" TextWrapping="Wrap" Text="TextBlock" Margin="610,251,0,0" Height="184" VerticalAlignment="Top" HorizontalAlignment="Left" Width="194" FontSize="16" FontFamily="/Fonts/#Harrington"/>
+        <TextBlock x:Name="landDescriptionTextBlock" TextWrapping="Wrap" Text="TextBlock" Margin="610,251,0,0" Height="166" VerticalAlignment="Top" HorizontalAlignment="Left" Width="194" FontSize="16" FontFamily="/Fonts/#Harrington"/>
 
-
-        <Grid HorizontalAlignment="Left" Height="328"  VerticalAlignment="Top" Width="210" Margin="108,216,0,0">
-            <Ellipse HorizontalAlignment="Left" Height="168"  Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="168" Margin="20,8,0,0" >
+        <Grid HorizontalAlignment="Left" Height="217"  VerticalAlignment="Top" Width="210" Margin="108,216,0,0">
+            <Ellipse x:Name="selectedPersonEllipse" HorizontalAlignment="Left" Height="168"  Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="168" Margin="20,8,0,0" >
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="/Pictures/Hero.png"/>
                 </Ellipse.Fill>
             </Ellipse>
 
-            <TextBlock x:Name="selectedPersonNameLbl" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,181,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="200" TextAlignment="Center" FontFamily="/Fonts/#Harrington"/>
-
-
-
+            <TextBlock x:Name="selectedPersonNameText" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,181,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="200" TextAlignment="Center" FontFamily="/Fonts/#Harrington"/>
         </Grid>
-        <Label Content="{lex:Loc LocLabelChooseStateRuler_Text}" FontSize="16" FontWeight="Bold" Margin="0,181,592.4,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="210" HorizontalContentAlignment="Center"/>
 
-        <!--<Grid.Background>
-                <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
-            </Grid.Background>-->
+        <ScrollViewer Margin="108,422,572.4,128">
+            <UniformGrid x:Name="personGrid" HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="210">
+                <UniformGrid.Resources>
+                    <Style TargetType="{x:Type Panel}">
+                        <Setter Property="Margin" Value="0,0,0,6" />
+                    </Style>
+                </UniformGrid.Resources>
+            </UniformGrid>
+
+        </ScrollViewer>
+        
+        <Label Content="{lex:Loc LocLabelChooseStateRuler_Text}" FontSize="16" FontWeight="Bold" Margin="0,181,592.4,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="210" HorizontalContentAlignment="Center"/>
+        <Label Content="{lex:Loc LocLabelEstablichAState_Text}" FontFamily="/Fonts/#Harrington" FontSize="30" FontWeight="Bold" Foreground="DarkRed" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="40" Margin="222,42,0,0" VerticalAlignment="Top" Width="484"/>
+        <Image Source="/Pictures/Country/Print.png" HorizontalAlignment="Left" Height="150" Margin="654,422,0,0" VerticalAlignment="Top" Width="150"/>
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/Form elements/scroll-background.png" Stretch="UniformToFill"/>
