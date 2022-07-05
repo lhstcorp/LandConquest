@@ -228,6 +228,9 @@
   <data name="LocLabelEmail_Content" xml:space="preserve">
     <value>LocLabelEmail_Content</value>
   </data>
+  <data name="LocLabelEstablichAState_Text" xml:space="preserve">
+    <value>LocLabelEstablichAState_Text</value>
+  </data>
   <data name="LocLabelEstablishAState_Text" xml:space="preserve">
     <value>LocLabelEstablishAState_Text</value>
   </data>

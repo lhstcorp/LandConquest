@@ -863,6 +863,7 @@
     <Resource Include="Pictures\Form elements\scroll-background.png" />
     <Resource Include="Pictures\Hero.png" />
     <Resource Include="Pictures\chest_t_04.png" />
+    <Resource Include="Pictures\Country\Print.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
