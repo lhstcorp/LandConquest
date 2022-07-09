@@ -228,6 +228,9 @@
   <data name="LocLabelEmail_Content" xml:space="preserve">
     <value>Почта</value>
   </data>
+  <data name="LocLabelEstablichAState_Text" xml:space="preserve">
+    <value>Основать государство</value>
+  </data>
   <data name="LocLabelEstablishAState_Text" xml:space="preserve">
     <value>Основать государство</value>
   </data>

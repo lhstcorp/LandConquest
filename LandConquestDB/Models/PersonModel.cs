@@ -81,6 +81,11 @@ namespace LandConquestDB.Models
             return person;
         }
 
+        public static List<Person> GetPlayerPersons(string _playerId)
+        {
+            return DbContext.GetSqlConnection().Query<Person>("SELECT * FROM dbo.PersonData WHERE player_id = @player_id ORDER BY lvl DESC", new { player_id = _playerId }).ToList();
+        }
+
         public static void UpdatePersonLvl(Player player, Person person)
         {
             DbContext.GetSqlConnection().Execute("UPDATE dbo.PersonData SET lvl = @lvl WHERE player_id = @player_id", new { lvl = person.Lvl, player_id = player.PlayerId });
