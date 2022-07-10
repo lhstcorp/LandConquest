@@ -37,48 +37,9 @@ namespace LandConquestDB.Models
             command.ExecuteNonQuery();
             command.Dispose();
         }
-        public static Person GetPersonInfo(Player player) // TODO
+        public static Person GetPersonInfo(string _personId)
         {
-            Person person = new Person();
-
-            string query = "SELECT * FROM dbo.PersonData WHERE player_id = @player_id";
-
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@player_id", player.PlayerId);
-
-            using (var reader = command.ExecuteReader())
-            {
-                var playerId = reader.GetOrdinal("player_id");
-                var personId = reader.GetOrdinal("person_id");
-                var name = reader.GetOrdinal("name");
-                var surname = reader.GetOrdinal("surname");
-                var lvl = reader.GetOrdinal("lvl");
-                var exp = reader.GetOrdinal("exp");
-                //var maleFemale = reader.GetOrdinal("maleFemale");
-                var power = reader.GetOrdinal("power");
-                var agility = reader.GetOrdinal("agility");
-                var health = reader.GetOrdinal("health");
-                var intellect = reader.GetOrdinal("intellect");
-
-                while (reader.Read())
-                {
-                    player.PlayerId = reader.GetString(playerId);
-                    person.PersonId = reader.GetString(personId);
-                    person.Name = reader.GetString(name);
-                    person.Surname = reader.GetString(surname);
-                    person.Lvl = reader.GetInt32(lvl);
-                    person.Exp = reader.GetInt32(exp);
-                    //person.MaleFemale = reader.GetInt32(maleFemale)>0;
-                    person.Power = reader.GetInt32(power);
-                    person.Agility = reader.GetInt32(agility);
-                    person.Health = reader.GetInt32(health);
-                    person.Intellect = reader.GetInt32(intellect);
-                }
-                reader.Close();
-            }
-            command.Dispose();
-
-            return person;
+            return DbContext.GetSqlConnection().Query<Person>("SELECT * FROM dbo.PersonData WHERE person_id = @person_id", new { _personId = _personId }).FirstOrDefault();
         }
 
         public static List<Person> GetPlayerPersons(string _playerId)

@@ -20,29 +20,11 @@
                 </Button.Background>
             </Button>
 
+            <ScrollViewer Margin="405,25,4.4,87">
+                <UniformGrid x:Name="personGrid"  HorizontalAlignment="Right" Height="Auto" VerticalAlignment="Top" Width="164" Columns="1"/>
+            </ScrollViewer>
 
-            <Grid HorizontalAlignment="Left" Height="66" Margin="366,22,0,0" Grid.Row="1" VerticalAlignment="Top" Width="214" >
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="9*"/>
-                    <RowDefinition Height="431*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="78*"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Image Source="/Pictures/InWork/person1.png" HorizontalAlignment="Left" Height="67" Margin="0,-1,0,0" VerticalAlignment="Top" Width="59" Grid.RowSpan="2"/>
-                <Image Source="/Pictures/WarriorSkill_44.png" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" Margin="80,0,0,0" Grid.Row="1"/>
-                <Image Source="/Pictures/Archerskill_16.png" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" Margin="80,36,0,0" Grid.Row="1"/>
-                <Image Source="/Pictures/Priestskill_23.png" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" Margin="144,36,0,0" Grid.Row="1"/>
-                <Image Source="/Pictures/Engineerskill_15.png" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="29" Margin="144,0,0,0" Grid.Row="1"/>
-                <Label x:Name="Power1" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1" Margin="117,3,0,0"/>
-                <Label x:Name="Agility1" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1" Margin="117,38,0,0"/>
-                <Label x:Name="Intelligence1" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1" Margin="180,3,0,0"/>
-                <Label x:Name="Health1" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.514,1.908" Grid.Row="1" Margin="180,38,0,0"/>
-            </Grid>
-
-            <Button Content="Create Person" HorizontalAlignment="Left" Margin="390,358,0,0" VerticalAlignment="Top" Width="191" Height="52" Click="ButtonCreatePerson_Click"/>
+            <Button Content="Create Person" HorizontalAlignment="Left" Margin="405,353,0,0" VerticalAlignment="Top" Width="181" Height="52" Click="ButtonCreatePerson_Click"/>
 
             <Border BorderThickness="3" Height="400" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,8,0,0">
                 <Border.BorderBrush>
@@ -59,7 +41,7 @@
                     </LinearGradientBrush>
                 </Border.Background>
 
-                <Grid HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="175">
+                <Grid x:Name="selectedPersonGrid" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="175">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="120"/>
@@ -72,19 +54,14 @@
                         <RowDefinition Height="35"/>
                         <RowDefinition Height="30"/>
 
-
-
-
-
-
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30"/>
                         <ColumnDefinition Width="110"/>
                         <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
-                    <Viewbox StretchDirection="Both" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="190" Height="34" Grid.ColumnSpan="3" Margin="-3,-1,-14,18" >
-                        <TextBlock x:Name="NameSurname" Grid.Column ="0" Width="185" Height="34" Grid.Row="0" Grid.ColumnSpan="3" Text="Person Name" HorizontalAlignment="Stretch" FontFamily="Algerian" FontSize="22" Foreground="WhiteSmoke" FontWeight="ExtraBlack" Panel.ZIndex="2" VerticalAlignment="Top">
+                    <Viewbox StretchDirection="Both" Grid.ColumnSpan="3" Margin="0,0,0,16.4" >
+                        <TextBlock x:Name="NameSurname" Grid.Column ="0" Width="173" Height="34" Grid.Row="0" Grid.ColumnSpan="3" Text="Person Name" HorizontalAlignment="Stretch" FontFamily="Algerian" FontSize="22" Foreground="WhiteSmoke" FontWeight="ExtraBlack" Panel.ZIndex="2" VerticalAlignment="Top">
                             <TextBlock.Background>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                     <GradientStop Color="#FF392018" Offset="0.5"/>
@@ -93,7 +70,7 @@
                             </TextBlock.Background>
                         </TextBlock>
                     </Viewbox>
-                    <Image Source="/Pictures/Hero.png" Height="182" Margin="-3,32,-4,40" VerticalAlignment="Center" HorizontalAlignment="Left" Width="180" Grid.RowSpan="4" Grid.ColumnSpan="3"  />
+                    <Image x:Name="selectedPersonImage" Source="/Pictures/Hero.png" Height="182" Margin="-3,32,-4,40" VerticalAlignment="Center" HorizontalAlignment="Left" Width="180" Grid.RowSpan="4" Grid.ColumnSpan="3"  />
                     <ProgressBar x:Name="PbPersonExp" BorderThickness="3" HorizontalAlignment="Center" Height="18" Margin="-3,9,-5,24" VerticalAlignment="Center" Width="181" Background="{x:Null}" Foreground="#062682" BorderBrush="#FF392018" Grid.Row="3" Grid.ColumnSpan="3"/>
 
 
