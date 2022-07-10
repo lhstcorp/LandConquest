@@ -30,13 +30,13 @@
         <TextBlock x:Name="landDescriptionTextBlock" TextWrapping="Wrap" Text="TextBlock" Margin="610,251,0,0" Height="166" VerticalAlignment="Top" HorizontalAlignment="Left" Width="194" FontSize="16" FontFamily="/Fonts/#Harrington"/>
 
         <Grid HorizontalAlignment="Left" Height="217"  VerticalAlignment="Top" Width="210" Margin="108,216,0,0">
-            <Ellipse x:Name="selectedPersonEllipse" HorizontalAlignment="Left" Height="168"  Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="168" Margin="20,8,0,0" >
+            <Ellipse x:Name="selectedPersonEllipse" HorizontalAlignment="Left" Height="168"  Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="168" Margin="20,8,0,0">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="/Pictures/Hero.png"/>
                 </Ellipse.Fill>
             </Ellipse>
 
-            <TextBlock x:Name="selectedPersonNameText" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,181,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="200" TextAlignment="Center" FontFamily="/Fonts/#Harrington"/>
+            <TextBlock x:Name="selectedPersonNameText" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,175,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="200" TextAlignment="Center" FontFamily="/Fonts/#Harrington"/>
         </Grid>
 
         <ScrollViewer Margin="108,422,572.4,128">
@@ -53,6 +53,9 @@
         <Label Content="{lex:Loc LocLabelChooseStateRuler_Text}" FontSize="16" FontWeight="Bold" Margin="0,181,592.4,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="210" HorizontalContentAlignment="Center"/>
         <Label Content="{lex:Loc LocLabelEstablichAState_Text}" FontFamily="/Fonts/#Harrington" FontSize="30" FontWeight="Bold" Foreground="DarkRed" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="40" Margin="222,42,0,0" VerticalAlignment="Top" Width="484"/>
         <Image Source="/Pictures/Country/Print.png" HorizontalAlignment="Left" Height="150" Margin="654,422,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Label Content="{lex:Loc LocLabelEnterCountryName_Text}" FontSize="16" FontWeight="Bold" Margin="0,412,357.4,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="210" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="countryNameTextBox" MaxLength="22" HorizontalContentAlignment="Center" FontFamily="/Fonts/#Harrington" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" Text="" HorizontalAlignment="Left" Height="32" Margin="362,439,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" VerticalContentAlignment="Center"/>
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/Form elements/scroll-background.png" Stretch="UniformToFill"/>

@@ -19,6 +19,9 @@ namespace LandConquest.DialogWIndows
         private Land land;
         private LandModel landModel;
         private CountryModel countryModel;
+        private Person person;
+        private List<Person> persons;
+        private Ellipse selectedEllipse;
 
         public EstablishStateDialog(Player _player, Land _land)
         {
@@ -42,23 +45,24 @@ namespace LandConquest.DialogWIndows
 
             landDescriptionTextBlock.Text = String.Format(Languages.Resources.LocLabelThisLandIsIndependentDescription_Text, land.LandName);
 
+            populatePersonList();
             populatePersonGrid();
         }
 
-        public void populatePersonGrid()
+        private void populatePersonList()
         {
-            List<Person> persons = PersonModel.GetPlayerPersons(player.PlayerId);
+            persons = PersonModel.GetPlayerPersons(player.PlayerId);
+        }
 
+        private void populatePersonGrid()
+        {          
             if (persons.Count > 0)
             {
-                //ImageBrush personImg = new ImageBrush();
-                //personImg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Pictures/Hero.png", UriKind.Absolute));
-                //selectedPersonEllipse.Fill = personImg;
                 selectedPersonEllipse.Fill = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Pictures/Hero.png", UriKind.Absolute)));
+                selectedPersonEllipse.Tag = persons[0].PersonId;
                 selectedPersonNameText.Text = persons[0].Name + ' ' + persons[0].Surname;
 
-                //initPersonGridsSize(persons);
-                populatePersonGrids(persons);
+                populatePersonGrids();
             }
             else
             {
@@ -67,46 +71,47 @@ namespace LandConquest.DialogWIndows
             }
         }
 
-        //private void initPersonGridsSize(List<Person> _playerPersons)
-        //{
-        //    int remainder = _playerPersons.Count - 1 - personGrid.Columns * 2; // 2 hardcode.
-        //    int addRows = 0;
-
-        //    if (remainder > 0)
-        //    {
-        //        addRows = remainder / personGrid.Columns;
-
-        //        if (remainder % personGrid.Columns != 0)
-        //        {
-        //            addRows++;
-        //        }
-        //    }
-
-        //    personGrid.Rows = 2 + addRows + 10;
-        //}
-
-        private void populatePersonGrids(List<Person> _persons)
+        private void populatePersonGrids()
         {
             personGrid.Children.Clear();
 
-            for (int i = 0; i < _persons.Count + 5; i++)
+            for (int i = 0; i < persons.Count; i++)
             {
                 Ellipse personEllipse = new Ellipse();
                 personEllipse.Width = 60;
                 personEllipse.Height = 60;
                 personEllipse.MouseEnter += personEllipse_MouseEnter;
                 personEllipse.MouseLeave += personEllipse_MouseLeave;
-                personEllipse.Fill = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Pictures/Hero.png", UriKind.Absolute)));
-                //personEllipse.SetValue(Grid.RowProperty, 1);
-                //personEllipse.SetValue(Grid.ColumnProperty, i);
+                personEllipse.MouseDown += personEllipse_MouseDown;
+                personEllipse.Fill = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Pictures/Hero.png", UriKind.Absolute))); // person image
+                personEllipse.Tag = persons[i].PersonId;
 
                 ToolTip toolTip = new ToolTip();
                 ToolTipService.SetInitialShowDelay(toolTip, 100);
-                toolTip.Content = _persons[0].Name + ' ' + _persons[0].Surname + " [" + _persons[0].Lvl + ']';
+                toolTip.Content = persons[i].Name + ' ' + persons[i].Surname + " [" + persons[i].Lvl + ']';
                 personEllipse.ToolTip = toolTip;
+
+                if (i == 0) // mark first ellipse as selected;
+                {
+                    selectedEllipse = personEllipse;
+                    selectedEllipse.Stroke = Brushes.Brown;
+                }
 
                 personGrid.Children.Add(personEllipse);
             }
+        }
+
+        private void personEllipse_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Ellipse personEllipse = (Ellipse)sender;
+            Person person = persons.Find(o => o.PersonId == personEllipse.Tag.ToString());
+
+            selectedPersonEllipse.Fill = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Pictures/Hero.png", UriKind.Absolute)));
+            selectedPersonNameText.Text = person.Name + ' ' + person.Surname;
+
+            selectedEllipse.Stroke = Brushes.Black;
+            selectedEllipse = personEllipse;
+            selectedEllipse.Stroke = Brushes.Brown;
         }
 
         private void personEllipse_MouseEnter(object sender, MouseEventArgs e)
