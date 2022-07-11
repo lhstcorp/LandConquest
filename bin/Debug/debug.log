@@ -5764,3 +5764,27 @@ color: purple;
 [0711/172744.598:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
 [0711/172744.599:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
 [0711/172744.599:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 1252 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183343.738:INFO:CONSOLE(7)] "%c+%chttps://widgetbot.io
+%cPopup Discord chat widgets for your website. font-size: 1px; margin-bottom: 5px; margin-left: 40px; padding: 10px 15px; line-height: 12px;background: url("https://i.imgur.com/S7IIIbE.png"); background-repeat: no-repeat; background-size: 30px; color: transparent; padding-left: 2px; font-size: 14px; color: #7289DA; font-family: "Roboto", sans-serif padding-left: 15px; font-size: 11px; font-family: "Roboto", sans-serif; ", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0711/183343.806:INFO:CONSOLE(7)] "[embed-api] on 'signIn' function(e){t=e.id}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0711/183343.806:INFO:CONSOLE(7)] "[embed-api] on 'message' function(n){var r=n.message;r.content&&r.author.id!==t&&e.notify({id:r.id,content:r.content,avatar:r.author.avatar})}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0711/183343.806:INFO:CONSOLE(7)] "[embed-api] on 'messageDelete' function(t){var n=t.id;e.store.dispatch(w.deleteMessage({id:n,decrement:!0}))}", source: https://cdn.jsdelivr.net/npm/@widgetbot/crate@3 (7)
+[0711/183348.864:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0711/183349.440:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0711/183349.441:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0711/183349.441:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0711/183349.441:WARNING:browser_info.cc(298)] Returning a speculative frame for 25769803781 [6,5]
+[0711/183349.541:INFO:CONSOLE(5)] "Cookies are not authorized, we will not send any data.", source: https://www.datadoghq-browser-agent.com/datadog-rum-us.js (5)
+[0711/183349.753:INFO:CONSOLE(1)] "WidgetBot version: v3.5.1", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183350.823:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 598 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183350.825:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183350.825:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183350.826:INFO:CONSOLE(1)] "%c apollo %cquery %cSettings %c(in 598 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183350.855:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 658 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183350.857:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183350.857:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183350.858:INFO:CONSOLE(1)] "%c apollo %cquery %cGuildInfo %c(in 658 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183351.473:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 1265 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183351.473:INFO:CONSOLE(1)] " INIT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183351.474:INFO:CONSOLE(1)] " RESULT [object Object]", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)
+[0711/183351.474:INFO:CONSOLE(1)] "%c apollo %cquery %cMessages %c(in 1265 ms) color: gray; font-weight: lighter color: #03A9F4; color: inherit; color: gray; font-weight: lighter;", source: https://e.widgetbot.io/static/js/main.f573b196.js (1)

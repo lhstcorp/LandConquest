@@ -967,7 +967,7 @@ namespace LandConquest.Forms
                 {
                     if (CountryModel.GetCountryRuler(mostCommonNumber) != "")
                     {
-                        lblWorldLeader.Content = PlayerModel.GetPlayerNameById(CountryModel.GetCountryRuler(mostCommonNumber));
+                        lblWorldLeader.Content = PersonModel.GetPersonNameSurnameById(CountryModel.GetCountryRuler(mostCommonNumber));
                     }
                 }
             }

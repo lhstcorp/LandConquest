@@ -96,5 +96,11 @@ namespace LandConquestDB.Models
                 return true;
             }
         }
+
+        public static string GetPersonNameSurnameById(string id)
+        {
+            Person person = DbContext.GetSqlConnection().Query<Person>("SELECT name, surname FROM dbo.PersonData WHERE person_id = @person_id", new { person_id = id }).FirstOrDefault();
+            return person.Name + ' ' + person.Surname;
+        }
     }
 }
