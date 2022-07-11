@@ -26,7 +26,7 @@
 
             <Button Content="Create Person" HorizontalAlignment="Left" Margin="405,353,0,0" VerticalAlignment="Top" Width="181" Height="52" Click="ButtonCreatePerson_Click"/>
 
-            <Border BorderThickness="3" Height="400" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,8,0,0">
+            <Border BorderThickness="3" Height="350" Width="166" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,8,0,0">
                 <Border.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF392018" Offset="0.6"/>
@@ -41,40 +41,26 @@
                     </LinearGradientBrush>
                 </Border.Background>
 
-                <Grid x:Name="selectedPersonGrid" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="175">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="120"/>
+                <Grid x:Name="selectedPersonGrid" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="160">
 
-                        <RowDefinition Height="30"/>
+                    <Border Margin="0,0,0,0" Height="400" VerticalAlignment="Center" HorizontalAlignment="Center" Width="160">
+                        <Viewbox StretchDirection="Both" VerticalAlignment="Bottom" Stretch="Fill" Height="30" Margin="0,0,0,370">
+                            <Label x:Name="NameSurname" Content="Person Name" HorizontalAlignment="Center" FontFamily="Algerian" FontSize="22" Foreground="WhiteSmoke" FontWeight="ExtraBlack" Panel.ZIndex="2" VerticalAlignment="Stretch" Height="33" >
+                                <Label.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF392018" Offset="0.5"/>
+                                        <GradientStop Color="Wheat" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Label.Background>
+                            </Label>
+                        </Viewbox>
+                    </Border>
 
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="35"/>
-                        <RowDefinition Height="35"/>
-                        <RowDefinition Height="35"/>
-                        <RowDefinition Height="30"/>
-
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30"/>
-                        <ColumnDefinition Width="110"/>
-                        <ColumnDefinition Width="30"/>
-                    </Grid.ColumnDefinitions>
-                    <Viewbox StretchDirection="Both" Grid.ColumnSpan="3" Margin="0,0,0,16.4" >
-                        <TextBlock x:Name="NameSurname" Grid.Column ="0" Width="173" Height="34" Grid.Row="0" Grid.ColumnSpan="3" Text="Person Name" HorizontalAlignment="Stretch" FontFamily="Algerian" FontSize="22" Foreground="WhiteSmoke" FontWeight="ExtraBlack" Panel.ZIndex="2" VerticalAlignment="Top">
-                            <TextBlock.Background>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#FF392018" Offset="0.5"/>
-                                    <GradientStop Color="Wheat" Offset="1"/>
-                                </LinearGradientBrush>
-                            </TextBlock.Background>
-                        </TextBlock>
-                    </Viewbox>
-                    <Image x:Name="selectedPersonImage" Source="/Pictures/Hero.png" Height="182" Margin="-3,32,-4,40" VerticalAlignment="Center" HorizontalAlignment="Left" Width="180" Grid.RowSpan="4" Grid.ColumnSpan="3"  />
-                    <ProgressBar x:Name="PbPersonExp" BorderThickness="3" HorizontalAlignment="Center" Height="18" Margin="-3,9,-5,24" VerticalAlignment="Center" Width="181" Background="{x:Null}" Foreground="#062682" BorderBrush="#FF392018" Grid.Row="3" Grid.ColumnSpan="3"/>
+                    <Image x:Name="selectedPersonImage" Source="/Pictures/Hero.png" Height="160" Margin="0,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160"  />
+                    <ProgressBar x:Name="PbPersonExp" BorderThickness="3" HorizontalAlignment="Center" Height="18" Margin="-3,190,-4,192" VerticalAlignment="Center" Width="167" Background="{x:Null}" Foreground="#062682" BorderBrush="#FF392018"/>
 
 
-                    <Border Grid.Column="0" Grid.ColumnSpan="3" Width="168" Grid.Row="4" Height="31" BorderThickness="2" Margin="2,1,0,1">
+                    <Border Grid.Column="0" Height="31" BorderThickness="2" Margin="-3,223,-3,146">
                         <Border.BorderBrush>
                             <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                                 <GradientStop Color="#FF392018" Offset="0.5"/>
@@ -88,7 +74,7 @@
                             </LinearGradientBrush>
                         </Border.Background>
                     </Border>
-                    <Border Grid.Column="0" Grid.ColumnSpan="3" Width="168" Grid.Row="5" Height="31" BorderThickness="2" Margin="2,1,0,1">
+                    <Border Grid.Column="0" Height="31" BorderThickness="2" Margin="-3,257,-3,112">
                         <Border.BorderBrush>
                             <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                                 <GradientStop Color="#FF392018" Offset="0.5"/>
@@ -102,30 +88,30 @@
                             </LinearGradientBrush>
                         </Border.Background>
                     </Border>
-                    <Border Grid.Column="0" Grid.ColumnSpan="3" Width="168" Grid.Row="6" Height="31" BorderThickness="2" Margin="2,1,0,1">
+                    <Border Grid.Column="0" Height="31" BorderThickness="2" Margin="-2,291,-3,78">
                         <Border.BorderBrush>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FF392018" Offset="0.5"/>
-                                <GradientStop Color="Wheat" Offset="1"/>
+                            <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                                <GradientStop Color="Wheat" Offset="0.5"/>
+                                <GradientStop Color="#FF392018" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.BorderBrush>
                         <Border.Background>
-                            <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
-                                <GradientStop Color="#FF392018" Offset="0.5"/>
-                                <GradientStop Color="Wheat" Offset="1"/>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Wheat" Offset="0.1"/>
+                                <GradientStop Color="#FF392018" Offset="0.6"/>
                             </LinearGradientBrush>
                         </Border.Background>
                     </Border>
 
-                    <Label x:Name="Experience" Content="0"   HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="10" VerticalContentAlignment="Top" FontFamily="Algerian" Foreground="WhiteSmoke" Margin="3,8,0,21" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Height="22" Width="46" />
-                    <Label x:Name="MaxExperience" Content="0" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" FontSize="10" VerticalContentAlignment="Top" FontFamily="Algerian" Foreground="WhiteSmoke" Margin="53,8,0,21" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Width="56" Height="22"/>
+                    <Label x:Name="Experience" Content="0"   HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="10" VerticalContentAlignment="Top" FontFamily="Algerian" Foreground="WhiteSmoke" Margin="21,188,0,190" VerticalAlignment="Center" Height="22" Width="50" />
+                    <Label x:Name="MaxExperience" Content="0" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" FontSize="10" VerticalContentAlignment="Top" FontFamily="Algerian" Foreground="WhiteSmoke" Margin="75,188,0,190" VerticalAlignment="Center" Width="56" Height="22"/>
 
-                    <Label x:Name="PbValueHealthLabel" Content="0" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontWeight="Normal" Foreground="WhiteSmoke" VerticalAlignment="Top" Grid.Row="3" FontSize="10" Panel.ZIndex="3" FontFamily="Algerian" Margin="29,23,0,0" Height="23" Width="50" Grid.ColumnSpan="2"/>
-                    <Label x:Name="PbMaxHealthLabel" Content="0"  HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Foreground="WhiteSmoke" FontWeight="Normal" VerticalAlignment="Top" Grid.Column="1"  Grid.Row="3" FontSize="10" Panel.ZIndex="3" FontFamily="Algerian" Margin="53,23,0,0" Width="52" Height="21"/>
+                    <Label x:Name="PbValueHealthLabel" Content="0" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontWeight="Normal" Foreground="WhiteSmoke" VerticalAlignment="Top" FontSize="10" Panel.ZIndex="3" FontFamily="Algerian" Margin="21,203,0,0" Height="22" Width="50"/>
+                    <Label x:Name="PbMaxHealthLabel" Content="0"  HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Foreground="WhiteSmoke" FontWeight="Normal" VerticalAlignment="Top" FontSize="10" Panel.ZIndex="3" FontFamily="Algerian" Margin="75,203,0,0" Width="52" Height="21"/>
 
 
 
-                    <Ellipse HorizontalAlignment="Left" Height="40" StrokeThickness="1" Panel.ZIndex="1" Margin="94,39,0,88" Stroke="Wheat" VerticalAlignment="Center" Width="40" Grid.ColumnSpan="2" Grid.Column="1" Grid.RowSpan="2">
+                    <Ellipse HorizontalAlignment="Left" Height="40" StrokeThickness="1" Panel.ZIndex="1" Margin="114,36,0,324" Stroke="Wheat" VerticalAlignment="Center" Width="40">
                         <Ellipse.Fill>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FF392018" Offset="0.5"/>
@@ -134,35 +120,35 @@
                         </Ellipse.Fill>
                     </Ellipse>
 
-                    <TextBlock x:Name="pbLevel" Foreground="WhiteSmoke" Panel.ZIndex="2" TextWrapping="Wrap" TextAlignment="Center" FontFamily="Algerian" Text="0" HorizontalAlignment="Center" Margin="98,1,12,90" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Grid.Column="1" Height="30" Width="32" Grid.ColumnSpan="2" Grid.Row="1"/>
-                    <ProgressBar x:Name="PbPersonHealth" BorderThickness="3" Width="181" BorderBrush="#FF392018" HorizontalAlignment="Center" Height="18" Margin="-3,24,-5,9" VerticalAlignment="Center" Background="{x:Null}" Foreground="#aa393d" Grid.Row="3" Grid.ColumnSpan="3"/>
+                    <TextBlock x:Name="pbLevel" Foreground="WhiteSmoke" Panel.ZIndex="2" TextWrapping="Wrap" TextAlignment="Center" FontFamily="Algerian" Text="0" HorizontalAlignment="Center" Margin="118,46,10,324" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" Height="30" Width="32"/>
+                    <ProgressBar x:Name="PbPersonHealth" BorderThickness="3" Width="167" BorderBrush="#FF392018" HorizontalAlignment="Center" Height="18" Margin="-4,205,-3,177" VerticalAlignment="Center" Background="{x:Null}" Foreground="#aa393d"/>
 
 
-                    <Button x:Name="BtnUpgradePersonPower" HorizontalAlignment="Right" Height="28" Margin="0,4,110,4" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Width="27" Click="BtnUpgradePersonPower_Click" Grid.ColumnSpan="2" >
+                    <Button x:Name="BtnUpgradePersonPower" HorizontalAlignment="Right" Height="28" Margin="0,225,132,147" Grid.Column="0" VerticalAlignment="Center" Width="28" Click="BtnUpgradePersonPower_Click" >
                         <Button.Background>
                             <ImageBrush ImageSource="/Pictures/WarriorSkill_44.png"/>
                         </Button.Background>
                     </Button>
-                    <Label Content="{lex:Loc LocLabelPower}"  HorizontalAlignment="Center" Margin="0,0,0,0" FontFamily="Sitka Display" FontSize="18" Foreground="WhiteSmoke" FontWeight="ExtraBlack" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1"/>
-                    <Label x:Name="Power" Content="0"  Foreground="WhiteSmoke" HorizontalAlignment="Left" Margin="0,4,0,3" FontFamily="Algerian" FontWeight="SemiBold" VerticalAlignment="Center" Grid.Row="6" Grid.Column="2" Width="30"/>
-                    <Button x:Name="BtnUpgradePersonAgility"  HorizontalAlignment="Right" Height="28" Margin="0,4,110,4" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Width="27" Click="BtnUpgradePersonAgility_Click" Grid.ColumnSpan="2" >
+                    <Label Content="{lex:Loc LocLabelPower}"  HorizontalAlignment="Center" Margin="52,223,37,146" FontFamily="Sitka Display" FontSize="18" Foreground="WhiteSmoke" FontWeight="ExtraBlack" VerticalAlignment="Center" Width="71"/>
+                    <Label x:Name="Power" Content="0"  Foreground="WhiteSmoke" HorizontalAlignment="Left" Margin="125,227,-3,149" FontFamily="Algerian" FontWeight="SemiBold" VerticalAlignment="Center" Width="38"/>
+                    <Button x:Name="BtnUpgradePersonAgility"  HorizontalAlignment="Right" Height="28" Margin="0,259,132,113" Grid.Column="0" VerticalAlignment="Center" Width="28" Click="BtnUpgradePersonAgility_Click" >
                         <Button.Background>
                             <ImageBrush ImageSource="/Pictures/Archerskill_16.png"/>
                         </Button.Background>
                     </Button>
-                    <Label Content="{lex:Loc LocLabelAgility}" HorizontalAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="WhiteSmoke" FontWeight="ExtraBlack" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"/>
-                    <Label x:Name="Agility" Content="0"  Foreground="WhiteSmoke" FontFamily="Algerian" HorizontalAlignment="Left" Margin="0,3,0,4" VerticalAlignment="Center" Grid.Row="4" Grid.Column="2" FontWeight="SemiBold" Width="29"/>
-                    <Button x:Name="BtnUpgradePersonIntellect"  HorizontalAlignment="Right" Height="28" Margin="0,4,110,4" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Width="27" Click="BtnUpgradePersonIntellect_Click" Grid.ColumnSpan="2" >
+                    <Label Content="{lex:Loc LocLabelAgility}" HorizontalAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="WhiteSmoke" FontWeight="ExtraBlack" Margin="35,257,43,112" VerticalAlignment="Center"/>
+                    <Label x:Name="Agility" Content="0"  Foreground="WhiteSmoke" FontFamily="Algerian" HorizontalAlignment="Left" Margin="125,261,-3,115" VerticalAlignment="Center" FontWeight="SemiBold" Width="38"/>
+                    <Button x:Name="BtnUpgradePersonIntellect"  HorizontalAlignment="Right" Height="28" Margin="0,293,132,79" Grid.Column="0" VerticalAlignment="Center" Width="28" Click="BtnUpgradePersonIntellect_Click" >
                         <Button.Background>
                             <ImageBrush ImageSource="/Pictures/Engineerskill_15.png"/>
                         </Button.Background>
                     </Button>
-                    <Label Content="{lex:Loc LocLabelIntelligence}" HorizontalAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="WhiteSmoke" FontWeight="ExtraBlack" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1"/>
-                    <Label x:Name="Intelligence" FontFamily="Algerian" Foreground="WhiteSmoke" Content="0" HorizontalAlignment="Left" Margin="0,4,0,3" VerticalAlignment="Center" Grid.Row="5" Grid.Column="2" FontWeight="SemiBold" Width="30"/>
-                    <Label Content="{lex:Loc LocLabelPointsUpgrade}" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="14" Foreground="WhiteSmoke" FontWeight="ExtraBlack" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Row="7" Width="105" Height="50" Grid.Column="1" />
-                    <Label x:Name="SkillPoints" Content="0" HorizontalAlignment="Left" FontSize="12" FontWeight="SemiBold" FontFamily="Algerian" VerticalAlignment="Top" Foreground="WhiteSmoke" Grid.Row="7" Grid.Column="2" Width="30"/>
-                    <Label Content="/" Grid.Column="1" HorizontalAlignment="Left" FontSize="10" FontFamily="Algerian" Foreground="WhiteSmoke" Margin="45,7,0,0" Grid.Row="3" VerticalAlignment="Top" Height="24" Width="13"/>
-                    <Label Content="/" Grid.Column="1" HorizontalAlignment="Left" FontSize="10" FontFamily="Algerian" Foreground="WhiteSmoke" Margin="45,22,0,0" Grid.Row="3" VerticalAlignment="Top" Height="24" Width="13"/>
+                    <Label Content="{lex:Loc LocLabelIntelligence}" HorizontalAlignment="Center" FontFamily="Sitka Display" FontSize="18" Foreground="WhiteSmoke" FontWeight="ExtraBlack" Margin="28,291,27,78" VerticalAlignment="Center" Width="105"/>
+                    <Label x:Name="Intelligence" FontFamily="Algerian" Foreground="WhiteSmoke" Content="0" HorizontalAlignment="Left" Margin="125,295,-2,81" VerticalAlignment="Center" FontWeight="SemiBold" Width="37"/>
+                    <Label Content="{lex:Loc LocLabelPointsUpgrade}" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="14" Foreground="WhiteSmoke" FontWeight="ExtraBlack" Margin="20,321,36,0" VerticalAlignment="Top" Width="104" Height="23" />
+                    <Label x:Name="SkillPoints" Content="0" HorizontalAlignment="Left" FontSize="12" FontWeight="SemiBold" FontFamily="Algerian" VerticalAlignment="Top" Foreground="WhiteSmoke" Width="30" Margin="125,322,0,0"/>
+                    <Label Content="/" HorizontalAlignment="Left" FontSize="10" FontFamily="Algerian" Foreground="WhiteSmoke" Margin="66,188,0,0" VerticalAlignment="Top" Height="24" Width="14"/>
+                    <Label Content="/" HorizontalAlignment="Left" FontSize="10" FontFamily="Algerian" Foreground="WhiteSmoke" Margin="66,203,0,0" VerticalAlignment="Top" Height="24" Width="14"/>
 
                 </Grid>
             </Border>
