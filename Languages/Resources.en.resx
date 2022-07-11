@@ -186,6 +186,9 @@
   <data name="LocLabelAvailable_Text" xml:space="preserve">
     <value>Available</value>
   </data>
+  <data name="LocLabelBecomeARuler_Text" xml:space="preserve">
+    <value>Become a ruler</value>
+  </data>
   <data name="LocLabelBow_Text" xml:space="preserve">
     <value>Bow</value>
   </data>
@@ -210,6 +213,9 @@
   <data name="LocLabelCountryMain_Content" xml:space="preserve">
     <value>Country</value>
   </data>
+  <data name="LocLabelCountryNameLengthValidation" xml:space="preserve">
+    <value>Country name length shoud be greater than or equal 3 characters</value>
+  </data>
   <data name="LocLabelCurrentOnline_Text" xml:space="preserve">
     <value>Current online:</value>
   </data>
@@ -227,6 +233,9 @@
   </data>
   <data name="LocLabelEmail_Content" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="LocLabelEnterStateName_Content" xml:space="preserve">
+    <value>Enter state name</value>
   </data>
   <data name="LocLabelEstablichAState_Text" xml:space="preserve">
     <value>Establish a state</value>
@@ -333,6 +342,9 @@
   <data name="LocLabelPerHour_Text" xml:space="preserve">
     <value>p/h</value>
   </data>
+  <data name="LocLabelPersonBecomeANewRuler_Text" xml:space="preserve">
+    <value>{0} will become the ruler of a new country</value>
+  </data>
   <data name="LocLabelPlayer_Content" xml:space="preserve">
     <value>Player</value>
   </data>
@@ -401,6 +413,9 @@
   </data>
   <data name="LocLabelTaxes_Content" xml:space="preserve">
     <value>Taxes</value>
+  </data>
+  <data name="LocLabelTheStateWasFounded_Text" xml:space="preserve">
+    <value>The state was founded</value>
   </data>
   <data name="LocLabelThisLandIsIndependentDescription_Text" xml:space="preserve">
     <value>{0} is an independent land. The government has not yet been formed. You can establish a state here and become the ruler of these lands.</value>

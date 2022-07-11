@@ -19,7 +19,7 @@ namespace LandConquest.DialogWIndows
         private Land land;
         private LandModel landModel;
         private CountryModel countryModel;
-        private Person person;
+        private Person selectendPerson;
         private List<Person> persons;
         private Ellipse selectedEllipse;
 
@@ -33,15 +33,25 @@ namespace LandConquest.DialogWIndows
 
         private void EstablishState_Click(object sender, RoutedEventArgs e)
         {
-            Country country = CountryModel.EstablishState(player, land, StateColor.Color);
-            LandModel.UpdateLandInfo(land, country);
-            CountryModel.UpdateCountryCapital(country, land.LandId);
+            if (countryNameTextBox.Text.Length >= 3)
+            {
+                Country country = CountryModel.EstablishState(land, selectendPerson, StateColor.Color, countryNameTextBox.Text);
+                LandModel.UpdateLandInfo(land, country);
+                this.Close();
+                WarningDialogWindow.CallWarningDialogNoResult(Languages.Resources.LocLabelTheStateWasFounded_Text);
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult(Languages.Resources.LocLabelCountryNameLengthValidation);
+                countryNameTextBox.Focus();
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             landModel = new LandModel();
             countryModel = new CountryModel();
+            countryNameTextBox.Text = land.LandName;
 
             landDescriptionTextBlock.Text = String.Format(Languages.Resources.LocLabelThisLandIsIndependentDescription_Text, land.LandName);
 
@@ -61,6 +71,8 @@ namespace LandConquest.DialogWIndows
                 selectedPersonEllipse.Fill = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Pictures/Hero.png", UriKind.Absolute)));
                 selectedPersonEllipse.Tag = persons[0].PersonId;
                 selectedPersonNameText.Text = persons[0].Name + ' ' + persons[0].Surname;
+                rulerDescriptionTextBlock.Text = String.Format(Languages.Resources.LocLabelPersonBecomeANewRuler_Text, persons[0].Name + ' ' + persons[0].Surname);
+                selectendPerson = persons[0];
 
                 populatePersonGrids();
             }
@@ -104,14 +116,15 @@ namespace LandConquest.DialogWIndows
         private void personEllipse_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Ellipse personEllipse = (Ellipse)sender;
-            Person person = persons.Find(o => o.PersonId == personEllipse.Tag.ToString());
+            selectendPerson = persons.Find(o => o.PersonId == personEllipse.Tag.ToString());
 
             selectedPersonEllipse.Fill = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Pictures/Hero.png", UriKind.Absolute)));
-            selectedPersonNameText.Text = person.Name + ' ' + person.Surname;
+            selectedPersonNameText.Text = selectendPerson.Name + ' ' + selectendPerson.Surname;
 
             selectedEllipse.Stroke = Brushes.Black;
             selectedEllipse = personEllipse;
             selectedEllipse.Stroke = Brushes.Brown;
+            rulerDescriptionTextBlock.Text = String.Format(Languages.Resources.LocLabelPersonBecomeANewRuler_Text, selectendPerson.Name + ' ' + selectendPerson.Surname);
         }
 
         private void personEllipse_MouseEnter(object sender, MouseEventArgs e)
@@ -127,6 +140,17 @@ namespace LandConquest.DialogWIndows
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void countryName_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
+        }
+
+        public static bool IsValid(string str)
+        {
+            char ch = str[str.Length - 1];
+            return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z');
         }
     }
 }
