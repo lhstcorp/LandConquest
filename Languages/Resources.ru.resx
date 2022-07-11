@@ -186,6 +186,9 @@
   <data name="LocLabelAvailable_Text" xml:space="preserve">
     <value>Доступно</value>
   </data>
+  <data name="LocLabelBecomeARuler_Text" xml:space="preserve">
+    <value>Стать правителем</value>
+  </data>
   <data name="LocLabelBow_Text" xml:space="preserve">
     <value>Лук</value>
   </data>
@@ -210,6 +213,9 @@
   <data name="LocLabelCountryMain_Content" xml:space="preserve">
     <value>Страна</value>
   </data>
+  <data name="LocLabelCountryNameLengthValidation" xml:space="preserve">
+    <value>Длина названия страны должна быть больше или равна 3 символам</value>
+  </data>
   <data name="LocLabelCurrentOnline_Text" xml:space="preserve">
     <value>Текущий онлайн:</value>
   </data>
@@ -227,6 +233,9 @@
   </data>
   <data name="LocLabelEmail_Content" xml:space="preserve">
     <value>Почта</value>
+  </data>
+  <data name="LocLabelEnterStateName_Content" xml:space="preserve">
+    <value>Введите название страны</value>
   </data>
   <data name="LocLabelEstablichAState_Text" xml:space="preserve">
     <value>Основать государство</value>
@@ -333,6 +342,9 @@
   <data name="LocLabelPerHour_Text" xml:space="preserve">
     <value>шт/ч</value>
   </data>
+  <data name="LocLabelPersonBecomeANewRuler_Text" xml:space="preserve">
+    <value>{0} станет правителем новой страны</value>
+  </data>
   <data name="LocLabelPlayer_Content" xml:space="preserve">
     <value>Игрок</value>
   </data>
@@ -401,6 +413,9 @@
   </data>
   <data name="LocLabelTaxes_Content" xml:space="preserve">
     <value>Налоги</value>
+  </data>
+  <data name="LocLabelTheStateWasFounded_Text" xml:space="preserve">
+    <value>Государство было основано</value>
   </data>
   <data name="LocLabelThisLandIsIndependentDescription_Text" xml:space="preserve">
     <value>{0} является независимыми землями. Правительство ещё не сформировано. Вы можете основать здесь своё государство и стать правителем этих земель.</value>

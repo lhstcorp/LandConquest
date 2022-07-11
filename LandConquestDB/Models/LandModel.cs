@@ -191,7 +191,7 @@ namespace LandConquestDB.Models
 
         public static void UpdateLandInfo(Land land, Country country)
         {
-            string landQuery = "UPDATE dbo.LandData SET land_color = @country_color, country_id = @country_id WHERE land_id = @land_id ";
+            string landQuery = "UPDATE dbo.LandData SET land_color = @country_color, country_id = @country_id WHERE land_id = @land_id";
 
             var landCommand = new SqlCommand(landQuery, DbContext.GetSqlConnection());
             landCommand.Parameters.AddWithValue("@country_id", country.CountryId);

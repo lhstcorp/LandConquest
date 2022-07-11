@@ -7,26 +7,27 @@ namespace LandConquestDB.Models
 {
     public class CountryModel
     {
-        public static Country EstablishState(Player player, Land land, System.Windows.Media.Color color)
+        public static Country EstablishState(Land land, Person person, System.Windows.Media.Color color, string _countryName)
         {
             Color newColor = Color.FromArgb(color.A, color.R, color.G, color.B);
             string colorHex = ColorTranslator.ToHtml(newColor);
             string coffers = "10000";
             int capitalId = land.LandId;
-            string countryQuery = "INSERT INTO dbo.CountryData (country_name,country_ruler,country_color,country_coffers, capital_id) VALUES (@country_name,@country_ruler,@country_color,@country_coffers, @capital_id)";
+            string countryQuery = "INSERT INTO dbo.CountryData (country_name, country_ruler, country_player, country_color, country_coffers, capital_id) VALUES (@country_name, @country_ruler, @country_player, @country_color, @country_coffers, @capital_id)";
             var countryCommand = new SqlCommand(countryQuery, DbContext.GetSqlConnection());
 
             Country country = new Country();
             country.CountryId = SelectLastIdOfStates();
-            country.CountryName = land.LandName + " state";
-            country.CountryRuler = player.PlayerId;
+            country.CountryName = _countryName;
+            country.CountryRuler = person.PersonId;
+            country.CountryPlayer = person.PlayerId;
             country.CountryColor = colorHex;
             country.CountryCoffers = coffers;
             country.CapitalId = capitalId;
-
            
             countryCommand.Parameters.AddWithValue("@country_name", country.CountryName);
             countryCommand.Parameters.AddWithValue("@country_ruler", country.CountryRuler);
+            countryCommand.Parameters.AddWithValue("@country_player", country.CountryPlayer);
             countryCommand.Parameters.AddWithValue("@country_color", country.CountryColor);
             countryCommand.Parameters.AddWithValue("@country_coffers", country.CountryCoffers);
             countryCommand.Parameters.AddWithValue("@capital_id", country.CapitalId);
