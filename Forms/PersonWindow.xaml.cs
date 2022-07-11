@@ -70,7 +70,7 @@ namespace LandConquest.Forms
             Intelligence.Content = _person.Intellect;
             Experience.Content = _person.Exp;
             MaxExperience.Content = Math.Pow(_person.Lvl, 2) * 500;
-            NameSurname.Text = _person.Name +" "+ _person.Surname;
+            NameSurname.Content = _person.Name +" "+ _person.Surname;
             PbPersonExp.Maximum = Math.Pow(_person.Lvl, 2) * 500;
             PbPersonExp.Value = _person.Exp;
             pbLevel.Text = _person.Lvl.ToString();
