@@ -191,5 +191,13 @@ namespace LandConquest.Forms
             int i;
             return int.TryParse(str, out i) && i >= 1 && i <= 99999;
         }
+
+        private void Space_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Space)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

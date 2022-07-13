@@ -15,7 +15,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+/// <summary>
+/// ЛИШНЕЕ ОКНО. ЕСТЬ NEW PERSON DIALOG WINDOW
+/// </summary>
 namespace LandConquest.DialogWIndows
 {
     /// <summary>

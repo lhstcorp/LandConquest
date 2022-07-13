@@ -1,6 +1,8 @@
 ﻿using LandConquest.Logic;
 using LandConquest.WindowViewModels;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace LandConquest
 {
@@ -84,6 +86,48 @@ namespace LandConquest
             //        tb.Select(c.Offset + c.AddedLength, 0);
             //    }
             //}
+        }
+        private bool IsAlphabetic(string s)
+        {
+            Regex r = new Regex(@"^[a-zA-Z]+$");
+
+            return r.IsMatch(s);
+        }
+
+        private void RegisterName_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            // Prohibit non-alphabetic
+            if (!IsAlphabetic(e.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        public int i = 0;
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            i++;
+            if (i == 1)
+            {
+                textBoxNewLogin.Text = textBoxNewLogin.Text[0].ToString().ToUpper();
+            }
+            else
+            {
+                textBoxNewLogin.SelectionStart = textBoxNewLogin.Text.Length;
+            }
+            if (textBoxNewLogin.Text.Length == 0)
+            {
+                i = 0;
+            }
+        }
+
+        private void Register_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key==System.Windows.Input.Key.Space)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

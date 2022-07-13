@@ -39,16 +39,16 @@ namespace LandConquest.DialogWIndows
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
-            AuthorisationWindow window = new AuthorisationWindow();
-            window.Show();
-            //this.Close();
+            //AuthorisationWindow window = new AuthorisationWindow();
+            //window.Show();
+            this.Close();
         }
         private void createPersonBtn_Click(object sender, RoutedEventArgs e)
         {
             newPerson.PlayerId = player.PlayerId;
             newPerson.PersonId = AuthorisationWindow.GenerateUserId();
-            newPerson.Name = personName.Text;
-            newPerson.Surname =  (string)DynastySurname.Content;
+            newPerson.Name = personName.Content.ToString();
+            newPerson.Surname = player.PlayerName;
             newPerson.Lvl = 1;
             newPerson.MaleFemale = false;
             newPerson.Agility = 1;
@@ -65,13 +65,13 @@ namespace LandConquest.DialogWIndows
         {
             Random random = new Random();
             int namePosition = random.Next(0, Names.MaleNames.Length);
-            personName.Text = Names.MaleNames[namePosition];
+            personName.Content = Names.MaleNames[namePosition];
         }
         private void generateFemaleName()
         {
             Random random = new Random();
             int namePosition = random.Next(0, Names.FemaleNames.Length);
-            personName.Text = Names.FemaleNames[namePosition];
+            personName.Content = Names.FemaleNames[namePosition];
         }
 
         private void Male_Checked(object sender, RoutedEventArgs e)
@@ -85,10 +85,10 @@ namespace LandConquest.DialogWIndows
             generateFemaleName();
         }
 
-        private void personName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //person.Name=File.ReadLines(fileName)
-        }
+        //private void personName_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    //person.Name=File.ReadLines(fileName)
+        //}
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

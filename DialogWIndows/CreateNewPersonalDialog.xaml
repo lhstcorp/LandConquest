@@ -21,7 +21,7 @@
             </Button>
 
             <Label FontFamily="Verdana" VerticalAlignment="Center" FontSize="12" HorizontalAlignment="Center" Margin="9,22,149.4,101.2" Content="Player name:"  Height="24" Width="88"/>
-            <TextBox x:Name="TextBoxPlayerName" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="23" Margin="96,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" BorderBrush="#FF391C18" />
+            <TextBox x:Name="TextBoxPlayerName" PreviewKeyDown="Space_PreviewKeyDown" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="23" Margin="96,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" BorderBrush="#FF391C18" />
 
 
             <Button x:Name="ButtonClose"  Margin="226,0,0,0" VerticalAlignment="Top" Width="20" BorderBrush="{x:Null}" Height="20" Click="ButtonClose_Click">
