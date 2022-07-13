@@ -20,7 +20,7 @@
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
 
-            <TextBox x:Name="DonateWoodTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="39,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="DonateWoodTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="39,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewKeyDown="Space_PreviewKeyDown"/>
 
 
             <Image HorizontalAlignment="Left" Height="43" Margin="39,41,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
@@ -32,8 +32,8 @@
             <Image HorizontalAlignment="Left" Height="44" Margin="144,224,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
             <Image HorizontalAlignment="Left" Height="44" Margin="39,224,0,0" VerticalAlignment="Top" Width="44" Source="/Pictures/epic_brown_square.png"/>
 
-            <Label Content="{lex:Loc LocLabelWood_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top" Height="31" Width="65"/>
-            <Label Content="{lex:Loc LocLabelStone_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,10,0,0" VerticalAlignment="Top" Height="31" Width="64"/>
+            <Label Content="{lex:Loc LocLabelWood_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top" Height="31" Width="71"/>
+            <Label Content="{lex:Loc LocLabelStone_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,10,0,0" VerticalAlignment="Top" Height="31" Width="70"/>
             <Image HorizontalAlignment="Left" Height="35" Margin="44,46,0,0" VerticalAlignment="Top" Width="32" Source="/Pictures/wood.png"/>
             <Image HorizontalAlignment="Left" Height="35" Margin="148,45,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/stones.png"/>
             <Label x:Name="labelWoodAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,80,0,0"  VerticalAlignment="Top" Width="62" Height="28"/>
@@ -48,7 +48,7 @@
                 </Button.Background>
             </Button>
 
-            <Label Content="{lex:Loc LocLabelGold_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,194,0,0" VerticalAlignment="Top" Height="30" Width="59"/>
+            <Label Content="{lex:Loc LocLabelGold_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,194,0,0" VerticalAlignment="Top" Height="30" Width="64"/>
             <Label Content="{lex:Loc LocLabelMoney_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="39,367,0,0" VerticalAlignment="Top" Height="30" Width="59"/>
 
             <Label Content="{lex:Loc LocLabelCopper_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,194,0,0" VerticalAlignment="Top" Height="36" Width="75" Background="{x:Null}"/>
@@ -58,10 +58,10 @@
             <Label x:Name="labelCopperAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="144,264,0,0" VerticalAlignment="Top" Width="75" Height="36"/>
             <Label x:Name="labelMoneyAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="109,368,0,0" VerticalAlignment="Top" Width="75" Height="36"/>
 
-            <Label Content="{lex:Loc LocLabelGems_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,194,169,0" VerticalAlignment="Top" Height="30" Width="57" Background="{x:Null}"/>
+            <Label Content="{lex:Loc LocLabelGems_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,194,147,0" VerticalAlignment="Top" Height="30" Width="79" Background="{x:Null}"/>
             <Image HorizontalAlignment="Left" Height="36" Margin="252,228,0,0" VerticalAlignment="Top" Width="42" Source="/Pictures/gems.png" RenderTransformOrigin="-1.55,0.548"/>
             <Label x:Name="labelGemsAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="249,264,0,0" VerticalAlignment="Top" Width="69" Height="36"/>
-            <Label Content="{lex:Loc LocLabelIron_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,10,64,0" VerticalAlignment="Top" Height="31" Width="57" Background="{x:Null}"/>
+            <Label Content="{lex:Loc LocLabelIron_Text}" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Right" Margin="0,10,50,0" VerticalAlignment="Top" Height="31" Width="71" Background="{x:Null}"/>
             <Image HorizontalAlignment="Left" Height="35" Margin="358,44,0,0" VerticalAlignment="Top" Width="35" Source="/Pictures/iron.png" RenderTransformOrigin="-1.55,0.548" OpacityMask="Black">
             </Image>
             <Label x:Name="labelIronAmount" Content="0" Foreground="#311818" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="354,80,0,0" VerticalAlignment="Top" Width="68" Height="28" Background="{x:Null}"/>
@@ -182,14 +182,14 @@
             </Rectangle>
 
 
-            <TextBox x:Name="DonateStoneTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="144,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
-            <TextBox x:Name="DonateFoodTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="250,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
-            <TextBox x:Name="DonateIronTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="354,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
-            <TextBox x:Name="DonateGoldTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="354,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
-            <TextBox x:Name="DonateCopperTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="250,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
-            <TextBox x:Name="DonateGemsTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="144,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
-            <TextBox x:Name="DonateLeatherTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="39,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
-            <TextBox x:Name="DonateMoneyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="39,396,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68"/>
+            <TextBox x:Name="DonateStoneTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="144,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewKeyDown="Space_PreviewKeyDown"/>
+            <TextBox x:Name="DonateFoodTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="250,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewKeyDown="Space_PreviewKeyDown"/>
+            <TextBox x:Name="DonateIronTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="354,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewKeyDown="Space_PreviewKeyDown"/>
+            <TextBox x:Name="DonateGoldTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="354,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewKeyDown="Space_PreviewKeyDown"/>
+            <TextBox x:Name="DonateCopperTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="250,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewKeyDown="Space_PreviewKeyDown"/>
+            <TextBox x:Name="DonateGemsTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="144,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewKeyDown="Space_PreviewKeyDown"/>
+            <TextBox x:Name="DonateLeatherTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="39,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewKeyDown="Space_PreviewKeyDown"/>
+            <TextBox x:Name="DonateMoneyTextBox"  PreviewTextInput="FoodToBuyTextBox_PreviewTextInput" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="39,396,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="68" PreviewKeyDown="Space_PreviewKeyDown"/>
 
 
             <Button x:Name="DonateWoodButton" HorizontalAlignment="Left" Margin="39,136,0,0" VerticalAlignment="Top" Width="68" Click="DonateAllButton_Click" BorderBrush="{x:Null}" Height="20"   >

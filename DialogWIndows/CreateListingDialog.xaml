@@ -47,7 +47,7 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
             </Button>
-            <TextBox x:Name="textBoxPrice" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="23" Margin="263,94,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="163" Background="#7F966B52" BorderBrush="#FF391D18" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" PreviewTextInput="textBoxPrice_PreviewTextInput" />
+            <TextBox x:Name="textBoxPrice" PreviewKeyDown="Space_PreviewKeyDown" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="1" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" Height="23" Margin="263,94,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="163" Background="#7F966B52" BorderBrush="#FF391D18" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" PreviewTextInput="textBoxPrice_PreviewTextInput" />
 
         </Grid>
     </Border>

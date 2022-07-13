@@ -89,6 +89,7 @@ namespace LandConquest.Forms
             Thickness powerImageMargin = new Thickness(66, 34, 0, 0);
             Thickness agilityImageMargin = new Thickness(97, 34, 0, 0);
             Thickness intelligenceImageMargin = new Thickness(128, 34, 0, 0);
+            Thickness nameMargin = new Thickness(66, 3, 0, 0);
 
             BitmapImage powerImageSource = new BitmapImage(new Uri("/Pictures/WarriorSkill_44.png", UriKind.Relative));
             BitmapImage agilityImageSource = new BitmapImage(new Uri("/Pictures/Archerskill_16.png", UriKind.Relative));
@@ -212,6 +213,19 @@ namespace LandConquest.Forms
                 intelligenceLabel.Height = 29;
                 intelligenceLabel.Content = persons[i].Intellect;
                 grid.Children.Add(intelligenceLabel);
+
+                Label nameLabel = new Label();
+                nameLabel.Foreground = Brushes.White;
+                nameLabel.FontWeight = FontWeights.SemiBold;
+                nameLabel.HorizontalContentAlignment = HorizontalAlignment.Center;
+                nameLabel.HorizontalAlignment = HorizontalAlignment.Left;
+                nameLabel.VerticalContentAlignment = VerticalAlignment.Center;
+                nameLabel.VerticalAlignment = VerticalAlignment.Top;
+                nameLabel.Margin = nameMargin;
+                nameLabel.Width = 100;
+                nameLabel.Height = 30;
+                nameLabel.Content = persons[i].Name;
+                grid.Children.Add(nameLabel);
             }
         }
 

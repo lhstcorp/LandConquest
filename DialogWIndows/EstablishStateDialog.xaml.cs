@@ -152,5 +152,12 @@ namespace LandConquest.DialogWIndows
             char ch = str[str.Length - 1];
             return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z');
         }
+        private void Space_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Space)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
