@@ -9,5 +9,6 @@
         public int ResourceType1 { get; set; }
         public int ResourceType2 { get; set; }
         public string GovernorId { get; set; }
+        public int Population { get; set; }
     }
 }
