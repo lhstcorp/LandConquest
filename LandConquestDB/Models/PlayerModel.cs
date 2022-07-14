@@ -20,6 +20,8 @@ namespace LandConquestDB.Models
             registeredUser.UserEmail = email;
             registeredUser.UserPass = pass;
 
+            Random rnd = new Random();
+            
             string playerQuery = "INSERT INTO dbo.PlayerData (player_id,player_name,player_exp,player_lvl, player_money, player_donation, player_title, player_current_region) " +
                 "VALUES (@player_id,@player_name,@player_exp,@player_lvl, @player_money, @player_donation, @player_title, @player_current_region)";
             var playerCommand = new SqlCommand(playerQuery, DbContext.GetSqlConnection());
@@ -34,8 +36,7 @@ namespace LandConquestDB.Models
             //playerCommand.Parameters.AddWithValue("@player_image", image);
             playerCommand.Parameters.AddWithValue("@player_title", 1);
 
-            playerCommand.Parameters.AddWithValue("@player_current_region", 1);
-
+            playerCommand.Parameters.AddWithValue("@player_current_region", rnd.Next(1, 12));
             int playerResult = playerCommand.ExecuteNonQuery();
             playerCommand.Dispose();
 
