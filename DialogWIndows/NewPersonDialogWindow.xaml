@@ -15,7 +15,7 @@
                 <ImageBrush ImageSource="/Pictures/background.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
 
-            <TextBox x:Name="personName" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="25" Margin="109,47,0,0"  VerticalAlignment="Top" Width="100" BorderThickness="1" Background="#311818" Foreground="#e3cd9b" BorderBrush="Goldenrod" TextChanged="personName_TextChanged" PreviewTextInput="personName_PreviewTextInput" />
+            <Label x:Name="personName" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="25" Margin="109,47,0,0"  VerticalAlignment="Top" Width="100" BorderThickness="1" Background="#311818" Foreground="WhiteSmoke" FontWeight="SemiBold" BorderBrush="Goldenrod" PreviewTextInput="personName_PreviewTextInput" />
             <Button x:Name="createPersonBtn" Content="Create" Foreground="#FFFFFF" HorizontalAlignment="Left" FontFamily="Sitka Display" FontSize="16" Height="39" Margin="81,188,0,0" VerticalAlignment="Top" Width="95" FontWeight="ExtraBlack" Click="createPersonBtn_Click" Background="#FF3D1913"/>
             <Label Content="Name" HorizontalContentAlignment="Center" FontFamily="Sitka Display" FontSize="16" Foreground="#901212" FontWeight="ExtraBlack" HorizontalAlignment="Left" Margin="38,48,0,0" VerticalAlignment="Top" Cursor="None"/>
             <Button x:Name="buttonClose" Margin="0,0,0.4,0" Height="20" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="buttonClose_Click" HorizontalAlignment="Right" Width="20" RenderTransformOrigin="14.782,0.448" VerticalAlignment="Top">

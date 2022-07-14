@@ -150,5 +150,13 @@ namespace LandConquest.Forms
         {
             Cursor = Cursors.Arrow;
         }
+
+        private void Space_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Space)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
