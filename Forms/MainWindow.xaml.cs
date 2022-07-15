@@ -148,7 +148,7 @@ namespace LandConquest.Forms
             }
 
             lands = LandModel.GetLandsInfo(lands);
-            countries = CountryModel.GetCountriesInfo(countries);
+            countries = CountryModel.GetCountriesInfo();
             
 
             LoadWarsOnMap();
