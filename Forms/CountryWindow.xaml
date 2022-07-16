@@ -10,34 +10,30 @@
         lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
         lex:ResxLocalizationProvider.DefaultDictionary="Resources" 
         mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize"
-        Title="CountryWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="CountryWindow" Height="550" Width="900" Loaded="Window_Loaded">
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
         <Grid x:Name="MainGrid">
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
-            <Label x:Name="CountryNameLbl" FontSize="24"  Content="12345" HorizontalAlignment="Left" Margin="52,6,0,0" VerticalAlignment="Top" Width="294" Height="52" FontFamily="Trebuchet MS"/>
-            <Label x:Name="RulerNameLbl" FontSize="24"  Content="RulerName" HorizontalAlignment="Left" Margin="109,57,0,0" VerticalAlignment="Top" Width="233" Height="52" FontFamily="Trebuchet MS"/>
-            <Label x:Name="CapitalNameLbl" FontSize="24"  Content="CapitalName" HorizontalAlignment="Left" Margin="110,104,0,0" VerticalAlignment="Top" Width="233" Height="52" FontFamily="Trebuchet MS"/>
 
-            <Image x:Name="RulerImg" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="37" Source="/LandConquest;component/Pictures/profileDefault.png"/>
-            <Label FontSize="18"  Content="Leader:" HorizontalAlignment="Left" Margin="40,63,0,0" VerticalAlignment="Top" Width="76" Height="37" FontFamily="Trebuchet MS"/>
-            <Label FontSize="18"  Content="Capital:" HorizontalAlignment="Left" Margin="40,109,0,0" VerticalAlignment="Top" Width="76" Height="37" FontFamily="Trebuchet MS"/>
+            <Label x:Name="CapitalNameLbl" FontSize="24"  Content="CapitalName" HorizontalAlignment="Left" Margin="339,389,0,0" VerticalAlignment="Top" Width="233" Height="52" FontFamily="Trebuchet MS"/>
+            <Label FontSize="18"  Content="Capital:" HorizontalAlignment="Left" Margin="269,394,0,0" VerticalAlignment="Top" Width="76" Height="37" FontFamily="Trebuchet MS"/>
 
-            <ComboBox x:Name="CbAct" HorizontalAlignment="Left" Height="50" Margin="494,110,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbAct_SelectionChanged">
+            <ComboBox x:Name="CbAct" HorizontalAlignment="Left" Height="50" Margin="594,201,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbAct_SelectionChanged">
                 <ComboBoxItem Content="Land transfer" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F"/>
                 <ComboBoxItem Content="Declare a war" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F"/>
             </ComboBox>
-            <ComboBox x:Name="CbLandToTransfer" HorizontalAlignment="Left" Height="50" Margin="494,165,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbLandToTransfer_SelectionChanged"/>
-            <ComboBox x:Name="CbCountryToTransfer" HorizontalAlignment="Left" Height="50" Margin="494,220,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCountryToTransfer_SelectionChanged"/>
-            <ComboBox x:Name="CbCapitalToTransfer" ItemsSource ="{Binding potentialCapitalsNamesListing}"  HorizontalAlignment="Left" Height="50" Margin="61,145,0,0" VerticalAlignment="Top" Width="192" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCapitalToTransfer_SelectionChanged"/>
+            <ComboBox x:Name="CbLandToTransfer" HorizontalAlignment="Left" Height="50" Margin="594,256,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbLandToTransfer_SelectionChanged"/>
+            <ComboBox x:Name="CbCountryToTransfer" HorizontalAlignment="Left" Height="50" Margin="594,311,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCountryToTransfer_SelectionChanged"/>
+            <ComboBox x:Name="CbCapitalToTransfer" ItemsSource ="{Binding potentialCapitalsNamesListing}"  HorizontalAlignment="Left" Height="50" Margin="594,416,0,0" VerticalAlignment="Top" Width="192" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCapitalToTransfer_SelectionChanged"/>
 
-            <Button x:Name="IssueALaw" Content="Ok" HorizontalAlignment="Left" Height="44" Margin="719,399,0,0" VerticalAlignment="Top" Width="74" Click="IssueALaw_Click" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua">
+            <Button x:Name="IssueALaw" Content="Ok" HorizontalAlignment="Left" Height="44" Margin="819,490,0,0" VerticalAlignment="Top" Width="74" Click="IssueALaw_Click" BorderBrush="{x:Null}" Foreground="#FFDFC58E" FontFamily="Book Antiqua">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_button_brown.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="buttonChangeCapital" Content="{lex:Loc LocButtonChange_Content}" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="264,154,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="#e3cd9b" Height="32" Click="buttonChangeCapital_Click">
+            <Button x:Name="buttonChangeCapital" Content="{lex:Loc LocButtonChange_Content}" FontFamily="Arial" FontWeight="SemiBold" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="686,471,0,0" VerticalAlignment="Top" Width="100" BorderBrush="{x:Null}" Foreground="#e3cd9b" Height="32" Click="buttonChangeCapital_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                 </Button.Background>
@@ -48,6 +44,131 @@
                 </Button.Background>
             </Button>
             <ComboBox x:Name="CbCountryWarLand" Visibility="Hidden" HorizontalAlignment="Left" Height="50" Margin="494,275,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Background="#FFDFDD95" Foreground="DarkRed" BorderBrush="#89932F1F" BorderThickness="2" SelectionChanged="CbCountryWarLand_SelectionChanged"/>
+
+            <Border Margin="10,10,0,0" BorderThickness="2" BorderBrush="Black" Width="253" Height="524" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid HorizontalAlignment="Left"  VerticalAlignment="Top" Height="521" Margin="0.4,0.4,-0.8,0" >
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFBAA668" Offset="0"/>
+                            <GradientStop Color="#FFEEC789" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <Image Source="/Pictures/Common/defaultBannerWithShadow.png" HorizontalAlignment="Left" Height="73" Margin="-2,-2,0,0" VerticalAlignment="Top" Width="241" Stretch="UniformToFill"/>
+                    <Image Source="/Pictures/Country/defaultCoatOfArms.png" HorizontalAlignment="Left" Height="235" Margin="23,41,0,0" VerticalAlignment="Top" Width="192" Stretch="UniformToFill"/>
+                    <Viewbox Margin="60,11,62.6,0" Height="31" VerticalAlignment="Top" StretchDirection="Both">
+                        <Label x:Name="CountryNameLbl" FontSize="16" Content="Knastva Litouskaye" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center"  VerticalAlignment="Top" Foreground="#FFDFDD95" FontFamily="Papyrus"/>
+                    </Viewbox>
+
+                    <Border BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="10,366,0,0">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#442e21" Offset="0"/>
+                                <GradientStop Color="#9b7960" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden"  Height="65" VerticalAlignment="Top" HorizontalAlignment="Left" Width="230">
+                            <UniformGrid x:Name="personGrid" HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="210" Rows="1">
+                                <UniformGrid.Resources>
+                                    <Style TargetType="{x:Type Panel}">
+                                        <Setter Property="Margin" Value="0,0,0,0" />
+                                    </Style>
+                                </UniformGrid.Resources>
+                            </UniformGrid>
+                        </ScrollViewer>
+                    </Border>
+
+                    <Image Source="/Pictures/Common/exp.png" HorizontalAlignment="Left" Height="14" Margin="0,352,0,0" VerticalAlignment="Top" Width="20" Stretch="UniformToFill"/>
+
+
+                    <Ellipse HorizontalAlignment="Left" Height="60"  Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="60" Margin="11,290,0,0">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Pictures/Hero.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <Image Source="/Pictures/Common/crown.png" HorizontalAlignment="Left" Height="39" Margin="21,316,0,0" VerticalAlignment="Top" Width="38" Stretch="UniformToFill"/>
+                    <Rectangle HorizontalAlignment="Left" Height="1" Margin="31,282,0,0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="182" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+
+                    <Rectangle HorizontalAlignment="Left" Height="1" Margin="43,349,0,0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="169" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+
+                    </Rectangle>
+
+                    <Viewbox Margin="43,321,34.6,168" Height="32">
+                        <Label x:Name="RulerNameLbl" FontSize="24" VerticalContentAlignment="Bottom"  Content="RulerName" HorizontalAlignment="Left"  VerticalAlignment="Top" FontFamily="Papyrus"/>
+                    </Viewbox>
+
+                    <Label Content="{lex:Loc LocLabelBOYARS_Content}" HorizontalAlignment="Left" Height="19" Margin="13,350,0,0" VerticalAlignment="Top" Width="70" FontFamily="Papyrus" FontSize="8" FontWeight="Bold"/>
+
+                </Grid>
+            </Border>
+
+            <Border Margin="525,10,20.6,0" Height="106" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="2">
+                <Grid HorizontalAlignment="Left" Width="345">
+                    <Button x:Name="renameStateBtn" Width="80" Height="80" Margin="5,3,0,0" BorderBrush="Black" HorizontalAlignment="Left">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Pictures/Country/CountryMenu/renameCountry.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="transferLandBtn" Width="80" Height="80" Margin="90,3,0,0" BorderBrush="Black" HorizontalAlignment="Left">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/LandConquest;component/Pictures/Country/CountryMenu/transferLand.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="makePactBtn" Width="80" Height="80" Margin="175,3,0,0" BorderBrush="Black" HorizontalAlignment="Left">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/LandConquest;component/Pictures/Country/CountryMenu/makePact.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="declareWarBtn" Width="80" Height="80" Margin="260,3,0,0" BorderBrush="Black" HorizontalAlignment="Left">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/LandConquest;component/Pictures/Country/CountryMenu/declareWar.png"/>
+                        </Button.Background>
+                    </Button>
+
+                    <Viewbox Margin="5,76,260,0" Height="32" Stretch="Fill" VerticalAlignment="Top">
+                        <Label FontSize="8" VerticalContentAlignment="Bottom"  Content="{lex:Loc LocLabelRENAME_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Agency FB"/>
+                    </Viewbox>
+
+                    <Viewbox Margin="90,76,175,0" Height="32" Stretch="Fill" VerticalAlignment="Top">
+                        <Label FontSize="8" VerticalContentAlignment="Bottom"  Content="{lex:Loc LocLabelTRANSFERLAND_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Agency FB"/>
+                    </Viewbox>
+
+                    <Viewbox Margin="175,76,90,0" Height="32" Stretch="Fill" VerticalAlignment="Top">
+                        <Label FontSize="8" VerticalContentAlignment="Bottom"  Content="{lex:Loc LocLabelMAKEAPACT_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Agency FB"/>
+                    </Viewbox>
+
+                    <Viewbox Margin="260,76,5,0" Height="32" Stretch="Fill" VerticalAlignment="Top">
+                        <Label FontSize="8" VerticalContentAlignment="Bottom"  Content="{lex:Loc LocLabelDECLAREWAR_Content}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Agency FB"/>
+                    </Viewbox>
+
+
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFBAA668" Offset="0"/>
+                            <GradientStop Color="#FFA98C5C" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                </Grid>
+            </Border>
+
         </Grid>
     </Border>
 </Window>
