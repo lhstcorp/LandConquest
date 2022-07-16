@@ -286,6 +286,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelBOYARS_Content.
+        /// </summary>
+        public static string LocLabelBOYARS_Content {
+            get {
+                return ResourceManager.GetString("LocLabelBOYARS_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelBuy_Content.
         /// </summary>
         public static string LocLabelBuy_Content {
@@ -390,6 +399,15 @@ namespace LandConquest.Languages {
         public static string LocLabelDate_Content {
             get {
                 return ResourceManager.GetString("LocLabelDate_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelDECLAREWAR_Content.
+        /// </summary>
+        public static string LocLabelDECLAREWAR_Content {
+            get {
+                return ResourceManager.GetString("LocLabelDECLAREWAR_Content", resourceCulture);
             }
         }
         
@@ -655,6 +673,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelMAKEAPACT_Content.
+        /// </summary>
+        public static string LocLabelMAKEAPACT_Content {
+            get {
+                return ResourceManager.GetString("LocLabelMAKEAPACT_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelMarketMain_Content.
         /// </summary>
         public static string LocLabelMarketMain_Content {
@@ -853,6 +880,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelRENAME_Content.
+        /// </summary>
+        public static string LocLabelRENAME_Content {
+            get {
+                return ResourceManager.GetString("LocLabelRENAME_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelSawmill_Text.
         /// </summary>
         public static string LocLabelSawmill_Text {
@@ -984,6 +1020,15 @@ namespace LandConquest.Languages {
         public static string LocLabelTotal_Text {
             get {
                 return ResourceManager.GetString("LocLabelTotal_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelTRANSFERLAND_Content.
+        /// </summary>
+        public static string LocLabelTRANSFERLAND_Content {
+            get {
+                return ResourceManager.GetString("LocLabelTRANSFERLAND_Content", resourceCulture);
             }
         }
         

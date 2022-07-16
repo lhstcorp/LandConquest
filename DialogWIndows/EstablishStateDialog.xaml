@@ -46,7 +46,6 @@
                     </Style>
                 </UniformGrid.Resources>
             </UniformGrid>
-
         </ScrollViewer>
 
         <Label Content="{lex:Loc LocLabelChooseStateRuler_Text}" FontSize="16" FontWeight="Bold" Margin="0,181,592.4,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="210" HorizontalContentAlignment="Center"/>
