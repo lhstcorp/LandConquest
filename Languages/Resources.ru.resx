@@ -192,6 +192,9 @@
   <data name="LocLabelBow_Text" xml:space="preserve">
     <value>Лук</value>
   </data>
+  <data name="LocLabelBOYARS_Content" xml:space="preserve">
+    <value>БОЯРЕ</value>
+  </data>
   <data name="LocLabelBuy_Content" xml:space="preserve">
     <value>Купить</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="LocLabelDate_Content" xml:space="preserve">
     <value>Время</value>
+  </data>
+  <data name="LocLabelDECLAREWAR_Content" xml:space="preserve">
+    <value>ОБЪЯВИТЬ ВОЙНУ</value>
   </data>
   <data name="LocLabelDinastyMain_Content" xml:space="preserve">
     <value>Династия</value>
@@ -315,6 +321,9 @@
   <data name="LocLabelLogin_Content" xml:space="preserve">
     <value>Логин</value>
   </data>
+  <data name="LocLabelMAKEAPACT_Content" xml:space="preserve">
+    <value>ЗАКЛЮЧИТЬ ПАКТ</value>
+  </data>
   <data name="LocLabelMarketMain_Content" xml:space="preserve">
     <value>Рынок</value>
   </data>
@@ -381,6 +390,9 @@
   <data name="LocLabelRegistration_Content" xml:space="preserve">
     <value>Регистрация</value>
   </data>
+  <data name="LocLabelRENAME_Content" xml:space="preserve">
+    <value>ПЕРЕИМЕНОВАТЬ</value>
+  </data>
   <data name="LocLabelSawmill_Text" xml:space="preserve">
     <value>Лесопилка</value>
   </data>
@@ -425,6 +437,9 @@
   </data>
   <data name="LocLabelTotal_Text" xml:space="preserve">
     <value>Всего</value>
+  </data>
+  <data name="LocLabelTRANSFERLAND_Content" xml:space="preserve">
+    <value>ПЕРЕДАТЬ ЗЕМЛЮ</value>
   </data>
   <data name="LocLabelUpgrade_Text" xml:space="preserve">
     <value>Улучшить</value>

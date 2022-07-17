@@ -290,62 +290,9 @@ namespace LandConquestDB.Models
             stoneCommand.Dispose();
         }
 
-        public static List<Land> GetCountryLands(Country country)
+        public static List<Land> GetCountryLands(int _countryid)
         {
-            string query = "SELECT * FROM dbo.LandData WHERE country_id = @country_id";
-            List<int> landsLandId = new List<int>();
-            List<string> landsLandName = new List<string>();
-            List<string> landsLandColor = new List<string>();
-            List<int> landsCountryId = new List<int>();
-            List<int> landsResourceType1 = new List<int>();
-            List<int> landsResourceType2 = new List<int>();
-
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@country_id", country.CountryId);
-
-            using (var reader = command.ExecuteReader())
-            {
-                var landId = reader.GetOrdinal("land_id");
-                var landName = reader.GetOrdinal("land_name");
-                var landColor = reader.GetOrdinal("land_color");
-                var landCountryId = reader.GetOrdinal("country_id");
-                var landResourceType1 = reader.GetOrdinal("resource_type_1");
-                var landResourceType2 = reader.GetOrdinal("resource_type_2");
-
-                while (reader.Read())
-                {
-                    landsLandId.Add(reader.GetInt32(landId));
-                    landsLandName.Add(reader.GetString(landName));
-                    landsLandColor.Add(reader.GetString(landColor));
-                    landsCountryId.Add(reader.GetInt32(landCountryId));
-                    landsResourceType1.Add(reader.GetInt32(landResourceType1));
-                    landsResourceType2.Add(reader.GetInt32(landResourceType2));
-                }
-                reader.Close();
-            }
-            command.Dispose();
-
-            List<Land> lands = new List<Land>();
-
-            for (int i = 0; i < landsLandId.Count; i++)
-            {
-                lands.Add(new Land());
-                lands[i].LandId = landsLandId[i];
-                lands[i].LandName = landsLandName[i];
-                lands[i].LandColor = landsLandColor[i];
-                lands[i].CountryId = landsCountryId[i];
-                lands[i].ResourceType1 = landsResourceType1[i];
-                lands[i].ResourceType2 = landsResourceType2[i];
-            }
-
-            landsLandId = null;
-            landsLandName = null;
-            landsLandColor = null;
-            landsCountryId = null;
-            landsResourceType1 = null;
-            landsResourceType2 = null;
-
-            return lands;
+            return DbContext.GetSqlConnection().Query<Land>("SELECT * FROM dbo.LandData WHERE country_id = @country_id ORDER BY land_name ASC", new { country_id = _countryid }).ToList();
         }
 
 

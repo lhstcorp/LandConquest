@@ -50,24 +50,19 @@ namespace LandConquest.Forms
 
             Country country = CountryModel.GetCountryById(CountryModel.GetCountryIdByLandId(player.PlayerCurrentRegion));
             
-            ruler = new Player();
-            User rulerUser = new User();
-            rulerUser.UserId = country.CountryRuler;
-            ruler = PlayerModel.GetPlayerById(rulerUser.UserId);
-            RulerNameLbl.Content = ruler.PlayerName;
-            CountryNameLbl.Content = country.CountryName;
-            CapitalNameLbl.Content = country.CapitalId;
+            //ruler = new Player();
+            //User rulerUser = new User();
+            //rulerUser.UserId = country.CountryRuler;
+            //ruler = PlayerModel.GetPlayerById(rulerUser.UserId);
+            //RulerNameLbl.Content = ruler.PlayerName;
+            //CountryNameLbl.Content = country.CountryName;
+            //CapitalNameLbl.Content = country.CapitalId;
 
-            countryLands = LandModel.GetCountryLands(country);
+            countryLands = LandModel.GetCountryLands(country.CountryId);
 
             int count = CountryModel.SelectLastIdOfStates();
 
-            countries = new List<Country>();
-            for (int i = 0; i < count; i++)
-            {
-                countries.Add(new Country());
-            }
-            countries = CountryModel.GetCountriesInfo(countries);
+            countries = CountryModel.GetCountriesInfo();
 
             ////////////////////
             potentialCapitalsNamesListing = new List<string>();
@@ -127,7 +122,7 @@ namespace LandConquest.Forms
 
                             LandModel.UpdateLandInfo(selectedLand, transferCountry);
 
-                            countryLands = LandModel.GetCountryLands(ThisCountry);
+                            countryLands = LandModel.GetCountryLands(ThisCountry.CountryId);
                             if (countryLands.Count == 0)
                             {
                                 CountryModel.DisbandCountry(ThisCountry);
@@ -193,7 +188,7 @@ namespace LandConquest.Forms
             {
                 CbCountryWarLand.Items.Clear();
 
-                countryLandsToFight = LandModel.GetCountryLands(transferCountry);
+                countryLandsToFight = LandModel.GetCountryLands(transferCountry.CountryId);
 
                 for (int i = 0; i < countryLandsToFight.Count; i++)
                 {

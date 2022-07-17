@@ -198,6 +198,9 @@
     <Compile Include="DialogWIndows\PlayerProfileDialog.xaml.cs">
       <DependentUpon>PlayerProfileDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\RenameStateDialogWindow.xaml.cs">
+      <DependentUpon>RenameStateDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\WarWindow.xaml.cs">
       <DependentUpon>WarWindow.xaml</DependentUpon>
     </Compile>
@@ -339,6 +342,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\PlayerProfileDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\RenameStateDialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -864,6 +871,16 @@
     <Resource Include="Pictures\Hero.png" />
     <Resource Include="Pictures\chest_t_04.png" />
     <Resource Include="Pictures\Country\Print.png" />
+    <Resource Include="Pictures\Country\region.png" />
+    <Resource Include="Pictures\Country\defaultCoatOfArms.png" />
+    <Resource Include="Pictures\Common\defaultBanner.png" />
+    <Resource Include="Pictures\Common\defaultBannerWithShadow.png" />
+    <Resource Include="Pictures\Country\crown.png" />
+    <Resource Include="Pictures\Country\CountryMenu\declareWar.png" />
+    <Resource Include="Pictures\Country\CountryMenu\makePact.PNG" />
+    <Resource Include="Pictures\Country\CountryMenu\renameCountry.png" />
+    <Resource Include="Pictures\Country\CountryMenu\transferLand.png" />
+    <Resource Include="Pictures\Common\dialogScroll.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
