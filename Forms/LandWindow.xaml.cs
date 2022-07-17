@@ -133,5 +133,13 @@ namespace LandConquest.Forms
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();
         }
+
+        private void upgrageHouses_Click(object sender, RoutedEventArgs e)
+        {
+            //BuildingsUpdateDialog openedWindow = new BuildingsUpdateDialog(land);
+            //openedWindow.Owner = Application.Current.MainWindow;
+            //openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            //openedWindow.Show();
+        }
     }
 }
