@@ -27,6 +27,13 @@
             <Label Content="harris" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="100,77,0,0" VerticalAlignment="Top"/>
             <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Height="25" Margin="141,55,0,0" Stroke="#311818" StrokeThickness="2" VerticalAlignment="Top" Width="44"/>
 
+            <Border Margin="22,150,0,0" HorizontalAlignment="Left" Background="#F7CAA6" BorderBrush="#311818" BorderThickness="2" Width="79" Height="79" VerticalAlignment="Top" >
+                <Image HorizontalAlignment="Center" Height="79" VerticalAlignment="Center" Width="75" Source="/Pictures/building.png" Margin="0,-9,0,5"/>
+            </Border>
+            <Border Margin="140,150,0,0"  HorizontalAlignment="Left" Background="#F7CAA6" BorderBrush="#311818" BorderThickness="2" Width="45" Height="25" VerticalAlignment="Top" />
+            <Border Margin="99,150,0,0"  HorizontalAlignment="Left" Background="#F7CAA6" BorderBrush="#311818" BorderThickness="2" Width="43" Height="25" VerticalAlignment="Top" />
+
+
             <Rectangle Fill="#F7CAA6" HorizontalAlignment="Left" Height="25" Margin="141,77,0,0" Stroke="#311818" StrokeThickness="2" VerticalAlignment="Top" Width="44"/>
             <Label x:Name="castleLvlLBL" Content="0" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="141,56,0,0" VerticalAlignment="Top" Width="34"/>
             <Label x:Name="harrisonCountLBL" Content="0" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="141,77,0,0" VerticalAlignment="Top" Width="28"/>
@@ -124,6 +131,15 @@
 
 
             </Border>
+            <Border Margin="140,173,0,0"  HorizontalAlignment="Left" Background="#F7CAA6" BorderBrush="#311818" BorderThickness="2" Width="45" Height="25" VerticalAlignment="Top" />
+            <Border Margin="99,173,0,0"  HorizontalAlignment="Left" Background="#F7CAA6" BorderBrush="#311818" BorderThickness="2" Width="43" Height="25" VerticalAlignment="Top" />
+            <Button x:Name="upgrageHouses" Foreground="#FFDFC58E" Content="Level Up" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Height="36" Margin="100,196,0,0" VerticalAlignment="Top" Width="85" Click="upgrageHouses_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
+                </Button.Background>
+            </Button>
+            <Label Content="lvl" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="101,152,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="housesLVL" Content="0" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="142,151,0,0" VerticalAlignment="Top" Width="41"/>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>

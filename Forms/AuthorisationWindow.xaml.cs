@@ -107,19 +107,14 @@ namespace LandConquest
         public int i = 0;
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            i++;
-            if (i == 1)
+            
+           
+            if (textBoxNewLogin.Text.Length == 1)
             {
-                textBoxNewLogin.Text = textBoxNewLogin.Text[0].ToString().ToUpper();
+                textBoxNewLogin.Text = textBoxNewLogin.Text.ToUpper();
+                //textBoxNewLogin.Select(textBoxNewLogin.Text.Length, 0);
             }
-            else
-            {
-                textBoxNewLogin.SelectionStart = textBoxNewLogin.Text.Length;
-            }
-            if (textBoxNewLogin.Text.Length == 0)
-            {
-                i = 0;
-            }
+
         }
 
         private void Register_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
