@@ -889,6 +889,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelRenameStateDialogWindow_Text.
+        /// </summary>
+        public static string LocLabelRenameStateDialogWindow_Text {
+            get {
+                return ResourceManager.GetString("LocLabelRenameStateDialogWindow_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelSawmill_Text.
         /// </summary>
         public static string LocLabelSawmill_Text {

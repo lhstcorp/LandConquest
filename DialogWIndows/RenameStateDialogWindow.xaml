@@ -4,12 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.DialogWIndows"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="ru"
+        lex:LocalizeDictionary.IncludeInvariantCulture="False"
+        lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources"
         mc:Ignorable="d"
-        Title="RenameStateDialogWindow" Height="450" Width="300">
-    <Window.Background>
-        <ImageBrush ImageSource="dialogScroll.png"/>
-    </Window.Background>
+        Title="RenameStateDialogWindow" Height="450" Width="300" AllowsTransparency="True" Background="Transparent" WindowStyle="None"
+        WindowStartupLocation="CenterOwner">
     <Grid>
+        <Button x:Name="buttonClose" Height="20" VerticalAlignment="Top" Width="20"  BorderBrush="{x:Null}" Foreground="#FFDFC58E" Click="buttonClose_Click" Margin="0,59,19.6,0">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+            </Button.Background>
+        </Button>
+
+        <Border HorizontalAlignment="Left" Margin="51,98,0,0" VerticalAlignment="Top" Width="193" BorderThickness="0.5" BorderBrush="Black" CornerRadius="10">
+            <Grid>
+                <TextBlock TextWrapping="Wrap" FontSize="16" FontFamily="Papyrus" Text="{lex:Loc LocLabelRenameStateDialogWindow_Text}" Margin="9.2, 10, 10, 10"/>
+
+                <TextBox x:Name="newCountryNameTB" Height="50" Margin="10,112,10.2,12.4" BorderThickness="1" MaxLength="22" FontFamily="Papyrus" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                </TextBox>
+            </Grid>
+        </Border>
+
+        <Viewbox Margin="48,51,50,0" VerticalAlignment="Top">
+            <Label Content="{lex:Loc LocLabelRENAME_Content}" FontFamily="Papyrus" FontWeight="Bold" Foreground="DarkRed"/>
+        </Viewbox>
         
+        <Button Content="{lex:Loc LocLabelRENAME_Content}" HorizontalAlignment="Left" Height="54" Margin="51,291,0,0" VerticalAlignment="Top" Width="193"/>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/Common/dialogScroll.png"/>
+        </Grid.Background>
     </Grid>
 </Window>

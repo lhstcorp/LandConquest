@@ -390,6 +390,9 @@
   <data name="LocLabelRegistration_Content" xml:space="preserve">
     <value>LocLabelRegistration_Content</value>
   </data>
+  <data name="LocLabelRenameStateDialogWindow_Text" xml:space="preserve">
+    <value>LocLabelRenameStateDialogWindow_Text</value>
+  </data>
   <data name="LocLabelRENAME_Content" xml:space="preserve">
     <value>LocLabelRENAME_Content</value>
   </data>
