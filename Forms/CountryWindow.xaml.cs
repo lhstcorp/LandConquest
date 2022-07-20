@@ -8,7 +8,8 @@ using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-
+using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace LandConquest.Forms
 {
@@ -218,6 +219,51 @@ namespace LandConquest.Forms
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void renameStateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            RenameStateDialogWindow renameStateDialogWindow = new RenameStateDialogWindow();
+
+            renameStateDialogWindow.Show();
+            renameStateDialogWindow.Owner = this;
+            renameStateDialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+        }
+
+        private void approveLawImgBtn_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Image img = (Image)sender;
+
+            img.Source = new BitmapImage(new Uri("/Pictures/Country/greenLightArrow.png", UriKind.Relative));
+
+            Cursor = Cursors.Hand;
+        }
+
+        private void approveLawImgBtn_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Image img = (Image)sender;
+
+            img.Source = new BitmapImage(new Uri("/Pictures/Country/greenDarkArrow.png", UriKind.Relative));
+
+            Cursor = Cursors.Arrow;
+        }
+
+        private void declineLawImgBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Image img = (Image)sender;
+
+            img.Source = new BitmapImage(new Uri("/Pictures/Country/redLightCross.png", UriKind.Relative));
+
+            Cursor = Cursors.Hand;
+        }
+
+        private void declineLawImgBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Image img = (Image)sender;
+
+            img.Source = new BitmapImage(new Uri("/Pictures/Country/redDarkCross.png", UriKind.Relative));
+
+            Cursor = Cursors.Arrow;
         }
     }
 }
