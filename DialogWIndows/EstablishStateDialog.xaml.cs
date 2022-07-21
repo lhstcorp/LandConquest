@@ -23,6 +23,8 @@ namespace LandConquest.DialogWIndows
         private List<Person> persons;
         private Ellipse selectedEllipse;
 
+        public static string testText;
+
         public EstablishStateDialog(Player _player, Land _land)
         {
             InitializeComponent();
@@ -145,19 +147,32 @@ namespace LandConquest.DialogWIndows
         private void countryName_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
+
+            testLabel.Content = testText;
         }
 
         public static bool IsValid(string str)
         {
             char ch = str[str.Length - 1];
-            return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z');
-        }
-        private void Space_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == System.Windows.Input.Key.Space)
+
+            char ch1 = '+';
+
+            if (str.Length >= 2)
             {
-                e.Handled = true;
+                ch1 = str[str.Length - 2];
             }
+
+            testText = "ch =" + ch + " ch1 =" + ch1;
+
+            return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ((ch == ' ') && (ch1 != ' '));
         }
+
+        //private void Space_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        //{
+        //    if (e.Key == System.Windows.Input.Key.Space) 
+        //    {
+        //        e.Handled = true;
+        //    }
+        //}
     }
 }

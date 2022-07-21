@@ -223,7 +223,7 @@ namespace LandConquest.Forms
 
         private void renameStateBtn_Click(object sender, RoutedEventArgs e)
         {
-            RenameStateDialogWindow renameStateDialogWindow = new RenameStateDialogWindow();
+            RenameStateDialogWindow renameStateDialogWindow = new RenameStateDialogWindow(currentCountry);
 
             renameStateDialogWindow.Show();
             renameStateDialogWindow.Owner = this;
