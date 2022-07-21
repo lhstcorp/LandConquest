@@ -40,22 +40,35 @@ namespace LandConquest.DialogWIndows
             this.Close();
         }
 
-        private void countryName_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        private void newCountryNameTB_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
+            bool retH = !(IsValid(((TextBox)sender).Text + e.Text));
+
+            editUserInput();
+
+            e.Handled = retH;
+        }
+
+        private void editUserInput()
+        {
+            for (int i = 0; i < newCountryNameTB.Text.Length; i++)
+            {
+                newCountryNameTB.Text = newCountryNameTB.Text.Replace("  ", " ");
+            }
+
+            if (newCountryNameTB.Text[newCountryNameTB.Text.Length - 1] == ' ')
+            {
+                newCountryNameTB.Text.Remove(newCountryNameTB.Text.Length - 1, 1);
+            }
+
+            newCountryNameTB.Select(newCountryNameTB.Text.Length, 0);
         }
 
         public static bool IsValid(string str)
         {
             char ch = str[str.Length - 1];
+
             return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z');
-        }
-        private void Space_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == System.Windows.Input.Key.Space)
-            {
-                e.Handled = true;
-            }
         }
     }
 }

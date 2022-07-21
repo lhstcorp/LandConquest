@@ -35,6 +35,8 @@ namespace LandConquest.DialogWIndows
 
         private void EstablishState_Click(object sender, RoutedEventArgs e)
         {
+            editUserInput();
+
             if (countryNameTextBox.Text.Length >= 3)
             {
                 Country country = CountryModel.EstablishState(land, selectendPerson, StateColor.Color, countryNameTextBox.Text);
@@ -146,33 +148,33 @@ namespace LandConquest.DialogWIndows
 
         private void countryName_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
+            bool retH = !(IsValid(((TextBox)sender).Text + e.Text));
 
-            testLabel.Content = testText;
+            editUserInput();
+
+            e.Handled = retH;
+        }
+
+        private void editUserInput()
+        {
+            for (int i = 0; i < countryNameTextBox.Text.Length; i++)
+            {
+                countryNameTextBox.Text = countryNameTextBox.Text.Replace("  ", " ");
+            }
+
+            if (countryNameTextBox.Text[countryNameTextBox.Text.Length - 1] == ' ')
+            {
+                countryNameTextBox.Text.Remove(countryNameTextBox.Text.Length - 1, 1);
+            }
+
+            countryNameTextBox.Select(countryNameTextBox.Text.Length, 0);
         }
 
         public static bool IsValid(string str)
         {
             char ch = str[str.Length - 1];
 
-            char ch1 = '+';
-
-            if (str.Length >= 2)
-            {
-                ch1 = str[str.Length - 2];
-            }
-
-            testText = "ch =" + ch + " ch1 =" + ch1;
-
-            return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ((ch == ' ') && (ch1 != ' '));
+            return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z');
         }
-
-        //private void Space_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        //{
-        //    if (e.Key == System.Windows.Input.Key.Space) 
-        //    {
-        //        e.Handled = true;
-        //    }
-        //}
     }
 }
