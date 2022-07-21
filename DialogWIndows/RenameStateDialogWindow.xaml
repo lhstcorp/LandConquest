@@ -23,7 +23,7 @@
             <Grid>
                 <TextBlock x:Name="descriptionTB" TextWrapping="Wrap" FontSize="16" FontFamily="Papyrus" Text="{lex:Loc LocLabelRenameStateDialogWindow_Text}" Margin="9.2, 10, 10, 10"/>
 
-                <TextBox x:Name="newCountryNameTB" Height="50" Margin="10,112,10.2,12.4" BorderThickness="1" MaxLength="22" FontFamily="Papyrus" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewKeyDown="Space_PreviewKeyDown" PreviewTextInput="countryName_PreviewTextInput">
+                <TextBox x:Name="newCountryNameTB" Height="50" Margin="10,112,10.2,12.4" BorderThickness="1" MaxLength="22" FontFamily="Papyrus" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="newCountryNameTB_PreviewTextInput">
                 </TextBox>
             </Grid>
         </Border>
