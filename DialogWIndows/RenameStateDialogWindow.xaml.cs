@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -51,14 +52,9 @@ namespace LandConquest.DialogWIndows
 
         private void editUserInput()
         {
-            for (int i = 0; i < newCountryNameTB.Text.Length; i++)
+            while (newCountryNameTB.Text.Contains("  "))
             {
                 newCountryNameTB.Text = newCountryNameTB.Text.Replace("  ", " ");
-            }
-
-            if (newCountryNameTB.Text[newCountryNameTB.Text.Length - 1] == ' ')
-            {
-                newCountryNameTB.Text.Remove(newCountryNameTB.Text.Length - 1, 1);
             }
 
             newCountryNameTB.Select(newCountryNameTB.Text.Length, 0);
