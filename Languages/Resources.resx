@@ -393,6 +393,9 @@
   <data name="LocLabelRenameStateDialogWindow_Text" xml:space="preserve">
     <value>LocLabelRenameStateDialogWindow_Text</value>
   </data>
+  <data name="LocLabelRenameStateTo_Text" xml:space="preserve">
+    <value>LocLabelRenameStateTo_Text</value>
+  </data>
   <data name="LocLabelRENAME_Content" xml:space="preserve">
     <value>LocLabelRENAME_Content</value>
   </data>
@@ -428,6 +431,9 @@
   </data>
   <data name="LocLabelTaxes_Content" xml:space="preserve">
     <value>LocLabelTaxes_Content</value>
+  </data>
+  <data name="LocLabelTheLawWasInitiated_Text" xml:space="preserve">
+    <value>LocLabelTheLawWasInitiated_Text</value>
   </data>
   <data name="LocLabelTheStateWasFounded_Text" xml:space="preserve">
     <value>LocLabelTheStateWasFounded_Text</value>

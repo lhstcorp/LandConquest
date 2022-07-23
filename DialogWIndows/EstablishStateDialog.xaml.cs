@@ -20,7 +20,7 @@ namespace LandConquest.DialogWIndows
         private Land land;
         private LandModel landModel;
         private CountryModel countryModel;
-        private Person selectendPerson;
+        private Person selectedPerson;
         private List<Person> persons;
         private Ellipse selectedEllipse;
 
@@ -40,7 +40,7 @@ namespace LandConquest.DialogWIndows
 
             if (countryNameTextBox.Text.Length >= 3)
             {
-                Country country = CountryModel.EstablishState(land, selectendPerson, StateColor.Color, countryNameTextBox.Text);
+                Country country = CountryModel.EstablishState(land, selectedPerson, StateColor.Color, countryNameTextBox.Text);
                 LandModel.UpdateLandInfo(land, country);
                 this.Close();
                 WarningDialogWindow.CallWarningDialogNoResult(Languages.Resources.LocLabelTheStateWasFounded_Text);
@@ -77,9 +77,9 @@ namespace LandConquest.DialogWIndows
                 selectedPersonEllipse.Tag = persons[0].PersonId;
                 selectedPersonNameText.Text = persons[0].Name + ' ' + persons[0].Surname;
                 rulerDescriptionTextBlock.Text = String.Format(Languages.Resources.LocLabelPersonBecomeANewRuler_Text, persons[0].Name + ' ' + persons[0].Surname);
-                selectendPerson = persons[0];
+                selectedPerson = persons[0];
 
-                populatePersonGrids();
+                createPersonEllipse();
             }
             else
             {
@@ -88,7 +88,7 @@ namespace LandConquest.DialogWIndows
             }
         }
 
-        private void populatePersonGrids()
+        private void createPersonEllipse()
         {
             personGrid.Children.Clear();
 
@@ -121,15 +121,15 @@ namespace LandConquest.DialogWIndows
         private void personEllipse_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Ellipse personEllipse = (Ellipse)sender;
-            selectendPerson = persons.Find(o => o.PersonId == personEllipse.Tag.ToString());
+            selectedPerson = persons.Find(o => o.PersonId == personEllipse.Tag.ToString());
 
             selectedPersonEllipse.Fill = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Pictures/Hero.png", UriKind.Absolute)));
-            selectedPersonNameText.Text = selectendPerson.Name + ' ' + selectendPerson.Surname;
+            selectedPersonNameText.Text = selectedPerson.Name + ' ' + selectedPerson.Surname;
 
             selectedEllipse.Stroke = Brushes.Black;
             selectedEllipse = personEllipse;
             selectedEllipse.Stroke = Brushes.Brown;
-            rulerDescriptionTextBlock.Text = String.Format(Languages.Resources.LocLabelPersonBecomeANewRuler_Text, selectendPerson.Name + ' ' + selectendPerson.Surname);
+            rulerDescriptionTextBlock.Text = String.Format(Languages.Resources.LocLabelPersonBecomeANewRuler_Text, selectedPerson.Name + ' ' + selectedPerson.Surname);
         }
 
         private void personEllipse_MouseEnter(object sender, MouseEventArgs e)
