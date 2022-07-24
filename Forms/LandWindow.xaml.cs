@@ -136,10 +136,10 @@ namespace LandConquest.Forms
 
         private void upgrageHouses_Click(object sender, RoutedEventArgs e)
         {
-            //BuildingsUpdateDialog openedWindow = new BuildingsUpdateDialog(land);
-            //openedWindow.Owner = Application.Current.MainWindow;
-            //openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            //openedWindow.Show();
+            BuildingsUpdateDialog openedWindow = new BuildingsUpdateDialog();
+            openedWindow.Owner = Application.Current.MainWindow;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.Show();
         }
     }
 }
