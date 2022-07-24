@@ -3,6 +3,7 @@ using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
 using System.Resources;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -19,9 +20,11 @@ namespace LandConquest.DialogWIndows
         private Land land;
         private LandModel landModel;
         private CountryModel countryModel;
-        private Person selectendPerson;
+        private Person selectedPerson;
         private List<Person> persons;
         private Ellipse selectedEllipse;
+
+        public static string testText;
 
         public EstablishStateDialog(Player _player, Land _land)
         {
@@ -33,9 +36,11 @@ namespace LandConquest.DialogWIndows
 
         private void EstablishState_Click(object sender, RoutedEventArgs e)
         {
+            editUserInput();
+
             if (countryNameTextBox.Text.Length >= 3)
             {
-                Country country = CountryModel.EstablishState(land, selectendPerson, StateColor.Color, countryNameTextBox.Text);
+                Country country = CountryModel.EstablishState(land, selectedPerson, StateColor.Color, countryNameTextBox.Text);
                 LandModel.UpdateLandInfo(land, country);
                 this.Close();
                 WarningDialogWindow.CallWarningDialogNoResult(Languages.Resources.LocLabelTheStateWasFounded_Text);
@@ -72,9 +77,9 @@ namespace LandConquest.DialogWIndows
                 selectedPersonEllipse.Tag = persons[0].PersonId;
                 selectedPersonNameText.Text = persons[0].Name + ' ' + persons[0].Surname;
                 rulerDescriptionTextBlock.Text = String.Format(Languages.Resources.LocLabelPersonBecomeANewRuler_Text, persons[0].Name + ' ' + persons[0].Surname);
-                selectendPerson = persons[0];
+                selectedPerson = persons[0];
 
-                populatePersonGrids();
+                createPersonEllipse();
             }
             else
             {
@@ -83,7 +88,7 @@ namespace LandConquest.DialogWIndows
             }
         }
 
-        private void populatePersonGrids()
+        private void createPersonEllipse()
         {
             personGrid.Children.Clear();
 
@@ -116,15 +121,15 @@ namespace LandConquest.DialogWIndows
         private void personEllipse_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Ellipse personEllipse = (Ellipse)sender;
-            selectendPerson = persons.Find(o => o.PersonId == personEllipse.Tag.ToString());
+            selectedPerson = persons.Find(o => o.PersonId == personEllipse.Tag.ToString());
 
             selectedPersonEllipse.Fill = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Pictures/Hero.png", UriKind.Absolute)));
-            selectedPersonNameText.Text = selectendPerson.Name + ' ' + selectendPerson.Surname;
+            selectedPersonNameText.Text = selectedPerson.Name + ' ' + selectedPerson.Surname;
 
             selectedEllipse.Stroke = Brushes.Black;
             selectedEllipse = personEllipse;
             selectedEllipse.Stroke = Brushes.Brown;
-            rulerDescriptionTextBlock.Text = String.Format(Languages.Resources.LocLabelPersonBecomeANewRuler_Text, selectendPerson.Name + ' ' + selectendPerson.Surname);
+            rulerDescriptionTextBlock.Text = String.Format(Languages.Resources.LocLabelPersonBecomeANewRuler_Text, selectedPerson.Name + ' ' + selectedPerson.Surname);
         }
 
         private void personEllipse_MouseEnter(object sender, MouseEventArgs e)
@@ -144,20 +149,28 @@ namespace LandConquest.DialogWIndows
 
         private void countryName_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            e.Handled = !IsValid(((TextBox)sender).Text + e.Text);
+            bool retH = !(IsValid(((TextBox)sender).Text + e.Text));
+
+            editUserInput();
+
+            e.Handled = retH;
+        }
+
+        private void editUserInput()
+        {
+            while (countryNameTextBox.Text.Contains("  "))
+            {
+                countryNameTextBox.Text = countryNameTextBox.Text.Replace("  ", " ");
+            }
+
+            countryNameTextBox.Select(countryNameTextBox.Text.Length, 0);
         }
 
         public static bool IsValid(string str)
         {
             char ch = str[str.Length - 1];
+
             return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z');
-        }
-        private void Space_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == System.Windows.Input.Key.Space)
-            {
-                e.Handled = true;
-            }
         }
     }
 }

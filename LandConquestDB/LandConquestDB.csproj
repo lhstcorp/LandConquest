@@ -103,6 +103,7 @@
     <Compile Include="Models\LandStorageModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />
     <Compile Include="Models\LandModel.cs" />
+    <Compile Include="Models\LawModel.cs" />
     <Compile Include="Models\LogWarModel.cs" />
     <Compile Include="Models\ManufactureModel.cs" />
     <Compile Include="Models\MapModel.cs" />

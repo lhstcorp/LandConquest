@@ -390,8 +390,14 @@
   <data name="LocLabelRegistration_Content" xml:space="preserve">
     <value>Reg</value>
   </data>
+  <data name="LocLabelRenameStateDialogWindow_Text" xml:space="preserve">
+    <value>You are going to initiate a law of renaming country from {0} to:</value>
+  </data>
+  <data name="LocLabelRenameStateTo_Text" xml:space="preserve">
+    <value>Rename state to {0}</value>
+  </data>
   <data name="LocLabelRENAME_Content" xml:space="preserve">
-    <value>RENAME</value>
+    <value>RENAME STATE</value>
   </data>
   <data name="LocLabelSawmill_Text" xml:space="preserve">
     <value>Sawmill</value>
@@ -425,6 +431,9 @@
   </data>
   <data name="LocLabelTaxes_Content" xml:space="preserve">
     <value>Taxes</value>
+  </data>
+  <data name="LocLabelTheLawWasInitiated_Text" xml:space="preserve">
+    <value>The law was initiated</value>
   </data>
   <data name="LocLabelTheStateWasFounded_Text" xml:space="preserve">
     <value>The state was founded</value>

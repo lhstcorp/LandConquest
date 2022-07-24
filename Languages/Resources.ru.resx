@@ -390,6 +390,12 @@
   <data name="LocLabelRegistration_Content" xml:space="preserve">
     <value>Регистрация</value>
   </data>
+  <data name="LocLabelRenameStateDialogWindow_Text" xml:space="preserve">
+    <value>Вы собираетесь инициировать закон о переименовании государства с {0} на: </value>
+  </data>
+  <data name="LocLabelRenameStateTo_Text" xml:space="preserve">
+    <value>Переименовать страну в {0}</value>
+  </data>
   <data name="LocLabelRENAME_Content" xml:space="preserve">
     <value>ПЕРЕИМЕНОВАТЬ</value>
   </data>
@@ -425,6 +431,9 @@
   </data>
   <data name="LocLabelTaxes_Content" xml:space="preserve">
     <value>Налоги</value>
+  </data>
+  <data name="LocLabelTheLawWasInitiated_Text" xml:space="preserve">
+    <value>Закон был инициирован</value>
   </data>
   <data name="LocLabelTheStateWasFounded_Text" xml:space="preserve">
     <value>Государство было основано</value>

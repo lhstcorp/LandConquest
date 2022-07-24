@@ -881,6 +881,10 @@
     <Resource Include="Pictures\Country\CountryMenu\renameCountry.png" />
     <Resource Include="Pictures\Country\CountryMenu\transferLand.png" />
     <Resource Include="Pictures\Common\dialogScroll.png" />
+    <Resource Include="Pictures\Country\greenDarkArrow.png" />
+    <Resource Include="Pictures\Country\greenLightArrow.png" />
+    <Resource Include="Pictures\Country\redDarkCross.png" />
+    <Resource Include="Pictures\Country\redLightCross.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

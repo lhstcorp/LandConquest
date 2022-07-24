@@ -889,6 +889,24 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelRenameStateDialogWindow_Text.
+        /// </summary>
+        public static string LocLabelRenameStateDialogWindow_Text {
+            get {
+                return ResourceManager.GetString("LocLabelRenameStateDialogWindow_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelRenameStateTo_Text.
+        /// </summary>
+        public static string LocLabelRenameStateTo_Text {
+            get {
+                return ResourceManager.GetString("LocLabelRenameStateTo_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelSawmill_Text.
         /// </summary>
         public static string LocLabelSawmill_Text {
@@ -984,6 +1002,15 @@ namespace LandConquest.Languages {
         public static string LocLabelTaxes_Content {
             get {
                 return ResourceManager.GetString("LocLabelTaxes_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelTheLawWasInitiated_Text.
+        /// </summary>
+        public static string LocLabelTheLawWasInitiated_Text {
+            get {
+                return ResourceManager.GetString("LocLabelTheLawWasInitiated_Text", resourceCulture);
             }
         }
         
