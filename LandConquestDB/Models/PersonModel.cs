@@ -39,7 +39,7 @@ namespace LandConquestDB.Models
         }
         public static Person GetPersonInfo(string _personId)
         {
-            return DbContext.GetSqlConnection().Query<Person>("SELECT * FROM dbo.PersonData WHERE person_id = @person_id", new { _personId = _personId }).FirstOrDefault();
+            return DbContext.GetSqlConnection().Query<Person>("SELECT * FROM dbo.PersonData WHERE person_id = @person_id", new { personId = _personId }).FirstOrDefault();
         }
 
         public static List<Person> GetPlayerPersons(string _playerId)

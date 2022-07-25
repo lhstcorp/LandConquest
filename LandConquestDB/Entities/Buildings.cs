@@ -1,10 +1,16 @@
-﻿namespace LandConquestDB.Entities
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LandConquestDB.Entities
 {
-    public sealed class Buildings
+    public class Buildings
     {
         public int PlayerId { get; set; }
         public int LandId { get; set; }
         public int Houses { get; set; }
-        
+
     }
 }
