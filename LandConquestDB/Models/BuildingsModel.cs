@@ -13,7 +13,7 @@ namespace LandConquestDB.Models
     {
         public static Buildings GetPlayerBuildings(string _playerId, int _landId)
         {
-            return DbContext.GetSqlConnection().Query<Buildings>("SELECT * FROM dbo.BuildingsData WHERE player_id = @player_id AND land_id = @land_id", new { playerId = _playerId, landId = _landId }).FirstOrDefault();
+            return DbContext.GetSqlConnection().Query<Buildings>("SELECT * FROM dbo.BuildingsData WHERE player_id = @player_id AND land_id = @land_id", new { player_Id = _playerId, land_Id = _landId }).FirstOrDefault();
 
             //Buildings buildings = new Buildings();
             //string query = "SELECT * FROM dbo.BuildingsData where player_id = @player_id";
@@ -39,6 +39,11 @@ namespace LandConquestDB.Models
             //command.Dispose();
 
             //return buildings;
+        }
+        public static int GetSumLandPopulation(int _landId)
+        {
+            return DbContext.GetSqlConnection().Query<int>("SELECT SUM(houses) FROM dbo.BuildingsData WHERE land_id = @land_id", new {land_Id = _landId }).Sum();
+
         }
         public static void CreateBuildings(string _playerId, int _landId)
         {
