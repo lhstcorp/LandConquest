@@ -438,7 +438,8 @@ namespace LandConquest.WindowViewModels
                         TaxesModel.CreateTaxesData(userId);
 
                         DynastyModel.CreateDynasty(registeredUser);
-
+                        Player player = PlayerModel.GetPlayerById(userId);
+                        BuildingsModel.CreateBuildings(player.PlayerId, player.PlayerCurrentRegion);
                         AssistantLogic.CallSplashScreen();
 
                         MainWindow mainWindow = new MainWindow(registeredUser);
