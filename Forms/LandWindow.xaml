@@ -55,7 +55,7 @@
                 </Button.Background>
             </Button>
             <Border BorderBrush="Transparent" BorderThickness="2" HorizontalAlignment="Left" Height="88" Margin="23,301,0,0" VerticalAlignment="Top" Width="168">
-                <Grid>
+                <Grid Margin="3,0,-3,0">
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
@@ -67,7 +67,7 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Border BorderBrush="#FF392018" BorderThickness="2">
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Margin="0,2,0,40" Grid.RowSpan="2">
                         <Image x:Name="landWoodImage"  Grid.Row="0" Grid.Column="0" Source="/LandConquest;component/Pictures/wood.png">
                             <Image.ToolTip>
                                 <ToolTip x:Name="landWoodToolTip" Content="" Placement="MousePoint" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
@@ -75,7 +75,7 @@
                         </Image>
                     </Border>
 
-                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="2" Grid.Row="0">
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="1" Grid.Row="0" Margin="37,2,4,40" Grid.RowSpan="2" Grid.ColumnSpan="2">
                         <Image x:Name="landFoodImage" Grid.Row="0" Grid.Column="2" Source="/LandConquest;component/Pictures/food.png">
                             <Image.ToolTip>
                                 <ToolTip x:Name="landFoodToolTip" Placement="MousePoint" Content="" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
@@ -83,14 +83,14 @@
                         </Image>
                     </Border>
 
-                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="1" Grid.Row="0">
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Row="0" Margin="39,2,2,40" Grid.RowSpan="2" Grid.ColumnSpan="2">
                         <Image x:Name="landStoneImage" Grid.Row="0" Grid.Column="1" Source="/LandConquest;component/Pictures/stones.png">
                             <Image.ToolTip>
                                 <ToolTip x:Name="landStoneToolTip" Placement="MousePoint" Content="" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
                             </Image.ToolTip>
                         </Image>
                     </Border>
-                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="3" Grid.Row="0">
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="2" Grid.Row="0" Margin="35,2,6,40" Grid.RowSpan="2" Grid.ColumnSpan="2">
                         <Image x:Name="landIronImage" Grid.Row="0" Grid.Column="3" Source="/LandConquest;component/Pictures/iron.png">
                             <Image.ToolTip>
                                 <ToolTip x:Name="landIronToolTip" Placement="MousePoint" Content="" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
@@ -104,21 +104,21 @@
                             </Image.ToolTip>
                         </Image>
                     </Border>
-                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="1" Grid.Row="1">
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="39,0,2,0">
                         <Image x:Name="landCopperImage" Grid.Row="1" Grid.Column="1" Source="/LandConquest;component/Pictures/copper.png">
                             <Image.ToolTip>
                                 <ToolTip x:Name="landCopperToolTip" Content="" Placement="MousePoint" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
                             </Image.ToolTip>
                         </Image>
                     </Border>
-                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="2" Grid.Row="1">
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="37,0,4,0">
                         <Image x:Name="landGemsImage" Grid.Row="1" Grid.Column="2" Source="/LandConquest;component/Pictures/gems.png">
                             <Image.ToolTip>
                                 <ToolTip x:Name="landGemsToolTip" Placement="MousePoint" Content="" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
                             </Image.ToolTip>
                         </Image>
                     </Border>
-                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="3" Grid.Row="1">
+                    <Border BorderBrush="#FF392018" BorderThickness="2" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="35,0,6,0">
                         <Image x:Name="landLeatherImage" Grid.Row="1" Grid.Column="3" Source="/LandConquest;component/Pictures/leather.png">
                             <Image.ToolTip>
                                 <ToolTip x:Name="landLeatherToolTip" Placement="MousePoint" Content="" Foreground="Wheat" FontFamily="Italic" FontSize="10" />
@@ -140,6 +140,8 @@
             </Button>
             <Label Content="lvl" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="101,152,0,0" VerticalAlignment="Top"/>
             <Label x:Name="housesLVL" Content="0" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="142,151,0,0" VerticalAlignment="Top" Width="41"/>
+            <Label Content="people" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="98,173,0,0" VerticalAlignment="Top" Width="43"/>
+            <Label x:Name="landPopulation" Content="0" FontFamily="/Fonts/#Harrington" HorizontalAlignment="Left" Margin="142,174,0,0" VerticalAlignment="Top" Width="41"/>
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
