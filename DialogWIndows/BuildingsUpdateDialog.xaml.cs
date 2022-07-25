@@ -32,13 +32,15 @@ namespace LandConquest.DialogWIndows
             Stone = 750
             
         }
-        public BuildingsUpdateDialog()
+        public BuildingsUpdateDialog(Player _player, Land _land)
         {
+            player = _player;
+            land = _land;
             InitializeComponent();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            buildings = BuildingsModel.GetBuildingsInfo(player.PlayerId);
+            buildings = BuildingsModel.GetPlayerBuildings(player.PlayerId, land.LandId);
 
             ManufactureLvl.Content = buildings.Houses;
 

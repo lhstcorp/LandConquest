@@ -136,7 +136,7 @@ namespace LandConquest.Forms
 
         private void upgrageHouses_Click(object sender, RoutedEventArgs e)
         {
-            BuildingsUpdateDialog openedWindow = new BuildingsUpdateDialog();
+            BuildingsUpdateDialog openedWindow = new BuildingsUpdateDialog(player, land);
             openedWindow.Owner = Application.Current.MainWindow;
             openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             openedWindow.Show();

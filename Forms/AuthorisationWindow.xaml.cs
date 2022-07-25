@@ -112,7 +112,7 @@ namespace LandConquest
             if (textBoxNewLogin.Text.Length == 1)
             {
                 textBoxNewLogin.Text = textBoxNewLogin.Text.ToUpper();
-                //textBoxNewLogin.Select(textBoxNewLogin.Text.Length, 0);
+                textBoxNewLogin.Select(textBoxNewLogin.Text.Length, 0);
             }
 
         }
