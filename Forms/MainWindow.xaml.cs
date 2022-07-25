@@ -35,6 +35,7 @@ namespace LandConquest.Forms
         private Manufacture manufacture;
         private Taxes taxes;
         private Peasants peasants;
+        private Buildings buildings;
         private List<Manufacture> landmanufactures;
         private List<Land> lands;
         private List<Path> paths;
@@ -62,6 +63,7 @@ namespace LandConquest.Forms
             storage = new PlayerStorage();
             manufacture = new Manufacture();
             peasants = new Peasants();
+            buildings = new Buildings();
             country = new Country();
             market = new Market();
             landmanufactures = new List<Manufacture>();
@@ -870,8 +872,18 @@ namespace LandConquest.Forms
             List<int> peasantsFree = PlayerModel.DeletePlayerManufactureLandData(peasants, player);
             List<Manufacture> landManufactures = ManufactureModel.GetLandManufactureInfo(player);
 
+            buildings = BuildingsModel.GetPlayerBuildings(player.PlayerId, land.LandId);
+            if (buildings == null)
+            {
+                BuildingsModel.CreateBuildings(player.PlayerId, player.PlayerCurrentRegion);
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult("No data!");
+            }
+            
             ManufactureModel.UpdateLandManufacturesWhenMove(peasantsFree, landManufactures);
-            //peasants.PeasantsCount = peasants.PeasantsCount + peasantsFree[0] + peasantsFree[1];
+            //peasants.PeasantsCount = peasants.PeasantчsCount + peasantsFree[0] + peasantsFree[1];
             PeasantModel.UpdatePeasantsInfo(peasants);
 
             player = PlayerModel.UpdatePlayerLand(player, land);
