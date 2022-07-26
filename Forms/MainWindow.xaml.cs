@@ -35,7 +35,6 @@ namespace LandConquest.Forms
         private Manufacture manufacture;
         private Taxes taxes;
         private Peasants peasants;
-        private Buildings buildings;
         private List<Manufacture> landmanufactures;
         private List<Land> lands;
         private List<Path> paths;
@@ -63,7 +62,6 @@ namespace LandConquest.Forms
             storage = new PlayerStorage();
             manufacture = new Manufacture();
             peasants = new Peasants();
-            buildings = new Buildings();
             country = new Country();
             market = new Market();
             landmanufactures = new List<Manufacture>();
@@ -872,21 +870,17 @@ namespace LandConquest.Forms
             List<int> peasantsFree = PlayerModel.DeletePlayerManufactureLandData(peasants, player);
             List<Manufacture> landManufactures = ManufactureModel.GetLandManufactureInfo(player);
 
-            buildings = BuildingsModel.GetPlayerBuildings(player.PlayerId, land.LandId);
-            if (buildings == null)
-            {
-                BuildingsModel.CreateBuildings(player.PlayerId, player.PlayerCurrentRegion);
-            }
-            else
-            {
-                WarningDialogWindow.CallWarningDialogNoResult("No data!");
-            }
-            
             ManufactureModel.UpdateLandManufacturesWhenMove(peasantsFree, landManufactures);
             //peasants.PeasantsCount = peasants.PeasantчsCount + peasantsFree[0] + peasantsFree[1];
             PeasantModel.UpdatePeasantsInfo(peasants);
 
             player = PlayerModel.UpdatePlayerLand(player, land);
+
+            Buildings buildings = BuildingsModel.GetPlayerBuildings(player.PlayerId, player.PlayerCurrentRegion);
+            if (buildings == null)
+            {
+                BuildingsModel.CreateBuildings(player.PlayerId, player.PlayerCurrentRegion);
+            }
 
             //flag.Margin = new Thickness(flagXY[0] - 69, flagXY[1] - 36, 0, 0);
             //flag.Margin = new Thickness(Convert.ToDouble(GlobalMap.Margin.Left), Convert.ToDouble(GlobalMap.Margin.Top), 0, 0);
