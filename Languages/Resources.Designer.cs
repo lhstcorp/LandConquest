@@ -574,6 +574,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelHouses.
+        /// </summary>
+        public static string LocLabelHouses {
+            get {
+                return ResourceManager.GetString("LocLabelHouses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelIndustryMain_Content.
         /// </summary>
         public static string LocLabelIndustryMain_Content {
@@ -786,6 +795,15 @@ namespace LandConquest.Languages {
         public static string LocLabelPointsUpgrade {
             get {
                 return ResourceManager.GetString("LocLabelPointsUpgrade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelPopulation.
+        /// </summary>
+        public static string LocLabelPopulation {
+            get {
+                return ResourceManager.GetString("LocLabelPopulation", resourceCulture);
             }
         }
         

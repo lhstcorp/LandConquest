@@ -55,7 +55,10 @@ namespace LandConquest.Forms
             landCopperToolTip.Content = landStorage.Copper;
             landGemsToolTip.Content = landStorage.Gems;
             landLeatherToolTip.Content = landStorage.Leather;
-            landPopulation.Content = BuildingsModel.GetSumLandPopulation(land.LandId);
+            landHouses.Content = BuildingsModel.GetSumLandPopulation(land.LandId);
+            playerHouses.Content = BuildingsModel.GetSumPlayerLandPopulation(player.PlayerId, land.LandId);
+            landPopulation.Content = BuildingsModel.GetSumLandPopulation(land.LandId) * 10;
+            playerPopulation.Content = BuildingsModel.GetSumPlayerLandPopulation(player.PlayerId, land.LandId) * 10;
 
             if (WarehouseModel.GetWarehouseId(player.PlayerId, land.LandId).HasValue)//warehouse exists
             {

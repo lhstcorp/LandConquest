@@ -42,11 +42,11 @@ namespace LandConquest.DialogWIndows
         {
             buildings = BuildingsModel.GetPlayerBuildings(player.PlayerId, land.LandId);
 
-            ManufactureLvl.Content = buildings.Houses;
+            ManufactureLvl.Content = buildings.Houses / 20;
 
             resourcesNeed = new PlayerStorage();
-            resourcesNeed.Wood = Convert.ToInt32(Math.Pow((int)Level.Wood * buildings.Houses, 1.25));
-            resourcesNeed.Stone = Convert.ToInt32(Math.Pow((int)Level.Stone * buildings.Houses, 1.25));
+            resourcesNeed.Wood = Convert.ToInt32(Math.Pow((int)Level.Wood * buildings.Houses/20, 1.25));
+            resourcesNeed.Stone = Convert.ToInt32(Math.Pow((int)Level.Stone * buildings.Houses/20, 1.25));
            
 
             WoodNeed.Content = resourcesNeed.Wood;
@@ -76,7 +76,7 @@ namespace LandConquest.DialogWIndows
             {
                 LandStorageModel.UpdateLandStorage(land, landStorage);
 
-                buildings.Houses++;
+                buildings.Houses= buildings.Houses+20;
 
                
 
