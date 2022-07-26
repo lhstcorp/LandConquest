@@ -21,6 +21,10 @@ namespace LandConquestDB.Models
             return DbContext.GetSqlConnection().Query<int>("SELECT SUM(houses) FROM dbo.BuildingsData WHERE land_id = @land_id", new { land_Id = _landId }).Sum();
 
         }
+        public static int GetSumPlayerLandPopulation(string _playerId, int _landId)
+        {
+            return DbContext.GetSqlConnection().Query<int>("SELECT SUM(houses) FROM dbo.BuildingsData WHERE player_id = @player_id AND land_id = @land_id", new { player_id = _playerId, land_Id = _landId }).Sum();
+        }
 
         public static void CreateBuildings(string _playerId, int _landId)
         {
@@ -37,7 +41,7 @@ namespace LandConquestDB.Models
 
         public static void UpdateBuildings(Buildings _buildings)
         {
-            string Query = "UPDATE dbo.BuildingsData SET land_id  = @land_id, houses = @houses WHERE player_id = @player_id ";
+            string Query = "UPDATE dbo.BuildingsData SET land_id  = @land_id, houses = @houses WHERE player_id = @player_id AND land_id = @land_id";
 
             var Command = new SqlCommand(Query, DbContext.GetSqlConnection());
 

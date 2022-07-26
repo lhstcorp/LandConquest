@@ -288,6 +288,9 @@
   <data name="LocLabelHire_Text" xml:space="preserve">
     <value>LocLabelHire_Text</value>
   </data>
+  <data name="LocLabelHouses" xml:space="preserve">
+    <value>LocLabelHouses</value>
+  </data>
   <data name="LocLabelIndustryMain_Content" xml:space="preserve">
     <value>LocLabelIndustryMain_Content</value>
   </data>
@@ -359,6 +362,9 @@
   </data>
   <data name="LocLabelPointsUpgrade" xml:space="preserve">
     <value>LocLabelPointsUpgrade</value>
+  </data>
+  <data name="LocLabelPopulation" xml:space="preserve">
+    <value>LocLabelPopulation</value>
   </data>
   <data name="LocLabelPower" xml:space="preserve">
     <value>LocLabelPower</value>
