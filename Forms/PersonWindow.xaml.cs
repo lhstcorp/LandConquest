@@ -16,8 +16,6 @@ using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using LandConquest.DialogWIndows;
 
-
-
 namespace LandConquest.Forms
 {
     /// <summary>
@@ -38,7 +36,7 @@ namespace LandConquest.Forms
             InitializeComponent();
             player = _player;
             initPlayerPersons();
-            //CalculateSkillPoints();
+            CalculateSkillPoints();
             openedWindow = this;
         }
 
