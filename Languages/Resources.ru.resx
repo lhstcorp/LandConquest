@@ -288,6 +288,9 @@
   <data name="LocLabelHire_Text" xml:space="preserve">
     <value>Нанять</value>
   </data>
+  <data name="LocLabelHouses" xml:space="preserve">
+    <value>Дома</value>
+  </data>
   <data name="LocLabelIndustryMain_Content" xml:space="preserve">
     <value>Производство</value>
   </data>
@@ -359,6 +362,9 @@
   </data>
   <data name="LocLabelPointsUpgrade" xml:space="preserve">
     <value>Очки развития</value>
+  </data>
+  <data name="LocLabelPopulation" xml:space="preserve">
+    <value>Население</value>
   </data>
   <data name="LocLabelPower" xml:space="preserve">
     <value>Сила</value>

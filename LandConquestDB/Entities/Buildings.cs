@@ -8,7 +8,7 @@ namespace LandConquestDB.Entities
 {
     public class Buildings
     {
-        public int PlayerId { get; set; }
+        public string PlayerId { get; set; }
         public int LandId { get; set; }
         public int Houses { get; set; }
 
