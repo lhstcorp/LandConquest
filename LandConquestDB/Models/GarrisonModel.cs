@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using Dapper;
+using LandConquestDB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -15,6 +16,9 @@ namespace LandConquestDB.Models
         public static List<Garrison> GetGarrisonInfo(int landId)
         {
             List<Garrison> armies = new List<Garrison>();
+
+            //return DbContext.GetSqlConnection().Query<Garrison>("SELECT * FROM dbo.GarrisonData WHERE land_id = @land_id", new { land_id = landId }).ToList();
+
 
             string armyQuery = "SELECT * FROM dbo.GarrisonData WHERE land_id = @land_id";
             List<string> armiesPlayerId = new List<string>();
@@ -90,6 +94,9 @@ namespace LandConquestDB.Models
         public static List<Garrison> GetPlayerGarrisonInfo(string _playerId)
         {
             List<Garrison> armies = new List<Garrison>();
+
+            //return DbContext.GetSqlConnection().Query<Garrison>("SELECT * FROM dbo.GarrisonData WHERE player_id = @player_id", new { player_id = _playerId }).ToList();
+
 
             string armyQuery = "SELECT * FROM dbo.GarrisonData WHERE player_id = @player_id";
             List<string> armiesPlayerId = new List<string>();
@@ -226,6 +233,8 @@ namespace LandConquestDB.Models
 
         public static void InsertGarrison(Garrison army)
         {
+            //DbContext.GetSqlConnection().Execute("INSERT INTO dbo.GarrisonData (land_id, player_id, army_id, army_size_current, army_type, army_archers_count, army_infantry_count, army_horseman_count, army_siegegun_count, slot_id) VALUES (@land_id, @player_id, @army_id, @army_size_current, @army_type, @army_archers_count, @army_infantry_count, @army_horseman_count, @army_siegegun_count, @slot_id)", new { land_id = army.LandId, player_id = army.PlayerId, army_id = army.ArmyId, army_size_current = army.ArmySizeCurrent, army_type = army.ArmyType, army_archers_count = army.ArmyArchersCount, army_infantry_count = army.ArmyInfantryCount, army_horseman_count = army.ArmyHorsemanCount, army_siegegun_count = army.ArmySiegegunCount, slot_id = army.SlotId  });
+
             string armyQuery = "INSERT INTO dbo.GarrisonData (land_id, player_id, army_id, army_size_current, army_type, army_archers_count, army_infantry_count, army_horseman_count, army_siegegun_count, slot_id) VALUES (@land_id, @player_id, @army_id, @army_size_current, @army_type, @army_archers_count, @army_infantry_count, @army_horseman_count, @army_siegegun_count, @slot_id)";
             var armyCommand = new SqlCommand(armyQuery, DbContext.GetSqlConnection());
 
@@ -288,8 +297,11 @@ namespace LandConquestDB.Models
 
         public static string getPlayerIdByGarrisonId(string id)
         {
+
             string playerId = "";
             string query = "SELECT player_id FROM dbo.GarrisonData WHERE army_id = @army_id ";
+
+            //return DbContext.GetSqlConnection().Query<string>("SELECT player_id FROM dbo.GarrisonData WHERE army_id = @army_id", new { army_id = id }).FirstOrDefault();
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@army_id", id);

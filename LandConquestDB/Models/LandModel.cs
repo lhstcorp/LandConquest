@@ -12,6 +12,8 @@ namespace LandConquestDB.Models
     {
         public static List<Land> GetLandsInfo(List<Land> lands)
         {
+            //return DbContext.GetSqlConnection().Query<Land>("SELECT * FROM dbo.LandData").ToList();
+
             string query = "SELECT * FROM dbo.LandData";
             List<int> landsLandId = new List<int>();
             List<string> landsLandName = new List<string>();
@@ -67,6 +69,7 @@ namespace LandConquestDB.Models
 
         public static List<Land> GetLandsInfo(List<Land> lands, SqlConnection connection)
         {
+            //return DbContext.GetSqlConnection().Query<Land>("SELECT * FROM dbo.LandData").ToList();
             string query = "SELECT * FROM dbo.LandData";
             List<int> landsLandId = new List<int>();
             List<string> landsLandName = new List<string>();
@@ -160,6 +163,9 @@ namespace LandConquestDB.Models
             Land land = new Land();
             string query = "SELECT * FROM dbo.LandData where land_name = @land_name";
 
+            //return DbContext.GetSqlConnection().Query<Land>("SELECT * FROM dbo.LandData where land_name = @land_name", new { land_name = _landName }).ToList().FirstOrDefault();
+
+
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@land_name", _landName);
 
@@ -192,6 +198,7 @@ namespace LandConquestDB.Models
         public static void UpdateLandInfo(Land land, Country country)
         {
             string landQuery = "UPDATE dbo.LandData SET land_color = @country_color, country_id = @country_id WHERE land_id = @land_id";
+            //DbContext.GetSqlConnection().Execute("UPDATE dbo.LandData SET land_color = @country_color, country_id = @country_id WHERE land_id = @land_id", new { land_color = country.CountryColor, country_id = country.CountryId, land_id = land.LandId });
 
             var landCommand = new SqlCommand(landQuery, DbContext.GetSqlConnection());
             landCommand.Parameters.AddWithValue("@country_id", country.CountryId);
