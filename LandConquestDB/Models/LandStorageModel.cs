@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using Dapper;
+using LandConquestDB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -13,7 +14,7 @@ namespace LandConquestDB.Models
         public static LandStorage GetLandStorage(Land land, LandStorage landStorage)
         {
             string storageQuery = "SELECT * FROM dbo.LandStorage WHERE land_id = @land_id";
-
+            //return DbContext.GetSqlConnection().Query<LandStorage>("SELECT * FROM dbo.LandStorage WHERE land_id = @land_id", new { land_id = land.LandId }).FirstOrDefault();
             var command = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@land_id", land.LandId);
 
@@ -52,6 +53,8 @@ namespace LandConquestDB.Models
         public static void UpdateLandStorage(Land land, LandStorage _landStorage)
         {
             string storageQuery = "UPDATE dbo.LandStorage SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather, money = @money WHERE land_id = @land_id ";
+
+            //DbContext.GetSqlConnection().Execute("UPDATE dbo.LandStorage SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather, money = @money WHERE land_id = @land_id ", new { wood = _landStorage.Wood, stone = _landStorage.Stone, food = _landStorage.Food, copper = _landStorage.Copper, iron = _landStorage.Iron, gems = _landStorage.Gems, gold_ore = _landStorage.GoldOre, leather = _landStorage.Leather, money = _landStorage.Money, land_id = land.LandId });
 
             var countryStorageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
             // int datetimeResult;
