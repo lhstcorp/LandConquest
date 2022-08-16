@@ -601,6 +601,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelInitializedBy_Content.
+        /// </summary>
+        public static string LocLabelInitializedBy_Content {
+            get {
+                return ResourceManager.GetString("LocLabelInitializedBy_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelIntelligence.
         /// </summary>
         public static string LocLabelIntelligence {
