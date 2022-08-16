@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace LandConquest.Forms
 {
     public partial class CountryWindow : Window
-    {
+    { 
         private Player player;
         private List<Land> countryLands;
         private List<Land> countryLandsToFight;
@@ -92,6 +92,8 @@ namespace LandConquest.Forms
             Thickness defaultBorderThickness = new Thickness(1);
             Thickness defaultRectangleMargin = new Thickness(1, 1, 0, 0);
             Thickness defaultCountryNameVBMargin = new Thickness(63, 0, 5, 32.4);
+            Thickness defaultEllipseMargin = new Thickness(40, 26, 0, -3.6);
+            Thickness defaultInitializedByVieboxMargin = new Thickness(74, 29, 0, 7.4);
             ///
 
             List<Law> activeLaws = LawModel.getCountryLaws(currentCountry.CountryId);
@@ -137,6 +139,29 @@ namespace LandConquest.Forms
                 countryNameLbl.FontWeight = FontWeights.Bold;
                 countryNameLbl.Content = getLawTitle(activeLaws[i]);
                 countryNameVB.Child = countryNameLbl;
+
+                Ellipse ellipse = new Ellipse();
+                ellipse.Height = 36;
+                ellipse.Width = 36;
+                ellipse.HorizontalAlignment = HorizontalAlignment.Left;
+                ellipse.VerticalAlignment = VerticalAlignment.Top;
+                ellipse.Stroke = Brushes.Black;
+                ellipse.StrokeThickness = 1;
+                ellipse.Margin = defaultEllipseMargin;
+                ellipse.Fill = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Pictures/Hero.png", UriKind.Absolute)));
+                grid.Children.Add(ellipse);
+
+                Viewbox initializedByViebox = new Viewbox();
+                initializedByViebox.Margin = defaultInitializedByVieboxMargin;
+                initializedByViebox.Width = 109;
+                initializedByViebox.HorizontalAlignment = HorizontalAlignment.Left;
+                grid.Children.Add(initializedByViebox);
+
+                Label initializedByLabel = new Label();
+                initializedByLabel.Content = Languages.Resources.LocLabelInitializedBy_Content;
+                initializedByLabel.FontFamily = new FontFamily("Papyrus");
+                initializedByLabel.FontWeight = FontWeights.Bold;
+                initializedByViebox.Child = initializedByLabel;
             }
 
             ///

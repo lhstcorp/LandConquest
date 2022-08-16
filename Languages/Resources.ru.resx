@@ -297,6 +297,9 @@
   <data name="LocLabelInfantry_Text" xml:space="preserve">
     <value>Мечники</value>
   </data>
+  <data name="LocLabelInitializedBy_Content" xml:space="preserve">
+    <value>Инициировал</value>
+  </data>
   <data name="LocLabelIntelligence" xml:space="preserve">
     <value>Интеллект</value>
   </data>
