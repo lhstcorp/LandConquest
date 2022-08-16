@@ -13,6 +13,9 @@ namespace LandConquestDB.Models
     {
         public static void CreateDynasty(User _user)
         {
+            //DbContext.GetSqlConnection().Execute("INSERT INTO dbo.DynastyData (dynasty_id, dynasty_name, player_id, prestige, lvl) " +
+            //               "VALUES (@dynasty_id, @dynasty_name, @player_id, @prestige, @lvl)", new { dynasty_id = CommonModel.GenerateId(), dynasty_name = _user.UserLogin, player_id = _user.UserId, prestige = 0, lvl = 1 });
+
             string query = "INSERT INTO dbo.DynastyData (dynasty_id, dynasty_name, player_id, prestige, lvl) " +
                            "VALUES (@dynasty_id, @dynasty_name, @player_id, @prestige, @lvl)";
 

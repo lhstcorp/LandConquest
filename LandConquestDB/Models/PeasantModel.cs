@@ -1,5 +1,7 @@
-﻿using LandConquestDB.Entities;
+﻿using Dapper;
+using LandConquestDB.Entities;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace LandConquestDB.Models
 {
@@ -8,7 +10,7 @@ namespace LandConquestDB.Models
         public static Peasants GetPeasantsInfo(Player player, Peasants peasants)
         {
             string query = "SELECT * FROM dbo.PeasantsData WHERE player_id = @player_id";
-
+            //return DbContext.GetSqlConnection().Query<Peasants>("SELECT * FROM dbo.PeasantsData WHERE player_id = @player_id", new { player_id = player.PlayerId }).FirstOrDefault();
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
 
@@ -36,6 +38,9 @@ namespace LandConquestDB.Models
         public static Peasants UpdatePeasantsInfo(Peasants peasants)
         {
             string peasantQuery = "UPDATE dbo.PeasantsData SET peasants_count = @peasants_count, peasants_work  = @peasants_work, peasants_max = @peasants_max WHERE player_id = @player_id ";
+
+            //DbContext.GetSqlConnection().Execute("UPDATE dbo.PeasantsData SET peasants_count = @peasants_count, peasants_work  = @peasants_work, peasants_max = @peasants_max WHERE player_id = @player_id", new { peasants_count = peasants.PeasantsCount, peasants_work = peasants.PeasantsWork, peasants_max = peasants.PeasantsMax, player_id = peasants.PlayerId});
+
 
             var peasantCommand = new SqlCommand(peasantQuery, DbContext.GetSqlConnection());
 

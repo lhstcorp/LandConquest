@@ -15,6 +15,10 @@ namespace LandConquestDB.Models
             string colorHex = ColorTranslator.ToHtml(newColor);
             string coffers = "10000";
             int capitalId = land.LandId;
+
+            //DbContext.GetSqlConnection().Execute("INSERT INTO dbo.CountryData (country_name, country_ruler, country_player, country_color, country_coffers, capital_id) VALUES(@country_name, @country_ruler, @country_player, @country_color, @country_coffers, @capital_id)", new { country_name = _countryName, country_ruler = person.PersonId, country_player = person.PlayerId, country_color = colorHex, country_coffers = coffers, capital_id = capitalId });
+
+
             string countryQuery = "INSERT INTO dbo.CountryData (country_name, country_ruler, country_player, country_color, country_coffers, capital_id) VALUES (@country_name, @country_ruler, @country_player, @country_color, @country_coffers, @capital_id)";
             var countryCommand = new SqlCommand(countryQuery, DbContext.GetSqlConnection());
 
@@ -42,6 +46,8 @@ namespace LandConquestDB.Models
 
         public static int SelectLastIdOfStates()
         {
+            //return DbContext.GetSqlConnection().Query<Country>("SELECT TOP 1 * FROM dbo.CountryData ORDER BY country_id DESC", new { country.CountryId = _countryId }).FirstOrDefault;
+
             string stateQuery = "SELECT TOP 1 * FROM dbo.CountryData ORDER BY country_id DESC";
             var stateCommand = new SqlCommand(stateQuery, DbContext.GetSqlConnection());
             int state_max_id = 1;
@@ -68,6 +74,8 @@ namespace LandConquestDB.Models
 
         public static List<string> GetCountryLandsNamesNotWarInvolved(Country _country)
         {
+            //return DbContext.GetSqlConnection().Query<string>("SELECT LandData.land_name FROM dbo.LandData INNER JOIN dbo.WarData ON WarData.land_attacker_id != LandData.land_id AND WarData.land_defender_id != LandData.land_id WHERE LandData.country_id = @country_id").ToList();
+
             string query = "SELECT LandData.land_name FROM dbo.LandData INNER JOIN dbo.WarData ON WarData.land_attacker_id != LandData.land_id AND WarData.land_defender_id != LandData.land_id WHERE LandData.country_id = @country_id";
             List<string> landsLandNames = new List<string>();
 
@@ -97,6 +105,8 @@ namespace LandConquestDB.Models
 
         public static string GetCountryRuler(int id)
         {
+            //return DbContext.GetSqlConnection().Query<int>("SELECT country_ruler FROM dbo.CountryData WHERE country_id = @country_id", new { country_id = _country_id }).FirstOrDefault();
+
             string rulerId = "";
             string query = "SELECT country_ruler FROM dbo.CountryData WHERE country_id = @country_id ";
 
@@ -120,6 +130,8 @@ namespace LandConquestDB.Models
         public static Country GetCountryById(int id)
         {
             Country country = new Country();
+            
+            //return DbContext.GetSqlConnection().Query<Country>("SELECT * FROM dbo.CountryData WHERE country_id = @id", new { country_id = _country_id }).FirstOrDefault();
 
             string query = "SELECT * FROM dbo.CountryData WHERE country_id = @id";
 
@@ -157,6 +169,8 @@ namespace LandConquestDB.Models
 
         public static void UpdateCountryCapital(Country country, int landCapitalId)
         {
+            //DbContext.GetSqlConnection().Execute("UPDATE dbo.CountryData SET capital_id = @capital_id WHERE country_id = @country_id", new { capital_id = landCapitalId});
+
             string countryQuery = "UPDATE dbo.CountryData SET capital_id = @capital_id WHERE country_id = @country_id ";
 
             var landCommand = new SqlCommand(countryQuery, DbContext.GetSqlConnection());

@@ -1,7 +1,9 @@
-﻿using LandConquestDB.Entities;
+﻿using Dapper;
+using LandConquestDB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace LandConquestDB.Models
 {
@@ -10,6 +12,9 @@ namespace LandConquestDB.Models
         public static DateTime GetLastEntrance(Player player)
         {
             string query = "SELECT * FROM dbo.PlayerEntranceData WHERE player_id = @player_id";
+
+            //return DbContext.GetSqlConnection().Query<DateTime>("SELECT * FROM dbo.PlayerEntranceData WHERE player_id = @player_id", new { player_id = player.PlayerId }).FirstOrDefault();
+
             DateTime dateTime = new DateTime();
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
@@ -32,9 +37,12 @@ namespace LandConquestDB.Models
 
         public static DateTime GetFirstEntrance(Player player)
         {
+
+            //return DbContext.GetSqlConnection().Query<DateTime>("SELECT * FROM dbo.PlayerEntranceData WHERE player_id = @player_id", new { player_id = player.PlayerId }).FirstOrDefault();
+
             string query = "SELECT * FROM dbo.PlayerEntranceData WHERE player_id = @player_id";
             DateTime dateTime = new DateTime();
-            
+
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
@@ -51,11 +59,13 @@ namespace LandConquestDB.Models
                 reader.Close();
             }
             command.Dispose();
-            return dateTime;           
+            return dateTime;
         }
 
         public static void SetFirstEntrance(Player player)
         {
+            //DbContext.GetSqlConnection().Execute("INSERT INTO dbo.PlayerEntranceData (player_id, last_entrance, first_entrance) VALUES (@player_id, @last_entrance, @first_entrance)", new { player_id = player.PlayerId, last_entrance = DateTime.UtcNow, first_entrance = DateTime.UtcNow });
+
             string query = "INSERT INTO dbo.PlayerEntranceData (player_id, last_entrance, first_entrance) VALUES (@player_id, @last_entrance, @first_entrance)";
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
 
@@ -69,6 +79,8 @@ namespace LandConquestDB.Models
 
         public static void UpdateLastEntrance(Player player)
         {
+            //DbContext.GetSqlConnection().Execute("UPDATE dbo.PlayerEntranceData SET last_entrance = @last_entrance WHERE player_id = @player_id", new { last_entrance = DateTime.UtcNow, player_id = player.PlayerId });
+
             string query = "UPDATE dbo.PlayerEntranceData SET last_entrance = @last_entrance WHERE player_id = @player_id ";
 
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
@@ -81,6 +93,7 @@ namespace LandConquestDB.Models
 
         public static PlayerEntrance GetFirstEntranceInfo(Player player, PlayerEntrance playerEntrance)
         {
+            //  return DbContext.GetSqlConnection().Query<PlayerEntrance>("SELECT * FROM dbo.PlayerEntranceData WHERE player_id = @player_id", new { player_id = player.PlayerId, last_entrance = DateTime.UtcNow, first_entrance = DateTime.UtcNow }).FirstOrDefault();
             string query = "SELECT * FROM dbo.PlayerEntranceData WHERE player_id = @player_id"; //(army_id,army_size_current,army_type,army_archers_count,army_infantry_count,army_horseman_count,army_siegegun_count,local_land_id) VALUES (@army_id, @army_size_current, @army_type, @army_archers_count, @army_infantry_count, @army_horseman_count, @army_siegegun_count, @local_land_id)
             var command = new SqlCommand(query, DbContext.GetSqlConnection());
 

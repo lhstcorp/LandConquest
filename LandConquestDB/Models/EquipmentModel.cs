@@ -1,5 +1,7 @@
 ﻿using LandConquestDB.Entities;
 using System.Data.SqlClient;
+using Dapper;
+using System.Linq;
 
 namespace LandConquestDB.Models
 {
@@ -7,6 +9,8 @@ namespace LandConquestDB.Models
     {
         public static PlayerEquipment GetPlayerEquipment(Player player, PlayerEquipment equipment)
         {
+            //return DbContext.GetSqlConnection().Query<PlayerEquipment>("SELECT * FROM dbo.PlayerEquipment WHERE player_id = @player_id", new { player_id = player.PlayerId }).FirstOrDefault();
+
             string storageQuery = "SELECT * FROM dbo.PlayerEquipment WHERE player_id = @player_id";
 
             var command = new SqlCommand(storageQuery, DbContext.GetSqlConnection());
@@ -41,6 +45,9 @@ namespace LandConquestDB.Models
 
         public static void UpdateEquipment(Player player, PlayerEquipment _equipment)
         {
+            //DbContext.GetSqlConnection().Execute("UPDATE dbo.PlayerEquipment SET armor = @armor, sword  = @sword, harness = @harness, spear  = @spear, bow = @bow, gear = @gear WHERE player_id = @player_id ", new { armor = _equipment.PlayerArmor, sword =_equipment.PlayerSword, harness = _equipment.PlayerHarness, spear = _equipment.PlayerSpear, bow = _equipment.PlayerBow, gear = _equipment.PlayerGear, player_id = player.PlayerId});
+
+
             string storageQuery = "UPDATE dbo.PlayerEquipment SET armor = @armor, sword  = @sword, harness = @harness, spear  = @spear, bow = @bow, gear = @gear WHERE player_id = @player_id ";
 
             var storageCommand = new SqlCommand(storageQuery, DbContext.GetSqlConnection());

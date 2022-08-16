@@ -1,5 +1,7 @@
-﻿using LandConquestDB.Entities;
+﻿using Dapper;
+using LandConquestDB.Entities;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace LandConquestDB.Models
 {
@@ -8,6 +10,8 @@ namespace LandConquestDB.Models
         public static Market GetMarketInfo(Player player, Market market)
         {
             string marketQuery = "SELECT * FROM dbo.MarketData";
+
+            //return DbContext.GetSqlConnection().Query<Market>("SELECT * FROM dbo.MarketData").FirstOrDefault();
 
             var command = new SqlCommand(marketQuery, DbContext.GetSqlConnection());
             command.Parameters.AddWithValue("@player_id", player.PlayerId);
@@ -45,6 +49,9 @@ namespace LandConquestDB.Models
         public static void UpdateMarket(Player player, Market _market)
         {
             string marketQuery = "UPDATE dbo.MarketData SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather, money = @money";
+
+            //DbContext.GetSqlConnection().Execute("UPDATE dbo.MarketData SET wood = @wood, stone  = @stone, food = @food, gold_ore = @gold_ore, copper = @copper, gems = @gems, iron = @iron, leather = @leather, money = @money", new { wood = _market.Wood, stone = _market.Stone, food = _market.Food, gold_ore = _market.GoldOre, copper = _market.Copper, iron = _market.Iron, leather = _market.Leather, money = _market.Money});
+
 
             var marketCommand = new SqlCommand(marketQuery, DbContext.GetSqlConnection());
             // int datetimeResult;
