@@ -72,6 +72,7 @@
     <Compile Include="Entities\DistanceBattle.cs" />
     <Compile Include="Entities\Land.cs" />
     <Compile Include="Entities\Law.cs" />
+    <Compile Include="Entities\LawVote.cs" />
     <Compile Include="Entities\LogWar.cs" />
     <Compile Include="Entities\Manufacture.cs" />
     <Compile Include="Entities\Market.cs" />
