@@ -94,6 +94,11 @@ namespace LandConquest.Forms
             Thickness defaultCountryNameVBMargin = new Thickness(63, 0, 5, 32.4);
             Thickness defaultEllipseMargin = new Thickness(40, 26, 0, -3.6);
             Thickness defaultInitializedByVieboxMargin = new Thickness(74, 29, 0, 7.4);
+            Thickness defaultLine1Margin = new Thickness(63, 22, 0, 0);
+            Thickness defaultLine2Margin = new Thickness(181.5, 29.5, 0, 0);
+            Thickness defaultLine3Margin = new Thickness(275, 29.5, 0, 0);
+            Thickness defaultInitializedByPersonNameVieboxMargin = new Thickness(73, 42, 165, -5.6);
+            Thickness defaulthoursLeftVieboxMargin = new Thickness(183, 22, 69, -11.6);
             ///
 
             List<Law> activeLaws = LawModel.getCountryLaws(currentCountry.CountryId);
@@ -162,6 +167,58 @@ namespace LandConquest.Forms
                 initializedByLabel.FontFamily = new FontFamily("Papyrus");
                 initializedByLabel.FontWeight = FontWeights.Bold;
                 initializedByViebox.Child = initializedByLabel;
+
+                Rectangle line1 = new Rectangle();
+                line1.Height = 1;
+                line1.Width = 272;
+                line1.HorizontalAlignment = HorizontalAlignment.Left;
+                line1.VerticalAlignment = VerticalAlignment.Top;
+                line1.Margin = defaultLine1Margin;
+                line1.StrokeThickness = 1;
+                line1.Stroke = Brushes.Black;
+                grid.Children.Add(line1);
+
+                Rectangle line2 = new Rectangle();
+                line2.Height = 25;
+                line2.Width = 1;
+                line2.HorizontalAlignment = HorizontalAlignment.Left;
+                line2.VerticalAlignment = VerticalAlignment.Top;
+                line2.Margin = defaultLine2Margin;
+                line2.StrokeThickness = 1;
+                line2.Stroke = Brushes.Black;
+                grid.Children.Add(line2);
+
+                Rectangle line3 = new Rectangle();
+                line3.Height = 25;
+                line3.Width = 1;
+                line3.HorizontalAlignment = HorizontalAlignment.Left;
+                line3.VerticalAlignment = VerticalAlignment.Top;
+                line3.Margin = defaultLine3Margin;
+                line3.StrokeThickness = 1;
+                line3.Stroke = Brushes.Black;
+                grid.Children.Add(line3);
+
+                Viewbox initializedByPersonNameViebox = new Viewbox();
+                initializedByPersonNameViebox.Margin = defaultInitializedByPersonNameVieboxMargin;
+                initializedByPersonNameViebox.HorizontalAlignment = HorizontalAlignment.Left;
+                grid.Children.Add(initializedByPersonNameViebox);
+
+                Label initializedByPersonNameLabel = new Label();
+                initializedByPersonNameLabel.Content = PersonModel.GetPersonNameSurnameById(activeLaws[i].PersonId);
+                initializedByPersonNameLabel.FontFamily = new FontFamily("Papyrus");
+                initializedByPersonNameLabel.FontWeight = FontWeights.Bold;
+                initializedByPersonNameViebox.Child = initializedByPersonNameLabel;
+
+                Viewbox hoursLeftViebox = new Viewbox();
+                hoursLeftViebox.Margin = defaulthoursLeftVieboxMargin;
+                hoursLeftViebox.HorizontalAlignment = HorizontalAlignment.Left;
+                grid.Children.Add(hoursLeftViebox);
+
+                Label hoursLeftLabel = new Label();
+                hoursLeftLabel.Content = activeLaws[i].InitDateTime;
+                hoursLeftLabel.FontFamily = new FontFamily("Papyrus");
+                hoursLeftLabel.FontWeight = FontWeights.Bold;
+                hoursLeftViebox.Child = hoursLeftLabel;
             }
 
             ///

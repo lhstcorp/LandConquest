@@ -1,4 +1,6 @@
-﻿namespace LandConquestDB.Entities
+﻿using System;
+
+namespace LandConquestDB.Entities
 {
     public sealed class Law
     {
@@ -8,6 +10,7 @@
         public string PersonId { get; set; }
         public string Value1 { get; set; }
         public string Value2 { get; set; }
+        public DateTime InitDateTime { get; set; }
 
     }
 }

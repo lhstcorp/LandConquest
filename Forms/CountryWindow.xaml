@@ -230,6 +230,10 @@
                                         <Label Content="Initialized by" FontFamily="Papyrus" FontWeight="Bold"/>
                                     </Viewbox>
 
+                                    <Rectangle HorizontalAlignment="Left" Height="1" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="272" RenderTransformOrigin="0.5,0.5" Margin="63,22,0,0"/>
+                                    <Rectangle HorizontalAlignment="Left" Height="25" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5" Margin="181.5,29.5,0,0"/>
+                                    <Rectangle HorizontalAlignment="Left" Height="24" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5" Margin="275,29.5,0,0"/>
+
                                     <Image x:Name="declineLawImgBtn" HorizontalAlignment="Left" Height="19" Margin="285,34,0,0" VerticalAlignment="Top" Width="15" Source="/Pictures/Country/redDarkCross.png" Stretch="UniformToFill" MouseEnter="declineLawImgBtn_MouseEnter" MouseLeave="declineLawImgBtn_MouseLeave"/>
 
                                     <Image x:Name="approveLawImgBtn" HorizontalAlignment="Left" Height="21" Margin="312,30,0,0" VerticalAlignment="Top" Width="17" Source="/Pictures/Country/greenDarkArrow.png" Stretch="UniformToFill" MouseEnter="approveLawImgBtn_MouseEnter" MouseLeave="approveLawImgBtn_MouseLeave"/>
@@ -254,19 +258,6 @@
                 </Grid>
             </Border>
 
-            <Rectangle HorizontalAlignment="Left" Height="1" Margin="602,344,0,0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="261" RenderTransformOrigin="0.5,0.5">
-                <Rectangle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleY="-1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-            <Rectangle HorizontalAlignment="Left" Height="25" Margin="710,349,0,0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5"/>
-            <Rectangle HorizontalAlignment="Left" Height="25" Margin="804,349,0,0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5"/>
-
             <Ellipse x:Name="selectedPersonEllipse" HorizontalAlignment="Left" Height="65"  Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Width="65" Margin="537,117,0,0">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/Hero.png"/>
@@ -275,5 +266,5 @@
 
         </Grid>
     </Border>
-    
+
 </Window>
