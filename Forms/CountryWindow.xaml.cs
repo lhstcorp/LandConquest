@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace LandConquest.Forms
 {
@@ -99,6 +100,10 @@ namespace LandConquest.Forms
             Thickness defaultLine3Margin = new Thickness(275, 29.5, 0, 0);
             Thickness defaultInitializedByPersonNameVieboxMargin = new Thickness(73, 42, 165, -5.6);
             Thickness defaulthoursLeftVieboxMargin = new Thickness(183, 22, 69, -11.6);
+            Point defaultGradientStartPoint = new Point(0.5, 0);
+            Point defaultGradientEndPoint = new Point(0.5, 1);
+            Thickness defaultApproveLawButtonMargin = new Thickness(312, 30, 0, 0);
+            Thickness defaultDeclineLawButtonMargin = new Thickness(285, 34, 0, 0);
             ///
 
             List<Law> activeLaws = LawModel.getCountryLaws(currentCountry.CountryId);
@@ -123,6 +128,7 @@ namespace LandConquest.Forms
 
                 Grid grid = new Grid();
                 border.Child = grid;
+                grid.Background = new LinearGradientBrush(Color.FromRgb(188, 168, 142), Color.FromRgb(223, 211, 152), defaultGradientStartPoint, defaultGradientEndPoint);
 
                 Rectangle rectangle = new Rectangle();
                 rectangle.Width = 57;
@@ -219,9 +225,55 @@ namespace LandConquest.Forms
                 hoursLeftLabel.FontFamily = new FontFamily("Papyrus");
                 hoursLeftLabel.FontWeight = FontWeights.Bold;
                 hoursLeftViebox.Child = hoursLeftLabel;
-            }
 
-            ///
+                DispatcherTimer _lawTimer = new DispatcherTimer(); // :(
+                TimeSpan _lawTime;
+
+                _lawTime = activeLaws[i].InitDateTime.AddHours(12).Subtract(DateTime.UtcNow).StripMilliseconds();
+                _lawTimer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+                {
+                    hoursLeftLabel.Content = _lawTime.ToString("c");
+                    if (_lawTime <= TimeSpan.Zero)
+                    {
+                        _lawTimer.Stop();
+                        hoursLeftLabel.Content = "00:00:00";
+                    }
+                    else
+                    {
+                        _lawTime = _lawTime.Add(TimeSpan.FromSeconds(-1));
+                    }
+                }, Application.Current.Dispatcher);
+
+                _lawTimer.Start();
+
+                Image approveLawImgBtn = new Image();
+                approveLawImgBtn.Source = new BitmapImage(new Uri("/Pictures/Country/greenDarkArrow.png", UriKind.Relative));
+                approveLawImgBtn.Stretch = Stretch.UniformToFill;
+                approveLawImgBtn.Width = 17;
+                approveLawImgBtn.Height = 21;
+                approveLawImgBtn.HorizontalAlignment = HorizontalAlignment.Left;
+                approveLawImgBtn.VerticalAlignment = VerticalAlignment.Top;
+                approveLawImgBtn.Margin = defaultApproveLawButtonMargin;
+                approveLawImgBtn.MouseEnter += approveLawImgBtn_MouseEnter;
+                approveLawImgBtn.MouseLeave += approveLawImgBtn_MouseLeave;
+                approveLawImgBtn.MouseDown += approveLawImgBtn_MouseDown;
+                approveLawImgBtn.Tag = activeLaws[i].LawId;
+                grid.Children.Add(approveLawImgBtn);
+
+                Image declineLawImgBtn = new Image();
+                declineLawImgBtn.Source = new BitmapImage(new Uri("/Pictures/Country/redDarkCross.png", UriKind.Relative));
+                declineLawImgBtn.Stretch = Stretch.UniformToFill;
+                declineLawImgBtn.Width = 15;
+                declineLawImgBtn.Height = 19;
+                declineLawImgBtn.HorizontalAlignment = HorizontalAlignment.Left;
+                declineLawImgBtn.VerticalAlignment = VerticalAlignment.Top;
+                declineLawImgBtn.Margin = defaultDeclineLawButtonMargin;
+                declineLawImgBtn.MouseEnter += declineLawImgBtn_MouseEnter;
+                declineLawImgBtn.MouseLeave += declineLawImgBtn_MouseLeave;
+                declineLawImgBtn.MouseDown += declineLawImgBtn_MouseDown;
+                declineLawImgBtn.Tag = activeLaws[i].LawId;
+                grid.Children.Add(declineLawImgBtn);
+            }
         }
 
         private void populatePlayerPersonList()
@@ -539,6 +591,33 @@ namespace LandConquest.Forms
             img.Source = new BitmapImage(new Uri("/Pictures/Country/redDarkCross.png", UriKind.Relative));
 
             Cursor = Cursors.Arrow;
+        }
+
+        private void declineLawImgBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            LawVote vote = new LawVote();
+            vote.LawId = ((Image)sender).Tag.ToString();
+            vote.PersonId = selectedPerson.PersonId;
+            vote.PlayerId = selectedPerson.PlayerId;
+            vote.VoteValue = -1; // Vote value weight.
+            deletePersonVote(vote.LawId);
+            LawModel.insertLawVote(vote);
+        }
+
+        private void approveLawImgBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            LawVote vote = new LawVote();
+            vote.LawId = ((Image)sender).Tag.ToString();
+            vote.PersonId = selectedPerson.PersonId;
+            vote.PlayerId = selectedPerson.PlayerId;
+            vote.VoteValue = 1; // Vote value weight.
+            deletePersonVote(vote.LawId);
+            LawModel.insertLawVote(vote);
+        }
+
+        private void deletePersonVote(string _lawId)
+        {
+            LawModel.deletePersonLawVote(_lawId, selectedPerson.PersonId);
         }
     }
 }

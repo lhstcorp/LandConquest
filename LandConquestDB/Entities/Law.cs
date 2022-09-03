@@ -4,6 +4,7 @@ namespace LandConquestDB.Entities
 {
     public sealed class Law
     {
+        public string LawId { get; set; }
         public int CountryId { get; set; }
         public int Operation { get; set; }
         public string PlayerId { get; set; }
