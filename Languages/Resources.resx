@@ -456,6 +456,9 @@
   <data name="LocLabelTotal_Text" xml:space="preserve">
     <value>LocLabelTotal_Text</value>
   </data>
+  <data name="LocLabelTransferLandDialogWindow_Text" xml:space="preserve">
+    <value>LocLabelTransferLandDialogWindow_Text</value>
+  </data>
   <data name="LocLabelTRANSFERLAND_Content" xml:space="preserve">
     <value>LocLabelTRANSFERLAND_Content</value>
   </data>

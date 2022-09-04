@@ -456,6 +456,9 @@
   <data name="LocLabelTotal_Text" xml:space="preserve">
     <value>Total</value>
   </data>
+  <data name="LocLabelTransferLandDialogWindow_Text" xml:space="preserve">
+    <value>You are going to initiate a law of transfering land to another country:</value>
+  </data>
   <data name="LocLabelTRANSFERLAND_Content" xml:space="preserve">
     <value>TRANSFER LAND</value>
   </data>

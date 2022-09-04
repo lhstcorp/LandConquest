@@ -1,4 +1,5 @@
-﻿using LandConquestDB.Entities;
+﻿using LandConquest.Forms;
+using LandConquestDB.Entities;
 using LandConquestDB.Models;
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,13 @@ namespace LandConquest.DialogWIndows
     {
         Country country;
         Person person;
+        CountryWindow countryWindow;
 
-        public RenameStateDialogWindow(Country _country, Person _person)
+        public RenameStateDialogWindow(Country _country, Person _person, CountryWindow _countryWindow)
         {
             country = _country;
             person  = _person;
+            countryWindow = _countryWindow;
 
             InitializeComponent();
             initializeFormText();
@@ -84,6 +87,8 @@ namespace LandConquest.DialogWIndows
                 law.Value1 = newCountryNameTB.Text;
 
                 LawModel.insertLaw(law);
+
+                countryWindow.populateActiveLawGrid();
 
                 this.Close();
                 WarningDialogWindow.CallWarningDialogNoResult(Languages.Resources.LocLabelTheLawWasInitiated_Text);
