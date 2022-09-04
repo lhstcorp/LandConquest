@@ -86,8 +86,10 @@ namespace LandConquest.Forms
             /////////////////////
         }
 
-        private void populateActiveLawGrid()
+        public void populateActiveLawGrid()
         {
+            activeLawGrid.Children.Clear();
+
             /// consts
             Thickness defaultBorderMargin = new Thickness(2, 2, 2, 0);
             Thickness defaultBorderThickness = new Thickness(1);
@@ -547,15 +549,7 @@ namespace LandConquest.Forms
         {
             this.Close();
         }
-
-        private void renameStateBtn_Click(object sender, RoutedEventArgs e)
-        {
-            RenameStateDialogWindow renameStateDialogWindow = new RenameStateDialogWindow(currentCountry, selectedPerson);
-
-            renameStateDialogWindow.Show();
-            renameStateDialogWindow.Owner = this;
-            renameStateDialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-        }
+              
 
         private void approveLawImgBtn_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
@@ -618,6 +612,24 @@ namespace LandConquest.Forms
         private void deletePersonVote(string _lawId)
         {
             LawModel.deletePersonLawVote(_lawId, selectedPerson.PersonId);
+        }
+
+        private void renameStateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            RenameStateDialogWindow renameStateDialogWindow = new RenameStateDialogWindow(currentCountry, selectedPerson, this);
+
+            renameStateDialogWindow.Owner = this;
+            renameStateDialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            renameStateDialogWindow.Show();
+        }
+
+        private void transferLandBtn_Click(object sender, RoutedEventArgs e)
+        {
+            TransferLandDialogWindow transferLandDialogWindow = new TransferLandDialogWindow(currentCountry, selectedPerson, this);
+
+            transferLandDialogWindow.Owner = this;
+            transferLandDialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            transferLandDialogWindow.Show();
         }
     }
 }

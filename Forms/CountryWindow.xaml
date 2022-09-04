@@ -129,7 +129,7 @@
                             <ImageBrush ImageSource="/Pictures/Country/CountryMenu/renameCountry.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="transferLandBtn" Width="80" Height="80" Margin="90,3,0,0" BorderBrush="Black" HorizontalAlignment="Left">
+                    <Button x:Name="transferLandBtn" Width="80" Height="80" Margin="90,3,0,0" BorderBrush="Black" HorizontalAlignment="Left" Click="transferLandBtn_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/Country/CountryMenu/transferLand.png"/>
                         </Button.Background>

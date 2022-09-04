@@ -204,6 +204,9 @@
     <Compile Include="DialogWIndows\RenameStateDialogWindow.xaml.cs">
       <DependentUpon>RenameStateDialogWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogWIndows\TransferLandDialogWindow.xaml.cs">
+      <DependentUpon>TransferLandDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\WarWindow.xaml.cs">
       <DependentUpon>WarWindow.xaml</DependentUpon>
     </Compile>
@@ -353,6 +356,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\RenameStateDialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogWIndows\TransferLandDialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
