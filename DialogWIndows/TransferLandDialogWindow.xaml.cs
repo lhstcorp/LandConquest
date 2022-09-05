@@ -42,7 +42,10 @@ namespace LandConquest.DialogWIndows
 
             for (int i = 0; i < countryLands.Count; i++)
             {
-                landsCbbx.Items.Add(countryLands[i].LandName);
+                if (!LandModel.isLandInWar(countryLands[i].LandId))
+                {
+                    landsCbbx.Items.Add(countryLands[i].LandName);
+                }
             }
 
             List<Country> countries = CountryModel.GetCountriesInfo();
@@ -56,20 +59,51 @@ namespace LandConquest.DialogWIndows
 
         private void transferLandBtn_Click(object sender, RoutedEventArgs e)
         {
-            Law law = new Law();
-            law.CountryId = country.CountryId;
-            law.Operation = 2;
-            law.PlayerId = person.PlayerId;
-            law.PersonId = person.PersonId;
-            law.Value1 = landsCbbx.SelectedItem.ToString();
-            law.Value2 = countriesCbbx.SelectedItem.ToString();
+            if (validateTransferLaw())
+            { 
+                Law law = new Law();
+                law.CountryId = country.CountryId;
+                law.Operation = 2;
+                law.PlayerId = person.PlayerId;
+                law.PersonId = person.PersonId;
+                law.Value1 = landsCbbx.SelectedItem.ToString();
+                law.Value2 = countriesCbbx.SelectedItem.ToString();
 
-            LawModel.insertLaw(law);
+                LawModel.insertLaw(law);
 
-            countryWindow.populateActiveLawGrid();
+                countryWindow.populateActiveLawGrid();
 
-            this.Close();
-            WarningDialogWindow.CallWarningDialogNoResult(Languages.Resources.LocLabelTheLawWasInitiated_Text);
+                this.Close();
+                WarningDialogWindow.CallWarningDialogNoResult(Languages.Resources.LocLabelTheLawWasInitiated_Text);
+            }
+            else
+            {
+                WarningDialogWindow.CallWarningDialogNoResult(Languages.Resources.LocLabelTheLawWasNotInitiated_Text);
+            }
+        }
+
+        private bool validateTransferLaw()
+        {
+            bool ret = true;
+
+            if (landsCbbx.SelectedItem == null
+             || countriesCbbx.SelectedItem == null)
+            {
+                ret = false;
+            }
+            else
+            {
+                ret = !isLandInWar();
+            }
+
+            return ret;
+        }
+
+        private bool isLandInWar()
+        {
+            Land land = LandModel.GetLandInfoByName(landsCbbx.SelectedItem.ToString());
+
+            return LandModel.isLandInWar(land.LandId);
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)

@@ -1042,6 +1042,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelTheLawWasNotInitiated_Text.
+        /// </summary>
+        public static string LocLabelTheLawWasNotInitiated_Text {
+            get {
+                return ResourceManager.GetString("LocLabelTheLawWasNotInitiated_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelTheStateWasFounded_Text.
         /// </summary>
         public static string LocLabelTheStateWasFounded_Text {
