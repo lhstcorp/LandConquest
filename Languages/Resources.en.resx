@@ -444,6 +444,9 @@
   <data name="LocLabelTheLawWasInitiated_Text" xml:space="preserve">
     <value>The law was initiated</value>
   </data>
+  <data name="LocLabelTheLawWasNotInitiated_Text" xml:space="preserve">
+    <value>The law wasn't initiated</value>
+  </data>
   <data name="LocLabelTheStateWasFounded_Text" xml:space="preserve">
     <value>The state was founded</value>
   </data>

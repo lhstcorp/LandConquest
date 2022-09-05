@@ -444,6 +444,9 @@
   <data name="LocLabelTheLawWasInitiated_Text" xml:space="preserve">
     <value>Закон был инициирован</value>
   </data>
+  <data name="LocLabelTheLawWasNotInitiated_Text" xml:space="preserve">
+    <value>Закон не был инициирован</value>
+  </data>
   <data name="LocLabelTheStateWasFounded_Text" xml:space="preserve">
     <value>Государство было основано</value>
   </data>
