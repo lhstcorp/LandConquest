@@ -1,0 +1,49 @@
+﻿<Window x:Class="LandConquest.DialogWIndows.DeclareWarDialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandConquest.DialogWIndows"
+        xmlns:lex="http://wpflocalizeextension.codeplex.com"
+        lex:LocalizeDictionary.DesignCulture="ru"
+        lex:LocalizeDictionary.IncludeInvariantCulture="False"
+        lex:ResxLocalizationProvider.DefaultAssembly="LandConquest"
+        lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+        mc:Ignorable="d"
+        Title="RenameStateDialogWindow" Height="450" Width="300" AllowsTransparency="True" Background="Transparent" WindowStyle="None"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Button x:Name="buttonClose" Height="20" VerticalAlignment="Top" Width="20"  BorderBrush="{x:Null}" Foreground="#FFDFC58E" Click="buttonClose_Click" Margin="0,59,19.6,0">
+            <Button.Background>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
+            </Button.Background>
+        </Button>
+
+        <Border HorizontalAlignment="Left" Margin="48,73,0,0" VerticalAlignment="Top" Width="202" BorderThickness="0.5" BorderBrush="Black" CornerRadius="10" Height="258">
+            <Grid Margin="0.2,9.2,0,9.4">
+                <TextBlock TextWrapping="Wrap" FontSize="14" FontFamily="Papyrus" Text="{lex:Loc LocLabeldeclareWarDialogWindow_Text}" Margin="9,0,10,150"/>
+
+                <ComboBox x:Name="attackersLandCbbx" HorizontalAlignment="Left" Height="34" Margin="9,109,0,0" VerticalAlignment="Top" Width="182" BorderBrush="Black" BorderThickness="0.5" SelectedIndex="0"/>
+                <Label Content="{lex:Loc LocLabelAttackersLand_Content}"  FontFamily="Poor Richard" HorizontalContentAlignment="Left" FontWeight="Bold" HorizontalAlignment="Left" Height="21" Margin="5,92,0,0" VerticalAlignment="Top" Width="153"/>
+
+                <ComboBox x:Name="defendersCountryCbbx" HorizontalAlignment="Left" Height="34" Margin="9,156,0,0" VerticalAlignment="Top" Width="182" BorderBrush="Black" BorderThickness="0.5" SelectedIndex="0"/>
+                <Label Content="{lex:Loc LocLabelDefendersCountry_Content}"  FontFamily="Poor Richard" HorizontalContentAlignment="Left" FontWeight="Bold" HorizontalAlignment="Left" Height="21" Margin="5,139,0,0" VerticalAlignment="Top" Width="153"/>
+                
+                <ComboBox x:Name="defendersLandCbbx" HorizontalAlignment="Left" Height="34" Margin="9,204,0,0" VerticalAlignment="Top" Width="182" BorderBrush="Black" BorderThickness="0.5" SelectedIndex="0"/>
+                <Label Content="{lex:Loc LocLabelDefendersLand_Content}"  FontFamily="Poor Richard" HorizontalContentAlignment="Left" FontWeight="Bold" HorizontalAlignment="Left" Height="21" Margin="5,186,0,0" VerticalAlignment="Top" Width="153"/>
+
+
+            </Grid>
+        </Border>
+
+        <Viewbox Margin="48,51,50,0" VerticalAlignment="Top">
+            <Label Content="{lex:Loc LocLabelDECLAREWAR_Content}" FontFamily="Papyrus" FontWeight="Bold" Foreground="DarkRed"/>
+        </Viewbox>
+
+        <Button x:Name="transferLandBtn" Content="{lex:Loc LocLabelTRANSFERLAND_Content}" HorizontalAlignment="Left" Height="54" Margin="51,336,0,0" VerticalAlignment="Top" Width="193" Click="transferLandBtn_Click"/>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/Common/dialogScroll.png"/>
+        </Grid.Background>
+    </Grid>
+</Window>

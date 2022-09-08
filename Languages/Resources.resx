@@ -177,6 +177,9 @@
   <data name="LocLabelArmy_Content" xml:space="preserve">
     <value>LocLabelArmy_Content</value>
   </data>
+  <data name="LocLabelAttackersLand_Content" xml:space="preserve">
+    <value>LocLabelAttackersLand_Content</value>
+  </data>
   <data name="LocLabelAuctionMain_Content" xml:space="preserve">
     <value>LocLabelAuctionMain_Content</value>
   </data>
@@ -231,8 +234,17 @@
   <data name="LocLabelDate_Content" xml:space="preserve">
     <value>LocLabelDate_Content</value>
   </data>
+  <data name="LocLabelDeclareWarDialogWindow_Text" xml:space="preserve">
+    <value>LocLabelDeclareWarDialogWindow_Text</value>
+  </data>
   <data name="LocLabelDECLAREWAR_Content" xml:space="preserve">
     <value>LocLabelDECLAREWAR_Content</value>
+  </data>
+  <data name="LocLabelDefendersCountry_Content" xml:space="preserve">
+    <value>LocLabelDefendersCountry_Content</value>
+  </data>
+  <data name="LocLabelDefendersLand_Content" xml:space="preserve">
+    <value>LocLabelDefendersLand_Content</value>
   </data>
   <data name="LocLabelDinastyMain_Content" xml:space="preserve">
     <value>LocLabelDinastyMain_Content</value>

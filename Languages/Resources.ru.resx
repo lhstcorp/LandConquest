@@ -177,6 +177,9 @@
   <data name="LocLabelArmy_Content" xml:space="preserve">
     <value>Войска</value>
   </data>
+  <data name="LocLabelAttackersLand_Content" xml:space="preserve">
+    <value>Земля атакующего</value>
+  </data>
   <data name="LocLabelAuctionMain_Content" xml:space="preserve">
     <value>Аукцион</value>
   </data>
@@ -231,8 +234,17 @@
   <data name="LocLabelDate_Content" xml:space="preserve">
     <value>Время</value>
   </data>
+  <data name="LocLabelDeclareWarDialogWindow_Text" xml:space="preserve">
+    <value>Вы собираетесь инициировать закон о нападении на другое государство:</value>
+  </data>
   <data name="LocLabelDECLAREWAR_Content" xml:space="preserve">
     <value>ОБЪЯВИТЬ ВОЙНУ</value>
+  </data>
+  <data name="LocLabelDefendersCountry_Content" xml:space="preserve">
+    <value>Страна защитника</value>
+  </data>
+  <data name="LocLabelDefendersLand_Content" xml:space="preserve">
+    <value>Земля защитника</value>
   </data>
   <data name="LocLabelDinastyMain_Content" xml:space="preserve">
     <value>Династия</value>

@@ -631,5 +631,14 @@ namespace LandConquest.Forms
             transferLandDialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             transferLandDialogWindow.Show();
         }
+
+        private void declareWarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            TransferLandDialogWindow transferLandDialogWindow = new TransferLandDialogWindow(currentCountry, selectedPerson, this);
+
+            transferLandDialogWindow.Owner = this;
+            transferLandDialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            transferLandDialogWindow.Show();
+        }
     }
 }
