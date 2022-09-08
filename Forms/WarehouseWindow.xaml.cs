@@ -22,13 +22,11 @@ namespace LandConquest.Forms
     public partial class WarehouseWindow : Window
     {
         private Player player;
-        private User user;
         private int warehouseId;
 
-        public WarehouseWindow(User _user, Player _player, int _warehouseId)
+        public WarehouseWindow(Player _player, int _warehouseId)
         {
             player = _player;
-            user = _user;
             warehouseId = _warehouseId;
             InitializeComponent();
 
