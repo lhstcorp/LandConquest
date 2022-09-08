@@ -241,6 +241,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelAttackersLand_Content.
+        /// </summary>
+        public static string LocLabelAttackersLand_Content {
+            get {
+                return ResourceManager.GetString("LocLabelAttackersLand_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelAuctionMain_Content.
         /// </summary>
         public static string LocLabelAuctionMain_Content {
@@ -408,6 +417,33 @@ namespace LandConquest.Languages {
         public static string LocLabelDECLAREWAR_Content {
             get {
                 return ResourceManager.GetString("LocLabelDECLAREWAR_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelDeclareWarDialogWindow_Text.
+        /// </summary>
+        public static string LocLabelDeclareWarDialogWindow_Text {
+            get {
+                return ResourceManager.GetString("LocLabelDeclareWarDialogWindow_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelDefendersCountry_Content.
+        /// </summary>
+        public static string LocLabelDefendersCountry_Content {
+            get {
+                return ResourceManager.GetString("LocLabelDefendersCountry_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelDefendersLand_Content.
+        /// </summary>
+        public static string LocLabelDefendersLand_Content {
+            get {
+                return ResourceManager.GetString("LocLabelDefendersLand_Content", resourceCulture);
             }
         }
         

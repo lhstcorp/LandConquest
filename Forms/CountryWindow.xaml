@@ -134,12 +134,12 @@
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/Country/CountryMenu/transferLand.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="makePactBtn" Width="80" Height="80" Margin="175,3,0,0" BorderBrush="Black" HorizontalAlignment="Left">
+                    <Button x:Name="makePactBtn" Width="80" Height="80" Margin="175,3,0,0" BorderBrush="Black" HorizontalAlignment="Left" Content="Soon" Foreground="#FF4B4C3C">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/Country/CountryMenu/makePact.png"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="declareWarBtn" Width="80" Height="80" Margin="260,3,0,0" BorderBrush="Black" HorizontalAlignment="Left">
+                    <Button x:Name="declareWarBtn" Width="80" Height="80" Margin="260,3,0,0" BorderBrush="Black" HorizontalAlignment="Left" Click="declareWarBtn_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/Country/CountryMenu/declareWar.png"/>
                         </Button.Background>
