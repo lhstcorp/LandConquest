@@ -40,7 +40,7 @@
             <Label Content="{lex:Loc LocLabelDECLAREWAR_Content}" FontFamily="Papyrus" FontWeight="Bold" Foreground="DarkRed"/>
         </Viewbox>
 
-        <Button x:Name="transferLandBtn" Content="{lex:Loc LocLabelTRANSFERLAND_Content}" HorizontalAlignment="Left" Height="54" Margin="51,336,0,0" VerticalAlignment="Top" Width="193" Click="transferLandBtn_Click"/>
+        <Button x:Name="transferLandBtn" Content="{lex:Loc LocLabelTRANSFERLAND_Content}" HorizontalAlignment="Left" Height="54" Margin="51,336,0,0" VerticalAlignment="Top" Width="193" />
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/Common/dialogScroll.png"/>

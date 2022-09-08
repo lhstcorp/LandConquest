@@ -17,12 +17,12 @@ namespace LandConquestDB.Models
             {
                 var playerId = reader.GetOrdinal("player_id");
                 var playerWood = reader.GetOrdinal("wood");
-                var playerStone = reader.GetOrdinal("stone");
-                var playerFood = reader.GetOrdinal("food");
-                var playerIron = reader.GetOrdinal("iron");
-                var playerGoldOre = reader.GetOrdinal("gold_ore");
-                var playerCopper = reader.GetOrdinal("copper");
-                var playerGems = reader.GetOrdinal("gems");
+                var playerStone = reader.GetOrdinal("clay");
+                var playerFood = reader.GetOrdinal("coal");
+                var playerIron = reader.GetOrdinal("fur");
+                var playerGoldOre = reader.GetOrdinal("wool");
+                var playerCopper = reader.GetOrdinal("soda");
+                var playerGems = reader.GetOrdinal("lime");
                 var playerLeather = reader.GetOrdinal("leather");
                 while (reader.Read())
                 {

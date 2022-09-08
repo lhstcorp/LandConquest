@@ -11,8 +11,13 @@ namespace LandConquest.Logic
         private enum Manufactures : int
         {
             wood = 0,
-            stone = 1,
-            food = 2
+            clay = 1,
+            coal = 2,
+            fur = 3,
+            wool = 4,
+            soda = 5,
+            lime = 6,
+            leather = 7
         }
         public static void CountResources(Player _player, PlayerStorage _storage, Taxes _taxes, out Player player, out PlayerStorage storage, out Taxes taxes, out string playerLvlValue)
         {

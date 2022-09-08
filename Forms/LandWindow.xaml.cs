@@ -108,7 +108,7 @@ namespace LandConquest.Forms
             var warehouseId = WarehouseModel.GetWarehouseId(player.PlayerId, land.LandId);
             if (warehouseId.HasValue)
             {
-                WarehouseWindow openedWindow = new WarehouseWindow(user, player, warehouseId.Value);
+                WarehouseWindow openedWindow = new WarehouseWindow(player, warehouseId.Value);
                 openedWindow.Owner = Application.Current.MainWindow;
                 openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 openedWindow.Show();
