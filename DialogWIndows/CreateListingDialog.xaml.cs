@@ -37,7 +37,7 @@ namespace LandConquest.DialogWIndows
             itemGroup       = null;
             itemSubgroup    = null;
 
-            storage = StorageModel.GetPlayerStorage(player);
+            //storage = StorageModel.GetPlayerStorage(player);
 
             labelWoodAmount.Content     = storage.Wood.ToString();
             labelStoneAmount.Content    = storage.Stone.ToString();

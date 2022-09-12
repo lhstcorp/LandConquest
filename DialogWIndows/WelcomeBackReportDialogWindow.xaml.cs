@@ -23,7 +23,7 @@ namespace LandConquest.DialogWIndows
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.labelExpOld.Content    = player.PlayerExp;
-            this.labelExpNew.Content    = IncomeCalculationLogic.CountPlayerExp(player);
+            this.labelExpNew.Content    = player.PlayerExp;//IncomeCalculationLogic.CountPlayerExp(player);
             this.labelHours.Content     = $"{(DateTime.UtcNow - PlayerEntranceModel.GetLastEntrance(player)).Hours} hr(s)" ;
         }
 
@@ -34,11 +34,11 @@ namespace LandConquest.DialogWIndows
 
         private void buttonGrabRes_Click(object sender, RoutedEventArgs e)
         {
-            PlayerStorage storage =  StorageModel.GetPlayerStorage(player);
+           // PlayerStorage storage =  StorageModel.GetPlayerStorage(player);
             Taxes taxes = TaxesModel.GetTaxesInfo(player.PlayerId);
 
-            string playerLvl;
-            IncomeCalculationLogic.CountResources(player, storage, taxes, out player, out storage, out taxes, out playerLvl);
+            //string playerLvl;
+            //IncomeCalculationLogic.CountResources(player, storage, taxes, out player, out storage, out taxes, out playerLvl);
 
             this.Close();
         }

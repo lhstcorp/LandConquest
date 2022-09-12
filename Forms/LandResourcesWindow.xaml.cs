@@ -176,7 +176,7 @@ namespace LandConquest.Forms
                     break;
 
             }
-            StorageModel.UpdateStorage(player, storage);
+            //StorageModel.UpdateStorage(player, storage);
             PlayerModel.UpdatePlayerMoney(player);
             LandStorageModel.UpdateLandStorage(land, landStorage);
             LandResourcesWindow_Loaded(sender, e);

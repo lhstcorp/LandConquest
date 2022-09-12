@@ -45,7 +45,7 @@ namespace LandConquest.Forms
             storage = new PlayerStorage();
             landStorage = new LandStorage();
 
-            storage = StorageModel.GetPlayerStorage(player);
+            //storage = StorageModel.GetPlayerStorage(player);
             landStorage = LandStorageModel.GetLandStorage(land, landStorage);
             landWoodToolTip.Content = landStorage.Wood;
             landFoodToolTip.Content = landStorage.Food;

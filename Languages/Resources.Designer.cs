@@ -1141,6 +1141,15 @@ namespace LandConquest.Languages {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на LocLabelTransferLandToState_Text.
+        /// </summary>
+        public static string LocLabelTransferLandToState_Text {
+            get {
+                return ResourceManager.GetString("LocLabelTransferLandToState_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на LocLabelUpgrade_Text.
         /// </summary>
         public static string LocLabelUpgrade_Text {

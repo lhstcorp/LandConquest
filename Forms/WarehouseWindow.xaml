@@ -5,24 +5,95 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LandConquest.Forms"
         mc:Ignorable="d" ResizeMode="NoResize" WindowStyle="None"
-        Title="LandWindow" Height="450" Width="800">
+        Title="LandWindow" Height="660" Width="1120">
     <Border BorderBrush="#FF392018" BorderThickness="3" Height="Auto" Width="Auto">
         <Grid>
             <Grid.Background>
-                <ImageBrush ImageSource="/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+                <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
-            <Button x:Name="buttonExit" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Click="buttonExit_click" Margin="0,1,1.6,0" BorderBrush="{x:Null}" Foreground="{x:Null}" RenderTransformOrigin="0.541,0.51" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Grid.Column="1">
+
+            <Grid Margin="10,10,385.6,17.6">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF351D1D" Offset="0"/>
+                        <GradientStop Color="#FF2E1C1C" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+
+                <Grid HorizontalAlignment="Left" Height="620" Margin="81,3,0,0" VerticalAlignment="Top" Width="620">
+
+                    <ScrollViewer Height="620" VerticalAlignment="Top" HorizontalAlignment="Left" Width="637" Margin="0,0,-17,0">
+                        <UniformGrid x:Name="itemsGrid" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Columns="4">
+                            <Border Margin="2, 2, 0, 0" Width="151" Height="151" BorderBrush="Black" BorderThickness="0.5" CornerRadius="5">
+                                <Grid>
+                                    <Label HorizontalAlignment="Center" VerticalAlignment="Center" Content="Label"/>
+                                </Grid>                                
+                            </Border>
+                        </UniformGrid>
+                    </ScrollViewer>
+
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg" Stretch="UniformToFill"/>
+                    </Grid.Background>
+                </Grid>
+
+                <Button x:Name="itemCategoryBtn" Content="Agriculture" Tag="0" Foreground="Wheat" FontFamily="Agency FB" FontSize="16" HorizontalAlignment="Left" Height="75" Margin="3,3,0,0" VerticalAlignment="Top" Width="75" BorderBrush="Black" BorderThickness="0.5" Click="itemCategoryBtn_Click">
+
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pictures/Resources/Categories/Agriculture.png"/>
+                    </Button.Background>
+                </Button>
+
+                <Button Content="Metallurgy" Tag="1" Foreground="Black" FontFamily="Agency FB" FontSize="16" HorizontalAlignment="Left" Height="75" Margin="3,81,0,0" VerticalAlignment="Top" Width="75" BorderBrush="Black" BorderThickness="0.5" Click="itemCategoryBtn_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pictures/Resources/Categories/Metal.png"/>
+                    </Button.Background>
+                </Button>
+
+                <Button Content="Raw materials" Tag="2" Foreground="Wheat" FontFamily="Agency FB" FontSize="16" HorizontalAlignment="Left" Height="75" Margin="3,159,0,0" VerticalAlignment="Top" Width="75" BorderBrush="Black" BorderThickness="0.5" Click="itemCategoryBtn_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pictures/Resources/Categories/RawMaterials.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="Tools" Tag="3" Foreground="Wheat" FontFamily="Agency FB" FontSize="16" HorizontalAlignment="Left" Height="75" Margin="3,237,0,0" VerticalAlignment="Top" Width="75" BorderBrush="Black" BorderThickness="0.5" Click="itemCategoryBtn_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pictures/Resources/Categories/Tools.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="Armament" Tag="4" Foreground="Wheat" FontFamily="Agency FB" FontSize="16" HorizontalAlignment="Left" Height="75" Margin="3,315,0,0" VerticalAlignment="Top" Width="75" BorderBrush="Black" BorderThickness="0.5" Click="itemCategoryBtn_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pictures/Resources/Categories/Armament.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="Clothing" Tag="5" Foreground="Wheat" FontFamily="Agency FB" FontSize="16" HorizontalAlignment="Left" Height="75" Margin="3,393,0,0" VerticalAlignment="Top" Width="75" BorderBrush="Black" BorderThickness="0.5" Click="itemCategoryBtn_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pictures/Resources/Categories/Clothing.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="Products" Tag="6" Foreground="Wheat" FontFamily="Agency FB" FontSize="16" HorizontalAlignment="Left" Height="75" Margin="3,471,0,0" VerticalAlignment="Top" Width="75" BorderBrush="Black" BorderThickness="0.5" Click="itemCategoryBtn_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pictures/Resources/Categories/Products.png"/>
+                    </Button.Background>
+                </Button>
+
+                <Button Foreground="Black" Tag="7" FontFamily="Agency FB" FontSize="16" HorizontalAlignment="Left" Height="75" Margin="3,549,0,0" VerticalAlignment="Top" Width="75" BorderBrush="Black" BorderThickness="0.5" Click="itemCategoryBtn_Click">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center">Construction Materials</TextBlock>
+
+                    <Button.Background>
+                        <ImageBrush ImageSource="/LandConquest;component/Pictures/Resources/Categories/ConstructionMaterials.png"/>
+                    </Button.Background>
+                </Button>
+
+
+
+            </Grid>
+
+            <Button x:Name="buttonExit1" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Click="buttonExit_click" Margin="0,0,0.6,0" BorderBrush="{x:Null}" Foreground="{x:Null}" RenderTransformOrigin="0.541,0.51" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top">
                 <Button.Background>
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
                 </Button.Background>
             </Button>
-            <Label x:Name="landNamelbl" FontSize="24" Foreground="#76143c" FontWeight="Bold" FontFamily="/Fonts/#Harrington" Content="Warehouse in {Land name}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="307"/>
-            <DataGrid x:Name="storedItemsDataGrid" HorizontalAlignment="Left" Height="339" Margin="47,63,0,0" VerticalAlignment="Top" Width="666" ItemsSource="{Binding StoredItem}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{Binding Path=Name}" Width="50"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Quantity" IsReadOnly="True"  Binding="{Binding Path=Quantity}" Width="130"></DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+
         </Grid>
     </Border>
 </Window>

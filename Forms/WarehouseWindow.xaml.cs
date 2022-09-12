@@ -22,12 +22,12 @@ namespace LandConquest.Forms
     public partial class WarehouseWindow : Window
     {
         private Player player;
-        private int warehouseId;
+        private int landId;
 
-        public WarehouseWindow(Player _player, int _warehouseId)
+        public WarehouseWindow(Player _player, int _landId)
         {
             player = _player;
-            warehouseId = _warehouseId;
+            landId = _landId;
             InitializeComponent();
 
             Loaded += WarehouseWindow_Loaded;
@@ -35,12 +35,52 @@ namespace LandConquest.Forms
 
         private void WarehouseWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            storedItemsDataGrid.ItemsSource = WarehouseModel.GetWarehouseItems(warehouseId);
+            IEnumerable<(int id, string name)> items = WarehouseModel.GetItemsByCategory(0);
+
+            initItemsGrid(items);
+        }
+
+        private void initItemsGrid(IEnumerable<(int id, string name)> items)
+        {
+            itemsGrid.Children.Clear();
+
+            Thickness defaultItemBorderMargin = new Thickness(3, 3, 0, 0);
+            Thickness defaultItemBorderThinkness = new Thickness(0.5);
+            CornerRadius defaultCornerRadius = new CornerRadius(5);
+
+            for (int i = 0; i < items.Count(); i++)
+            {
+                Border border = new Border();
+                border.Margin = defaultItemBorderMargin;
+                border.Width = 151;
+                border.Height = 151;
+                border.BorderBrush = Brushes.Black;
+                border.BorderThickness = defaultItemBorderThinkness;
+                border.CornerRadius = defaultCornerRadius;
+                itemsGrid.Children.Add(border);
+
+                Grid grid = new Grid();
+                border.Child = grid;
+                //grid.Background = new ImageBrush(new BitmapImage(new Uri(String.Format("/Pictures/Resources/{0}.png", items.ElementAt(0).name), UriKind.Relative)));
+
+                Label itemNameLabel = new Label();
+                itemNameLabel.Content = items.ElementAt(i).name;
+                grid.Children.Add(itemNameLabel);
+            }
         }
 
         private void buttonExit_click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void itemCategoryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Button itemCategoryBtn = (Button)sender;
+
+            IEnumerable<(int id, string name)> items = WarehouseModel.GetItemsByCategory(Convert.ToInt32(itemCategoryBtn.Tag));
+
+            initItemsGrid(items);
         }
     }
 }

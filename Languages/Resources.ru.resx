@@ -474,6 +474,9 @@
   <data name="LocLabelTransferLandDialogWindow_Text" xml:space="preserve">
     <value>Вы собираетесь инициировать закон о передаче земли в другое государство:</value>
   </data>
+  <data name="LocLabelTransferLandToState_Text" xml:space="preserve">
+    <value>Передать {0} в {1}</value>
+  </data>
   <data name="LocLabelTRANSFERLAND_Content" xml:space="preserve">
     <value>ПЕРЕДАТЬ ЗЕМЛЮ</value>
   </data>
