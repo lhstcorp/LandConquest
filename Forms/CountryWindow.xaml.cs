@@ -147,11 +147,11 @@ namespace LandConquest.Forms
                 countryNameVB.Margin = defaultCountryNameVBMargin;
                 grid.Children.Add(countryNameVB);
 
-                Label countryNameLbl = new Label();
-                countryNameLbl.FontFamily = new FontFamily("Papyrus");
-                countryNameLbl.FontWeight = FontWeights.Bold;
-                countryNameLbl.Content = getLawTitle(activeLaws[i]);
-                countryNameVB.Child = countryNameLbl;
+                Label lawTitleLbl = new Label();
+                lawTitleLbl.FontFamily = new FontFamily("Papyrus");
+                lawTitleLbl.FontWeight = FontWeights.Bold;
+                lawTitleLbl.Content = getLawTitle(activeLaws[i]);
+                countryNameVB.Child = lawTitleLbl;
 
                 Ellipse ellipse = new Ellipse();
                 ellipse.Height = 36;
@@ -388,7 +388,7 @@ namespace LandConquest.Forms
                     lawTitle = String.Format(Languages.Resources.LocLabelRenameStateTo_Text, _law.Value1); 
                     break;
                 case 2:
-                    lawTitle = String.Format(Languages.Resources.LocLabelRenameStateTo_Text, _law.Value1);
+                    lawTitle = String.Format(Languages.Resources.LocLabelTransferLandToState_Text, _law.Value1, _law.Value2);
                     break;
                 case 3:
                     lawTitle = String.Format(Languages.Resources.LocLabelRenameStateTo_Text, _law.Value1);
@@ -634,11 +634,11 @@ namespace LandConquest.Forms
 
         private void declareWarBtn_Click(object sender, RoutedEventArgs e)
         {
-            TransferLandDialogWindow transferLandDialogWindow = new TransferLandDialogWindow(currentCountry, selectedPerson, this);
+            DeclareWarDialogWindow declareWarDialogWindow = new DeclareWarDialogWindow(currentCountry, selectedPerson, this);
 
-            transferLandDialogWindow.Owner = this;
-            transferLandDialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            transferLandDialogWindow.Show();
+            declareWarDialogWindow.Owner = this;
+            declareWarDialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            declareWarDialogWindow.Show();
         }
     }
 }

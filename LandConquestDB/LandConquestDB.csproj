@@ -92,6 +92,7 @@
     <Compile Include="Entities\Warehouse.cs" />
     <Compile Include="Entities\WarScore.cs" />
     <Compile Include="Enums\ForcesEnum.cs" />
+    <Compile Include="Enums\ItemTypeEnum.cs" />
     <Compile Include="Models\ArmyModel.cs" />
     <Compile Include="Models\AuctionModel.cs" />
     <Compile Include="Models\BattleModel.cs" />
@@ -115,7 +116,6 @@
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\PlayerEntranceModel.cs" />
     <Compile Include="Models\PlayerModel.cs" />
-    <Compile Include="Models\StorageModel.cs" />
     <Compile Include="Models\TaxesModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\WarehouseModel.cs" />

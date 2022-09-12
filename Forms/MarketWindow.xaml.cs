@@ -27,7 +27,7 @@ namespace LandConquest.Forms
             storage = new PlayerStorage();
             market = new Market();
 
-            storage = StorageModel.GetPlayerStorage(player);
+            //storage = StorageModel.GetPlayerStorage(player);
             market = MarketModel.GetMarketInfo(player, market);
 
             labelWoodMarket.Content = market.Wood.ToString();
@@ -300,7 +300,7 @@ namespace LandConquest.Forms
 
             }
 
-            StorageModel.UpdateStorage(player, storage);
+            //StorageModel.UpdateStorage(player, storage);
             PlayerModel.UpdatePlayerMoney(player);
             MarketModel.UpdateMarket(player, market);
             MarketWindow_Loaded(sender, e);
@@ -483,7 +483,7 @@ namespace LandConquest.Forms
 
             }
 
-            StorageModel.UpdateStorage(player, storage);
+            //StorageModel.UpdateStorage(player, storage);
             PlayerModel.UpdatePlayerMoney(player);
             MarketModel.UpdateMarket(player, market);
             MarketWindow_Loaded(sender, e);

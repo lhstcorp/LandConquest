@@ -366,20 +366,20 @@ namespace LandConquest.Forms
 
         private void buttonQuarryUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(storage, manufactures[1], player);
-            dialogwindow.Show();
+            //ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(storage, manufactures[1], player);
+            //dialogwindow.Show();
         }
 
         private void buttonSawmillUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(storage, manufactures[0], player);
-            dialogwindow.Show();
+           // ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(storage, manufactures[0], player);
+            //dialogwindow.Show();
         }
 
         private void buttonWindmillUpgrade_Click(object sender, RoutedEventArgs e)
         {
-            ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(storage, manufactures[2], player);
-            dialogwindow.Show();
+            //ManufactureUpgradeDialog dialogwindow = new ManufactureUpgradeDialog(storage, manufactures[2], player);
+           // dialogwindow.Show();
         }
 
         private void button_close_Click(object sender, RoutedEventArgs e)
@@ -455,14 +455,14 @@ namespace LandConquest.Forms
 
         private void buttonBuilding1Upgrade_Click(object sender, RoutedEventArgs e)
         {
-            CommonManufactureUpgrade dialogwindow = new CommonManufactureUpgrade(landManufactures[0], player);
-            dialogwindow.Show();
+            //CommonManufactureUpgrade dialogwindow = new CommonManufactureUpgrade(landManufactures[0], player);
+            //dialogwindow.Show();
         }
 
         private void buttonBuilding2Upgrade_Click(object sender, RoutedEventArgs e)
         {
-            CommonManufactureUpgrade dialogwindow = new CommonManufactureUpgrade(landManufactures[1], player);
-            dialogwindow.Show();
+            //CommonManufactureUpgrade dialogwindow = new CommonManufactureUpgrade(landManufactures[1], player);
+           // dialogwindow.Show();
         }
     }
 }

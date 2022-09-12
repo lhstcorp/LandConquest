@@ -53,7 +53,12 @@ namespace LandConquest.DialogWIndows
                 defendersCountryCbbx.Items.Add(countries[i].CountryName);
             }
 
-            //List<Land> defendersLands = LandModel.GetCountryLands(country.CountryId);
+            List<Land> defendersLands = LandModel.GetCountryLands(countries[0].CountryId);
+
+            for (int i = 0; i < defendersLands.Count; i++)
+            {
+                defendersLandCbbx.Items.Add(defendersLands[i].LandName);
+            }
         }
 
             private void buttonClose_Click(object sender, RoutedEventArgs e)

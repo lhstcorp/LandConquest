@@ -474,6 +474,9 @@
   <data name="LocLabelTransferLandDialogWindow_Text" xml:space="preserve">
     <value>You are going to initiate a law of transfering land to another country:</value>
   </data>
+  <data name="LocLabelTransferLandToState_Text" xml:space="preserve">
+    <value>Transfer {0} to {1}</value>
+  </data>
   <data name="LocLabelTRANSFERLAND_Content" xml:space="preserve">
     <value>TRANSFER LAND</value>
   </data>

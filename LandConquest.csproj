@@ -222,9 +222,6 @@
     <Compile Include="Forms\CoatOfArmsWindow.xaml.cs">
       <DependentUpon>CoatOfArmsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DialogWIndows\CommonManufactureUpgrade.xaml.cs">
-      <DependentUpon>CommonManufactureUpgrade.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DialogWIndows\CreateListingDialog.xaml.cs">
       <DependentUpon>CreateListingDialog.xaml</DependentUpon>
     </Compile>
@@ -386,10 +383,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DialogWIndows\CommonManufactureUpgrade.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="DialogWIndows\CreateListingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -399,10 +392,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogWIndows\EstablishStateDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DialogWIndows\ManufactureUpgradeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -441,9 +430,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DialogWIndows\ManufactureUpgradeDialog.xaml.cs">
-      <DependentUpon>ManufactureUpgradeDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\AuthorisationWindow.xaml.cs">
       <DependentUpon>AuthorisationWindow.xaml</DependentUpon>
@@ -1029,6 +1015,104 @@
     <Resource Include="Pictures\Resources\wheel.png" />
     <Resource Include="Pictures\Resources\wine.png" />
     <Resource Include="Pictures\Resources\wool.png" />
+    <Resource Include="Pictures\Resources\Categories\Agriculture.png" />
+    <Resource Include="Pictures\Resources\Categories\Armament.png" />
+    <Resource Include="Pictures\Resources\Categories\Clothing.png" />
+    <Resource Include="Pictures\Resources\Categories\ConstructionMaterials.png" />
+    <Resource Include="Pictures\Resources\Categories\Metal.PNG" />
+    <Resource Include="Pictures\Resources\Categories\Products.png" />
+    <Resource Include="Pictures\Resources\Categories\RawMaterials.png" />
+    <Resource Include="Pictures\Resources\Categories\Tools.png" />
+    <Resource Include="Forms\Agriculture.png" />
+    <Resource Include="Pictures\Resources\arrows.png" />
+    <Resource Include="Pictures\Resources\axe2.png" />
+    <Resource Include="Pictures\Resources\barrel3.png" />
+    <Resource Include="Pictures\Resources\barrel4.png" />
+    <Resource Include="Pictures\Resources\board3.png" />
+    <Resource Include="Pictures\Resources\board4.PNG" />
+    <Resource Include="Pictures\Resources\boots5.png" />
+    <Resource Include="Pictures\Resources\bottle2.png" />
+    <Resource Include="Pictures\Resources\bottle3.png" />
+    <Resource Include="Pictures\Resources\bronze_coins2.png" />
+    <Resource Include="Pictures\Resources\bronze_coins3.png" />
+    <Resource Include="Pictures\Resources\candle.png" />
+    <Resource Include="Pictures\Resources\candle2.png" />
+    <Resource Include="Pictures\Resources\cheese2.png" />
+    <Resource Include="Pictures\Resources\chest4.png" />
+    <Resource Include="Pictures\Resources\chest5.png" />
+    <Resource Include="Pictures\Resources\cloth.png" />
+    <Resource Include="Pictures\Resources\cloth10.png" />
+    <Resource Include="Pictures\Resources\cloth11.png" />
+    <Resource Include="Pictures\Resources\cloth2.png" />
+    <Resource Include="Pictures\Resources\cloth3.png" />
+    <Resource Include="Pictures\Resources\cloth4.png" />
+    <Resource Include="Pictures\Resources\cloth5.png" />
+    <Resource Include="Pictures\Resources\cloth6.png" />
+    <Resource Include="Pictures\Resources\cloth7.png" />
+    <Resource Include="Pictures\Resources\cloth8.PNG" />
+    <Resource Include="Pictures\Resources\cloth9.png" />
+    <Resource Include="Pictures\Resources\clothes6.png" />
+    <Resource Include="Pictures\Resources\copper_ore2.png" />
+    <Resource Include="Pictures\Resources\diamond_ore.png" />
+    <Resource Include="Pictures\Resources\flag_01_blue.png" />
+    <Resource Include="Pictures\Resources\flag_01_green.png" />
+    <Resource Include="Pictures\Resources\flag_01_grey.png" />
+    <Resource Include="Pictures\Resources\flag_01_red.png" />
+    <Resource Include="Pictures\Resources\flag_01_violet.png" />
+    <Resource Include="Pictures\Resources\flag_01_yellow.png" />
+    <Resource Include="Pictures\Resources\flag_02_blue01.png" />
+    <Resource Include="Pictures\Resources\flag_02_blue02.png" />
+    <Resource Include="Pictures\Resources\flag_02_green.png" />
+    <Resource Include="Pictures\Resources\flag_02_red.png" />
+    <Resource Include="Pictures\Resources\flag_02_violet.png" />
+    <Resource Include="Pictures\Resources\flag_02_yellow.png" />
+    <Resource Include="Pictures\Resources\flute2.png" />
+    <Resource Include="Pictures\Resources\gear2.png" />
+    <Resource Include="Pictures\Resources\gloves2.png" />
+    <Resource Include="Pictures\Resources\gloves3.png" />
+    <Resource Include="Pictures\Resources\gloves4.png" />
+    <Resource Include="Pictures\Resources\gold_coins2.png" />
+    <Resource Include="Pictures\Resources\gold_coins3.png" />
+    <Resource Include="Pictures\Resources\gold_ore3.png" />
+    <Resource Include="Pictures\Resources\grape2.png" />
+    <Resource Include="Pictures\Resources\hammer3.png" />
+    <Resource Include="Pictures\Resources\honey.png" />
+    <Resource Include="Pictures\Resources\iron4.png" />
+    <Resource Include="Pictures\Resources\jug2.png" />
+    <Resource Include="Pictures\Resources\leather.png" />
+    <Resource Include="Pictures\Resources\leather2.png" />
+    <Resource Include="Pictures\Resources\panties2.png" />
+    <Resource Include="Pictures\Resources\panties3.png" />
+    <Resource Include="Pictures\Resources\paper.png" />
+    <Resource Include="Pictures\Resources\pick2.png" />
+    <Resource Include="Pictures\Resources\pot.png" />
+    <Resource Include="Pictures\Resources\shield3.png" />
+    <Resource Include="Pictures\Resources\shields %281%29.PNG" />
+    <Resource Include="Pictures\Resources\shields %2810%29.PNG" />
+    <Resource Include="Pictures\Resources\shields %282%29.PNG" />
+    <Resource Include="Pictures\Resources\shields %283%29.PNG" />
+    <Resource Include="Pictures\Resources\shields %284%29.PNG" />
+    <Resource Include="Pictures\Resources\shields %285%29.PNG" />
+    <Resource Include="Pictures\Resources\shields %286%29.PNG" />
+    <Resource Include="Pictures\Resources\shields %287%29.PNG" />
+    <Resource Include="Pictures\Resources\shields %288%29.PNG" />
+    <Resource Include="Pictures\Resources\shields %289%29.PNG" />
+    <Resource Include="Pictures\Resources\silver_coins2.png" />
+    <Resource Include="Pictures\Resources\silver_coins3.png" />
+    <Resource Include="Pictures\Resources\spear2.png" />
+    <Resource Include="Pictures\Resources\spear3.PNG" />
+    <Resource Include="Pictures\Resources\stairs2.png" />
+    <Resource Include="Pictures\Resources\sword4.png" />
+    <Resource Include="Pictures\Resources\thread2.png" />
+    <Resource Include="Pictures\Resources\thread3.png" />
+    <Resource Include="Pictures\Resources\thread4.png" />
+    <Resource Include="Pictures\Resources\thread5.png" />
+    <Resource Include="Pictures\Resources\thread6.png" />
+    <Resource Include="Pictures\Resources\thread7.png" />
+    <Resource Include="Pictures\Resources\thread8.PNG" />
+    <Resource Include="Pictures\Resources\timber2.png" />
+    <Resource Include="Pictures\Resources\timber3.PNG" />
+    <Resource Include="Forms\milk.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
