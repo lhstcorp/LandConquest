@@ -214,9 +214,11 @@ namespace LandConquest.Forms
         private void ImageManufacture_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new ManufactureWindow(player, manufacture, storage);
+            openedWindow = new WarehouseWindow(player, land.LandId, 2);
             openedWindow.Owner = this;
-            openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            openedWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            openedWindow.Left = this.Width - openedWindow.Width;
+            openedWindow.Top = this.Height - openedWindow.Height;
             openedWindow.Show();
             openedWindow.Closed += FreeData;
         }
@@ -428,7 +430,7 @@ namespace LandConquest.Forms
         private void ImageStorage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CloseUnusedWindows();
-            openedWindow = new WarehouseWindow(player, land.LandId);
+            openedWindow = new WarehouseWindow(player, land.LandId, 1);
             openedWindow.Owner = this;
             openedWindow.WindowStartupLocation = WindowStartupLocation.Manual;
             openedWindow.Left = this.Width - openedWindow.Width;

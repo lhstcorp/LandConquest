@@ -25,9 +25,10 @@
                     <ScrollViewer Height="620" VerticalAlignment="Top" HorizontalAlignment="Left" Width="637" Margin="0,0,-17,0">
                         <UniformGrid x:Name="itemsGrid" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Columns="4">
                             <Border Margin="2, 2, 0, 0" Width="151" Height="151" BorderBrush="Black" BorderThickness="0.5" CornerRadius="5">
-                                <Grid>
-                                    <Label HorizontalAlignment="Center" VerticalAlignment="Center" Content="Label"/>
-                                </Grid>                                
+                                <Grid Background="#FFCAB590">
+                                    <Image Source="/Pictures/Resources/milk.png"/>
+                                    <TextBlock Background="#66FFFFFF" Width="Auto" Height="20" Text="Label" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top"/>
+                                </Grid>
                             </Border>
                         </UniformGrid>
                     </ScrollViewer>
@@ -93,6 +94,43 @@
                     <ImageBrush ImageSource="/LandConquest;component/Pictures/buttonCross.jpg"/>
                 </Button.Background>
             </Button>
+
+            <Border HorizontalAlignment="Left" Height="550" Margin="738,85.5,0,0" VerticalAlignment="Top" Width="366" BorderThickness="3" BorderBrush="#FF351D1D">
+                <Grid>
+                    <Border Margin="6,6,0,0" Background="#FFCAB590" Width="160" Height="160" BorderBrush="#FF351D1D" BorderThickness="0.5" CornerRadius="5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Image x:Name="t_itemImage" Source="/Pictures/Resources/milk.png"/>
+                    </Border>
+
+                    <Border Height="34" Margin="0,6,6,0" Background="#FFCAB590" CornerRadius="5" BorderThickness="0.5" BorderBrush="#FF351D1D" HorizontalAlignment="Right" Width="181" VerticalAlignment="Top">
+                        <TextBlock x:Name="t_itemNameTB" TextAlignment="Center" FontFamily="Agency FB" FontSize="24" Text="milk"/>
+                    </Border>
+
+                    <Border Height="34" Margin="0,44,6,0" Background="#FFCAB590" CornerRadius="5" BorderThickness="0.5" BorderBrush="#FF351D1D" HorizontalAlignment="Right" Width="181" VerticalAlignment="Top">
+                        <TextBlock x:Name="t_itemQtyTB" TextAlignment="Center" FontFamily="Agency FB" FontSize="24" Text="10000"/>
+                    </Border>
+
+                    <Button Margin="0,82,99,0" Height="84" Width="88" BorderBrush="Black" BorderThickness="1">
+                        <Border CornerRadius="5" Background="#66FFFFFF">
+                            <TextBlock Text=" TRADE " FontSize="16" Foreground="Black"  />
+                        </Border>
+
+                        <Button.Background>
+                            <ImageBrush ImageSource= "/Pictures/Warehouse/trade.png"/>
+                        </Button.Background>
+                    </Button>
+
+                    <Button Margin="0,82,6,0" Height="84" Width="88" BorderBrush="Black" BorderThickness="1">
+                        <Button.Background>
+                            <ImageBrush ImageSource= "/Pictures/Warehouse/produce.png"/>
+                        </Button.Background>
+
+                        <Border CornerRadius="5" Background="#66FFFFFF">
+                            <TextBlock Text=" PRODUCE " FontSize="16" Foreground="Black"  />
+                        </Border>
+                    </Button>
+
+                </Grid>
+            </Border>
 
         </Grid>
     </Border>
