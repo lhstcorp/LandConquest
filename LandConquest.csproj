@@ -1023,7 +1023,6 @@
     <Resource Include="Pictures\Resources\Categories\Products.png" />
     <Resource Include="Pictures\Resources\Categories\RawMaterials.png" />
     <Resource Include="Pictures\Resources\Categories\Tools.png" />
-    <Resource Include="Forms\Agriculture.png" />
     <Resource Include="Pictures\Resources\arrows.png" />
     <Resource Include="Pictures\Resources\axe2.png" />
     <Resource Include="Pictures\Resources\barrel3.png" />
@@ -1112,7 +1111,8 @@
     <Resource Include="Pictures\Resources\thread8.PNG" />
     <Resource Include="Pictures\Resources\timber2.png" />
     <Resource Include="Pictures\Resources\timber3.PNG" />
-    <Resource Include="Forms\milk.png" />
+    <Resource Include="Pictures\Warehouse\trade.png" />
+    <Resource Include="Pictures\Warehouse\produce.PNG" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

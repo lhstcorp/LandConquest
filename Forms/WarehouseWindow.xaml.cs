@@ -23,11 +23,13 @@ namespace LandConquest.Forms
     {
         private Player player;
         private int landId;
+        private int windowId;
 
-        public WarehouseWindow(Player _player, int _landId)
+        public WarehouseWindow(Player _player, int _landId, int _windowId)
         {
             player = _player;
             landId = _landId;
+            windowId = _windowId;
             InitializeComponent();
 
             Loaded += WarehouseWindow_Loaded;
@@ -45,7 +47,8 @@ namespace LandConquest.Forms
             itemsGrid.Children.Clear();
 
             Thickness defaultItemBorderMargin = new Thickness(3, 3, 0, 0);
-            Thickness defaultItemBorderThinkness = new Thickness(0.5);
+            Thickness defaultItemNameTBMargin = new Thickness(2, 2, 0, 0);
+            Thickness defaultItemBorderThinkness = new Thickness(1);
             CornerRadius defaultCornerRadius = new CornerRadius(5);
 
             for (int i = 0; i < items.Count(); i++)
@@ -57,16 +60,55 @@ namespace LandConquest.Forms
                 border.BorderBrush = Brushes.Black;
                 border.BorderThickness = defaultItemBorderThinkness;
                 border.CornerRadius = defaultCornerRadius;
+                border.Background = new SolidColorBrush(Color.FromRgb(202, 181, 144));
                 itemsGrid.Children.Add(border);
 
                 Grid grid = new Grid();
                 border.Child = grid;
-                //grid.Background = new ImageBrush(new BitmapImage(new Uri(String.Format("/Pictures/Resources/{0}.png", items.ElementAt(0).name), UriKind.Relative)));
 
-                Label itemNameLabel = new Label();
-                itemNameLabel.Content = items.ElementAt(i).name;
-                grid.Children.Add(itemNameLabel);
+                Image itemImage = new Image();
+                try
+                {
+                    itemImage.Source = new BitmapImage(new Uri(String.Format("pack://application:,,,/Pictures/Resources/{0}.png", items.ElementAt(i).name), UriKind.Absolute));
+                }
+                catch { }
+                itemImage.Tag = items.ElementAt(i).name;
+                itemImage.MouseEnter += itemImg_MouseEnter;
+                itemImage.MouseLeave += itemImg_MouseLeave;
+                itemImage.MouseDown += itemImg_MouseDown;
+                grid.Children.Add(itemImage);
+
+                TextBlock itemNameTB = new TextBlock();
+                itemNameTB.Text = String.Format(" {0} ", items.ElementAt(i).name);
+                itemNameTB.Margin = defaultItemNameTBMargin;
+                itemNameTB.Background = new SolidColorBrush(Color.FromArgb(102, 255, 255, 255));
+                itemNameTB.VerticalAlignment = VerticalAlignment.Top;
+                itemNameTB.HorizontalAlignment = HorizontalAlignment.Left;
+                //itemNameTB.FontFamily = new FontFamily("Agency FB");
+                grid.Children.Add(itemNameTB);
             }
+        }
+
+        private void itemImg_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Image img = (Image)sender;
+
+            Cursor = Cursors.Hand;
+        }
+
+        private void itemImg_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Image img = (Image)sender;
+
+            Cursor = Cursors.Arrow;
+        }
+
+        private void itemImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Image senderImage = (Image)sender;
+
+            t_itemImage.Source = senderImage.Source;
+            t_itemNameTB.Text = senderImage.Tag.ToString();
         }
 
         private void buttonExit_click(object sender, RoutedEventArgs e)
