@@ -102,35 +102,35 @@
                 </Button.Background>
             </Button>
 
-            <Border x:Name="Border_Country_characters" BorderBrush="#FF48291F" BorderThickness="3" Height="286" Width="Auto" Margin="20,405,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                <Grid x:Name="Country_characters" HorizontalAlignment="Left" Height="280" VerticalAlignment="Top" Width="214" Margin="0,-0.2,0,0" >
+            <Border x:Name="Border_Country_characters" BorderBrush="#FF48291F" BorderThickness="3" Height="286" Width="171" Margin="20,405,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <Grid x:Name="Country_characters" HorizontalAlignment="Left" Height="280" VerticalAlignment="Top" Width="165">
 
                     <Grid.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/background_pale.jpg"/>
                     </Grid.Background>
 
-                    <Image Margin="26,184,0,0" HorizontalAlignment="Left" Height="60" Width="60" VerticalAlignment="Top" Source="/Pictures/epic_brown_square.png"/>
-                    <Image Margin="129,184,0,0" HorizontalAlignment="Left"  Height="60" Width="60"  VerticalAlignment="Top" Source="/Pictures/epic_brown_square.png"/>
+                    <Image Margin="8,184,0,0" HorizontalAlignment="Left" Height="60" Width="60" VerticalAlignment="Top" Source="/Pictures/epic_brown_square.png"/>
+                    <Image Margin="93,184,0,0" HorizontalAlignment="Left"  Height="60" Width="60"  VerticalAlignment="Top" Source="/Pictures/epic_brown_square.png"/>
 
-                    <Label x:Name="lblLandNameOnGrid" HorizontalContentAlignment="Center" Content="Territory name" FontFamily="Trebuchet MS" Foreground="#FF492F2C" FontSize="16" Margin="10,54,0,0" Background="{x:Null}" HorizontalAlignment="Left" Width="194" FontWeight="Bold" Height="30" VerticalAlignment="Top"/>
-                    <Button x:Name="btnGoToLand"  Content="{lex:Loc LocLabelGoTo_Text}" Margin="25,94,25,0" Click="btnGoToLand_Click" FontSize="14" Height="38" VerticalAlignment="Top">
+                    <Label x:Name="lblLandNameOnGrid" HorizontalContentAlignment="Center" Content="Territory name" FontFamily="Trebuchet MS" Foreground="#FF492F2C" FontSize="16" Margin="1,54,0,0" Background="{x:Null}" HorizontalAlignment="Left" Width="164" FontWeight="Bold" Height="30" VerticalAlignment="Top"/>
+                    <Button x:Name="btnGoToLand"  Content="{lex:Loc LocLabelGoTo_Text}" Margin="0,94,12,0" Click="btnGoToLand_Click" FontSize="14" Height="38" VerticalAlignment="Top" Width="143">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                         </Button.Background>
                     </Button>
-                    <Label x:Name="lblLandResource1NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF392018"  HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="26,244,0,0" Width="59" Background="{x:Null}" RenderTransformOrigin="0.5,0.5" Height="21" VerticalAlignment="Top" FontFamily="Trebuchet MS"/>
-                    <Image x:Name="imgLandResource2ImgOnGrid"  HorizontalAlignment="Left" Height="50" Margin="134,188,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.291,0.465"/>
-                    <Label x:Name="lblLandResource2NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF392018" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="129,244,0,0" Width="60" Height="21" VerticalAlignment="Top" Background="{x:Null}" FontFamily="Trebuchet MS"/>
+                    <Label x:Name="lblLandResource1NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF392018"  HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="8,244,0,0" Width="59" Background="{x:Null}" RenderTransformOrigin="0.5,0.5" Height="21" VerticalAlignment="Top" FontFamily="Trebuchet MS"/>
+                    <Image x:Name="imgLandResource2ImgOnGrid"  HorizontalAlignment="Right" Height="50" Margin="0,188,30,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.291,0.465"/>
+                    <Label x:Name="lblLandResource2NameOnGrid" Content="Resource" FontSize="10" Foreground="#FF392018" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="93,244,0,0" Width="60" Height="21" VerticalAlignment="Top" Background="{x:Null}" FontFamily="Trebuchet MS"/>
 
-                    <Button x:Name="buttonEstablishaState" IsEnabled="True" Content="{lex:Loc LocLabelEstablishAState_Text}"  Click="buttonEstablishaState_Click" BorderBrush="{x:Null}" RenderTransformOrigin="0.512,0.524" FontSize="14" Height="37" VerticalAlignment="Top" Margin="24,138,25,0">
+                    <Button x:Name="buttonEstablishaState" IsEnabled="True" Content="{lex:Loc LocLabelEstablishAState_Text}"  Click="buttonEstablishaState_Click" BorderBrush="{x:Null}" RenderTransformOrigin="0.512,0.524" FontSize="14" Height="37" VerticalAlignment="Top" Margin="0,138,12,0" Width="143">
                         <Button.Background>
                             <ImageBrush ImageSource="/LandConquest;component/Pictures/epic_long_brown_button.png"/>
                         </Button.Background>
                     </Button>
 
-                    <Label x:Name="lblCountryNameOnGrid" HorizontalContentAlignment="Center" Content="Land name"  FontFamily="/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="28" FontWeight="Bold" Background="{x:Null}" HorizontalAlignment="Left" Width="194" Margin="10,8,0,0" Height="53" VerticalAlignment="Top"/>
+                    <Label x:Name="lblCountryNameOnGrid" HorizontalContentAlignment="Center" Content="Land name"  FontFamily="/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="28" FontWeight="Bold" Background="{x:Null}" HorizontalAlignment="Left" Width="164" Margin="1,8,0,0" Height="53" VerticalAlignment="Top"/>
 
-                    <Image x:Name="imgLandResource1ImgOnGrid"  HorizontalAlignment="Left" Height="50" Margin="30,188,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.291,0.465"/>
+                    <Image x:Name="imgLandResource1ImgOnGrid"  HorizontalAlignment="Right" Height="50" Margin="0,188,134,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.291,0.465"/>
                 </Grid>
             </Border>
 
@@ -194,10 +194,10 @@
                 </Grid>
             </Border>
 
-            <Border x:Name="worldLeaderBorder" BorderBrush="#FF48291F" BorderThickness="3" Height="Auto" VerticalAlignment="Top" Margin="20,304,0,0" HorizontalAlignment="Left" Width="221">
+            <Border x:Name="worldLeaderBorder" BorderBrush="#FF48291F" BorderThickness="3" Height="Auto" VerticalAlignment="Top" Margin="20,304,0,0" HorizontalAlignment="Left" Width="171">
                 <Grid x:Name="worldLeader" Visibility="Visible" Height="80" VerticalAlignment="Top">
-                    <Label HorizontalContentAlignment="Center" Content="{lex:Loc LocLabelWorldLeader_Text}"  FontFamily="/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="24" Height="41" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="214" FontWeight="Bold" Margin="0,6,0,0"/>
-                    <Label x:Name="lblWorldLeader" HorizontalContentAlignment="Center" Content="No leader" FontFamily="Trebuchet MS" Foreground="#FF492F2C" FontSize="16" Height="30" Margin="0,38,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="214" FontWeight="Bold"/>
+                    <Label HorizontalContentAlignment="Center" Content="{lex:Loc LocLabelWorldLeader_Text}"  FontFamily="/Fonts/#Harrington" Foreground="#FFB8362F" FontSize="24" Height="37" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Margin="0,17,-0.2,0"/>
+                    <Label x:Name="lblWorldLeader" HorizontalContentAlignment="Center" Content="No leader" FontFamily="Trebuchet MS" Foreground="#FF492F2C" FontSize="16" Height="30" Margin="0,45,-0.2,0" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold"/>
 
                     <Button x:Name="btnHideLeaderGrid" Height="20" Margin="0,0,194.4,0" Width="20" VerticalAlignment="Top"  Panel.ZIndex="2" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="btnHideLeaderGrid_Click">
                         <Button.Background>
@@ -244,7 +244,7 @@
 
 
             <Border x:Name="TaxesBorder" BorderBrush="#FF48291F" BorderThickness="3" Height="135" VerticalAlignment="Top" Margin="20,154,0,0" HorizontalAlignment="Left" Width="171">
-                <Grid x:Name="TaxesGrid" Visibility="Visible" Margin="-0.2,-0.2,-0.4,0.6">
+                <Grid x:Name="TaxesGrid" Visibility="Visible">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
@@ -428,14 +428,12 @@
             </Border>
 
 
-            <Border Margin="22,692,1122,-0.2">
-                <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Label Content="{lex:Loc LocLabelServerTime_Content}" FontFamily="/Fonts/#Harrington" FontSize="24" Foreground="#FF392018" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-                </Viewbox>
-            </Border>
+            <Viewbox StretchDirection="Both" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="14,700,1202,8.8" Width="104">
+                <Label Content="{lex:Loc LocLabelServerTime_Content}" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Viewbox>
 
 
-            <Label x:Name="LabelServerTime" Content="00:00:00" FontSize="24" Margin="0,0,981,-0.2" VerticalAlignment="Bottom" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" Height="40" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="151"/>
+            <Label x:Name="LabelServerTime" Content="00:00:00" FontSize="16" Margin="0,0,1141,8.8" VerticalAlignment="Bottom" FontFamily="/Fonts/#Harrington" Foreground="#FF392018" Height="29" HorizontalAlignment="Right" Width="73"/>
 
             <Grid x:Name="goodsColor_Grid" ShowGridLines="True" Height="200" Margin="274,255,966,0" VerticalAlignment="Top" Width="80">
                 <Grid.RowDefinitions>

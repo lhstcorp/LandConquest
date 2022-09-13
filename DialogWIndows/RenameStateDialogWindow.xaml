@@ -20,10 +20,10 @@
         </Button>
 
         <Border HorizontalAlignment="Left" Margin="51,98,0,0" VerticalAlignment="Top" Width="193" BorderThickness="0.5" BorderBrush="Black" CornerRadius="10">
-            <Grid>
+            <Grid Height="210" Margin="0.2,0,0,0">
                 <TextBlock x:Name="descriptionTB" TextWrapping="Wrap" FontSize="16" FontFamily="Papyrus" Text="{lex:Loc LocLabelRenameStateDialogWindow_Text}" Margin="9.2, 10, 10, 10"/>
 
-                <TextBox x:Name="newCountryNameTB" Height="50" Margin="10,112,10.2,12.4" BorderThickness="1" MaxLength="22" FontFamily="Papyrus" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="newCountryNameTB_PreviewTextInput">
+                <TextBox x:Name="newCountryNameTB" Height="50" Margin="10,150,10,10" BorderThickness="1" MaxLength="22" FontFamily="Papyrus" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="newCountryNameTB_PreviewTextInput">
                 </TextBox>
             </Grid>
         </Border>
@@ -32,7 +32,7 @@
             <Label Content="{lex:Loc LocLabelRENAME_Content}" FontFamily="Papyrus" FontWeight="Bold" Foreground="DarkRed"/>
         </Viewbox>
         
-        <Button x:Name="renameBtn" Content="{lex:Loc LocLabelRENAME_Content}" HorizontalAlignment="Left" Height="54" Margin="51,291,0,0" VerticalAlignment="Top" Width="193" Click="renameBtn_Click"/>
+        <Button x:Name="renameBtn" Content="{lex:Loc LocLabelRENAME_Content}" HorizontalAlignment="Left" Height="54" Margin="51,321,0,0" VerticalAlignment="Top" Width="193" Click="renameBtn_Click"/>
 
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/Common/dialogScroll.png"/>

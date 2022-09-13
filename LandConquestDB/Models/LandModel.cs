@@ -314,5 +314,19 @@ namespace LandConquestDB.Models
             return new string(Enumerable.Repeat(chars, 16)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
+        public static bool isLandInWar(int _landId)
+        {
+            bool ret = false;
+
+            List<War> wars = DbContext.GetSqlConnection().Query<War>("SELECT * FROM dbo.WarData WHERE land_attacker_id = @land_id OR land_defender_id = @land_id", new { land_id = _landId }).ToList();
+        
+            if (wars.Count > 0)
+            {
+                ret = true;
+            }
+
+            return ret;
+        }
     }
 }

@@ -22,14 +22,14 @@ namespace LandConquest.Forms
     public partial class WarehouseWindow : Window
     {
         private Player player;
-        private User user;
-        private int warehouseId;
+        private int landId;
+        private int windowId;
 
-        public WarehouseWindow(User _user, Player _player, int _warehouseId)
+        public WarehouseWindow(Player _player, int _landId, int _windowId)
         {
             player = _player;
-            user = _user;
-            warehouseId = _warehouseId;
+            landId = _landId;
+            windowId = _windowId;
             InitializeComponent();
 
             Loaded += WarehouseWindow_Loaded;
@@ -37,12 +37,92 @@ namespace LandConquest.Forms
 
         private void WarehouseWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            storedItemsDataGrid.ItemsSource = WarehouseModel.GetWarehouseItems(warehouseId);
+            IEnumerable<(int id, string name)> items = WarehouseModel.GetItemsByCategory(0);
+
+            initItemsGrid(items);
+        }
+
+        private void initItemsGrid(IEnumerable<(int id, string name)> items)
+        {
+            itemsGrid.Children.Clear();
+
+            Thickness defaultItemBorderMargin = new Thickness(3, 3, 0, 0);
+            Thickness defaultItemNameTBMargin = new Thickness(2, 2, 0, 0);
+            Thickness defaultItemBorderThinkness = new Thickness(1);
+            CornerRadius defaultCornerRadius = new CornerRadius(5);
+
+            for (int i = 0; i < items.Count(); i++)
+            {
+                Border border = new Border();
+                border.Margin = defaultItemBorderMargin;
+                border.Width = 151;
+                border.Height = 151;
+                border.BorderBrush = Brushes.Black;
+                border.BorderThickness = defaultItemBorderThinkness;
+                border.CornerRadius = defaultCornerRadius;
+                border.Background = new SolidColorBrush(Color.FromRgb(202, 181, 144));
+                itemsGrid.Children.Add(border);
+
+                Grid grid = new Grid();
+                border.Child = grid;
+
+                Image itemImage = new Image();
+                try
+                {
+                    itemImage.Source = new BitmapImage(new Uri(String.Format("pack://application:,,,/Pictures/Resources/{0}.png", items.ElementAt(i).name), UriKind.Absolute));
+                }
+                catch { }
+                itemImage.Tag = items.ElementAt(i).name;
+                itemImage.MouseEnter += itemImg_MouseEnter;
+                itemImage.MouseLeave += itemImg_MouseLeave;
+                itemImage.MouseDown += itemImg_MouseDown;
+                grid.Children.Add(itemImage);
+
+                TextBlock itemNameTB = new TextBlock();
+                itemNameTB.Text = String.Format(" {0} ", items.ElementAt(i).name);
+                itemNameTB.Margin = defaultItemNameTBMargin;
+                itemNameTB.Background = new SolidColorBrush(Color.FromArgb(102, 255, 255, 255));
+                itemNameTB.VerticalAlignment = VerticalAlignment.Top;
+                itemNameTB.HorizontalAlignment = HorizontalAlignment.Left;
+                //itemNameTB.FontFamily = new FontFamily("Agency FB");
+                grid.Children.Add(itemNameTB);
+            }
+        }
+
+        private void itemImg_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Image img = (Image)sender;
+
+            Cursor = Cursors.Hand;
+        }
+
+        private void itemImg_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Image img = (Image)sender;
+
+            Cursor = Cursors.Arrow;
+        }
+
+        private void itemImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Image senderImage = (Image)sender;
+
+            t_itemImage.Source = senderImage.Source;
+            t_itemNameTB.Text = senderImage.Tag.ToString();
         }
 
         private void buttonExit_click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void itemCategoryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Button itemCategoryBtn = (Button)sender;
+
+            IEnumerable<(int id, string name)> items = WarehouseModel.GetItemsByCategory(Convert.ToInt32(itemCategoryBtn.Tag));
+
+            initItemsGrid(items);
         }
     }
 }

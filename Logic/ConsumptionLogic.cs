@@ -47,7 +47,7 @@ namespace LandConquest.Logic
                     if (consumptionDifference >= 0)
                     {
                         storage.Food = consumptionDifference;
-                        StorageModel.UpdateStorage(player, storage);
+                        //StorageModel.UpdateStorage(player, storage);
                     }
                     else
                     {
@@ -65,7 +65,7 @@ namespace LandConquest.Logic
                             }
                         }
                         storage.Food = 0;
-                        StorageModel.UpdateStorage(player, storage);
+                        //StorageModel.UpdateStorage(player, storage);
                         WarningDialogWindow.CallWarningDialogNoResult("Milord, part of your army deserted due to lack of provisions. Please, check your storage.");
                     }
                 }

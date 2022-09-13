@@ -17,5 +17,10 @@ namespace LandConquestDB.Models
             return new string(Enumerable.Repeat(chars, 16)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
+        public static TimeSpan StripMilliseconds(this TimeSpan time)
+        {
+            return new TimeSpan(time.Days, time.Hours, time.Minutes, time.Seconds);
+        }
     }
 }

@@ -12,11 +12,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace LandConquest.Forms
 {
     public partial class CountryWindow : Window
-    {
+    { 
         private Player player;
         private List<Land> countryLands;
         private List<Land> countryLandsToFight;
@@ -85,13 +86,26 @@ namespace LandConquest.Forms
             /////////////////////
         }
 
-        private void populateActiveLawGrid()
+        public void populateActiveLawGrid()
         {
+            activeLawGrid.Children.Clear();
+
             /// consts
             Thickness defaultBorderMargin = new Thickness(2, 2, 2, 0);
             Thickness defaultBorderThickness = new Thickness(1);
             Thickness defaultRectangleMargin = new Thickness(1, 1, 0, 0);
             Thickness defaultCountryNameVBMargin = new Thickness(63, 0, 5, 32.4);
+            Thickness defaultEllipseMargin = new Thickness(40, 26, 0, -3.6);
+            Thickness defaultInitializedByVieboxMargin = new Thickness(74, 29, 0, 7.4);
+            Thickness defaultLine1Margin = new Thickness(63, 22, 0, 0);
+            Thickness defaultLine2Margin = new Thickness(181.5, 29.5, 0, 0);
+            Thickness defaultLine3Margin = new Thickness(275, 29.5, 0, 0);
+            Thickness defaultInitializedByPersonNameVieboxMargin = new Thickness(73, 42, 165, -5.6);
+            Thickness defaulthoursLeftVieboxMargin = new Thickness(183, 22, 69, -11.6);
+            Point defaultGradientStartPoint = new Point(0.5, 0);
+            Point defaultGradientEndPoint = new Point(0.5, 1);
+            Thickness defaultApproveLawButtonMargin = new Thickness(312, 30, 0, 0);
+            Thickness defaultDeclineLawButtonMargin = new Thickness(285, 34, 0, 0);
             ///
 
             List<Law> activeLaws = LawModel.getCountryLaws(currentCountry.CountryId);
@@ -116,6 +130,7 @@ namespace LandConquest.Forms
 
                 Grid grid = new Grid();
                 border.Child = grid;
+                grid.Background = new LinearGradientBrush(Color.FromRgb(188, 168, 142), Color.FromRgb(223, 211, 152), defaultGradientStartPoint, defaultGradientEndPoint);
 
                 Rectangle rectangle = new Rectangle();
                 rectangle.Width = 57;
@@ -132,14 +147,135 @@ namespace LandConquest.Forms
                 countryNameVB.Margin = defaultCountryNameVBMargin;
                 grid.Children.Add(countryNameVB);
 
-                Label countryNameLbl = new Label();
-                countryNameLbl.FontFamily = new FontFamily("Papyrus");
-                countryNameLbl.FontWeight = FontWeights.Bold;
-                countryNameLbl.Content = getLawTitle(activeLaws[i]);
-                countryNameVB.Child = countryNameLbl;
-            }
+                Label lawTitleLbl = new Label();
+                lawTitleLbl.FontFamily = new FontFamily("Papyrus");
+                lawTitleLbl.FontWeight = FontWeights.Bold;
+                lawTitleLbl.Content = getLawTitle(activeLaws[i]);
+                countryNameVB.Child = lawTitleLbl;
 
-            ///
+                Ellipse ellipse = new Ellipse();
+                ellipse.Height = 36;
+                ellipse.Width = 36;
+                ellipse.HorizontalAlignment = HorizontalAlignment.Left;
+                ellipse.VerticalAlignment = VerticalAlignment.Top;
+                ellipse.Stroke = Brushes.Black;
+                ellipse.StrokeThickness = 1;
+                ellipse.Margin = defaultEllipseMargin;
+                ellipse.Fill = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Pictures/Hero.png", UriKind.Absolute)));
+                grid.Children.Add(ellipse);
+
+                Viewbox initializedByViebox = new Viewbox();
+                initializedByViebox.Margin = defaultInitializedByVieboxMargin;
+                initializedByViebox.Width = 109;
+                initializedByViebox.HorizontalAlignment = HorizontalAlignment.Left;
+                grid.Children.Add(initializedByViebox);
+
+                Label initializedByLabel = new Label();
+                initializedByLabel.Content = Languages.Resources.LocLabelInitializedBy_Content;
+                initializedByLabel.FontFamily = new FontFamily("Papyrus");
+                initializedByLabel.FontWeight = FontWeights.Bold;
+                initializedByViebox.Child = initializedByLabel;
+
+                Rectangle line1 = new Rectangle();
+                line1.Height = 1;
+                line1.Width = 272;
+                line1.HorizontalAlignment = HorizontalAlignment.Left;
+                line1.VerticalAlignment = VerticalAlignment.Top;
+                line1.Margin = defaultLine1Margin;
+                line1.StrokeThickness = 1;
+                line1.Stroke = Brushes.Black;
+                grid.Children.Add(line1);
+
+                Rectangle line2 = new Rectangle();
+                line2.Height = 25;
+                line2.Width = 1;
+                line2.HorizontalAlignment = HorizontalAlignment.Left;
+                line2.VerticalAlignment = VerticalAlignment.Top;
+                line2.Margin = defaultLine2Margin;
+                line2.StrokeThickness = 1;
+                line2.Stroke = Brushes.Black;
+                grid.Children.Add(line2);
+
+                Rectangle line3 = new Rectangle();
+                line3.Height = 25;
+                line3.Width = 1;
+                line3.HorizontalAlignment = HorizontalAlignment.Left;
+                line3.VerticalAlignment = VerticalAlignment.Top;
+                line3.Margin = defaultLine3Margin;
+                line3.StrokeThickness = 1;
+                line3.Stroke = Brushes.Black;
+                grid.Children.Add(line3);
+
+                Viewbox initializedByPersonNameViebox = new Viewbox();
+                initializedByPersonNameViebox.Margin = defaultInitializedByPersonNameVieboxMargin;
+                initializedByPersonNameViebox.HorizontalAlignment = HorizontalAlignment.Left;
+                grid.Children.Add(initializedByPersonNameViebox);
+
+                Label initializedByPersonNameLabel = new Label();
+                initializedByPersonNameLabel.Content = PersonModel.GetPersonNameSurnameById(activeLaws[i].PersonId);
+                initializedByPersonNameLabel.FontFamily = new FontFamily("Papyrus");
+                initializedByPersonNameLabel.FontWeight = FontWeights.Bold;
+                initializedByPersonNameViebox.Child = initializedByPersonNameLabel;
+
+                Viewbox hoursLeftViebox = new Viewbox();
+                hoursLeftViebox.Margin = defaulthoursLeftVieboxMargin;
+                hoursLeftViebox.HorizontalAlignment = HorizontalAlignment.Left;
+                grid.Children.Add(hoursLeftViebox);
+
+                Label hoursLeftLabel = new Label();
+                hoursLeftLabel.Content = activeLaws[i].InitDateTime;
+                hoursLeftLabel.FontFamily = new FontFamily("Papyrus");
+                hoursLeftLabel.FontWeight = FontWeights.Bold;
+                hoursLeftViebox.Child = hoursLeftLabel;
+
+                DispatcherTimer _lawTimer = new DispatcherTimer(); // :(
+                TimeSpan _lawTime;
+
+                _lawTime = activeLaws[i].InitDateTime.AddHours(12).Subtract(DateTime.UtcNow).StripMilliseconds();
+                _lawTimer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+                {
+                    hoursLeftLabel.Content = _lawTime.ToString("c");
+                    if (_lawTime <= TimeSpan.Zero)
+                    {
+                        _lawTimer.Stop();
+                        hoursLeftLabel.Content = "00:00:00";
+                    }
+                    else
+                    {
+                        _lawTime = _lawTime.Add(TimeSpan.FromSeconds(-1));
+                    }
+                }, Application.Current.Dispatcher);
+
+                _lawTimer.Start();
+
+                Image approveLawImgBtn = new Image();
+                approveLawImgBtn.Source = new BitmapImage(new Uri("/Pictures/Country/greenDarkArrow.png", UriKind.Relative));
+                approveLawImgBtn.Stretch = Stretch.UniformToFill;
+                approveLawImgBtn.Width = 17;
+                approveLawImgBtn.Height = 21;
+                approveLawImgBtn.HorizontalAlignment = HorizontalAlignment.Left;
+                approveLawImgBtn.VerticalAlignment = VerticalAlignment.Top;
+                approveLawImgBtn.Margin = defaultApproveLawButtonMargin;
+                approveLawImgBtn.MouseEnter += approveLawImgBtn_MouseEnter;
+                approveLawImgBtn.MouseLeave += approveLawImgBtn_MouseLeave;
+                approveLawImgBtn.MouseDown += approveLawImgBtn_MouseDown;
+                approveLawImgBtn.Tag = activeLaws[i].LawId;
+                grid.Children.Add(approveLawImgBtn);
+
+                Image declineLawImgBtn = new Image();
+                declineLawImgBtn.Source = new BitmapImage(new Uri("/Pictures/Country/redDarkCross.png", UriKind.Relative));
+                declineLawImgBtn.Stretch = Stretch.UniformToFill;
+                declineLawImgBtn.Width = 15;
+                declineLawImgBtn.Height = 19;
+                declineLawImgBtn.HorizontalAlignment = HorizontalAlignment.Left;
+                declineLawImgBtn.VerticalAlignment = VerticalAlignment.Top;
+                declineLawImgBtn.Margin = defaultDeclineLawButtonMargin;
+                declineLawImgBtn.MouseEnter += declineLawImgBtn_MouseEnter;
+                declineLawImgBtn.MouseLeave += declineLawImgBtn_MouseLeave;
+                declineLawImgBtn.MouseDown += declineLawImgBtn_MouseDown;
+                declineLawImgBtn.Tag = activeLaws[i].LawId;
+                grid.Children.Add(declineLawImgBtn);
+            }
         }
 
         private void populatePlayerPersonList()
@@ -252,7 +388,7 @@ namespace LandConquest.Forms
                     lawTitle = String.Format(Languages.Resources.LocLabelRenameStateTo_Text, _law.Value1); 
                     break;
                 case 2:
-                    lawTitle = String.Format(Languages.Resources.LocLabelRenameStateTo_Text, _law.Value1);
+                    lawTitle = String.Format(Languages.Resources.LocLabelTransferLandToState_Text, _law.Value1, _law.Value2);
                     break;
                 case 3:
                     lawTitle = String.Format(Languages.Resources.LocLabelRenameStateTo_Text, _law.Value1);
@@ -413,15 +549,7 @@ namespace LandConquest.Forms
         {
             this.Close();
         }
-
-        private void renameStateBtn_Click(object sender, RoutedEventArgs e)
-        {
-            RenameStateDialogWindow renameStateDialogWindow = new RenameStateDialogWindow(currentCountry, selectedPerson);
-
-            renameStateDialogWindow.Show();
-            renameStateDialogWindow.Owner = this;
-            renameStateDialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-        }
+              
 
         private void approveLawImgBtn_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
@@ -457,6 +585,60 @@ namespace LandConquest.Forms
             img.Source = new BitmapImage(new Uri("/Pictures/Country/redDarkCross.png", UriKind.Relative));
 
             Cursor = Cursors.Arrow;
+        }
+
+        private void declineLawImgBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            LawVote vote = new LawVote();
+            vote.LawId = ((Image)sender).Tag.ToString();
+            vote.PersonId = selectedPerson.PersonId;
+            vote.PlayerId = selectedPerson.PlayerId;
+            vote.VoteValue = -1; // Vote value weight.
+            deletePersonVote(vote.LawId);
+            LawModel.insertLawVote(vote);
+        }
+
+        private void approveLawImgBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            LawVote vote = new LawVote();
+            vote.LawId = ((Image)sender).Tag.ToString();
+            vote.PersonId = selectedPerson.PersonId;
+            vote.PlayerId = selectedPerson.PlayerId;
+            vote.VoteValue = 1; // Vote value weight.
+            deletePersonVote(vote.LawId);
+            LawModel.insertLawVote(vote);
+        }
+
+        private void deletePersonVote(string _lawId)
+        {
+            LawModel.deletePersonLawVote(_lawId, selectedPerson.PersonId);
+        }
+
+        private void renameStateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            RenameStateDialogWindow renameStateDialogWindow = new RenameStateDialogWindow(currentCountry, selectedPerson, this);
+
+            renameStateDialogWindow.Owner = this;
+            renameStateDialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            renameStateDialogWindow.Show();
+        }
+
+        private void transferLandBtn_Click(object sender, RoutedEventArgs e)
+        {
+            TransferLandDialogWindow transferLandDialogWindow = new TransferLandDialogWindow(currentCountry, selectedPerson, this);
+
+            transferLandDialogWindow.Owner = this;
+            transferLandDialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            transferLandDialogWindow.Show();
+        }
+
+        private void declareWarBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DeclareWarDialogWindow declareWarDialogWindow = new DeclareWarDialogWindow(currentCountry, selectedPerson, this);
+
+            declareWarDialogWindow.Owner = this;
+            declareWarDialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            declareWarDialogWindow.Show();
         }
     }
 }

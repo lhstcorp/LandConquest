@@ -26,7 +26,7 @@ namespace LandConquest.Forms
             
             equipment = new PlayerEquipment();
 
-            storage = StorageModel.GetPlayerStorage(player);
+            //storage = StorageModel.GetPlayerStorage(player);
             equipment = EquipmentModel.GetPlayerEquipment(player, equipment);
 
             labelWoodAmount.Content = storage.Wood.ToString();
@@ -65,7 +65,7 @@ namespace LandConquest.Forms
                 storage.Iron -= (Convert.ToInt32(labelSwordAmount2.Content) * (Convert.ToInt32(SwordsToCraft.Text)));
 
                 equipment.PlayerSpear += Convert.ToInt32(SwordsToCraft.Text);
-                StorageModel.UpdateStorage(player, storage);
+                //StorageModel.UpdateStorage(player, storage);
                 EquipmentModel.UpdateEquipment(player, equipment);
 
                 labelSwordAmount.Content = Convert.ToInt32(labelSwordAmount.Content) + Convert.ToInt32(SwordsToCraft.Text);
@@ -91,7 +91,7 @@ namespace LandConquest.Forms
                 storage.Iron -= (Convert.ToInt32(labelArmorAmount2.Content) * (Convert.ToInt32(ArmorToCraft.Text)));
 
                 equipment.PlayerArmor += Convert.ToInt32(ArmorToCraft.Text);
-                StorageModel.UpdateStorage(player, storage);
+                //StorageModel.UpdateStorage(player, storage);
                 EquipmentModel.UpdateEquipment(player, equipment);
 
                 labelArmorAmount.Content = Convert.ToInt32(labelArmorAmount.Content) + Convert.ToInt32(ArmorToCraft.Text);
@@ -116,7 +116,7 @@ namespace LandConquest.Forms
                 storage.Copper -= (Convert.ToInt32(labelHarnessAmount2.Content) * (Convert.ToInt32(HarnessToCraft.Text)));
 
                 equipment.PlayerHarness += Convert.ToInt32(HarnessToCraft.Text);
-                StorageModel.UpdateStorage(player, storage);
+                //StorageModel.UpdateStorage(player, storage);
                 EquipmentModel.UpdateEquipment(player, equipment);
 
                 labelHarnessAmount.Content = Convert.ToInt32(labelHarnessAmount.Content) + Convert.ToInt32(HarnessToCraft.Text);
@@ -141,7 +141,7 @@ namespace LandConquest.Forms
                 storage.Iron -= (Convert.ToInt32(labelSpearAmount2.Content) * (Convert.ToInt32(SpearToCraft.Text)));
 
                 equipment.PlayerSword += Convert.ToInt32(SpearToCraft.Text);
-                StorageModel.UpdateStorage(player, storage);
+                //StorageModel.UpdateStorage(player, storage);
                 EquipmentModel.UpdateEquipment(player, equipment);
 
                 labelSpearAmount.Content = Convert.ToInt32(labelSpearAmount.Content) + Convert.ToInt32(SpearToCraft.Text);
@@ -166,7 +166,7 @@ namespace LandConquest.Forms
                 storage.Leather -= (Convert.ToInt32(labelBowAmount2.Content) * (Convert.ToInt32(BowToCraft.Text)));
 
                 equipment.PlayerBow += Convert.ToInt32(BowToCraft.Text);
-                StorageModel.UpdateStorage(player, storage);
+                //StorageModel.UpdateStorage(player, storage);
                 EquipmentModel.UpdateEquipment(player, equipment);
 
                 labelBowAmount.Content = Convert.ToInt32(labelBowAmount.Content) + Convert.ToInt32(BowToCraft.Text);
@@ -191,7 +191,7 @@ namespace LandConquest.Forms
                 storage.Iron -= (Convert.ToInt32(labelSpearAmount2.Content) * (Convert.ToInt32(GearToCraft.Text)));
 
                 equipment.PlayerGear += Convert.ToInt32(GearToCraft.Text);
-                StorageModel.UpdateStorage(player, storage);
+                //StorageModel.UpdateStorage(player, storage);
                 EquipmentModel.UpdateEquipment(player, equipment);
 
                 labelGearAmount.Content = Convert.ToInt32(labelGearAmount.Content) + Convert.ToInt32(GearToCraft.Text);

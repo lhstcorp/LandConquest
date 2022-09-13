@@ -45,7 +45,7 @@ namespace LandConquest.Forms
             storage = new PlayerStorage();
             landStorage = new LandStorage();
 
-            storage = StorageModel.GetPlayerStorage(player);
+            //storage = StorageModel.GetPlayerStorage(player);
             landStorage = LandStorageModel.GetLandStorage(land, landStorage);
             landWoodToolTip.Content = landStorage.Wood;
             landFoodToolTip.Content = landStorage.Food;
@@ -108,7 +108,7 @@ namespace LandConquest.Forms
             var warehouseId = WarehouseModel.GetWarehouseId(player.PlayerId, land.LandId);
             if (warehouseId.HasValue)
             {
-                WarehouseWindow openedWindow = new WarehouseWindow(user, player, warehouseId.Value);
+                WarehouseWindow openedWindow = new WarehouseWindow(player, warehouseId.Value, 4);
                 openedWindow.Owner = Application.Current.MainWindow;
                 openedWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 openedWindow.Show();

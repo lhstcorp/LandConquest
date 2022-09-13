@@ -177,6 +177,9 @@
   <data name="LocLabelArmy_Content" xml:space="preserve">
     <value>Army</value>
   </data>
+  <data name="LocLabelAttackersLand_Content" xml:space="preserve">
+    <value>Attacker's land</value>
+  </data>
   <data name="LocLabelAuctionMain_Content" xml:space="preserve">
     <value>Auction</value>
   </data>
@@ -231,8 +234,17 @@
   <data name="LocLabelDate_Content" xml:space="preserve">
     <value>Date</value>
   </data>
+  <data name="LocLabelDeclareWarDialogWindow_Text" xml:space="preserve">
+    <value>You are going to initiate a law of declaring war to another country:</value>
+  </data>
   <data name="LocLabelDECLAREWAR_Content" xml:space="preserve">
     <value>DECLARE WAR</value>
+  </data>
+  <data name="LocLabelDefendersCountry_Content" xml:space="preserve">
+    <value>Defender's country</value>
+  </data>
+  <data name="LocLabelDefendersLand_Content" xml:space="preserve">
+    <value>Defender's land</value>
   </data>
   <data name="LocLabelDinastyMain_Content" xml:space="preserve">
     <value>Dynasty</value>
@@ -296,6 +308,9 @@
   </data>
   <data name="LocLabelInfantry_Text" xml:space="preserve">
     <value>Infantry</value>
+  </data>
+  <data name="LocLabelInitializedBy_Content" xml:space="preserve">
+    <value>Initialized by</value>
   </data>
   <data name="LocLabelIntelligence" xml:space="preserve">
     <value>Intelligence</value>
@@ -441,6 +456,9 @@
   <data name="LocLabelTheLawWasInitiated_Text" xml:space="preserve">
     <value>The law was initiated</value>
   </data>
+  <data name="LocLabelTheLawWasNotInitiated_Text" xml:space="preserve">
+    <value>The law wasn't initiated</value>
+  </data>
   <data name="LocLabelTheStateWasFounded_Text" xml:space="preserve">
     <value>The state was founded</value>
   </data>
@@ -452,6 +470,12 @@
   </data>
   <data name="LocLabelTotal_Text" xml:space="preserve">
     <value>Total</value>
+  </data>
+  <data name="LocLabelTransferLandDialogWindow_Text" xml:space="preserve">
+    <value>You are going to initiate a law of transfering land to another country:</value>
+  </data>
+  <data name="LocLabelTransferLandToState_Text" xml:space="preserve">
+    <value>Transfer {0} to {1}</value>
   </data>
   <data name="LocLabelTRANSFERLAND_Content" xml:space="preserve">
     <value>TRANSFER LAND</value>

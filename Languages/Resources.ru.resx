@@ -177,6 +177,9 @@
   <data name="LocLabelArmy_Content" xml:space="preserve">
     <value>Войска</value>
   </data>
+  <data name="LocLabelAttackersLand_Content" xml:space="preserve">
+    <value>Земля атакующего</value>
+  </data>
   <data name="LocLabelAuctionMain_Content" xml:space="preserve">
     <value>Аукцион</value>
   </data>
@@ -231,8 +234,17 @@
   <data name="LocLabelDate_Content" xml:space="preserve">
     <value>Время</value>
   </data>
+  <data name="LocLabelDeclareWarDialogWindow_Text" xml:space="preserve">
+    <value>Вы собираетесь инициировать закон о нападении на другое государство:</value>
+  </data>
   <data name="LocLabelDECLAREWAR_Content" xml:space="preserve">
     <value>ОБЪЯВИТЬ ВОЙНУ</value>
+  </data>
+  <data name="LocLabelDefendersCountry_Content" xml:space="preserve">
+    <value>Страна защитника</value>
+  </data>
+  <data name="LocLabelDefendersLand_Content" xml:space="preserve">
+    <value>Земля защитника</value>
   </data>
   <data name="LocLabelDinastyMain_Content" xml:space="preserve">
     <value>Династия</value>
@@ -296,6 +308,9 @@
   </data>
   <data name="LocLabelInfantry_Text" xml:space="preserve">
     <value>Мечники</value>
+  </data>
+  <data name="LocLabelInitializedBy_Content" xml:space="preserve">
+    <value>Инициировал</value>
   </data>
   <data name="LocLabelIntelligence" xml:space="preserve">
     <value>Интеллект</value>
@@ -441,6 +456,9 @@
   <data name="LocLabelTheLawWasInitiated_Text" xml:space="preserve">
     <value>Закон был инициирован</value>
   </data>
+  <data name="LocLabelTheLawWasNotInitiated_Text" xml:space="preserve">
+    <value>Закон не был инициирован</value>
+  </data>
   <data name="LocLabelTheStateWasFounded_Text" xml:space="preserve">
     <value>Государство было основано</value>
   </data>
@@ -452,6 +470,12 @@
   </data>
   <data name="LocLabelTotal_Text" xml:space="preserve">
     <value>Всего</value>
+  </data>
+  <data name="LocLabelTransferLandDialogWindow_Text" xml:space="preserve">
+    <value>Вы собираетесь инициировать закон о передаче земли в другое государство:</value>
+  </data>
+  <data name="LocLabelTransferLandToState_Text" xml:space="preserve">
+    <value>Передать {0} в {1}</value>
   </data>
   <data name="LocLabelTRANSFERLAND_Content" xml:space="preserve">
     <value>ПЕРЕДАТЬ ЗЕМЛЮ</value>
