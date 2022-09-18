@@ -1139,6 +1139,22 @@
     <Resource Include="Pictures\Resources\flour.png" />
     <Resource Include="Pictures\Resources\fishnet.png" />
     <Resource Include="Pictures\Resources\glass.PNG" />
+    <Resource Include="Pictures\Resources\brick.png" />
+    <Resource Include="Pictures\Resources\butter.png" />
+    <Resource Include="Pictures\Resources\furniture.png" />
+    <Resource Include="Pictures\Resources\hay.png" />
+    <Resource Include="Pictures\Resources\lemon.png" />
+    <Resource Include="Pictures\Resources\orange.png" />
+    <Resource Include="Pictures\Resources\sand.png" />
+    <Resource Include="Pictures\Resources\shingles.png" />
+    <Resource Include="Pictures\Resources\slate.png" />
+    <Resource Include="Pictures\Resources\soda.png" />
+    <Resource Include="Pictures\Resources\sugar.png" />
+    <Resource Include="Pictures\Resources\sour cream.png" />
+    <Resource Include="Pictures\Resources\tea.png" />
+    <Resource Include="Pictures\Resources\wax.png" />
+    <Resource Include="Pictures\Resources\salt2.png" />
+    <Resource Include="Pictures\Resources\corn2.png" />
     <Content Include="Sounds\MainTheme.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
