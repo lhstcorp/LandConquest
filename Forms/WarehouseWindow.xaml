@@ -78,7 +78,9 @@
                 </Button>
 
                 <Button Foreground="Black" Tag="7" FontFamily="Agency FB" FontSize="16" HorizontalAlignment="Left" Height="75" Margin="3,549,0,0" VerticalAlignment="Top" Width="75" BorderBrush="Black" BorderThickness="0.5" Click="itemCategoryBtn_Click">
-                    <TextBlock TextWrapping="Wrap" TextAlignment="Center">Construction Materials</TextBlock>
+                    <Border CornerRadius="5" Background="#66FFFFFF">
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center">Construction Materials</TextBlock>
+                    </Border>
 
                     <Button.Background>
                         <ImageBrush ImageSource="/LandConquest;component/Pictures/Resources/Categories/ConstructionMaterials.png"/>
@@ -111,7 +113,7 @@
 
                     <Button Margin="0,82,99,0" Height="84" Width="88" BorderBrush="Black" BorderThickness="1">
                         <Border CornerRadius="5" Background="#66FFFFFF">
-                            <TextBlock Text=" TRADE " FontSize="16" Foreground="Black"  />
+                            <TextBlock Text=" TRADE " FontSize="22" Foreground="Black" FontFamily="Agency FB" />
                         </Border>
 
                         <Button.Background>
@@ -119,16 +121,70 @@
                         </Button.Background>
                     </Button>
 
-                    <Button Margin="0,82,6,0" Height="84" Width="88" BorderBrush="Black" BorderThickness="1">
+                    <Button x:Name="produceMenuBtn" Margin="0,82,6,0" Height="84" Width="88" BorderBrush="Black" BorderThickness="1" Click="produceMenuBtn_Click" >
                         <Button.Background>
                             <ImageBrush ImageSource= "/Pictures/Warehouse/produce.png"/>
                         </Button.Background>
 
                         <Border CornerRadius="5" Background="#66FFFFFF">
-                            <TextBlock Text=" PRODUCE " FontSize="16" Foreground="Black"  />
+                            <TextBlock Text=" PRODUCE " Foreground="Black" FontFamily="Agency FB" FontSize="22" />
                         </Border>
                     </Button>
 
+                    <Border x:Name="produceMenuBorder" Margin="6,173,6,6" BorderBrush="Black" BorderThickness="1" CornerRadius="5" Background="#FFCAB590">
+                        <Grid>
+                            <Border Margin="10,10,10.4,223.2" BorderBrush="Black" BorderThickness="1" CornerRadius="5">
+                                <Grid>
+                                    <Label Content="Production" FontFamily="Agency FB" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="32" Height="45" Margin="58,-6,45,0" VerticalAlignment="Top"/>
+
+                                    <Rectangle Margin="29,35,29,92" Fill="Black"></Rectangle>
+                                    <Border Height="34" Margin="0,42,45,0" Background="#FFCAB590" CornerRadius="5" BorderThickness="0.5" BorderBrush="#FF351D1D" HorizontalAlignment="Right" Width="221" VerticalAlignment="Top">
+                                        <TextBlock TextAlignment="Center" FontFamily="Agency FB" FontSize="24" FontWeight="Bold" Text="5/100"/>
+                                    </Border>
+                                    <Border Height="34" Margin="0,82,133,0" Background="#FFCAB590" CornerRadius="5" BorderThickness="0.5" BorderBrush="#FF351D1D" HorizontalAlignment="Right" Width="40" VerticalAlignment="Top">
+                                        <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontFamily="Agency FB" FontSize="20" FontWeight="Bold" Text="100%"/>
+                                    </Border>
+
+                                    <Button FontFamily="Agency FB" FontSize="20" Margin="0,76,220,0" Width="46" Height="46" Content="-5%"></Button>
+                                    <Button FontFamily="Agency FB" FontSize="20" Margin="0,76,174,0" Width="46" Height="46" Content="-1%"></Button>
+                                    <Button FontFamily="Agency FB" FontSize="20" Margin="0,76,85,0" Width="46" Height="46" Content="+1%"></Button>
+                                    <Button FontFamily="Agency FB" FontSize="20" Margin="0,76,39,0" Width="46" Height="46" Content="+5%"></Button>
+                                </Grid>
+                            </Border>
+
+                            <Border Margin="10,151,10.4,10.2" BorderBrush="Black" BorderThickness="1" CornerRadius="5">
+                                <Grid>
+                                    <Label Content="Receipt list" FontFamily="Agency FB" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="32" Height="45" Margin="58,-6,45,0" VerticalAlignment="Top"/>
+
+                                    <Rectangle Margin="29,35,29,164" Fill="Black"/>
+
+                                    <Border Height="116" VerticalAlignment="Top" Margin="6,44,6,0" BorderThickness="0.5" BorderBrush="Black" Background="#FFC2AC85" CornerRadius="5">
+                                        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
+                                            <UniformGrid x:Name="itemReceiptGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Rows="1">
+                                                <Border Height="91" Width="75" BorderBrush="Black" BorderThickness="0.5" Margin="3,3,0,0" CornerRadius="5" Background="#FF271309">
+                                                    <Grid>
+                                                        <Border BorderBrush="Black" BorderThickness="0.5" Margin="-1,-1,-1,18.6" CornerRadius="5,5,0,0" Background="#FFCAA390">
+                                                            <Grid>
+                                                                <Image Source="/Pictures/Resources/milk.png"/>
+                                                                <TextBlock Background="#66FFFFFF" Width="Auto" Height="18" Text=" 2 " HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top"/>
+                                                                <TextBlock Background="#66FFFFFF" Text=" 2000 " Margin="0,51,2,2" HorizontalAlignment="Right" Height="18" TextAlignment="Center"/>
+                                                            </Grid>
+                                                        </Border>
+
+                                                        <TextBlock Margin="0,73,0,0" Foreground="Wheat" FontFamily="Agency FB" Text="milk" TextAlignment="Center"></TextBlock>
+                                                        
+                                                    </Grid>
+                                                </Border>
+                                            </UniformGrid>
+                                        </ScrollViewer>
+                                    </Border>
+
+                                </Grid>
+                            </Border>
+
+
+                        </Grid>
+                    </Border>
                 </Grid>
             </Border>
 
