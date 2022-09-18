@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\LandConquest\LandConquest\obj\Debug\
+C:\Users\green\Documents\GitHub\LandConquest\obj\Debug\
 LandConquest
 none
 false
 TRACE;DEBUG;ANYCPU
-D:\LandConquest\LandConquest\App.xaml
+C:\Users\green\Documents\GitHub\LandConquest\App.xaml
 47-1162932101
-79-407484777
+79499122794
 64-807585790
-1501868849218
+150-20635235
 DialogWIndows\BuildingsUpdateDialog.xaml;DialogWIndows\BuyListingDialog.xaml;DialogWIndows\CastleUpdateDialog.xaml;DialogWIndows\CreateNewPersonalDialog.xaml;DialogWIndows\CreatePersonDialogWindow.xaml;DialogWIndows\DeclareWarDialogWindow.xaml;DialogWIndows\NewPersonDialogWindow.xaml;DialogWIndows\PlayerProfileDialog.xaml;DialogWIndows\RenameStateDialogWindow.xaml;DialogWIndows\TransferLandDialogWindow.xaml;Forms\WarWindow.xaml;DialogWIndows\WarResultsDialogWindow.xaml;DialogWIndows\WelcomeBackReportDialogWindow.xaml;Forms\CoatOfArmsWindow.xaml;DialogWIndows\CreateListingDialog.xaml;DialogWIndows\EnterTextDialogWindow.xaml;DialogWIndows\EstablishStateDialog.xaml;DialogWIndows\MessageReceiverDialog.xaml;DialogWIndows\PaymentDialog.xaml;DialogWIndows\SendArmiesToHarrisonDialog.xaml;DialogWIndows\SplitArmyDialog.xaml;DialogWIndows\UserAgreementDialog.xaml;DialogWIndows\WarningDialogWindow.xaml;Forms\AuctionWindow.xaml;Forms\AuthorisationWindow.xaml;Forms\ChatWindow.xaml;Forms\CountryWindow.xaml;Forms\LandResourcesWindow.xaml;Forms\LandWindow.xaml;Forms\MailboxWindow.xaml;Forms\MessengerWindow.xaml;Forms\MainWindow.xaml;Forms\ManufactureWindow.xaml;Forms\MarketWindow.xaml;Forms\MembershipWindow.xaml;Forms\PersonWindow.xaml;Forms\ProfileWindow.xaml;Forms\CastleManagementWindow.xaml;Forms\RatingWindow.xaml;Forms\RecruitWindow.xaml;Forms\StorageWindow.xaml;Forms\SubmitBugWindow.xaml;Forms\WarehouseWindow.xaml;Forms\WarResultWindow.xaml;Resources\GlobalMap.xaml;Resources\ResourceMap.xaml;Resources\StylesDictionary.xaml;
 
 True
