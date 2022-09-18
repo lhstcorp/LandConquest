@@ -1171,7 +1171,7 @@
       <Version>97.1.61</Version>
     </PackageReference>
     <PackageReference Include="CefSharp.Wpf">
-      <Version>97.1.61</Version>
+      <Version>98.1.210</Version>
     </PackageReference>
     <PackageReference Include="EmailValidation">
       <Version>1.0.4</Version>
