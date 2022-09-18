@@ -24,6 +24,8 @@ namespace LandConquest.Forms
         private Player player;
         private int landId;
         private int windowId;
+        private List<Item> itemsInfo;
+        private Item selectedItem;
 
         public WarehouseWindow(Player _player, int _landId, int _windowId)
         {
@@ -37,12 +39,13 @@ namespace LandConquest.Forms
 
         private void WarehouseWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            IEnumerable<(int id, string name)> items = WarehouseModel.GetItemsByCategory(0);
+            itemsInfo = ItemModel.getItems();
+            List<Item> items = ItemModel.getItemsByCategory(0);
 
             initItemsGrid(items);
         }
 
-        private void initItemsGrid(IEnumerable<(int id, string name)> items)
+        private void initItemsGrid(List<Item> _items)
         {
             itemsGrid.Children.Clear();
 
@@ -51,7 +54,7 @@ namespace LandConquest.Forms
             Thickness defaultItemBorderThinkness = new Thickness(1);
             CornerRadius defaultCornerRadius = new CornerRadius(5);
 
-            for (int i = 0; i < items.Count(); i++)
+            for (int i = 0; i < _items.Count(); i++)
             {
                 Border border = new Border();
                 border.Margin = defaultItemBorderMargin;
@@ -69,23 +72,28 @@ namespace LandConquest.Forms
                 Image itemImage = new Image();
                 try
                 {
-                    itemImage.Source = new BitmapImage(new Uri(String.Format("pack://application:,,,/Pictures/Resources/{0}.png", items.ElementAt(i).name), UriKind.Absolute));
+                    itemImage.Source = new BitmapImage(new Uri(String.Format("pack://application:,,,/Pictures/Resources/{0}.png", _items[i].ItemName), UriKind.Absolute));
                 }
                 catch { }
-                itemImage.Tag = items.ElementAt(i).name;
+                itemImage.Tag = _items[i].ItemId;
                 itemImage.MouseEnter += itemImg_MouseEnter;
                 itemImage.MouseLeave += itemImg_MouseLeave;
                 itemImage.MouseDown += itemImg_MouseDown;
                 grid.Children.Add(itemImage);
 
                 TextBlock itemNameTB = new TextBlock();
-                itemNameTB.Text = String.Format(" {0} ", items.ElementAt(i).name);
+                itemNameTB.Text = String.Format(" {0} ", _items[i].ItemName);
                 itemNameTB.Margin = defaultItemNameTBMargin;
                 itemNameTB.Background = new SolidColorBrush(Color.FromArgb(102, 255, 255, 255));
                 itemNameTB.VerticalAlignment = VerticalAlignment.Top;
                 itemNameTB.HorizontalAlignment = HorizontalAlignment.Left;
                 //itemNameTB.FontFamily = new FontFamily("Agency FB");
                 grid.Children.Add(itemNameTB);
+
+                if (i == 0)
+                {
+                    selectedItem = _items[i];
+                }
             }
         }
 
@@ -108,7 +116,9 @@ namespace LandConquest.Forms
             Image senderImage = (Image)sender;
 
             t_itemImage.Source = senderImage.Source;
-            t_itemNameTB.Text = senderImage.Tag.ToString();
+
+            selectedItem = itemsInfo.Find(i => i.ItemId == Convert.ToInt32(senderImage.Tag));
+            t_itemNameTB.Text = selectedItem.ItemName;
         }
 
         private void buttonExit_click(object sender, RoutedEventArgs e)
@@ -120,9 +130,36 @@ namespace LandConquest.Forms
         {
             Button itemCategoryBtn = (Button)sender;
 
-            IEnumerable<(int id, string name)> items = WarehouseModel.GetItemsByCategory(Convert.ToInt32(itemCategoryBtn.Tag));
+            List<Item> items = ItemModel.getItemsByCategory(Convert.ToInt32(itemCategoryBtn.Tag));
 
             initItemsGrid(items);
+        }
+
+        private void produceMenuBtn_Click(object sender, RoutedEventArgs e)
+        {
+            produceMenuBorder.Visibility = Visibility.Visible;
+
+            initReceiptGrid();
+        }
+
+        private void initReceiptGrid()
+        {
+            List<ItemReceipt> itemReceipts = ItemModel.getItemReceiptsByProducedItemId(selectedItem.ItemId);
+
+            Thickness defaultItemBorderMargin = new Thickness(3, 3, 0, 0);
+            Thickness defaultItemBorderThickness = new Thickness(0.5);
+
+            for (int i = 0; i < itemReceipts.Count; i++)
+            {
+                Border itemBorder = new Border();
+                itemBorder.Width = 75;
+                itemBorder.Height = 91;
+                itemBorder.Margin = defaultItemBorderMargin;
+                itemBorder.BorderThickness = defaultItemBorderThickness;
+                itemBorder.BorderBrush = Brushes.Black;
+                itemBorder.Background = new SolidColorBrush(Color.FromRgb(39, 19, 9));
+                itemReceiptGrid.Children.Add(itemBorder);
+            }
         }
     }
 }

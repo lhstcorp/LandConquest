@@ -153,54 +153,5 @@ namespace LandConquestDB.Models
 
             return list;
         }
-
-        public static IEnumerable<(int id, string name)> GetItems()
-        {
-            string query = @"SELECT * FROM dbo.ItemData";
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
-
-            var list = new List<(int id, string name)>();
-
-            using (var reader = command.ExecuteReader())
-            {
-                var itemId = reader.GetOrdinal("item_id");
-                var itemName = reader.GetOrdinal("item_name");
-
-                while (reader.Read())
-                {
-                    list.Add((reader.GetInt32(itemId), reader.GetString(itemName).Trim()));
-                }
-                reader.Close();
-            }
-
-            command.Dispose();
-
-            return list;
-        }
-
-        public static IEnumerable<(int id, string name)> GetItemsByCategory(int _category)
-        {
-            string query = @"SELECT * FROM dbo.ItemData WHERE item_type = @category";
-            var command = new SqlCommand(query, DbContext.GetSqlConnection());
-            command.Parameters.AddWithValue("@category", _category);
-
-            var list = new List<(int id, string name)>();
-
-            using (var reader = command.ExecuteReader())
-            {
-                var itemId = reader.GetOrdinal("item_id");
-                var itemName = reader.GetOrdinal("item_name");
-
-                while (reader.Read())
-                {
-                    list.Add((reader.GetInt32(itemId), reader.GetString(itemName).Trim()));
-                }
-                reader.Close();
-            }
-
-            command.Dispose();
-
-            return list;
-        }
     }
 }
